@@ -1,0 +1,151 @@
+# https://www.home-assistant.io/integrations/automation
+
+#
+# ─── PUBLIC ─────────────────────────────────────────────────────────────────────
+#
+
+- id: leaving_home
+  alias: Leaving home
+  trigger:
+    platform: state
+    entity_id: person.georgi
+    to: "not_home"
+  action:
+    - service: script.security_camera_on
+    - service: media_player.turn_off
+      entity_id: media_player.living_room_tv
+    - service: media_player.turn_off
+      entity_id: media_player.living_room_tv_2
+    - service: light.turn_off
+      entity_id: light.living_room_all_lights
+
+- id: coming_home
+  alias: Coming home
+  trigger:
+    platform: state
+    entity_id: person.georgi
+    to: "home"
+  action:
+    - service: script.security_camera_off
+    - service: light.turn_on
+      entity_id: light.living_room_all_lights
+
+- alias: Play welcome music when I come back
+  trigger:
+    platform: state
+    entity_id: person.georgi
+    to: "home"
+  action:
+    - service: media_player.turn_on
+      entity_id: media_player.living_room_tv_2
+    - delay: "00:00:10"
+    - service: spotcast.start
+      data:
+        device_name: "Living Room TV"
+        uri: "spotify:playlist:1dstTefWFQaBFTC6CjcEHd"
+        random_song: true
+
+#
+# ─── PRIVATE ────────────────────────────────────────────────────────────────────
+#
+
+# Hack - the switch.camera initial state is wrong (ON) when the server starts.
+- id: hass_startup
+  alias: "Hass startup"
+  trigger:
+    - platform: homeassistant
+      event: start
+  action:
+    - service: switch.turn_off
+      entity_id: switch.camera
+
+- id: enable_guest_mode
+  alias: Enable Guest Mode
+  trigger:
+    platform: state
+    entity_id: input_boolean.guest_mode
+    from: "off"
+    to: "on"
+  action:
+    - service: automation.turn_off
+      entity_id: automation.leaving_home
+    - service: automation.turn_off
+      entity_id: automation.coming_home
+
+- id: disable_guest_mode
+  alias: Disable Guest Mode
+  trigger:
+    platform: state
+    entity_id: input_boolean.guest_mode
+    from: "on"
+    to: "off"
+  action:
+    - service: automation.turn_on
+      entity_id: automation.leaving_home
+    - service: automation.turn_on
+      entity_id: automation.coming_home
+
+- id: enable_sleep_mode
+  alias: Enable Sleep Mode
+  trigger:
+    platform: state
+    entity_id: input_boolean.sleep_mode
+    from: "off"
+    to: "on"
+  action:
+    - service: media_player.turn_off
+      entity_id: media_player.living_room_tv
+    - service: media_player.turn_off
+      entity_id: media_player.living_room_tv_2
+    - service: light.turn_off
+      entity_id: light.living_room_all_lights
+
+- alias: Trigger Domestina Start
+  trigger:
+    platform: time
+    at: "08:30:00"
+  condition:
+    - condition: time
+      weekday: thu
+  action:
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.domestina
+
+- alias: On Domestina Start
+  trigger:
+    platform: state
+    entity_id: input_boolean.domestina
+    from: "off"
+    to: "on"
+  action:
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.guest_mode
+    - service: notify.mobile_app_carbon
+      data:
+        message: "Enabling Domestina Mode"
+
+- alias: Trigger Domestina End
+  trigger:
+    platform: time
+    at: "13:00:00"
+  condition:
+    - condition: time
+      weekday: thu
+  action:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.domestina
+
+- alias: On Domestina End
+  trigger:
+    platform: state
+    entity_id: input_boolean.domestina
+    from: "on"
+    to: "off"
+  action:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.guest_mode
+    - service: automation.turn_on
+      entity_id: automation.leaving_home
+    - service: notify.mobile_app_carbon
+      data:
+        message: "Disabling Domestina Mode"

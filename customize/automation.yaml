@@ -1,0 +1,5 @@
+automation.coming_home:
+  icon: mdi:home-account
+
+automation.leaving_home:
+  icon: mdi:home

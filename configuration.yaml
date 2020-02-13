@@ -1,0 +1,178 @@
+homeassistant:
+  name: Sarah
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
+  elevation: !secret home_elevation
+  unit_system: metric
+  time_zone: Europe/Sofia
+  customize: !include_dir_merge_named customize
+
+#
+# ─── HOME ASSISTANT COMPONENTS ENABLED ──────────────────────────────────────────
+#
+
+# https://www.home-assistant.io/components/config
+config:
+
+# https://home-assistant.io/components/http
+http:
+  login_attempts_threshold: 20
+
+# lovelace:
+#   mode: yaml
+
+# https://www.home-assistant.io/components/logbook
+logbook:
+
+# https://www.home-assistant.io/components/map
+map:
+
+# https://www.home-assistant.io/integrations/mobile_app
+mobile_app:
+
+# https://www.home-assistant.io/components/person
+person:
+  - name: Georgi
+    id: !secret georgi_user_id
+    user_id: !secret georgi_user_id
+    device_trackers:
+      - device_tracker.carbon
+
+# https://www.home-assistant.io/components/system_health
+system_health:
+
+# https://www.home-assistant.io/components/updater
+updater:
+
+# https://www.home-assistant.io/components/logger
+# logger:
+#   default: notset
+
+#
+# ─── INTEGRATIONS ───────────────────────────────────────────────────────────────
+#
+
+# https://www.home-assistant.io/integrations/amcrest
+amcrest:
+  - host: !secret amcrest_ip
+    username: !secret amcrest_username
+    password: !secret amcrest_password
+    resolution: low
+    scan_interval: 5
+    binary_sensors:
+      - motion_detected
+      - online
+
+# https://www.home-assistant.io/integrations/automation
+automation: !include automations.yaml
+
+# https://www.home-assistant.io/integrations/binary_sensor
+binary_sensor: !include binary_sensor.yaml
+
+# https://www.home-assistant.io/integrations/device_tracker
+device_tracker:
+  - platform: tile
+    username: !secret tile_username
+    password: !secret tile_password
+
+# https://www.home-assistant.io/integrations/ffmpeg
+ffmpeg:
+
+# https://www.home-assistant.io/integrations/frontend
+frontend:
+  themes: !include_dir_merge_named themes
+
+# https://www.home-assistant.io/integrations/group
+group: !include groups.yaml
+
+# https://www.home-assistant.io/integrations/history
+history:
+
+# https://www.home-assistant.io/integrations/input_boolean
+input_boolean: !include input_boolean.yaml
+
+# https://www.home-assistant.io/integrations/light
+light: !include light.yaml
+
+# https://www.home-assistant.io/integrations/media_extractor
+media_extractor:
+
+# https://www.home-assistant.io/integrations/scene
+scene: !include scenes.yaml
+
+# https://www.home-assistant.io/integrations/script
+script: !include scripts.yaml
+
+# https://www.home-assistant.io/integrations/sensor
+sensor: !include sensor.yaml
+
+# https://www.home-assistant.io/integrations/spotify
+spotify:
+  client_id: !secret spotify_client_id
+  client_secret: !secret spotify_client_secret
+
+# https://www.home-assistant.io/integrations/sun
+sun:
+
+# https://www.home-assistant.io/integrations/switch
+switch: !include switch.yaml
+
+# https://www.home-assistant.io/integrations/tts
+tts:
+  - platform: amazon_polly
+    aws_access_key_id: !secret aws_polly_client_id
+    aws_secret_access_key: !secret aws_polly_client_secret
+    region_name: eu-central-1
+    voice: Emma
+
+# https://www.home-assistant.io/integrations/tuya
+tuya:
+  username: !secret tuya_username
+  password: !secret tuya_password
+  country_code: bg
+
+# https://www.home-assistant.io/integrations/upnp
+upnp:
+
+# https://www.home-assistant.io/integrations/wake_on_lan
+wake_on_lan:
+
+# https://www.home-assistant.io/integrations/webostv
+webostv:
+  - host: !secret living_room_tv_ip
+    name: Living Room TV
+    turn_on_action:
+      service: wake_on_lan.send_magic_packet
+      data:
+        mac: !secret living_room_tv_mac
+    # customize:
+    #   sources:
+    #     - livetv
+    #     - youtube
+    #     - makotv
+    #     - netflix
+
+# https://www.home-assistant.io/integrations/zeroconf
+zeroconf:
+
+# https://www.home-assistant.io/integrations/zone
+zone: !include zone.yaml
+
+#
+# ─── PLUGINS ────────────────────────────────────────────────────────────────────
+#
+
+spotcast:
+  username: !secret spotify_spotcast_username
+  password: !secret spotify_spotcast_password
+
+hacs:
+  token: !secret hacs_github_token
+  appdaemon: true
+
+# Philips Purifier
+fan:
+  platform: philips-airpurifier
+  host: !secret philips_purifier_ip
+
+uilogs:

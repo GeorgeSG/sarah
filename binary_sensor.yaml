@@ -1,0 +1,9 @@
+# https://www.home-assistant.io/integrations/binary_sensor
+
+- platform: template
+  sensors:
+    camera_state:
+      friendly_name: "Security camera"
+      device_class: safety
+      value_template: >-
+        {{ state_attr('camera.amcrest_camera', 'motion_recording') != 'on' }}

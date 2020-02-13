@@ -1,0 +1,16 @@
+# https://www.home-assistant.io/integrations/input_boolean
+
+sleep_mode:
+  name: Sleep Mode
+  initial: off
+  icon: mdi:sleep
+
+guest_mode:
+  name: Guest Mode
+  initial: off
+  icon: mdi:human-greeting
+
+domestina:
+  name: Domestina Time
+  initial: off
+  icon: mdi:broom
