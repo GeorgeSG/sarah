@@ -12,5 +12,4 @@ guest_mode:
 
 domestina:
   name: Domestina Time
-  initial: off
   icon: mdi:broom

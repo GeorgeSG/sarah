@@ -97,6 +97,13 @@ light: !include light.yaml
 # https://www.home-assistant.io/integrations/media_extractor
 media_extractor:
 
+# https://www.home-assistant.io/integrations/notify
+notify:
+  - name: telegram
+    platform: telegram
+    api_key: !secret telegram_token
+    chat_id: !secret telegram_georgi_chat_id
+
 # https://www.home-assistant.io/integrations/scene
 scene: !include scenes.yaml
 
@@ -116,6 +123,14 @@ sun:
 
 # https://www.home-assistant.io/integrations/switch
 switch: !include switch.yaml
+
+# https://www.home-assistant.io/integrations/telegram
+# https://www.home-assistant.io/integrations/telegram_chatbot
+telegram_bot:
+  - platform: polling
+    api_key: !secret telegram_token
+    allowed_chat_ids:
+      - !secret telegram_georgi_chat_id
 
 # https://www.home-assistant.io/integrations/tts
 tts:

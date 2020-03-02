@@ -72,3 +72,14 @@ say:
     - service: sonos.restore
       data_template:
         entity_id: media_player.master_bedroom
+
+telegram_say:
+  alias: Telegram Say
+  sequence:
+    - service: notify.telegram
+      data:
+        message: "commands"
+        data:
+          keyboard:
+            - "/ping, /alarm"
+            - "/siren"
