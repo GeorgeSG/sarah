@@ -39,7 +39,7 @@
         volume_level: 0.3
     - service: script.sarah_briefing
     - delay: "00:00:25"
-    - service: script.sarah_talk
+    - service: script.talk
       data:
         message: "Here's some music to start the day!"
     - delay: "00:00:02"
