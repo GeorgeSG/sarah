@@ -7,9 +7,9 @@
   action:
     - service: script.security_camera_on
     - service: media_player.turn_off
-      entity_id: media_player.living_room_tv
-    - service: media_player.turn_off
-      entity_id: media_player.living_room_tv_2
+      entity_id:
+        - media_player.living_room_tv
+        - media_player.living_room_tv_2
     - service: light.turn_off
       entity_id: light.living_room_all_lights
     - service: input_boolean.turn_off

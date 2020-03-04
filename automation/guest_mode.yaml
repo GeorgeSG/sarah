@@ -7,9 +7,9 @@
     to: "on"
   action:
     - service: automation.turn_off
-      entity_id: automation.leaving_home
-    - service: automation.turn_off
-      entity_id: automation.coming_home
+      entity_id:
+        - automation.leaving_home
+        - automation.coming_home
     - service: input_boolean.turn_off
       entity_id: input_boolean.speech_notifications
 
@@ -22,8 +22,8 @@
     to: "off"
   action:
     - service: automation.turn_on
-      entity_id: automation.leaving_home
-    - service: automation.turn_on
-      entity_id: automation.coming_home
+      entity_id:
+        - automation.leaving_home
+        - automation.coming_home
     - service: input_boolean.turn_on
       entity_id: input_boolean.speech_notifications

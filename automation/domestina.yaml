@@ -19,9 +19,9 @@
     - service: input_boolean.turn_on
       entity_id: input_boolean.guest_mode
     - service: automation.turn_off
-      entity_id: automation.cube_knock
-    - service: automation.turn_off
-      entity_id: automation.cube_shake
+      entity_id:
+        - automation.cube_knock
+        - automation.cube_shake
 
 - alias: Trigger Domestina End
   trigger:
@@ -44,6 +44,6 @@
     - service: input_boolean.turn_off
       entity_id: input_boolean.guest_mode
     - service: automation.turn_on
-      entity_id: automation.cube_knock
-    - service: automation.turn_on
-      entity_id: automation.cube_shake
+      entity_id:
+        - automation.cube_knock
+        - automation.cube_shake
