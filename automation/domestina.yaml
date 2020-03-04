@@ -1,4 +1,4 @@
-- alias: Trigger Domestina Start
+- alias: Domestina - Automate Start
   trigger:
     platform: time
     at: "08:30:00"
@@ -9,7 +9,7 @@
     - service: input_boolean.turn_on
       entity_id: input_boolean.domestina
 
-- alias: On Domestina Start
+- alias: Domestina - Start
   trigger:
     platform: state
     entity_id: input_boolean.domestina
@@ -23,7 +23,7 @@
         - automation.cube_knock
         - automation.cube_shake
 
-- alias: Trigger Domestina End
+- alias: Domestina - Automate End
   trigger:
     platform: time
     at: "13:00:00"
@@ -34,7 +34,7 @@
     - service: input_boolean.turn_off
       entity_id: input_boolean.domestina
 
-- alias: On Domestina End
+- alias: Domestina - End
   trigger:
     platform: state
     entity_id: input_boolean.domestina

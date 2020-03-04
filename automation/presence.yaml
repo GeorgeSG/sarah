@@ -1,5 +1,5 @@
 - id: leaving_home
-  alias: Leaving home
+  alias: Presence - Leaving home
   trigger:
     platform: state
     entity_id: person.georgi
@@ -16,7 +16,7 @@
       entity_id: input_boolean.speech_notifications
 
 - id: coming_home
-  alias: Coming home
+  alias: Presence - Coming Home
   trigger:
     platform: state
     entity_id: person.georgi
@@ -28,7 +28,8 @@
     - service: input_boolean.turn_on
       entity_id: input_boolean.speech_notifications
 
-- alias: Play welcome music when I come back
+- id: coming_home_welcome
+  alias: Presence - Coming Home - Play welcome music
   trigger:
     platform: state
     entity_id: person.georgi

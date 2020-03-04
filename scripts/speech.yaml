@@ -1,5 +1,26 @@
+# ─── PREDEFINED SPEECH ──────────────────────────────────────────────────────────
+
+sarah_briefing:
+  alias: Speech - Briefing
+  sequence:
+    - service: script.talk
+      data_template:
+        message: !include ../templates/briefing.yaml
+
+# ─── Public Scripts ─────────────────────────────────────────────────────────────
+
+talk:
+  alias: Speech - Talk
+  sequence:
+    - condition: state
+      entity_id: input_boolean.sleep_mode
+      state: "off"
+    - service: script.say_discretely
+      data_template:
+        message: "{{ message }}"
+
 say_discretely:
-  alias: Say discretely
+  alias: Speech - Say discretely
   sequence:
     - service_template: >
         {% if is_state('media_player.master_bedroom', 'playing')
@@ -12,8 +33,15 @@ say_discretely:
       data_template:
         message: "{{ message }}"
 
+telegram_say:
+  alias: Speech - Telegram say
+  sequence:
+    - service: notify.telegram
+      data_template:
+        message: "{{ message }}"
+
 sonos_blast:
-  alias: Sonos blast
+  alias: Speech - Sonos blast
   sequence:
     - service: tts.amazon_polly_say
       data_template:
@@ -21,7 +49,7 @@ sonos_blast:
         message: "{{ message }}"
 
 sonos_say:
-  alias: Sonos say
+  alias: Speech - Sonos say
   sequence:
     - service: sonos.snapshot
       data_template:
@@ -36,35 +64,3 @@ sonos_say:
       data_template:
         with_group: yes
         entity_id: media_player.master_bedroom
-
-telegram_say:
-  alias: Telegram say
-  sequence:
-    - service: notify.telegram
-      data_template:
-        message: "{{ message }}"
-
-sarah_talk:
-  alias: SARAH - Talk
-  sequence:
-    - condition: and
-      conditions:
-        - condition: state
-          entity_id: input_boolean.sleep_mode
-          state: "off"
-        - condition: time
-          after: "08:00:00"
-          before: "23:59:00"
-        - condition: state
-          entity_id: input_boolean.speech_notifications
-          state: "on"
-    - service: script.say_discretely
-      data_template:
-        message: "{{ message }}"
-
-sarah_briefing:
-  alias: Briefing
-  sequence:
-    - service: script.sarah_talk
-      data_template:
-        message: !include ../templates/briefing.yaml

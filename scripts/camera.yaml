@@ -1,5 +1,5 @@
 security_camera_on:
-  alias: Turn security camera on
+  alias: Security Camera - Turn on
   sequence:
     - service: camera.turn_on
       entity_id: camera.amcrest_camera
@@ -15,7 +15,7 @@ security_camera_on:
       entity_id: camera.amcrest_camera
 
 security_camera_off:
-  alias: Turn security camera off
+  alias: Security Camera - Turn off
   sequence:
     - service: amcrest.goto_preset
       entity_id: camera.amcrest_camera

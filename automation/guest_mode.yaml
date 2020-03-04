@@ -1,5 +1,5 @@
 - id: enable_guest_mode
-  alias: Enable Guest Mode
+  alias: Guest Mode - Enable
   trigger:
     platform: state
     entity_id: input_boolean.guest_mode
@@ -14,7 +14,7 @@
       entity_id: input_boolean.speech_notifications
 
 - id: disable_guest_mode
-  alias: Disable Guest Mode
+  alias: Guest Mode - Disable
   trigger:
     platform: state
     entity_id: input_boolean.guest_mode
