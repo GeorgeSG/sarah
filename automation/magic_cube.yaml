@@ -1,0 +1,19 @@
+- id: cube_knock
+  alias: Go to bed on Cube Knock
+  trigger:
+    platform: state
+    entity_id: sensor.cube_multistate_input
+    to: "knock"
+  action:
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.sleep_mode
+
+- id: cube_shake
+  alias: Wake up on Cube Shake
+  trigger:
+    platform: state
+    entity_id: sensor.cube_multistate_input
+    to: "shake"
+  action:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.sleep_mode

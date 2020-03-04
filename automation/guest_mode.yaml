@@ -1,0 +1,29 @@
+- id: enable_guest_mode
+  alias: Enable Guest Mode
+  trigger:
+    platform: state
+    entity_id: input_boolean.guest_mode
+    from: "off"
+    to: "on"
+  action:
+    - service: automation.turn_off
+      entity_id: automation.leaving_home
+    - service: automation.turn_off
+      entity_id: automation.coming_home
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.speech_notifications
+
+- id: disable_guest_mode
+  alias: Disable Guest Mode
+  trigger:
+    platform: state
+    entity_id: input_boolean.guest_mode
+    from: "on"
+    to: "off"
+  action:
+    - service: automation.turn_on
+      entity_id: automation.leaving_home
+    - service: automation.turn_on
+      entity_id: automation.coming_home
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.speech_notifications

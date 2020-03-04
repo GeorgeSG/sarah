@@ -1,0 +1,44 @@
+- id: leaving_home
+  alias: Leaving home
+  trigger:
+    platform: state
+    entity_id: person.georgi
+    to: "not_home"
+  action:
+    - service: script.security_camera_on
+    - service: media_player.turn_off
+      entity_id: media_player.living_room_tv
+    - service: media_player.turn_off
+      entity_id: media_player.living_room_tv_2
+    - service: light.turn_off
+      entity_id: light.living_room_all_lights
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.speech_notifications
+
+- id: coming_home
+  alias: Coming home
+  trigger:
+    platform: state
+    entity_id: person.georgi
+    to: "home"
+  action:
+    - service: script.security_camera_off
+    - service: light.turn_on
+      entity_id: light.living_room_all_lights
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.speech_notifications
+
+- alias: Play welcome music when I come back
+  trigger:
+    platform: state
+    entity_id: person.georgi
+    to: "home"
+  action:
+    - service: media_player.turn_on
+      entity_id: media_player.living_room_tv_2
+    - delay: "00:00:10"
+    - service: spotcast.start
+      data:
+        device_name: "Living Room TV"
+        uri: "spotify:playlist:1dstTefWFQaBFTC6CjcEHd"
+        random_song: true

@@ -64,7 +64,7 @@ amcrest:
       - online
 
 # https://www.home-assistant.io/integrations/automation
-automation: !include automations.yaml
+automation: !include_dir_merge_list automation
 
 # https://www.home-assistant.io/integrations/binary_sensor
 binary_sensor: !include binary_sensor.yaml
