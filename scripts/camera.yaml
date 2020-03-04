@@ -1,0 +1,31 @@
+security_camera_on:
+  alias: Turn security camera on
+  sequence:
+    - service: camera.turn_on
+      entity_id: camera.amcrest_camera
+    - service: amcrest.goto_preset
+      entity_id: camera.amcrest_camera
+      data:
+        preset: 1
+    - service: amcrest.enable_motion_recording
+      entity_id: camera.amcrest_camera
+    - service: amcrest.enable_recording
+      entity_id: camera.amcrest_camera
+    - service: amcrest.enable_audio
+      entity_id: camera.amcrest_camera
+
+security_camera_off:
+  alias: Turn security camera off
+  sequence:
+    - service: amcrest.goto_preset
+      entity_id: camera.amcrest_camera
+      data:
+        preset: 3
+    - service: amcrest.disable_motion_recording
+      entity_id: camera.amcrest_camera
+    - service: amcrest.disable_recording
+      entity_id: camera.amcrest_camera
+    - service: amcrest.disable_audio
+      entity_id: camera.amcrest_camera
+    - service: camera.turn_off
+      entity_id: camera.amcrest_camera

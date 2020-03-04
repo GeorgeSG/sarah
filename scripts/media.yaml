@@ -1,0 +1,17 @@
+# tv_chill:
+#   alias: TV Chill
+#   sequence:
+#     - service: media_extractor.play_media
+#       data:
+#         entity_id: media_player.living_room_tv_2
+#         media_content_id: "https://www.youtube.com/watch?v=UgHKb_7884o"
+#         media_content_type: video/youtube
+
+# latest_pds:
+#   alias: Play the latest PDS
+#   sequence:
+#     - service: media_extractor.play_media
+#       data_template:
+#         entity_id: media_player.living_room_tv_2
+#         media_content_id: "{{ state_attr('sensor.philip_defranco', 'url') }}"
+#         media_content_type: video/youtube

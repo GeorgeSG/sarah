@@ -108,7 +108,7 @@ notify:
 scene: !include scenes.yaml
 
 # https://www.home-assistant.io/integrations/script
-script: !include scripts.yaml
+script: !include_dir_merge_named scripts
 
 # https://www.home-assistant.io/integrations/sensor
 sensor: !include sensor.yaml

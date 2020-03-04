@@ -1,60 +1,3 @@
-# https://www.home-assistant.io/integrations/script
-
-sarah_restart:
-  alias: Restart SARAH
-  sequence:
-    service: homeassistant.restart
-
-security_camera_on:
-  alias: Turn security camera on
-  sequence:
-    - service: camera.turn_on
-      entity_id: camera.amcrest_camera
-    - service: amcrest.goto_preset
-      entity_id: camera.amcrest_camera
-      data:
-        preset: 1
-    - service: amcrest.enable_motion_recording
-      entity_id: camera.amcrest_camera
-    - service: amcrest.enable_recording
-      entity_id: camera.amcrest_camera
-    - service: amcrest.enable_audio
-      entity_id: camera.amcrest_camera
-
-security_camera_off:
-  alias: Turn security camera off
-  sequence:
-    - service: amcrest.goto_preset
-      entity_id: camera.amcrest_camera
-      data:
-        preset: 3
-    - service: amcrest.disable_motion_recording
-      entity_id: camera.amcrest_camera
-    - service: amcrest.disable_recording
-      entity_id: camera.amcrest_camera
-    - service: amcrest.disable_audio
-      entity_id: camera.amcrest_camera
-    - service: camera.turn_off
-      entity_id: camera.amcrest_camera
-
-# tv_chill:
-#   alias: TV Chill
-#   sequence:
-#     - service: media_extractor.play_media
-#       data:
-#         entity_id: media_player.living_room_tv_2
-#         media_content_id: "https://www.youtube.com/watch?v=UgHKb_7884o"
-#         media_content_type: video/youtube
-
-# latest_pds:
-#   alias: Play the latest PDS
-#   sequence:
-#     - service: media_extractor.play_media
-#       data_template:
-#         entity_id: media_player.living_room_tv_2
-#         media_content_id: "{{ state_attr('sensor.philip_defranco', 'url') }}"
-#         media_content_type: video/youtube
-
 say_discretely:
   alias: Say discretely
   sequence:
@@ -124,4 +67,4 @@ sarah_briefing:
   sequence:
     - service: script.sarah_talk
       data_template:
-        message: !include ./templates/briefing.yaml
+        message: !include ../templates/briefing.yaml

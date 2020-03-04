@@ -85,7 +85,7 @@
     purifier_hepa_filter:
       friendly_name: "HEPA filter"
       unit_of_measurement: "Hrs"
-      value_template: "{{ states.fan.philips_airpurifier.attributes. hepa_filter}}"
+      value_template: "{{ states.fan.philips_airpurifier.attributes.hepa_filter}}"
     purifier_target_humidity:
       friendly_name: "Target humidity"
       unit_of_measurement: "%"
