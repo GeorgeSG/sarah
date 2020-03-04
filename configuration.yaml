@@ -138,7 +138,7 @@ tts:
     aws_access_key_id: !secret aws_polly_client_id
     aws_secret_access_key: !secret aws_polly_client_secret
     region_name: eu-central-1
-    voice: Emma
+    voice: Amy
 
 # https://www.home-assistant.io/integrations/tuya
 tuya:
@@ -151,6 +151,11 @@ upnp:
 
 # https://www.home-assistant.io/integrations/wake_on_lan
 wake_on_lan:
+
+# https://www.home-assistant.io/integrations/weather.darksky
+weather:
+  - platform: darksky
+    api_key: !secret darksky_key
 
 # https://www.home-assistant.io/integrations/webostv
 webostv:

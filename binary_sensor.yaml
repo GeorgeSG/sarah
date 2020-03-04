@@ -7,3 +7,7 @@
       device_class: safety
       value_template: >-
         {{ state_attr('camera.amcrest_camera', 'motion_recording') != 'on' }}
+
+# https://www.home-assistant.io/integrations/iss/
+- platform: iss
+  show_on_map: true

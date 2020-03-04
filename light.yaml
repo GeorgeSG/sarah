@@ -1,4 +1,5 @@
 # https://www.home-assistant.io/integrations/light
+# https://www.home-assistant.io/integrations/light.group/
 
 - platform: group
   name: Living Room Main Lights

@@ -1,0 +1,11 @@
+sensor.bedroom_weather_power:
+  friendly_name: "Bedroom Weather Battery"
+
+sensor.bedroom_weather_temperature:
+  friendly_name: "Bedroom Temperature"
+
+sensor.bedroom_weather_pressure:
+  friendly_name: "Bedroom Pressure"
+
+sensor.bedroom_weather_humidity:
+  friendly_name: "Bedroom Humidity"

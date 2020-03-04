@@ -6,8 +6,10 @@ sarah_restart:
     service: homeassistant.restart
 
 security_camera_on:
-  alias: Turn Security Camera on
+  alias: Turn security camera on
   sequence:
+    - service: camera.turn_on
+      entity_id: camera.amcrest_camera
     - service: amcrest.goto_preset
       entity_id: camera.amcrest_camera
       data:
@@ -20,7 +22,7 @@ security_camera_on:
       entity_id: camera.amcrest_camera
 
 security_camera_off:
-  alias: Turn Security Camera off
+  alias: Turn security camera off
   sequence:
     - service: amcrest.goto_preset
       entity_id: camera.amcrest_camera
@@ -32,54 +34,94 @@ security_camera_off:
       entity_id: camera.amcrest_camera
     - service: amcrest.disable_audio
       entity_id: camera.amcrest_camera
+    - service: camera.turn_off
+      entity_id: camera.amcrest_camera
 
-tv_chill:
-  alias: TV Chill
-  sequence:
-    - service: media_extractor.play_media
-      data:
-        entity_id: media_player.living_room_tv_2
-        media_content_id: "https://www.youtube.com/watch?v=UgHKb_7884o"
-        media_content_type: video/youtube
+# tv_chill:
+#   alias: TV Chill
+#   sequence:
+#     - service: media_extractor.play_media
+#       data:
+#         entity_id: media_player.living_room_tv_2
+#         media_content_id: "https://www.youtube.com/watch?v=UgHKb_7884o"
+#         media_content_type: video/youtube
 
-latest_pds:
-  alias: Play the latest PDS
+# latest_pds:
+#   alias: Play the latest PDS
+#   sequence:
+#     - service: media_extractor.play_media
+#       data_template:
+#         entity_id: media_player.living_room_tv_2
+#         media_content_id: "{{ state_attr('sensor.philip_defranco', 'url') }}"
+#         media_content_type: video/youtube
+
+say_discretely:
+  alias: Say discretely
   sequence:
-    - service: media_extractor.play_media
+    - service_template: >
+        {% if is_state('media_player.master_bedroom', 'playing')
+              or is_state('input_boolean.guest_mode', 'on')
+              or is_state('input_boolean.speech_notifications', 'off') %}
+          script.telegram_say
+        {% else %}
+          script.sonos_blast
+        {% endif %}
       data_template:
-        entity_id: media_player.living_room_tv_2
-        media_content_id: "{{ state_attr('sensor.philip_defranco', 'url') }}"
-        media_content_type: video/youtube
+        message: "{{ message }}"
 
-say:
-  alias: Sonos TTS
+sonos_blast:
+  alias: Sonos blast
   sequence:
-    - service: sonos.snapshot
-      data_template:
-        entity_id: media_player.master_bedroom
-    - delay: "00:00:03"
-    # - service: media_player.play_media
-    #   data:
-    #     entity_id: media_player.master_bedroom
-    #     media_content_id: http://REDACTED33:8123/local/sounds/two-tone-chime.mp3
-    #     media_content_type: music
-    # - delay: '00:00:02'
     - service: tts.amazon_polly_say
       data_template:
         entity_id: media_player.master_bedroom
-        message: "{{ what }}"
-    - delay: "00:00:03"
+        message: "{{ message }}"
+
+sonos_say:
+  alias: Sonos say
+  sequence:
+    - service: sonos.snapshot
+      data_template:
+        with_group: yes
+        entity_id: media_player.master_bedroom
+    - delay: "00:00:02"
+    - service: script.sonos_blast
+      data_template:
+        message: "{{ message }}"
+    - delay: "00:00:05"
     - service: sonos.restore
       data_template:
+        with_group: yes
         entity_id: media_player.master_bedroom
 
 telegram_say:
-  alias: Telegram Say
+  alias: Telegram say
   sequence:
     - service: notify.telegram
-      data:
-        message: "commands"
-        data:
-          keyboard:
-            - "/ping, /alarm"
-            - "/siren"
+      data_template:
+        message: "{{ message }}"
+
+sarah_talk:
+  alias: SARAH - Talk
+  sequence:
+    - condition: and
+      conditions:
+        - condition: state
+          entity_id: input_boolean.sleep_mode
+          state: "off"
+        - condition: time
+          after: "08:00:00"
+          before: "23:59:00"
+        - condition: state
+          entity_id: input_boolean.speech_notifications
+          state: "on"
+    - service: script.say_discretely
+      data_template:
+        message: "{{ message }}"
+
+sarah_briefing:
+  alias: Briefing
+  sequence:
+    - service: script.sarah_talk
+      data_template:
+        message: !include ./templates/briefing.yaml
