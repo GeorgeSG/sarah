@@ -6,11 +6,6 @@ sensor.living_room_right_window_power:
 
 binary_sensor.bedroom_right_window_on_off:
   friendly_name: "Bedroom Window"
-  # TODO: icon_template doesn't work
-  icon_template: >
-    {% if is_state('binary_sensor.bedroom_right_window_on_off', 'on') %} mdi:television
-    {% else %} mdi:television-off
-    {% endif %}
 
 sensor.bedroom_right_window_power:
   friendly_name: "Bedroom Window Battery"
