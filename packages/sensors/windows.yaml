@@ -28,13 +28,13 @@ binary_sensor:
 homeassistant:
   customize:
     binary_sensor.living_room_right_window_on_off:
-      friendly_name: "Living Room Window Sensor"
+      friendly_name: Living Room Window Sensor
 
     sensor.living_room_right_window_power:
-      friendly_name: "Living Room Window Battery"
+      friendly_name: Living Room Window Battery
 
     binary_sensor.bedroom_right_window_on_off:
-      friendly_name: "Bedroom Window Sensor"
+      friendly_name: Bedroom Window Sensor
 
     sensor.bedroom_right_window_power:
-      friendly_name: "Bedroom Window Battery"
+      friendly_name: Bedroom Window Battery
