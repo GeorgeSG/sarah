@@ -2,11 +2,7 @@ script:
   routine_waking_up:
     alias: Routine - Waking up
     sequence:
-      - service: media_player.volume_set
-        entity_id: media_player.master_bedroom
-        data:
-          volume_level: 0.3
-      - service: script.sarah_briefing
+      - service: script.routine_briefing
       - delay: "00:00:25"
       - service: script.talk
         data:

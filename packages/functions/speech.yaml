@@ -5,15 +5,6 @@ input_boolean:
     icon: mdi:chat
 
 script:
-  # Predefined Speech
-  sarah_briefing:
-    alias: Speech - Briefing
-    sequence:
-      - service: script.talk
-        data_template:
-          message: !include ../templates/briefing.yaml
-
-  # Public Scripts
   talk:
     alias: Speech - Talk
     sequence:
