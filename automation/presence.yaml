@@ -9,7 +9,6 @@
     condition: state
     entity_id: input_boolean.georgi_home
     state: "off"
-
   action:
     - service: script.telegram_say
       data:

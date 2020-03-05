@@ -1,17 +1,17 @@
 binary_sensor.living_room_right_window_on_off:
-  friendly_name: "Living Room Window"
+  friendly_name: "Living Room Window Sensor"
 
 sensor.living_room_right_window_power:
   friendly_name: "Living Room Window Battery"
 
 binary_sensor.bedroom_right_window_on_off:
-  friendly_name: "Bedroom Window"
+  friendly_name: "Bedroom Window Sensor"
 
 sensor.bedroom_right_window_power:
   friendly_name: "Bedroom Window Battery"
 
 binary_sensor.front_door_on_off:
-  friendly_name: "Front Door"
+  friendly_name: "Front Door Sensor"
 
 sensor.front_door_power:
   friendly_name: "Front Door Battery"

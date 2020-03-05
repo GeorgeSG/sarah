@@ -14,8 +14,38 @@
       value_template: "{{ is_state('input_boolean.georgi_home', 'on') }}"
       entity_id: input_boolean.georgi_home
       icon_template: >
-        {% if is_state('input_boolean.georgi_home','on') %} mdi:account
+        {% if is_state('input_boolean.georgi_home', 'on') %} mdi:account
         {% else %} mdi:account-off-outline
+        {% endif %}
+
+    living_room_right_window_on_off_wrapper:
+      friendly_name: Living Room Window
+      device_class: window
+      value_template: "{{ is_state('binary_sensor.living_room_right_window_on_off', 'on') }}"
+      entity_id: binary_sensor.living_room_right_window_on_off
+      icon_template: >
+        {% if is_state('binary_sensor.living_room_right_window_on_off', 'on') %} mdi:window-open-variant
+        {% else %} mdi:window-closed-variant
+        {% endif %}
+
+    bedroom_right_window_on_off_wrapper:
+      friendly_name: Bedroom Window
+      device_class: window
+      value_template: "{{ is_state('binary_sensor.bedroom_right_window_on_off', 'on') }}"
+      entity_id: binary_sensor.bedroom_right_window_on_off
+      icon_template: >
+        {% if is_state('binary_sensor.bedroom_right_window_on_off', 'on') %} mdi:window-open-variant
+        {% else %} mdi:window-closed-variant
+        {% endif %}
+
+    front_door_on_off_wrapper:
+      friendly_name: Front Door
+      device_class: door
+      value_template: "{{ is_state('binary_sensor.front_door_on_off', 'on') }}"
+      entity_id: binary_sensor.front_door_on_off
+      icon_template: >
+        {% if is_state('binary_sensor.front_door_on_off', 'on') %} mdi:door-open
+        {% else %} mdi:door-closed
         {% endif %}
 
 # https://www.home-assistant.io/integrations/iss/
