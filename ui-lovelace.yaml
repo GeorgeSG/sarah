@@ -5,6 +5,8 @@ custom_header:
   hide_unused: true
 resources:
   - type: module
+    url: /hacsfiles/lovelace-swipe-navigation/swipe-navigation.js
+  - type: module
     url: /community_plugin/spotify-card/spotify-card.js
   - type: module
     url: /community_plugin/circle-sensor-card/circle-sensor-card.js
