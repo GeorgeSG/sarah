@@ -17,3 +17,17 @@ light:
       - light.living_room_3
       - light.living_room_4
       - light.pc
+
+homeassistant:
+  customize:
+    light.living_room_1:
+      friendly_name: Living room 1
+
+    light.living_room_2:
+      friendly_name: Living room 2
+
+    light.living_room_3:
+      friendly_name: Living room 3
+
+    light.living_room_4:
+      friendly_name: Living room 4
