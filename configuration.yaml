@@ -18,8 +18,8 @@ config:
 http:
   login_attempts_threshold: 20
 
-# lovelace:
-#   mode: yaml
+lovelace:
+  mode: yaml
 
 # https://www.home-assistant.io/components/logbook
 logbook:
