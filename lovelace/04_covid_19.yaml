@@ -14,6 +14,7 @@ cards:
           - entity: sensor.worldwide_coronavirus_current
           - entity: sensor.worldwide_coronavirus_deaths
           - entity: sensor.worldwide_coronavirus_recovered
+
       - type: "custom:mini-graph-card"
         animate: true
         entities:

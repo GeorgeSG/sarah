@@ -11,6 +11,7 @@ cards:
     entities:
       - entity: binary_sensor.living_room_right_window_on_off_wrapper
       - entity: sensor.living_room_right_window_power
+
   - type: entities
     title: Lights
     show_header_toggle: false
@@ -22,6 +23,7 @@ cards:
       - entity: light.living_room_3
       - entity: light.living_room_4
       - entity: light.pc
+
   - type: picture-entity
     aspect_ratio: 50%
     entity: camera.amcrest_camera
@@ -31,6 +33,7 @@ cards:
     show_state: true
     tap_action:
       action: none
+
   - type: entities
     title: Camera Controls
     show_header_toggle: false
@@ -38,7 +41,9 @@ cards:
       - entity: switch.camera
       - entity: binary_sensor.amcrest_camera_online
       - entity: binary_sensor.amcrest_camera_motion_detected
+
   - type: media-control
     entity: media_player.living_room_tv
+
   - type: media-control
     entity: media_player.playstation_4

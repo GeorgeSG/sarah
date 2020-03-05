@@ -10,6 +10,7 @@ cards:
       - entity: light.living_room_main_lights
       - entity: light.pc
     show_header_toggle: false
+
   - type: entities
     title: Manual Control
     entities:
@@ -19,6 +20,7 @@ cards:
       - entity: input_boolean.speech_notifications
       - entity: input_boolean.georgi_home
     show_header_toggle: false
+
   - type: entities
     title: Sensors
     entities:
@@ -26,6 +28,7 @@ cards:
       - entity: binary_sensor.living_room_right_window_on_off_wrapper
       - entity: binary_sensor.bedroom_right_window_on_off_wrapper
     show_header_toggle: false
+
   - type: entities
     title: Devices
     entities:
@@ -33,6 +36,7 @@ cards:
       - entity: media_player.living_room_tv
       - entity: fan.philips_airpurifier
     show_header_toggle: false
+
   - type: entities
     title: Presence
     entities:
@@ -40,11 +44,13 @@ cards:
       - entity: device_tracker.carbon
       - entity: device_tracker.tile_1bcb2b3021b9f96b
     show_header_toggle: false
+
   - type: "custom:weather-card"
     current: true
     details: true
     entity: weather.dark_sky
     forecast: true
+
   - type: "custom:mini-media-player"
     artwork: cover
     entity: media_player.master_bedroom
@@ -57,6 +63,7 @@ cards:
     platform: sonos
     show_source: true
     source: full
+
   - type: entities
     title: Misc Badges
     entities:
