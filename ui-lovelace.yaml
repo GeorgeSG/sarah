@@ -4,6 +4,8 @@ custom_header:
   hide_help: true
   hide_unused: true
 resources:
+  - type: js
+    url: /hacsfiles/travel-time-card/travel-time-card.js
   - type: module
     url: /hacsfiles/lovelace-gui-sandbox/gui-sandbox.js
   - type: module

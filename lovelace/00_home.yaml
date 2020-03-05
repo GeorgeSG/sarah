@@ -45,12 +45,6 @@ cards:
       - entity: device_tracker.tile_1bcb2b3021b9f96b
     show_header_toggle: false
 
-  - type: "custom:weather-card"
-    current: true
-    details: true
-    entity: weather.dark_sky
-    forecast: true
-
   - type: "custom:mini-media-player"
     artwork: cover
     entity: media_player.master_bedroom
@@ -63,6 +57,21 @@ cards:
     platform: sonos
     show_source: true
     source: full
+
+  - type: "custom:weather-card"
+    current: true
+    details: true
+    entity: weather.dark_sky
+    forecast: true
+
+  - type: "custom:travel-time-card"
+    title: "Travel time"
+    columns:
+      - name
+      - duration
+      - distance
+    entities:
+      - entity: sensor.home_to_work
 
   - type: entities
     title: Misc Badges
