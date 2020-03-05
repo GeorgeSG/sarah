@@ -53,6 +53,7 @@ cards:
       - distance
     entities:
       - entity: sensor.home_to_work
+      - entity: sensor.work_to_home
 
   - type: "custom:mini-media-player"
     artwork: cover
