@@ -5,7 +5,7 @@ homeassistant:
   elevation: !secret home_elevation
   unit_system: metric
   time_zone: Europe/Sofia
-  customize: !include_dir_merge_named customize
+  packages: !include_dir_named packages
 
 #
 # ─── HOME ASSISTANT COMPONENTS ENABLED ──────────────────────────────────────────
@@ -30,14 +30,6 @@ map:
 # https://www.home-assistant.io/integrations/mobile_app
 mobile_app:
 
-# https://www.home-assistant.io/components/person
-person:
-  - name: Georgi
-    id: !secret georgi_user_id
-    user_id: !secret georgi_user_id
-    device_trackers:
-      - device_tracker.carbon
-
 # https://www.home-assistant.io/components/system_health
 system_health:
 
@@ -45,8 +37,8 @@ system_health:
 updater:
 
 # https://www.home-assistant.io/components/logger
-# logger:
-#   default: notset
+logger:
+  default: warning
 
 #
 # ─── INTEGRATIONS ───────────────────────────────────────────────────────────────
@@ -63,18 +55,6 @@ amcrest:
       - motion_detected
       - online
 
-# https://www.home-assistant.io/integrations/automation
-automation: !include_dir_merge_list automation
-
-# https://www.home-assistant.io/integrations/binary_sensor
-binary_sensor: !include binary_sensor.yaml
-
-# https://www.home-assistant.io/integrations/device_tracker
-device_tracker:
-  - platform: tile
-    username: !secret tile_username
-    password: !secret tile_password
-
 # https://www.home-assistant.io/integrations/ffmpeg
 ffmpeg:
 
@@ -82,20 +62,19 @@ ffmpeg:
 frontend:
   themes: !include_dir_merge_named themes
 
-# https://www.home-assistant.io/integrations/group
-group: !include groups.yaml
-
 # https://www.home-assistant.io/integrations/history
 history:
 
-# https://www.home-assistant.io/integrations/input_boolean
-input_boolean: !include input_boolean.yaml
-
-# https://www.home-assistant.io/integrations/light
-light: !include light.yaml
-
 # https://www.home-assistant.io/integrations/media_extractor
 media_extractor:
+
+# https://www.home-assistant.io/integrations/tts
+tts:
+  - platform: amazon_polly
+    aws_access_key_id: !secret aws_polly_client_id
+    aws_secret_access_key: !secret aws_polly_client_secret
+    region_name: eu-central-1
+    voice: Amy
 
 # https://www.home-assistant.io/integrations/notify
 notify:
@@ -103,26 +82,6 @@ notify:
     platform: telegram
     api_key: !secret telegram_token
     chat_id: !secret telegram_georgi_chat_id
-
-# https://www.home-assistant.io/integrations/scene
-scene: !include scenes.yaml
-
-# https://www.home-assistant.io/integrations/script
-script: !include_dir_merge_named scripts
-
-# https://www.home-assistant.io/integrations/sensor
-sensor: !include sensor.yaml
-
-# https://www.home-assistant.io/integrations/spotify
-spotify:
-  client_id: !secret spotify_client_id
-  client_secret: !secret spotify_client_secret
-
-# https://www.home-assistant.io/integrations/sun
-sun:
-
-# https://www.home-assistant.io/integrations/switch
-switch: !include switch.yaml
 
 # https://www.home-assistant.io/integrations/telegram
 # https://www.home-assistant.io/integrations/telegram_chatbot
@@ -132,13 +91,13 @@ telegram_bot:
     allowed_chat_ids:
       - !secret telegram_georgi_chat_id
 
-# https://www.home-assistant.io/integrations/tts
-tts:
-  - platform: amazon_polly
-    aws_access_key_id: !secret aws_polly_client_id
-    aws_secret_access_key: !secret aws_polly_client_secret
-    region_name: eu-central-1
-    voice: Amy
+# https://www.home-assistant.io/integrations/spotify
+spotify:
+  client_id: !secret spotify_client_id
+  client_secret: !secret spotify_client_secret
+
+# https://www.home-assistant.io/integrations/sun
+sun:
 
 # https://www.home-assistant.io/integrations/tuya
 tuya:
@@ -151,12 +110,6 @@ upnp:
 
 # https://www.home-assistant.io/integrations/wake_on_lan
 wake_on_lan:
-
-# https://www.home-assistant.io/integrations/weather.darksky
-weather:
-  - platform: darksky
-    api_key: !secret darksky_key
-    mode: daily
 
 # https://www.home-assistant.io/integrations/webostv
 webostv:
@@ -176,9 +129,6 @@ webostv:
 # https://www.home-assistant.io/integrations/zeroconf
 zeroconf:
 
-# https://www.home-assistant.io/integrations/zone
-zone: !include zone.yaml
-
 #
 # ─── PLUGINS ────────────────────────────────────────────────────────────────────
 #
@@ -190,10 +140,5 @@ spotcast:
 hacs:
   token: !secret hacs_github_token
   appdaemon: true
-
-# Philips Purifier
-fan:
-  platform: philips-airpurifier
-  host: !secret philips_purifier_ip
 
 uilogs:

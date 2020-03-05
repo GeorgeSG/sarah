@@ -1,0 +1,162 @@
+#
+# ─── CONFIGURATION ──────────────────────────────────────────────────────────────
+#
+
+# https://www.home-assistant.io/components/person
+person:
+  - name: Georgi
+    id: !secret georgi_user_id
+    user_id: !secret georgi_user_id
+    device_trackers:
+      - device_tracker.carbon
+
+# https://www.home-assistant.io/integrations/device_tracker
+device_tracker:
+  - platform: tile
+    username: !secret tile_username
+    password: !secret tile_password
+
+# https://www.home-assistant.io/components/zone
+zone:
+  - name: Home
+    latitude: !secret home_latitude
+    longitude: !secret home_longitude
+    radius: 20
+    icon: mdi:home
+
+  - name: Work
+    latitude: !secret work_latitude
+    longitude: !secret work_longitude
+    radius: 60
+    icon: mdi:worker
+
+#
+# ─── ENTITIES ───────────────────────────────────────────────────────────────────
+#
+
+input_boolean:
+  georgi_home:
+    name: Georgi Home
+    icon: mdi:account
+
+binary_sensor:
+  - platform: template
+    sensors:
+      georgi_home:
+        friendly_name: Georgi
+        device_class: presence
+        value_template: "{{ is_state('input_boolean.georgi_home', 'on') }}"
+        entity_id: input_boolean.georgi_home
+        icon_template: >
+          {% if is_state('input_boolean.georgi_home', 'on') %} mdi:account
+          {% else %} mdi:account-off-outline
+          {% endif %}
+
+automation:
+  # When my state changes to "home", wait for 15 minutes for the door to be opened, and then mark me as home
+  - id: arrival_detecion
+    alias: Presence - Arrival Detection
+    trigger:
+      platform: state
+      entity_id: person.georgi
+      to: "home"
+    condition:
+      condition: state
+      entity_id: input_boolean.georgi_home
+      state: "off"
+    action:
+      - service: script.telegram_say
+        data:
+          message: "Device marked as home. Waiting for door to open!"
+      - wait_template: "{{ is_state('binary_sensor.front_door_on_off', 'on') }}"
+        continue_on_timeout: false
+        timeout: 00:15:00
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.georgi_home
+      - service: script.telegram_say
+        data:
+          message: "Hey, I've marked you as home now!"
+
+  - id: leaving_home
+    alias: Presence - Leaving home
+    trigger:
+      platform: state
+      entity_id: person.georgi
+      to: "not_home"
+    action:
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.georgi_home
+      - service: script.security_camera_on
+      - service: media_player.turn_off
+        entity_id:
+          - media_player.living_room_tv
+          - media_player.living_room_tv_2
+      - service: media_player.media_stop
+        entity_id: media_player.master_bedroom
+      - service: light.turn_off
+        entity_id: light.living_room_all_lights
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.speech_notifications
+
+  - id: coming_home
+    alias: Presence - Coming Home
+    trigger:
+      platform: state
+      entity_id: person.georgi
+      to: "home"
+    action:
+      - service: script.security_camera_off
+      - service: light.turn_on
+        entity_id: light.living_room_all_lights
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.speech_notifications
+
+  - id: coming_home_welcome
+    alias: Presence - Coming Home - Play welcome music
+    trigger:
+      platform: state
+      entity_id: person.georgi
+      to: "home"
+    action:
+      - service: media_player.shuffle_set
+        entity_id: media_player.master_bedroom
+        data:
+          shuffle: true
+      - service: media_player.select_source
+        entity_id: media_player.master_bedroom
+        data:
+          source: Evening Chill
+      # - service: media_player.turn_on
+      #   entity_id: media_player.living_room_tv_2
+      # - delay: "00:00:10"
+      # - service: spotcast.start
+      #   data:
+      #     device_name: "Living Room TV"
+      #     uri: "spotify:playlist:1dstTefWFQaBFTC6CjcEHd"
+      #     random_song: true
+
+#
+# ─── CUSTOMIZATION ──────────────────────────────────────────────────────────────
+#
+
+homeassistant:
+  customize:
+    device_tracker.carbon:
+      icon: mdi:cellphone-iphone
+
+    device_tracker.tile_p_6e3c33752f24f417254c039040a984bd:
+      friendly_name: "Georgi's iPhone Tile"
+      icon: mdi:cellphone-iphone
+
+    device_tracker.tile_1bcb2b3021b9f96b:
+      friendly_name: "Keys Tile"
+      icon: mdi:key-variant
+
+    automation.coming_home:
+      icon: mdi:home-account
+
+    automation.leaving_home:
+      icon: mdi:home
+
+    automation.arrival_detecion:
+      icon: mdi:account-plus-outline

@@ -1,0 +1,35 @@
+automation:
+  - id: cube_knock
+    alias: Magic Cube - Knock - Go to bed
+    trigger:
+      platform: state
+      entity_id: sensor.cube_multistate_input
+      to: "knock"
+    action:
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.sleep_mode
+
+  - id: cube_shake
+    alias: Magic Cube - Shake - Wake up
+    trigger:
+      platform: state
+      entity_id: sensor.cube_multistate_input
+      to: "shake"
+    action:
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.sleep_mode
+
+#
+# ─── CUSTOMIZATION ──────────────────────────────────────────────────────────────
+#
+
+homeassistant:
+  customize:
+    sensor.cube_multistate_input:
+      friendly_name: "Cube Input"
+
+    sensor.cube_analog_input:
+      friendly_name: "Cube Rotation"
+
+    sensor.cube_power:
+      friendly_name: "Cube Battery"

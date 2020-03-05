@@ -1,0 +1,8 @@
+sensor:
+  - platform: launch_library
+  - platform: moon
+
+binary_sensor:
+  # https://www.home-assistant.io/integrations/iss/
+  - platform: iss
+    show_on_map: true

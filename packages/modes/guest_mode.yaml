@@ -1,0 +1,36 @@
+input_boolean:
+  guest_mode:
+    name: Guest Mode
+    initial: off
+    icon: mdi:human-greeting
+
+automation:
+  - id: enable_guest_mode
+    alias: Guest Mode - Enable
+    trigger:
+      platform: state
+      entity_id: input_boolean.guest_mode
+      from: "off"
+      to: "on"
+    action:
+      - service: automation.turn_off
+        entity_id:
+          - automation.leaving_home
+          - automation.coming_home
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.speech_notifications
+
+  - id: disable_guest_mode
+    alias: Guest Mode - Disable
+    trigger:
+      platform: state
+      entity_id: input_boolean.guest_mode
+      from: "on"
+      to: "off"
+    action:
+      - service: automation.turn_on
+        entity_id:
+          - automation.leaving_home
+          - automation.coming_home
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.speech_notifications

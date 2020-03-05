@@ -1,9 +1,0 @@
-# Hack - the switch.camera initial state is wrong (ON) when the server starts.
-- id: hass_startup
-  alias: System - Startup
-  trigger:
-    - platform: homeassistant
-      event: start
-  action:
-    - service: switch.turn_off
-      entity_id: switch.camera

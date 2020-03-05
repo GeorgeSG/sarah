@@ -1,8 +1,0 @@
-sensor.cube_multistate_input:
-  friendly_name: "Cube Input"
-
-sensor.cube_analog_input:
-  friendly_name: "Cube Rotation"
-
-sensor.cube_power:
-  friendly_name: "Cube Battery"

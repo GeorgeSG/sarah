@@ -1,0 +1,55 @@
+input_boolean:
+  domestina:
+    name: Domestina Time
+    icon: mdi:broom
+
+automation:
+  - alias: Domestina - Automate Start
+    trigger:
+      platform: time
+      at: "08:30:00"
+    condition:
+      - condition: time
+        weekday: thu
+    action:
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.domestina
+
+  - alias: Domestina - Start
+    trigger:
+      platform: state
+      entity_id: input_boolean.domestina
+      from: "off"
+      to: "on"
+    action:
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.guest_mode
+      - service: automation.turn_off
+        entity_id:
+          - automation.cube_knock
+          - automation.cube_shake
+
+  - alias: Domestina - Automate End
+    trigger:
+      platform: time
+      at: "13:00:00"
+    condition:
+      - condition: time
+        weekday: thu
+    action:
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.domestina
+
+  - alias: Domestina - End
+    trigger:
+      platform: state
+      entity_id: input_boolean.domestina
+      from: "on"
+      to: "off"
+    action:
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.guest_mode
+      - service: automation.turn_on
+        entity_id:
+          - automation.cube_knock
+          - automation.cube_shake

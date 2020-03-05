@@ -1,0 +1,70 @@
+input_boolean:
+  speech_notifications:
+    name: Speech Notifications
+    initial: on
+    icon: mdi:chat
+
+script:
+  # Predefined Speech
+  sarah_briefing:
+    alias: Speech - Briefing
+    sequence:
+      - service: script.talk
+        data_template:
+          message: !include ../templates/briefing.yaml
+
+  # Public Scripts
+  talk:
+    alias: Speech - Talk
+    sequence:
+      - condition: state
+        entity_id: input_boolean.sleep_mode
+        state: "off"
+      - service: script.say_discretely
+        data_template:
+          message: "{{ message }}"
+
+  say_discretely:
+    alias: Speech - Say discretely
+    sequence:
+      - service_template: >
+          {% if is_state('media_player.master_bedroom', 'playing')
+              or is_state('input_boolean.speech_notifications', 'off') %}
+            script.telegram_say
+          {% else %}
+            script.sonos_blast
+          {% endif %}
+        data_template:
+          message: "{{ message }}"
+
+  telegram_say:
+    alias: Speech - Telegram say
+    sequence:
+      - service: notify.telegram
+        data_template:
+          message: "{{ message }}"
+
+  sonos_blast:
+    alias: Speech - Sonos blast
+    sequence:
+      - service: tts.amazon_polly_say
+        data_template:
+          entity_id: media_player.master_bedroom
+          message: "{{ message }}"
+
+  sonos_say:
+    alias: Speech - Sonos say
+    sequence:
+      - service: sonos.snapshot
+        data_template:
+          with_group: yes
+          entity_id: media_player.master_bedroom
+      - delay: "00:00:02"
+      - service: script.sonos_blast
+        data_template:
+          message: "{{ message }}"
+      - delay: "00:00:05"
+      - service: sonos.restore
+        data_template:
+          with_group: yes
+          entity_id: media_player.master_bedroom

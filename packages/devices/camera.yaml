@@ -1,0 +1,67 @@
+binary_sensor:
+  - platform: template
+    sensors:
+      camera_state:
+        friendly_name: Security Camera
+        device_class: safety
+        value_template: >-
+          {{ state_attr('camera.amcrest_camera', 'motion_recording') != 'on' }}
+
+switch:
+  - platform: template
+    switches:
+      camera:
+        friendly_name: Security Camera
+        value_template: "{{ state_attr('camera.amcrest_camera', 'motion_recording') == 'on' }}"
+        icon_template: >
+          {% if state_attr('camera.amcrest_camera', 'motion_recording') == 'on' %} mdi:shield-home
+          {% else %} mdi:shield-off
+          {% endif %}
+        turn_on:
+          service: script.security_camera_on
+        turn_off:
+          service: script.security_camera_off
+
+script:
+  security_camera_on:
+    alias: Security Camera - Turn on
+    sequence:
+      - service: camera.turn_on
+        entity_id: camera.amcrest_camera
+      - service: amcrest.goto_preset
+        entity_id: camera.amcrest_camera
+        data:
+          preset: 1
+      - service: amcrest.enable_motion_recording
+        entity_id: camera.amcrest_camera
+      - service: amcrest.enable_recording
+        entity_id: camera.amcrest_camera
+      - service: amcrest.enable_audio
+        entity_id: camera.amcrest_camera
+
+  security_camera_off:
+    alias: Security Camera - Turn off
+    sequence:
+      - service: amcrest.goto_preset
+        entity_id: camera.amcrest_camera
+        data:
+          preset: 3
+      - service: amcrest.disable_motion_recording
+        entity_id: camera.amcrest_camera
+      - service: amcrest.disable_recording
+        entity_id: camera.amcrest_camera
+      - service: amcrest.disable_audio
+        entity_id: camera.amcrest_camera
+      - service: camera.turn_off
+        entity_id: camera.amcrest_camera
+
+# Hack - the switch.camera initial state is wrong (ON) when the server starts.
+automation:
+  - id: camera_turn_off_on_startup
+    alias: Camera - Startup
+    trigger:
+      - platform: homeassistant
+        event: start
+    action:
+      - service: switch.turn_off
+        entity_id: switch.camera
