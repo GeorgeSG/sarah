@@ -1,0 +1,17 @@
+script:
+  routine_leaving_home:
+    alias: Routine - Leaving home
+    sequence:
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.georgi_home
+      - service: script.security_camera_on
+      - service: media_player.turn_off
+        entity_id:
+          - media_player.living_room_tv
+          - media_player.living_room_tv_2
+      - service: media_player.media_stop
+        entity_id: media_player.master_bedroom
+      - service: light.turn_off
+        entity_id: light.living_room_all_lights
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.speech_notifications

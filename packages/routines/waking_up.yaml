@@ -1,0 +1,20 @@
+script:
+  routine_waking_up:
+    alias: Routine - Waking up
+    sequence:
+      - service: media_player.volume_set
+        entity_id: media_player.master_bedroom
+        data:
+          volume_level: 0.3
+      - service: script.sarah_briefing
+      - delay: "00:00:25"
+      - service: script.talk
+        data:
+          message: "Here's some music to start the day!"
+      - delay: "00:00:02"
+      - service: media_player.select_source
+        entity_id: media_player.master_bedroom
+        data:
+          source: "Evening Chill"
+      - service: fan.turn_off
+        entity_id: fan.philips_airpurifier

@@ -2,7 +2,7 @@ binary_sensor:
   - platform: template
     sensors:
       living_room_right_window_on_off_wrapper:
-        friendly_name: Living Room Window
+        friendly_name: Living room window
         device_class: window
         value_template: "{{ is_state('binary_sensor.living_room_right_window_on_off', 'on') }}"
         entity_id: binary_sensor.living_room_right_window_on_off
@@ -12,7 +12,7 @@ binary_sensor:
           {% endif %}
 
       bedroom_right_window_on_off_wrapper:
-        friendly_name: Bedroom Window
+        friendly_name: Bedroom window
         device_class: window
         value_template: "{{ is_state('binary_sensor.bedroom_right_window_on_off', 'on') }}"
         entity_id: binary_sensor.bedroom_right_window_on_off
@@ -28,13 +28,13 @@ binary_sensor:
 homeassistant:
   customize:
     binary_sensor.living_room_right_window_on_off:
-      friendly_name: Living Room Window Sensor
+      friendly_name: Living room window sensor
 
     sensor.living_room_right_window_power:
-      friendly_name: Living Room Window Battery
+      friendly_name: Living room window battery
 
     binary_sensor.bedroom_right_window_on_off:
-      friendly_name: Bedroom Window Sensor
+      friendly_name: Bedroom window sensor
 
     sensor.bedroom_right_window_power:
-      friendly_name: Bedroom Window Battery
+      friendly_name: Bedroom window battery

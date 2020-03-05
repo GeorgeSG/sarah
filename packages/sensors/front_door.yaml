@@ -2,7 +2,7 @@ binary_sensor:
   - platform: template
     sensors:
       front_door_on_off_wrapper:
-        friendly_name: Front Door
+        friendly_name: Front door
         device_class: door
         value_template: "{{ is_state('binary_sensor.front_door_on_off', 'on') }}"
         entity_id: binary_sensor.front_door_on_off
@@ -18,7 +18,7 @@ binary_sensor:
 homeassistant:
   customize:
     binary_sensor.front_door_on_off:
-      friendly_name: Front Door Sensor
+      friendly_name: Front door sensor
 
     sensor.front_door_power:
-      friendly_name: Front Door Battery
+      friendly_name: Front door battery

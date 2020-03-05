@@ -36,7 +36,7 @@ zone:
 
 input_boolean:
   georgi_home:
-    name: Georgi Home
+    name: Georgi home
     icon: mdi:account
 
 binary_sensor:
@@ -55,7 +55,7 @@ binary_sensor:
 automation:
   # When my state changes to "home", wait for 15 minutes for the door to be opened, and then mark me as home
   - id: arrival_detecion
-    alias: Presence - Arrival Detection
+    alias: Presence - Arrival detection
     trigger:
       platform: state
       entity_id: person.georgi
@@ -84,56 +84,16 @@ automation:
       entity_id: person.georgi
       to: "not_home"
     action:
-      - service: input_boolean.turn_off
-        entity_id: input_boolean.georgi_home
-      - service: script.security_camera_on
-      - service: media_player.turn_off
-        entity_id:
-          - media_player.living_room_tv
-          - media_player.living_room_tv_2
-      - service: media_player.media_stop
-        entity_id: media_player.master_bedroom
-      - service: light.turn_off
-        entity_id: light.living_room_all_lights
-      - service: input_boolean.turn_off
-        entity_id: input_boolean.speech_notifications
+      - service: script.routine_leaving_home
 
   - id: coming_home
-    alias: Presence - Coming Home
+    alias: Presence - Coming home
     trigger:
       platform: state
       entity_id: person.georgi
       to: "home"
     action:
-      - service: script.security_camera_off
-      - service: light.turn_on
-        entity_id: light.living_room_all_lights
-      - service: input_boolean.turn_on
-        entity_id: input_boolean.speech_notifications
-
-  - id: coming_home_welcome
-    alias: Presence - Coming Home - Play welcome music
-    trigger:
-      platform: state
-      entity_id: person.georgi
-      to: "home"
-    action:
-      - service: media_player.shuffle_set
-        entity_id: media_player.master_bedroom
-        data:
-          shuffle: true
-      - service: media_player.select_source
-        entity_id: media_player.master_bedroom
-        data:
-          source: Evening Chill
-      # - service: media_player.turn_on
-      #   entity_id: media_player.living_room_tv_2
-      # - delay: "00:00:10"
-      # - service: spotcast.start
-      #   data:
-      #     device_name: "Living Room TV"
-      #     uri: "spotify:playlist:1dstTefWFQaBFTC6CjcEHd"
-      #     random_song: true
+      - service: script.routine_coming_home
 
 #
 # ─── CUSTOMIZATION ──────────────────────────────────────────────────────────────

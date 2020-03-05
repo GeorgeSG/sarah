@@ -2,7 +2,7 @@ binary_sensor:
   - platform: template
     sensors:
       camera_state:
-        friendly_name: Security Camera
+        friendly_name: Security camera
         device_class: safety
         value_template: >-
           {{ state_attr('camera.amcrest_camera', 'motion_recording') != 'on' }}
@@ -11,7 +11,7 @@ switch:
   - platform: template
     switches:
       camera:
-        friendly_name: Security Camera
+        friendly_name: Security camera
         value_template: "{{ state_attr('camera.amcrest_camera', 'motion_recording') == 'on' }}"
         icon_template: >
           {% if state_attr('camera.amcrest_camera', 'motion_recording') == 'on' %} mdi:shield-home
@@ -24,7 +24,7 @@ switch:
 
 script:
   security_camera_on:
-    alias: Security Camera - Turn on
+    alias: Security camera - Turn on
     sequence:
       - service: camera.turn_on
         entity_id: camera.amcrest_camera
@@ -40,7 +40,7 @@ script:
         entity_id: camera.amcrest_camera
 
   security_camera_off:
-    alias: Security Camera - Turn off
+    alias: Security camera - Turn off
     sequence:
       - service: amcrest.goto_preset
         entity_id: camera.amcrest_camera

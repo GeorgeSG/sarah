@@ -1,0 +1,22 @@
+script:
+  routine_bedtime:
+    alias: Routine - Bedtime
+    sequence:
+      - service: media_player.media_stop
+        entity_id: media_player.master_bedroom
+      - service: fan.turn_on
+        entity_id: fan.philips_airpurifier
+      - service: media_player.turn_off
+        entity_id:
+          - media_player.living_room_tv
+          - media_player.living_room_tv_2
+      - service: light.turn_off
+        entity_id: light.living_room_all_lights
+      - delay: "00:00:02"
+      - service: media_player.volume_set
+        entity_id: media_player.master_bedroom
+        data:
+          volume_level: 0.1
+      - service: script.say_discretely
+        data:
+          message: "Entering sleep mode. Good night!"

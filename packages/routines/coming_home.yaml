@@ -1,0 +1,44 @@
+input_boolean:
+  routine_welcome_home:
+    name: Coming home - Say welcome
+    initial: on
+    icon: mdi:account-plus-outline
+
+script:
+  routine_coming_home:
+    alias: Routine - Coming home
+    sequence:
+      - service: script.security_camera_off
+      - service: script.coming_home_say_welcome
+      - service: light.turn_on
+        entity_id: light.living_room_all_lights
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.speech_notifications
+      - condition: state
+        entity_id: input_boolean.routine_welcome_home
+        state: "on"
+      - service: media_player.shuffle_set
+        entity_id: media_player.master_bedroom
+        data:
+          shuffle: true
+      - service: media_player.select_source
+        entity_id: media_player.master_bedroom
+        data:
+          source: Evening Chill
+      # - service: media_player.turn_on
+      #   entity_id: media_player.living_room_tv_2
+      # - delay: "00:00:10"
+      # - service: spotcast.start
+      #   data:
+      #     device_name: "Living Room TV"
+      #     uri: "spotify:playlist:1dstTefWFQaBFTC6CjcEHd"
+      #     random_song: true
+  coming_home_say_welcome:
+    alias: Routine - Coming home - Say welcome
+    sequence:
+      - condition: state
+        entity_id: input_boolean.routine_welcome_home
+        state: "on"
+      - service: script.sonos_blast
+        data:
+          message: "Welcome home, George!"

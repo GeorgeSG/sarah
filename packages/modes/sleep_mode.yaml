@@ -1,58 +1,26 @@
 input_boolean:
   sleep_mode:
-    name: Sleep Mode
+    name: Sleep mode
     initial: off
     icon: mdi:sleep
 
 automation:
   - id: enable_sleep_mode
-    alias: Sleep Mode - Enable
+    alias: Sleep mode - Enable
     trigger:
       platform: state
       entity_id: input_boolean.sleep_mode
       from: "off"
       to: "on"
     action:
-      - service: media_player.media_stop
-        entity_id: media_player.master_bedroom
-      - service: fan.turn_on
-        entity_id: fan.philips_airpurifier
-      - service: media_player.turn_off
-        entity_id:
-          - media_player.living_room_tv
-          - media_player.living_room_tv_2
-      - service: light.turn_off
-        entity_id: light.living_room_all_lights
-      - delay: "00:00:02"
-      - service: media_player.volume_set
-        entity_id: media_player.master_bedroom
-        data:
-          volume_level: 0.1
-      - service: script.say_discretely
-        data:
-          message: "Entering sleep mode. Good night!"
+      - service: script.routine_bedtime
 
   - id: disable_sleep_mode
-    alias: Sleep Mode - Disable
+    alias: Sleep mode - Disable
     trigger:
       platform: state
       entity_id: input_boolean.sleep_mode
       from: "on"
       to: "off"
     action:
-      - service: media_player.volume_set
-        entity_id: media_player.master_bedroom
-        data:
-          volume_level: 0.3
-      - service: script.sarah_briefing
-      - delay: "00:00:25"
-      - service: script.talk
-        data:
-          message: "Here's some music to start the day!"
-      - delay: "00:00:02"
-      - service: media_player.select_source
-        entity_id: media_player.master_bedroom
-        data:
-          source: "Evening Chill"
-      - service: fan.turn_off
-        entity_id: fan.philips_airpurifier
+      - service: script.routine_waking_up

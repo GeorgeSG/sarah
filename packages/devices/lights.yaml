@@ -2,7 +2,7 @@
 # https://www.home-assistant.io/integrations/light.group/
 light:
   - platform: group
-    name: Living Room Main Lights
+    name: Living room main lights
     entities:
       - light.living_room_1
       - light.living_room_2
@@ -10,7 +10,7 @@ light:
       - light.living_room_4
 
   - platform: group
-    name: Living Room All Lights
+    name: Living room all lights
     entities:
       - light.living_room_1
       - light.living_room_2
