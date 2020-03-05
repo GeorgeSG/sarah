@@ -1,0 +1,38 @@
+title: COVID-19
+path: covid-19
+panel: false
+icon: "mdi:doctor"
+badges: []
+cards:
+  - type: vertical-stack
+    cards:
+      - type: entities
+        title: COVID-19
+        show_header_toggle: false
+        entities:
+          - entity: sensor.worldwide_coronavirus_confirmed
+          - entity: sensor.worldwide_coronavirus_current
+          - entity: sensor.worldwide_coronavirus_deaths
+          - entity: sensor.worldwide_coronavirus_recovered
+      - type: "custom:mini-graph-card"
+        animate: true
+        entities:
+          - entity: sensor.worldwide_coronavirus_deaths
+            index: 0
+            name: Deaths
+          - entity: sensor.worldwide_coronavirus_recovered
+            index: 1
+            name: Recovered
+          - entity: sensor.worldwide_coronavirus_current
+            index: 2
+            name: Current
+        line_width: 3
+        line_color:
+          - var(--paper-orange-400)
+          - var(--paper-green-400)
+          - var(--accent-color)
+        hours_to_show: 168
+        points_per_hour: 0.04
+        show:
+          average: true
+          extrema: true

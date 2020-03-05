@@ -1,0 +1,60 @@
+title: test
+path: test
+badges: []
+cards:
+  - type: entities
+    entities:
+      - entity: sensor.cube_analog_input
+      - entity: sensor.cube_multistate_input
+      - entity: sensor.cube_power
+      - entity: sensor.carbon_activity
+      - entity: sensor.carbon_last_update_trigger
+
+  - type: "custom:light-entity-card"
+    brightness: true
+    brightness_icon: weather-sunny
+    color_picker: true
+    color_temp: true
+    color_wheel: true
+    effects_list: true
+    entity: light.pc
+    full_width_sliders: false
+    group: false
+    persist_features: false
+    show_slider_percent: false
+    smooth_color_wheel: true
+    temperature_icon: thermometer
+    white_icon: file-word-box
+    white_value: true
+
+  - type: "custom:mini-graph-card"
+    animate: true
+    entities:
+      - entity: sensor.purifier_temperature
+        index: 0
+        name: Purifier Temperature
+      - entity: sensor.bedroom_weather_temperature
+        index: 1
+        name: Weather Temperature
+    line_color:
+      - "#e74c3c"
+      - var(--accent-color)
+    line_width: 3
+    points_per_hour: 1
+    hours_to_show: 72
+
+  - type: "custom:mini-graph-card"
+    animate: true
+    entities:
+      - entity: sensor.purifier_humidity
+        index: 0
+        name: Purifier humidity
+      - entity: sensor.bedroom_weather_humidity
+        index: 1
+        name: Weather humidity
+    line_color:
+      - "#e74c3c"
+      - var(--accent-color)
+    line_width: 3
+    points_per_hour: 1
+    hours_to_show: 72
