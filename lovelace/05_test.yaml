@@ -58,3 +58,5 @@ cards:
     line_width: 3
     points_per_hour: 1
     hours_to_show: 72
+
+  - type: custom:gui-sandbox
