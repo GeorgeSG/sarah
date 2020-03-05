@@ -3,3 +3,6 @@ automation.coming_home:
 
 automation.leaving_home:
   icon: mdi:home
+
+automation.arrival_detecion:
+  icon: mdi:account-plus-outline

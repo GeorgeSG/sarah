@@ -156,6 +156,7 @@ wake_on_lan:
 weather:
   - platform: darksky
     api_key: !secret darksky_key
+    mode: daily
 
 # https://www.home-assistant.io/integrations/webostv
 webostv:
