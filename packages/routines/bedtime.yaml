@@ -17,6 +17,7 @@ script:
         entity_id: media_player.master_bedroom
         data:
           volume_level: 0.1
+      # use say_discretely instead of talk, because sleep_mode is already on
       - service: script.say_discretely
         data:
           message: "Entering sleep mode. Good night!"
