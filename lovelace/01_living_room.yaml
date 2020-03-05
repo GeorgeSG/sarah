@@ -27,12 +27,8 @@ cards:
   - type: picture-entity
     aspect_ratio: 50%
     entity: camera.amcrest_camera
-    hold_action:
-      action: none
     show_name: true
     show_state: true
-    tap_action:
-      action: none
 
   - type: entities
     title: Camera Controls
