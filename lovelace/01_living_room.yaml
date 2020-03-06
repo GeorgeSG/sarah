@@ -24,19 +24,21 @@ cards:
       - entity: light.living_room_4
       - entity: light.pc
 
-  - type: picture-entity
-    aspect_ratio: 50%
-    entity: camera.amcrest_camera
-    show_name: true
-    show_state: true
+  - type: vertical-stack
+    cards:
+      - type: picture-entity
+        aspect_ratio: 50%
+        entity: camera.amcrest_camera
+        show_name: true
+        show_state: true
 
-  - type: entities
-    title: Camera Controls
-    show_header_toggle: false
-    entities:
-      - entity: switch.camera
-      - entity: binary_sensor.amcrest_camera_online
-      - entity: binary_sensor.amcrest_camera_motion_detected
+      - type: entities
+        title: Camera Controls
+        show_header_toggle: false
+        entities:
+          - entity: switch.camera
+          - entity: binary_sensor.amcrest_camera_online
+          - entity: binary_sensor.amcrest_camera_motion_detected
 
   - type: media-control
     entity: media_player.living_room_tv

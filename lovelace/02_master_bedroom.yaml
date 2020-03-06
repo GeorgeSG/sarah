@@ -3,48 +3,50 @@ path: master-bedroom
 icon: "mdi:bed-empty"
 badges: []
 cards:
-  - type: "custom:mini-graph-card"
-    animate: true
-    entities:
-      - entity: sensor.bedroom_weather_temperature
-        index: 0
-        name: Temperature
-    line_width: 3
-    points_per_hour: 1
-    show:
-      average: true
-      extrema: true
-
-  - type: horizontal-stack
+  - type: vertical-stack
     cards:
       - type: "custom:mini-graph-card"
-        name: Humidity
-        icon: "mdi:water"
-        font_size: 75
-        line_color: green
-        line_width: 8
+        animate: true
         entities:
-          - entity: sensor.bedroom_weather_humidity
+          - entity: sensor.bedroom_weather_temperature
             index: 0
+            name: Temperature
+        line_width: 3
+        points_per_hour: 1
+        show:
+          average: true
+          extrema: true
 
-      - type: "custom:mini-graph-card"
-        name: Air Quality
-        entities:
-          - entity: sensor.purifier_air_quality
-            index: 0
-        font_size: 75
-        icon: "mdi:weather-windy"
-        line_color: "#e74c3c"
-        line_width: 8
+      - type: horizontal-stack
+        cards:
+          - type: "custom:mini-graph-card"
+            name: Humidity
+            icon: "mdi:water"
+            font_size: 75
+            line_color: green
+            line_width: 8
+            entities:
+              - entity: sensor.bedroom_weather_humidity
+                index: 0
 
-      - type: "custom:mini-graph-card"
-        name: Pressure
-        entities:
-          - entity: sensor.bedroom_weather_pressure
-            index: 0
-        font_size: 75
-        line_color: var(--accent-color)
-        line_width: 8
+          - type: "custom:mini-graph-card"
+            name: Air Quality
+            entities:
+              - entity: sensor.purifier_air_quality
+                index: 0
+            font_size: 75
+            icon: "mdi:weather-windy"
+            line_color: "#e74c3c"
+            line_width: 8
+
+          - type: "custom:mini-graph-card"
+            name: Pressure
+            entities:
+              - entity: sensor.bedroom_weather_pressure
+                index: 0
+            font_size: 75
+            line_color: var(--accent-color)
+            line_width: 8
 
   - type: glance
     title: Window
