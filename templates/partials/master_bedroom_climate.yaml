@@ -1,0 +1,3 @@
+>-
+
+  In the bedroom, it is {{ states('sensor.bedroom_weather_temperature') | round }} degrees with around {{ states('sensor.bedroom_weather_humidity') | round }} percent humidity.

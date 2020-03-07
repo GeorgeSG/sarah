@@ -2,7 +2,7 @@ script:
   routine_waking_up:
     alias: Routine - Waking up
     sequence:
-      - service: script.routine_briefing
+      - service: script.routine_morning_briefing
       - delay: "00:00:25"
       - service: script.talk
         data:
@@ -14,3 +14,30 @@ script:
           source: "Evening Chill"
       - service: fan.turn_off
         entity_id: fan.philips_airpurifier
+
+  routine_morning_briefing:
+    alias: Routine - Morning Briefing
+    sequence:
+      - service: media_player.volume_set
+        entity_id: media_player.master_bedroom
+        data:
+          volume_level: 0.3
+      - service: script.talk_with_partials
+        data_template:
+          partials:
+            - !include ../../templates/partials/greeting.yaml
+            - >-
+              {{
+                [
+                  "Here's your briefing for today!",
+                  "Here's what's up!",
+                  "Here are the updates today!"
+                ] | random
+              }}
+            - !include ../../templates/partials/master_bedroom_climate.yaml
+            - !include ../../templates/partials/outside_forecast.yaml
+            - !include ../../templates/partials/light_check.yaml
+            - !include ../../templates/partials/window_check.yaml
+            - !include ../../templates/partials/iss.yaml
+            - !include ../../templates/partials/moon.yaml
+            - !include ../../templates/partials/inspirational_quote.yaml

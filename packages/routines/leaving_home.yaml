@@ -15,5 +15,3 @@ script:
         entity_id:
           - light.living_room_all_lights
           - light.bedside_light
-      - service: input_boolean.turn_off
-        entity_id: input_boolean.speech_notifications

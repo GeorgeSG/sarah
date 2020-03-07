@@ -1,0 +1,12 @@
+>-
+
+  {%- if states.sensor.moon.state == 'Full moon' -%}
+    {{
+      [
+        "Check out the full moon tonight!",
+        "Hey look, There is the full moon.",
+        "The moon is huge! And full.",
+        "If you want to see the full moon, tonight is the night."
+      ] | random
+    }}
+  {%- endif -%}

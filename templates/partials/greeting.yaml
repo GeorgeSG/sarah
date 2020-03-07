@@ -1,0 +1,9 @@
+>-
+
+  {%- if now().strftime('%H')|int < 12 and now().strftime('%H')|int > 6 -%}
+    Good morning!
+  {%- elif now().strftime('%H')|int >= 12 and now().strftime('%H')|int < 17 -%}
+    Good afternoon!
+  {%- else -%}
+    Good evening!
+  {%- endif -%}
