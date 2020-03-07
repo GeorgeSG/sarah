@@ -19,12 +19,26 @@ cards:
         entities:
           - entity: switch.camera
           - entity: media_player.living_room_tv
+          - entity: media_player.nvidia_shield
           - entity: fan.philips_airpurifier
         show_header_toggle: false
 
       - type: "custom:mini-media-player"
         artwork: cover
         entity: media_player.master_bedroom
+        hide:
+          power_state: false
+          shuffle: false
+        idle_view:
+          when_idle: true
+          when_standby: true
+        platform: sonos
+        show_source: true
+        source: full
+
+      - type: "custom:mini-media-player"
+        artwork: cover
+        entity: media_player.spotify_georgi_grdev
         hide:
           power_state: false
           shuffle: false
