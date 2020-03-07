@@ -134,7 +134,9 @@ webostv:
     #     - netflix
 
 yeelight:
-  devices: !secret yeelights
+  devices:
+    !secret yeelight_bedside_ip:
+      name: Bedside light
 
 # https://www.home-assistant.io/integrations/zeroconf
 zeroconf:
