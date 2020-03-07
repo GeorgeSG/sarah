@@ -26,13 +26,14 @@ script:
         data:
           source: Evening Chill
       # - service: media_player.turn_on
-      #   entity_id: media_player.living_room_tv_2
+      #   entity_id: media_player.nvidia_shield
       # - delay: "00:00:10"
       # - service: spotcast.start
       #   data:
       #     device_name: "Living Room TV"
       #     uri: "spotify:playlist:1dstTefWFQaBFTC6CjcEHd"
       #     random_song: true
+
   coming_home_say_welcome:
     alias: Routine - Coming home - Say welcome
     sequence:

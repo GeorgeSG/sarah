@@ -27,6 +27,22 @@ cards:
     white_icon: file-word-box
     white_value: true
 
+  - type: "custom:light-entity-card"
+    brightness: true
+    brightness_icon: weather-sunny
+    color_picker: true
+    color_temp: true
+    color_wheel: true
+    effects_list: true
+    entity: light.bedside_light
+    full_width_sliders: false
+    group: false
+    show_slider_percent: true
+    smooth_color_wheel: true
+    temperature_icon: thermometer
+    white_icon: file-word-box
+    white_value: true
+
   - type: "custom:mini-graph-card"
     animate: true
     entities:
@@ -58,5 +74,25 @@ cards:
     line_width: 3
     points_per_hour: 1
     hours_to_show: 72
+
+  - type: entities
+    entities:
+      - binary_sensor.lumi_lumi_vibration_aq1_b8c6c402_ias_zone
+
+  - type: horizontal-stack
+    cards:
+      - type: button
+        tap_action:
+          action: call-service
+          service: script.alarm_start
+        name: start
+        icon: mdi:home-alert
+
+      - type: button
+        tap_action:
+          action: call-service
+          service: script.alarm_stop
+        name: stop
+        icon: mdi:home
 
   - type: custom:gui-sandbox

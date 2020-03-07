@@ -55,6 +55,10 @@ amcrest:
       - motion_detected
       - online
 
+discovery:
+  ignore:
+    - yeelight
+
 media_player:
   - platform: androidtv
     name: nvidia shield
@@ -140,6 +144,9 @@ webostv:
     #     - youtube
     #     - makotv
     #     - netflix
+
+yeelight:
+  devices: !secret yeelights
 
 # https://www.home-assistant.io/integrations/zeroconf
 zeroconf:
