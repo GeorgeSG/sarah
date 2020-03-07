@@ -27,9 +27,6 @@ logbook:
 # https://www.home-assistant.io/components/map
 map:
 
-# https://www.home-assistant.io/integrations/mobile_app
-mobile_app:
-
 # https://www.home-assistant.io/components/system_health
 system_health:
 
@@ -59,11 +56,6 @@ discovery:
   ignore:
     - yeelight
 
-media_player:
-  - platform: androidtv
-    name: nvidia shield
-    host: !secret nvidia_shield_host
-
 # https://www.home-assistant.io/integrations/ffmpeg
 ffmpeg:
 
@@ -77,13 +69,8 @@ history:
 # https://www.home-assistant.io/integrations/media_extractor
 media_extractor:
 
-# https://www.home-assistant.io/integrations/tts
-tts:
-  - platform: amazon_polly
-    aws_access_key_id: !secret aws_polly_client_id
-    aws_secret_access_key: !secret aws_polly_client_secret
-    region_name: eu-central-1
-    voice: Amy
+# https://www.home-assistant.io/integrations/mobile_app
+mobile_app:
 
 # https://www.home-assistant.io/integrations/notify
 notify:
@@ -91,14 +78,6 @@ notify:
     platform: telegram
     api_key: !secret telegram_token
     chat_id: !secret telegram_georgi_chat_id
-
-# https://www.home-assistant.io/integrations/telegram
-# https://www.home-assistant.io/integrations/telegram_chatbot
-telegram_bot:
-  - platform: polling
-    api_key: !secret telegram_token
-    allowed_chat_ids:
-      - !secret telegram_georgi_chat_id
 
 # https://www.home-assistant.io/integrations/plex
 plex:
@@ -115,17 +94,27 @@ spotify:
   client_id: !secret spotify_client_id
   client_secret: !secret spotify_client_secret
 
-# https://www.home-assistant.io/integrations/sun
-sun:
+# https://www.home-assistant.io/integrations/telegram
+# https://www.home-assistant.io/integrations/telegram_chatbot
+telegram_bot:
+  - platform: polling
+    api_key: !secret telegram_token
+    allowed_chat_ids:
+      - !secret telegram_georgi_chat_id
+
+# https://www.home-assistant.io/integrations/tts
+tts:
+  - platform: amazon_polly
+    aws_access_key_id: !secret aws_polly_client_id
+    aws_secret_access_key: !secret aws_polly_client_secret
+    region_name: eu-central-1
+    voice: Amy
 
 # https://www.home-assistant.io/integrations/tuya
 tuya:
   username: !secret tuya_username
   password: !secret tuya_password
   country_code: bg
-
-# https://www.home-assistant.io/integrations/upnp
-upnp:
 
 # https://www.home-assistant.io/integrations/wake_on_lan
 wake_on_lan:

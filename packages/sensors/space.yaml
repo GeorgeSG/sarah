@@ -1,3 +1,6 @@
+# https://www.home-assistant.io/integrations/sun
+sun:
+
 sensor:
   - platform: launch_library
   - platform: moon
