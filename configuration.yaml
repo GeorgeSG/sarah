@@ -47,7 +47,6 @@ amcrest:
     username: !secret amcrest_username
     password: !secret amcrest_password
     resolution: low
-    scan_interval: 5
     binary_sensors:
       - motion_detected
       - online
