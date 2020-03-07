@@ -55,6 +55,11 @@ amcrest:
       - motion_detected
       - online
 
+media_player:
+  - platform: androidtv
+    name: nvidia shield
+    host: !secret nvidia_shield_host
+
 # https://www.home-assistant.io/integrations/ffmpeg
 ffmpeg:
 
@@ -95,6 +100,8 @@ telegram_bot:
 plex:
   host: !secret plex_host
   token: !secret plex_token
+  ssl: true
+  verify_ssl: false
   media_player:
     use_episode_art: true
     ignore_new_shared_users: false
