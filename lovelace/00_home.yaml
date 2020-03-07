@@ -12,6 +12,7 @@ cards:
           - entity: light.living_room_all_lights
           - entity: light.living_room_main_lights
           - entity: light.pc
+          - entity: light.bedside_light
         show_header_toggle: false
 
       - type: entities

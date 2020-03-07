@@ -5,6 +5,11 @@ badges: []
 cards:
   - type: vertical-stack
     cards:
+      - type: entities
+        title: Lights
+        entities:
+          - entity: light.bedside_light
+        show_header_toggle: false
       - type: "custom:mini-graph-card"
         animate: true
         entities:
