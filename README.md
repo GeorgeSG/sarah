@@ -10,6 +10,19 @@ This is my [Home Assistant](https://home-assistant.io/) configuration :)
 
 [Ping me](#meta) with any questions.
 
+## Configuration
+
+I'm using [Home Assistant Packages](https://www.home-assistant.io/docs/configuration/packages/) to
+keep everything organized and grouped by different functionalities.
+
+- `devices` - configuration and behavior for specific devices
+- `modules` - major functions / behaviors are split into modules
+- `modes` - entering and exiting house modes
+- `routines` - definitions of automated routines - e.g. Coming Home or Waking Up
+- `sensors` - describing sensors the house can use
+
+The `speech` module uses [partial templates](https://github.com/GeorgeSG/sarah/tree/master/templates/partials) to generate more complex messages.
+
 ## Hardware
 
 **Servers:**
@@ -41,19 +54,6 @@ This is my [Home Assistant](https://home-assistant.io/) configuration :)
 - [Aqara Magic Cube](https://www.gearbest.com/access-control/pp_1845856.html)
 - [Philips AC2729 Air Purifier and Humidifier](https://www.p4c.philips.com/cgi-bin/cpindex.pl?scy=EE&slg=EN&ctn=AC2729/10)
 - Amcrest Security Camera
-
-## Configuration
-
-I'm using [Home Assistant Packages](https://www.home-assistant.io/docs/configuration/packages/) to
-keep everything organized and grouped by different functionalities.
-
-- `devices` - configuration and behavior for specific devices
-- `modules` - major functions / behaviors are split into modules
-- `modes` - entering and exiting house modes
-- `routines` - definitions of automated routines - e.g. Coming Home or Waking Up
-- `sensors` - describing sensors the house can use
-
-The `speech` module uses [partial templates](https://github.com/GeorgeSG/sarah/tree/master/templates/partials) to generate more complex messages.
 
 ## Screenshots
 
