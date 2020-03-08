@@ -2,6 +2,8 @@ script:
   routine_waking_up:
     alias: Routine - Waking up
     sequence:
+      - service: fan.turn_off
+        entity_id: fan.philips_airpurifier
       - service: script.routine_morning_briefing
       - delay: 00:00:35
       - service: script.say

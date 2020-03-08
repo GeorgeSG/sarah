@@ -4,11 +4,13 @@ script:
     sequence:
       - service: media_player.volume_set
         entity_id: media_player.master_bedroom
-        data:
-          volume_level: 0.3
+        data_template:
+          volume_level: "{{ volume | default(0.3) }}"
+      - service: media_player.shuffle_set
+        entity_id: media_player.master_bedroom
+        data_template:
+          shuffle: "{{ shuffle | default(true) }}"
       - service: media_player.select_source
         entity_id: media_player.master_bedroom
-        data:
-          source: "Evening Chill"
-      - service: fan.turn_off
-        entity_id: fan.philips_airpurifier
+        data_template:
+          source: "{{ playlist | default('Evening Chill') }}"
