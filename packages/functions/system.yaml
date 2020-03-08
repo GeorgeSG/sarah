@@ -5,7 +5,7 @@ script:
       service: homeassistant.restart
 
 automation:
-  - id: announce_start
+  - id: system_announce_start
     alias: System - Announce start
     trigger:
       platform: homeassistant

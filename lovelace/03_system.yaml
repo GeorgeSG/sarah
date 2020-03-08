@@ -7,7 +7,7 @@ cards:
     title: Automations
     entities:
       - entity: input_boolean.routine_welcome_home
-      - entity: automation.presence_arrival_detection
+      - entity: automation.presence_arrival_detecion
       - entity: automation.coming_home
       - entity: automation.leaving_home
       - entity: automation.cube_knock
@@ -21,6 +21,8 @@ cards:
       - entity: automation.domestina_automate_end
       - entity: automation.domestina_end
       - entity: automation.camera_startup
+      - entity: automation.camera_turn_off_on_startup
+      - entity: automation.system_announce_start
     show_header_toggle: false
 
   - type: entities
