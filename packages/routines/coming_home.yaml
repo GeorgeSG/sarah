@@ -20,13 +20,10 @@ script:
 
       # Wait a while for me to enter before welcoming.
       - delay: 00:00:02
+      - service: script.coming_home_welcome_home
 
-      - service: script.coming_home_say_welcome
-      - delay: 00:00:13
-      - service: script.music_play
-
-  coming_home_say_welcome:
-    alias: Routine - Coming home - Say welcome
+  coming_home_welcome_home:
+    alias: Routine - Coming home - Welcome home
     sequence:
       - service: script.say
         data_template:
@@ -35,7 +32,10 @@ script:
             - !include ../../templates/partials/time.yaml
             - "Here's the current status:"
             - !include ../../templates/partials/window_check.yaml
-      - delay: 00:00:10
+      - wait_template: "{{ is_state('input_boolean.sarah_talking', 'off') }}"
+        timeout: 00:02:00
+      - delay: 00:00:01
+
       - service: script.say
         data_template:
           message: >-
@@ -47,3 +47,6 @@ script:
                 "Here's some music."
               ] | random
             }}
+      - delay: 00:00:02
+
+      - service: script.music_play

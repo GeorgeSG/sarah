@@ -3,6 +3,11 @@ input_boolean:
     name: Speech notifications
     icon: mdi:chat
 
+  sarah_talking:
+    name: SARAH talking
+    icon: mdi:chat
+    initial: off
+
 script:
   say:
     alias: Speech - Say
@@ -48,6 +53,10 @@ script:
   sonos_blast:
     alias: Speech - Sonos blast
     sequence:
+      # Mark SARAH as talking.
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.sarah_talking
+      # Don't shout :)
       - service: media_player.volume_set
         entity_id: media_player.master_bedroom
         data_template:
@@ -57,10 +66,17 @@ script:
             {% else %}
               0.5
             {% endif %}
+      # Say message.
       - service: tts.amazon_polly_say
         data_template:
           entity_id: media_player.master_bedroom
           message: "{{ message }}"
+      # Wait for phrase to be over and mark as not talking.
+      - delay: 00:00:01
+      - wait_template: "{{ is_state('media_player.master_bedroom', 'paused') }}"
+        timeout: 00:02:00
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.sarah_talking
 
   sonos_say:
     alias: Speech - Sonos say

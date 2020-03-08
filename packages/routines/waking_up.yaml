@@ -4,12 +4,17 @@ script:
     sequence:
       - service: fan.turn_off
         entity_id: fan.philips_airpurifier
+
       - service: script.routine_morning_briefing
-      - delay: 00:00:35
+      - wait_template: "{{ is_state('input_boolean.sarah_talking', 'off') }}"
+        timeout: 00:02:00
+      - delay: 00:00:01
+
       - service: script.say
         data:
           message: "Here's some music to start the day!"
       - delay: 00:00:02
+
       - service: script.music_play
 
   routine_morning_briefing:
@@ -21,6 +26,7 @@ script:
             - !include ../../templates/partials/greeting.yaml
             - !include ../../templates/partials/time.yaml
             - >-
+
               {{
                 [
                   "Here's your briefing for today!",
