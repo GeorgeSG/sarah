@@ -15,8 +15,8 @@ script:
           message: >-
             {%- if partials is defined -%}
               {%- for partial in partials -%}
-                {{ partial }}
-              {% endfor %}
+                {{ partial }}{{ " " }}
+              {%- endfor -%}
             {%- else -%}
               {{ message }}
             {%- endif -%}

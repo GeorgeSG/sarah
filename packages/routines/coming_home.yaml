@@ -14,9 +14,11 @@ script:
       - condition: state
         entity_id: input_boolean.routine_welcome_home
         state: "on"
-      - delay: "00:00:01"
+      - delay: "00:00:03"
       - service: script.coming_home_say_welcome
-      - delay: "00:00:15"
+
+      # TODO: Add condition for time - don't blast music late at night :)
+      - delay: "00:00:03"
       - service: media_player.shuffle_set
         entity_id: media_player.master_bedroom
         data:
@@ -25,14 +27,6 @@ script:
         entity_id: media_player.master_bedroom
         data:
           source: Evening Chill
-      # - service: media_player.turn_on
-      #   entity_id: media_player.nvidia_shield
-      # - delay: "00:00:10"
-      # - service: spotcast.start
-      #   data:
-      #     device_name: "Living Room TV"
-      #     uri: "spotify:playlist:1dstTefWFQaBFTC6CjcEHd"
-      #     random_song: true
 
   coming_home_say_welcome:
     alias: Routine - Coming home - Say welcome
@@ -48,7 +42,7 @@ script:
             - !include ../../templates/partials/time.yaml
             - "Here's the current status:"
             - !include ../../templates/partials/window_check.yaml
-      - delay: "00:00:02"
+      - delay: "00:00:10"
       - service: script.talk
         data_template:
           message: >-

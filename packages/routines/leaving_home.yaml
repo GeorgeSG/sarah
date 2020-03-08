@@ -12,6 +12,4 @@ script:
       - service: media_player.media_stop
         entity_id: media_player.master_bedroom
       - service: light.turn_off
-        entity_id:
-          - light.living_room_all_lights
-          - light.bedside_light
+        entity_id: light.all_lights
