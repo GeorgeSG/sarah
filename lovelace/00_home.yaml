@@ -97,6 +97,10 @@ cards:
         entity: weather.dark_sky
         forecast: true
 
+      - type: "custom:aftership-card"
+        entity: sensor.aftership
+        title: Packages
+
       - type: "custom:travel-time-card"
         title: "Travel time"
         columns:
