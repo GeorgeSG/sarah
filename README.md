@@ -48,7 +48,7 @@ Misc:
 [1.1]: http://i.imgur.com/wWzX9uB.png
 [2.1]: http://i.imgur.com/9I6NRUm.png
 
-Georgi Gardev
+**Georgi Gardev**
 
 - [gar.dev](https://gar.dev)
 - [![GitHub][2.1]](https://github.com/GeorgeSG/) [GeorgeSG](https://github.com/GeorgeSG/)
