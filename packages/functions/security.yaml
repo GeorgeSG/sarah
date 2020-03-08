@@ -89,5 +89,6 @@ automation:
       - platform: homeassistant
         event: start
     action:
+      - delay: 00:00:10
       - service: switch.turn_off
         entity_id: switch.camera
