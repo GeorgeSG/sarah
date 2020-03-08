@@ -1,11 +1,11 @@
 >-
 
-  {%- if is_state('light.living_room_all_lights', 'on') -%}
-      There are
+  {%- if is_state('light.all_lights', 'on') -%}
+    There are
     {%- for state in states.light if state.state == 'on' -%}
-        {%if loop.last %} {{ loop.index }} {% endif %}
+      {% if loop.last %} {{ loop.index }} {% endif %}
     {%- endfor -%}
-      lights on right now.
+    lights turned on right now.
   {%- else -%}
-      There are no lights on right now.
+    There are no lights turned on right now.
   {%- endif -%}

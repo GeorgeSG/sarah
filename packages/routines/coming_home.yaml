@@ -41,15 +41,22 @@ script:
         entity_id: media_player.master_bedroom
         data:
           volume_level: 0.5
-      - service: script.talk_with_partials
+      - service: script.talk
         data_template:
           partials:
             - !include ../../templates/partials/greeting.yaml
+            - !include ../../templates/partials/time.yaml
+            - "Here's the current status:"
             - !include ../../templates/partials/window_check.yaml
-            - >-
-              {{
-                [
-                  "I'll play some music.",
-                  "Here's some music."
-                ] | random
-              }}
+      - delay: "00:00:02"
+      - service: script.talk
+        data_template:
+          message: >-
+
+            {{
+              [
+                "I'll put some music on.",
+                "I'll play some music.",
+                "Here's some music."
+              ] | random
+            }}

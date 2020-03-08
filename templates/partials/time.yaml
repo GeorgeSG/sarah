@@ -1,0 +1,3 @@
+>-
+
+  The time is {{ now().hour }} {{ "%0.02d" | format(now().strftime("%-M") | int) }}.

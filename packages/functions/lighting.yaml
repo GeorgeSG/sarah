@@ -12,11 +12,14 @@ light:
   - platform: group
     name: Living room all lights
     entities:
-      - light.living_room_1
-      - light.living_room_2
-      - light.living_room_3
-      - light.living_room_4
+      - light.living_room_main_lights
       - light.pc
+
+  - platform: group
+    name: All lights
+    entities:
+      - light.living_room_all_lights
+      - light.bedside_light
 
 homeassistant:
   customize:

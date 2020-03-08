@@ -38,3 +38,10 @@ homeassistant:
 
     sensor.bedroom_right_window_power:
       friendly_name: Bedroom window battery
+
+group:
+  all_windows:
+    name: "All windows"
+    entities:
+      - binary_sensor.living_room_right_window_on_off
+      - binary_sensor.bedroom_right_window_on_off
