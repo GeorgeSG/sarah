@@ -51,7 +51,7 @@ keep everything organized and grouped by different functionalities.
 - `modules` - major functions / behaviors are split into modules
 - `modes` - entering and exiting house modes
 - `routines` - definitions of automated routines - e.g. Coming Home or Waking Up
-- `sensors` - configuring sensors the house can use
+- `sensors` - describing sensors the house can use
 
 The `speech` module uses [partial templates](https://github.com/GeorgeSG/sarah/tree/master/templates/partials) to generate more complex messages.
 
