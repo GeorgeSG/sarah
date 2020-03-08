@@ -14,11 +14,11 @@ script:
       - condition: state
         entity_id: input_boolean.routine_welcome_home
         state: "on"
-      - delay: "00:00:03"
+      - delay: 00:00:03
       - service: script.coming_home_say_welcome
 
       # TODO: Add condition for time - don't blast music late at night :)
-      - delay: "00:00:03"
+      - delay: 00:00:03
       - service: media_player.shuffle_set
         entity_id: media_player.master_bedroom
         data:
@@ -42,7 +42,7 @@ script:
             - !include ../../templates/partials/time.yaml
             - "Here's the current status:"
             - !include ../../templates/partials/window_check.yaml
-      - delay: "00:00:10"
+      - delay: 00:00:10
       - service: script.talk
         data_template:
           message: >-

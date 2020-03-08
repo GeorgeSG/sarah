@@ -57,11 +57,11 @@ script:
         data_template:
           with_group: yes
           entity_id: media_player.master_bedroom
-      - delay: "00:00:02"
+      - delay: 00:00:02
       - service: script.sonos_blast
         data_template:
           message: "{{ message }}"
-      - delay: "00:00:05"
+      - delay: 00:00:05
       - service: sonos.restore
         data_template:
           with_group: yes

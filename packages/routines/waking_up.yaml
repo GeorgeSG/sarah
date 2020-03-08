@@ -3,11 +3,11 @@ script:
     alias: Routine - Waking up
     sequence:
       - service: script.routine_morning_briefing
-      - delay: "00:00:25"
+      - delay: 00:00:25
       - service: script.talk
         data:
           message: "Here's some music to start the day!"
-      - delay: "00:00:02"
+      - delay: 00:00:02
       - service: media_player.select_source
         entity_id: media_player.master_bedroom
         data:
