@@ -61,6 +61,13 @@ The `speech` module uses [partial templates](https://github.com/GeorgeSG/sarah/t
 
 ![Home Screen](assets/screenshot-home.png?raw=true)
 
+## Inspiration
+
+1. [Bear Stone Smart Home Documentation](https://github.com/CCOSTAN/Home-AssistantConfig)
+1. [stanvx/Home-Assistant-Configuration](https://github.com/stanvx/Home-Assistant-Configuration)
+1. [Apocrathia/home-assistant-config](https://github.com/Apocrathia/home-assistant-config)
+1. [geekofweek/homeassistant](https://github.com/geekofweek/homeassistant)
+
 ## Meta
 
 [1.1]: http://i.imgur.com/wWzX9uB.png
