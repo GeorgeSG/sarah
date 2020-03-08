@@ -8,25 +8,22 @@ script:
   routine_coming_home:
     alias: Routine - Coming home
     sequence:
+      # Enter home mode.
       - service: script.security_camera_off
       - service: light.turn_on
         entity_id: light.living_room_all_lights
+
+      # Check if welcome home is enabled, proceed with welcome routine.
       - condition: state
         entity_id: input_boolean.routine_welcome_home
         state: "on"
-      - delay: 00:00:03
-      - service: script.coming_home_say_welcome
 
-      # TODO: Add condition for time - don't blast music late at night :)
-      - delay: 00:00:03
-      - service: media_player.shuffle_set
-        entity_id: media_player.master_bedroom
-        data:
-          shuffle: true
-      - service: media_player.select_source
-        entity_id: media_player.master_bedroom
-        data:
-          source: Evening Chill
+      # Wait a while for me to enter before welcoming.
+      - delay: 00:00:02
+
+      - service: script.coming_home_say_welcome
+      - delay: 00:00:13
+      - service: script.music_play
 
   coming_home_say_welcome:
     alias: Routine - Coming home - Say welcome

@@ -11,6 +11,7 @@ automation:
       platform: homeassistant
       event: start
     action:
+      - delay: 00:00:06
       - service: script.say
         data:
           message: "Hey! I was out for a bit, but I'm back online!"

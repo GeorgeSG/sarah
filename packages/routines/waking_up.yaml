@@ -3,17 +3,12 @@ script:
     alias: Routine - Waking up
     sequence:
       - service: script.routine_morning_briefing
-      - delay: 00:00:25
+      - delay: 00:00:35
       - service: script.say
         data:
           message: "Here's some music to start the day!"
       - delay: 00:00:02
-      - service: media_player.select_source
-        entity_id: media_player.master_bedroom
-        data:
-          source: "Evening Chill"
-      - service: fan.turn_off
-        entity_id: fan.philips_airpurifier
+      - service: script.music_play
 
   routine_morning_briefing:
     alias: Routine - Morning Briefing
