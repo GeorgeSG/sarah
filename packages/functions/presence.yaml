@@ -67,7 +67,8 @@ automation:
     action:
       - service: script.telegram_say
         data:
-          message: "Device marked as home. Waiting for door to open!"
+          title: "*Presence - Arrival detection*"
+          message: "🏠 Device marked as home. Waiting for door to open!"
       - wait_template: "{{ is_state('binary_sensor.front_door_on_off', 'on') }}"
         continue_on_timeout: false
         timeout: 00:15:00
@@ -75,7 +76,8 @@ automation:
         entity_id: input_boolean.georgi_home
       - service: script.telegram_say
         data:
-          message: "Hey, I've marked you as home now!"
+          title: "*Presence - Arrival detection*"
+          message: "✅ Hey, I've marked you as home now!"
 
   - id: leaving_home
     alias: Presence - Leaving home

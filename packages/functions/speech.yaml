@@ -41,6 +41,7 @@ script:
             script.sonos_blast
           {% endif %}
         data_template:
+          title: "💬 *Speech Module*" # For telegram only
           message: "{{ message }}"
 
   telegram_say:
@@ -48,6 +49,7 @@ script:
     sequence:
       - service: notify.telegram
         data_template:
+          title: "{{ title }}"
           message: "{{ message }}"
 
   sonos_blast:
