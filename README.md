@@ -17,6 +17,10 @@ Servers:
 - [Intel NUC6i7KYK](https://www.intel.com/content/www/us/en/products/boards-kits/nuc/kits/nuc6i7kyk.html) - Ubuntu running Home Assistant and Plex Media Server
 - [Synology DS415play](https://www.synology.com/) - Synology NAS Server
 
+Controllers:
+
+- [ConBee II](https://www.phoscon.de/en/conbee2) - ZigBee controller
+
 Sensors:
 
 - [Aqara Temperature and Humidity Sensor](https://www.aqara.com/us/temperature_humidity_sensor.html)
@@ -34,6 +38,7 @@ Media:
 
 Misc:
 
+- [Aqara Magic Cube](https://www.gearbest.com/access-control/pp_1845856.html)
 - [Philips AC2729 Air Purifier and Humidifier](https://www.p4c.philips.com/cgi-bin/cpindex.pl?scy=EE&slg=EN&ctn=AC2729/10)
 - Amcrest Security Camera
 
