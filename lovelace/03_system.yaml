@@ -20,7 +20,6 @@ cards:
       - entity: automation.domestina_start
       - entity: automation.domestina_automate_end
       - entity: automation.domestina_end
-      - entity: automation.camera_startup
       - entity: automation.camera_turn_off_on_startup
       - entity: automation.system_announce_start
     show_header_toggle: false
