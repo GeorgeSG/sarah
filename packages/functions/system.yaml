@@ -3,3 +3,14 @@ script:
     alias: System - Restart SARAH
     sequence:
       service: homeassistant.restart
+
+automation:
+  - id: announce_start
+    alias: System - Announce start
+    trigger:
+      platform: homeassistant
+      event: start
+    action:
+      - service: script.say
+        data:
+          message: "Hey! I was out for a bit, but I'm back online!"
