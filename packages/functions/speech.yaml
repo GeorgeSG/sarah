@@ -4,8 +4,8 @@ input_boolean:
     icon: mdi:chat
 
 script:
-  talk:
-    alias: Speech - Talk
+  say:
+    alias: Speech - Say
     sequence:
       - condition: state
         entity_id: input_boolean.sleep_mode
