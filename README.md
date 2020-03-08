@@ -10,12 +10,12 @@ This is my [Home Assistant](https://home-assistant.io/) configuration :)
 
 [Ping me](#meta) with any questions.
 
-### Servers
+### Hardware
+
+Servers:
 
 - [Intel NUC6i7KYK](https://www.intel.com/content/www/us/en/products/boards-kits/nuc/kits/nuc6i7kyk.html) - Ubuntu running Home Assistant and Plex Media Server
 - [Synology DS415play](https://www.synology.com/) - Synology NAS Server
-
-### Hardware
 
 Sensors:
 
