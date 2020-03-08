@@ -53,10 +53,10 @@ cards:
       - type: entities
         title: Manual Overrides
         entities:
-          - entity: input_boolean.sleep_mode
+          - entity: input_boolean.speech_notifications
           - entity: input_boolean.guest_mode
           - entity: input_boolean.domestina
-          - entity: input_boolean.speech_notifications
+          - entity: input_boolean.sleep_mode
           - entity: input_boolean.georgi_home
         show_header_toggle: false
 
