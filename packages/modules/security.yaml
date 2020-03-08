@@ -92,3 +92,24 @@ automation:
       - delay: 00:00:10
       - service: switch.turn_off
         entity_id: switch.camera
+
+  - id: door_opened_while_away
+    alias: Security · Door opened while away
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.front_door_on_off
+        to: "on"
+    condition:
+      condition: and
+      conditions:
+        - condition: state
+          entity_id: person.georgi
+          state: "not_home"
+        - condition: state
+          entity_id: input_boolean.guest_mode
+          state: "off"
+    action:
+      - service: script.telegram_say
+        data:
+          title: "🛡 *Security Module · Door opened while away*"
+          message: "It seems like the front door was opened while you are away! Check the camera!"
