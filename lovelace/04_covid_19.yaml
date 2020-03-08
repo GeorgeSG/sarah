@@ -6,17 +6,27 @@ badges: []
 cards:
   - type: vertical-stack
     cards:
-      - type: entities
-        title: COVID-19
-        show_header_toggle: false
+      - type: glance
+        title: COVID-19 Worldwide
+        show_name: true
+        columns: 4
         entities:
           - entity: sensor.worldwide_coronavirus_confirmed
+            name: Confirmed
+            icon: "mdi:emoticon-confused-outline"
           - entity: sensor.worldwide_coronavirus_current
+            name: Current
+            icon: "mdi:emoticon-sad-outline"
           - entity: sensor.worldwide_coronavirus_deaths
+            name: Deaths
+            icon: "mdi:emoticon-cry-outline"
           - entity: sensor.worldwide_coronavirus_recovered
+            name: Recovered
+            icon: "mdi:emoticon-cool-outline"
 
       - type: "custom:mini-graph-card"
         animate: true
+        icon: mdi:emoticon-confused
         entities:
           - entity: sensor.worldwide_coronavirus_deaths
             index: 0
@@ -34,6 +44,44 @@ cards:
           - var(--accent-color)
         hours_to_show: 168
         points_per_hour: 0.04
-        show:
-          average: true
-          extrema: true
+
+  - type: vertical-stack
+    cards:
+      - type: glance
+        title: COVID-19 Bulgaria
+        show_name: true
+        columns: 4
+        entities:
+          - entity: sensor.bulgaria_coronavirus_confirmed
+            name: Confirmed
+            icon: "mdi:emoticon-confused-outline"
+          - entity: sensor.bulgaria_coronavirus_current
+            name: Current
+            icon: "mdi:emoticon-sad-outline"
+          - entity: sensor.bulgaria_coronavirus_deaths
+            name: Deaths
+            icon: "mdi:emoticon-cry-outline"
+          - entity: sensor.bulgaria_coronavirus_recovered
+            name: Recovered
+            icon: "mdi:emoticon-cool-outline"
+
+      - type: "custom:mini-graph-card"
+        animate: true
+        icon: mdi:emoticon-confused
+        entities:
+          - entity: sensor.bulgaria_coronavirus_current
+            index: 0
+            name: Current
+          - entity: sensor.bulgaria_coronavirus_deaths
+            index: 1
+            name: Deaths
+          - entity: sensor.bulgaria_coronavirus_recovered
+            index: 2
+            name: Recovered
+        line_width: 3
+        line_color:
+          - var(--accent-color)
+          - var(--paper-orange-400)
+          - var(--paper-green-400)
+        hours_to_show: 168
+        points_per_hour: 0.04
