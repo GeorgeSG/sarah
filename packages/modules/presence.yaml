@@ -55,7 +55,7 @@ binary_sensor:
 automation:
   # When my state changes to "home", wait for 15 minutes for the door to be opened, and then mark me as home
   - id: presence_arrival_detecion
-    alias: Presence - Arrival detection
+    alias: Presence · Arrival detection
     trigger:
       platform: state
       entity_id: person.georgi
@@ -67,8 +67,8 @@ automation:
     action:
       - service: script.telegram_say
         data:
-          title: "*Presence - Arrival detection*"
-          message: "🏠 Device marked as home. Waiting for door to open!"
+          title: "🏠 *Presence Module · Arrival detection*"
+          message: "Device marked as home. Waiting for door to open!"
       - wait_template: "{{ is_state('binary_sensor.front_door_on_off', 'on') }}"
         continue_on_timeout: false
         timeout: 00:15:00
@@ -76,11 +76,11 @@ automation:
         entity_id: input_boolean.georgi_home
       - service: script.telegram_say
         data:
-          title: "*Presence - Arrival detection*"
+          title: "🏠 *Presence Module · Arrival detection*"
           message: "✅ Hey, I've marked you as home now!"
 
   - id: leaving_home
-    alias: Presence - Leaving home
+    alias: Presence · Leaving home
     trigger:
       platform: state
       entity_id: person.georgi
@@ -89,7 +89,7 @@ automation:
       - service: script.routine_leaving_home
 
   - id: coming_home
-    alias: Presence - Coming home
+    alias: Presence · Coming home
     trigger:
       platform: state
       entity_id: person.georgi

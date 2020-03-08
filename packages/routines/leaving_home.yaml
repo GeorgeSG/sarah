@@ -1,6 +1,6 @@
 script:
   routine_leaving_home:
-    alias: Routine - Leaving home
+    alias: Routine · Leaving home
     sequence:
       - service: input_boolean.turn_off
         entity_id: input_boolean.georgi_home

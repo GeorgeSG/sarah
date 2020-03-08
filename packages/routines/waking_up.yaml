@@ -1,6 +1,6 @@
 script:
   routine_waking_up:
-    alias: Routine - Waking up
+    alias: Routine · Waking up
     sequence:
       - service: fan.turn_off
         entity_id: fan.philips_airpurifier
@@ -18,7 +18,7 @@ script:
       - service: script.music_play
 
   routine_morning_briefing:
-    alias: Routine - Morning Briefing
+    alias: Routine · Morning Briefing
     sequence:
       - service: script.say
         data_template:

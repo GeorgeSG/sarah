@@ -1,12 +1,12 @@
 script:
   sarah_restart:
-    alias: System - Restart SARAH
+    alias: System · Restart SARAH
     sequence:
       service: homeassistant.restart
 
 automation:
   - id: system_announce_start
-    alias: System - Announce start
+    alias: System · Announce start
     trigger:
       platform: homeassistant
       event: start

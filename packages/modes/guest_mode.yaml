@@ -6,7 +6,7 @@ input_boolean:
 
 automation:
   - id: enable_guest_mode
-    alias: Guest mode - Enable
+    alias: Guest mode · Enable
     trigger:
       platform: state
       entity_id: input_boolean.guest_mode
@@ -21,7 +21,7 @@ automation:
         entity_id: input_boolean.speech_notifications
 
   - id: disable_guest_mode
-    alias: Guest mode - Disable
+    alias: Guest mode · Disable
     trigger:
       platform: state
       entity_id: input_boolean.guest_mode

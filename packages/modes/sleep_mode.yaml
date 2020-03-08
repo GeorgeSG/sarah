@@ -6,7 +6,7 @@ input_boolean:
 
 automation:
   - id: enable_sleep_mode
-    alias: Sleep mode - Enable
+    alias: Sleep mode · Enable
     trigger:
       platform: state
       entity_id: input_boolean.sleep_mode
@@ -16,7 +16,7 @@ automation:
       - service: script.routine_bedtime
 
   - id: disable_sleep_mode
-    alias: Sleep mode - Disable
+    alias: Sleep mode · Disable
     trigger:
       platform: state
       entity_id: input_boolean.sleep_mode

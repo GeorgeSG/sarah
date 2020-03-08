@@ -4,7 +4,8 @@ input_boolean:
     icon: mdi:broom
 
 automation:
-  - alias: Domestina - Automate start
+  - id: domestina_automate_start
+    alias: Domestina · Automate start
     trigger:
       platform: time
       at: "08:30:00"
@@ -15,7 +16,8 @@ automation:
       - service: input_boolean.turn_on
         entity_id: input_boolean.domestina
 
-  - alias: Domestina - Start
+  - id: domestina_start
+    alias: Domestina · Start
     trigger:
       platform: state
       entity_id: input_boolean.domestina
@@ -29,7 +31,8 @@ automation:
           - automation.cube_knock
           - automation.cube_shake
 
-  - alias: Domestina - Automate end
+  - id: domestina_automate_end
+    alias: Domestina · Automate end
     trigger:
       platform: time
       at: "13:00:00"
@@ -40,7 +43,8 @@ automation:
       - service: input_boolean.turn_off
         entity_id: input_boolean.domestina
 
-  - alias: Domestina - End
+  - id: domestina_end
+    alias: Domestina · End
     trigger:
       platform: state
       entity_id: input_boolean.domestina

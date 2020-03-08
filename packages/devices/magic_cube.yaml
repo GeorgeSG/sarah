@@ -1,6 +1,6 @@
 automation:
   - id: cube_knock
-    alias: Magic cube - Knock - Go to bed
+    alias: Magic cube · Knock · Go to bed
     trigger:
       platform: state
       entity_id: sensor.cube_multistate_input
@@ -10,7 +10,7 @@ automation:
         entity_id: input_boolean.sleep_mode
 
   - id: cube_shake
-    alias: Magic cube - Shake - Wake up
+    alias: Magic cube · Shake · Wake up
     trigger:
       platform: state
       entity_id: sensor.cube_multistate_input

@@ -10,7 +10,7 @@ input_boolean:
 
 script:
   say:
-    alias: Speech - Say
+    alias: Speech · Say
     sequence:
       # Don't talk while in sleep mode.
       - condition: state
@@ -29,7 +29,7 @@ script:
             {%- endif -%}
 
   say_discretely:
-    alias: Speech - Say discretely
+    alias: Speech · Say discretely
     sequence:
       # Figure out whether to talk or send a text.
       - service_template: >
@@ -45,7 +45,7 @@ script:
           message: "{{ message }}"
 
   telegram_say:
-    alias: Speech - Telegram say
+    alias: Speech · Telegram say
     sequence:
       - service: notify.telegram
         data_template:
@@ -53,7 +53,7 @@ script:
           message: "{{ message }}"
 
   sonos_blast:
-    alias: Speech - Sonos blast
+    alias: Speech · Sonos blast
     sequence:
       # Mark SARAH as talking.
       - service: input_boolean.turn_on
@@ -81,7 +81,7 @@ script:
         entity_id: input_boolean.sarah_talking
 
   sonos_say:
-    alias: Speech - Sonos say
+    alias: Speech · Sonos say
     sequence:
       - service: sonos.snapshot
         data_template:

@@ -1,12 +1,12 @@
 input_boolean:
   routine_welcome_home:
-    name: Coming home - Say welcome
+    name: Coming home · Say welcome
     initial: on
     icon: mdi:account-plus-outline
 
 script:
   routine_coming_home:
-    alias: Routine - Coming home
+    alias: Routine · Coming home
     sequence:
       # Enter home mode.
       - service: script.security_camera_off
@@ -23,7 +23,7 @@ script:
       - service: script.coming_home_welcome_home
 
   coming_home_welcome_home:
-    alias: Routine - Coming home - Welcome home
+    alias: Routine · Coming home · Welcome home
     sequence:
       - service: script.say
         data_template:

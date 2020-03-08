@@ -24,7 +24,7 @@ switch:
 
 script:
   security_camera_on:
-    alias: Security camera - Turn on
+    alias: Security camera · Turn on
     sequence:
       - service: camera.turn_on
         entity_id: camera.amcrest_camera
@@ -40,7 +40,7 @@ script:
         entity_id: camera.amcrest_camera
 
   security_camera_off:
-    alias: Security camera - Turn off
+    alias: Security camera · Turn off
     sequence:
       - service: amcrest.goto_preset
         entity_id: camera.amcrest_camera
@@ -84,7 +84,7 @@ script:
 # Hack - the switch.camera initial state is wrong (ON) when the server starts.
 automation:
   - id: camera_turn_off_on_startup
-    alias: Camera - Startup
+    alias: Camera · Startup
     trigger:
       - platform: homeassistant
         event: start
