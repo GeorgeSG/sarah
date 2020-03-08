@@ -87,6 +87,10 @@ automation:
       to: "not_home"
     action:
       - service: script.routine_leaving_home
+      - service: script.telegram_say
+        data:
+          title: "🏠 *Presence Module · Leaving Home*"
+          message: "I see you're leaving. Goodbye!"
 
   - id: coming_home
     alias: Presence · Coming home
@@ -96,6 +100,10 @@ automation:
       to: "home"
     action:
       - service: script.routine_coming_home
+      - service: script.telegram_say
+        data:
+          title: "🏠 *Presence Module · Coming Home*"
+          message: "Welcome home!"
 
 #
 # ─── CUSTOMIZATION ──────────────────────────────────────────────────────────────
