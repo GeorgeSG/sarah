@@ -13,10 +13,6 @@ script:
       - service: light.turn_off
         entity_id: light.all_lights
       - delay: 00:00:02
-      - service: media_player.volume_set
-        entity_id: media_player.master_bedroom
-        data:
-          volume_level: 0.2
       # use say_discretely instead of talk, because sleep_mode is already on
       - service: script.say_discretely
         data:
