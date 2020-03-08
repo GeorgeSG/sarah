@@ -1,0 +1,36 @@
+# https://www.home-assistant.io/integrations/synologydsm
+sensor:
+  - platform: synologydsm
+    host: !secret synology_ip
+    username: !secret synology_user
+    password: !secret synology_password
+    monitored_conditions:
+      - cpu_15min_load
+      - cpu_1min_load
+      - cpu_5min_load
+      - cpu_other_load
+      - cpu_system_load
+      - cpu_total_load
+      - cpu_user_load
+      - disk_below_remain_life_thr
+      - disk_device
+      - disk_exceed_bad_sector_thr
+      - disk_smart_status
+      - disk_status
+      - disk_temp
+      - memory_available_real
+      - memory_available_swap
+      - memory_cached
+      - memory_real_usage
+      - memory_size
+      - memory_total_real
+      - memory_total_swap
+      - network_down
+      - network_up
+      - volume_device_type
+      - volume_disk_temp_avg
+      - volume_disk_temp_max
+      - volume_percentage_used
+      - volume_size_total
+      - volume_size_used
+      - volume_status
