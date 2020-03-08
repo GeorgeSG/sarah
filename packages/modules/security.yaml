@@ -93,7 +93,7 @@ automation:
       - service: switch.turn_off
         entity_id: switch.camera
 
-  - id: door_opened_while_away
+  - id: security_door_opened_while_away
     alias: Security · Door opened while away
     trigger:
       - platform: state
