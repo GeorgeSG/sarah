@@ -11,10 +11,12 @@ cards:
       - entity: automation.security_door_opened_while_away
       - entity: automation.coming_home
       - entity: automation.leaving_home
+      - entity: automation.master_bedroom_bedside_light_on_bedside_switch_single_click
       - entity: automation.cube_knock
       - entity: automation.cube_shake
       - entity: automation.enable_guest_mode
       - entity: automation.disable_guest_mode
+      - entity: automation.sleep_toggle_on_switch_tap
       - entity: automation.enable_sleep_mode
       - entity: automation.disable_sleep_mode
       - entity: automation.domestina_automate_start
@@ -33,4 +35,5 @@ cards:
       - entity: sensor.bedroom_right_window_power
       - entity: sensor.bedroom_weather_power
       - entity: sensor.cube_power
+      - entity: sensor.master_bedroom_bedside_switch_power
     show_header_toggle: false

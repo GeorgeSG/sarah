@@ -38,6 +38,7 @@ The `speech` module uses [partial templates](https://github.com/GeorgeSG/sarah/t
 
 - [Aqara Temperature and Humidity Sensor](https://www.aqara.com/us/temperature_humidity_sensor.html)
 - [Aqara Door and Window Sensor](https://www.aqara.com/us/door_and_window_sensor.html)
+- [Aqara Wireless Mini Switch](https://www.aqara.com/en/smart_wireless_mini_switch.html)
 
 **Lights:**
 

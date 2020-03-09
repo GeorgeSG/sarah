@@ -24,3 +24,20 @@ automation:
       to: "off"
     action:
       - service: script.routine_waking_up
+
+  - id: sleep_toggle_on_switch_tap
+    alias: Sleep mode · Toggle on bedside switch single click
+    trigger:
+      - platform: event
+        event_type: zha_event
+        event_data:
+          device_ieee: !secret master_bedroom_bedside_switch_ieee
+          command: double
+    action:
+      - service_template: >-
+          {% if now().strftime('%H')|int > 20 or now().strftime('%H')|int < 6 %}
+            input_boolean.turn_on
+          {% else %}
+            input_boolean.turn_off
+          {% endif %}
+        entity_id: input_boolean.sleep_mode

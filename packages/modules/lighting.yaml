@@ -21,6 +21,19 @@ light:
       - light.living_room_all_lights
       - light.bedside_light
 
+automation:
+  - id: master_bedroom_bedside_light_on_bedside_switch_single_click
+    alias: "Lighting · Toggle master bedroom bedside light on bedisde switch single click"
+    trigger:
+      - platform: event
+        event_type: zha_event
+        event_data:
+          device_ieee: !secret master_bedroom_bedside_switch_ieee
+          command: single
+    action:
+      - service: light.toggle
+        entity_id: light.bedside_light
+
 homeassistant:
   customize:
     light.living_room_1:
