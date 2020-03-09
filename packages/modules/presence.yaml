@@ -59,6 +59,7 @@ automation:
     trigger:
       platform: state
       entity_id: person.georgi
+      from: "not_home"
       to: "home"
     condition:
       condition: state
