@@ -59,7 +59,6 @@ automation:
     trigger:
       platform: state
       entity_id: person.georgi
-      from: "not_home"
       to: "home"
     condition:
       condition: state
@@ -97,7 +96,7 @@ automation:
     alias: Presence · Coming home
     trigger:
       platform: state
-      entity_id: person.georgi
+      entity_id: input_boolean.georgi_home
       to: "home"
     action:
       - service: script.routine_coming_home
