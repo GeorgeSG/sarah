@@ -28,6 +28,8 @@ resources:
     url: /community_plugin/mini-media-player/mini-media-player-bundle.js
   - type: module
     url: /hacsfiles/aftership-card/aftership-card.js
+  - type: module
+    url: /hacsfiles/config-template-card/config-template-card.js
 title: Sarah
 views:
   - !include lovelace/00_home.yaml
