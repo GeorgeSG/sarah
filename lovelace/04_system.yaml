@@ -5,6 +5,7 @@ badges: []
 cards:
   - type: entities
     title: Automations
+    show_header_toggle: false
     entities:
       - entity: input_boolean.routine_welcome_home
       - entity: automation.presence_arrival_detection
@@ -25,10 +26,10 @@ cards:
       - entity: automation.domestina_end
       - entity: automation.camera_turn_off_on_startup
       - entity: automation.system_announce_start
-    show_header_toggle: false
 
   - type: entities
     title: Batteries
+    show_header_toggle: false
     entities:
       - entity: sensor.front_door_power
       - entity: sensor.living_room_right_window_power
@@ -36,4 +37,3 @@ cards:
       - entity: sensor.bedroom_weather_power
       - entity: sensor.cube_power
       - entity: sensor.master_bedroom_bedside_switch_power
-    show_header_toggle: false

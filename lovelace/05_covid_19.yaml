@@ -27,6 +27,13 @@ cards:
       - type: "custom:mini-graph-card"
         animate: true
         icon: mdi:emoticon-confused
+        line_width: 3
+        line_color:
+          - var(--paper-orange-400)
+          - var(--paper-green-400)
+          - var(--accent-color)
+        hours_to_show: 168
+        points_per_hour: 0.04
         entities:
           - entity: sensor.worldwide_coronavirus_deaths
             index: 0
@@ -37,13 +44,6 @@ cards:
           - entity: sensor.worldwide_coronavirus_current
             index: 2
             name: Current
-        line_width: 3
-        line_color:
-          - var(--paper-orange-400)
-          - var(--paper-green-400)
-          - var(--accent-color)
-        hours_to_show: 168
-        points_per_hour: 0.04
 
   - type: vertical-stack
     cards:
@@ -68,6 +68,13 @@ cards:
       - type: "custom:mini-graph-card"
         animate: true
         icon: mdi:emoticon-confused
+        line_width: 3
+        line_color:
+          - var(--accent-color)
+          - var(--paper-orange-400)
+          - var(--paper-green-400)
+        hours_to_show: 168
+        points_per_hour: 0.04
         entities:
           - entity: sensor.bulgaria_coronavirus_current
             index: 0
@@ -78,10 +85,3 @@ cards:
           - entity: sensor.bulgaria_coronavirus_recovered
             index: 2
             name: Recovered
-        line_width: 3
-        line_color:
-          - var(--accent-color)
-          - var(--paper-orange-400)
-          - var(--paper-green-400)
-        hours_to_show: 168
-        points_per_hour: 0.04

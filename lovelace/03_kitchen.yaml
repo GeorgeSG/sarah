@@ -1,0 +1,24 @@
+title: Kitchen
+path: kitchen
+icon: "mdi:chef-hat"
+badges: []
+cards:
+  - type: "custom:mini-media-player"
+    artwork: cover
+    entity: media_player.kitchen
+    speaker_group:
+      sync_volume: true
+      entities:
+        - entity_id: media_player.master_bedroom
+          name: Master Bedroom
+        - entity_id: media_player.living_room
+          name: Livingroom
+        - entity_id: media_player.kitchen
+          name: Kitchen
+    hide:
+      power: true
+      icon: true
+      shuffle: false
+    idle_view:
+      when_idle: true
+      when_standby: true

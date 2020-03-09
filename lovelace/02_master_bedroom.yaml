@@ -10,24 +10,54 @@ cards:
         entities:
           - entity: light.bedside_light
         show_header_toggle: false
+
+      - type: "custom:mini-media-player"
+        artwork: cover
+        entity: media_player.master_bedroom
+        speaker_group:
+          sync_volume: true
+          entities:
+            - entity_id: media_player.master_bedroom
+              name: Master Bedroom
+            - entity_id: media_player.living_room
+              name: Livingroom
+            - entity_id: media_player.kitchen
+              name: Kitchen
+        hide:
+          power: true
+          icon: true
+          shuffle: false
+        idle_view:
+          when_idle: true
+          when_standby: true
+
+  - type: vertical-stack
+    cards:
+      - type: glance
+        title: Window
+        show_name: false
+        entities:
+          - entity: binary_sensor.bedroom_right_window_on_off_wrapper
+          - entity: sensor.bedroom_right_window_power
+
       - type: "custom:mini-graph-card"
         animate: true
-        entities:
-          - entity: sensor.bedroom_weather_temperature
-            index: 0
-            name: Temperature
         line_width: 3
         points_per_hour: 1
         show:
           average: true
           extrema: true
+        entities:
+          - entity: sensor.bedroom_weather_temperature
+            index: 0
+            name: Temperature
 
       - type: horizontal-stack
         cards:
           - type: "custom:mini-graph-card"
             name: Humidity
-            icon: "mdi:water"
             font_size: 75
+            icon: "mdi:water"
             line_color: green
             line_width: 8
             entities:
@@ -36,13 +66,13 @@ cards:
 
           - type: "custom:mini-graph-card"
             name: Air Quality
-            entities:
-              - entity: sensor.purifier_air_quality
-                index: 0
             font_size: 75
             icon: "mdi:weather-windy"
             line_color: "#e74c3c"
             line_width: 8
+            entities:
+              - entity: sensor.purifier_air_quality
+                index: 0
 
           - type: "custom:mini-graph-card"
             name: Pressure
@@ -53,38 +83,23 @@ cards:
             line_color: var(--accent-color)
             line_width: 8
 
-  - type: glance
-    title: Window
-    entities:
-      - entity: binary_sensor.bedroom_right_window_on_off_wrapper
-      - entity: sensor.bedroom_right_window_power
-    show_name: false
-
-  - type: entities
-    title: Purifier Sensors
-    entities:
-      - entity: fan.philips_airpurifier
-      - entity: sensor.purifier_speed
-      - entity: sensor.purifier_mode
-      - entity: sensor.purifier_brightness
-      - entity: sensor.purifier_target_humidity
-      - entity: sensor.purifier_air_quality
-      - entity: sensor.purifier_allergens
-      - entity: sensor.purifier_humidity
-      - entity: sensor.purifier_water_level
-      - entity: sensor.purifier_temperature
-      - entity: sensor.purifier_pre_filter
-      - entity: sensor.purifier_hepa_filter
-      - entity: sensor.purifier_carbon_filter
-      - entity: sensor.purifier_wick_filter
-    show_header_toggle: false
-
-  - type: "custom:mini-media-player"
-    source: full
-    artwork: cover
-    entity: media_player.master_bedroom
-    hide:
-      power_state: false
-      shuffle: false
-    platform: sonos
-    show_source: true
+  - type: vertical-stack
+    cards:
+      - type: entities
+        title: Purifier Sensors
+        show_header_toggle: false
+        entities:
+          - entity: fan.philips_airpurifier
+          - entity: sensor.purifier_speed
+          - entity: sensor.purifier_mode
+          - entity: sensor.purifier_brightness
+          - entity: sensor.purifier_target_humidity
+          - entity: sensor.purifier_air_quality
+          - entity: sensor.purifier_allergens
+          - entity: sensor.purifier_humidity
+          - entity: sensor.purifier_water_level
+          - entity: sensor.purifier_temperature
+          - entity: sensor.purifier_pre_filter
+          - entity: sensor.purifier_hepa_filter
+          - entity: sensor.purifier_carbon_filter
+          - entity: sensor.purifier_wick_filter

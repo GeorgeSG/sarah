@@ -35,6 +35,7 @@ views:
   - !include lovelace/00_home.yaml
   - !include lovelace/01_living_room.yaml
   - !include lovelace/02_master_bedroom.yaml
-  - !include lovelace/03_system.yaml
-  - !include lovelace/04_covid_19.yaml
-  - !include lovelace/05_test.yaml
+  - !include lovelace/03_kitchen.yaml
+  - !include lovelace/04_system.yaml
+  - !include lovelace/05_covid_19.yaml
+  - !include lovelace/06_test.yaml

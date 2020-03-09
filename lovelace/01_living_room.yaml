@@ -3,26 +3,56 @@ path: living-room
 icon: "mdi:sofa"
 badges: []
 cards:
-  - type: glance
-    title: Window
-    show_icon: true
-    show_name: false
-    show_state: true
-    entities:
-      - entity: binary_sensor.living_room_right_window_on_off_wrapper
-      - entity: sensor.living_room_right_window_power
+  - type: vertical-stack
+    cards:
+      - type: entities
+        title: Lights
+        show_header_toggle: false
+        entities:
+          - entity: light.living_room_all_lights
+          - entity: light.living_room_main_lights
+          - entity: light.living_room_1
+          - entity: light.living_room_2
+          - entity: light.living_room_3
+          - entity: light.living_room_4
+          - entity: light.pc
 
-  - type: entities
-    title: Lights
-    show_header_toggle: false
-    entities:
-      - entity: light.living_room_all_lights
-      - entity: light.living_room_main_lights
-      - entity: light.living_room_1
-      - entity: light.living_room_2
-      - entity: light.living_room_3
-      - entity: light.living_room_4
-      - entity: light.pc
+      - type: "custom:mini-media-player"
+        artwork: cover
+        entity: media_player.living_room
+        speaker_group:
+          sync_volume: true
+          entities:
+            - entity_id: media_player.master_bedroom
+              name: Master Bedroom
+            - entity_id: media_player.living_room
+              name: Livingroom
+            - entity_id: media_player.kitchen
+              name: Kitchen
+        hide:
+          power: true
+          icon: true
+          shuffle: false
+        idle_view:
+          when_idle: true
+          when_standby: true
+
+      - type: "custom:mini-media-player"
+        entity: media_player.living_room_tv
+
+      - type: "custom:mini-media-player"
+        entity: media_player.playstation_4
+
+  - type: vertical-stack
+    cards:
+      - type: glance
+        title: Window
+        show_icon: true
+        show_name: false
+        show_state: true
+        entities:
+          - entity: binary_sensor.living_room_right_window_on_off_wrapper
+          - entity: sensor.living_room_right_window_power
 
   - type: vertical-stack
     cards:
@@ -39,9 +69,3 @@ cards:
           - entity: switch.camera
           - entity: binary_sensor.amcrest_camera_online
           - entity: binary_sensor.amcrest_camera_motion_detected
-
-  - type: media-control
-    entity: media_player.living_room_tv
-
-  - type: media-control
-    entity: media_player.playstation_4
