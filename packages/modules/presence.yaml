@@ -97,7 +97,7 @@ automation:
     trigger:
       platform: state
       entity_id: input_boolean.georgi_home
-      to: "home"
+      to: "on"
     action:
       - service: script.routine_coming_home
       - service: script.telegram_say
