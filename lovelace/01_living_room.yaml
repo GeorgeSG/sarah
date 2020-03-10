@@ -10,7 +10,7 @@ cards:
         show_header_toggle: false
         entities:
           - entity: light.living_room_all_lights
-            name: All Lights
+            name: All lights
           - type: custom:fold-entity-row
             head:
               entity: light.living_room_main_lights

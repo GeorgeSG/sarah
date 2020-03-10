@@ -13,7 +13,7 @@ cards:
           - type: custom:fold-entity-row
             head:
               entity: light.living_room_all_lights
-              name: Living room lights
+              name: Living room
             entities:
               - type: custom:fold-entity-row
                 head:

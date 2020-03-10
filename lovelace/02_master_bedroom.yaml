@@ -49,7 +49,6 @@ cards:
           extrema: true
         entities:
           - entity: sensor.bedroom_weather_temperature
-            index: 0
             name: Temperature
 
       - type: horizontal-stack
@@ -61,8 +60,15 @@ cards:
             line_color: green
             line_width: 8
             entities:
-              - entity: sensor.bedroom_weather_humidity
-                index: 0
+              - sensor.bedroom_weather_humidity
+
+          - type: "custom:mini-graph-card"
+            name: Pressure
+            entities:
+              - sensor.bedroom_weather_pressure
+            font_size: 75
+            line_color: var(--accent-color)
+            line_width: 8
 
           - type: "custom:mini-graph-card"
             name: Air Quality
@@ -71,35 +77,46 @@ cards:
             line_color: "#e74c3c"
             line_width: 8
             entities:
-              - entity: sensor.purifier_air_quality
-                index: 0
-
-          - type: "custom:mini-graph-card"
-            name: Pressure
-            entities:
-              - entity: sensor.bedroom_weather_pressure
-                index: 0
-            font_size: 75
-            line_color: var(--accent-color)
-            line_width: 8
+              - sensor.purifier_air_quality
 
   - type: vertical-stack
     cards:
       - type: entities
-        title: Purifier Sensors
+        title: Air Purifier
         show_header_toggle: false
         entities:
           - entity: fan.philips_airpurifier
-          - entity: sensor.purifier_speed
-          - entity: sensor.purifier_mode
-          - entity: sensor.purifier_brightness
-          - entity: sensor.purifier_target_humidity
-          - entity: sensor.purifier_air_quality
-          - entity: sensor.purifier_allergens
-          - entity: sensor.purifier_humidity
-          - entity: sensor.purifier_water_level
-          - entity: sensor.purifier_temperature
-          - entity: sensor.purifier_pre_filter
-          - entity: sensor.purifier_hepa_filter
-          - entity: sensor.purifier_carbon_filter
-          - entity: sensor.purifier_wick_filter
+            name: Purifier Working
+          - type: custom:fold-entity-row
+            head:
+              type: custom:dummy-entity-row
+              entity: sensor.purifier_air_quality
+              name: Sensors
+              icon: mdi:air-purifier
+            open: true
+            entities:
+              - sensor.purifier_air_quality
+              - sensor.purifier_allergens
+              - sensor.purifier_temperature
+              - sensor.purifier_humidity
+              - sensor.purifier_water_level
+          - type: custom:fold-entity-row
+            head:
+              type: custom:dummy-entity-row
+              entity: sensor.purifier_speed
+              name: Mode
+            entities:
+              - sensor.purifier_speed
+              - sensor.purifier_mode
+              - sensor.purifier_brightness
+              - sensor.purifier_target_humidity
+          - type: custom:fold-entity-row
+            head:
+              type: custom:dummy-entity-row
+              entity: sensor.purifier_pre_filter
+              name: Filters
+            entities:
+              - sensor.purifier_pre_filter
+              - sensor.purifier_hepa_filter
+              - sensor.purifier_carbon_filter
+              - sensor.purifier_wick_filter
