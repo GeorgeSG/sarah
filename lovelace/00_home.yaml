@@ -10,9 +10,21 @@ cards:
         title: Lights
         show_header_toggle: false
         entities:
-          - entity: light.living_room_all_lights
-          - entity: light.living_room_main_lights
-          - entity: light.pc
+          - type: custom:fold-entity-row
+            head:
+              entity: light.living_room_all_lights
+              name: Living room lights
+            entities:
+              - type: custom:fold-entity-row
+                head:
+                  entity: light.living_room_main_lights
+                  name: Main lights
+                entities:
+                  - light.living_room_1
+                  - light.living_room_2
+                  - light.living_room_3
+                  - light.living_room_4
+              - light.pc
           - entity: light.bedside_light
 
       - type: entities

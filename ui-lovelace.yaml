@@ -1,6 +1,7 @@
 custom_header:
   compact_mode: true
   editor_warnings: false
+  hide_config: true
   hide_help: true
   hide_unused: true
 resources:
@@ -30,6 +31,9 @@ resources:
     url: /hacsfiles/aftership-card/aftership-card.js
   - type: module
     url: /hacsfiles/config-template-card/config-template-card.js
+  - type: module
+    url: /hacsfiles/lovelace-fold-entity-row/fold-entity-row.js
+
 title: Sarah
 views:
   - !include lovelace/00_home.yaml
