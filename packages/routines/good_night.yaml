@@ -1,0 +1,27 @@
+script:
+  routine_good_night:
+    alias: Routine · Going to sleep
+    sequence:
+      - service: fan.turn_on
+        entity_id: fan.philips_airpurifier
+      - service: media_player.media_stop
+        entity_id: group.all_sonos
+      - service: light.turn_off
+        entity_id: light.all_lights
+      - service: media_player.turn_off
+        entity_id:
+          - media_player.nvidia_shield
+          - media_player.living_room_tv
+      # Use say_discretely instead of talk, because sleep_mode is already on.
+      - service: script.say_discretely
+        data:
+          message: "Entering sleep mode. Good night!"
+
+      # Prepare for the next day.
+      - delay: 00:00:05
+      - service: sonos.join
+        entity_id:
+          - media_player.living_room
+          - media_player.kitchen
+        data:
+          master: media_player.master_bedroom

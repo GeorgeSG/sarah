@@ -1,3 +1,11 @@
+group:
+  all_sonos:
+    name: "All Sonos"
+    entities:
+      - media_player.master_bedroom
+      - media_player.living_room
+      - media_player.kitchen
+
 script:
   music_play:
     alias: "Music · Play"

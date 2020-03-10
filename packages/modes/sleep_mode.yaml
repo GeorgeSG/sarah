@@ -13,7 +13,7 @@ automation:
       from: "off"
       to: "on"
     action:
-      - service: script.routine_bedtime
+      - service: script.routine_good_night
 
   - id: disable_sleep_mode
     alias: Sleep mode · Disable
