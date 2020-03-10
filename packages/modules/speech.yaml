@@ -63,7 +63,7 @@ script:
         entity_id: media_player.master_bedroom
         data_template:
           volume_level: >-
-            {% if now().strftime('%H')|int < 6 and now().strftime('%H')|int > 1 %}
+            {% if now().strftime('%H')|int < 6 and now().strftime('%H')|int > 0 %}
               0.2
             {% else %}
               0.5
