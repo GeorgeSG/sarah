@@ -14,18 +14,18 @@ cards:
       - entity: automation.leaving_work_to_home
       - entity: automation.leaving_home
       - entity: automation.master_bedroom_bedside_light_on_bedside_switch_single_click
-      - entity: automation.sleep_toggle_on_switch_tap
       - entity: automation.cube_knock
       - entity: automation.cube_shake
       - entity: automation.enable_guest_mode
       - entity: automation.disable_guest_mode
       - entity: automation.enable_sleep_mode
       - entity: automation.disable_sleep_mode
+      - entity: automation.sleep_toggle_on_switch_tap
       - entity: automation.domestina_automate_start
       - entity: automation.domestina_start
       - entity: automation.domestina_automate_end
       - entity: automation.domestina_end
-      - entity: speech_telegram_do_nothing
+      - entity: automation.speech_telegram_do_nothing
       - entity: automation.camera_turn_off_on_startup
       - entity: automation.system_announce_start
 
