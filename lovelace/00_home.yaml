@@ -13,7 +13,7 @@ cards:
           - type: custom:fold-entity-row
             head:
               entity: light.living_room_main_lights
-              name: Living Room Main Lights
+              name: Living room main lights
               toggle: true
             entities:
               - type: custom:slider-entity-row
