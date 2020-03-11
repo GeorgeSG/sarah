@@ -29,8 +29,8 @@ script:
           partials:
             - !include ../../templates/partials/greeting.yaml
             - !include ../../templates/partials/time.yaml
-            - "Here's the current status:"
-            - !include ../../templates/partials/window_check.yaml
+            # - "Here's the current status:" // TODO: figure out if there will be anything to say?
+            - !include ../../templates/partials/window_suggestions.yaml
       - wait_template: "{{ is_state('input_boolean.sarah_talking', 'off') }}"
         timeout: 00:02:00
       - delay: 00:00:01
