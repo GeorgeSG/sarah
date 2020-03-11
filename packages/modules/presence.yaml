@@ -84,6 +84,7 @@ automation:
     trigger:
       platform: state
       entity_id: person.georgi
+      from: "home"
       to: "not_home"
     action:
       - service: script.routine_leaving_home
