@@ -18,8 +18,6 @@ script:
         entity_id: input_boolean.routine_welcome_home
         state: "on"
 
-      # Wait a while for me to enter before welcoming.
-      - delay: 00:00:02
       - service: script.coming_home_welcome_home
 
   coming_home_welcome_home:
