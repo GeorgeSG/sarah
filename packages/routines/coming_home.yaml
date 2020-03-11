@@ -12,6 +12,7 @@ script:
       - service: script.security_camera_off
       - service: light.turn_on
         entity_id: light.living_room_all_lights
+      - service: script.music_join_sonoses
 
       # Check if welcome home is enabled, proceed with welcome routine.
       - condition: state
