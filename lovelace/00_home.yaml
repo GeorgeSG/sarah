@@ -69,19 +69,6 @@ cards:
           when_idle: true
           when_standby: true
 
-      - type: "custom:mini-media-player"
-        artwork: cover
-        entity: media_player.spotify_georgi_grdev
-        hide:
-          power_state: false
-          shuffle: false
-        idle_view:
-          when_idle: true
-          when_standby: true
-        platform: sonos
-        show_source: true
-        source: full
-
       - type: entities
         title: Manual Overrides
         show_header_toggle: false
