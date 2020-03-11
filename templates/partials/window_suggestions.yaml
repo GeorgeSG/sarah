@@ -1,15 +1,29 @@
 >-
 
-  {%- if states('sensor.dark_sky_temperature') < states('sensor.bedroom_weather_temperature') -%}
+  {%- set getting_hot = [
+     " to cool down a bit.",
+     ". It's getting hot!",
+     ", or you're probably gonna boil!",
+     ", or you're gonna simmer!"
+   ] -%}
 
-    {%- if is_state('binary_sensor.bedroom_right_window_on_off', 'off')
-          and states('sensor.bedroom_weather_temperature') > 22
-      You should probably open the master bedroom window to cool down a bit.
-    {%- endif -%}
+   {%- set getting_cold = [
+     " to warm up a bit.",
+     ". It's getting chilly!",
+     ", or you're probably gonna freeze!",
+     ", or you're gonna ice up!"
+   ] -%}
 
-    {%- if is_state('binary_sensor.bedroom_right_window_on_off', 'on')
-          and states('sensor.bedroom_weather_temperature') < 18
-      You should probably close the master bedroom window, it's getting chilly.
-    {%- endif -%}
+   {%- if states('sensor.dark_sky_temperature') < states('sensor.bedroom_weather_temperature') -%}
 
-  {% -endif -%}
+     {%- if is_state('binary_sensor.bedroom_right_window_on_off', 'off')
+           and states('sensor.bedroom_weather_temperature') > 22 -%}
+       You should probably open the master bedroom window{{ getting_hot | random }}
+     {%- endif -%}
+
+     {%- if is_state('binary_sensor.bedroom_right_window_on_off', 'on')
+           and states('sensor.bedroom_weather_temperature') < 18 -%}
+       You should probably close the master bedroom window{{ getting_cold | random }}
+     {%- endif -%}
+
+   {%- endif -%}
