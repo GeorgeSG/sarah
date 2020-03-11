@@ -109,7 +109,7 @@ automation:
           entity_id: input_boolean.guest_mode
           state: "off"
     action:
-      - service: script.telegram_say
+      - service: notify.telegram
         data:
           title: "🛡 *Security Module · Door opened while away*"
           message: "It seems like the front door was opened while you are away! Check the camera!"

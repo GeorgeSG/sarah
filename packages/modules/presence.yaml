@@ -65,7 +65,7 @@ automation:
       entity_id: input_boolean.georgi_home
       state: "off"
     action:
-      - service: script.telegram_say
+      - service: notify.telegram
         data:
           title: "🏠 *Presence Module · Arrival detection*"
           message: "Device marked as home. Waiting for door to open!"
@@ -74,7 +74,7 @@ automation:
         timeout: 00:15:00
       - service: input_boolean.turn_on
         entity_id: input_boolean.georgi_home
-      - service: script.telegram_say
+      - service: notify.telegram
         data:
           title: "🏠 *Presence Module · Arrival detection*"
           message: "✅ Hey, I've marked you as home now!"
@@ -88,7 +88,7 @@ automation:
       to: "not_home"
     action:
       - service: script.routine_leaving_home
-      - service: script.telegram_say
+      - service: notify.telegram
         data:
           title: "🏠 *Presence Module · Leaving Home*"
           message: "I see you're leaving. Goodbye!"
@@ -101,7 +101,7 @@ automation:
       to: "on"
     action:
       - service: script.routine_coming_home
-      - service: script.telegram_say
+      - service: notify.telegram
         data:
           title: "🏠 *Presence Module · Coming Home*"
           message: "Welcome home!"
@@ -114,11 +114,13 @@ automation:
       from: "work"
       to: "not_home"
     action:
-      - service: script.telegram_say
+      - service: notify.telegram
         data:
           title: "🏠 *Presence Module · Leaving Work*"
-          message: "I see you're leaving work. Are you coming home?"
-          inline_keyboard: "Yes:/leaving_home_routine, No"
+          message: "Hey, I see you're leaving work. Are you coming home?"
+          data:
+            inline_keyboard:
+              - "Yes:/leaving_work_to_home, No:/do_nothing"
 
 #
 # ─── CUSTOMIZATION ──────────────────────────────────────────────────────────────

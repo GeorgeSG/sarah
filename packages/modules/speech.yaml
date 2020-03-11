@@ -36,20 +36,12 @@ script:
           {% if is_state('media_player.master_bedroom', 'playing')
               or is_state('input_boolean.speech_notifications', 'off')
               or is_state('input_boolean.georgi_home', 'off') %}
-            script.telegram_say
+            notify.telegram
           {% else %}
             script.sonos_blast
           {% endif %}
         data_template:
           title: "💬 *Speech Module*" # For telegram only
-          message: "{{ message }}"
-
-  telegram_say:
-    alias: Speech · Telegram say
-    sequence:
-      - service: notify.telegram
-        data_template:
-          title: "{{ title }}"
           message: "{{ message }}"
 
   sonos_blast:
@@ -96,3 +88,17 @@ script:
         data_template:
           with_group: yes
           entity_id: media_player.master_bedroom
+
+automation:
+  - id: speech_telegram_do_nothing
+    alias: Speech · Telegram · Action · Do nothing
+    trigger:
+      platform: event
+      event_type: telegram_callback
+      event_data:
+        command: "/do_nothing"
+    action:
+      - service: telegram_bot.delete_message
+        data_template:
+          message_id: "{{ trigger.event.data.message.message_id}}"
+          chat_id: "{{ trigger.event.data.chat_id }}"

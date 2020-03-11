@@ -48,3 +48,30 @@ script:
       - delay: 00:00:02
 
       - service: script.music_play
+
+automation:
+  - id: leaving_work_to_home
+    alias: Routine · Coming home · Left work
+    trigger:
+      platform: event
+      event_type: telegram_callback
+      event_data:
+        command: "/leaving_work_to_home"
+    action:
+      - service: telegram_bot.edit_replymarkup
+        data_template:
+          message_id: "last"
+          chat_id: "{{ trigger.event.data.chat_id }}"
+          inline_keyboard:
+      - service: notify.telegram
+        data_template:
+          title: "🏠 *Presence Module · Leaving Work*"
+          message: >-
+
+            {{
+              [
+                "Okay, I'll be expecting you!",
+                "Awesome! I'm prepping for your arrival",
+                "Cool, I'll be ready!"
+              ] | random
+            }}
