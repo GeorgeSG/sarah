@@ -10,6 +10,9 @@ script:
         timeout: 00:02:00
       - delay: 00:00:01
 
+      - condition: state
+        entity_id: input_boolean.guest_mode
+        state: "off"
       - service: script.say
         data:
           message: "Here's some music to start the day!"
