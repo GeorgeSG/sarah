@@ -37,6 +37,8 @@ updater:
 # https://www.home-assistant.io/components/logger
 logger:
   default: warning
+  logs:
+    homeassistant.components.amcrest: error
 
 #
 # ─── INTEGRATIONS ───────────────────────────────────────────────────────────────

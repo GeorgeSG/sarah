@@ -14,15 +14,15 @@
      ", or you're gonna ice up!"
    ] -%}
 
-   {%- if states('sensor.dark_sky_temperature') < states('sensor.bedroom_weather_temperature') -%}
+   {%- if (states('sensor.dark_sky_temperature') | int) < (states('sensor.bedroom_weather_temperature') | int) -%}
 
      {%- if is_state('binary_sensor.bedroom_right_window_on_off', 'off')
-           and states('sensor.bedroom_weather_temperature') > 22 -%}
+           and (states('sensor.bedroom_weather_temperature') | int) > 22 -%}
        You should probably open the master bedroom window{{ getting_hot | random }}
      {%- endif -%}
 
      {%- if is_state('binary_sensor.bedroom_right_window_on_off', 'on')
-           and states('sensor.bedroom_weather_temperature') < 18 -%}
+           and (states('sensor.bedroom_weather_temperature') | int) < 18 -%}
        You should probably close the master bedroom window{{ getting_cold | random }}
      {%- endif -%}
 
