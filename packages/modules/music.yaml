@@ -10,6 +10,7 @@ input_select:
   sonos_leader:
     name: "Sonos Leader"
     initial: media_player.master_bedroom
+    icon: mdi:speaker
     options:
       - media_player.master_bedroom
       - media_player.living_room

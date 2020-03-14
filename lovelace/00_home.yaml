@@ -70,15 +70,10 @@ cards:
           when_standby: true
 
       - type: entities
-        show_header_toggle: false
-        entities:
-          - entity: input_select.sonos_leader
-            icon: mdi:speaker
-
-      - type: entities
         title: Manual Overrides
         show_header_toggle: false
         entities:
+          - input_select.sonos_leader
           - input_boolean.speech_notifications
           - input_boolean.guest_mode
           - input_boolean.domestina
