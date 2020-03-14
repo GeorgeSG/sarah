@@ -38,6 +38,7 @@ updater:
 logger:
   default: warning
   logs:
+    homeassistant.components.shell_command: debug
     homeassistant.components.amcrest: error
     zigpy.util: error
 

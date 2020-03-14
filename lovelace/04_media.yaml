@@ -1,0 +1,45 @@
+title: Media
+path: media
+panel: false
+icon: mdi:play-circle-outline
+badges: []
+cards:
+  - type: entities
+    title: Youtube controls
+    icon: mdi:youtube
+    show_header_toggle: false
+    entities:
+      - entity: input_text.youtube_download_url
+        type: "custom:text-input-row"
+      - entity: input_text.youtube_download_name
+        type: "custom:text-input-row"
+
+  - type: entity-button
+    name: Download
+    icon: mdi:download
+    icon_height: 48px
+    tap_action:
+      action: call-service
+      service: script.youtube_download_selected
+
+  - type: custom:config-template-card
+    entities:
+      - sensor.philip_defranco
+      - sensor.available_pds
+    card:
+      type: vertical-stack
+      cards:
+        - type: picture-entity
+          entity: sensor.philip_defranco
+          image: "${states['sensor.philip_defranco'].attributes.entity_picture}"
+          name: "Play the latest PDS"
+          show_state: false
+          tap_action:
+            action: call-service
+            service: script.youtube_play_latest_pds
+        - type: custom:text-element
+          text: "${states['sensor.philip_defranco'].state}"
+        - type: custom:text-element
+          text: "Available:"
+        - type: custom:text-element
+          text: "${states['sensor.available_pds'].state.split(',')}"

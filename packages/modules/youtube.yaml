@@ -1,0 +1,65 @@
+sensor:
+  - platform: youtube
+    channel_id: UClFSU9_bUb4Rc6OYfTt5SPw
+  - platform: command_line
+    name: Available PDS
+    command: !secret youtube_pds_list_command
+    scan_interval: 30
+  - platform: command_line
+    name: Available Youtube clips
+    command: !secret youtube_list_command
+    scan_interval: 30
+
+input_text:
+  youtube_download_url:
+    name: Youtube download URL
+    icon: mdi:link
+    initial: ""
+  youtube_download_name:
+    name: Youtube download name
+    icon: mdi:format-letter-case
+    initial: ""
+
+shell_command:
+  youtube_download: !secret youtube_download_command
+
+script:
+  youtube_play_latest_pds:
+    alias: Youtube · Play latest PDS
+    sequence:
+      - service: script.music_join_sonoses
+      - service: media_player.play_media
+        data_template:
+          entity_id: media_player.master_bedroom
+          media_content_id: "{{ states('sensor.sarah_url') }}/local/audio/youtube/pds/{{ states('sensor.available_pds').split(',') | last }}"
+          media_content_type: "music"
+
+  youtube_download_selected:
+    alias: Youtube · Download selected video
+    sequence:
+      - service: shell_command.youtube_download
+        data_template:
+          url: "{{ states('input_text.youtube_download_url') }}"
+          name: "{{ states('input_text.youtube_download_name') }}"
+      - service: input_text.set_value
+        entity_id:
+          - input_text.youtube_download_url
+          - input_text.youtube_download_name
+        data:
+          value: ""
+
+automation:
+  - id: youtube_download_latest_pds
+    alias: Youtube · Download latest PDS
+    trigger:
+      platform: state
+      entity_id: sensor.philip_defranco
+    action:
+      - service: shell_command.youtube_download
+        data_template:
+          url: "{{ state_attr('sensor.philip_defranco', 'url') }}"
+          name: "{{ state_attr('sensor.philip_defranco', 'published')[0:10] }}"
+          folder: "pds/"
+      - service: script.say
+        data:
+          message: "Just wanted to let you know - a new PDS is available!"

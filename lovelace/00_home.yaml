@@ -122,7 +122,7 @@ cards:
         title: Packages
 
       - type: "custom:travel-time-card"
-        title: "Travel time"
+        title: Travel time
         columns:
           - name
           - duration

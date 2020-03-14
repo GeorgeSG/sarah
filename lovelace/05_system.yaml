@@ -7,6 +7,8 @@ cards:
     title: Automations
     show_header_toggle: false
     entities:
+      - automation.youtube_download_latest_pds
+
       - type: custom:fold-entity-row
         head:
           type: custom:dummy-entity-row

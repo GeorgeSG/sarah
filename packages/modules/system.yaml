@@ -1,3 +1,10 @@
+sensor:
+  - platform: template
+    sensors:
+      sarah_url:
+        friendly_name: "SARAH's URL"
+        value_template: !secret sarah_url
+
 script:
   sarah_restart:
     alias: System · Restart SARAH
