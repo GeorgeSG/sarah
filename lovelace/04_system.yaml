@@ -7,31 +7,78 @@ cards:
     title: Automations
     show_header_toggle: false
     entities:
-      - input_boolean.routine_welcome_home
-      - automation.security_door_opened_while_away
-      - automation.presence_arrival_detection
-      - automation.coming_home
-      - automation.leaving_work_to_home
-      - automation.leaving_home
       - automation.master_bedroom_bedside_light_on_bedside_switch_single_click
       - automation.cube_knock
       - automation.cube_shake
-      - automation.enable_guest_mode
-      - automation.disable_guest_mode
-      - automation.telegram_enable_guest_mode
-      - automation.telegram_disable_guest_mode
-      - automation.bedtime_toggle_on_master_bedroom_bedside_switch_hold
-      - automation.enable_sleep_mode
-      - automation.disable_sleep_mode
-      - automation.sleep_toggle_on_switch_tap
-      - automation.domestina_automate_start
-      - automation.domestina_start
-      - automation.domestina_automate_end
-      - automation.domestina_end
-      - automation.speech_telegram_do_nothing
-      - automation.camera_turn_off_on_startup
-      - automation.system_announce_start
-      - automation.system_telegram_status
+
+      - type: custom:fold-entity-row
+        head:
+          type: custom:dummy-entity-row
+          entity: binary_sensor.georgi_home
+          name: Presence
+        open: true
+        entities:
+          - input_boolean.routine_welcome_home
+          - automation.presence_arrival_detection
+          - automation.coming_home
+          - automation.leaving_work_to_home
+          - automation.leaving_home
+
+      - type: custom:fold-entity-row
+        head:
+          type: custom:dummy-entity-row
+          entity: input_boolean.sleep_mode
+        open: true
+        entities:
+          - automation.bedtime_toggle_on_master_bedroom_bedside_switch_hold
+          - automation.enable_sleep_mode
+          - automation.disable_sleep_mode
+          - automation.sleep_toggle_on_switch_tap
+
+      - type: custom:fold-entity-row
+        head:
+          type: custom:dummy-entity-row
+          entity: input_boolean.guest_mode
+        open: true
+        entities:
+          - automation.enable_guest_mode
+          - automation.disable_guest_mode
+          - automation.telegram_enable_guest_mode
+          - automation.telegram_disable_guest_mode
+
+      - type: custom:fold-entity-row
+        head:
+          type: custom:dummy-entity-row
+          entity: sun.sun
+          name: Security
+          icon: mdi:shield-home
+        open: true
+        entities:
+          - automation.security_door_opened_while_away
+          - automation.camera_turn_off_on_startup
+
+      - type: custom:fold-entity-row
+        head:
+          type: custom:dummy-entity-row
+          entity: input_boolean.domestina
+        open: true
+        entities:
+          - automation.domestina_automate_start
+          - automation.domestina_start
+          - automation.domestina_automate_end
+          - automation.domestina_end
+
+      - type: custom:fold-entity-row
+        head:
+          type: custom:dummy-entity-row
+          entity: sun.sun
+          icon: mdi:cogs
+          name: System
+        open: true
+        entities:
+          - automation.system_announce_start
+          - automation.system_telegram_status
+          - automation.speech_telegram_do_nothing
 
   - type: entities
     title: Batteries
