@@ -26,7 +26,7 @@ automation:
       - service: script.routine_waking_up
 
   - id: sleep_toggle_on_switch_tap
-    alias: Sleep mode · Toggle on bedside switch single click
+    alias: Sleep mode · Toggle on bedside switch double click
     trigger:
       - platform: event
         event_type: zha_event

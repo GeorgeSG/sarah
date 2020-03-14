@@ -20,6 +20,7 @@ cards:
       - automation.disable_guest_mode
       - automation.telegram_enable_guest_mode
       - automation.telegram_disable_guest_mode
+      - automation.bedtime_toggle_on_master_bedroom_bedside_switch_hold
       - automation.enable_sleep_mode
       - automation.disable_sleep_mode
       - automation.sleep_toggle_on_switch_tap
