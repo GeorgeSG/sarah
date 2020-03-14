@@ -34,3 +34,33 @@ automation:
           - automation.coming_home
       - service: input_boolean.turn_on
         entity_id: input_boolean.speech_notifications
+
+  - id: telegram_enable_guest_mode
+    alias: Guest mode · Enable · From Telegram
+    trigger:
+      platform: event
+      event_type: telegram_command
+      event_data:
+        command: "/guest_mode_on"
+    action:
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.guest_mode
+      - service: notify.telegram
+        data:
+          title: "⚙️ *System Module*"
+          message: "Okay, turning Guest mode on!"
+
+  - id: telegram_disable_guest_mode
+    alias: Guest mode · Disable · From Telegram
+    trigger:
+      platform: event
+      event_type: telegram_command
+      event_data:
+        command: "/guest_mode_off"
+    action:
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.guest_mode
+      - service: notify.telegram
+        data:
+          title: "⚙️ *System Module*"
+          message: "Okay, turning Guest mode off!"

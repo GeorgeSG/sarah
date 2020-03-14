@@ -15,3 +15,34 @@ automation:
       - service: script.say
         data:
           message: "Hey! I was out for a bit, but I'm back online!"
+      - service: notify.telegram
+        data:
+          title: "⚙️ *System Module*"
+          message: "Ask me to do something anytime!"
+          data:
+            keyboard:
+              - "/guest_mode_on, /guest_mode_off"
+              - "/status"
+
+  - id: system_telegram_status
+    alias: System · Telegram · Announce status
+    trigger:
+      platform: event
+      event_type: telegram_command
+      event_data:
+        command: "/status"
+    action:
+      - service: notify.telegram
+        data_template:
+          title: "⚙️ *System Module*"
+          message: >-
+
+            Guest mode: {{ states('input_boolean.guest_mode') }}
+
+            Windows:
+              Living room: {{ states('binary_sensor.living_room_right_window_on_off') }}
+              Master bedroom: {{ states('binary_sensor.master_bedroom_right_window_on_off') }}
+
+            Lights:
+              Living room: {{ states('light.living_room_all_lights') }}
+              Master bedroom: {{ states('light.bedside_light') }}
