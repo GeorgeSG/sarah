@@ -22,7 +22,31 @@ light:
       - light.bedside_light
 
 automation:
-  - id: master_bedroom_bedside_light_on_bedside_switch_single_click
+  - id: lighting_turn_on_after_sunset
+    alias: Lighting · Turn on all lights after sunset
+    trigger:
+      platform: sun
+      event: sunset
+      offset: "+00:00:00"
+    condition:
+      - condition: state
+        entity_id: binary_sensor.georgi_home
+        state: "on"
+    action:
+      - service: light.turn_on
+        entity_id: light.all_lights
+
+  - id: lighting_turn_off_after_sunrise
+    alias: Lighting · Turn off all lights after sunrise
+    trigger:
+      platform: sun
+      event: sunrise
+      offset: "+00:00:00"
+    action:
+      - service: light.turn_off
+        entity_id: light.all_lights
+
+  - id: lighting_master_bedroom_bedside_light_on_bedside_switch_single_click
     alias: Lighting · Master bedroom · Toggle bedside light on bedisde switch single click"
     trigger:
       platform: event

@@ -97,7 +97,7 @@ automation:
     alias: Presence · Coming home
     trigger:
       platform: state
-      entity_id: input_boolean.georgi_home
+      entity_id: binary_sensor.georgi_home
       to: "on"
     action:
       - service: script.routine_coming_home

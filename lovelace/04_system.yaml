@@ -28,7 +28,9 @@ cards:
           icon: mdi:lightbulb
         open: true
         entities:
-          - automation.master_bedroom_bedside_light_on_bedside_switch_single_click
+          - automation.lighting_turn_on_after_sunset
+          - automation.lighting_turn_off_after_sunrise
+          - automation.lighting_master_bedroom_bedside_light_on_bedside_switch_single_click
           - automation.lighting_living_room_turn_on_cube_flip_90
           - automation.lighting_living_room_turn_off_cube_flip_180
 
