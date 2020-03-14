@@ -16,7 +16,7 @@ resources:
   - type: module
     url: /community_plugin/circle-sensor-card/circle-sensor-card.js
   - type: module
-    url: /community_plugin/lovelace-card-mod/card-mod.js
+    url: /hacsfiles/lovelace-card-mod/card-mod.js
   - type: js
     url: /community_plugin/light-entity-card/light-entity-card.js
   - type: module

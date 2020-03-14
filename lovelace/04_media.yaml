@@ -5,6 +5,10 @@ icon: mdi:play-circle-outline
 badges: []
 cards:
   - type: entities
+    style: |
+      ha-icon {
+        color: red;
+      }
     title: Youtube controls
     icon: mdi:youtube
     show_header_toggle: false
@@ -40,6 +44,7 @@ cards:
             service: script.youtube_play_latest_pds
         - type: custom:text-element
           text: "${states['sensor.philip_defranco'].state}"
+
         - type: custom:text-element
           text: "Available:"
         - type: custom:text-element
