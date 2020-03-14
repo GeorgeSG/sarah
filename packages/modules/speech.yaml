@@ -33,7 +33,7 @@ script:
     sequence:
       # Figure out whether to talk or send a text.
       - service_template: >
-          {% if is_state('media_player.master_bedroom', 'playing')
+          {% if is_state(states('input_select.sonos_leader'), 'playing')
               or is_state('input_boolean.speech_notifications', 'off')
               or is_state('input_boolean.georgi_home', 'off') %}
             notify.telegram
@@ -52,7 +52,7 @@ script:
         entity_id: input_boolean.sarah_talking
       # Don't shout :)
       - service: media_player.volume_set
-        entity_id: media_player.master_bedroom
+        entity_id: group.all_sonos
         data_template:
           volume_level: >-
             {% if now().strftime('%H')|int < 6 and now().strftime('%H')|int > 0 %}
@@ -63,11 +63,11 @@ script:
       # Say message.
       - service: tts.amazon_polly_say
         data_template:
-          entity_id: media_player.master_bedroom
+          entity_id: "{{ states('input_select.sonos_leader') }}"
           message: "{{ message }}"
       # Wait for phrase to be over and mark as not talking.
       - delay: 00:00:01
-      - wait_template: "{{ is_state('media_player.master_bedroom', 'paused') }}"
+      - wait_template: "{{ is_state(states('input_select.sonos_leader'), 'paused') }}"
         timeout: 00:02:00
       - service: input_boolean.turn_off
         entity_id: input_boolean.sarah_talking

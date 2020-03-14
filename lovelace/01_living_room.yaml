@@ -73,8 +73,8 @@ cards:
         show_name: false
         show_state: true
         entities:
-          - entity: binary_sensor.living_room_right_window_on_off_wrapper
-          - entity: sensor.living_room_right_window_power
+          - binary_sensor.living_room_right_window_on_off_wrapper
+          - sensor.living_room_right_window_power
 
   - type: vertical-stack
     cards:
@@ -88,6 +88,6 @@ cards:
         title: Camera Controls
         show_header_toggle: false
         entities:
-          - entity: switch.camera
-          - entity: binary_sensor.amcrest_camera_online
-          - entity: binary_sensor.amcrest_camera_motion_detected
+          - switch.camera
+          - binary_sensor.amcrest_camera_online
+          - binary_sensor.amcrest_camera_motion_detected

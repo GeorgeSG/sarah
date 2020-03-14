@@ -44,10 +44,10 @@ cards:
         title: Devices
         show_header_toggle: false
         entities:
-          - entity: switch.camera
-          - entity: media_player.living_room_tv
-          - entity: media_player.nvidia_shield
-          - entity: fan.philips_airpurifier
+          - switch.camera
+          - media_player.living_room_tv
+          - media_player.nvidia_shield
+          - fan.philips_airpurifier
 
       - type: "custom:mini-media-player"
         artwork: cover
@@ -70,14 +70,20 @@ cards:
           when_standby: true
 
       - type: entities
+        show_header_toggle: false
+        entities:
+          - entity: input_select.sonos_leader
+            icon: mdi:speaker
+
+      - type: entities
         title: Manual Overrides
         show_header_toggle: false
         entities:
-          - entity: input_boolean.speech_notifications
-          - entity: input_boolean.guest_mode
-          - entity: input_boolean.domestina
-          - entity: input_boolean.sleep_mode
-          - entity: input_boolean.georgi_home
+          - input_boolean.speech_notifications
+          - input_boolean.guest_mode
+          - input_boolean.domestina
+          - input_boolean.sleep_mode
+          - input_boolean.georgi_home
 
   # Column 2: Sensors
   - type: vertical-stack
@@ -86,26 +92,26 @@ cards:
         title: Sensors
         show_header_toggle: false
         entities:
-          - entity: binary_sensor.front_door_on_off_wrapper
-          - entity: binary_sensor.living_room_right_window_on_off_wrapper
-          - entity: binary_sensor.bedroom_right_window_on_off_wrapper
+          - binary_sensor.front_door_on_off_wrapper
+          - binary_sensor.living_room_right_window_on_off_wrapper
+          - binary_sensor.bedroom_right_window_on_off_wrapper
 
       - type: entities
         title: Presence
         show_header_toggle: false
         entities:
-          - entity: binary_sensor.georgi_home
-          - entity: device_tracker.carbon
-          - entity: device_tracker.tile_1bcb2b3021b9f96b
+          - binary_sensor.georgi_home
+          - device_tracker.carbon
+          - device_tracker.tile_1bcb2b3021b9f96b
 
       - type: entities
         title: Misc Badges
         show_header_toggle: false
         entities:
-          - entity: sun.sun
-          - entity: sensor.carbon_battery_level
-          - entity: sensor.carbon_steps
-          - entity: binary_sensor.updater
+          - sun.sun
+          - sensor.carbon_battery_level
+          - sensor.carbon_steps
+          - binary_sensor.updater
 
   # Column 3: Misc
   - type: vertical-stack
@@ -127,5 +133,5 @@ cards:
           - duration
           - distance
         entities:
-          - entity: sensor.home_to_work
-          - entity: sensor.work_to_home
+          - sensor.home_to_work
+          - sensor.work_to_home

@@ -37,8 +37,8 @@ cards:
         title: Window
         show_name: false
         entities:
-          - entity: binary_sensor.bedroom_right_window_on_off_wrapper
-          - entity: sensor.bedroom_right_window_power
+          - binary_sensor.bedroom_right_window_on_off_wrapper
+          - sensor.bedroom_right_window_power
 
       - type: "custom:mini-graph-card"
         animate: true

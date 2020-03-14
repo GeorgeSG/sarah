@@ -39,6 +39,7 @@ logger:
   default: warning
   logs:
     homeassistant.components.amcrest: error
+    zigpy.util: error
 
 #
 # ─── INTEGRATIONS ───────────────────────────────────────────────────────────────
