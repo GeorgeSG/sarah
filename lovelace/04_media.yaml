@@ -15,6 +15,7 @@ cards:
         type: "custom:text-input-row"
 
   - type: entity-button
+    entity: script.youtube_download_selected
     name: Download
     icon: mdi:download
     icon_height: 48px
