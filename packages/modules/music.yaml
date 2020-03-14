@@ -1,6 +1,6 @@
 group:
   all_sonos:
-    name: "All Sonos"
+    name: All Sonos
     entities:
       - media_player.master_bedroom
       - media_player.living_room
@@ -8,7 +8,7 @@ group:
 
 input_select:
   sonos_leader:
-    name: "Sonos Leader"
+    name: Sonos Leader
     initial: media_player.master_bedroom
     icon: mdi:speaker
     options:
@@ -18,7 +18,7 @@ input_select:
 
 script:
   music_play:
-    alias: "Music · Play"
+    alias: Music · Play
     sequence:
       - service: script.music_join_sonoses
       - service: media_player.volume_set
@@ -35,7 +35,7 @@ script:
           source: "{{ playlist | default('Evening Chill') }}"
 
   music_join_sonoses:
-    alias: "Music · Join Sonoses"
+    alias: Music · Join Sonoses
     sequence:
       - service: sonos.join
         entity_id: group.all_sonos

@@ -5,10 +5,10 @@
 homeassistant:
   customize:
     sensor.cube_multistate_input:
-      friendly_name: "Cube input"
+      friendly_name: Cube input
 
     sensor.cube_analog_input:
-      friendly_name: "Cube rotation"
+      friendly_name: Cube rotation
 
     sensor.cube_power:
-      friendly_name: "Cube battery"
+      friendly_name: Cube battery

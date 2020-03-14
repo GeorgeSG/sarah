@@ -132,11 +132,11 @@ homeassistant:
       icon: mdi:cellphone-iphone
 
     device_tracker.tile_p_6e3c33752f24f417254c039040a984bd:
-      friendly_name: "Georgi's iPhone Tile"
+      friendly_name: Georgi's iPhone Tile
       icon: mdi:cellphone-iphone
 
     device_tracker.tile_1bcb2b3021b9f96b:
-      friendly_name: "Keys Tile"
+      friendly_name: Keys Tile
       icon: mdi:key-variant
 
     automation.coming_home:
