@@ -57,12 +57,9 @@ automation:
   - id: presence_arrival_detecion
     alias: Presence · Arrival detection
     trigger:
-      - platform: state
-        entity_id: person.georgi
-        to: "home"
-      - platform: state
-        entity_id: device_tracker.carbon
-        to: "home"
+      platform: state
+      entity_id: person.georgi
+      to: "home"
     condition:
       condition: state
       entity_id: input_boolean.georgi_home
