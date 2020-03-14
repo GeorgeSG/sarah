@@ -23,16 +23,44 @@ light:
 
 automation:
   - id: master_bedroom_bedside_light_on_bedside_switch_single_click
-    alias: "Lighting · Toggle master bedroom bedside light on bedisde switch single click"
+    alias: Lighting · Master bedroom · Toggle bedside light on bedisde switch single click"
     trigger:
-      - platform: event
-        event_type: zha_event
-        event_data:
-          device_ieee: !secret master_bedroom_bedside_switch_ieee
-          command: single
+      platform: event
+      event_type: zha_event
+      event_data:
+        device_ieee: !secret master_bedroom_bedside_switch_ieee
+        command: single
     action:
       - service: light.toggle
         entity_id: light.bedside_light
+
+  - id: lighting_living_room_turn_on_cube_flip_90
+    alias: Lighting · Living room · Turn all lights on on Magic Cube flip 90
+    trigger:
+      platform: event
+      event_type: zha_event
+      event_data:
+        device_ieee: !secret magic_cube_ieee
+        command: flip
+        args:
+          flip_degrees: 90
+    action:
+      - service: light.turn_on
+        entity_id: light.living_room_all_lights
+
+  - id: lighting_living_room_turn_off_cube_flip_180
+    alias: Lighting · Living room · Turn all lights off on Magic Cube flip 180
+    trigger:
+      platform: event
+      event_type: zha_event
+      event_data:
+        device_ieee: !secret magic_cube_ieee
+        command: flip
+        args:
+          flip_degrees: 180
+    action:
+      - service: light.turn_off
+        entity_id: light.living_room_all_lights
 
 homeassistant:
   customize:

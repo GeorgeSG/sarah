@@ -7,10 +7,6 @@ cards:
     title: Automations
     show_header_toggle: false
     entities:
-      - automation.master_bedroom_bedside_light_on_bedside_switch_single_click
-      - automation.cube_knock
-      - automation.cube_shake
-
       - type: custom:fold-entity-row
         head:
           type: custom:dummy-entity-row
@@ -23,6 +19,30 @@ cards:
           - automation.coming_home
           - automation.leaving_work_to_home
           - automation.leaving_home
+
+      - type: custom:fold-entity-row
+        head:
+          type: custom:dummy-entity-row
+          entity: sun.sun
+          name: Lighting
+          icon: mdi:lightbulb
+        open: true
+        entities:
+          - automation.master_bedroom_bedside_light_on_bedside_switch_single_click
+          - automation.lighting_living_room_turn_on_cube_flip_90
+          - automation.lighting_living_room_turn_off_cube_flip_180
+
+      - type: custom:fold-entity-row
+        head:
+          type: custom:dummy-entity-row
+          entity: sun.sun
+          name: Music
+          icon: mdi:music-note
+        open: true
+        entities:
+          - automation.music_pause_on_cube_knock
+          - automation.music_volume_down_on_cube_rotate_left
+          - automation.music_volume_up_on_cube_rotate_right
 
       - type: custom:fold-entity-row
         head:
@@ -49,17 +69,6 @@ cards:
       - type: custom:fold-entity-row
         head:
           type: custom:dummy-entity-row
-          entity: sun.sun
-          name: Security
-          icon: mdi:shield-home
-        open: true
-        entities:
-          - automation.security_door_opened_while_away
-          - automation.camera_turn_off_on_startup
-
-      - type: custom:fold-entity-row
-        head:
-          type: custom:dummy-entity-row
           entity: input_boolean.domestina
         open: true
         entities:
@@ -67,6 +76,17 @@ cards:
           - automation.domestina_start
           - automation.domestina_automate_end
           - automation.domestina_end
+
+      - type: custom:fold-entity-row
+        head:
+          type: custom:dummy-entity-row
+          entity: sun.sun
+          name: Security
+          icon: mdi:shield-home
+        open: true
+        entities:
+          - automation.security_door_opened_while_away
+          - automation.camera_turn_off_on_startup
 
       - type: custom:fold-entity-row
         head:

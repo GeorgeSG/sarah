@@ -41,3 +41,40 @@ script:
         entity_id: group.all_sonos
         data_template:
           master: "{{ states('input_select.sonos_leader') }}"
+
+automation:
+  - id: music_pause_on_cube_knock
+    alias: Music · Play/Pause on Magic Cube Knock
+    trigger:
+      platform: event
+      event_type: zha_event
+      event_data:
+        device_ieee: !secret magic_cube_ieee
+        command: knock
+    action:
+      - service: media_player.media_play_pause
+        entity_id: group.all_sonos
+
+  - id: music_volume_down_on_cube_rotate_left
+    alias: Music · Volume down on Magic Cube rotate left
+    trigger:
+      platform: event
+      event_type: zha_event
+      event_data:
+        device_ieee: !secret magic_cube_ieee
+        command: rotate_left
+    action:
+      - service: media_player.volume_down
+        entity_id: group.all_sonos
+
+  - id: music_volume_up_on_cube_rotate_right
+    alias: Music · Volume up on Magic Cube rotate right
+    trigger:
+      platform: event
+      event_type: zha_event
+      event_data:
+        device_ieee: !secret magic_cube_ieee
+        command: rotate_right
+    action:
+      - service: media_player.volume_up
+        entity_id: group.all_sonos

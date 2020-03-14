@@ -12,8 +12,11 @@ group:
     - automation.enable_sleep_mode
     - automation.disable_sleep_mode
     - automation.sleep_toggle_on_switch_tap
-    - automation.cube_knock
-    - automation.cube_shake
+    - automation.music_pause_on_cube_knock
+    - automation.music_volume_down_on_cube_rotate_left
+    - automation.music_volume_up_on_cube_rotate_right
+    - automation.lighting_living_room_turn_on_cube_flip_90
+    - automation.lighting_living_room_turn_off_cube_flip_180
     - automation.bedtime_toggle_on_master_bedroom_bedside_switch_hold
 
 automation:
