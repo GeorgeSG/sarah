@@ -67,8 +67,7 @@ script:
           message: "{{ message }}"
       # Wait for phrase to be over and mark as not talking.
       - delay: 00:00:01
-      # TODO: Use sonos_leader, otherwise the whole thing is kinda pointless :/
-      - wait_template: "{{ is_state('media_player.master_bedroom', 'paused') }}"
+      - wait_template: "{{ is_state('binary_sensor.sonos_leader_paused', 'on') }}"
         timeout: 00:02:00
       - service: input_boolean.turn_off
         entity_id: input_boolean.sarah_talking
