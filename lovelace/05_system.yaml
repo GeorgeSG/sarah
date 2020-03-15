@@ -108,9 +108,15 @@ cards:
     title: Batteries
     show_header_toggle: false
     entities:
-      - sensor.front_door_power
-      - sensor.living_room_right_window_power
-      - sensor.bedroom_right_window_power
-      - sensor.bedroom_weather_power
-      - sensor.cube_power
-      - sensor.master_bedroom_bedside_switch_power
+      - type: custom:battery-entity
+        entity: sensor.front_door_power
+      - type: custom:battery-entity
+        entity: sensor.living_room_right_window_power
+      - type: custom:battery-entity
+        entity: sensor.bedroom_right_window_power
+      - type: custom:battery-entity
+        entity: sensor.bedroom_weather_power
+      - type: custom:battery-entity
+        entity: sensor.cube_power
+      - type: custom:battery-entity
+        entity: sensor.master_bedroom_bedside_switch_power

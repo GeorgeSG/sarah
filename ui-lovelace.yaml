@@ -41,6 +41,8 @@ resources:
     url: /hacsfiles/lovelace-text-input-row/lovelace-text-input-row.js
   - type: module
     url: /hacsfiles/text-element/text-element.js
+  - type: module
+    url: /hacsfiles/lovelace-battery-entity/battery-entity.js
 
 title: Sarah
 views:
