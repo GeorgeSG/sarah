@@ -18,14 +18,24 @@ cards:
       - entity: input_text.youtube_download_name
         type: "custom:text-input-row"
 
-  - type: entity-button
-    entity: script.youtube_download_selected
-    name: Download
-    icon: mdi:download
-    icon_height: 48px
-    tap_action:
-      action: call-service
-      service: script.youtube_download_selected
+  - type: horizontal-stack
+    cards:
+      - type: entity-button
+        entity: script.youtube_download_selected
+        name: Download
+        icon: mdi:download
+        icon_height: 48px
+        tap_action:
+          action: call-service
+          service: script.youtube_download_selected
+      - type: entity-button
+        entity: script.youtube_download_and_play
+        name: Download & Play
+        icon: mdi:youtube-tv
+        icon_height: 48px
+        tap_action:
+          action: call-service
+          service: script.youtube_download_and_play
 
   - type: custom:config-template-card
     entities:

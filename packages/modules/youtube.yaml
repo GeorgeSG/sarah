@@ -48,6 +48,28 @@ script:
         data:
           value: ""
 
+  youtube_download_and_play:
+    alias: Youtube · Download and play selected video
+    sequence:
+      - service: shell_command.youtube_download
+        data_template:
+          url: "{{ states('input_text.youtube_download_url') }}"
+          name: "{{ states('input_text.youtube_download_name') }}"
+
+      - service: script.music_join_sonoses
+      - service: media_player.play_media
+        data_template:
+          entity_id: media_player.master_bedroom
+          media_content_id: "{{ states('sensor.sarah_url') }}/local/audio/youtube/{{ states('input_text.youtube_download_name') }}.mp3"
+          media_content_type: "music"
+
+      - service: input_text.set_value
+        entity_id:
+          - input_text.youtube_download_url
+          - input_text.youtube_download_name
+        data:
+          value: ""
+
 automation:
   - id: youtube_download_latest_pds
     alias: Youtube · Download latest PDS
