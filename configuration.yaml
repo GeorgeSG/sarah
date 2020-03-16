@@ -81,6 +81,13 @@ media_extractor:
 # https://www.home-assistant.io/integrations/mobile_app
 mobile_app:
 
+# https://www.home-assistant.io/docs/mqtt
+mqtt:
+  broker: !secret mqtt_ip
+  client_id: homeassistant
+  username: !secret mqtt_username
+  password: !secret mqtt_password
+
 # https://www.home-assistant.io/integrations/notify
 notify:
   - name: telegram

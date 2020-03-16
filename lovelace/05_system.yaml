@@ -35,6 +35,7 @@ cards:
           - automation.lighting_master_bedroom_bedside_light_on_bedside_switch_single_click
           - automation.lighting_living_room_turn_on_cube_flip_90
           - automation.lighting_living_room_turn_off_cube_flip_180
+          - automation.lighting_sync_tasmota_state_on_startup
 
       - type: custom:fold-entity-row
         head:

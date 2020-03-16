@@ -1,6 +1,34 @@
 # https://www.home-assistant.io/integrations/light
 # https://www.home-assistant.io/integrations/light.group/
+
 light:
+  - platform: mqtt
+    name: "PC"
+    availability_topic: "tele/pc_light/LWT"
+    command_topic: "cmnd/pc_light/POWER"
+    state_topic: "tele/pc_light/STATE"
+    state_value_template: "{{ value_json.POWER }}"
+    brightness_command_topic: "cmnd/pc_light/Dimmer"
+    brightness_state_topic: "tele/pc_light/STATE"
+    brightness_scale: 100
+    on_command_type: "brightness"
+    brightness_value_template: "{{ value_json.Dimmer }}"
+    hs_command_topic: "cmnd/pc_light/HSBColor"
+    hs_state_topic: "tele/pc_light/STATE"
+    hs_value_template: "{{ value_json.HSBColor.split(',')[0:2]|join(',') }}"
+    color_temp_command_topic: "cmnd/pc_light/CT"
+    color_temp_state_topic: "tele/pc_light/STATE"
+    color_temp_value_template: "{{ value_json.CT }}"
+    rgb_command_topic: "cmnd/pc_light/Color"
+    rgb_state_topic: "tele/pc_light/STATE"
+    rgb_value_template: "{{ value_json.Color.split(',')[0:3]|join(',') }}"
+    payload_on: "ON"
+    payload_off: "OFF"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    qos: 1
+    retain: false
+
   - platform: group
     name: Living room main lights
     entities:
@@ -20,6 +48,29 @@ light:
     entities:
       - light.living_room_all_lights
       - light.bedside_light
+
+sensor:
+  - platform: mqtt
+    name: "PC Light WiFi"
+    availability_topic: "tele/pc_light/LWT"
+    device_class: signal_strength
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    state_topic: "tele/pc_light/STATE"
+    unit_of_measurement: "%"
+    value_template: "{{ value_json['Wifi'].RSSI }}"
+
+switch:
+  - platform: mqtt
+    name: "PC Light Fade"
+    availability_topic: "tele/pc_light/LWT"
+    command_topic: "cmnd/pc_light/FADE"
+    icon: mdi:gradient
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    qos: 1
+    state_topic: "stat/pc_light/RESULT"
+    value_template: "{{ value_json.Fade }}"
 
 automation:
   - id: lighting_turn_on_after_sunset
@@ -85,6 +136,18 @@ automation:
     action:
       - service: light.turn_off
         entity_id: light.living_room_all_lights
+
+  - id: lighting_sync_tasmota_state_on_startup
+    alias: Lighting · Sync Tasmota states on start-up
+    initial_state: true
+    trigger:
+      platform: homeassistant
+      event: start
+    action:
+      - service: mqtt.publish
+        data:
+          topic: "cmnd/tasmotas/STATE"
+          payload: ""
 
 homeassistant:
   customize:

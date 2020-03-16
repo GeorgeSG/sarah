@@ -38,6 +38,7 @@ cards:
             entity: light.pc
             toggle: true
             step: 5
+          - switch.pc_light_fade
 
       - type: "custom:mini-media-player"
         artwork: cover
