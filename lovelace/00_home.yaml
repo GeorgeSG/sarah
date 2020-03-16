@@ -6,39 +6,28 @@ cards:
   # Column 1: Active Controls
   - type: vertical-stack
     cards:
-      - type: entities
+      - type: glance
         title: Lights
         show_header_toggle: false
         entities:
-          - type: custom:fold-entity-row
-            head:
-              entity: light.living_room_main_lights
-              name: Living room main lights
-              toggle: true
-            entities:
-              - type: custom:slider-entity-row
-                entity: light.living_room_main_lights
-                name: Brightness
-                hide_state: true
-                step: 5
-              - type: custom:slider-entity-row
-                entity: light.living_room_main_lights
-                name: Temperature
-                attribute: color_temp
-                hide_state: true
-                step: 5
-              - light.living_room_1
-              - light.living_room_2
-              - light.living_room_3
-              - light.living_room_4
-          - type: custom:slider-entity-row
-            entity: light.pc
-            toggle: true
-            step: 5
-          - type: custom:slider-entity-row
-            entity: light.bedside_light
-            toggle: true
-            step: 5
+          - entity: light.living_room_main_lights
+            tap_action:
+              action: call-service
+              service: light.toggle
+              service_data:
+                entity_id: light.living_room_main_lights
+          - entity: light.pc
+            tap_action:
+              action: call-service
+              service: light.toggle
+              service_data:
+                entity_id: light.pc
+          - entity: light.bedside_light
+            tap_action:
+              action: call-service
+              service: light.bedside_light
+              service_data:
+                entity_id: light.pc
 
       - type: entities
         title: Devices
