@@ -11,6 +11,7 @@ cards:
         show_header_toggle: false
         entities:
           - entity: light.living_room_main_lights
+            name: Living room
             tap_action:
               action: call-service
               service: light.toggle
