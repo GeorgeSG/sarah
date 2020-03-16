@@ -25,9 +25,9 @@ cards:
           - entity: light.bedside_light
             tap_action:
               action: call-service
-              service: light.bedside_light
+              service: light.toggle
               service_data:
-                entity_id: light.pc
+                entity_id: light.bedside_light
 
       - type: entities
         title: Devices
