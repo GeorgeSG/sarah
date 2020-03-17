@@ -314,17 +314,5 @@ automation:
     action:
       - service: mqtt.publish
         data:
-          topic: "cmnd/pc_light/STATE"
-          payload: ""
-      - service: mqtt.publish
-        data:
-          topic: "cmnd/living_room_2/STATE"
-          payload: ""
-      - service: mqtt.publish
-        data:
-          topic: "cmnd/living_room_3/STATE"
-          payload: ""
-      - service: mqtt.publish
-        data:
-          topic: "cmnd/living_room_4/STATE"
+          topic: "cmnd/tasmotas/STATE"
           payload: ""
