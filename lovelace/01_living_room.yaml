@@ -103,6 +103,8 @@ cards:
               name: Livingroom
             - entity_id: media_player.kitchen
               name: Kitchen
+            - entity_id: media_player.bathroom
+              name: Bathroom
         hide:
           power: true
           icon: true
