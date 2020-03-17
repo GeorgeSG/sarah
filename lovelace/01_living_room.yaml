@@ -32,58 +32,33 @@ cards:
                 min: 153
                 max: 500
                 step: 5
-              - type: custom:multiple-entity-row
-                entity: light.living_room_1
-                show_state: false
-                entities:
-                  - entity: switch.living_room_1_light_fade
-                    name: Fade
-                    toggle: true
-                  - entity: light.living_room_1
-                    name: Switch
-                    toggle: true
-              - type: custom:multiple-entity-row
-                entity: light.living_room_2
-                show_state: false
-                entities:
-                  - entity: switch.living_room_2_light_fade
-                    name: Fade
-                    toggle: true
-                  - entity: light.living_room_2
-                    name: Switch
-                    toggle: true
-              - type: custom:multiple-entity-row
-                entity: light.living_room_3
-                show_state: false
-                entities:
-                  - entity: switch.living_room_3_light_fade
-                    name: Fade
-                    toggle: true
-                  - entity: light.living_room_3
-                    name: Switch
-                    toggle: true
-              - type: custom:multiple-entity-row
-                entity: light.living_room_4
-                show_state: false
-                entities:
-                  - entity: switch.living_room_4_light_fade
-                    name: Fade
-                    toggle: true
-                  - entity: light.living_room_4
-                    name: Switch
-                    toggle: true
+              - type: custom:decluttering-card
+                template: light_with_fade_and_switch
+                variables:
+                  - light: light.living_room_1
+                  - fade: switch.living_room_1_light_fade
+              - type: custom:decluttering-card
+                template: light_with_fade_and_switch
+                variables:
+                  - light: light.living_room_2
+                  - fade: switch.living_room_2_light_fade
+              - type: custom:decluttering-card
+                template: light_with_fade_and_switch
+                variables:
+                  - light: light.living_room_3
+                  - fade: switch.living_room_3_light_fade
+              - type: custom:decluttering-card
+                template: light_with_fade_and_switch
+                variables:
+                  - light: light.living_room_4
+                  - fade: switch.living_room_4_light_fade
           - type: custom:fold-entity-row
             head:
-              type: custom:multiple-entity-row
-              entity: light.pc
-              show_state: false
-              entities:
-                - entity: switch.pc_light_fade
-                  name: Fade
-                  toggle: true
-                - entity: light.pc
-                  name: Switch
-                  toggle: true
+              type: custom:decluttering-card
+              template: light_with_fade_and_switch
+              variables:
+                - light: light.pc
+                - fade: switch.pc_light_fade
             entities:
               - type: custom:slider-entity-row
                 entity: light.pc
@@ -91,27 +66,10 @@ cards:
                 hide_state: true
                 step: 5
 
-      - type: "custom:mini-media-player"
-        artwork: cover
-        entity: media_player.living_room
-        speaker_group:
-          sync_volume: true
-          entities:
-            - entity_id: media_player.master_bedroom
-              name: Master Bedroom
-            - entity_id: media_player.living_room
-              name: Livingroom
-            - entity_id: media_player.kitchen
-              name: Kitchen
-            - entity_id: media_player.bathroom
-              name: Bathroom
-        hide:
-          power: true
-          icon: true
-          shuffle: false
-        idle_view:
-          when_idle: true
-          when_standby: true
+      - type: custom:decluttering-card
+        template: sonos_media_player
+        variables:
+          - player: media_player.living_room
 
       - type: "custom:mini-media-player"
         entity: media_player.living_room_tv

@@ -1,0 +1,12 @@
+light_with_fade_and_switch:
+  card:
+    type: custom:multiple-entity-row
+    entity: "[[light]]"
+    show_state: false
+    entities:
+      - entity: "[[fade]]"
+        name: Fade
+        toggle: true
+      - entity: light.living_room_1
+        name: Switch
+        toggle: true

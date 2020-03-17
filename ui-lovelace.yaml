@@ -45,6 +45,10 @@ resources:
     url: /hacsfiles/lovelace-battery-entity/battery-entity.js
   - type: module
     url: /hacsfiles/lovelace-multiple-entity-row/multiple-entity-row.js
+  - type: module
+    url: /hacsfiles/decluttering-card/decluttering-card.js
+
+decluttering_templates: !include_dir_merge_named lovelace/templates
 
 title: Sarah
 views:

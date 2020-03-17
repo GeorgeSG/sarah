@@ -43,27 +43,10 @@ cards:
         entities:
           - input_select.sonos_leader
         card:
-          type: custom:mini-media-player
-          artwork: cover
-          entity: ${states['input_select.sonos_leader'].state}
-          speaker_group:
-            sync_volume: true
-            entities:
-              - entity_id: media_player.master_bedroom
-                name: Master Bedroom
-              - entity_id: media_player.living_room
-                name: Livingroom
-              - entity_id: media_player.kitchen
-                name: Kitchen
-              - entity_id: media_player.bathroom
-                name: Bathroom
-          hide:
-            power: true
-            icon: true
-            shuffle: false
-          idle_view:
-            when_idle: true
-            when_standby: true
+          type: custom:decluttering-card
+          template: sonos_media_player
+          variables:
+            - player: ${states['input_select.sonos_leader'].state}
 
       - type: entities
         title: Manual Overrides
