@@ -7,6 +7,6 @@ light_with_fade_and_switch:
       - entity: "[[fade]]"
         name: Fade
         toggle: true
-      - entity: light.living_room_1
+      - entity: "[[light]]"
         name: Switch
         toggle: true
