@@ -31,8 +31,7 @@ script:
         entity_id: light.living_room_all_lights
 
 automation:
-  - id: bedtime_toggle_on_master_bedroom_bedside_switch_hold
-    alias: Routine · Bedtime · Toggle on bedside switch hold
+  - alias: Routine · Bedtime · Toggle on bedside switch hold
     trigger:
       - platform: event
         event_type: zha_event

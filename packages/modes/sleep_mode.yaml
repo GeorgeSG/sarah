@@ -5,8 +5,7 @@ input_boolean:
     icon: mdi:sleep
 
 automation:
-  - id: enable_sleep_mode
-    alias: Sleep mode · Enable
+  - alias: Sleep mode · Enable
     trigger:
       platform: state
       entity_id: input_boolean.sleep_mode
@@ -15,8 +14,7 @@ automation:
     action:
       - service: script.routine_good_night
 
-  - id: disable_sleep_mode
-    alias: Sleep mode · Disable
+  - alias: Sleep mode · Disable
     trigger:
       platform: state
       entity_id: input_boolean.sleep_mode
@@ -25,8 +23,7 @@ automation:
     action:
       - service: script.routine_waking_up
 
-  - id: sleep_toggle_on_switch_tap
-    alias: Sleep mode · Toggle on bedside switch double click
+  - alias: Sleep mode · Toggle on bedside switch double click
     trigger:
       - platform: event
         event_type: zha_event

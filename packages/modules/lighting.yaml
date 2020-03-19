@@ -241,8 +241,7 @@ switch:
     value_template: "{{ value_json.Fade }}"
 
 automation:
-  - id: lighting_turn_on_after_sunset
-    alias: Lighting · Turn on all lights after sunset
+  - alias: Lighting · Turn on all lights after sunset
     trigger:
       platform: sun
       event: sunset
@@ -255,8 +254,7 @@ automation:
       - service: light.turn_on
         entity_id: light.all_lights
 
-  - id: lighting_turn_off_after_sunrise
-    alias: Lighting · Turn off all lights after sunrise
+  - alias: Lighting · Turn off all lights after sunrise
     trigger:
       platform: sun
       event: sunrise
@@ -265,8 +263,7 @@ automation:
       - service: light.turn_off
         entity_id: light.all_lights
 
-  - id: lighting_master_bedroom_bedside_light_on_bedside_switch_single_click
-    alias: Lighting · Master bedroom · Toggle bedside light on bedisde switch single click"
+  - alias: Lighting · Master bedroom · Toggle bedside light on bedisde switch single click"
     trigger:
       platform: event
       event_type: zha_event
@@ -277,8 +274,7 @@ automation:
       - service: light.toggle
         entity_id: light.bedside_light
 
-  - id: lighting_living_room_turn_on_cube_flip_90
-    alias: Lighting · Living room · Turn all lights on on Magic Cube flip 90
+  - alias: Lighting · Living room · Turn all lights on on Magic Cube flip 90
     trigger:
       platform: event
       event_type: zha_event
@@ -291,8 +287,7 @@ automation:
       - service: light.turn_on
         entity_id: light.living_room_all_lights
 
-  - id: lighting_living_room_turn_off_cube_flip_180
-    alias: Lighting · Living room · Turn all lights off on Magic Cube flip 180
+  - alias: Lighting · Living room · Turn all lights off on Magic Cube flip 180
     trigger:
       platform: event
       event_type: zha_event
@@ -305,8 +300,7 @@ automation:
       - service: light.turn_off
         entity_id: light.living_room_all_lights
 
-  - id: lighting_sync_tasmota_state_on_startup
-    alias: Lighting · Sync Tasmota states on start-up
+  - alias: Lighting · Sync Tasmota states on start-up
     initial_state: true
     trigger:
       platform: homeassistant

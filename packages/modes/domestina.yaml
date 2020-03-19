@@ -6,24 +6,23 @@ input_boolean:
 group:
   domestina_disabled_automations:
     - automation.presence_arrival_detection
-    - automation.coming_home
-    - automation.leaving_work_to_home
-    - automation.leaving_home
-    - automation.enable_sleep_mode
-    - automation.disable_sleep_mode
-    - automation.sleep_toggle_on_switch_tap
-    - automation.music_pause_on_cube_knock
-    - automation.music_volume_down_on_cube_rotate_left
-    - automation.music_volume_up_on_cube_rotate_right
-    - automation.lighting_turn_on_after_sunset
-    - automation.lighting_turn_off_after_sunrise
-    - automation.lighting_living_room_turn_on_cube_flip_90
-    - automation.lighting_living_room_turn_off_cube_flip_180
-    - automation.bedtime_toggle_on_master_bedroom_bedside_switch_hold
+    - automation.presence_coming_home
+    - automation.routine_coming_home_left_work
+    - automation.presence_leaving_home
+    - automation.sleep_mode_enable
+    - automation.sleep_mode_disable
+    - automation.sleep_mode_toggle_on_bedside_switch_double_click
+    - automation.music_play_pause_on_magic_cube_knock
+    - automation.music_volume_down_on_magic_cube_rotate_left
+    - automation.music_volume_up_on_magic_cube_rotate_right
+    - automation.lighting_turn_on_all_lights_after_sunset
+    - automation.lighting_turn_off_all_lights_after_sunrise
+    - automation.lighting_living_room_turn_all_lights_on_on_magic_cube_flip_90
+    - automation.lighting_living_room_turn_all_lights_off_on_magic_cube_flip_180
+    - automation.routine_bedtime_toggle_on_bedside_switch_hold
 
 automation:
-  - id: domestina_automate_start
-    alias: Domestina · Automate start
+  - alias: Domestina · Automate start
     trigger:
       platform: time
       at: "08:30:00"
@@ -34,8 +33,7 @@ automation:
       - service: input_boolean.turn_on
         entity_id: input_boolean.domestina
 
-  - id: domestina_start
-    alias: Domestina · Start
+  - alias: Domestina · Start
     trigger:
       platform: state
       entity_id: input_boolean.domestina
@@ -47,8 +45,7 @@ automation:
       - service: automation.turn_off
         entity_id: group.domestina_disabled_automations
 
-  - id: domestina_automate_end
-    alias: Domestina · Automate end
+  - alias: Domestina · Automate end
     trigger:
       platform: time
       at: "13:00:00"
@@ -59,8 +56,7 @@ automation:
       - service: input_boolean.turn_off
         entity_id: input_boolean.domestina
 
-  - id: domestina_end
-    alias: Domestina · End
+  - alias: Domestina · End
     trigger:
       platform: state
       entity_id: input_boolean.domestina

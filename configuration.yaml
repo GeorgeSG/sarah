@@ -20,6 +20,52 @@ http:
 
 lovelace:
   mode: yaml
+  resources:
+    - type: js
+      url: /hacsfiles/travel-time-card/travel-time-card.js
+    - type: module
+      url: /hacsfiles/lovelace-gui-sandbox/gui-sandbox.js
+    - type: module
+      url: /hacsfiles/lovelace-swipe-navigation/swipe-navigation.js
+    - type: module
+      url: /hacsfiles/lovelace-card-mod/card-mod.js
+    - type: js
+      url: /hacsfiles/light-entity-card/light-entity-card.js
+    - type: module
+      url: /hacsfiles/weather-card/weather-card.js
+    - type: module
+      url: /hacsfiles/custom-header/custom-header.js
+    - type: module
+      url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js
+    - type: module
+      url: /hacsfiles/mini-media-player/mini-media-player-bundle.js
+    - type: module
+      url: /hacsfiles/aftership-card/aftership-card.js
+    - type: module
+      url: /hacsfiles/config-template-card/config-template-card.js
+    - type: module
+      url: /hacsfiles/lovelace-fold-entity-row/fold-entity-row.js
+    - type: module
+      url: /hacsfiles/lovelace-dummy-entity-row/dummy-entity-row.js
+    - type: module
+      url: /hacsfiles/lovelace-slider-entity-row/slider-entity-row.js
+    - type: module
+      url: /hacsfiles/lovelace-text-input-row/lovelace-text-input-row.js
+    - type: module
+      url: /hacsfiles/text-element/text-element.js
+    - type: module
+      url: /hacsfiles/lovelace-battery-entity/battery-entity.js
+    - type: module
+      url: /hacsfiles/lovelace-multiple-entity-row/multiple-entity-row.js
+    - type: module
+      url: /hacsfiles/decluttering-card/decluttering-card.js
+  dashboards:
+    lovelace-yaml:
+      mode: yaml
+      title: YAML
+      icon: mdi:script
+      show_in_sidebar: true
+      filename: ui-lovelace.yaml
 
 # https://www.home-assistant.io/components/logbook
 logbook:
@@ -105,6 +151,11 @@ plex:
     use_episode_art: true
     ignore_new_shared_users: false
 
+# https://www.home-assistant.io/integrations/sonos
+sonos:
+  media_player:
+    hosts: !secret sonos_hosts
+
 # https://www.home-assistant.io/integrations/spotify
 spotify:
   client_id: !secret spotify_client_id
@@ -126,12 +177,6 @@ tts:
     region_name: us-east-1
     voice: Amy
     engine: neural
-
-# https://www.home-assistant.io/integrations/tuya
-tuya:
-  username: !secret tuya_username
-  password: !secret tuya_password
-  country_code: bg
 
 # https://www.home-assistant.io/integrations/wake_on_lan
 wake_on_lan:
@@ -158,6 +203,24 @@ yeelight:
 
 # https://www.home-assistant.io/integrations/zeroconf
 zeroconf:
+
+# https://www.home-assistant.io/components/zone
+zone:
+  - name: Home
+    latitude: !secret home_latitude
+    longitude: !secret home_longitude
+    radius: 20
+    icon: mdi:home
+  - name: Work
+    latitude: !secret work_latitude
+    longitude: !secret work_longitude
+    radius: 60
+    icon: mdi:worker
+
+# https://www.home-assistant.io/integrations/zha
+zha:
+  usb_path: /dev/ttyUSB0
+  database_path: /config/zigbee.db
 
 #
 # ─── PLUGINS ────────────────────────────────────────────────────────────────────

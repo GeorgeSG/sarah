@@ -12,8 +12,7 @@ script:
       service: homeassistant.restart
 
 automation:
-  - id: system_announce_start
-    alias: System · Announce start
+  - alias: System · Announce start
     trigger:
       platform: homeassistant
       event: start
@@ -31,8 +30,7 @@ automation:
               - "/guest_mode_on, /guest_mode_off"
               - "/status"
 
-  - id: system_telegram_status
-    alias: System · Telegram · Announce status
+  - alias: System · Telegram · Announce status
     trigger:
       platform: event
       event_type: telegram_command

@@ -55,8 +55,7 @@ script:
           master: "{{ states('input_select.sonos_leader') }}"
 
 automation:
-  - id: music_pause_on_cube_knock
-    alias: Music · Play/Pause on Magic Cube Knock
+  - alias: Music · Play/Pause on Magic Cube Knock
     trigger:
       platform: event
       event_type: zha_event
@@ -68,8 +67,7 @@ automation:
         data_template:
           entity_id: "{{ states('input_select.sonos_leader') }}"
 
-  - id: music_volume_down_on_cube_rotate_left
-    alias: Music · Volume down on Magic Cube rotate left
+  - alias: Music · Volume down on Magic Cube rotate left
     trigger:
       platform: event
       event_type: zha_event
@@ -81,8 +79,7 @@ automation:
         data_template:
           entity_id: "{{ states('input_select.sonos_leader') }}"
 
-  - id: music_volume_up_on_cube_rotate_right
-    alias: Music · Volume up on Magic Cube rotate right
+  - alias: Music · Volume up on Magic Cube rotate right
     trigger:
       platform: event
       event_type: zha_event

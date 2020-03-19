@@ -51,8 +51,7 @@ script:
       - service: script.music_play
 
 automation:
-  - id: leaving_work_to_home
-    alias: Routine · Coming home · Left work
+  - alias: Routine · Coming home · Left work
     trigger:
       platform: event
       event_type: telegram_callback

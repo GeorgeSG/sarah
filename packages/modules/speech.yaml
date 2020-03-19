@@ -90,8 +90,7 @@ script:
           entity_id: media_player.master_bedroom
 
 automation:
-  - id: speech_telegram_do_nothing
-    alias: Speech · Telegram · Action · Do nothing
+  - alias: Speech · Telegram · Action · Do nothing
     trigger:
       platform: event
       event_type: telegram_callback

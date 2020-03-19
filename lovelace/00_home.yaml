@@ -83,8 +83,8 @@ cards:
         show_header_toggle: false
         entities:
           - sun.sun
-          - sensor.carbon_battery_level_2
-          - sensor.carbon_steps_2
+          - sensor.carbon_battery_level
+          - sensor.carbon_steps
           - binary_sensor.updater
 
   # Column 3: Misc

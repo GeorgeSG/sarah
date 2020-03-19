@@ -3,11 +3,11 @@ sensor:
     channel_id: UClFSU9_bUb4Rc6OYfTt5SPw
   - platform: command_line
     name: Available PDS
-    command: !secret youtube_pds_list_command
+    command: ls -1 /config/www/audio/youtube/pds | grep mp3 | paste -sd "," -
     scan_interval: 30
   - platform: command_line
     name: Available Youtube clips
-    command: !secret youtube_list_command
+    command: ls -1 /config/www/audio/youtube | grep mp3 | paste -sd "," -
     scan_interval: 30
 
 input_text:
@@ -21,7 +21,7 @@ input_text:
     initial: ""
 
 shell_command:
-  youtube_download: !secret youtube_download_command
+  youtube_download: python3.7 /config/custom_scripts/youtube_download.py {{ url }} {{ name }} {{ folder }}
 
 script:
   youtube_play_latest_pds:
@@ -71,8 +71,7 @@ script:
           value: ""
 
 automation:
-  - id: youtube_download_latest_pds
-    alias: Youtube · Download latest PDS
+  - alias: Youtube · Download latest PDS
     trigger:
       platform: state
       entity_id: sensor.philip_defranco

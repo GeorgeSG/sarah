@@ -5,8 +5,7 @@ input_boolean:
     icon: mdi:human-greeting
 
 automation:
-  - id: enable_guest_mode
-    alias: Guest mode · Enable
+  - alias: Guest mode · Enable
     trigger:
       platform: state
       entity_id: input_boolean.guest_mode
@@ -15,13 +14,12 @@ automation:
     action:
       - service: automation.turn_off
         entity_id:
-          - automation.leaving_home
-          - automation.coming_home
+          - automation.presence_leaving_home
+          - automation.presence_coming_home
       - service: input_boolean.turn_off
         entity_id: input_boolean.speech_notifications
 
-  - id: disable_guest_mode
-    alias: Guest mode · Disable
+  - alias: Guest mode · Disable
     trigger:
       platform: state
       entity_id: input_boolean.guest_mode
@@ -30,13 +28,12 @@ automation:
     action:
       - service: automation.turn_on
         entity_id:
-          - automation.leaving_home
-          - automation.coming_home
+          - automation.presence_leaving_home
+          - automation.presence_coming_home
       - service: input_boolean.turn_on
         entity_id: input_boolean.speech_notifications
 
-  - id: telegram_enable_guest_mode
-    alias: Guest mode · Enable · From Telegram
+  - alias: Guest mode · Enable · From Telegram
     trigger:
       platform: event
       event_type: telegram_command
@@ -50,8 +47,7 @@ automation:
           title: "⚙️ *System Module*"
           message: "Okay, turning Guest mode on!"
 
-  - id: telegram_disable_guest_mode
-    alias: Guest mode · Disable · From Telegram
+  - alias: Guest mode · Disable · From Telegram
     trigger:
       platform: event
       event_type: telegram_command

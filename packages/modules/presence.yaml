@@ -16,20 +16,6 @@ device_tracker:
     username: !secret tile_username
     password: !secret tile_password
 
-# https://www.home-assistant.io/components/zone
-zone:
-  - name: Home
-    latitude: !secret home_latitude
-    longitude: !secret home_longitude
-    radius: 20
-    icon: mdi:home
-
-  - name: Work
-    latitude: !secret work_latitude
-    longitude: !secret work_longitude
-    radius: 60
-    icon: mdi:worker
-
 #
 # ─── ENTITIES ───────────────────────────────────────────────────────────────────
 #
@@ -54,8 +40,7 @@ binary_sensor:
 
 automation:
   # When my state changes to "home", wait for 15 minutes for the door to be opened, and then mark me as home
-  - id: presence_arrival_detecion
-    alias: Presence · Arrival detection
+  - alias: Presence · Arrival detection
     trigger:
       platform: state
       entity_id: person.georgi
@@ -79,8 +64,7 @@ automation:
           title: "🏠 *Presence Module · Arrival detection*"
           message: "✅ Hey, I've marked you as home now!"
 
-  - id: leaving_home
-    alias: Presence · Leaving home
+  - alias: Presence · Leaving home
     trigger:
       platform: state
       entity_id: person.georgi
@@ -93,8 +77,7 @@ automation:
           title: "🏠 *Presence Module · Leaving Home*"
           message: "I see you're leaving. Goodbye!"
 
-  - id: coming_home
-    alias: Presence · Coming home
+  - alias: Presence · Coming home
     trigger:
       platform: state
       entity_id: binary_sensor.georgi_home
@@ -106,8 +89,7 @@ automation:
           title: "🏠 *Presence Module · Coming Home*"
           message: "Welcome home!"
 
-  - id: leaving_work
-    alias: Presence · Leaving work
+  - alias: Presence · Leaving work
     trigger:
       platform: state
       entity_id: person.georgi
@@ -139,10 +121,10 @@ homeassistant:
       friendly_name: Keys Tile
       icon: mdi:key-variant
 
-    automation.coming_home:
+    automation.presence_coming_home:
       icon: mdi:home-account
 
-    automation.leaving_home:
+    automation.presence_leaving_home:
       icon: mdi:home
 
     automation.presence_arrival_detecion:
