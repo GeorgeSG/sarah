@@ -11,6 +11,7 @@ secrets.yaml
 google_calendars.yaml
 *.log
 *.db
+*.db-journal
 known_devices.yaml
 webostv.conf
 zigbee.db
