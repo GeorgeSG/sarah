@@ -9,7 +9,7 @@
       "command": "./bin/ui",
       "problemMatcher": [],
       "presentation": {
-        "reveal": "never"
+        "focus": true
       }
     },
     {
@@ -18,7 +18,7 @@
       "command": "./bin/restart",
       "problemMatcher": [],
       "presentation": {
-        "reveal": "never"
+        "focus": true
       }
     },
     {
@@ -27,7 +27,7 @@
       "command": "./bin/update",
       "problemMatcher": [],
       "presentation": {
-        "reveal": "never"
+        "focus": true
       }
     }
   ]
