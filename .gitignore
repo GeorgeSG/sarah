@@ -1,3 +1,16 @@
+.storage/
 bin/
 custom_components/
+themes/
+tts/
+www/
 secrets.yaml
+*.tile.conf
+.google.token
+.spotify-token-cache
+google_calendars.yaml
+*.log
+*.db
+known_devices.yaml
+webostv.conf
+zigbee.db
