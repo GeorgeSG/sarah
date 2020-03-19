@@ -4,6 +4,10 @@ python: "3.7.7"
 
 before_install:
   - mv secrets.example.yaml secrets.yaml
+  - sed -e '/hacs/,+2d' < configuration.yaml > configuration.yaml
+  - sed -e '/uilogs/,+2d' < configuration.yaml > configuration.yaml
+  - sed -e '/spotcast/,+2d' < configuration.yaml > configuration.yaml
+  - sed -e '/youtube/,+2d' < configuration.yaml > configuration.yaml
 
 install:
   - pip3 install homeassistant
