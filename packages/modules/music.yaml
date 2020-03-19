@@ -65,7 +65,8 @@ automation:
         command: knock
     action:
       - service: media_player.media_play_pause
-        entity_id: group.all_sonos
+        data_template:
+          entity_id: "{{ states('input_select.sonos_leader') }}"
 
   - id: music_volume_down_on_cube_rotate_left
     alias: Music · Volume down on Magic Cube rotate left
@@ -77,7 +78,8 @@ automation:
         command: rotate_left
     action:
       - service: media_player.volume_down
-        entity_id: group.all_sonos
+        data_template:
+          entity_id: "{{ states('input_select.sonos_leader') }}"
 
   - id: music_volume_up_on_cube_rotate_right
     alias: Music · Volume up on Magic Cube rotate right
@@ -89,4 +91,5 @@ automation:
         command: rotate_right
     action:
       - service: media_player.volume_up
-        entity_id: group.all_sonos
+        data_template:
+          entity_id: "{{ states('input_select.sonos_leader') }}"
