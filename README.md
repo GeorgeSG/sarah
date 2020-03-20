@@ -3,6 +3,7 @@
 # S.A.R.A.H
 
 ![](https://img.shields.io/github/commit-activity/m/GeorgeSG/sarah)
+[![Build Status](https://travis-ci.com/GeorgeSG/sarah.svg?token=XdvzWyHdX7CysRsYcThK&branch=master)](https://travis-ci.com/GeorgeSG/sarah)
 
 ### Self Actuated Residential Automated Habitat
 
@@ -21,7 +22,7 @@ keep everything organized and grouped by different functionalities.
 - `routines` - definitions of automated routines - e.g. Coming Home or Waking Up
 - `sensors` - describing sensors the house can use
 
-The `speech` module uses [partial templates](https://github.com/GeorgeSG/sarah/tree/master/templates/partials) to generate more complex messages.
+The `speech` module uses [partial templates](https://github.com/GeorgeSG/sarah/tree/master/config/templates/partials) to generate more complex messages.
 
 ## Hardware
 
