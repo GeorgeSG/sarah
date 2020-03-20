@@ -3,7 +3,7 @@ language: python
 python: "3.7.7"
 
 before_install:
-  - mv secrets.example.yaml secrets.yaml
+  - mv ./config/secrets.example.yaml ./config/secrets.yaml
   - sed -e '/hacs/,+2d' < configuration.yaml > configuration.yaml
   - sed -e '/uilogs/,+2d' < configuration.yaml > configuration.yaml
   - sed -e '/spotcast/,+2d' < configuration.yaml > configuration.yaml
