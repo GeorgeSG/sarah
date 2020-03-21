@@ -1,3 +1,13 @@
+# https://www.home-assistant.io/integrations/amcrest
+amcrest:
+  - host: !secret amcrest_ip
+    username: !secret amcrest_username
+    password: !secret amcrest_password
+    resolution: low
+    binary_sensors:
+      - motion_detected
+      - online
+
 binary_sensor:
   - platform: template
     sensors:

@@ -1,5 +1,11 @@
 # https://www.home-assistant.io/integrations/light
-# https://www.home-assistant.io/integrations/light.group/
+# https://www.home-assistant.io/integrations/light.group
+
+# https://www.home-assistant.io/integrations/yeelight
+yeelight:
+  devices:
+    !secret yeelight_bedside_ip:
+      name: Bedside light
 
 light:
   - platform: mqtt

@@ -92,16 +92,7 @@ logger:
 # ─── INTEGRATIONS ───────────────────────────────────────────────────────────────
 #
 
-# https://www.home-assistant.io/integrations/amcrest
-amcrest:
-  - host: !secret amcrest_ip
-    username: !secret amcrest_username
-    password: !secret amcrest_password
-    resolution: low
-    binary_sensors:
-      - motion_detected
-      - online
-
+# https://www.home-assistant.io/integrations/discovery
 discovery:
   ignore:
     - yeelight
@@ -114,9 +105,9 @@ frontend:
   themes: !include_dir_merge_named themes
 
 # https://www.home-assistant.io/integrations/calendar.google
-google:
-  client_id: !secret google_client_id
-  client_secret: !secret google_client_secret
+# google:
+#   client_id: !secret google_client_id
+#   client_secret: !secret google_client_secret
 
 # https://www.home-assistant.io/integrations/history
 history:
@@ -151,55 +142,8 @@ plex:
     use_episode_art: true
     ignore_new_shared_users: false
 
-# https://www.home-assistant.io/integrations/sonos
-sonos:
-  media_player:
-    hosts: !secret sonos_hosts
-
-# https://www.home-assistant.io/integrations/spotify
-spotify:
-  client_id: !secret spotify_client_id
-  client_secret: !secret spotify_client_secret
-
-# https://www.home-assistant.io/integrations/telegram
-# https://www.home-assistant.io/integrations/telegram_chatbot
-telegram_bot:
-  - platform: polling
-    api_key: !secret telegram_token
-    allowed_chat_ids:
-      - !secret telegram_georgi_chat_id
-
-# https://www.home-assistant.io/integrations/tts
-tts:
-  - platform: amazon_polly
-    aws_access_key_id: !secret aws_polly_client_id
-    aws_secret_access_key: !secret aws_polly_client_secret
-    region_name: us-east-1
-    voice: Amy
-    engine: neural
-
 # https://www.home-assistant.io/integrations/wake_on_lan
 wake_on_lan:
-
-# https://www.home-assistant.io/integrations/webostv
-webostv:
-  - host: !secret living_room_tv_ip
-    name: Living Room TV
-    turn_on_action:
-      service: wake_on_lan.send_magic_packet
-      data:
-        mac: !secret living_room_tv_mac
-    # customize:
-    #   sources:
-    #     - livetv
-    #     - youtube
-    #     - makotv
-    #     - netflix
-
-yeelight:
-  devices:
-    !secret yeelight_bedside_ip:
-      name: Bedside light
 
 # https://www.home-assistant.io/integrations/zeroconf
 zeroconf:

@@ -1,3 +1,20 @@
+# https://www.home-assistant.io/integrations/telegram
+# https://www.home-assistant.io/integrations/telegram_chatbot
+telegram_bot:
+  - platform: polling
+    api_key: !secret telegram_token
+    allowed_chat_ids:
+      - !secret telegram_georgi_chat_id
+
+# https://www.home-assistant.io/integrations/tts
+tts:
+  - platform: amazon_polly
+    aws_access_key_id: !secret aws_polly_client_id
+    aws_secret_access_key: !secret aws_polly_client_secret
+    region_name: us-east-1
+    voice: Amy
+    engine: neural
+
 input_boolean:
   speech_notifications:
     name: Speech notifications

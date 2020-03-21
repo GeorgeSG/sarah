@@ -1,3 +1,13 @@
+# https://www.home-assistant.io/integrations/sonos
+sonos:
+  media_player:
+    hosts: !secret sonos_hosts
+
+# https://www.home-assistant.io/integrations/spotify
+spotify:
+  client_id: !secret spotify_client_id
+  client_secret: !secret spotify_client_secret
+
 group:
   all_sonos:
     name: All Sonos
@@ -10,7 +20,6 @@ group:
 input_select:
   sonos_leader:
     name: Sonos Leader
-    initial: media_player.master_bedroom
     icon: mdi:speaker
     options:
       - media_player.master_bedroom
