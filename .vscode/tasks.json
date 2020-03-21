@@ -29,6 +29,17 @@
       "presentation": {
         "focus": true
       }
+    },
+    {
+      "label": "logs",
+      "type": "shell",
+      "command": "./bin/logs",
+      "problemMatcher": [],
+      "presentation": {
+        "panel": "dedicated",
+        "clear": true,
+        "focus": true
+      }
     }
   ]
 }
