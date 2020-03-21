@@ -21,14 +21,14 @@ automation:
       - service: script.say
         data:
           message: "Hey! I was out for a bit, but I'm back online!"
-      - service: notify.telegram
-        data:
-          title: "⚙️ *System Module*"
-          message: "Ask me to do something anytime!"
-          data:
-            keyboard:
-              - "/guest_mode_on, /guest_mode_off"
-              - "/status"
+      # - service: notify.telegram
+      #   data:
+      #     title: "⚙️ *System Module*"
+      #     message: "Ask me to do something anytime!"
+      #     data:
+      #       keyboard:
+      #         - "/guest_mode_on, /guest_mode_off"
+      #         - "/status"
 
   - alias: System · Telegram · Announce status
     trigger:
