@@ -1,9 +1,9 @@
 # https://www.home-assistant.io/integrations/synologydsm
 sensor:
   - platform: synologydsm
-    host: !secret synology_ip
-    username: !secret synology_user
-    password: !secret synology_password
+    host: !secret platinum_ip
+    username: !secret platinum_user
+    password: !secret platinum_password
     monitored_conditions:
       - cpu_15min_load
       - cpu_1min_load
