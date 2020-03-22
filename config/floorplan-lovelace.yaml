@@ -14,55 +14,97 @@ views:
     icon: mdi:floor-plan
     cards:
       - type: picture-elements
-        image: /local/images/floorplan/floorplan_night.jpg
+        image: /local/images/floorplan/floorplan_night_transparent.png
         elements:
-          # Lighting Overlays
-          - type: conditional
-            conditions:
-              - entity: light.pc
-                state: "on"
-              - entity: light.living_room_main_lights
-                state: "off"
-            elements:
-              - type: image
-                image: /local/images/floorplan/living_room_pc_light.png
-                tap_action: none
-                hold_action: none
-                style:
-                  top: 71.04%
-                  left: 65.65%
-                  width: 40.08%
-          - type: conditional
-            conditions:
-              - entity: light.pc
-                state: "off"
-              - entity: light.living_room_main_lights
-                state: "on"
-            elements:
-              - type: image
-                image: /local/images/floorplan/living_room_main_lights.png
-                tap_action: none
-                hold_action: none
-                style:
-                  top: 71.04%
-                  left: 65.65%
-                  width: 40.08%
-          - type: conditional
-            conditions:
-              - entity: light.pc
-                state: "on"
-              - entity: light.living_room_main_lights
-                state: "on"
-            elements:
-              - type: image
-                image: /local/images/floorplan/living_room_all_lights.png
-                tap_action: none
-                hold_action: none
-                style:
-                  top: 71.04%
-                  left: 65.65%
-                  width: 40.08%
+          - type: image
+            entity: sun.sun
+            action: none
+            hold_action:
+              action: none
+            state_image:
+              above_horizon: /local/images/floorplan/floorplan_day.jpg
+              below_horizon: /local/images/floorplan/transparent.png
+            style:
+              height: 100%
+              left: 50%
+              top: 50%
+              width: 100%
+            tap_action:
+              action: none
 
+          # Lighting Overlays
+
+          # Living Room
+          - type: conditional
+            conditions:
+              - entity: sun.sun
+                state: "below_horizon"
+              - entity: light.pc
+                state: "on"
+              - entity: light.living_room_main_lights
+                state: "off"
+            elements:
+              - type: image
+                image: /local/images/floorplan/living_room_pc_light_on.png
+                tap_action: none
+                hold_action: none
+                style:
+                  top: 71.04%
+                  left: 65.92%
+                  width: 38.5%
+          - type: conditional
+            conditions:
+              - entity: sun.sun
+                state: "below_horizon"
+              - entity: light.pc
+                state: "off"
+              - entity: light.living_room_main_lights
+                state: "on"
+            elements:
+              - type: image
+                image: /local/images/floorplan/living_room_main_lights_on.png
+                tap_action: none
+                hold_action: none
+                style:
+                  top: 71.04%
+                  left: 65.92%
+                  width: 38.5%
+          - type: conditional
+            conditions:
+              - entity: sun.sun
+                state: "below_horizon"
+              - entity: light.pc
+                state: "on"
+              - entity: light.living_room_main_lights
+                state: "on"
+            elements:
+              - type: image
+                image: /local/images/floorplan/living_room_all_lights_on.png
+                tap_action: none
+                hold_action: none
+                style:
+                  top: 71.04%
+                  left: 65.92%
+                  width: 38.5%
+
+          # Master Bedroom
+          - type: conditional
+            conditions:
+              - entity: sun.sun
+                state: "below_horizon"
+              - entity: light.bedside_light
+                state: "on"
+            elements:
+              - type: image
+                image: /local/images/floorplan/master_bedroom_bedside_light_on.png
+                tap_action: none
+                hold_action: none
+                style:
+                  top: 25.7%
+                  left: 70.35%
+                  width: 29%
+
+          # Light switches
           - type: image
             entity: light.pc
             tap_action:
@@ -71,6 +113,7 @@ views:
             style:
               top: 71%
               left: 77.8%
+
           - type: image
             entity: light.living_room_main_lights
             tap_action:
@@ -82,6 +125,17 @@ views:
               width: 5%
               height: 2%
 
+          - type: image
+            entity: light.bedside_light
+            tap_action:
+              action: toggle
+            image: /local/images/floorplan/transparent.png
+            style:
+              top: 11.7%
+              left: 61.6%
+              width: 1.5%
+
+          # Sensors
           - type: state-icon
             entity: binary_sensor.bedroom_right_window_on_off_wrapper
             style:
@@ -101,7 +155,7 @@ views:
               color: "#000"
               border-radius: 50%
               text-align: center
-              background-color: "rgba(255, 255, 255, 0.3)"
+              background-color: "rgba(255, 255, 255, 0.6)"
               font-size: 14px
               font-weight: bold
 
