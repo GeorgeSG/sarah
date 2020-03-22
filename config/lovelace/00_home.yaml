@@ -97,6 +97,7 @@ cards:
         forecast: true
 
       - type: "custom:aftership-card"
+        show_add: false
         entity: sensor.aftership
         title: Packages
 
