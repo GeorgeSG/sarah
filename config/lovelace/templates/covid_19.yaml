@@ -20,23 +20,46 @@ covid_19:
             name: Recovered
             icon: "mdi:emoticon-cool-outline"
 
-      - type: "custom:mini-graph-card"
-        animate: true
-        icon: mdi:emoticon-confused
-        line_width: 3
-        line_color:
-          - var(--paper-orange-400)
-          - var(--paper-green-400)
-          - var(--accent-color)
-        hours_to_show: 168
-        points_per_hour: 0.04
-        entities:
-          - entity: sensor.[[location]]_coronavirus_deaths
-            index: 0
+      - type: horizontal-stack
+        cards:
+          - type: "custom:mini-graph-card"
+            name: Current
+            animate: true
+            hours_to_show: 168
+            points_per_hour: 0.04
+            font_size: 75
+            icon: "mdi:emoticon-sad-outline"
+            line_color: var(--accent-color)
+            line_width: 8
+            show:
+              state: false
+            entities:
+              - sensor.[[location]]_coronavirus_current
+
+          - type: "custom:mini-graph-card"
             name: Deaths
-          - entity: sensor.[[location]]_coronavirus_recovered
-            index: 1
+            animate: true
+            hours_to_show: 168
+            points_per_hour: 0.04
+            font_size: 75
+            icon: "mdi:emoticon-cry-outline"
+            line_color: "#e74c3c"
+            line_width: 8
+            show:
+              state: false
+            entities:
+              - sensor.[[location]]_coronavirus_deaths
+
+          - type: "custom:mini-graph-card"
             name: Recovered
-          - entity: sensor.[[location]]_coronavirus_current
-            index: 2
-            name: "Current"
+            animate: true
+            hours_to_show: 168
+            points_per_hour: 0.04
+            font_size: 75
+            icon: "mdi:emoticon-cool-outline"
+            line_color: var(--paper-green-400)
+            line_width: 8
+            show:
+              state: false
+            entities:
+              - sensor.[[location]]_coronavirus_recovered
