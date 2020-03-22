@@ -65,9 +65,14 @@ lovelace:
     lovelace-yaml:
       mode: yaml
       title: YAML
-      icon: mdi:script
-      show_in_sidebar: true
+      icon: mdi:home
       filename: ui-lovelace.yaml
+    lovelace-floorlan:
+      mode: yaml
+      title: Floorplan
+      icon: mdi:map
+      show_in_sidebar: true
+      filename: floorplan-lovelace.yaml
 
 # https://www.home-assistant.io/components/logbook
 logbook:

@@ -1,0 +1,117 @@
+custom_header:
+  hide_header: true
+  hide_config: true
+  hide_help: true
+  hide_unused: true
+
+decluttering_templates: !include_dir_merge_named lovelace/templates
+
+title: Floorplan
+views:
+  - title: Floorplan
+    path: floorplan
+    panel: true
+    icon: mdi:floor-plan
+    cards:
+      - type: picture-elements
+        image: /local/images/floorplan/floorplan_night.jpg
+        elements:
+          # Lighting Overlays
+          - type: conditional
+            conditions:
+              - entity: light.pc
+                state: "on"
+              - entity: light.living_room_main_lights
+                state: "off"
+            elements:
+              - type: image
+                image: /local/images/floorplan/living_room_pc_light.png
+                tap_action: none
+                hold_action: none
+                style:
+                  top: 71.04%
+                  left: 65.65%
+                  width: 40.08%
+          - type: conditional
+            conditions:
+              - entity: light.pc
+                state: "off"
+              - entity: light.living_room_main_lights
+                state: "on"
+            elements:
+              - type: image
+                image: /local/images/floorplan/living_room_main_lights.png
+                tap_action: none
+                hold_action: none
+                style:
+                  top: 71.04%
+                  left: 65.65%
+                  width: 40.08%
+          - type: conditional
+            conditions:
+              - entity: light.pc
+                state: "on"
+              - entity: light.living_room_main_lights
+                state: "on"
+            elements:
+              - type: image
+                image: /local/images/floorplan/living_room_all_lights.png
+                tap_action: none
+                hold_action: none
+                style:
+                  top: 71.04%
+                  left: 65.65%
+                  width: 40.08%
+
+          - type: image
+            entity: light.pc
+            tap_action:
+              action: toggle
+            image: /local/images/floorplan/transparent.png
+            style:
+              top: 71%
+              left: 77.8%
+          - type: image
+            entity: light.living_room_main_lights
+            tap_action:
+              action: toggle
+            image: /local/images/floorplan/transparent.png
+            style:
+              top: 69.8%
+              left: 64.8%
+              width: 5%
+              height: 2%
+
+          - type: state-icon
+            entity: binary_sensor.bedroom_right_window_on_off_wrapper
+            style:
+              top: 35%
+              left: 82.3%
+              transform: scaleX(-1)
+              border-radius: 50%
+              text-align: center
+              background-color: rgba(0, 0, 0, 0.6)
+              --paper-item-icon-active-color: "#ff0000"
+
+          - type: state-label
+            entity: sensor.bedroom_weather_temperature
+            style:
+              top: 38%
+              left: 69.5%
+              color: "#000"
+              border-radius: 50%
+              text-align: center
+              background-color: "rgba(255, 255, 255, 0.3)"
+              font-size: 14px
+              font-weight: bold
+
+          - type: state-icon
+            entity: binary_sensor.living_room_right_window_on_off_wrapper
+            style:
+              top: 73.2%
+              left: 82.3%
+              transform: scaleX(-1)
+              border-radius: 50%
+              text-align: center
+              background-color: rgba(0, 0, 0, 0.6)
+              --paper-item-icon-active-color: "#ff0000"

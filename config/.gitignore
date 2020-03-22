@@ -1,0 +1,15 @@
+custom_components/
+.google.token
+.spotify-token-cache
+.storage/
+google_calendars.yaml
+known_devices.yaml
+secrets.yaml
+themes/
+tts/
+webostv.conf
+zigbee.db
+*.db
+*.db-journal
+*.log
+*.tile.conf
