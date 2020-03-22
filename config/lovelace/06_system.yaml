@@ -92,7 +92,7 @@ cards:
         open: true
         entities:
           - automation.security_door_opened_while_away
-          - automation.camera_turn_off_on_startup
+          - automation.camera_startup
 
       - type: custom:fold-entity-row
         head:

@@ -93,8 +93,7 @@ script:
 
 # Hack - the switch.camera initial state is wrong (ON) when the server starts.
 automation:
-  - id: camera_turn_off_on_startup
-    alias: Camera · Startup
+  - alias: Camera · Startup
     trigger:
       - platform: homeassistant
         event: start
@@ -103,8 +102,7 @@ automation:
       - service: switch.turn_off
         entity_id: switch.camera
 
-  - id: security_door_opened_while_away
-    alias: Security · Door opened while away
+  - alias: Security · Door opened while away
     trigger:
       - platform: state
         entity_id: binary_sensor.front_door_on_off
