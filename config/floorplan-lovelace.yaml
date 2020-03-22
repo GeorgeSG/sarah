@@ -52,6 +52,7 @@ views:
                   top: 71.04%
                   left: 65.92%
                   width: 38.5%
+                  cursor: default
           - type: conditional
             conditions:
               - entity: sun.sun
@@ -69,6 +70,7 @@ views:
                   top: 71.04%
                   left: 65.92%
                   width: 38.5%
+                  cursor: default
           - type: conditional
             conditions:
               - entity: sun.sun
@@ -86,6 +88,7 @@ views:
                   top: 71.04%
                   left: 65.92%
                   width: 38.5%
+                  cursor: default
 
           # Master Bedroom
           - type: conditional
@@ -103,6 +106,7 @@ views:
                   top: 25.7%
                   left: 70.35%
                   width: 29%
+                  cursor: default
 
           # Light switches
           - type: image
