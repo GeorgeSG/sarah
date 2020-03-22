@@ -5,7 +5,6 @@ icon: "mdi:biohazard"
 badges: []
 cards:
   - type: custom:layout-card
-    min_columns: 3
     max_columns: 3
     cards:
       - type: custom:decluttering-card
