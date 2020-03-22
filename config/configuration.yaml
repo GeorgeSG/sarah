@@ -59,6 +59,8 @@ lovelace:
       url: /hacsfiles/lovelace-multiple-entity-row/multiple-entity-row.js
     - type: module
       url: /hacsfiles/decluttering-card/decluttering-card.js
+    - type: module
+      url: /hacsfiles/lovelace-layout-card/layout-card.js
   dashboards:
     lovelace-yaml:
       mode: yaml

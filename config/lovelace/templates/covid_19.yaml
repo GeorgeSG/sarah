@@ -1,0 +1,42 @@
+covid_19:
+  card:
+    type: vertical-stack
+    cards:
+      - type: glance
+        title: COVID-19 [[name]]
+        show_name: true
+        columns: 4
+        entities:
+          - entity: sensor.[[location]]_coronavirus_confirmed
+            name: Confirmed
+            icon: "mdi:emoticon-confused-outline"
+          - entity: sensor.[[location]]_coronavirus_current
+            name: Current
+            icon: "mdi:emoticon-sad-outline"
+          - entity: sensor.[[location]]_coronavirus_deaths
+            name: Deaths
+            icon: "mdi:emoticon-cry-outline"
+          - entity: sensor.[[location]]_coronavirus_recovered
+            name: Recovered
+            icon: "mdi:emoticon-cool-outline"
+
+      - type: "custom:mini-graph-card"
+        animate: true
+        icon: mdi:emoticon-confused
+        line_width: 3
+        line_color:
+          - var(--paper-orange-400)
+          - var(--paper-green-400)
+          - var(--accent-color)
+        hours_to_show: 168
+        points_per_hour: 0.04
+        entities:
+          - entity: sensor.[[location]]_coronavirus_deaths
+            index: 0
+            name: Deaths
+          - entity: sensor.[[location]]_coronavirus_recovered
+            index: 1
+            name: Recovered
+          - entity: sensor.[[location]]_coronavirus_current
+            index: 2
+            name: "Current"
