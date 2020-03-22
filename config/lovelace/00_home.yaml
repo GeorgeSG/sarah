@@ -97,9 +97,24 @@ cards:
         forecast: true
 
       - type: "custom:aftership-card"
-        show_add: false
-        entity: sensor.aftership
         title: Packages
+        entity: sensor.aftership
+        show_add: false
+        style: |
+          ha-card {
+            padding-top: 1em;
+            padding-bottom: 1em;
+          }
+          paper-item-body:first-child {
+            width: 32px;
+          }
+          paper-item-body {
+            width: 45%;
+            white-space: normal !important;
+          }
+          ha-icon {
+            padding: 0;
+          }
 
       - type: "custom:travel-time-card"
         title: Travel time
