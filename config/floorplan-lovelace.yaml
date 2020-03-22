@@ -135,6 +135,20 @@ views:
               left: 61.6%
               width: 1.5%
 
+          # Puifier
+          - type: state-icon
+            entity: fan.philips_airpurifier
+            tap_action:
+              action: toggle
+            style:
+              top: 44%
+              left: 61.5%
+              transform: scaleX(-1)
+              border-radius: 50%
+              text-align: center
+              background-color: rgba(0, 0, 0, 0.6)
+              --paper-item-icon-active-color: "#00ff00"
+
           # Sensors
           - type: state-icon
             entity: binary_sensor.bedroom_right_window_on_off_wrapper
