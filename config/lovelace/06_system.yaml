@@ -23,6 +23,8 @@ cards:
           - automation.routine_coming_home_left_work
           - automation.presence_leaving_work
 
+      - type: divider
+
       - type: custom:fold-entity-row
         head:
           type: custom:dummy-entity-row
@@ -38,6 +40,8 @@ cards:
           - automation.lighting_living_room_turn_all_lights_off_on_magic_cube_flip_180
           - automation.lighting_sync_tasmota_states_on_start_up
 
+      - type: divider
+
       - type: custom:fold-entity-row
         head:
           type: custom:dummy-entity-row
@@ -50,6 +54,8 @@ cards:
           - automation.music_volume_down_on_magic_cube_rotate_left
           - automation.music_volume_up_on_magic_cube_rotate_right
 
+      - type: divider
+
       - type: custom:fold-entity-row
         head:
           type: custom:dummy-entity-row
@@ -60,6 +66,8 @@ cards:
           - automation.sleep_mode_enable
           - automation.sleep_mode_disable
           - automation.sleep_mode_toggle_on_bedside_switch_double_click
+
+      - type: divider
 
       - type: custom:fold-entity-row
         head:
@@ -72,6 +80,8 @@ cards:
           - automation.guest_mode_enable_from_telegram
           - automation.guest_mode_disable_from_telegram
 
+      - type: divider
+
       - type: custom:fold-entity-row
         head:
           type: custom:dummy-entity-row
@@ -83,6 +93,8 @@ cards:
           - automation.domestina_automate_end
           - automation.domestina_end
 
+      - type: divider
+
       - type: custom:fold-entity-row
         head:
           type: custom:dummy-entity-row
@@ -93,6 +105,8 @@ cards:
         entities:
           - automation.security_door_opened_while_away
           - automation.camera_startup
+
+      - type: divider
 
       - type: custom:fold-entity-row
         head:
