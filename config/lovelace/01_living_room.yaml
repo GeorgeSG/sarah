@@ -35,23 +35,23 @@ cards:
               - type: custom:decluttering-card
                 template: light_with_fade_and_switch
                 variables:
-                  - light: light.living_room_1
-                  - fade: switch.living_room_1_light_fade
+                  - light: light.light_le_1
+                  - fade: switch.light_le_1_light_fade
               - type: custom:decluttering-card
                 template: light_with_fade_and_switch
                 variables:
-                  - light: light.living_room_2
-                  - fade: switch.living_room_2_light_fade
+                  - light: light.light_le_2
+                  - fade: switch.light_le_2_light_fade
               - type: custom:decluttering-card
                 template: light_with_fade_and_switch
                 variables:
-                  - light: light.living_room_3
-                  - fade: switch.living_room_3_light_fade
+                  - light: light.light_le_3
+                  - fade: switch.light_le_3_light_fade
               - type: custom:decluttering-card
                 template: light_with_fade_and_switch
                 variables:
-                  - light: light.living_room_4
-                  - fade: switch.living_room_4_light_fade
+                  - light: light.light_le_4
+                  - fade: switch.light_le_4_light_fade
           - type: custom:fold-entity-row
             head:
               type: custom:decluttering-card

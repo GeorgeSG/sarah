@@ -7,6 +7,12 @@ yeelight:
     !secret yeelight_bedside_ip:
       name: Bedside light
 
+# https://www.home-assistant.io/integrations/tuya
+tuya:
+  username: !secret tuya_username
+  password: !secret tuya_password
+  country_code: bg
+
 light:
   - platform: mqtt
     name: "PC"
@@ -36,18 +42,18 @@ light:
     retain: false
 
   - platform: mqtt
-    name: "Living room 1"
-    availability_topic: "tele/living_room_1/LWT"
-    command_topic: "cmnd/living_room_1/POWER"
-    state_topic: "tele/living_room_1/STATE"
+    name: "light_le_1"
+    availability_topic: "tele/light_le_1/LWT"
+    command_topic: "cmnd/light_le_1/POWER"
+    state_topic: "tele/light_le_1/STATE"
     state_value_template: "{{ value_json.POWER }}"
-    brightness_command_topic: "cmnd/living_room_1/Dimmer"
-    brightness_state_topic: "tele/living_room_1/STATE"
+    brightness_command_topic: "cmnd/light_le_1/Dimmer"
+    brightness_state_topic: "tele/light_le_1/STATE"
     brightness_scale: 100
     on_command_type: "brightness"
     brightness_value_template: "{{ value_json.Dimmer }}"
-    color_temp_command_topic: "cmnd/living_room_1/CT"
-    color_temp_state_topic: "tele/living_room_1/STATE"
+    color_temp_command_topic: "cmnd/light_le_1/CT"
+    color_temp_state_topic: "tele/light_le_1/STATE"
     color_temp_value_template: "{{ value_json.CT }}"
     payload_on: "ON"
     payload_off: "OFF"
@@ -57,18 +63,18 @@ light:
     retain: false
 
   - platform: mqtt
-    name: "Living room 2"
-    availability_topic: "tele/living_room_2/LWT"
-    command_topic: "cmnd/living_room_2/POWER"
-    state_topic: "tele/living_room_2/STATE"
+    name: "light_le_2"
+    availability_topic: "tele/light_le_2/LWT"
+    command_topic: "cmnd/light_le_2/POWER"
+    state_topic: "tele/light_le_2/STATE"
     state_value_template: "{{ value_json.POWER }}"
-    brightness_command_topic: "cmnd/living_room_2/Dimmer"
-    brightness_state_topic: "tele/living_room_2/STATE"
+    brightness_command_topic: "cmnd/light_le_2/Dimmer"
+    brightness_state_topic: "tele/light_le_2/STATE"
     brightness_scale: 100
     on_command_type: "brightness"
     brightness_value_template: "{{ value_json.Dimmer }}"
-    color_temp_command_topic: "cmnd/living_room_2/CT"
-    color_temp_state_topic: "tele/living_room_2/STATE"
+    color_temp_command_topic: "cmnd/light_le_2/CT"
+    color_temp_state_topic: "tele/light_le_2/STATE"
     color_temp_value_template: "{{ value_json.CT }}"
     payload_on: "ON"
     payload_off: "OFF"
@@ -78,18 +84,18 @@ light:
     retain: false
 
   - platform: mqtt
-    name: "Living room 3"
-    availability_topic: "tele/living_room_3/LWT"
-    command_topic: "cmnd/living_room_3/POWER"
-    state_topic: "tele/living_room_3/STATE"
+    name: "light_le_3"
+    availability_topic: "tele/light_le_3/LWT"
+    command_topic: "cmnd/light_le_3/POWER"
+    state_topic: "tele/light_le_3/STATE"
     state_value_template: "{{ value_json.POWER }}"
-    brightness_command_topic: "cmnd/living_room_3/Dimmer"
-    brightness_state_topic: "tele/living_room_3/STATE"
+    brightness_command_topic: "cmnd/light_le_3/Dimmer"
+    brightness_state_topic: "tele/light_le_3/STATE"
     brightness_scale: 100
     on_command_type: "brightness"
     brightness_value_template: "{{ value_json.Dimmer }}"
-    color_temp_command_topic: "cmnd/living_room_3/CT"
-    color_temp_state_topic: "tele/living_room_3/STATE"
+    color_temp_command_topic: "cmnd/light_le_3/CT"
+    color_temp_state_topic: "tele/light_le_3/STATE"
     color_temp_value_template: "{{ value_json.CT }}"
     payload_on: "ON"
     payload_off: "OFF"
@@ -99,19 +105,73 @@ light:
     retain: false
 
   - platform: mqtt
-    name: "Living room 4"
-    availability_topic: "tele/living_room_4/LWT"
-    command_topic: "cmnd/living_room_4/POWER"
-    state_topic: "tele/living_room_4/STATE"
+    name: "light_le_4"
+    availability_topic: "tele/light_le_4/LWT"
+    command_topic: "cmnd/light_le_4/POWER"
+    state_topic: "tele/light_le_4/STATE"
     state_value_template: "{{ value_json.POWER }}"
-    brightness_command_topic: "cmnd/living_room_4/Dimmer"
-    brightness_state_topic: "tele/living_room_4/STATE"
+    brightness_command_topic: "cmnd/light_le_4/Dimmer"
+    brightness_state_topic: "tele/light_le_4/STATE"
     brightness_scale: 100
     on_command_type: "brightness"
     brightness_value_template: "{{ value_json.Dimmer }}"
-    color_temp_command_topic: "cmnd/living_room_4/CT"
-    color_temp_state_topic: "tele/living_room_4/STATE"
+    color_temp_command_topic: "cmnd/light_le_4/CT"
+    color_temp_state_topic: "tele/light_le_4/STATE"
     color_temp_value_template: "{{ value_json.CT }}"
+    payload_on: "ON"
+    payload_off: "OFF"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    qos: 1
+    retain: false
+
+  - platform: mqtt
+    name: "light_lohas_1"
+    availability_topic: "tele/light_lohas_1/LWT"
+    command_topic: "cmnd/light_lohas_1/POWER"
+    state_topic: "tele/light_lohas_1/STATE"
+    state_value_template: "{{ value_json.POWER }}"
+    brightness_command_topic: "cmnd/light_lohas_1/Dimmer"
+    brightness_state_topic: "tele/light_lohas_1/STATE"
+    brightness_scale: 100
+    on_command_type: "brightness"
+    brightness_value_template: "{{ value_json.Dimmer }}"
+    hs_command_topic: "cmnd/light_lohas_1/HSBColor"
+    hs_state_topic: "tele/light_lohas_1/STATE"
+    hs_value_template: "{{ value_json.HSBColor.split(',')[0:2]|join(',') }}"
+    color_temp_command_topic: "cmnd/light_lohas_1/CT"
+    color_temp_state_topic: "tele/light_lohas_1/STATE"
+    color_temp_value_template: "{{ value_json.CT }}"
+    rgb_command_topic: "cmnd/light_lohas_1/Color"
+    rgb_state_topic: "tele/pc_light/STATE"
+    rgb_value_template: "{{ value_json.Color.split(',')[0:3]|join(',') }}"
+    payload_on: "ON"
+    payload_off: "OFF"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    qos: 1
+    retain: false
+
+  - platform: mqtt
+    name: "light_lohas_2"
+    availability_topic: "tele/light_lohas_2/LWT"
+    command_topic: "cmnd/light_lohas_2/POWER"
+    state_topic: "tele/light_lohas_2/STATE"
+    state_value_template: "{{ value_json.POWER }}"
+    brightness_command_topic: "cmnd/light_lohas_2/Dimmer"
+    brightness_state_topic: "tele/light_lohas_2/STATE"
+    brightness_scale: 100
+    on_command_type: "brightness"
+    brightness_value_template: "{{ value_json.Dimmer }}"
+    hs_command_topic: "cmnd/light_lohas_2/HSBColor"
+    hs_state_topic: "tele/light_lohas_2/STATE"
+    hs_value_template: "{{ value_json.HSBColor.split(',')[0:2]|join(',') }}"
+    color_temp_command_topic: "cmnd/light_lohas_2/CT"
+    color_temp_state_topic: "tele/light_lohas_2/STATE"
+    color_temp_value_template: "{{ value_json.CT }}"
+    rgb_command_topic: "cmnd/light_lohas_2/Color"
+    rgb_state_topic: "tele/pc_light/STATE"
+    rgb_value_template: "{{ value_json.Color.split(',')[0:3]|join(',') }}"
     payload_on: "ON"
     payload_off: "OFF"
     payload_available: "Online"
@@ -122,10 +182,10 @@ light:
   - platform: group
     name: Living room main lights
     entities:
-      - light.living_room_1
-      - light.living_room_2
-      - light.living_room_3
-      - light.living_room_4
+      - light.light_lohas_1
+      - light.light_lohas_2
+      - light.light_le_9
+      - light.light_le_10
 
   - platform: group
     name: Living room all lights
@@ -134,10 +194,51 @@ light:
       - light.pc
 
   - platform: group
+    name: Master bedroom main lights
+    entities:
+      - light.light_le_1
+      - light.light_le_2
+      - light.light_le_3
+      - light.light_le_4
+
+  - platform: group
+    name: Master bedroom all lights
+    entities:
+      - light.master_bedroom_main_lights
+      - light.bedside_light
+
+  - platform: group
+    name: Kitchen main lights
+    entities:
+      - light.light_le_11
+      - light.light_le_12
+      - light.light_orbecco_1
+
+  - platform: group
+    name: Hallway entrance lights
+    entities:
+      - light.light_le_5
+      - light.light_le_6
+
+  - platform: group
+    name: Hallway main lights
+    entities:
+      - light.light_le_7
+      - light.light_le_8
+
+  - platform: group
+    name: Hallway all lights
+    entities:
+      - light.hallway_entrance_lights
+      - light.hallway_main_lights
+
+  - platform: group
     name: All lights
     entities:
       - light.living_room_all_lights
-      - light.bedside_light
+      - light.master_bedroom_all_lights
+      - light.kitchen_main_lights
+      - light.hallway_all_lights
 
 sensor:
   - platform: mqtt
@@ -151,42 +252,62 @@ sensor:
     value_template: "{{ value_json['Wifi'].RSSI }}"
 
   - platform: mqtt
-    name: "Living room 1 light WiFi"
-    availability_topic: "tele/living_room_1/LWT"
+    name: "light_le_1_wifi"
+    availability_topic: "tele/light_le_1/LWT"
     device_class: signal_strength
     payload_available: "Online"
     payload_not_available: "Offline"
-    state_topic: "tele/living_room_1/STATE"
+    state_topic: "tele/light_le_1/STATE"
     unit_of_measurement: "%"
     value_template: "{{ value_json['Wifi'].RSSI }}"
 
   - platform: mqtt
-    name: "Living room 2 light WiFi"
-    availability_topic: "tele/living_room_2/LWT"
+    name: "light_le_2_wifi"
+    availability_topic: "tele/light_le_2/LWT"
     device_class: signal_strength
     payload_available: "Online"
     payload_not_available: "Offline"
-    state_topic: "tele/living_room_2/STATE"
+    state_topic: "tele/light_le_2/STATE"
     unit_of_measurement: "%"
     value_template: "{{ value_json['Wifi'].RSSI }}"
 
   - platform: mqtt
-    name: "Living room 3 light WiFi"
-    availability_topic: "tele/living_room_3/LWT"
+    name: "light_le_3_wifi"
+    availability_topic: "tele/light_le_3/LWT"
     device_class: signal_strength
     payload_available: "Online"
     payload_not_available: "Offline"
-    state_topic: "tele/living_room_3/STATE"
+    state_topic: "tele/light_le_3/STATE"
     unit_of_measurement: "%"
     value_template: "{{ value_json['Wifi'].RSSI }}"
 
   - platform: mqtt
-    name: "Living room 4 light WiFi"
-    availability_topic: "tele/living_room_4/LWT"
+    name: "light_le_4_wifi"
+    availability_topic: "tele/light_le_4/LWT"
     device_class: signal_strength
     payload_available: "Online"
     payload_not_available: "Offline"
-    state_topic: "tele/living_room_4/STATE"
+    state_topic: "tele/light_le_4/STATE"
+    unit_of_measurement: "%"
+    value_template: "{{ value_json['Wifi'].RSSI }}"
+
+  - platform: mqtt
+    name: "light_lohas_1_wifi"
+    availability_topic: "tele/light_lohas_1/LWT"
+    device_class: signal_strength
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    state_topic: "tele/light_lohas_1/STATE"
+    unit_of_measurement: "%"
+    value_template: "{{ value_json['Wifi'].RSSI }}"
+
+  - platform: mqtt
+    name: "light_lohas_2_wifi"
+    availability_topic: "tele/light_lohas_2/LWT"
+    device_class: signal_strength
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    state_topic: "tele/light_lohas_2/STATE"
     unit_of_measurement: "%"
     value_template: "{{ value_json['Wifi'].RSSI }}"
 
@@ -203,47 +324,69 @@ switch:
     value_template: "{{ value_json.Fade }}"
 
   - platform: mqtt
-    name: "Living room 1 light Fade"
-    availability_topic: "tele/living_room_1/LWT"
-    command_topic: "cmnd/living_room_1/FADE"
+    name: "light_le_1_fade"
+    availability_topic: "tele/light_le_1/LWT"
+    command_topic: "cmnd/light_le_1/FADE"
     icon: mdi:gradient
     payload_available: "Online"
     payload_not_available: "Offline"
     qos: 1
-    state_topic: "stat/living_room_1/RESULT"
+    state_topic: "stat/light_le_1/RESULT"
     value_template: "{{ value_json.Fade }}"
 
   - platform: mqtt
-    name: "Living room 2 light Fade"
-    availability_topic: "tele/living_room_2/LWT"
-    command_topic: "cmnd/living_room_2/FADE"
+    name: "light_le_2_fade"
+    availability_topic: "tele/light_le_2/LWT"
+    command_topic: "cmnd/light_le_2/FADE"
     icon: mdi:gradient
     payload_available: "Online"
     payload_not_available: "Offline"
     qos: 1
-    state_topic: "stat/living_room_2/RESULT"
+    state_topic: "stat/light_le_2/RESULT"
     value_template: "{{ value_json.Fade }}"
 
   - platform: mqtt
-    name: "Living room 3 light Fade"
-    availability_topic: "tele/living_room_3/LWT"
-    command_topic: "cmnd/living_room_3/FADE"
+    name: "light_le_3_fade"
+    availability_topic: "tele/light_le_3/LWT"
+    command_topic: "cmnd/light_le_3/FADE"
     icon: mdi:gradient
     payload_available: "Online"
     payload_not_available: "Offline"
     qos: 1
-    state_topic: "stat/living_room_3/RESULT"
+    state_topic: "stat/light_le_3/RESULT"
     value_template: "{{ value_json.Fade }}"
 
   - platform: mqtt
-    name: "Living room 4 light Fade"
-    availability_topic: "tele/living_room_4/LWT"
-    command_topic: "cmnd/living_room_4/FADE"
+    name: "light_le_4_fade"
+    availability_topic: "tele/light_le_4/LWT"
+    command_topic: "cmnd/light_le_4/FADE"
     icon: mdi:gradient
     payload_available: "Online"
     payload_not_available: "Offline"
     qos: 1
-    state_topic: "stat/living_room_4/RESULT"
+    state_topic: "stat/light_le_4/RESULT"
+    value_template: "{{ value_json.Fade }}"
+
+  - platform: mqtt
+    name: "light_lohas_1_fade"
+    availability_topic: "tele/light_lohas_1/LWT"
+    command_topic: "cmnd/light_lohas_1/FADE"
+    icon: mdi:gradient
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    qos: 1
+    state_topic: "stat/light_lohas_1/RESULT"
+    value_template: "{{ value_json.Fade }}"
+
+  - platform: mqtt
+    name: "light_lohas_2_fade"
+    availability_topic: "tele/light_lohas_2/LWT"
+    command_topic: "cmnd/light_lohas_2/FADE"
+    icon: mdi:gradient
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    qos: 1
+    state_topic: "stat/light_lohas_2/RESULT"
     value_template: "{{ value_json.Fade }}"
 
 automation:
