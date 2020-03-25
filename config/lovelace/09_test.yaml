@@ -2,6 +2,20 @@ title: test
 path: test
 badges: []
 cards:
+  - type: glance
+    entities:
+      - entity: binary_sensor.motion_1_ias_zone
+      - entity: sensor.motion_1_illuminance
+      - entity: binary_sensor.motion_1_occupancy
+      - entity: sensor.motion_1_power
+
+  - type: glance
+    entities:
+      - entity: binary_sensor.motion_2_ias_zone
+      - entity: sensor.motion_2_illuminance
+      - entity: binary_sensor.motion_2_occupancy
+      - entity: sensor.motion_2_power
+
   - type: entities
     entities:
       - entity: sensor.cube_analog_input

@@ -136,3 +136,7 @@ cards:
         entity: sensor.cube_power
       - type: custom:battery-entity
         entity: sensor.master_bedroom_bedside_switch_power
+      - type: custom:battery-entity
+        entity: sensor.motion_1_power
+      - type: custom:battery-entity
+        entity: sensor.motion_2_power
