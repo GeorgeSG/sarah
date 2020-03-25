@@ -8,8 +8,14 @@ cards:
     cards:
       - type: glance
         title: Lights
-        show_header_toggle: false
         entities:
+          - entity: light.all_lights
+            name: All
+            tap_action:
+              action: call-service
+              service: light.toggle
+              service_data:
+                entity_id: light.all_lights
           - entity: light.living_room_main_lights
             name: Living room
             tap_action:
@@ -23,12 +29,41 @@ cards:
               service: light.toggle
               service_data:
                 entity_id: light.pc
+          - entity: light.master_bedroom_main_lights
+            name: Bedroom
+            tap_action:
+              action: call-service
+              service: light.toggle
+              service_data:
+                entity_id: light.master_bedroom_main_lights
           - entity: light.bedside_light
+            name: Bedside
             tap_action:
               action: call-service
               service: light.toggle
               service_data:
                 entity_id: light.bedside_light
+          - entity: light.kitchen_main_lights
+            name: Kitchen
+            tap_action:
+              action: call-service
+              service: light.toggle
+              service_data:
+                entity_id: light.kitchen_main_lights
+          - entity: light.hallway_entrance_lights
+            name: Entrance
+            tap_action:
+              action: call-service
+              service: light.toggle
+              service_data:
+                entity_id: light.hallway_entrance_lights
+          - entity: light.hallway_main_lights
+            name: Hallway
+            tap_action:
+              action: call-service
+              service: light.toggle
+              service_data:
+                entity_id: light.hallway_main_lights
 
       - type: entities
         title: Devices
