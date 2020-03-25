@@ -233,6 +233,14 @@ light:
       - light.hallway_main_lights
 
   - platform: group
+    name: Ceiling lights
+    entities:
+      - light.living_room_all_lights
+      - light.master_bedroom_main_lights
+      - light.kitchen_main_lights
+      - light.hallway_all_lights
+
+  - platform: group
     name: All lights
     entities:
       - light.living_room_all_lights
@@ -390,7 +398,7 @@ switch:
     value_template: "{{ value_json.Fade }}"
 
 automation:
-  - alias: Lighting · Turn on all lights after sunset
+  - alias: Lighting · Turn on ceiling lights after sunset
     trigger:
       platform: sun
       event: sunset
@@ -401,7 +409,7 @@ automation:
         state: "on"
     action:
       - service: light.turn_on
-        entity_id: light.all_lights
+        entity_id: light.ceiling_lights
 
   - alias: Lighting · Turn off all lights after sunrise
     trigger:
@@ -412,7 +420,7 @@ automation:
       - service: light.turn_off
         entity_id: light.all_lights
 
-  - alias: Lighting · Master bedroom · Toggle bedside light on bedisde switch single click"
+  - alias: Lighting · Master bedroom · Toggle main lights on bedisde switch single click"
     trigger:
       platform: event
       event_type: zha_event
@@ -421,7 +429,7 @@ automation:
         command: single
     action:
       - service: light.toggle
-        entity_id: light.bedside_light
+        entity_id: light.master_bedroom_main_lights
 
   - alias: Lighting · Living room · Turn all lights on on Magic Cube flip 90
     trigger:

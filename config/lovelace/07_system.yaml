@@ -33,9 +33,9 @@ cards:
           icon: mdi:lightbulb
         open: true
         entities:
-          - automation.lighting_turn_on_all_lights_after_sunset
+          - automation.lighting_turn_on_ceiling_lights_after_sunset
           - automation.lighting_turn_off_all_lights_after_sunrise
-          - automation.lighting_master_bedroom_toggle_bedside_light_on_bedisde_switch_single_click
+          - automation.lighting_master_bedroom_toggle_main_lights_on_bedisde_switch_single_click
           - automation.lighting_living_room_turn_all_lights_on_on_magic_cube_flip_90
           - automation.lighting_living_room_turn_all_lights_off_on_magic_cube_flip_180
           - automation.lighting_sync_tasmota_states_on_start_up

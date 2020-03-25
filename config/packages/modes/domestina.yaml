@@ -15,7 +15,7 @@ group:
     - automation.music_play_pause_on_magic_cube_knock
     - automation.music_volume_down_on_magic_cube_rotate_left
     - automation.music_volume_up_on_magic_cube_rotate_right
-    - automation.lighting_turn_on_all_lights_after_sunset
+    - automation.lighting_turn_on_ceiling_lights_after_sunset
     - automation.lighting_turn_off_all_lights_after_sunrise
     - automation.lighting_living_room_turn_all_lights_on_on_magic_cube_flip_90
     - automation.lighting_living_room_turn_all_lights_off_on_magic_cube_flip_180
