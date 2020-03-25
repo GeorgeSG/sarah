@@ -3,6 +3,18 @@ path: kitchen
 icon: "mdi:chef-hat"
 badges: []
 cards:
+  - type: entities
+    title: Lights
+    show_header_toggle: false
+    entities:
+      - type: custom:fold-entity-row
+        entity: light.kitchen_main_lights
+        name: Main lights
+        entities:
+          - light.light_le_11
+          - light.light_le_12
+          - light.light_orbecco_1
+
   - type: custom:decluttering-card
     template: sonos_media_player
     variables:

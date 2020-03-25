@@ -1,0 +1,22 @@
+title: Hallway
+path: hallway
+icon: "mdi:door-closed"
+badges: []
+cards:
+  - type: entities
+    title: Lights
+    show_header_toggle: false
+    entities:
+      - light.hallway_all_lights
+      - type: custom:fold-entity-row
+        entity: light.hallway_entrance_lights
+        name: Entrance lights
+        entities:
+          - light.light_le_5
+          - light.light_le_6
+      - type: custom:fold-entity-row
+        entity: light.hallway_main_lights
+        name: Main lights
+        entities:
+          - light.light_le_7
+          - light.light_le_8
