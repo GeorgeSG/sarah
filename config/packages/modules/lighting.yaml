@@ -402,7 +402,7 @@ automation:
     trigger:
       platform: sun
       event: sunset
-      offset: "+00:00:00"
+      offset: "-01:00:00"
     condition:
       - condition: state
         entity_id: binary_sensor.georgi_home
