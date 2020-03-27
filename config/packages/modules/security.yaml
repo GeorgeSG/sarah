@@ -36,18 +36,16 @@ switch:
         turn_off:
           service: script.security_camera_off
 
-script:
-  disable_pi_hole_5:
-    alias: Security · Disable Pi Hole for 5 mins
-    sequence:
-      - service: pi_hole.disable
-        data:
-          duration: 5
-  enable_pi_hole:
-    alias: Security · Enable Pi Hole
-    sequence:
-      - service: pi_hole.enable
+  - platform: command_line
+    switches:
+      pihole_temp_disable:
+        friendly_name: "Pi-Hole pause for 5 mins"
+        command_on: !secret pihole_disable_5
+        command_off: !secret pihole_enable
+        command_state: !secret pihole_status
+        value_template: '{{ value_json.status == "disabled" }}'
 
+script:
   security_camera_on:
     alias: Security camera · Turn on
     sequence:

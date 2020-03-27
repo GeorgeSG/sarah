@@ -95,6 +95,7 @@ logger:
   logs:
     homeassistant.components.shell_command: debug
     homeassistant.components.amcrest: error
+    homeassistant.components.switch.pihole_temp_disable: critical
     zigpy.util: error
 
 #

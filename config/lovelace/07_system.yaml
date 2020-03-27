@@ -144,44 +144,45 @@ cards:
   - type: vertical-stack
     cards:
       - type: entities
-        title: Pi Hole
+        title: Pi-Hole
         entities:
-          - script.disable_pi_hole_5
-          - script.enable_pi_hole
+          - switch.pihole_temp_disable
+
       - type: horizontal-stack
         cards:
-          - type: "custom:mini-graph-card"
+          - type: custom:mini-graph-card
             name: Total queries
             font_size: 75
-            icon: "mdi:radio-tower"
+            icon: mdi:radio-towe
             line_color: var(--accent-color)
             line_width: 8
             entities:
               - sensor.pi_hole_dns_queries_today
-          - type: "custom:mini-graph-card"
+          - type: custom:mini-graph-card
             name: Queries blocked
             font_size: 75
-            icon: "mdi:stop-circle"
+            icon: mdi:stop-circle
             line_color: var(--accent-color)
             line_width: 8
             entities:
-              - sensor.pi_hole_ads_blocked_today
+              - entity: sensor.pi_hole_ads_blocked_today
+                icon: mdi:pi-hole
 
       - type: horizontal-stack
         cards:
-          - type: "custom:mini-graph-card"
+          - type: custom:mini-graph-card
             name: Percent blocked
             font_size: 75
-            icon: "mdi:percent"
+            icon: mdi:percent
             line_color: var(--accent-color)
             line_width: 8
             entities:
               - sensor.pi_hole_ads_percentage_blocked_today
 
-          - type: "custom:mini-graph-card"
+          - type: custom:mini-graph-card
             name: Seen clients
             font_size: 75
-            icon: "mdi:devices"
+            icon: mdi:devices
             line_color: var(--accent-color)
             line_width: 8
             entities:
