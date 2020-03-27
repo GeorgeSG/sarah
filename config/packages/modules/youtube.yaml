@@ -1,14 +1,8 @@
 sensor:
   - platform: youtube
     channel_id: UClFSU9_bUb4Rc6OYfTt5SPw
-  - platform: command_line
-    name: Available PDS
-    command: ls -1 /config/www/audio/youtube/pds | grep mp3 | paste -sd "," -
-    scan_interval: 30
-  - platform: command_line
-    name: Available Youtube clips
-    command: ls -1 /config/www/audio/youtube | grep mp3 | paste -sd "," -
-    scan_interval: 30
+  - platform: folder
+    folder: /config/www/audio/youtube/pds
 
 input_text:
   youtube_download_url:
@@ -31,7 +25,11 @@ script:
       - service: media_player.play_media
         data_template:
           entity_id: media_player.master_bedroom
-          media_content_id: "{{ states('sensor.sarah_url') }}/local/audio/youtube/pds/{{ states('sensor.available_pds').split(',') | last }}"
+          media_content_id: >
+
+            {% set last_pds = state_attr('sensor.pds', 'file_list') | sort | last %}
+            {{ states('sensor.sarah_url') }}/local/audio/youtube/pds/{{ last_pds.split('/') | last }}
+
           media_content_type: "music"
 
   youtube_download_selected:

@@ -40,7 +40,7 @@ cards:
   - type: custom:config-template-card
     entities:
       - sensor.philip_defranco
-      - sensor.available_pds
+      - sensor.pds
     card:
       type: vertical-stack
       cards:
@@ -58,4 +58,4 @@ cards:
         - type: custom:text-element
           text: "Available:"
         - type: custom:text-element
-          text: "${states['sensor.available_pds'].state.split(',')}"
+          text: "${states['sensor.pds'].attributes.file_list.join('<br />')}"
