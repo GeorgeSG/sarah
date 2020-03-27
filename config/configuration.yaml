@@ -93,9 +93,9 @@ updater:
 logger:
   default: warning
   logs:
-    homeassistant.components.shell_command: debug
+    homeassistant.components.shell_command: error
     homeassistant.components.amcrest: error
-    homeassistant.components.switch.pihole_temp_disable: critical
+    homeassistant.components.switch.pihole_temp_disable: error
     zigpy.util: error
 
 #

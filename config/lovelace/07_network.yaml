@@ -1,0 +1,55 @@
+title: Network
+path: network
+icon: "mdi:server-network"
+badges: []
+cards:
+  - type: entities
+    entities:
+      - sensor.fast_com_download
+
+  - type: vertical-stack
+    cards:
+      - type: entities
+        title: Pi-Hole
+        entities:
+          - switch.pihole_temp_disable
+
+      - type: horizontal-stack
+        cards:
+          - type: custom:mini-graph-card
+            name: Total queries
+            font_size: 75
+            icon: mdi:radio-towe
+            line_color: var(--accent-color)
+            line_width: 8
+            entities:
+              - sensor.pi_hole_dns_queries_today
+          - type: custom:mini-graph-card
+            name: Queries blocked
+            font_size: 75
+            icon: mdi:stop-circle
+            line_color: var(--accent-color)
+            line_width: 8
+            entities:
+              - entity: sensor.pi_hole_ads_blocked_today
+                icon: mdi:pi-hole
+
+      - type: horizontal-stack
+        cards:
+          - type: custom:mini-graph-card
+            name: Percent blocked
+            font_size: 75
+            icon: mdi:percent
+            line_color: var(--accent-color)
+            line_width: 8
+            entities:
+              - sensor.pi_hole_ads_percentage_blocked_today
+
+          - type: custom:mini-graph-card
+            name: Seen clients
+            font_size: 75
+            icon: mdi:devices
+            line_color: var(--accent-color)
+            line_width: 8
+            entities:
+              - sensor.pi_hole_seen_clients

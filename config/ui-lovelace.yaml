@@ -16,6 +16,7 @@ views:
   - !include lovelace/04_bathroom.yaml
   - !include lovelace/05_hallway.yaml
   - !include lovelace/06_media.yaml
-  - !include lovelace/07_system.yaml
-  - !include lovelace/08_covid_19.yaml
-  - !include lovelace/09_test.yaml
+  - !include lovelace/07_network.yaml
+  - !include lovelace/08_system.yaml
+  - !include lovelace/09_covid_19.yaml
+  - !include lovelace/10_test.yaml

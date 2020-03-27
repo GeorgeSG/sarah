@@ -8,10 +8,6 @@ amcrest:
       - motion_detected
       - online
 
-pi_hole:
-  - host: !secret pihole_host
-    api_key: !secret pihole_api_key
-
 binary_sensor:
   - platform: template
     sensors:
@@ -35,15 +31,6 @@ switch:
           service: script.security_camera_on
         turn_off:
           service: script.security_camera_off
-
-  - platform: command_line
-    switches:
-      pihole_temp_disable:
-        friendly_name: "Pi-Hole pause for 5 mins"
-        command_on: !secret pihole_disable_5
-        command_off: !secret pihole_enable
-        command_state: !secret pihole_status
-        value_template: '{{ value_json.status == "disabled" }}'
 
 script:
   security_camera_on:
