@@ -140,3 +140,49 @@ cards:
         entity: sensor.motion_1_power
       - type: custom:battery-entity
         entity: sensor.motion_2_power
+
+  - type: vertical-stack
+    cards:
+      - type: entities
+        title: Pi Hole
+        entities:
+          - script.disable_pi_hole_5
+          - script.enable_pi_hole
+      - type: horizontal-stack
+        cards:
+          - type: "custom:mini-graph-card"
+            name: Total queries
+            font_size: 75
+            icon: "mdi:radio-tower"
+            line_color: var(--accent-color)
+            line_width: 8
+            entities:
+              - sensor.pi_hole_dns_queries_today
+          - type: "custom:mini-graph-card"
+            name: Queries blocked
+            font_size: 75
+            icon: "mdi:stop-circle"
+            line_color: var(--accent-color)
+            line_width: 8
+            entities:
+              - sensor.pi_hole_ads_blocked_today
+
+      - type: horizontal-stack
+        cards:
+          - type: "custom:mini-graph-card"
+            name: Percent blocked
+            font_size: 75
+            icon: "mdi:percent"
+            line_color: var(--accent-color)
+            line_width: 8
+            entities:
+              - sensor.pi_hole_ads_percentage_blocked_today
+
+          - type: "custom:mini-graph-card"
+            name: Seen clients
+            font_size: 75
+            icon: "mdi:devices"
+            line_color: var(--accent-color)
+            line_width: 8
+            entities:
+              - sensor.pi_hole_seen_clients
