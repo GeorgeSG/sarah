@@ -7,6 +7,8 @@ known_devices.yaml
 secrets.yaml
 themes/
 tts/
+www/audio
+www/community
 webostv.conf
 zigbee.db
 *.db
