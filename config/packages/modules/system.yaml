@@ -51,3 +51,14 @@ automation:
             Lights:
               Living room: {{ states('light.living_room_all_lights') }}
               Master bedroom: {{ states('light.bedside_light') }}
+
+  - alias: IFTTT · Call service
+    trigger:
+      platform: event
+      event_type: ifttt_webhook_received
+      event_data:
+        action: "call-service"
+    action:
+      - service_template: "{{ trigger.event.data.service }}"
+        data_template:
+          entity_id: "{{ trigger.event.data.entity_id }}"
