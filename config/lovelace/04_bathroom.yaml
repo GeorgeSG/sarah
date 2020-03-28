@@ -1,6 +1,6 @@
 title: Bathroom
 path: bathroom
-icon: "mdi:shower"
+icon: "mdi:shower-head"
 badges: []
 cards:
   - type: custom:decluttering-card
