@@ -12,36 +12,36 @@ cards:
           - type: horizontal-stack
             cards:
               - type: custom:button-card
-                template: light
+                template: small
                 entity: light.all_lights
                 name: All
               - type: custom:button-card
-                template: light
+                template: small
                 entity: light.living_room_main_lights
                 name: Living room
               - type: custom:button-card
-                template: light
+                template: small
                 entity: light.master_bedroom_main_lights
                 name: Bedroom
               - type: custom:button-card
-                template: light
+                template: small
                 entity: light.hallway_main_lights
                 name: Hallway
           - type: horizontal-stack
             cards:
               - type: custom:button-card
-                template: light
+                template: small
                 entity: light.kitchen_main_lights
                 name: Kitchen
               - type: custom:button-card
-                template: light
+                template: small
                 entity: light.pc
               - type: custom:button-card
-                template: light
+                template: small
                 entity: light.bedside_light
                 name: Bedside
               - type: custom:button-card
-                template: light
+                template: small
                 entity: light.hallway_entrance_lights
                 name: Entrance
 
@@ -82,13 +82,18 @@ cards:
   # Column 2: Sensors
   - type: vertical-stack
     cards:
-      - type: entities
+      - type: horizontal-stack
         title: Sensors
-        show_header_toggle: false
-        entities:
-          - binary_sensor.front_door_on_off_wrapper
-          - binary_sensor.living_room_right_window_on_off_wrapper
-          - binary_sensor.bedroom_right_window_on_off_wrapper
+        cards:
+          - type: custom:button-card
+            template: small
+            entity: binary_sensor.front_door_on_off_wrapper
+          - type: custom:button-card
+            template: small
+            entity: binary_sensor.living_room_right_window_on_off_wrapper
+          - type: custom:button-card
+            template: small
+            entity: binary_sensor.bedroom_right_window_on_off_wrapper
 
       - type: entities
         title: Presence

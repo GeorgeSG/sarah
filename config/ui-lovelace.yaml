@@ -8,7 +8,7 @@ custom_header:
 decluttering_templates: !include_dir_merge_named lovelace/templates
 
 button_card_templates:
-  light:
+  small:
     size: 30px
     hold_action:
       action: more-info
