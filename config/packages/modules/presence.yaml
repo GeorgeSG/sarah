@@ -16,6 +16,19 @@ device_tracker:
     username: !secret tile_username
     password: !secret tile_password
 
+# https://www.home-assistant.io/components/zone
+zone:
+  - name: Home
+    latitude: !secret home_latitude
+    longitude: !secret home_longitude
+    radius: 20
+    icon: mdi:home
+  - name: Work
+    latitude: !secret work_latitude
+    longitude: !secret work_longitude
+    radius: 60
+    icon: mdi:worker
+
 #
 # ─── ENTITIES ───────────────────────────────────────────────────────────────────
 #

@@ -22,52 +22,13 @@ http:
 
 lovelace:
   mode: yaml
-  resources:
-    - type: js
-      url: /hacsfiles/travel-time-card/travel-time-card.js
-    - type: module
-      url: /hacsfiles/lovelace-gui-sandbox/gui-sandbox.js
-    - type: module
-      url: /hacsfiles/lovelace-swipe-navigation/swipe-navigation.js
-    - type: module
-      url: /hacsfiles/lovelace-card-mod/card-mod.js
-    - type: js
-      url: /hacsfiles/light-entity-card/light-entity-card.js
-    - type: module
-      url: /hacsfiles/weather-card/weather-card.js
-    - type: module
-      url: /hacsfiles/custom-header/custom-header.js
-    - type: module
-      url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js
-    - type: module
-      url: /hacsfiles/mini-media-player/mini-media-player-bundle.js
-    - type: module
-      url: /hacsfiles/aftership-card/aftership-card.js
-    - type: module
-      url: /hacsfiles/config-template-card/config-template-card.js
-    - type: module
-      url: /hacsfiles/lovelace-fold-entity-row/fold-entity-row.js
-    - type: module
-      url: /hacsfiles/lovelace-dummy-entity-row/dummy-entity-row.js
-    - type: module
-      url: /hacsfiles/lovelace-slider-entity-row/slider-entity-row.js
-    - type: module
-      url: /hacsfiles/lovelace-text-input-row/lovelace-text-input-row.js
-    - type: module
-      url: /hacsfiles/text-element/text-element.js
-    - type: module
-      url: /hacsfiles/lovelace-battery-entity/battery-entity.js
-    - type: module
-      url: /hacsfiles/lovelace-multiple-entity-row/multiple-entity-row.js
-    - type: module
-      url: /hacsfiles/decluttering-card/decluttering-card.js
-    - type: module
-      url: /hacsfiles/lovelace-layout-card/layout-card.js
+  resources: !include lovelace/resources.yaml
   dashboards:
     lovelace-yaml:
       mode: yaml
-      title: YAML
+      title: Main Dashboard
       icon: mdi:home
+      show_in_sidebar: false
       filename: ui-lovelace.yaml
     lovelace-floorlan:
       mode: yaml
@@ -123,12 +84,14 @@ frontend:
 history:
 
 # https://www.home-assistant.io/integrations/media_extractor
+# TODO: Add to media module
 media_extractor:
 
 # https://www.home-assistant.io/integrations/mobile_app
 mobile_app:
 
 # https://www.home-assistant.io/docs/mqtt
+# TODO: Add to networking module
 mqtt:
   broker: !secret mqtt_ip
   client_id: homeassistant
@@ -142,34 +105,11 @@ notify:
     api_key: !secret telegram_token
     chat_id: !secret telegram_georgi_chat_id
 
-# https://www.home-assistant.io/integrations/plex
-plex:
-  host: !secret plex_host
-  token: !secret plex_token
-  ssl: true
-  verify_ssl: false
-  media_player:
-    use_episode_art: true
-    ignore_new_shared_users: false
-
 # https://www.home-assistant.io/integrations/wake_on_lan
 wake_on_lan:
 
 # https://www.home-assistant.io/integrations/zeroconf
 zeroconf:
-
-# https://www.home-assistant.io/components/zone
-zone:
-  - name: Home
-    latitude: !secret home_latitude
-    longitude: !secret home_longitude
-    radius: 20
-    icon: mdi:home
-  - name: Work
-    latitude: !secret work_latitude
-    longitude: !secret work_longitude
-    radius: 60
-    icon: mdi:worker
 
 # https://www.home-assistant.io/integrations/zha
 zha:
