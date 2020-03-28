@@ -6,6 +6,9 @@ cards:
   - type: entities
     entities:
       - sensor.fast_com_download
+      - sensor.speedtest_download
+      - sensor.speedtest_upload
+      - sensor.speedtest_ping
 
   - type: vertical-stack
     cards:
