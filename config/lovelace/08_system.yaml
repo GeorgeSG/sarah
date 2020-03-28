@@ -8,14 +8,12 @@ cards:
     show_header_toggle: false
     entities:
       - automation.youtube_download_latest_pds
-      - automation.ifttt_call_service
 
       - type: custom:fold-entity-row
         head:
           type: custom:dummy-entity-row
           entity: binary_sensor.georgi_home
           name: Presence
-        open: true
         entities:
           - input_boolean.routine_welcome_home
           - automation.presence_arrival_detection
@@ -32,7 +30,6 @@ cards:
           entity: sun.sun
           name: Lighting
           icon: mdi:lightbulb
-        open: true
         entities:
           - automation.lighting_turn_on_ceiling_lights_after_sunset
           - automation.lighting_turn_off_all_lights_after_sunrise
@@ -49,7 +46,6 @@ cards:
           entity: sun.sun
           name: Music
           icon: mdi:music-note
-        open: true
         entities:
           - automation.music_play_pause_on_magic_cube_knock
           - automation.music_volume_down_on_magic_cube_rotate_left
@@ -61,12 +57,12 @@ cards:
         head:
           type: custom:dummy-entity-row
           entity: input_boolean.sleep_mode
-        open: true
         entities:
           - automation.routine_bedtime_toggle_on_bedside_switch_hold
           - automation.sleep_mode_enable
           - automation.sleep_mode_disable
           - automation.sleep_mode_toggle_on_bedside_switch_double_click
+          - automation.alarm_wake_up
 
       - type: divider
 
@@ -74,7 +70,6 @@ cards:
         head:
           type: custom:dummy-entity-row
           entity: input_boolean.guest_mode
-        open: true
         entities:
           - automation.guest_mode_enable
           - automation.guest_mode_disable
@@ -87,7 +82,6 @@ cards:
         head:
           type: custom:dummy-entity-row
           entity: input_boolean.domestina
-        open: true
         entities:
           - automation.domestina_automate_start
           - automation.domestina_start
@@ -102,7 +96,6 @@ cards:
           entity: sun.sun
           name: Security
           icon: mdi:shield-home
-        open: true
         entities:
           - automation.security_door_opened_while_away
           - automation.camera_startup
@@ -115,11 +108,11 @@ cards:
           entity: sun.sun
           icon: mdi:cogs
           name: System
-        open: true
         entities:
           - automation.system_announce_start
           - automation.system_telegram_announce_status
           - automation.speech_telegram_action_do_nothing
+          - automation.ifttt_call_service
 
   - type: entities
     title: Batteries
