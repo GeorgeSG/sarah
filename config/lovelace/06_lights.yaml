@@ -1,0 +1,52 @@
+title: Lights
+path: lights
+panel: false
+icon: mdi:lightbulb
+badges: []
+cards:
+  - type: entities
+    title: Living room
+    icon: mdi:sofa
+    entities:
+      - light.living_room_all_lights
+      - light.living_room_main_lights
+      - light.light_lohas_1
+      - light.light_lohas_2
+      - light.light_le_9
+      - light.light_le_10
+      - light.pc
+
+  - type: entities
+    title: Master bedroom
+    icon: mdi:bed-empty
+    entities:
+      - light.master_bedroom_all_lights
+      - light.master_bedroom_main_lights
+      - light.light_le_1
+      - light.light_le_2
+      - light.light_le_3
+      - light.light_le_4
+      - light.bedside_light
+
+  - type: entities
+    title: Kitchen
+    icon: mdi:chef-hat
+    entities:
+      - light.kitchen_main_lights
+      - light.light_le_11
+      - light.light_le_12
+      - light.light_orbecco_1
+
+  - type: entities
+    title: Hallway
+    icon: mdi:door-closed
+    entities:
+      - light.hallway_all_lights
+      - light.hallway_main_lights
+      - light.hallway_entrance_lights
+      - light.light_le_5
+      - light.light_le_6
+      - light.light_le_7
+      - light.light_le_8
+
+
