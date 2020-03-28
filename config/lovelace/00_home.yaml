@@ -6,64 +6,44 @@ cards:
   # Column 1: Active Controls
   - type: vertical-stack
     cards:
-      - type: glance
+      - type: vertical-stack
         title: Lights
-        entities:
-          - entity: light.all_lights
-            name: All
-            tap_action:
-              action: call-service
-              service: light.toggle
-              service_data:
-                entity_id: light.all_lights
-          - entity: light.living_room_main_lights
-            name: Living room
-            tap_action:
-              action: call-service
-              service: light.toggle
-              service_data:
-                entity_id: light.living_room_main_lights
-          - entity: light.pc
-            tap_action:
-              action: call-service
-              service: light.toggle
-              service_data:
-                entity_id: light.pc
-          - entity: light.master_bedroom_main_lights
-            name: Bedroom
-            tap_action:
-              action: call-service
-              service: light.toggle
-              service_data:
-                entity_id: light.master_bedroom_main_lights
-          - entity: light.bedside_light
-            name: Bedside
-            tap_action:
-              action: call-service
-              service: light.toggle
-              service_data:
-                entity_id: light.bedside_light
-          - entity: light.kitchen_main_lights
-            name: Kitchen
-            tap_action:
-              action: call-service
-              service: light.toggle
-              service_data:
-                entity_id: light.kitchen_main_lights
-          - entity: light.hallway_entrance_lights
-            name: Entrance
-            tap_action:
-              action: call-service
-              service: light.toggle
-              service_data:
-                entity_id: light.hallway_entrance_lights
-          - entity: light.hallway_main_lights
-            name: Hallway
-            tap_action:
-              action: call-service
-              service: light.toggle
-              service_data:
-                entity_id: light.hallway_main_lights
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                template: light
+                entity: light.all_lights
+                name: All
+              - type: custom:button-card
+                template: light
+                entity: light.living_room_main_lights
+                name: Living room
+              - type: custom:button-card
+                template: light
+                entity: light.master_bedroom_main_lights
+                name: Bedroom
+              - type: custom:button-card
+                template: light
+                entity: light.hallway_main_lights
+                name: Hallway
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                template: light
+                entity: light.kitchen_main_lights
+                name: Kitchen
+              - type: custom:button-card
+                template: light
+                entity: light.pc
+              - type: custom:button-card
+                template: light
+                entity: light.bedside_light
+                name: Bedside
+              - type: custom:button-card
+                template: light
+                entity: light.hallway_entrance_lights
+                name: Entrance
 
       - type: entities
         title: Devices
