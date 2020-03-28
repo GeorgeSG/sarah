@@ -90,14 +90,6 @@ media_extractor:
 # https://www.home-assistant.io/integrations/mobile_app
 mobile_app:
 
-# https://www.home-assistant.io/docs/mqtt
-# TODO: Add to networking module
-mqtt:
-  broker: !secret mqtt_ip
-  client_id: homeassistant
-  username: !secret mqtt_username
-  password: !secret mqtt_password
-
 # https://www.home-assistant.io/integrations/notify
 notify:
   - name: telegram
@@ -105,16 +97,8 @@ notify:
     api_key: !secret telegram_token
     chat_id: !secret telegram_georgi_chat_id
 
-# https://www.home-assistant.io/integrations/wake_on_lan
-wake_on_lan:
-
 # https://www.home-assistant.io/integrations/zeroconf
 zeroconf:
-
-# https://www.home-assistant.io/integrations/zha
-zha:
-  usb_path: /dev/ttyUSB0
-  database_path: /config/zigbee.db
 
 #
 # ─── PLUGINS ────────────────────────────────────────────────────────────────────

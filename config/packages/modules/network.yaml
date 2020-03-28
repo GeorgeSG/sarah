@@ -1,15 +1,44 @@
+#
+# ─── INTEGRATIONS ───────────────────────────────────────────────────────────────
+#
+
+# https://www.home-assistant.io/integrations/fastdotcom
 fastdotcom:
+
+# https://www.home-assistant.io/integrations/speedtestdotnet
 speedtestdotnet:
 
+# https://www.home-assistant.io/integrations/wake_on_lan
+wake_on_lan:
+
+# https://www.home-assistant.io/integrations/mikrotik
 mikrotik:
   - name: Mikrotik
     host: !secret mikrotik_host
     username: !secret mikrotik_username
     password: !secret mikrotik_password
 
+# https://www.home-assistant.io/docs/mqtt
+mqtt:
+  broker: !secret mqtt_ip
+  client_id: homeassistant
+  username: !secret mqtt_username
+  password: !secret mqtt_password
+
+# https://www.home-assistant.io/integrations/pi_hole
 pi_hole:
   - host: !secret pihole_host
     api_key: !secret pihole_api_key
+
+# https://www.home-assistant.io/integrations/zha
+zha:
+  usb_path: /dev/ttyUSB0
+  database_path: /config/zigbee.db
+
+
+#
+# ─── ENTITIES ───────────────────────────────────────────────────────────────────
+#
 
 switch:
   - platform: command_line
