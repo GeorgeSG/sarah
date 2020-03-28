@@ -29,6 +29,16 @@ input_select:
 binary_sensor:
   - platform: template
     sensors:
+      sonos_recoverable:
+        friendly_name: Sonos recoverable
+        entity_id: media_player.master_bedroom
+        value_template: >-
+          {% if state_attr('media_player.master_bedroom', 'media_content_id').startswith('x-sonos-spotify:spotify')
+              or state_attr('media_player.master_bedroom', 'media_content_id').startswith('x-sonosapi-hls-static') %}
+            True
+          {% else %}
+            False
+          {% endif %}
       sonos_leader_paused:
         value_template: "{{ is_state(states.input_select.sonos_leader.state, 'paused') }}"
         entity_id:

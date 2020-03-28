@@ -84,6 +84,11 @@ cards:
             - player: ${states['input_select.sonos_leader'].state}
 
       - type: entities
+        show_header_toggle: false
+        entities:
+          - binary_sensor.sonos_recoverable
+
+      - type: entities
         title: Manual Overrides
         show_header_toggle: false
         entities:
