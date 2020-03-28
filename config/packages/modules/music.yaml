@@ -45,7 +45,7 @@ script:
       - service: media_player.volume_set
         entity_id: group.all_sonos
         data_template:
-          volume_level: "{{ volume | default(0.3) }}"
+          volume_level: "{{ volume_level | default(0.3) }}"
       - service: media_player.shuffle_set
         data_template:
           entity_id: "{{ states('input_select.sonos_leader') }}"

@@ -5,6 +5,9 @@ script:
       - service: fan.turn_off
         entity_id: fan.philips_airpurifier
 
+      - service: media_player.media_stop
+        entity_id: media_player.master_bedroom
+
       - service: script.routine_morning_briefing
       - wait_template: "{{ is_state('input_boolean.sarah_talking', 'off') }}"
         timeout: 00:02:00

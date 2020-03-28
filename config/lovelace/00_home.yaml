@@ -125,6 +125,11 @@ cards:
   # Column 3: Misc
   - type: vertical-stack
     cards:
+      - type: entities
+        title: Alarm
+        entities:
+          - input_boolean.alarm_enabled
+          - input_datetime.alarm_time
       - type: "custom:weather-card"
         current: true
         details: true
