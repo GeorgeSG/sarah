@@ -19,3 +19,10 @@ cards:
     template: sonos_media_player
     variables:
       - player: media_player.kitchen
+  - type: entities
+    title: Brita Filter
+    entities:
+      - input_number.brita_remaining_liters
+      - input_datetime.brita_next_change
+      - binary_sensor.brita_should_change_filter
+      - script.brita_new_filter

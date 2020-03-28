@@ -1,4 +1,9 @@
 sensor:
+  - platform: time_date
+    display_options:
+      - "time"
+      - "date"
+
   - platform: template
     sensors:
       sarah_url:

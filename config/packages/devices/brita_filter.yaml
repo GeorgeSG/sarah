@@ -1,0 +1,36 @@
+input_number:
+  brita_remaining_liters:
+    name: Remaining liters
+    unit_of_measurement: "liters"
+    min: 0
+    max: 150
+
+input_datetime:
+  brita_next_change:
+    name: Filter next change
+    has_date: true
+    has_time: false
+
+binary_sensor:
+  - platform: template
+    sensors:
+      brita_should_change_filter:
+        friendly_name: Should change Brita filter
+        device_class: problem
+        value_template: >
+
+          {% set next_change = states('input_datetime.brita_next_change') %}
+          {{ states('input_number.brita_remaining_liters') | int < 3 or (as_timestamp(next_change) - as_timestamp(now())) / (3600*24) | round(0) < 3 }}
+
+script:
+  brita_new_filter:
+    alias: Brita · New filter
+    sequence:
+      - service: input_number.set_value
+        entity_id: input_number.brita_remaining_liters
+        data:
+          value: 150
+      - service: input_datetime.set_datetime
+        entity_id: input_datetime.brita_next_change
+        data_template:
+          date: "{{ (as_timestamp(now()) + 3600*24*90) | timestamp_custom('%Y-%m-%d') }}"
