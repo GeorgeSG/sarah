@@ -27,7 +27,7 @@ cards:
           - type: custom:mini-graph-card
             name: Queries blocked
             font_size: 75
-            icon: mdi:stop-circle
+            icon: mdi:close-box-outline
             line_color: var(--accent-color)
             line_width: 8
             entities:
