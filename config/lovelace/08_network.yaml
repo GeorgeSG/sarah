@@ -22,7 +22,7 @@ cards:
           - type: custom:mini-graph-card
             name: Total queries
             font_size: 75
-            icon: mdi:radio-towe
+            icon: mdi:radio-tower
             line_color: var(--accent-color)
             line_width: 8
             entities:
