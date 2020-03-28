@@ -1,0 +1,61 @@
+
+automation:
+  - alias: Lighting · Turn on ceiling lights after sunset
+    trigger:
+      platform: sun
+      event: sunset
+      offset: "-01:00:00"
+    condition:
+      - condition: state
+        entity_id: binary_sensor.georgi_home
+        state: "on"
+    action:
+      - service: light.turn_on
+        entity_id: light.ceiling_lights
+
+  - alias: Lighting · Turn off all lights after sunrise
+    trigger:
+      platform: sun
+      event: sunrise
+      offset: "+00:00:00"
+    action:
+      - service: light.turn_off
+        entity_id: light.all_lights
+
+  - alias: Lighting · Master bedroom · Toggle main lights on bedisde switch single click"
+    trigger:
+      platform: event
+      event_type: zha_event
+      event_data:
+        device_ieee: !secret master_bedroom_bedside_switch_ieee
+        command: single
+    action:
+      - service: light.toggle
+        entity_id: light.master_bedroom_main_lights
+
+  - alias: Lighting · Living room · Turn all lights on on Magic Cube flip 90
+    trigger:
+      platform: event
+      event_type: zha_event
+      event_data:
+        device_ieee: !secret magic_cube_ieee
+        command: flip
+        args:
+          flip_degrees: 90
+    action:
+      - service: light.turn_on
+        entity_id: light.living_room_all_lights
+
+  - alias: Lighting · Living room · Turn all lights off on Magic Cube flip 180
+    trigger:
+      platform: event
+      event_type: zha_event
+      event_data:
+        device_ieee: !secret magic_cube_ieee
+        command: flip
+        args:
+          flip_degrees: 180
+    action:
+      - service: light.turn_off
+        entity_id: light.living_room_all_lights
+

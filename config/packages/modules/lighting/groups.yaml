@@ -1,0 +1,69 @@
+light:
+  - platform: group
+    name: Living room main lights
+    entities:
+      - light.light_lohas_1
+      - light.light_lohas_2
+      - light.light_le_9
+      - light.light_le_10
+
+  - platform: group
+    name: Living room all lights
+    entities:
+      - light.living_room_main_lights
+      - light.pc
+
+  - platform: group
+    name: Master bedroom main lights
+    entities:
+      - light.light_le_1
+      - light.light_le_2
+      - light.light_le_3
+      - light.light_le_4
+
+  - platform: group
+    name: Master bedroom all lights
+    entities:
+      - light.master_bedroom_main_lights
+      - light.bedside_light
+
+  - platform: group
+    name: Kitchen main lights
+    entities:
+      - light.light_le_11
+      - light.light_le_12
+      - light.light_orbecco_1
+
+  - platform: group
+    name: Hallway entrance lights
+    entities:
+      - light.light_le_5
+      - light.light_le_6
+
+  - platform: group
+    name: Hallway main lights
+    entities:
+      - light.light_le_7
+      - light.light_le_8
+
+  - platform: group
+    name: Hallway all lights
+    entities:
+      - light.hallway_entrance_lights
+      - light.hallway_main_lights
+
+  - platform: group
+    name: Ceiling lights
+    entities:
+      - light.living_room_all_lights
+      - light.master_bedroom_main_lights
+      - light.kitchen_main_lights
+      - light.hallway_all_lights
+
+  - platform: group
+    name: All lights
+    entities:
+      - light.living_room_all_lights
+      - light.master_bedroom_all_lights
+      - light.kitchen_main_lights
+      - light.hallway_all_lights

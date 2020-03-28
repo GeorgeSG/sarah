@@ -1,3 +1,26 @@
+fastdotcom:
+speedtestdotnet:
+
+mikrotik:
+  - name: Mikrotik
+    host: !secret mikrotik_host
+    username: !secret mikrotik_username
+    password: !secret mikrotik_password
+
+pi_hole:
+  - host: !secret pihole_host
+    api_key: !secret pihole_api_key
+
+switch:
+  - platform: command_line
+    switches:
+      pihole_temp_disable:
+        friendly_name: "Pi-Hole pause for 5 mins"
+        command_on: !secret pihole_disable_5
+        command_off: !secret pihole_enable
+        command_state: !secret pihole_status
+        value_template: '{{ value_json.status == "disabled" }}'
+
 # https://www.home-assistant.io/integrations/synologydsm
 sensor:
   - platform: synologydsm
