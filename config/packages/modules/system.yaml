@@ -51,11 +51,13 @@ automation:
 
             Windows:
               Living room: {{ states('binary_sensor.living_room_right_window_on_off') }}
-              Master bedroom: {{ states('binary_sensor.master_bedroom_right_window_on_off') }}
+              Master bedroom: {{ states('binary_sensor.bedroom_right_window_on_off') }}
 
             Lights:
               Living room: {{ states('light.living_room_all_lights') }}
-              Master bedroom: {{ states('light.bedside_light') }}
+              Master bedroom: {{ states('light.master_bedroom_all_lights') }}
+              Kitchen: {{ states('light.kitchen_main_lights') }}
+              Hallway: {{ states('light.hallway_all_lights') }}
 
   - alias: IFTTT · Call service
     trigger:
