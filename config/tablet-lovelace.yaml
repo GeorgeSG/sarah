@@ -1,0 +1,137 @@
+custom_header:
+  hide_header: true
+  hide_config: true
+  hide_help: true
+  hide_unused: true
+
+decluttering_templates: !include_dir_merge_named lovelace/decluttering_templates
+button_card_templates: !include_dir_merge_named lovelace/button_card_templates
+
+title: Tablet
+views:
+  - title: Home
+    path: default_view
+    icon: "mdi:home"
+    badges: []
+    cards:
+      # Column 1
+      - type: vertical-stack
+        cards:
+          - type: vertical-stack
+            title: Lights
+            cards:
+              - type: horizontal-stack
+                cards:
+                  - type: custom:button-card
+                    template: small
+                    entity: light.all_lights
+                    name: All
+                  - type: custom:button-card
+                    template: small
+                    entity: light.living_room_main_lights
+                    name: Living room
+                  - type: custom:button-card
+                    template: small
+                    entity: light.master_bedroom_main_lights
+                    name: Bedroom
+                  - type: custom:button-card
+                    template: small
+                    entity: light.hallway_main_lights
+                    name: Hallway
+              - type: horizontal-stack
+                cards:
+                  - type: custom:button-card
+                    template: small
+                    entity: light.kitchen_main_lights
+                    name: Kitchen
+                  - type: custom:button-card
+                    template: small
+                    entity: light.pc
+                  - type: custom:button-card
+                    template: small
+                    entity: light.bedside_light
+                    name: Bedside
+                  - type: custom:button-card
+                    template: small
+                    entity: light.hallway_entrance_lights
+                    name: Entrance
+
+          - type: horizontal-stack
+            title: Devices
+            cards:
+              - type: custom:button-card
+                template: small
+                entity: switch.camera
+              - type: custom:button-card
+                template: small
+                entity: media_player.living_room_tv
+              - type: custom:button-card
+                template: small
+                entity: media_player.nvidia_shield
+              - type: custom:button-card
+                template: small
+                entity: fan.philips_airpurifier
+
+          - type: vertical-stack
+            title: Sonos
+            cards:
+              - type: custom:decluttering-card
+                template: sonos_media_player
+                variables:
+                  - player: media_player.master_bedroom
+              - type: custom:decluttering-card
+                template: sonos_media_player
+                variables:
+                  - player: media_player.kitchen
+
+      # Column 2
+      - type: vertical-stack
+        cards:
+          - type: vertical-stack
+            title: Manual Overrides
+            cards:
+              - type: horizontal-stack
+                cards:
+                  - type: custom:button-card
+                    template: small
+                    entity: input_select.sonos_leader
+                  - type: custom:button-card
+                    template: small
+                    entity: input_boolean.speech_notifications
+                  - type: custom:button-card
+                    template: small
+                    entity: input_boolean.guest_mode
+              - type: horizontal-stack
+                cards:
+                  - type: custom:button-card
+                    template: small
+                    entity: input_boolean.domestina
+                  - type: custom:button-card
+                    template: small
+                    entity: input_boolean.sleep_mode
+                  - type: custom:button-card
+                    template: small
+                    entity: input_boolean.georgi_home
+              - type: horizontal-stack
+                title: Sensors
+                cards:
+                  - type: custom:button-card
+                    template: small
+                    entity: binary_sensor.front_door_on_off_wrapper
+                  - type: custom:button-card
+                    template: small
+                    entity: binary_sensor.living_room_right_window_on_off_wrapper
+                  - type: custom:button-card
+                    template: small
+                    entity: binary_sensor.bedroom_right_window_on_off_wrapper
+          - type: vertical-stack
+            title: "___"
+            cards:
+              - type: custom:decluttering-card
+                template: sonos_media_player
+                variables:
+                  - player: media_player.living_room
+              - type: custom:decluttering-card
+                template: sonos_media_player
+                variables:
+                  - player: media_player.bathroom

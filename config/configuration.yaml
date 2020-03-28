@@ -24,12 +24,18 @@ lovelace:
   mode: yaml
   resources: !include lovelace/resources.yaml
   dashboards:
-    lovelace-yaml:
+    lovelace-main:
       mode: yaml
       title: Main Dashboard
       icon: mdi:home
       show_in_sidebar: false
       filename: ui-lovelace.yaml
+    lovelace-tablet:
+      mode: yaml
+      title: Tablet
+      icon: mdi:tablet-ipad
+      show_in_sidebar: true
+      filename: tablet-lovelace.yaml
     lovelace-floorlan:
       mode: yaml
       title: Floorplan

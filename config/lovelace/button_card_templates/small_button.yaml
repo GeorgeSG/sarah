@@ -1,0 +1,12 @@
+small:
+  size: 30px
+  hold_action:
+    action: more-info
+  double_tap_action:
+    action: more-info
+  styles:
+    card:
+      - height: 100px
+      - font-size: 14px
+    name:
+      - height: 30px
