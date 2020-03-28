@@ -4,9 +4,13 @@
 
 # https://www.home-assistant.io/integrations/fastdotcom
 fastdotcom:
+  scan_interval:
+    minutes: 30
 
 # https://www.home-assistant.io/integrations/speedtestdotnet
 speedtestdotnet:
+  scan_interval:
+    minutes: 31
 
 # https://www.home-assistant.io/integrations/wake_on_lan
 wake_on_lan:
