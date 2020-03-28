@@ -58,6 +58,13 @@ cards:
                 hide_state: true
                 step: 5
 
+      - type: glance
+        show_state: false
+        entities:
+          - binary_sensor.titanium
+          - entity: script.titanium_start
+            name: Start
+
       - type: custom:decluttering-card
         template: sonos_media_player
         variables:

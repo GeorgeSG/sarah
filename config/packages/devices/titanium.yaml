@@ -1,0 +1,28 @@
+binary_sensor:
+  - platform: ping
+    host: !secret titanium_ip
+    name: titanium_ping
+    scan_interval: 10
+    count: 2
+
+  - platform: template
+    sensors:
+      titanium:
+        friendly_name: Titanium
+        value_template: >-
+          {{ is_state("binary_sensor.titanium_ping", "on") }}
+        icon_template: >-
+          {% if is_state("binary_sensor.titanium_ping", "on") %}
+            mdi:desktop-mac-dashboard
+          {% else %}
+            mdi:desktop-mac
+          {% endif %}
+
+script:
+  titanium_start:
+    alias: Titanium · Start
+    icon: mdi:play-box-outline
+    sequence:
+      - service: wake_on_lan.send_magic_packet
+        data:
+          mac: !secret titanium_mac
