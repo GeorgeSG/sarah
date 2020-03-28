@@ -1,7 +1,7 @@
 title: Media
 path: media
 panel: false
-icon: mdi:play-circle-outline
+icon: mdi:youtube
 badges: []
 cards:
   - type: entities

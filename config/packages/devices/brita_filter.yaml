@@ -2,6 +2,7 @@ input_number:
   brita_remaining_liters:
     name: Remaining liters
     unit_of_measurement: "liters"
+    mode: box
     min: 0
     max: 150
 
@@ -25,6 +26,7 @@ binary_sensor:
 script:
   brita_new_filter:
     alias: Brita · New filter
+    icon: mdi:filter-plus-outline
     sequence:
       - service: input_number.set_value
         entity_id: input_number.brita_remaining_liters

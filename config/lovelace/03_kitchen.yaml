@@ -21,6 +21,7 @@ cards:
       - player: media_player.kitchen
   - type: entities
     title: Brita Filter
+    icon: mdi:filter-outline
     entities:
       - input_number.brita_remaining_liters
       - input_datetime.brita_next_change
