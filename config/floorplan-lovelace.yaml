@@ -293,6 +293,33 @@ views:
               width: 4%
               height: 2%
 
+          # Living room
+          - type: state-icon
+            entity: binary_sensor.titanium
+            tap_action:
+              action: call-service
+              service: script.titanium_start
+            style:
+              top: 60%
+              left: 79%
+              transform: scaleX(-1)
+              border-radius: 50%
+              text-align: center
+              background-color: rgba(0, 0, 0, 0.6)
+              --paper-item-icon-active-color: "#00ff00"
+
+          - type: state-icon
+            entity: binary_sensor.living_room_right_window_on_off_wrapper
+            style:
+              top: 73.2%
+              left: 82.3%
+              transform: scaleX(-1)
+              border-radius: 50%
+              text-align: center
+              background-color: rgba(0, 0, 0, 0.6)
+              --paper-item-icon-active-color: "#ff0000"
+
+
           # Bedroom
           # Puifier
           - type: state-icon
@@ -331,15 +358,3 @@ views:
               background-color: "rgba(255, 255, 255, 0.6)"
               font-size: 14px
               font-weight: bold
-
-          # Living room
-          - type: state-icon
-            entity: binary_sensor.living_room_right_window_on_off_wrapper
-            style:
-              top: 73.2%
-              left: 82.3%
-              transform: scaleX(-1)
-              border-radius: 50%
-              text-align: center
-              background-color: rgba(0, 0, 0, 0.6)
-              --paper-item-icon-active-color: "#ff0000"
