@@ -88,7 +88,11 @@ frontend:
 #   client_secret: !secret google_client_secret
 
 # https://www.home-assistant.io/integrations/history
-# history:
+history:
+  exclude:
+    domains:
+      - automation
+      - updater
 
 # https://www.home-assistant.io/integrations/media_extractor
 # TODO: Add to media module
