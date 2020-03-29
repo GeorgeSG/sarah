@@ -9,63 +9,63 @@ sensor:
     sensors:
       purifier_air_quality:
         friendly_name: Air quality
-        value_template: "{{ states.fan.philips_airpurifier.attributes.pm25 }}"
+        value_template: "{{ state_attr('fan.philips_airpurifier', 'pm25') }}"
         icon_template: mdi:weather-windy
       purifier_humidity:
         friendly_name: Humidity
         unit_of_measurement: "%"
-        value_template: "{{ states.fan.philips_airpurifier.attributes.humidity }}"
+        value_template: "{{ state_attr('fan.philips_airpurifier', 'humidity') }}"
         icon_template: mdi:water
       purifier_temperature:
         friendly_name: Temperature
         unit_of_measurement: "°C"
-        value_template: "{{ states.fan.philips_airpurifier.attributes.temperature }}"
+        value_template: "{{ state_attr('fan.philips_airpurifier', 'temperature') }}"
         icon_template: mdi:thermometer
       purifier_speed:
         friendly_name: Speed
-        value_template: "{{ states.fan.philips_airpurifier.attributes.speed }}"
+        value_template: "{{ state_attr('fan.philips_airpurifier', 'speed') }}"
         icon_template: mdi:speedometer
       purifier_allergens:
         friendly_name: Allergen index
-        value_template: "{{ states.fan.philips_airpurifier.attributes.allergen_index }}"
+        value_template: "{{ state_attr('fan.philips_airpurifier', 'allergen_index') }}"
         icon_template: mdi:weather-windy-variant
       purifier_mode:
         friendly_name: Mode
-        value_template: "{{ states.fan.philips_airpurifier.attributes.function }}"
+        value_template: "{{ state_attr('fan.philips_airpurifier', 'function') }}"
       purifier_pre_filter:
         friendly_name: Pre-filter
         unit_of_measurement: "Hrs"
-        value_template: "{{ states.fan.philips_airpurifier.attributes.pre_filter }}"
+        value_template: "{{ state_attr('fan.philips_airpurifier', 'pre_filter') }}"
         icon_template: mdi:air-filter
       purifier_wick_filter:
         friendly_name: Wick filter
         unit_of_measurement: "Hrs"
-        value_template: "{{ states.fan.philips_airpurifier.attributes.wick_filter }}"
+        value_template: "{{ state_attr('fan.philips_airpurifier', 'wick_filter') }}"
         icon_template: mdi:air-filter
       purifier_carbon_filter:
         friendly_name: Carbon filter
         unit_of_measurement: "Hrs"
-        value_template: "{{ states.fan.philips_airpurifier.attributes.carbon_filter }}"
+        value_template: "{{ state_attr('fan.philips_airpurifier', 'carbon_filter') }}"
         icon_template: mdi:air-filter
       purifier_hepa_filter:
         friendly_name: HEPA filter
         unit_of_measurement: "Hrs"
-        value_template: "{{ states.fan.philips_airpurifier.attributes.hepa_filter}}"
+        value_template: "{{ state_attr('fan.philips_airpurifier', 'hepa_filter')}}"
         icon_template: mdi:air-filter
       purifier_target_humidity:
         friendly_name: Target humidity
         unit_of_measurement: "%"
-        value_template: "{{ states.fan.philips_airpurifier.attributes.target_humidity }}"
+        value_template: "{{ state_attr('fan.philips_airpurifier', 'target_humidity') }}"
         icon_template: mdi:water
       purifier_water_level:
         friendly_name: Water level
         unit_of_measurement: "%"
-        value_template: "{{ states.fan.philips_airpurifier.attributes.water_level }}"
+        value_template: "{{ state_attr('fan.philips_airpurifier', 'water_level') }}"
         icon_template: mdi:water-percent
       purifier_brightness:
         friendly_name: Brightness
         unit_of_measurement: "%"
-        value_template: "{{ states.fan.philips_airpurifier.attributes.light_brightness }}"
+        value_template: "{{ state_attr('fan.philips_airpurifier', 'light_brightness') }}"
         icon_template: mdi:brightness-6
 
 homeassistant:

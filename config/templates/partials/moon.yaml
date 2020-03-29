@@ -1,6 +1,6 @@
 >-
 
-  {%- if states.sensor.moon.state == 'Full moon' -%}
+  {%- if states('sensor.moon') == 'full_moon' -%}
     {{
       [
         "Check out the full moon tonight!",
