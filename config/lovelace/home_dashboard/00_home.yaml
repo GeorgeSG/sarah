@@ -69,7 +69,7 @@ cards:
           - binary_sensor.sonos_recoverable
 
       - type: entities
-        title: Manual Overrides
+        title: Manual controls
         show_header_toggle: false
         entities:
           - input_select.sonos_leader

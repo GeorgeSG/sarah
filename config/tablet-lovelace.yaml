@@ -88,7 +88,7 @@ views:
       - type: vertical-stack
         cards:
           - type: vertical-stack
-            title: Manual Overrides
+            title: Manual controls
             cards:
               - type: horizontal-stack
                 cards:

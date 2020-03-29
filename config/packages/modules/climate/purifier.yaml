@@ -67,3 +67,8 @@ sensor:
         unit_of_measurement: "%"
         value_template: "{{ states.fan.philips_airpurifier.attributes.light_brightness }}"
         icon_template: mdi:brightness-6
+
+homeassistant:
+  customize:
+    fan.philips_airpurifier:
+      friendly_name: Air purifier
