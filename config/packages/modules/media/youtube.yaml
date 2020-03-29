@@ -3,6 +3,8 @@ sensor:
     channel_id: UClFSU9_bUb4Rc6OYfTt5SPw
   - platform: folder
     folder: /config/www/audio/youtube/pds
+  - platform: folder
+    folder: /config/www/audio/youtube
 
 input_text:
   youtube_download_url:
@@ -18,19 +20,24 @@ shell_command:
   youtube_download: python3.7 /config/custom_scripts/youtube_download.py {{ url }} {{ name }} {{ folder }}
 
 script:
-  youtube_play_latest_pds:
-    alias: Youtube · Play latest PDS
+  youtube_play_file:
+    alias:  Youtube · Play file
     sequence:
       - service: script.music_join_sonoses
       - service: media_player.play_media
         data_template:
           entity_id: media_player.master_bedroom
           media_content_id: >
-
-            {% set last_pds = state_attr('sensor.pds', 'file_list') | sort | last %}
-            {{ states('sensor.sarah_url') }}/local/audio/youtube/pds/{{ last_pds.split('/') | last }}
-
+            {{ states('sensor.sarah_url') }}/local{{ file.split('/config/www') | last }}
           media_content_type: "music"
+
+  youtube_play_latest_pds:
+    alias: Youtube · Play latest PDS
+    sequence:
+      - service: script.youtube_play_file
+        data_template:
+          file: "{{ state_attr('sensor.pds', 'file_list') | sort | last }}"
+
 
   youtube_download_selected:
     alias: Youtube · Download selected video

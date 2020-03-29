@@ -40,3 +40,5 @@
   url: /hacsfiles/travel-time-card/travel-time-card.js
 - type: module
   url: /hacsfiles/weather-card/weather-card.js
+- type: module
+  url: /hacsfiles/lovelace-folder-card/folder-card.js

@@ -7,7 +7,7 @@ homeassistant:
   time_zone: Europe/Sofia
   packages: !include_dir_named packages
   whitelist_external_dirs:
-    - /config/www/audio/youtube/pds
+    - /config/www/audio/youtube
 
 #
 # ─── HOME ASSISTANT COMPONENTS ENABLED ──────────────────────────────────────────
