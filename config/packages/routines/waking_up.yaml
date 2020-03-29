@@ -44,6 +44,7 @@ script:
             - !include ../../templates/partials/outside_forecast.yaml
             - !include ../../templates/partials/light_check.yaml
             - !include ../../templates/partials/window_check.yaml
+            - !include ../../templates/partials/window_suggestions.yaml
             - !include ../../templates/partials/iss.yaml
             - !include ../../templates/partials/moon.yaml
             - !include ../../templates/partials/inspirational_quote.yaml
