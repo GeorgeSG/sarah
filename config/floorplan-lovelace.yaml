@@ -16,29 +16,34 @@ views:
       - type: picture-elements
         image: /local/images/floorplan/floorplan_night_transparent.png
         elements:
-          - type: image
-            entity: sun.sun
-            action: none
-            hold_action:
-              action: none
-            state_image:
-              above_horizon: /local/images/floorplan/floorplan_day.jpg
-              below_horizon: /local/images/floorplan/transparent.png
-            style:
-              height: 100%
-              left: 50%
-              top: 50%
-              width: 100%
-            tap_action:
-              action: none
+          - type: conditional
+            conditions:
+              - entity: sun.sun
+                state: "above_horizon"
+              - entity: input_boolean.floorplan_night_mode
+                state: "off"
+            elements:
+              - type: image
+                entity: sun.sun
+                action: none
+                hold_action:
+                  action: none
+                image: /local/images/floorplan/floorplan_day.jpg
+                style:
+                  height: 100%
+                  left: 50%
+                  top: 50%
+                  width: 100%
+                tap_action:
+                  action: none
 
           # Lighting Overlays
 
           # Living Room
           - type: conditional
             conditions:
-              - entity: sun.sun
-                state: "below_horizon"
+              - entity: binary_sensor.floorplan_night_mode
+                state: "on"
               - entity: light.pc
                 state: "on"
               - entity: light.living_room_main_lights
@@ -55,8 +60,8 @@ views:
                   cursor: default
           - type: conditional
             conditions:
-              - entity: sun.sun
-                state: "below_horizon"
+              - entity: binary_sensor.floorplan_night_mode
+                state: "on"
               - entity: light.pc
                 state: "off"
               - entity: light.living_room_main_lights
@@ -73,8 +78,8 @@ views:
                   cursor: default
           - type: conditional
             conditions:
-              - entity: sun.sun
-                state: "below_horizon"
+              - entity: binary_sensor.floorplan_night_mode
+                state: "on"
               - entity: light.pc
                 state: "on"
               - entity: light.living_room_main_lights
@@ -93,8 +98,8 @@ views:
           # Master Bedroom
           - type: conditional
             conditions:
-              - entity: sun.sun
-                state: "below_horizon"
+              - entity: binary_sensor.floorplan_night_mode
+                state: "on"
               - entity: light.bedside_light
                 state: "off"
               - entity: light.master_bedroom_main_lights
@@ -111,8 +116,8 @@ views:
                   cursor: default
           - type: conditional
             conditions:
-              - entity: sun.sun
-                state: "below_horizon"
+              - entity: binary_sensor.floorplan_night_mode
+                state: "on"
               - entity: light.bedside_light
                 state: "on"
               - entity: light.master_bedroom_main_lights
@@ -129,8 +134,8 @@ views:
                   cursor: default
           - type: conditional
             conditions:
-              - entity: sun.sun
-                state: "below_horizon"
+              - entity: binary_sensor.floorplan_night_mode
+                state: "on"
               - entity: light.master_bedroom_main_lights
                 state: "on"
               - entity: light.bedside_light
@@ -148,8 +153,8 @@ views:
 
           - type: conditional
             conditions:
-              - entity: sun.sun
-                state: "below_horizon"
+              - entity: binary_sensor.floorplan_night_mode
+                state: "on"
               - entity: light.tuya_kitchen_main_lights
                 state: "on"
             elements:
@@ -165,8 +170,8 @@ views:
 
           - type: conditional
             conditions:
-              - entity: sun.sun
-                state: "below_horizon"
+              - entity: binary_sensor.floorplan_night_mode
+                state: "on"
               - entity: light.tuya_hallway_entrance_lights
                 state: "on"
               - entity: light.tuya_hallway_main_lights
@@ -184,8 +189,8 @@ views:
 
           - type: conditional
             conditions:
-              - entity: sun.sun
-                state: "below_horizon"
+              - entity: binary_sensor.floorplan_night_mode
+                state: "on"
               - entity: light.tuya_hallway_entrance_lights
                 state: "off"
               - entity: light.tuya_hallway_main_lights
@@ -203,8 +208,8 @@ views:
 
           - type: conditional
             conditions:
-              - entity: sun.sun
-                state: "below_horizon"
+              - entity: binary_sensor.floorplan_night_mode
+                state: "on"
               - entity: light.tuya_hallway_entrance_lights
                 state: "on"
               - entity: light.tuya_hallway_main_lights
@@ -358,3 +363,15 @@ views:
               background-color: "rgba(255, 255, 255, 0.6)"
               font-size: 14px
               font-weight: bold
+
+
+          # Dark mode override
+          - type: image
+            entity: input_boolean.floorplan_night_mode
+            tap_action:
+              action: toggle
+            image: /local/images/floorplan/transparent.png
+            style:
+              top: 1%
+              left: 1%
+              width: 10%

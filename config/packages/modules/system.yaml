@@ -1,3 +1,13 @@
+input_boolean:
+  floorplan_night_mode:
+    initial: off
+
+binary_sensor:
+  - platform: template
+    sensors:
+      floorplan_night_mode:
+        value_template: "{{ states('sun.sun') == 'below_horizon' or is_state('input_boolean.floorplan_night_mode', 'on') }}"
+
 sensor:
   - platform: time_date
     display_options:
