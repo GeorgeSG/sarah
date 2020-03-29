@@ -108,5 +108,3 @@ cards:
           service: script.alarm_stop
         name: stop
         icon: mdi:home
-
-  - type: custom:gui-sandbox

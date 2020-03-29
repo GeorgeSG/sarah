@@ -19,8 +19,6 @@
 - type: module
   url: /hacsfiles/lovelace-fold-entity-row/fold-entity-row.js
 - type: module
-  url: /hacsfiles/lovelace-gui-sandbox/gui-sandbox.js
-- type: module
   url: /hacsfiles/lovelace-layout-card/layout-card.js
 - type: module
   url: /hacsfiles/lovelace-multiple-entity-row/multiple-entity-row.js
@@ -34,8 +32,6 @@
   url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js
 - type: module
   url: /hacsfiles/mini-media-player/mini-media-player-bundle.js
-- type: module
-  url: /hacsfiles/text-element/text-element.js
 - type: module
   url: /hacsfiles/travel-time-card/travel-time-card.js
 - type: module

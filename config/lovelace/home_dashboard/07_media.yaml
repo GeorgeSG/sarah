@@ -61,8 +61,8 @@ cards:
           tap_action:
             action: call-service
             service: script.youtube_play_latest_pds
-        - type: custom:text-element
-          text: "${states['sensor.philip_defranco'].state}"
+        - type: markdown
+          content: "${states['sensor.philip_defranco'].state}"
         - type: custom:folder-card
           entity: sensor.pds
           title: Available PDS
