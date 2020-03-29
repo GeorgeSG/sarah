@@ -7,7 +7,9 @@ cards:
     title: Lights
     show_header_toggle: false
     entities:
-      - light.hallway_all_lights
+      - light.tuya_hallway_all_lights
+      - light.tuya_hallway_entrance_light
+      - light.tuya_hallway_main_lights
       - type: custom:fold-entity-row
         entity: light.hallway_entrance_lights
         name: Entrance lights

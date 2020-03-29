@@ -11,9 +11,9 @@ script:
       # Enter home mode.
       - service: script.security_camera_off
       - service: light.turn_on
-        entity_id: light.hallway_entrance_lights
-      - service: light.turn_on
-        entity_id: light.hallway_main_lights
+        entity_id:
+          - light.tuya_hallway_entrance_lights
+          - light.tuya_hallway_main_lights
 
       # TODO: Only if it's dark in the living room
       - service: light.turn_on

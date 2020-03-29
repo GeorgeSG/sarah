@@ -8,6 +8,8 @@ cards:
     title: Living room
     icon: mdi:sofa
     entities:
+      - light.tuya_living_room_main_lights
+      - type: divider
       - light.living_room_all_lights
       - light.living_room_main_lights
       - light.light_lohas_1
@@ -32,6 +34,8 @@ cards:
     title: Kitchen
     icon: mdi:chef-hat
     entities:
+      - light.tuya_kitchen_main_lights
+      - type: divider
       - light.kitchen_main_lights
       - light.light_le_11
       - light.light_le_12
@@ -41,6 +45,10 @@ cards:
     title: Hallway
     icon: mdi:door-closed
     entities:
+      - light.tuya_hallway_all_lights
+      - light.tuya_hallway_main_lights
+      - light.tuya_hallway_entrance_lights
+      - type: divider
       - light.hallway_all_lights
       - light.hallway_main_lights
       - light.hallway_entrance_lights

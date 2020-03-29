@@ -8,7 +8,7 @@ cards:
     show_header_toggle: false
     entities:
       - type: custom:fold-entity-row
-        entity: light.kitchen_main_lights
+        entity: light.tuya_kitchen_main_lights
         name: Main lights
         entities:
           - light.light_le_11

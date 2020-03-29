@@ -32,8 +32,8 @@ script:
       - service: light.turn_off
         entity_id:
           - light.living_room_all_lights
-          - light.hallway_all_lights
-          - light.kitchen_main_lights
+          - light.tuya_hallway_all_lights
+          - light.tuya_kitchen_main_lights
 
 automation:
   - alias: Routine · Bedtime · Toggle on bedside switch hold

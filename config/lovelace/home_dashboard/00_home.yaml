@@ -13,8 +13,8 @@ cards:
             cards:
               - type: custom:button-card
                 template: small
-                entity: light.all_lights
-                name: All
+                entity: light.ceiling_lights
+                name: Ceiling
               - type: custom:button-card
                 template: small
                 entity: light.living_room_main_lights
@@ -25,13 +25,13 @@ cards:
                 name: Bedroom
               - type: custom:button-card
                 template: small
-                entity: light.hallway_main_lights
+                entity: light.tuya_hallway_main_lights
                 name: Hallway
           - type: horizontal-stack
             cards:
               - type: custom:button-card
                 template: small
-                entity: light.kitchen_main_lights
+                entity: light.tuya_kitchen_main_lights
                 name: Kitchen
               - type: custom:button-card
                 template: small
@@ -42,7 +42,7 @@ cards:
                 name: Bedside
               - type: custom:button-card
                 template: small
-                entity: light.hallway_entrance_lights
+                entity: light.tuya_hallway_entrance_lights
                 name: Entrance
 
       - type: entities

@@ -1,11 +1,17 @@
 light:
+  # Used only to set correct initial state of tuya_living_room_main_lights
+  - platform: group
+    name: Living room tuya lights
+    entities:
+      - light.light_le_9
+      - light.light_le_10
+
   - platform: group
     name: Living room main lights
     entities:
       - light.light_lohas_1
       - light.light_lohas_2
-      - light.light_le_9
-      - light.light_le_10
+      - light.tuya_living_room_main_lights
 
   - platform: group
     name: Living room all lights
@@ -53,17 +59,47 @@ light:
       - light.hallway_main_lights
 
   - platform: group
+    name: Tuya Hallway all lights
+    entities:
+      - light.tuya_hallway_entrance_lights
+      - light.tuya_hallway_main_lights
+
+  - platform: group
     name: Ceiling lights
     entities:
       - light.living_room_all_lights
       - light.master_bedroom_main_lights
-      - light.kitchen_main_lights
-      - light.hallway_all_lights
+      - light.tuya_kitchen_main_lights
+      - light.tuya_hallway_all_lights
 
   - platform: group
     name: All lights
     entities:
       - light.living_room_all_lights
       - light.master_bedroom_all_lights
-      - light.kitchen_main_lights
-      - light.hallway_all_lights
+      - light.tuya_kitchen_main_lights
+      - light.tuya_hallway_all_lights
+
+
+homeassistant:
+  customize:
+    light.living_room_main_lights:
+      icon: mdi:vanity-light
+    light.living_room_all_lights:
+      icon: mdi:vanity-light
+    light.master_bedroom_main_lights:
+      icon: mdi:vanity-light
+    light.kitchen_main_lights:
+      icon: mdi:vanity-light
+    light.hallway_entrance_lights:
+      icon: mdi:vanity-light
+    light.hallway_main_lights:
+      icon: mdi:vanity-light
+    light.hallway_all_lights:
+      icon: mdi:vanity-light
+    light.tuya_hallway_all_lights:
+      icon: mdi:vanity-light
+    light.ceiling_lights:
+      icon: mdi:ceiling-light
+    light.pc:
+      icon: mdi:ceiling-light
