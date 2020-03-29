@@ -84,22 +84,24 @@ light:
 homeassistant:
   customize:
     light.living_room_main_lights:
-      icon: mdi:vanity-light
+      icon: bha:ceiling-lamp-plafond
     light.living_room_all_lights:
-      icon: mdi:vanity-light
+      icon: bha:ceiling-lamp-plafond
     light.master_bedroom_main_lights:
-      icon: mdi:vanity-light
+      icon: bha:ceiling-lamp-plafond
     light.kitchen_main_lights:
-      icon: mdi:vanity-light
+      icon: bha:ceiling-lamp-plafond
     light.hallway_entrance_lights:
-      icon: mdi:vanity-light
+      icon: bha:ceiling-lamp-plafond
     light.hallway_main_lights:
-      icon: mdi:vanity-light
+      icon: bha:ceiling-lamp-plafond
     light.hallway_all_lights:
-      icon: mdi:vanity-light
+      icon: bha:ceiling-lamp-plafond
     light.tuya_hallway_all_lights:
-      icon: mdi:vanity-light
+      icon: bha:ceiling-lamp-plafond
     light.ceiling_lights:
       icon: mdi:ceiling-light
     light.pc:
-      icon: mdi:ceiling-light
+      icon: bha:outdoor-lamp-variant
+    light.bedside_light:
+      icon: mdi:desk-lamp

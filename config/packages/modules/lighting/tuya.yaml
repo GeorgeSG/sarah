@@ -20,7 +20,7 @@ light:
       tuya_living_room_main_lights:
         friendly_name: Living room main lights (scene)
         value_template: "{{ is_state('input_boolean.tuya_living_room_main_lights_state', 'on') }}"
-        icon_template: mdi:vanity-light
+        icon_template: bha:ceiling-lamp-plafond
         turn_on:
           service: input_boolean.turn_on
           data:
@@ -33,7 +33,7 @@ light:
       tuya_kitchen_main_lights:
         friendly_name: Kitchen main lights (scene)
         value_template: "{{ is_state('input_boolean.tuya_kitchen_main_lights_state', 'on') }}"
-        icon_template: mdi:vanity-light
+        icon_template: bha:ceiling-lamp-plafond
         turn_on:
           service: input_boolean.turn_on
           data:
@@ -46,7 +46,7 @@ light:
       tuya_hallway_main_lights:
         friendly_name: Hallway main lights (scene)
         value_template: "{{ is_state('input_boolean.tuya_hallway_main_lights_state', 'on') }}"
-        icon_template: mdi:vanity-light
+        icon_template: bha:ceiling-lamp-plafond
         turn_on:
           service: input_boolean.turn_on
           data:
@@ -59,7 +59,7 @@ light:
       tuya_hallway_entrance_lights:
         friendly_name: Entrance lights (scene)
         value_template: "{{ is_state('input_boolean.tuya_hallway_entrance_lights_state', 'on') }}"
-        icon_template: mdi:vanity-light
+        icon_template: bha:ceiling-lamp-plafond
         turn_on:
           service: input_boolean.turn_on
           data:

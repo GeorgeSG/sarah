@@ -9,6 +9,8 @@
 - type: module
   url: /hacsfiles/decluttering-card/decluttering-card.js
 - type: module
+  url: /hacsfiles/hass-bha-icons/hass-bha-icons.js
+- type: module
   url: /hacsfiles/light-entity-card/light-entity-card.js
 - type: module
   url: /hacsfiles/lovelace-battery-entity/battery-entity.js
