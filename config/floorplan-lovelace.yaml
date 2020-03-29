@@ -96,7 +96,27 @@ views:
               - entity: sun.sun
                 state: "below_horizon"
               - entity: light.bedside_light
+                state: "off"
+              - entity: light.master_bedroom_main_lights
                 state: "on"
+            elements:
+              - type: image
+                image: /local/images/floorplan/master_bedroom_main_lights_on.png
+                tap_action: none
+                hold_action: none
+                style:
+                  top: 25.7%
+                  left: 70.35%
+                  width: 29%
+                  cursor: default
+          - type: conditional
+            conditions:
+              - entity: sun.sun
+                state: "below_horizon"
+              - entity: light.bedside_light
+                state: "on"
+              - entity: light.master_bedroom_main_lights
+                state: "off"
             elements:
               - type: image
                 image: /local/images/floorplan/master_bedroom_bedside_light_on.png
@@ -107,6 +127,99 @@ views:
                   left: 70.35%
                   width: 29%
                   cursor: default
+          - type: conditional
+            conditions:
+              - entity: sun.sun
+                state: "below_horizon"
+              - entity: light.master_bedroom_main_lights
+                state: "on"
+              - entity: light.bedside_light
+                state: "on"
+            elements:
+              - type: image
+                image: /local/images/floorplan/master_bedroom_all_lights_on.png
+                tap_action: none
+                hold_action: none
+                style:
+                  top: 25.7%
+                  left: 70.35%
+                  width: 29%
+                  cursor: default
+
+          - type: conditional
+            conditions:
+              - entity: sun.sun
+                state: "below_horizon"
+              - entity: light.tuya_kitchen_main_lights
+                state: "on"
+            elements:
+              - type: image
+                image: /local/images/floorplan/kitchen_main_lights_on.png
+                tap_action: none
+                hold_action: none
+                style:
+                  top: 29%
+                  left: 18.4%
+                  width: 23.6%
+                  cursor: default
+
+          - type: conditional
+            conditions:
+              - entity: sun.sun
+                state: "below_horizon"
+              - entity: light.tuya_hallway_entrance_lights
+                state: "on"
+              - entity: light.tuya_hallway_main_lights
+                state: "off"
+            elements:
+              - type: image
+                image: /local/images/floorplan/hallway_entrance_lights_on.png
+                tap_action: none
+                hold_action: none
+                style:
+                  top: 25.8%
+                  left: 42.7%
+                  width: 25.4%
+                  cursor: default
+
+          - type: conditional
+            conditions:
+              - entity: sun.sun
+                state: "below_horizon"
+              - entity: light.tuya_hallway_entrance_lights
+                state: "off"
+              - entity: light.tuya_hallway_main_lights
+                state: "on"
+            elements:
+              - type: image
+                image: /local/images/floorplan/hallway_main_lights_on.png
+                tap_action: none
+                hold_action: none
+                style:
+                  top: 25.8%
+                  left: 42.7%
+                  width: 25.4%
+                  cursor: default
+
+          - type: conditional
+            conditions:
+              - entity: sun.sun
+                state: "below_horizon"
+              - entity: light.tuya_hallway_entrance_lights
+                state: "on"
+              - entity: light.tuya_hallway_main_lights
+                state: "on"
+            elements:
+              - type: image
+                image: /local/images/floorplan/hallway_all_lights_on.png
+                tap_action: none
+                hold_action: none
+                style:
+                  top: 25.8%
+                  left: 42.7%
+                  width: 25.4%
+                  cursor: default
+
 
           # Light switches
           - type: image
@@ -126,7 +239,18 @@ views:
             style:
               top: 69.8%
               left: 64.8%
-              width: 5%
+              width: 6%
+              height: 2%
+
+          - type: image
+            entity: light.master_bedroom_main_lights
+            tap_action:
+              action: toggle
+            image: /local/images/floorplan/transparent.png
+            style:
+              top: 25%
+              left: 69.5%
+              width: 6%
               height: 2%
 
           - type: image
@@ -139,6 +263,37 @@ views:
               left: 61.6%
               width: 1.5%
 
+          - type: image
+            entity: light.tuya_kitchen_main_lights
+            tap_action:
+              action: toggle
+            image: /local/images/floorplan/transparent.png
+            style:
+              top: 29%
+              left: 20.3%
+              width: 3.2%
+
+          - type: image
+            entity: light.tuya_hallway_entrance_lights
+            tap_action:
+              action: toggle
+            image: /local/images/floorplan/transparent.png
+            style:
+              top: 26%
+              left: 50.2%
+
+          - type: image
+            entity: light.tuya_hallway_main_lights
+            tap_action:
+              action: toggle
+            image: /local/images/floorplan/transparent.png
+            style:
+              top: 41%
+              left: 34.8%
+              width: 4%
+              height: 2%
+
+          # Bedroom
           # Puifier
           - type: state-icon
             entity: fan.philips_airpurifier
@@ -177,6 +332,7 @@ views:
               font-size: 14px
               font-weight: bold
 
+          # Living room
           - type: state-icon
             entity: binary_sensor.living_room_right_window_on_off_wrapper
             style:
