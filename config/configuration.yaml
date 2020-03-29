@@ -60,6 +60,7 @@ updater:
 logger:
   default: warning
   logs:
+    homeassistant.components.waze_travel_time.sensor: error
     homeassistant.components.shell_command: error
     homeassistant.components.amcrest: error
     homeassistant.components.switch.pihole_temp_disable: error
