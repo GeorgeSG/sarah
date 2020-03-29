@@ -1,8 +1,5 @@
 custom_header:
   hide_header: true
-  hide_config: true
-  hide_help: true
-  hide_unused: true
 
 decluttering_templates: !include_dir_merge_named lovelace/templates
 

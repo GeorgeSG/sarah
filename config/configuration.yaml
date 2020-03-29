@@ -47,7 +47,7 @@ lovelace:
 # logbook:
 
 # https://www.home-assistant.io/components/map
-map:
+# map:
 
 # https://www.home-assistant.io/components/system_health
 system_health:
