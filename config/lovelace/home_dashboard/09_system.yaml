@@ -1,6 +1,6 @@
 title: System
 path: system
-icon: "mdi:cogs"
+icon: "mdi:hammer-wrench"
 badges: []
 cards:
   - type: entities
