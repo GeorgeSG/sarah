@@ -44,7 +44,7 @@ lovelace:
       filename: floorplan-lovelace.yaml
 
 # https://www.home-assistant.io/components/logbook
-logbook:
+# logbook:
 
 # https://www.home-assistant.io/components/map
 map:
@@ -88,7 +88,7 @@ frontend:
 #   client_secret: !secret google_client_secret
 
 # https://www.home-assistant.io/integrations/history
-history:
+# history:
 
 # https://www.home-assistant.io/integrations/media_extractor
 # TODO: Add to media module
@@ -103,6 +103,23 @@ notify:
     platform: telegram
     api_key: !secret telegram_token
     chat_id: !secret telegram_georgi_chat_id
+
+# https://www.home-assistant.io/integrations/panel_iframe
+panel_iframe:
+  router:
+    title: "Router"
+    url: !secret router_url
+    require_admin: true
+    icon: mdi:network-router
+  tautulli:
+    title: "Tautulli"
+    url: !secret tautulli_url
+    require_admin: true
+    icon: mdi:plex
+  covidbg:
+    title: "COVID Bulgaria"
+    url: "https://esribulgaria.maps.arcgis.com/apps/opsdashboard/index.html#/6e2c968cf38540f29a4311295dce390f"
+    icon: mdi:biohazard
 
 # https://www.home-assistant.io/integrations/zeroconf
 zeroconf:
