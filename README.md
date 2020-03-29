@@ -2,7 +2,7 @@
 
 # S.A.R.A.H
 
-![](https://img.shields.io/github/commit-activity/m/GeorgeSG/sarah)
+[![Commit Activity](https://img.shields.io/github/commit-activity/m/GeorgeSG/sarah)](https://github.com/GeorgeSG/sarah)
 [![Build Status](https://travis-ci.com/GeorgeSG/sarah.svg?token=XdvzWyHdX7CysRsYcThK&branch=master)](https://travis-ci.com/GeorgeSG/sarah)
 
 ### Self Actuated Residential Automated Habitat
