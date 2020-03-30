@@ -12,6 +12,8 @@ views:
     cards:
       - type: picture-elements
         image: /local/images/floorplan/floorplan_night_transparent.png
+        style: |
+          height: 100%
         elements:
           - type: conditional
             conditions:
@@ -34,7 +36,9 @@ views:
                 tap_action:
                   action: none
 
-          # Lighting Overlays
+          #
+          # ─── LIGHTING OVERLAYS ─────────────────────────────────────────────────────────────────
+          #
 
           # Living Room
           - type: conditional
@@ -148,6 +152,7 @@ views:
                   width: 29%
                   cursor: default
 
+          # Kitchen
           - type: conditional
             conditions:
               - entity: binary_sensor.floorplan_night_mode
@@ -165,6 +170,7 @@ views:
                   width: 23.6%
                   cursor: default
 
+          # Hallway
           - type: conditional
             conditions:
               - entity: binary_sensor.floorplan_night_mode
@@ -183,7 +189,6 @@ views:
                   left: 42.7%
                   width: 25.4%
                   cursor: default
-
           - type: conditional
             conditions:
               - entity: binary_sensor.floorplan_night_mode
@@ -202,7 +207,6 @@ views:
                   left: 42.7%
                   width: 25.4%
                   cursor: default
-
           - type: conditional
             conditions:
               - entity: binary_sensor.floorplan_night_mode
@@ -222,8 +226,10 @@ views:
                   width: 25.4%
                   cursor: default
 
+          #
+          # ─── LIGHT SWITCHES ────────────────────────────────────────────────────────────────────
+          #
 
-          # Light switches
           - type: image
             entity: light.pc
             tap_action:
@@ -295,72 +301,111 @@ views:
               width: 4%
               height: 2%
 
-          # Living room
+          #
+          # ─── SENSORS ───────────────────────────────────────────────────────────────────────────
+          #
+
+          # Living room ───────────────────────────────────────────────────────────────────────────
+
           - type: state-icon
             entity: binary_sensor.titanium
             tap_action:
               action: call-service
               service: script.titanium_start
             style:
-              top: 60%
-              left: 79%
-              transform: scaleX(-1)
+              display: flex
+              align-items: center
+              justify-content: center
+              top: 62%
+              left: 80%
+              width: 35px
+              height: 35px
               border-radius: 50%
-              text-align: center
-              background-color: rgba(0, 0, 0, 0.6)
-              --paper-item-icon-active-color: "#00ff00"
+              background-color: "#fff"
+              box-shadow: 0 0 5px rgba(0, 0, 0, 0.6)
+              --divider-color: rgba(255, 255, 255, 0.4)
+              --paper-item-icon-color: rgba(50, 50, 50, 0.8)
+              --paper-item-icon-active-color: "#007cd6"
+              --iron-icon-width: 18px
+              --iron-icon-height: 18px
 
-          - type: state-icon
-            entity: binary_sensor.living_room_right_window_on_off_wrapper
-            style:
-              top: 73.2%
-              left: 82.3%
-              transform: scaleX(-1)
-              border-radius: 50%
-              text-align: center
-              background-color: rgba(0, 0, 0, 0.6)
-              --paper-item-icon-active-color: "#ff0000"
+          - type: conditional
+            conditions:
+              - entity: binary_sensor.living_room_right_window_on_off_wrapper
+                state: "on"
+            elements:
+              - type: image
+                image: /local/images/floorplan/transparent.png
+                entity: binary_sensor.living_room_right_window_on_off_wrapper
+                style:
+                  width: 7.8%
+                  height: 8.4%
+                  top: 70.5%
+                  left: 79.3%
+                  background-color: rgba(255,0,0,0.5)
+                  color: transparent
+                  transform: perspective(2000px) rotateX(174.6deg) rotateZ(0deg) rotateY(74.1deg)
 
+          # Master Bedroom ────────────────────────────────────────────────────────────────────────
 
-          # Bedroom
           # Puifier
           - type: state-icon
             entity: fan.philips_airpurifier
+            icon: mdi:air-filter
             tap_action:
               action: toggle
             style:
-              top: 44%
-              left: 61.5%
-              transform: scaleX(-1)
+              display: flex
+              align-items: center
+              justify-content: center
+              top: 44.5%
+              left: 62%
+              width: 35px
+              height: 35px
               border-radius: 50%
-              text-align: center
-              background-color: rgba(0, 0, 0, 0.6)
-              --paper-item-icon-active-color: "#00ff00"
+              background-color: "#fff"
+              box-shadow: 0 0 5px rgba(0, 0, 0, 0.6)
+              --divider-color: rgba(255, 255, 255, 0.4)
+              --paper-item-icon-color: rgba(50, 50, 50, 0.8)
+              --paper-item-icon-active-color: "#007cd6"
+              --iron-icon-width: 18px
+              --iron-icon-height: 18px
 
-          # Sensors
-          - type: state-icon
-            entity: binary_sensor.bedroom_right_window_on_off_wrapper
-            style:
-              top: 35%
-              left: 82.3%
-              transform: scaleX(-1)
-              border-radius: 50%
-              text-align: center
-              background-color: rgba(0, 0, 0, 0.6)
-              --paper-item-icon-active-color: "#ff0000"
+          # Window
+          - type: conditional
+            conditions:
+              - entity: binary_sensor.bedroom_right_window_on_off_wrapper
+                state: "on"
+            elements:
+              - type: image
+                image: /local/images/floorplan/transparent.png
+                entity: binary_sensor.bedroom_right_window_on_off_wrapper
+                style:
+                  width: 7.5%
+                  height: 8.2%
+                  top: 32.6%
+                  left: 79.2%
+                  background-color: rgba(255,0,0,0.5)
+                  color: transparent
+                  transform: perspective(2000px) rotateX(185.6deg) rotateY(73.1deg)
 
+          # Temperature
           - type: state-label
             entity: sensor.bedroom_weather_temperature
             style:
               top: 38%
-              left: 69.5%
+              left: 74%
               color: "#000"
-              border-radius: 50%
+              border-radius: 6px
               text-align: center
-              background-color: "rgba(255, 255, 255, 0.6)"
-              font-size: 14px
+              background-color: "rgba(255, 255, 255, 0.9)"
+              font-size: 13px
               font-weight: bold
+              line-height: 8px
 
+          #
+          # ─── SYSTEM ────────────────────────────────────────────────────────────────────────────
+          #
 
           # Dark mode override
           - type: image
