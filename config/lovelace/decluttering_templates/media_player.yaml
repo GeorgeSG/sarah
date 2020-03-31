@@ -1,7 +1,10 @@
 sonos_media_player:
+  default:
+    - info: "scroll"
   card:
     type: custom:mini-media-player
     artwork: cover
+    info: "[[info]]"
     entity: "[[player]]"
     speaker_group:
       sync_volume: true
@@ -14,6 +17,22 @@ sonos_media_player:
           name: Kitchen
         - entity_id: media_player.bathroom
           name: Bathroom
+    hide:
+      power: true
+      icon: true
+      shuffle: false
+    idle_view:
+      when_idle: true
+      when_standby: true
+
+sonos_media_player_small:
+  default:
+    - info: "short"
+  card:
+    type: custom:mini-media-player
+    artwork: cover
+    info: "[[info]]"
+    entity: "[[player]]"
     hide:
       power: true
       icon: true

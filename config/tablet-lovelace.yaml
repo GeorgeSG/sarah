@@ -72,14 +72,16 @@ views:
           - type: vertical-stack
             title: Sonos
             cards:
-              - type: custom:decluttering-card
-                template: sonos_media_player
-                variables:
-                  - player: media_player.master_bedroom
-              - type: custom:decluttering-card
-                template: sonos_media_player
-                variables:
-                  - player: media_player.kitchen
+              - type: horizontal-stack
+                cards:
+                  - type: custom:decluttering-card
+                    template: sonos_media_player_small
+                    variables:
+                      - player: media_player.living_room
+                  - type: custom:decluttering-card
+                    template: sonos_media_player_small
+                    variables:
+                      - player: media_player.master_bedroom
 
       # Column 2
       - type: vertical-stack
@@ -122,13 +124,16 @@ views:
                     template: small
                     entity: binary_sensor.bedroom_right_window_on_off_wrapper
           - type: vertical-stack
-            title: "___"
+            title: Sonos
             cards:
-              - type: custom:decluttering-card
-                template: sonos_media_player
-                variables:
-                  - player: media_player.living_room
-              - type: custom:decluttering-card
-                template: sonos_media_player
-                variables:
-                  - player: media_player.bathroom
+              - type: horizontal-stack
+                cards:
+                - type: custom:decluttering-card
+                  template: sonos_media_player_small
+                  variables:
+                    - player: media_player.kitchen
+
+                - type: custom:decluttering-card
+                  template: sonos_media_player_small
+                  variables:
+                    - player: media_player.bathroom
