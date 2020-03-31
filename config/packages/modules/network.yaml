@@ -5,12 +5,12 @@
 # https://www.home-assistant.io/integrations/fastdotcom
 fastdotcom:
   scan_interval:
-    minutes: 30
+    minutes: 90
 
 # https://www.home-assistant.io/integrations/speedtestdotnet
 speedtestdotnet:
   scan_interval:
-    minutes: 31
+    minutes: 60
 
 # https://www.home-assistant.io/integrations/wake_on_lan
 wake_on_lan:
@@ -90,3 +90,16 @@ sensor:
       - volume_size_total
       - volume_size_used
       - volume_status
+
+homeassistant:
+  customize:
+    switch.pihole_temp_disable:
+      icon: mdi:pause-circle-outline
+    sensor.pi_hole_seen_clients:
+      icon: mdi:devices
+    sensor.pi_hole_ads_percentage_blocked_today:
+      icon: mdi:percent
+    sensor.pi_hole_ads_blocked_today:
+      icon: mdi:close-box-outline
+    sensor.pi_hole_dns_queries_today:
+      icon: mdi:radio-tower

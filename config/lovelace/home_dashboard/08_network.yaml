@@ -3,12 +3,49 @@ path: network
 icon: "mdi:server-network"
 badges: []
 cards:
-  - type: entities
-    entities:
-      - sensor.fast_com_download
-      - sensor.speedtest_download
-      - sensor.speedtest_upload
-      - sensor.speedtest_ping
+  - type: vertical-stack
+    cards:
+      - type: "custom:mini-graph-card"
+        graph: bar
+        points_per_hour: 1
+        hours_to_show: 72
+        show:
+          graph: bar
+          average: true
+          extrema: true
+        entities:
+          - entity: sensor.fast_com_download
+
+      - type: "custom:mini-graph-card"
+        animate: true
+        points_per_hour: 1
+        hours_to_show: 72
+        show:
+          graph: bar
+          average: true
+          extrema: true
+        entities:
+          - entity: sensor.speedtest_download
+
+      - type: horizontal-stack
+        cards:
+          - type: custom:mini-graph-card
+            points_per_hour: 0.3
+            hours_to_show: 72
+            font_size: 75
+            line_color: var(--accent-color)
+            line_width: 6
+            entities:
+              - sensor.speedtest_upload
+
+          - type: custom:mini-graph-card
+            font_size: 75
+            points_per_hour: 0.3
+            hours_to_show: 72
+            line_color: var(--accent-color)
+            line_width: 6
+            entities:
+              - sensor.speedtest_ping
 
   - type: vertical-stack
     cards:
@@ -22,37 +59,33 @@ cards:
           - type: custom:mini-graph-card
             name: Total queries
             font_size: 75
-            icon: mdi:radio-tower
             line_color: var(--accent-color)
-            line_width: 8
+            line_width: 6
             entities:
               - sensor.pi_hole_dns_queries_today
+
           - type: custom:mini-graph-card
             name: Queries blocked
             font_size: 75
-            icon: mdi:close-box-outline
             line_color: var(--accent-color)
-            line_width: 8
+            line_width: 6
             entities:
-              - entity: sensor.pi_hole_ads_blocked_today
-                icon: mdi:pi-hole
+              - sensor.pi_hole_ads_blocked_today
 
       - type: horizontal-stack
         cards:
           - type: custom:mini-graph-card
             name: Percent blocked
             font_size: 75
-            icon: mdi:percent
             line_color: var(--accent-color)
-            line_width: 8
+            line_width: 6
             entities:
               - sensor.pi_hole_ads_percentage_blocked_today
 
           - type: custom:mini-graph-card
             name: Seen clients
             font_size: 75
-            icon: mdi:devices
             line_color: var(--accent-color)
-            line_width: 8
+            line_width: 6
             entities:
               - sensor.pi_hole_seen_clients
