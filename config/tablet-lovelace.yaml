@@ -151,9 +151,11 @@ views:
                   - type: custom:button-card
                     template: small
                     entity: binary_sensor.living_room_right_window_on_off_wrapper
+                    name: Living room
                   - type: custom:button-card
                     template: small
                     entity: binary_sensor.bedroom_right_window_on_off_wrapper
+                    name: Master bedroom
           - type: vertical-stack
             title: Sonos
             cards:
