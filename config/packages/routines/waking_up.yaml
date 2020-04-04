@@ -25,7 +25,7 @@ script:
         data:
           message: "Here's some music to start the day!"
       - delay: 00:00:02
-
+      - service: script.music_join_sonoses
       - service: script.music_play
 
   routine_morning_briefing:

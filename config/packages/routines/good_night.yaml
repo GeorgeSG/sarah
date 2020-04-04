@@ -16,7 +16,3 @@ script:
       - service: script.say_discretely
         data:
           message: "Entering sleep mode. Good night!"
-
-      # Prepare for the next day.
-      - delay: 00:00:05
-      - service: script.music_join_sonoses

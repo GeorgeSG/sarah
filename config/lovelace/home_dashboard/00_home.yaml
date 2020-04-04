@@ -107,7 +107,8 @@ cards:
     cards:
       - type: entities
         entities:
-          - input_boolean.alarm_enabled
+          - entity: input_boolean.alarm_enabled
+            name: Alarm
           - input_datetime.alarm_time
       - type: "custom:weather-card"
         current: true

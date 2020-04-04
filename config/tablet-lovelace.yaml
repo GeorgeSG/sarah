@@ -134,6 +134,7 @@ views:
                       - type: custom:button-card
                         template: small
                         entity: input_boolean.alarm_enabled
+                        name: Alarm
                       - type: entities
                         style: |
                           ha-card {
