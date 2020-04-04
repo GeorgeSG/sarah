@@ -15,5 +15,6 @@ small:
       styles:
         card:
           - background-color: var(--accent-color)
+          - color: black
         icon:
             - color: black
