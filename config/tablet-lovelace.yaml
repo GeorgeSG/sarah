@@ -157,6 +157,9 @@ views:
                     template: small
                     entity: binary_sensor.bedroom_right_window_on_off_wrapper
                     name: Master bedroom
+                  - type: custom:button-card
+                    template: small
+                    entity: device_tracker.carbon
           - type: vertical-stack
             title: Sonos
             cards:

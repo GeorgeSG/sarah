@@ -26,9 +26,9 @@ lovelace:
   dashboards:
     lovelace-main:
       mode: yaml
-      title: Main Dashboard
+      title: Advanced
       icon: mdi:home
-      show_in_sidebar: false
+      show_in_sidebar: true
       filename: ui-lovelace.yaml
     lovelace-tablet:
       mode: yaml

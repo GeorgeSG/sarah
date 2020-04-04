@@ -81,15 +81,10 @@ cards:
           - type: custom:button-card
             template: small
             entity: binary_sensor.bedroom_right_window_on_off_wrapper
-            name: Master bedroom
-
-      - type: entities
-        title: Presence
-        show_header_toggle: false
-        entities:
-          - binary_sensor.georgi_home
-          - device_tracker.carbon
-          - device_tracker.tile_1bcb2b3021b9f96b
+            name: M. Bedroom
+          - type: custom:button-card
+            template: small
+            entity: device_tracker.carbon
 
       - type: entities
         title: Manual controls
@@ -100,6 +95,16 @@ cards:
           - input_boolean.domestina
           - input_boolean.sleep_mode
           - input_boolean.georgi_home
+
+      - type: "custom:travel-time-card"
+        title: Travel time
+        columns:
+          - name
+          - duration
+          - distance
+        entities:
+          - sensor.home_to_work
+          - sensor.work_to_home
 
   # Column 3: Misc
   - type: vertical-stack
@@ -135,13 +140,3 @@ cards:
           ha-icon {
             padding: 0;
           }
-
-      - type: "custom:travel-time-card"
-        title: Travel time
-        columns:
-          - name
-          - duration
-          - distance
-        entities:
-          - sensor.home_to_work
-          - sensor.work_to_home
