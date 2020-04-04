@@ -52,6 +52,7 @@ cards:
           - switch.camera
           - media_player.living_room_tv
           - media_player.nvidia_shield
+          - media_player.shield
           - fan.philips_airpurifier
 
       - type: custom:config-template-card

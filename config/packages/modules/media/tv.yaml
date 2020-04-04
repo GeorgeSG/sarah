@@ -19,13 +19,25 @@ media_player:
     host: !secret nvidia_shield_host
 
 script:
-  tv_chill:
-    alias: TV Chill
+  tv_fireplace:
+    icon: mdi:fireplace
+    alias:  TV · Fireplace
     sequence:
+      - service: sonos.unjoin
+        data:
+          entity_id: media_player.living_room
+      - service: media_player.select_source
+        data:
+          entity_id: media_player.living_room
+          source: TV
+      - service: media_player.volume_set
+        data:
+          entity_id: media_player.living_room
+          volume_level: 0.08
       - service: media_extractor.play_media
         data:
           entity_id: media_player.shield
-          media_content_id: "https://www.youtube.com/watch?v=UgHKb_7884o"
+          media_content_id: "https://www.youtube.com/watch?v=AWKzr6n0ea0"
           media_content_type: video/youtube
 
   latest_pds:
