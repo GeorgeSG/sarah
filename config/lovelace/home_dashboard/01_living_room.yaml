@@ -70,6 +70,9 @@ cards:
           - type: "custom:mini-media-player"
             entity: media_player.living_room_tv
 
+          - type: "custom:mini-media-player"
+            entity: media_player.nvidia_shield
+
           - type: glance
             show_state: false
             entities:

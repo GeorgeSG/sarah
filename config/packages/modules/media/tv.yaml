@@ -79,5 +79,5 @@ homeassistant:
       icon: mdi:television
       friendly_name: LG TV
     media_player.nvidia_shield:
-      icon: mdi:television-ambient-light
+      icon: mdi:set-top-box
       friendly_name: Nvidia Shield
