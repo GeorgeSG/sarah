@@ -1,6 +1,6 @@
 input_datetime:
   alarm_time:
-    name: Wake up Time
+    name: Wake up time
     has_date: false
     has_time: true
 
@@ -104,3 +104,18 @@ automation:
         entity_id: media_player.master_bedroom
         data:
           volume_level: 0.3
+
+  - alias: Alarm · Set time
+    trigger:
+      platform: time
+      at: "21:00:00"
+    action:
+      - service: input_datetime.set_datetime
+        data_template:
+          entity_id: input_datetime.alarm_time
+          time: >-
+            {% if is_state('binary_sensor.workday_tomorrow', 'on') %}
+              09:20:00
+            {% else %}
+              10:20:00
+            {% endif %}

@@ -63,6 +63,7 @@ cards:
           - automation.sleep_mode_disable
           - automation.sleep_mode_toggle_on_bedside_switch_double_click
           - automation.alarm_wake_up
+          - automation.alarm_set_time
 
       - type: divider
 
