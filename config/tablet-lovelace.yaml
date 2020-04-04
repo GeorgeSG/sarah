@@ -110,26 +110,38 @@ views:
             cards:
               - type: horizontal-stack
                 cards:
-                  - type: custom:button-card
-                    template: small
-                    entity: input_select.sonos_leader
-                  - type: custom:button-card
-                    template: small
-                    entity: input_boolean.speech_notifications
-                  - type: custom:button-card
-                    template: small
-                    entity: input_boolean.guest_mode
-              - type: horizontal-stack
-                cards:
-                  - type: custom:button-card
-                    template: small
-                    entity: input_boolean.domestina
-                  - type: custom:button-card
-                    template: small
-                    entity: input_boolean.sleep_mode
-                  - type: custom:button-card
-                    template: small
-                    entity: input_boolean.georgi_home
+                  - type: vertical-stack
+                    cards:
+                      - type: horizontal-stack
+                        cards:
+                          - type: custom:button-card
+                            template: small
+                            entity: input_boolean.speech_notifications
+                            name: Speech
+                          - type: custom:button-card
+                            template: small
+                            entity: input_boolean.georgi_home
+                      - type: horizontal-stack
+                        cards:
+                          - type: custom:button-card
+                            template: small
+                            entity: input_boolean.sleep_mode
+                          - type: custom:button-card
+                            template: small
+                            entity: input_boolean.guest_mode
+                  - type: vertical-stack
+                    cards:
+                      - type: custom:button-card
+                        template: small
+                        entity: input_boolean.alarm_enabled
+                      - type: entities
+                        style: |
+                          ha-card {
+                            padding-bottom: 9px
+                          }
+                        entities:
+                          - entity: input_datetime.alarm_time
+                            name: "Time"
               - type: horizontal-stack
                 title: Sensors
                 cards:
