@@ -4,6 +4,25 @@ custom_header:
 decluttering_templates: !include_dir_merge_named lovelace/decluttering_templates
 button_card_templates: !include_dir_merge_named lovelace/button_card_templates
 
+popup_cards:
+  light.ceiling_lights:
+    title: Ceiling lights
+    style:
+      padding-bottom: 30px
+    card:
+      type: custom:mod-card
+      card:
+        type: custom:light-popup-card
+        entity: light.ceiling_lights
+        fullscreen: false
+        actionsInARow: 2
+        actions:
+          - service: light.toggle
+            service_data:
+              entity_id: light.ceiling_lights
+            color: "#ffffcc"
+            name: Toggle
+
 title: Tablet
 views:
   - title: Home

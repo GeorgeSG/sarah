@@ -20,6 +20,9 @@ sensor:
         friendly_name: "SARAH's URL"
         value_template: !secret sarah_url
 
+shell_command:
+  clear_logs: truncate -s 0 /config/home-assistant.log
+
 script:
   sarah_restart:
     alias: System · Restart SARAH
