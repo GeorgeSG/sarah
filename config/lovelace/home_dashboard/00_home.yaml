@@ -55,14 +55,10 @@ cards:
           - media_player.shield
           - fan.philips_airpurifier
 
-      - type: custom:config-template-card
-        entities:
-          - input_select.sonos_leader
-        card:
-          type: custom:decluttering-card
-          template: sonos_media_player
-          variables:
-            - player: ${states['input_select.sonos_leader'].state}
+      - type: custom:decluttering-card
+        template: sonos_media_player
+        variables:
+          - player: media_player.master_bedroom
 
       - type: entities
         show_header_toggle: false
@@ -73,7 +69,6 @@ cards:
         title: Manual controls
         show_header_toggle: false
         entities:
-          - input_select.sonos_leader
           - input_boolean.speech_notifications
           - input_boolean.guest_mode
           - input_boolean.domestina

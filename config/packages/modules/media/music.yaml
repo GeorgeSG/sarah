@@ -17,15 +17,6 @@ group:
       - media_player.kitchen
       - media_player.bathroom
 
-input_select:
-  sonos_leader:
-    name: Sonos Leader
-    icon: mdi:speaker
-    options:
-      - media_player.master_bedroom
-      - media_player.living_room
-      - media_player.kitchen
-
 binary_sensor:
   - platform: template
     sensors:
@@ -39,13 +30,6 @@ binary_sensor:
           {% else %}
             False
           {% endif %}
-      sonos_leader_paused:
-        value_template: "{{ is_state(states.input_select.sonos_leader.state, 'paused') }}"
-        entity_id:
-          - input_select.sonos_leader
-          - media_player.master_bedroom
-          - media_player.kitchen
-          - media_player.living_room
 
 script:
   music_play:
@@ -58,11 +42,11 @@ script:
           volume_level: "{{ volume_level | default(0.3) }}"
       - service: media_player.shuffle_set
         data_template:
-          entity_id: "{{ states('input_select.sonos_leader') }}"
+          entity_id: media_player.master_bedroom
           shuffle: "{{ shuffle | default(true) }}"
       - service: media_player.select_source
         data_template:
-          entity_id: "{{ states('input_select.sonos_leader') }}"
+          entity_id: media_player.master_bedroom
           source: "{{ playlist | default('Evening Chill') }}"
 
   music_join_sonoses:
@@ -71,7 +55,7 @@ script:
       - service: sonos.join
         entity_id: group.all_sonos
         data_template:
-          master: "{{ states('input_select.sonos_leader') }}"
+          master: media_player.master_bedroom
 
 automation:
   - alias: Music · Play/Pause on Magic Cube Knock
@@ -83,8 +67,8 @@ automation:
         command: knock
     action:
       - service: media_player.media_play_pause
-        data_template:
-          entity_id: "{{ states('input_select.sonos_leader') }}"
+        data:
+          entity_id: media_player.living_room
 
   - alias: Music · Volume down on Magic Cube rotate left
     trigger:
@@ -95,8 +79,8 @@ automation:
         command: rotate_left
     action:
       - service: media_player.volume_down
-        data_template:
-          entity_id: "{{ states('input_select.sonos_leader') }}"
+        data:
+          entity_id: media_player.living_room
 
   - alias: Music · Volume up on Magic Cube rotate right
     trigger:
@@ -107,5 +91,5 @@ automation:
         command: rotate_right
     action:
       - service: media_player.volume_up
-        data_template:
-          entity_id: "{{ states('input_select.sonos_leader') }}"
+        data:
+          entity_id: media_player.living_room
