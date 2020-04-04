@@ -38,10 +38,14 @@ script:
 homeassistant:
   customize:
     media_player.master_bedroom:
+      friendly_name: M. Bedroom Sonos
       icon: mdi:speaker
     media_player.living_room:
+      friendly_name: Living room Sonos
       icon: mdi:speaker
     media_player.kitchen:
+      friendly_name: Kitchen Sonos
       icon: mdi:speaker
     media_player.bathroom:
+      friendly_name: Bathroom Sonos
       icon: mdi:speaker

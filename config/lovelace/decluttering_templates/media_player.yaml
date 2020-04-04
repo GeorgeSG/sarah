@@ -10,9 +10,9 @@ sonos_media_player:
       sync_volume: true
       entities:
         - entity_id: media_player.master_bedroom
-          name: Master Bedroom
+          name: M. Bedroom
         - entity_id: media_player.living_room
-          name: Livingroom
+          name: Living room
         - entity_id: media_player.kitchen
           name: Kitchen
         - entity_id: media_player.bathroom
