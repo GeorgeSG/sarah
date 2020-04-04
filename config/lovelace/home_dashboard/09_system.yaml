@@ -1,7 +1,7 @@
 title: System
 path: system
 icon: "mdi:hammer-wrench"
-badges: []
+badges: [binary_sensor.updater]
 cards:
   - type: entities
     title: Automations
@@ -118,6 +118,9 @@ cards:
     title: Batteries
     show_header_toggle: false
     entities:
+      - type: custom:battery-entity
+        entity: sensor.carbon_battery_level
+      - type: divider
       - type: custom:battery-entity
         entity: sensor.front_door_power
       - type: custom:battery-entity

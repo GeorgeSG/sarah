@@ -49,7 +49,7 @@ views:
                   - type: custom:button-card
                     template: small
                     entity: light.master_bedroom_main_lights
-                    name: Bedroom
+                    name: "M. Bedroom"
                   - type: custom:button-card
                     template: small
                     entity: light.tuya_hallway_main_lights

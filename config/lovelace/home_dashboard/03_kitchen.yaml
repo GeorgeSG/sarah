@@ -2,30 +2,59 @@ title: Kitchen
 path: kitchen
 icon: "mdi:chef-hat"
 badges: []
+panel: true
 cards:
-  - type: entities
-    title: Lights
-    show_header_toggle: false
-    entities:
-      - light.tuya_kitchen_main_lights
-      - type: divider
-      - type: custom:fold-entity-row
-        entity: light.kitchen_main_lights
-        name: Main lights
-        entities:
-          - light.light_le_11
-          - light.light_le_12
-          - light.light_orbecco_1
+  - type: custom:layout-card
+    layout: horizontal
+    max_columns: 3
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: entities
+            title: Lights
+            show_header_toggle: false
+            entities:
+              - light.tuya_kitchen_main_lights
+              - type: divider
+              - type: custom:fold-entity-row
+                entity: light.kitchen_main_lights
+                name: Main lights
+                entities:
+                  - light.light_le_11
+                  - light.light_le_12
+                  - light.light_orbecco_1
 
-  - type: custom:decluttering-card
-    template: sonos_media_player
-    variables:
-      - player: media_player.kitchen
-  - type: entities
-    title: Brita Filter
-    icon: mdi:filter-outline
-    entities:
-      - input_number.brita_remaining_liters
-      - input_datetime.brita_next_change
-      - binary_sensor.brita_should_change_filter
-      - script.brita_new_filter
+          - type: custom:decluttering-card
+            template: sonos_media_player
+            variables:
+              - player: media_player.kitchen
+      - type: vertical-stack
+        cards:
+          - type: glance
+            title: Sensors
+            entities:
+              - entity: binary_sensor.motion_1_ias_zone
+              - entity: sensor.motion_1_illuminance
+              - entity: binary_sensor.motion_1_occupancy
+              - entity: sensor.motion_1_power
+          - type: "custom:mini-graph-card"
+            animate: true
+            points_per_hour: 1
+            hours_to_show: 48
+            show:
+              graph: bar
+              average: true
+              extrema: true
+            entities:
+              - entity: sensor.motion_1_illuminance
+
+      - type: vertical-stack
+        cards:
+          - type: entities
+            title: Brita Filter
+            icon: mdi:filter-outline
+            entities:
+              - input_number.brita_remaining_liters
+              - input_datetime.brita_next_change
+              - binary_sensor.brita_should_change_filter
+              - script.brita_new_filter

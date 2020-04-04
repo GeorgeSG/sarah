@@ -22,7 +22,7 @@ cards:
               - type: custom:button-card
                 template: small
                 entity: light.master_bedroom_main_lights
-                name: Bedroom
+                name: "M. Bedroom"
               - type: custom:button-card
                 template: small
                 entity: light.tuya_hallway_main_lights
@@ -65,16 +65,6 @@ cards:
         entities:
           - binary_sensor.sonos_recoverable
 
-      - type: entities
-        title: Manual controls
-        show_header_toggle: false
-        entities:
-          - input_boolean.speech_notifications
-          - input_boolean.guest_mode
-          - input_boolean.domestina
-          - input_boolean.sleep_mode
-          - input_boolean.georgi_home
-
   # Column 2: Sensors
   - type: vertical-stack
     cards:
@@ -87,9 +77,11 @@ cards:
           - type: custom:button-card
             template: small
             entity: binary_sensor.living_room_right_window_on_off_wrapper
+            name: Living room
           - type: custom:button-card
             template: small
             entity: binary_sensor.bedroom_right_window_on_off_wrapper
+            name: Master bedroom
 
       - type: entities
         title: Presence
@@ -100,19 +92,20 @@ cards:
           - device_tracker.tile_1bcb2b3021b9f96b
 
       - type: entities
-        title: Misc Badges
+        title: Manual controls
         show_header_toggle: false
         entities:
-          - sun.sun
-          - sensor.carbon_battery_level
-          - sensor.carbon_steps
-          - binary_sensor.updater
+          - input_boolean.speech_notifications
+          - input_boolean.guest_mode
+          - input_boolean.domestina
+          - input_boolean.sleep_mode
+          - input_boolean.georgi_home
 
   # Column 3: Misc
   - type: vertical-stack
+    title: Alarm
     cards:
       - type: entities
-        title: Alarm
         entities:
           - input_boolean.alarm_enabled
           - input_datetime.alarm_time

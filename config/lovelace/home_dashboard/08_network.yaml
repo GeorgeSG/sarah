@@ -6,7 +6,7 @@ cards:
   - type: vertical-stack
     cards:
       - type: "custom:mini-graph-card"
-        graph: bar
+        animate: true
         points_per_hour: 1
         hours_to_show: 72
         show:

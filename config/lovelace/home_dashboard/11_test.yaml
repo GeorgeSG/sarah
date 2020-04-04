@@ -8,20 +8,6 @@ cards:
       action: call-service
       service: frontend.reload_themes
 
-  - type: glance
-    entities:
-      - entity: binary_sensor.motion_1_ias_zone
-      - entity: sensor.motion_1_illuminance
-      - entity: binary_sensor.motion_1_occupancy
-      - entity: sensor.motion_1_power
-
-  - type: glance
-    entities:
-      - entity: binary_sensor.motion_2_ias_zone
-      - entity: sensor.motion_2_illuminance
-      - entity: binary_sensor.motion_2_occupancy
-      - entity: sensor.motion_2_power
-
   - type: entities
     entities:
       - entity: sensor.cube_analog_input
@@ -29,39 +15,6 @@ cards:
       - entity: sensor.cube_power
       - entity: sensor.carbon_activity
       - entity: sensor.carbon_last_update_trigger
-
-  - type: "custom:light-entity-card"
-    brightness: true
-    brightness_icon: weather-sunny
-    color_picker: true
-    color_temp: true
-    color_wheel: true
-    effects_list: true
-    entity: light.pc
-    full_width_sliders: false
-    group: false
-    persist_features: false
-    show_slider_percent: false
-    smooth_color_wheel: true
-    temperature_icon: thermometer
-    white_icon: file-word-box
-    white_value: true
-
-  - type: "custom:light-entity-card"
-    brightness: true
-    brightness_icon: weather-sunny
-    color_picker: true
-    color_temp: true
-    color_wheel: true
-    effects_list: true
-    entity: light.bedside_light
-    full_width_sliders: false
-    group: false
-    show_slider_percent: true
-    smooth_color_wheel: true
-    temperature_icon: thermometer
-    white_icon: file-word-box
-    white_value: true
 
   - type: "custom:mini-graph-card"
     animate: true
