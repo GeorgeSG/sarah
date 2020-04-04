@@ -6,6 +6,71 @@ badges: []
 cards:
   - type: vertical-stack
     cards:
+      - type: custom:button-card
+        template: small
+        entity: script.tv_fireplace
+        name: Fireplace
+      - type: custom:config-template-card
+        entities:
+          - sensor.day9tv
+          - sensor.lirik
+          - sensor.cohhcarnage
+          - sensor.sacriel
+        card:
+          type:  vertical-stack
+          title: Twitch
+          cards:
+            - type: horizontal-stack
+              cards:
+                - type: picture-entity
+                  entity: sensor.day9tv
+                  image: ${states['sensor.day9tv'].attributes.entity_picture}
+                  state_filter:
+                    "online": brightness(110%)
+                    "offline": brightness(50%) saturate(0)
+                  tap_action:
+                    action: call-service
+                    service: script.tv_twitch
+                    service_data:
+                      channel: day9tv
+                - type: picture-entity
+                  entity: sensor.lirik
+                  image: ${states['sensor.lirik'].attributes.entity_picture}
+                  state_filter:
+                    "online": brightness(110%)
+                    "offline": brightness(50%) saturate(0)
+                  tap_action:
+                    action: call-service
+                    service: script.tv_twitch
+                    service_data:
+                      channel: lirik
+            - type: horizontal-stack
+              cards:
+              - type: picture-entity
+                entity: sensor.cohhcarnage
+                image: ${states['sensor.cohhcarnage'].attributes.entity_picture}
+                state_filter:
+                  "online": brightness(110%)
+                  "offline": brightness(50%) saturate(0)
+                tap_action:
+                    action: call-service
+                    service: script.tv_twitch
+                    service_data:
+                      channel: cohhcarnage
+              - type: picture-entity
+                entity: sensor.sacriel
+                image: ${states['sensor.sacriel'].attributes.entity_picture}
+                state_filter:
+                  "online": brightness(110%)
+                  "offline": brightness(50%) saturate(0)
+                tap_action:
+                    action: call-service
+                    service: script.tv_twitch
+                    service_data:
+                      channel: sacriel
+
+  - type: vertical-stack
+    cards:
       - type: entities
         style: |
           ha-icon {

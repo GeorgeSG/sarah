@@ -6,12 +6,6 @@ webostv:
       service: wake_on_lan.send_magic_packet
       data:
         mac: !secret living_room_tv_mac
-    # customize:
-    #   sources:
-    #     - livetv
-    #     - youtube
-    #     - makotv
-    #     - netflix
 
 media_player:
   - platform: androidtv
@@ -19,24 +13,26 @@ media_player:
     host: !secret nvidia_shield_host
 
 script:
+  tv_twitch:
+    icon: mdi:twitch
+    alias: TV · Start Twitch stream
+    sequence:
+      - service: script.tv_prepare_for_playback
+      - service: androidtv.adb_command
+        entity_id: media_player.nvidia_shield
+        data_template:
+          command: "am start -a android.intent.action.VIEW -d twitch://stream/{{ channel }}"
+
   tv_fireplace:
     icon: mdi:fireplace
     alias:  TV · Fireplace
     sequence:
-      - service: sonos.unjoin
+      - service: script.tv_prepare_for_playback
         data:
-          entity_id: media_player.living_room
-      - service: media_player.select_source
-        data:
-          entity_id: media_player.living_room
-          source: TV
-      - service: media_player.volume_set
-        data:
-          entity_id: media_player.living_room
           volume_level: 0.08
       - service: media_extractor.play_media
+        entity_id: media_player.shield
         data:
-          entity_id: media_player.shield
           media_content_id: "https://www.youtube.com/watch?v=AWKzr6n0ea0"
           media_content_type: video/youtube
 
@@ -44,7 +40,44 @@ script:
     alias: Play the latest PDS
     sequence:
       - service: media_extractor.play_media
+        entity_id: media_player.shield
         data_template:
-          entity_id: media_player.shield
           media_content_id: "{{ state_attr('sensor.philip_defranco', 'url') }}"
           media_content_type: video/youtube
+
+  tv_prepare_for_playback:
+    alias: TV · Prepare for playback
+    sequence:
+      - service: sonos.unjoin
+        entity_id: media_player.living_room
+      - service: media_player.select_source
+        entity_id: media_player.living_room
+        data:
+          source: TV
+      - service: media_player.volume_set
+        entity_id: media_player.living_room
+        data_template:
+          volume_level: "{{ volume_level | default(0.3) }}"
+      - service: media_player.turn_on
+        entity_id: media_player.nvidia_shield
+
+automation:
+  - alias: TV · Join Beam to Sonos group when off
+    trigger:
+      platform: state
+      entity_id: media_player.living_room_tv
+      to: "off"
+    action:
+      - service: sonos.join
+        data:
+          master: media_player.master_bedroom
+          entity_id: media_player.living_room
+
+homeassistant:
+  customize:
+    media_player.living_room_tv:
+      icon: mdi:television
+      friendly_name: LG TV
+    media_player.nvidia_shield:
+      icon: mdi:television-ambient-light
+      friendly_name: Nvidia Shield

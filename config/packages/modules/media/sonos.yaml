@@ -1,0 +1,47 @@
+# https://www.home-assistant.io/integrations/sonos
+sonos:
+  media_player:
+    hosts: !secret sonos_hosts
+
+group:
+  all_sonos:
+    name: All Sonos
+    entities:
+      - media_player.master_bedroom
+      - media_player.living_room
+      - media_player.kitchen
+      - media_player.bathroom
+
+binary_sensor:
+  - platform: template
+    sensors:
+      sonos_recoverable:
+        friendly_name: Sonos recoverable
+        entity_id: media_player.master_bedroom
+        value_template: >-
+          {% if state_attr('media_player.master_bedroom', 'media_content_id').startswith('x-sonos-spotify:spotify')
+              or state_attr('media_player.master_bedroom', 'media_content_id').startswith('x-sonosapi-hls-static') %}
+            True
+          {% else %}
+            False
+          {% endif %}
+
+script:
+  music_join_sonoses:
+    alias: Music · Join Sonoses
+    sequence:
+      - service: sonos.join
+        entity_id: group.all_sonos
+        data_template:
+          master: media_player.master_bedroom
+
+homeassistant:
+  customize:
+    media_player.master_bedroom:
+      icon: mdi:speaker
+    media_player.living_room:
+      icon: mdi:speaker
+    media_player.kitchen:
+      icon: mdi:speaker
+    media_player.bathroom:
+      icon: mdi:speaker
