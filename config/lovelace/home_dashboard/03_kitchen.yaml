@@ -58,3 +58,4 @@ cards:
               - input_datetime.brita_next_change
               - binary_sensor.brita_should_change_filter
               - script.brita_new_filter
+              - script.brita_pour_water

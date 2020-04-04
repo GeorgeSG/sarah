@@ -5,6 +5,8 @@ input_number:
     mode: box
     min: 0
     max: 150
+    step: 0.5
+    icon: mdi:water
 
 input_datetime:
   brita_next_change:
@@ -24,6 +26,15 @@ binary_sensor:
           {{ states('input_number.brita_remaining_liters') | int < 3 or (as_timestamp(next_change) - as_timestamp(now())) / (3600*24) | round(0) < 3 }}
 
 script:
+  brita_pour_water:
+    alias: Brita · Pour water
+    icon: mdi:cup-water
+    sequence:
+      - service: input_number.set_value
+        entity_id: input_number.brita_remaining_liters
+        data_template:
+          value: "{{ states('input_number.brita_remaining_liters') | float - 1.5 }}"
+
   brita_new_filter:
     alias: Brita · New filter
     icon: mdi:filter-plus-outline
