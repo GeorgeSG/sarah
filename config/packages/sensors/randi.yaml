@@ -1,0 +1,19 @@
+# https://www.home-assistant.io/integrations/scrape
+sensor:
+  - platform: scrape
+    resource: https://randi.bg
+    select: ".default-cart-wrapper #cart-total"
+    name: Randi cart availability
+
+
+automation:
+  - alias: Randi · Notify cart is available
+    trigger:
+      platform: state
+      entity_id: sensor.randi_cart_availability
+      from: "unknown"
+    action:
+      - service: script.say
+        data:
+          message: "Hey! Though I should let you know that Randi is available!"
+
