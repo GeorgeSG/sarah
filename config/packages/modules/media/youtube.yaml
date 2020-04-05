@@ -23,7 +23,7 @@ script:
   youtube_play_file:
     alias:  Youtube · Play file
     sequence:
-      - service: script.music_join_sonoses
+      - service: script.sonos_join_bedroom
       - service: media_player.play_media
         data_template:
           entity_id: media_player.master_bedroom
@@ -61,7 +61,7 @@ script:
           url: "{{ states('input_text.youtube_download_url') }}"
           name: "{{ states('input_text.youtube_download_name') }}"
 
-      - service: script.music_join_sonoses
+      - service: script.sonos_join_bedroom
       - service: media_player.play_media
         data_template:
           entity_id: media_player.master_bedroom

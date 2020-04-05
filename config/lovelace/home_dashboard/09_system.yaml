@@ -9,6 +9,7 @@ cards:
     entities:
       - automation.youtube_download_latest_pds
       - automation.tv_join_beam_to_sonos_group_when_off
+      - automation.randi_notify_cart_is_available
 
       - type: custom:fold-entity-row
         head:
