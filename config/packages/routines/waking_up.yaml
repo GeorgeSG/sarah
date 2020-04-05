@@ -16,7 +16,7 @@ script:
       - delay: 00:00:01
 
       - service: light.turn_on
-        entity_id: light.hallway_entrance_lights
+        entity_id: light.tuya_hallway_entrance_lights
 
       - condition: state
         entity_id: input_boolean.guest_mode
