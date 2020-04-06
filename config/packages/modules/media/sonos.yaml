@@ -48,7 +48,7 @@ script:
         entity_id: media_player.bathroom
         data:
           volume_level: 0.5
-  sonos_bathrom_down:
+  sonos_bathroom_down:
     alias: Sonos · Bathroom down
     sequence:
       - service: media_player.volume_set
