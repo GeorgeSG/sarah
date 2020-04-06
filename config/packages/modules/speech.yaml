@@ -51,12 +51,18 @@ script:
     sequence:
       # Figure out whether to talk or send a text.
       - service_template: >
-          {% if is_state('media_player.master_bedroom', 'playing')
+          {% if (is_state('media_player.master_bedroom', 'playing')
+              and is_state('binary_sensor.sonos_recoverable', 'off'))
               or is_state('input_boolean.speech_notifications', 'off')
               or is_state('input_boolean.georgi_home', 'off') %}
             notify.telegram
           {% else %}
-            script.sonos_blast
+            {% if is_state('media_player.master_bedroom', 'playing')
+                and is_state('binary_sensor.sonos_recoverable', 'on') %}
+              script.sonos_say
+            {% else %}
+              script.sonos_blast
+            {% endif %}
           {% endif %}
         data_template:
           title: "💬 *Speech Module*" # For telegram only
@@ -102,11 +108,13 @@ script:
         data_template:
           with_group: yes
           entity_id: media_player.master_bedroom
-      - delay: 00:00:02
+      - delay: 00:00:01
       - service: script.sonos_blast
         data_template:
           message: "{{ message }}"
-      - delay: 00:00:05
+          volume_level: "{{ volume_level }}"
+      - wait_template: "{{ is_state('input_boolean.sarah_talking', 'off') }}"
+        timeout: 00:02:00
       - service: sonos.restore
         data_template:
           with_group: yes
