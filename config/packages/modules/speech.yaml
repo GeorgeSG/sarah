@@ -36,6 +36,7 @@ script:
       # Combine partials for speech message.
       - service: script.say_discretely
         data_template:
+          volume_level: "{{ volume_level }}" # For sonos only
           message: >-
             {%- if partials is defined -%}
               {%- for partial in partials -%}
@@ -60,6 +61,7 @@ script:
         data_template:
           title: "💬 *Speech Module*" # For telegram only
           message: "{{ message }}"
+          volume_level: "{{ volume_level }}" # For sonos only
 
   sonos_blast:
     alias: Speech · Sonos blast
@@ -72,10 +74,14 @@ script:
         entity_id: media_player.master_bedroom
         data_template:
           volume_level: >-
-            {% if now().strftime('%H')|int < 6 and now().strftime('%H')|int > 0 %}
-              0.2
+            {% if volume_level %}
+              {{ volume_level }}
             {% else %}
-              0.4
+              {% if now().strftime('%H')|int < 6 and now().strftime('%H')|int > 0 %}
+                0.2
+              {% else %}
+                0.4
+              {% endif %}
             {% endif %}
       # Say message.
       - service: tts.amazon_polly_say
