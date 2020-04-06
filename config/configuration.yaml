@@ -60,6 +60,7 @@ updater:
 logger:
   default: warning
   logs:
+    homeassistant.components.scrape.sensor: fatal
     homeassistant.components.waze_travel_time.sensor: error
     homeassistant.components.shell_command: error
     homeassistant.components.amcrest: error

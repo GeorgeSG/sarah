@@ -5,6 +5,7 @@ sensor:
     select: ".default-cart-wrapper #cart-total"
     value_template: "{{ 'on' if value.find('продукт') > -1 else 'off' }}"
     name: Randi cart availability
+    scan_interval: 300
 
 automation:
   - alias: Randi · Notify cart is available
