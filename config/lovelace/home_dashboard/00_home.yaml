@@ -63,6 +63,7 @@ cards:
       - type: entities
         show_header_toggle: false
         entities:
+          - sensor.randi_cart_availability
           - binary_sensor.sonos_recoverable
 
   # Column 2: Sensors

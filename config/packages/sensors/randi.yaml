@@ -3,17 +3,21 @@ sensor:
   - platform: scrape
     resource: https://randi.bg
     select: ".default-cart-wrapper #cart-total"
+    value_template: "{{ 'on' if value.find('продукт') > -1 else 'off' }}"
     name: Randi cart availability
-
 
 automation:
   - alias: Randi · Notify cart is available
     trigger:
       platform: state
       entity_id: sensor.randi_cart_availability
-      from: "unknown"
+      to: "On"
     action:
       - service: script.say
         data:
-          message: "Hey! Though I should let you know that Randi is available!"
+          message: "Hey! Thought I should let you know that Randi is available!"
 
+homeassistant:
+  customize:
+    sensor.randi_cart_availability:
+      icon: mdi:cart-outline
