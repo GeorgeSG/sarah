@@ -12,7 +12,7 @@ automation:
     trigger:
       platform: state
       entity_id: sensor.randi_cart_availability
-      to: "On"
+      to: "on"
     action:
       - service: script.say
         data:
