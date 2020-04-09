@@ -5,8 +5,8 @@ amcrest:
     password: !secret amcrest_password
     resolution: low
     binary_sensors:
-      - motion_detected
       - online
+      # - motion_detected
 
 binary_sensor:
   - platform: template
