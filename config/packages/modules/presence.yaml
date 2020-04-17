@@ -97,10 +97,6 @@ automation:
       to: "on"
     action:
       - service: script.routine_coming_home
-      - service: notify.telegram
-        data:
-          title: "🏠 *Presence Module · Coming Home*"
-          message: "Welcome home!"
 
   - alias: Presence · Leaving work
     trigger:
