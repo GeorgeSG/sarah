@@ -99,7 +99,7 @@ automation:
         data:
           entity_id: input_boolean.tuya_kitchen_main_lights_state
 
-      - service_template: "input_boolean.turn_{{ states('light.living_room_tuya_lights') }}"
+      - service_template: "input_boolean.turn_{{ states('light.kitchen_secondary_lights') }}"
         data:
           entity_id: input_boolean.tuya_kitchen_secondary_lights_state
 
