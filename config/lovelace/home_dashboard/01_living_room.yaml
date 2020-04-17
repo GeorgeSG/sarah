@@ -46,8 +46,16 @@ cards:
                     variables:
                       - light: light.light_lohas_2
                       - fade: switch.light_lohas_2_fade
-                  - light.light_le_9
-                  - light.light_le_10
+                  - type: custom:decluttering-card
+                    template: light_with_fade_and_switch
+                    variables:
+                      - light: light.light_lohas_3
+                      - fade: switch.light_lohas_3_fade
+                  - type: custom:decluttering-card
+                    template: light_with_fade_and_switch
+                    variables:
+                      - light: light.light_lohas_4
+                      - fade: switch.light_lohas_4_fade
               - type: custom:fold-entity-row
                 head:
                   type: custom:decluttering-card

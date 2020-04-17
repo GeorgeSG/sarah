@@ -9,14 +9,12 @@ cards:
     icon: mdi:sofa
     show_header_toggle: false
     entities:
-      - light.tuya_living_room_main_lights
-      - type: divider
       - light.living_room_all_lights
       - light.living_room_main_lights
       - light.light_lohas_1
       - light.light_lohas_2
-      - light.light_le_9
-      - light.light_le_10
+      - light.light_lohas_3
+      - light.light_lohas_4
       - light.pc
 
   - type: entities
@@ -37,12 +35,17 @@ cards:
     icon: mdi:chef-hat
     show_header_toggle: false
     entities:
+      - light.tuya_kitchen_all_lights
       - light.tuya_kitchen_main_lights
+      - light.tuya_kitchen_secondary_lights
       - type: divider
       - light.kitchen_main_lights
       - light.light_le_11
       - light.light_le_12
       - light.light_orbecco_1
+      - light.kitchen_secondary_lights
+      - light.light_le_9
+      - light.light_le_10
 
   - type: entities
     title: Hallway
@@ -60,5 +63,3 @@ cards:
       - light.light_le_6
       - light.light_le_7
       - light.light_le_8
-
-

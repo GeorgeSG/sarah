@@ -30,10 +30,7 @@ script:
           - media_player.nvidia_shield
           - media_player.living_room_tv
       - service: light.turn_off
-        entity_id:
-          - light.living_room_all_lights
-          - light.tuya_hallway_all_lights
-          - light.tuya_kitchen_main_lights
+        entity_id: light.ceiling_lights
 
 automation:
   - alias: Routine · Bedtime · Toggle on bedside switch hold

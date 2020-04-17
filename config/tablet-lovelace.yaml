@@ -58,7 +58,7 @@ views:
                 cards:
                   - type: custom:button-card
                     template: small
-                    entity: light.tuya_kitchen_main_lights
+                    entity: light.tuya_kitchen_all_lights
                     name: Kitchen
                   - type: custom:button-card
                     template: small
@@ -165,12 +165,12 @@ views:
             cards:
               - type: horizontal-stack
                 cards:
-                - type: custom:decluttering-card
-                  template: sonos_media_player_small
-                  variables:
-                    - player: media_player.kitchen
+                  - type: custom:decluttering-card
+                    template: sonos_media_player_small
+                    variables:
+                      - player: media_player.kitchen
 
-                - type: custom:decluttering-card
-                  template: sonos_media_player_small
-                  variables:
-                    - player: media_player.bathroom
+                  - type: custom:decluttering-card
+                    template: sonos_media_player_small
+                    variables:
+                      - player: media_player.bathroom

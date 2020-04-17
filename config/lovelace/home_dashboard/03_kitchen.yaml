@@ -14,7 +14,9 @@ cards:
             title: Lights
             show_header_toggle: false
             entities:
+              - light.tuya_kitchen_all_lights
               - light.tuya_kitchen_main_lights
+              - light.tuya_kitchen_secondary_lights
               - type: divider
               - type: custom:fold-entity-row
                 entity: light.kitchen_main_lights

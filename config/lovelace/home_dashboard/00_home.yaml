@@ -31,7 +31,7 @@ cards:
             cards:
               - type: custom:button-card
                 template: small
-                entity: light.tuya_kitchen_main_lights
+                entity: light.tuya_kitchen_all_lights
                 name: Kitchen
               - type: custom:button-card
                 template: small

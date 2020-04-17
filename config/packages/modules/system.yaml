@@ -69,7 +69,7 @@ automation:
             Lights:
               Living room: {{ states('light.living_room_all_lights') }}
               Master bedroom: {{ states('light.master_bedroom_all_lights') }}
-              Kitchen: {{ states('light.kitchen_main_lights') }}
+              Kitchen: {{ states('light.kitchen_all_lights') }}
               Hallway: {{ states('light.hallway_all_lights') }}
 
   - alias: IFTTT · Call service

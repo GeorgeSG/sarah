@@ -1,17 +1,11 @@
 light:
-  # Used only to set correct initial state of tuya_living_room_main_lights
-  - platform: group
-    name: Living room tuya lights
-    entities:
-      - light.light_le_9
-      - light.light_le_10
-
   - platform: group
     name: Living room main lights
     entities:
       - light.light_lohas_1
       - light.light_lohas_2
-      - light.tuya_living_room_main_lights
+      - light.light_lohas_3
+      - light.light_lohas_4
 
   - platform: group
     name: Living room all lights
@@ -39,6 +33,18 @@ light:
       - light.light_le_11
       - light.light_le_12
       - light.light_orbecco_1
+
+  - platform: group
+    name: Kitchen secondary lights
+    entities:
+      - light.light_le_9
+      - light.light_le_10
+
+  - platform: group
+    name: Tuya Kitchen all lights
+    entities:
+      - light.tuya_kitchen_main_lights
+      - light.tuya_kitchen_secondary_lights
 
   - platform: group
     name: Hallway entrance lights
@@ -69,7 +75,7 @@ light:
     entities:
       - light.living_room_all_lights
       - light.master_bedroom_main_lights
-      - light.tuya_kitchen_main_lights
+      - light.tuya_kitchen_all_lights
       - light.tuya_hallway_all_lights
 
   - platform: group
@@ -77,9 +83,8 @@ light:
     entities:
       - light.living_room_all_lights
       - light.master_bedroom_all_lights
-      - light.tuya_kitchen_main_lights
+      - light.tuya_kitchen_all_lights
       - light.tuya_hallway_all_lights
-
 
 homeassistant:
   customize:
@@ -90,6 +95,8 @@ homeassistant:
     light.master_bedroom_main_lights:
       icon: bha:ceiling-lamp-plafond
     light.kitchen_main_lights:
+      icon: bha:ceiling-lamp-plafond
+    light.tuya_kitchen_all_lights:
       icon: bha:ceiling-lamp-plafond
     light.hallway_entrance_lights:
       icon: bha:ceiling-lamp-plafond
