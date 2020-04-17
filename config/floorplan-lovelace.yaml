@@ -159,9 +159,49 @@ views:
                 state: "on"
               - entity: light.tuya_kitchen_main_lights
                 state: "on"
+              - entity: light.tuya_kitchen_secondary_lights
+                state: "off"
             elements:
               - type: image
                 image: /local/images/floorplan/kitchen_main_lights_on.png
+                tap_action: none
+                hold_action: none
+                style:
+                  top: 29%
+                  left: 18.4%
+                  width: 23.6%
+                  cursor: default
+
+          - type: conditional
+            conditions:
+              - entity: binary_sensor.floorplan_night_mode
+                state: "on"
+              - entity: light.tuya_kitchen_main_lights
+                state: "off"
+              - entity: light.tuya_kitchen_secondary_lights
+                state: "on"
+            elements:
+              - type: image
+                image: /local/images/floorplan/kitchen_secondary_lights_on.png
+                tap_action: none
+                hold_action: none
+                style:
+                  top: 29%
+                  left: 18.4%
+                  width: 23.6%
+                  cursor: default
+
+          - type: conditional
+            conditions:
+              - entity: binary_sensor.floorplan_night_mode
+                state: "on"
+              - entity: light.tuya_kitchen_main_lights
+                state: "on"
+              - entity: light.tuya_kitchen_secondary_lights
+                state: "on"
+            elements:
+              - type: image
+                image: /local/images/floorplan/kitchen_all_lights_on.png
                 tap_action: none
                 hold_action: none
                 style:
@@ -270,6 +310,16 @@ views:
               top: 11.7%
               left: 61.6%
               width: 1.5%
+
+          - type: image
+            entity: light.tuya_kitchen_secondary_lights
+            tap_action:
+              action: toggle
+            image: /local/images/floorplan/transparent.png
+            style:
+              top: 28%
+              left: 12.9%
+              width: 2%
 
           - type: image
             entity: light.tuya_kitchen_main_lights
