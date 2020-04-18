@@ -1,6 +1,7 @@
 custom_components/
 .google.token
 .spotify-token-cache
+.pip_progress
 .storage/
 google_calendars.yaml
 known_devices.yaml
