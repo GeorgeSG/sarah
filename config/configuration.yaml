@@ -65,6 +65,7 @@ logger:
     homeassistant.components.shell_command: error
     homeassistant.components.amcrest: error
     homeassistant.components.switch.pihole_temp_disable: error
+    homeassistant.loader: error
     zigpy.util: error
 
 #
