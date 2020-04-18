@@ -23,3 +23,24 @@ cards:
         entities:
           - light.light_le_7
           - light.light_le_8
+
+  - type: vertical-stack
+    cards:
+      - type: glance
+        title: Sensors
+        entities:
+          - entity: binary_sensor.motion_2_ias_zone
+          - entity: sensor.motion_2_illuminance
+          - entity: binary_sensor.motion_2_occupancy
+          - entity: sensor.motion_2_power
+
+      - type: "custom:mini-graph-card"
+        animate: true
+        points_per_hour: 1
+        hours_to_show: 48
+        show:
+          graph: bar
+          average: true
+          extrema: true
+        entities:
+          - entity: sensor.motion_2_illuminance

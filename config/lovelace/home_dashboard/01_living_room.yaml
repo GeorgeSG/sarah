@@ -99,27 +99,6 @@ cards:
               - binary_sensor.living_room_right_window_on_off_wrapper
               - sensor.living_room_right_window_power
 
-          - type: vertical-stack
-            cards:
-              - type: glance
-                title: Sensors
-                entities:
-                  - entity: binary_sensor.motion_2_ias_zone
-                  - entity: sensor.motion_2_illuminance
-                  - entity: binary_sensor.motion_2_occupancy
-                  - entity: sensor.motion_2_power
-
-          - type: "custom:mini-graph-card"
-            animate: true
-            points_per_hour: 1
-            hours_to_show: 48
-            show:
-              graph: bar
-              average: true
-              extrema: true
-            entities:
-              - entity: sensor.motion_2_illuminance
-
       - type: vertical-stack
         cards:
           - type: picture-entity
