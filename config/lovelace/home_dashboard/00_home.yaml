@@ -120,23 +120,3 @@ cards:
         details: true
         entity: weather.dark_sky
         forecast: true
-
-      - type: "custom:aftership-card"
-        title: Packages
-        entity: sensor.aftership
-        show_add: false
-        style: |
-          ha-card {
-            padding-top: 1em;
-            padding-bottom: 1em;
-          }
-          paper-item-body:first-child {
-            width: 32px;
-          }
-          paper-item-body {
-            width: 45%;
-            white-space: normal !important;
-          }
-          ha-icon {
-            padding: 0;
-          }
