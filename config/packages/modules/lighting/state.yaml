@@ -21,7 +21,7 @@ automation:
       - service: light.turn_off
         entity_id: light.all_lights
 
-  - alias: Lighting · Master bedroom · Toggle main lights on bedside switch single click
+  - alias: Lighting · Master bedroom · Toggle lights on bedside switch single click
     trigger:
       platform: event
       event_type: zha_event
@@ -30,7 +30,14 @@ automation:
         command: single
     action:
       - service: light.toggle
-        entity_id: light.master_bedroom_main_lights
+        data_template:
+          entity_id: >-
+
+            {% if is_state('input_boolean.sleep_mode', 'on') %}
+              light.bedside_light
+            {% else %}
+              light.master_bedroom_main_lights
+            {% endif %}
 
   - alias: Lighting · Living room · Turn all lights on on Magic Cube flip 90
     trigger:

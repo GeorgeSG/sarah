@@ -117,6 +117,7 @@ automation:
         data_template:
           entity_id: input_datetime.alarm_time
           time: >-
+
             {% if is_state('binary_sensor.workday_tomorrow', 'on') %}
               09:20:00
             {% else %}
