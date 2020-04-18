@@ -16,6 +16,14 @@ automation:
           - media_player.plex_lg
         to: "playing"
     action:
+      - service: sonos.unjoin
+        entity_id: media_player.living_room
+      - service: media_player.select_source
+        entity_id: media_player.living_room
+        data:
+          source: TV
+      - service: media_player.media_pause
+        entity_id: media_player.master_bedroom
       - service: scene.create
         data:
           scene_id: plex_before_start

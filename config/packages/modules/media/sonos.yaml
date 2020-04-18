@@ -56,6 +56,27 @@ script:
         data:
           volume_level: 0.2
 
+automation:
+  - alias: Media · Sonos · Put Beam in night mode
+    trigger:
+      platform: time
+      at: "22:00:00"
+    action:
+      - service: sonos.set_option
+        entity_id: media_player.living_room
+        data:
+          night_sound: true
+
+  - alias: Media · Sonos · Put Beam in day mode
+    trigger:
+      platform: time
+      at: "08:00:00"
+    action:
+      - service: sonos.set_option
+        entity_id: media_player.living_room
+        data:
+          night_sound: false
+
 homeassistant:
   customize:
     media_player.master_bedroom:
