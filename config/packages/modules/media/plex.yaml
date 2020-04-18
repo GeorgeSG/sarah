@@ -30,6 +30,7 @@ automation:
           snapshot_entities:
             - light.living_room_main_lights
             - light.pc
+            - light.master_bedroom_main_lights
             - light.tuya_hallway_entrance_lights
             - light.tuya_hallway_main_lights
             - light.tuya_kitchen_main_lights
@@ -38,6 +39,7 @@ automation:
           entity_id:
             - light.living_room_main_lights
             - light.pc
+            - light.master_bedroom_main_lights
             - light.tuya_hallway_entrance_lights
             - light.tuya_hallway_main_lights
             - light.tuya_kitchen_main_lights
