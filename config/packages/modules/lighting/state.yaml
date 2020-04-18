@@ -57,3 +57,55 @@ automation:
     action:
       - service: light.turn_off
         entity_id: light.living_room_all_lights
+
+  - alias: Lighting · Night mode · Kitchen · Turn lights on motion
+    trigger:
+      platform: state
+      entity_id: binary_sensor.motion_1_ias_zone
+      from: "off"
+      to: "on"
+    condition:
+      condition: state
+      entity_id: input_boolean.sleep_mode
+      state: "on"
+    action:
+      - service: light.turn_on
+        entity_id: light.light_le_12
+        data:
+          brightness_pct: 13
+      - delay: 00:00:10
+      # reset brightness and turn off
+      - service: light.turn_on
+        entity_id: light.light_le_12
+        data:
+          brightness_pct: 100
+      - service: light.turn_off
+        entity_id: light.light_le_12
+
+  - alias: Lighting · Night mode · Hallway · Turn lights on motion
+    trigger:
+      platform: state
+      entity_id: binary_sensor.motion_2_ias_zone
+      from: "off"
+      to: "on"
+    condition:
+      condition: state
+      entity_id: input_boolean.sleep_mode
+      state: "on"
+    action:
+      - service: light.turn_on
+        entity_id:
+          - light.light_le_6
+          - light.light_le_8
+        data:
+          brightness_pct: 13
+      - delay: 00:10:00
+      # reset brightness and turn off
+      - service: light.turn_on
+        entity_id:
+          - light.light_le_6
+          - light.light_le_8
+        data:
+          brightness_pct: 100
+      - service: light.turn_off
+        entity_id: light.tuya_hallway_all_lights

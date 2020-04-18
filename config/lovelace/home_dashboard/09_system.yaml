@@ -40,6 +40,8 @@ cards:
           - automation.lighting_living_room_adjust_temperature_based_on_time
           - automation.lighting_living_room_turn_all_lights_on_on_magic_cube_flip_90
           - automation.lighting_living_room_turn_all_lights_off_on_magic_cube_flip_180
+          - automation.lighting_night_mode_kitchen_turn_lights_on_motion
+          - automation.lighting_night_mode_hallway_turn_lights_on_motion
           - automation.lighting_sync_tasmota_states_on_start_up
 
       - type: divider
