@@ -1,0 +1,102 @@
+alexa:
+  smart_home:
+    endpoint: https://api.amazonalexa.com/v3/events
+    client_id: !secret alexa_client_id
+    client_secret: !secret alexa_client_secret
+    filter:
+      include_entities:
+        - light.ceiling_lights
+        - light.living_room_main_lights
+        - light.pc
+        - light.master_bedroom_main_lights
+        - light.bedside_light
+        - light.tuya_kitchen_all_lights
+        - light.tuya_hallway_entrance_lights
+        - light.tuya_hallway_all_lights
+        - light.tuya_hallway_main_lights
+
+        - switch.camera
+
+        - fan.philips_airpurifier
+
+        - media_player.living_room_tv
+        - media_player.nvidia_shield
+        - media_player.master_bedroom
+        - media_player.kitchen
+        - media_player.living_room
+        - media_player.bathroom
+
+        - binary_sensor.front_door_on_off_wrapper
+        - binary_sensor.living_room_right_window_on_off_wrapper
+        - binary_sensor.bedroom_right_window_on_off_wrapper
+
+        - sensor.bedroom_weather_temperature
+        - sensor.bedroom_weather_humidity
+        - sensor.purifier_air_quality
+
+        - script.routine_bedtime
+        - script.tv_fireplace
+        - script.sonos_join_bedroom
+        - script.sonos_join_tv
+        - script.routine_good_night
+        - script.brita_new_filter
+        - script.brita_pour_water
+        - script.latest_pds
+        - script.music_play
+        - script.titanium_start
+
+    entity_config:
+      light.ceiling_lights:
+        name: "Ceiling"
+      light.living_room_main_lights:
+        name: "Living room"
+      light.master_bedroom_main_lights:
+        name: "Bedroom"
+      light.tuya_kitchen_all_lights:
+        name: "Kitchen"
+      light.tuya_hallway_entrance_lights:
+        name: "Entrance"
+      light.tuya_hallway_all_lights:
+        name: "Hallway"
+      light.tuya_hallway_main_lights:
+        name: "Hallway main"
+      media_player.master_bedroom:
+        name: "Bedroom Sonos"
+      media_player.kitchen:
+        name: "Kitchen Sonos"
+      media_player.living_room:
+        name: "Living room Sonos"
+      media_player.bathroom:
+        name: "Bathroom Sonos"
+      binary_sensor.front_door_on_off_wrapper:
+        name: "Front door"
+      binary_sensor.living_room_right_window_on_off_wrapper:
+        name: "Living room window"
+      binary_sensor.bedroom_right_window_on_off_wrapper:
+        name: "Bedroom window"
+      sensor.bedroom_weather_temperature:
+        name: "Bedroom temperature"
+      sensor.bedroom_weather_humidity:
+        name: "Bedroom humidity"
+      sensor.purifier_air_quality:
+        name: "Bedroom air quality"
+      script.routine_bedtime:
+        name: "Bedtime"
+      script.tv_fireplace:
+        name: "Fireplace"
+      script.sonos_join_bedroom:
+        name: "Sonos Bedrooom"
+      script.sonos_join_tv:
+        name: "Sonos TV"
+      script.routine_good_night:
+        name: "Good Night"
+      script.brita_new_filter:
+        name: "New brita filter"
+      script.brita_pour_water:
+        name: "Brita pour water"
+      script.latest_pds:
+        name: "Play the latest PDS"
+      script.music_play:
+        name: "Music chill"
+      script.titanium_start:
+        name: "Titanium"
