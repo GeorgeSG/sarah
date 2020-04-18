@@ -17,7 +17,7 @@ cards:
           - sensor.cohhcarnage
           - sensor.sacriel
         card:
-          type:  vertical-stack
+          type: vertical-stack
           title: Twitch
           cards:
             - type: horizontal-stack
@@ -46,24 +46,24 @@ cards:
                       channel: lirik
             - type: horizontal-stack
               cards:
-              - type: picture-entity
-                entity: sensor.cohhcarnage
-                image: ${states['sensor.cohhcarnage'].attributes.entity_picture}
-                state_filter:
-                  "online": brightness(110%)
-                  "offline": brightness(50%) saturate(0)
-                tap_action:
+                - type: picture-entity
+                  entity: sensor.cohhcarnage
+                  image: ${states['sensor.cohhcarnage'].attributes.entity_picture}
+                  state_filter:
+                    "online": brightness(110%)
+                    "offline": brightness(50%) saturate(0)
+                  tap_action:
                     action: call-service
                     service: script.tv_twitch
                     service_data:
                       channel: cohhcarnage
-              - type: picture-entity
-                entity: sensor.sacriel
-                image: ${states['sensor.sacriel'].attributes.entity_picture}
-                state_filter:
-                  "online": brightness(110%)
-                  "offline": brightness(50%) saturate(0)
-                tap_action:
+                - type: picture-entity
+                  entity: sensor.sacriel
+                  image: ${states['sensor.sacriel'].attributes.entity_picture}
+                  state_filter:
+                    "online": brightness(110%)
+                    "offline": brightness(50%) saturate(0)
+                  tap_action:
                     action: call-service
                     service: script.tv_twitch
                     service_data:
@@ -104,6 +104,10 @@ cards:
               action: call-service
               service: script.youtube_download_and_play
       - type: custom:folder-card
+        style: |
+          .card-header ha-icon {
+            color: red;
+          }
         entity: sensor.youtube
         title: Available Youtube
         icon: "mdi:youtube"
@@ -132,6 +136,9 @@ cards:
           entity: sensor.pds
           title: Available PDS
           icon: "mdi:youtube"
+          sort: "descending"
+          max_count: 10
+          show_count: true
           tap_action:
             action: call-service
             service: script.youtube_play_file
