@@ -85,7 +85,7 @@ alexa:
       script.tv_fireplace:
         name: "Fireplace"
       script.sonos_join_bedroom:
-        name: "Sonos Bedrooom"
+        name: "Sonos Bedroom"
       script.sonos_join_tv:
         name: "Sonos TV"
       script.routine_good_night:
