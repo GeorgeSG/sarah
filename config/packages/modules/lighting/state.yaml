@@ -73,7 +73,7 @@ automation:
         entity_id: light.light_le_12
         data:
           brightness_pct: 13
-      - delay: 00:00:10
+      - delay: 00:10:00
       # reset brightness and turn off
       - service: light.turn_on
         entity_id: light.light_le_12
