@@ -1,4 +1,3 @@
-
 automation:
   - alias: Lighting · Turn on ceiling lights after sunset
     trigger:
@@ -22,7 +21,26 @@ automation:
       - service: light.turn_off
         entity_id: light.all_lights
 
-  - alias: Lighting · Master bedroom · Toggle main lights on bedisde switch single click"
+  - alias: Lighting · Adjust temperature on start
+    trigger:
+      platform: state
+      entity_id:
+        - light.living_room_main_lights
+        - light.master_bedroom_main_lights
+      to: "on"
+    action:
+      - service: light.turn_on
+        data_template:
+          entity_id: "{{ trigger.entity_id }}"
+          color_temp: >-
+
+            {% if is_state('sun.sun', 'above_horizon') %}
+              350
+            {% else %}
+              500
+            {% endif %}
+
+  - alias: Lighting · Master bedroom · Toggle main lights on bedside switch single click
     trigger:
       platform: event
       event_type: zha_event
@@ -32,6 +50,46 @@ automation:
     action:
       - service: light.toggle
         entity_id: light.master_bedroom_main_lights
+
+  - alias: Lighting · Master bedroom · Adjust temperature based on time
+    trigger:
+      platform: state
+      entity_id: sun.sun
+    condition:
+      condition: state
+      entity_id: light.master_bedroom_main_lights
+      state: "on"
+    action:
+      - service: light.turn_on
+        entity_id: light.master_bedroom_main_lights
+        data_template:
+          color_temp: >-
+
+            {% if is_state('sun.sun', 'above_horizon') %}
+              350
+            {% else %}
+              500
+            {% endif %}
+
+  - alias: Lighting · Living room · Adjust temperature based on time
+    trigger:
+      platform: state
+      entity_id: sun.sun
+    condition:
+      condition: state
+      entity_id: light.living_room_main_lights
+      state: "on"
+    action:
+      - service: light.turn_on
+        entity_id: light.living_room_main_lights
+        data_template:
+          color_temp: >-
+
+            {% if is_state('sun.sun', 'above_horizon') %}
+              350
+            {% else %}
+              500
+            {% endif %}
 
   - alias: Lighting · Living room · Turn all lights on on Magic Cube flip 90
     trigger:
@@ -58,4 +116,3 @@ automation:
     action:
       - service: light.turn_off
         entity_id: light.living_room_all_lights
-
