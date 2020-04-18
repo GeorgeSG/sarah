@@ -25,7 +25,7 @@ script:
 
   tv_fireplace:
     icon: mdi:fireplace
-    alias:  TV · Fireplace
+    alias: TV · Fireplace
     sequence:
       - service: script.tv_prepare_for_playback
         data:

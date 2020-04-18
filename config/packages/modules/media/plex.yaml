@@ -2,8 +2,56 @@
 plex:
   host: !secret plex_host
   token: !secret plex_token
-  ssl: true
-  verify_ssl: false
   media_player:
     use_episode_art: true
     ignore_new_shared_users: false
+
+automation:
+  - alias: TV · Plex · Setup house for Plex
+    trigger:
+      - platform: state
+        entity_id:
+          - media_player.plex_shield_chromecast
+          - media_player.plex_shield_player
+          - media_player.plex_lg
+        to: "playing"
+    action:
+      - service: scene.create
+        data:
+          scene_id: plex_before_start
+          snapshot_entities:
+            - light.living_room_main_lights
+            - light.pc
+            - light.tuya_hallway_entrance_lights
+            - light.tuya_hallway_main_lights
+            - light.tuya_kitchen_main_lights
+      - service: light.turn_off
+        data:
+          entity_id:
+            - light.living_room_main_lights
+            - light.pc
+            - light.tuya_hallway_entrance_lights
+            - light.tuya_hallway_main_lights
+            - light.tuya_kitchen_main_lights
+
+  - alias: TV · Plex · Restore house after Plex
+    trigger:
+      - platform: state
+        entity_id:
+          - media_player.plex_shield_chromecast
+          - media_player.plex_shield_player
+          - media_player.plex_lg
+        from: "playing"
+    action:
+      - service: scene.turn_on
+        # FIXME: Light colors are not being snapshotted/restored properly.
+        entity_id: scene.plex_before_start
+      - delay: 00:00:01
+      - condition: state
+        entity_id: light.pc
+        state: "on"
+      # FIXME: There is nothing else to fix the temperature of the PC light
+      - service: light.turn_on
+        entity_id: light.pc
+        data:
+          color_temp: 250
