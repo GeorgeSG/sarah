@@ -63,6 +63,14 @@ The `speech` module uses [partial templates](https://github.com/GeorgeSG/sarah/t
 
 ![Home Screen](assets/screenshot-home.png?raw=true)
 
+### Tablet view
+
+![Home Screen](assets/screenshot-tablet.png?raw=true)
+
+### Floorplan
+
+![Home Screen](assets/screenshot-floorplan.jpg?raw=true)
+
 ## Inspiration
 
 1. [Bear Stone Smart Home Documentation](https://github.com/CCOSTAN/Home-AssistantConfig)
