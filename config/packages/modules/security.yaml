@@ -6,7 +6,7 @@ amcrest:
     resolution: low
     binary_sensors:
       - online
-      # - motion_detected
+      - motion_detected
 
 binary_sensor:
   - platform: template

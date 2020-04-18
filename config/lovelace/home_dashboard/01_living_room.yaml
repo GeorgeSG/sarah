@@ -134,4 +134,4 @@ cards:
             entities:
               - switch.camera
               - binary_sensor.amcrest_camera_online
-              # - binary_sensor.amcrest_camera_motion_detected
+              - binary_sensor.amcrest_camera_motion_detected
