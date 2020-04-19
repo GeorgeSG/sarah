@@ -1,0 +1,48 @@
+percentage_card:
+  default:
+    - orange: 70
+    - red: 85
+  card:
+    type: custom:bar-card
+    entity: "[[entity]]"
+    name: "[[name]]"
+    icon: "[[icon]]"
+    entity_row: true
+    tap_action:
+      action: none
+    severity:
+      - from: 0
+        to: "[[orange]]"
+        color: green
+      - from: "[[orange]]"
+        to: "[[red]]"
+        color: darkorange
+      - from: "[[red]]"
+        to: 100
+        color: darkred
+    positions:
+      icon: outside
+      indicator: inside
+      title: outside
+    width: 50%
+    height: 2em
+    style: |
+      ha-card {
+        margin-bottom: -0.51em;
+      }
+      bar-card-value {
+        margin-right: auto;
+        color: #e0e1e1;
+        text-shadow: none;
+        font-size: 1em;
+        font-weight: 400;
+        letter-spacing: 0.01em;
+      }
+      bar-card-background {
+        background: radial-gradient(circle, rgba(52, 57, 58, 0.1) 0%, rgba(17,18,18,0.2) 75%);
+        box-shadow: inset 0 0 25px #00000045;
+        border-radius: 0.3em;
+      }
+      bar-card-backgroundbar {
+        background: none;
+      }

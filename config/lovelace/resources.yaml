@@ -1,6 +1,8 @@
 - type: module
   url: /hacsfiles/aftership-card/aftership-card.js
 - type: module
+  url: /hacsfiles/bar-card/bar-card.js
+- type: module
   url: /hacsfiles/button-card/button-card.js
 - type: module
   url: /hacsfiles/config-template-card/config-template-card.js
