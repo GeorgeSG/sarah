@@ -274,6 +274,13 @@ cards:
         icon: mdi:pi-hole
         entities:
           - switch.pihole_temp_disable
+          - type: custom:dummy-entity-row
+            entity: sun.sun
+            name: Open admin UI
+            icon: mdi:pi-hole
+            tap_action:
+              action: url
+              url_path: http://cobalt.lan:8081/admin
 
       - type: horizontal-stack
         cards:
