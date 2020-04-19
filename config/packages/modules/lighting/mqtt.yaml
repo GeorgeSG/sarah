@@ -227,7 +227,7 @@ sensor:
     payload_not_available: "Offline"
     state_topic: "tele/pc_light/STATE"
     unit_of_measurement: "%"
-    value_template: "{{ value_json['Wifi'].RSSI }}"
+    value_template: "{{ value_json.Wifi.RSSI }}"
 
   - platform: mqtt
     name: "light_le_1_wifi"
@@ -237,7 +237,7 @@ sensor:
     payload_not_available: "Offline"
     state_topic: "tele/light_le_1/STATE"
     unit_of_measurement: "%"
-    value_template: "{{ value_json['Wifi'].RSSI }}"
+    value_template: "{{ value_json.Wifi.RSSI }}"
 
   - platform: mqtt
     name: "light_le_2_wifi"
@@ -247,7 +247,7 @@ sensor:
     payload_not_available: "Offline"
     state_topic: "tele/light_le_2/STATE"
     unit_of_measurement: "%"
-    value_template: "{{ value_json['Wifi'].RSSI }}"
+    value_template: "{{ value_json.Wifi.RSSI }}"
 
   - platform: mqtt
     name: "light_le_3_wifi"
@@ -257,7 +257,7 @@ sensor:
     payload_not_available: "Offline"
     state_topic: "tele/light_le_3/STATE"
     unit_of_measurement: "%"
-    value_template: "{{ value_json['Wifi'].RSSI }}"
+    value_template: "{{ value_json.Wifi.RSSI }}"
 
   - platform: mqtt
     name: "light_le_4_wifi"
@@ -267,7 +267,7 @@ sensor:
     payload_not_available: "Offline"
     state_topic: "tele/light_le_4/STATE"
     unit_of_measurement: "%"
-    value_template: "{{ value_json['Wifi'].RSSI }}"
+    value_template: "{{ value_json.Wifi.RSSI }}"
 
   - platform: mqtt
     name: "light_lohas_1_wifi"
@@ -277,7 +277,7 @@ sensor:
     payload_not_available: "Offline"
     state_topic: "tele/light_lohas_1/STATE"
     unit_of_measurement: "%"
-    value_template: "{{ value_json['Wifi'].RSSI }}"
+    value_template: "{{ value_json.Wifi.RSSI }}"
 
   - platform: mqtt
     name: "light_lohas_2_wifi"
@@ -287,7 +287,7 @@ sensor:
     payload_not_available: "Offline"
     state_topic: "tele/light_lohas_2/STATE"
     unit_of_measurement: "%"
-    value_template: "{{ value_json['Wifi'].RSSI }}"
+    value_template: "{{ value_json.Wifi.RSSI }}"
 
   - platform: mqtt
     name: "light_lohas_3_wifi"
@@ -297,7 +297,7 @@ sensor:
     payload_not_available: "Offline"
     state_topic: "tele/light_lohas_3/STATE"
     unit_of_measurement: "%"
-    value_template: "{{ value_json['Wifi'].RSSI }}"
+    value_template: "{{ value_json.Wifi.RSSI }}"
 
   - platform: mqtt
     name: "light_lohas_4_wifi"
@@ -307,7 +307,7 @@ sensor:
     payload_not_available: "Offline"
     state_topic: "tele/light_lohas_4/STATE"
     unit_of_measurement: "%"
-    value_template: "{{ value_json['Wifi'].RSSI }}"
+    value_template: "{{ value_json.Wifi.RSSI }}"
 
 switch:
   - platform: mqtt

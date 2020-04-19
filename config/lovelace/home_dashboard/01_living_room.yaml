@@ -98,6 +98,18 @@ cards:
             entities:
               - binary_sensor.living_room_right_window_on_off_wrapper
               - sensor.living_room_right_window_power
+          - type: entities
+            title: Power
+            entities:
+              - switch.outlet_1_switch
+              - sensor.outlet_1_power
+              - sensor.outlet_1_voltage
+              - sensor.outlet_1_current
+              - sensor.outlet_1_energy_today
+              - sensor.outlet_1_energy_yesterday
+              - sensor.outlet_1_energy_total
+              - sensor.outlet_1_energy_total_start_time
+              - sensor.outlet_1_wifi
 
       - type: vertical-stack
         cards:

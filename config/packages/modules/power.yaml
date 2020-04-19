@@ -1,0 +1,63 @@
+switch:
+  - platform: mqtt
+    name: "Outlet 1 switch"
+    state_topic: "stat/outlet_1/RESULT"
+    value_template: "{{ value_json.POWER }}"
+    command_topic: "cmnd/outlet_1/POWER"
+    payload_on: "ON"
+    payload_off: "OFF"
+    availability_topic: "tele/outlet_1/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    qos: 1
+
+sensor:
+  - platform: mqtt
+    name: "Outlet 1 Energy today"
+    state_topic: "tele/outlet_1/SENSOR"
+    value_template: '{{ value_json.ENERGY.Today }}'
+    device_class: power
+    unit_of_measurement: "kWh"
+  - platform: mqtt
+    name: "Outlet 1 Energy yesterday"
+    state_topic: "tele/outlet_1/SENSOR"
+    value_template: '{{ value_json.ENERGY.Yesterday }}'
+    device_class: power
+    unit_of_measurement: "kWh"
+  - platform: mqtt
+    name: "Outlet 1 Energy total"
+    state_topic: "tele/outlet_1/SENSOR"
+    value_template: '{{ value_json.ENERGY.Total }}'
+    device_class: power
+    unit_of_measurement: "kWh"
+  - platform: mqtt
+    name: "Outlet 1 Energy total start time"
+    state_topic: "tele/outlet_1/SENSOR"
+    value_template: '{{ value_json.ENERGY.TotalStartTime }}'
+    device_class: timestamp
+  - platform: mqtt
+    name: "Outlet 1 Power"
+    state_topic: "tele/outlet_1/SENSOR"
+    value_template: '{{ value_json.ENERGY.Power }}'
+    device_class: power
+    unit_of_measurement: "W"
+  - platform: mqtt
+    name: "Outlet 1 Voltage"
+    state_topic: "tele/outlet_1/SENSOR"
+    value_template: '{{ value_json.ENERGY.Voltage }}'
+    unit_of_measurement: "V"
+  - platform: mqtt
+    name: "Outlet 1 Current"
+    state_topic: "tele/outlet_1/SENSOR"
+    value_template: '{{ value_json.ENERGY.Current }}'
+    unit_of_measurement: "A"
+
+  - platform: mqtt
+    name: "Outlet 1 WiFi"
+    state_topic: "tele/outlet_1/STATE"
+    unit_of_measurement: "%"
+    value_template: "{{value_json.Wifi.RSSI }}"
+    availability_topic: "tele/outlet_1/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    device_class: signal_strength
