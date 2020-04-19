@@ -1,0 +1,246 @@
+- type: conditional
+  conditions:
+    - entity: sun.sun
+      state: "above_horizon"
+    - entity: input_boolean.floorplan_night_mode
+      state: "off"
+  elements:
+    - type: image
+      entity: sun.sun
+      action: none
+      hold_action:
+        action: none
+      image: /local/images/floorplan/floorplan_day.jpg
+      style:
+        height: 100%
+        left: 50%
+        top: 50%
+        width: 100%
+      tap_action:
+        action: none
+
+ # Living Room
+- type: conditional
+  conditions:
+    - entity: binary_sensor.floorplan_night_mode
+      state: "on"
+    - entity: light.pc
+      state: "on"
+    - entity: light.living_room_main_lights
+      state: "off"
+  elements:
+    - type: image
+      image: /local/images/floorplan/living_room_pc_light_on.png
+      tap_action: none
+      hold_action: none
+      style:
+        top: 71.04%
+        left: 65.92%
+        width: 38.5%
+        cursor: default
+- type: conditional
+  conditions:
+    - entity: binary_sensor.floorplan_night_mode
+      state: "on"
+    - entity: light.pc
+      state: "off"
+    - entity: light.living_room_main_lights
+      state: "on"
+  elements:
+    - type: image
+      image: /local/images/floorplan/living_room_main_lights_on.png
+      tap_action: none
+      hold_action: none
+      style:
+        top: 71.04%
+        left: 65.92%
+        width: 38.5%
+        cursor: default
+- type: conditional
+  conditions:
+    - entity: binary_sensor.floorplan_night_mode
+      state: "on"
+    - entity: light.pc
+      state: "on"
+    - entity: light.living_room_main_lights
+      state: "on"
+  elements:
+    - type: image
+      image: /local/images/floorplan/living_room_all_lights_on.png
+      tap_action: none
+      hold_action: none
+      style:
+        top: 71.04%
+        left: 65.92%
+        width: 38.5%
+        cursor: default
+
+# Master Bedroom
+- type: conditional
+  conditions:
+    - entity: binary_sensor.floorplan_night_mode
+      state: "on"
+    - entity: light.bedside_light
+      state: "off"
+    - entity: light.master_bedroom_main_lights
+      state: "on"
+  elements:
+    - type: image
+      image: /local/images/floorplan/master_bedroom_main_lights_on.png
+      tap_action: none
+      hold_action: none
+      style:
+        top: 25.7%
+        left: 70.35%
+        width: 29%
+        cursor: default
+- type: conditional
+  conditions:
+    - entity: binary_sensor.floorplan_night_mode
+      state: "on"
+    - entity: light.bedside_light
+      state: "on"
+    - entity: light.master_bedroom_main_lights
+      state: "off"
+  elements:
+    - type: image
+      image: /local/images/floorplan/master_bedroom_bedside_light_on.png
+      tap_action: none
+      hold_action: none
+      style:
+        top: 25.7%
+        left: 70.35%
+        width: 29%
+        cursor: default
+- type: conditional
+  conditions:
+    - entity: binary_sensor.floorplan_night_mode
+      state: "on"
+    - entity: light.master_bedroom_main_lights
+      state: "on"
+    - entity: light.bedside_light
+      state: "on"
+  elements:
+    - type: image
+      image: /local/images/floorplan/master_bedroom_all_lights_on.png
+      tap_action: none
+      hold_action: none
+      style:
+        top: 25.7%
+        left: 70.35%
+        width: 29%
+        cursor: default
+
+# Kitchen
+- type: conditional
+  conditions:
+    - entity: binary_sensor.floorplan_night_mode
+      state: "on"
+    - entity: light.tuya_kitchen_main_lights
+      state: "on"
+    - entity: light.tuya_kitchen_secondary_lights
+      state: "off"
+  elements:
+    - type: image
+      image: /local/images/floorplan/kitchen_main_lights_on.png
+      tap_action: none
+      hold_action: none
+      style:
+        top: 29%
+        left: 18.4%
+        width: 23.6%
+        cursor: default
+
+- type: conditional
+  conditions:
+    - entity: binary_sensor.floorplan_night_mode
+      state: "on"
+    - entity: light.tuya_kitchen_main_lights
+      state: "off"
+    - entity: light.tuya_kitchen_secondary_lights
+      state: "on"
+  elements:
+    - type: image
+      image: /local/images/floorplan/kitchen_secondary_lights_on.png
+      tap_action: none
+      hold_action: none
+      style:
+        top: 29%
+        left: 18.4%
+        width: 23.6%
+        cursor: default
+
+- type: conditional
+  conditions:
+    - entity: binary_sensor.floorplan_night_mode
+      state: "on"
+    - entity: light.tuya_kitchen_main_lights
+      state: "on"
+    - entity: light.tuya_kitchen_secondary_lights
+      state: "on"
+  elements:
+    - type: image
+      image: /local/images/floorplan/kitchen_all_lights_on.png
+      tap_action: none
+      hold_action: none
+      style:
+        top: 29%
+        left: 18.4%
+        width: 23.6%
+        cursor: default
+
+# Hallway
+- type: conditional
+  conditions:
+    - entity: binary_sensor.floorplan_night_mode
+      state: "on"
+    - entity: light.tuya_hallway_entrance_lights
+      state: "on"
+    - entity: light.tuya_hallway_main_lights
+      state: "off"
+  elements:
+    - type: image
+      image: /local/images/floorplan/hallway_entrance_lights_on.png
+      tap_action: none
+      hold_action: none
+      style:
+        top: 25.8%
+        left: 42.7%
+        width: 25.4%
+        cursor: default
+- type: conditional
+  conditions:
+    - entity: binary_sensor.floorplan_night_mode
+      state: "on"
+    - entity: light.tuya_hallway_entrance_lights
+      state: "off"
+    - entity: light.tuya_hallway_main_lights
+      state: "on"
+  elements:
+    - type: image
+      image: /local/images/floorplan/hallway_main_lights_on.png
+      tap_action: none
+      hold_action: none
+      style:
+        top: 25.8%
+        left: 42.7%
+        width: 25.4%
+        cursor: default
+- type: conditional
+  conditions:
+    - entity: binary_sensor.floorplan_night_mode
+      state: "on"
+    - entity: light.tuya_hallway_entrance_lights
+      state: "on"
+    - entity: light.tuya_hallway_main_lights
+      state: "on"
+  elements:
+    - type: image
+      image: /local/images/floorplan/hallway_all_lights_on.png
+      tap_action: none
+      hold_action: none
+      style:
+        top: 25.8%
+        left: 42.7%
+        width: 25.4%
+        cursor: default

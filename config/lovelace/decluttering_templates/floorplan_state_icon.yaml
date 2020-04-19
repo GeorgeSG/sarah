@@ -2,7 +2,7 @@ floorplan_state_icon:
   default:
     - tap_action:
         action: toggle
-  element:
+  element: &floorplan_state_icon
     type: state-icon
     entity: "[[entity]]"
     tap_action: "[[tap_action]]"
@@ -22,3 +22,11 @@ floorplan_state_icon:
       --paper-item-icon-active-color: "#007cd6"
       --iron-icon-width: 18px
       --iron-icon-height: 18px
+
+floorplan_state_with_icon:
+  default:
+    - tap_action:
+        action: toggle
+  element:
+    <<: *floorplan_state_icon
+    icon: "[[icon]]"

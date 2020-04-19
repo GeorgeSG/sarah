@@ -1,0 +1,10 @@
+# Dark mode override
+- type: image
+  entity: input_boolean.floorplan_night_mode
+  tap_action:
+    action: toggle
+  image: /local/images/floorplan/transparent.png
+  style:
+    top: 1%
+    left: 1%
+    width: 10%

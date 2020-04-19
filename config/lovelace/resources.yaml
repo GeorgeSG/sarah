@@ -15,6 +15,8 @@
 - type: module
   url: /hacsfiles/light-entity-card/light-entity-card.js
 - type: module
+  url: /hacsfiles/light-popup-card/light-popup-card.js
+- type: module
   url: /hacsfiles/lovelace-battery-entity/battery-entity.js
 - type: module
   url: /hacsfiles/lovelace-card-mod/card-mod.js
@@ -22,6 +24,8 @@
   url: /hacsfiles/lovelace-dummy-entity-row/dummy-entity-row.js
 - type: module
   url: /hacsfiles/lovelace-fold-entity-row/fold-entity-row.js
+- type: module
+  url: /hacsfiles/lovelace-folder-card/folder-card.js
 - type: module
   url: /hacsfiles/lovelace-layout-card/layout-card.js
 - type: module
@@ -37,10 +41,8 @@
 - type: module
   url: /hacsfiles/mini-media-player/mini-media-player-bundle.js
 - type: module
+  url: /hacsfiles/popup-backdrop-filter/popup-backdrop-filter.js
+- type: module
   url: /hacsfiles/travel-time-card/travel-time-card.js
 - type: module
   url: /hacsfiles/weather-card/weather-card.js
-- type: module
-  url: /hacsfiles/lovelace-folder-card/folder-card.js
-- type: module
-  url: /hacsfiles/light-popup-card/light-popup-card.js
