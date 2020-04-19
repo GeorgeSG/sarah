@@ -192,10 +192,10 @@ cards:
                         hui-generic-entity-row:
                           $: |
                             .info {
-                              margin-left: 0;
-                              flex-grow: 0;
-                              text-overflow: unset;
-                              white-space: unset
+                              margin-left: 0 !important;
+                              flex-grow: 0 !important;
+                              text-overflow: unset !important;
+                              white-space: unset !important;
                             }
               - type: entities
                 entities:
