@@ -77,6 +77,7 @@ The `speech` module uses [partial templates](https://github.com/GeorgeSG/sarah/t
 1. [stanvx/Home-Assistant-Configuration](https://github.com/stanvx/Home-Assistant-Configuration)
 1. [Apocrathia/home-assistant-config](https://github.com/Apocrathia/home-assistant-config)
 1. [geekofweek/homeassistant](https://github.com/geekofweek/homeassistant)
+1. [matt8707/hass-config](https://github.com/matt8707/hass-config)
 
 ## Meta
 
