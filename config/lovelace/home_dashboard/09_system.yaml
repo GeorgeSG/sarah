@@ -1,7 +1,6 @@
 title: System
 path: system
 icon: "mdi:hammer-wrench"
-badges: [binary_sensor.updater]
 cards:
   - type: entities
     title: Automations
