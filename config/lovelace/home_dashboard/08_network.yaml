@@ -277,7 +277,7 @@ cards:
           - type: custom:dummy-entity-row
             entity: sun.sun
             name: Open admin UI
-            icon: mdi:pi-hole
+            icon: mdi:firefox
             tap_action:
               action: url
               url_path: http://cobalt.lan:8081/admin
