@@ -1,7 +1,7 @@
 custom_header:
   hide_header: true
 
-decluttering_templates: !include_dir_merge_named lovelace/templates
+decluttering_templates: !include_dir_merge_named lovelace/decluttering_templates
 
 title: Floorplan
 views:
@@ -270,86 +270,61 @@ views:
           # ─── LIGHT SWITCHES ────────────────────────────────────────────────────────────────────
           #
 
-          - type: image
-            entity: light.pc
-            tap_action:
-              action: toggle
-            image: /local/images/floorplan/transparent.png
-            style:
-              top: 71%
-              left: 77.8%
+          - type: custom:decluttering-card
+            template: floorplan_state_icon
+            variables:
+              - entity: light.pc
+              - top: 71%
+              - left: 77.8%
 
-          - type: image
-            entity: light.living_room_main_lights
-            tap_action:
-              action: toggle
-            image: /local/images/floorplan/transparent.png
-            style:
-              top: 69.8%
-              left: 64.8%
-              width: 6%
-              height: 2%
+          - type: custom:decluttering-card
+            template: floorplan_state_icon
+            variables:
+              - entity: light.living_room_main_lights
+              - top: 69.8%
+              - left: 64.8%
 
-          - type: image
-            entity: light.master_bedroom_main_lights
-            tap_action:
-              action: toggle
-            image: /local/images/floorplan/transparent.png
-            style:
-              top: 25%
-              left: 69.5%
-              width: 6%
-              height: 2%
+          - type: custom:decluttering-card
+            template: floorplan_state_icon
+            variables:
+              - entity: light.master_bedroom_main_lights
+              - top: 25%
+              - left: 69.5%
 
-          - type: image
-            entity: light.bedside_light
-            tap_action:
-              action: toggle
-            image: /local/images/floorplan/transparent.png
-            style:
-              top: 11.7%
-              left: 61.6%
-              width: 1.5%
+          - type: custom:decluttering-card
+            template: floorplan_state_icon
+            variables:
+              - entity: light.bedside_light
+              - top: 11.7%
+              - left: 61.6%
 
-          - type: image
-            entity: light.tuya_kitchen_secondary_lights
-            tap_action:
-              action: toggle
-            image: /local/images/floorplan/transparent.png
-            style:
-              top: 28%
-              left: 12.9%
-              width: 2%
+          - type: custom:decluttering-card
+            template: floorplan_state_icon
+            variables:
+              - entity: light.tuya_kitchen_secondary_lights
+              - top: 28%
+              - left: 12.9%
 
-          - type: image
-            entity: light.tuya_kitchen_main_lights
-            tap_action:
-              action: toggle
-            image: /local/images/floorplan/transparent.png
-            style:
-              top: 29%
-              left: 20.3%
-              width: 3.2%
+          - type: custom:decluttering-card
+            template: floorplan_state_icon
+            variables:
+              - entity: light.tuya_kitchen_main_lights
+              - top: 29%
+              - left: 20.3%
 
-          - type: image
-            entity: light.tuya_hallway_entrance_lights
-            tap_action:
-              action: toggle
-            image: /local/images/floorplan/transparent.png
-            style:
-              top: 26%
-              left: 50.2%
+          - type: custom:decluttering-card
+            template: floorplan_state_icon
+            variables:
+              - entity: light.tuya_hallway_entrance_lights
+              - top: 26%
+              - left: 50.2%
 
-          - type: image
-            entity: light.tuya_hallway_main_lights
-            tap_action:
-              action: toggle
-            image: /local/images/floorplan/transparent.png
-            style:
-              top: 41%
-              left: 34.8%
-              width: 4%
-              height: 2%
+          - type: custom:decluttering-card
+            template: floorplan_state_icon
+            variables:
+              - entity: light.tuya_hallway_main_lights
+              - top: 41%
+              - left: 34.8%
 
           #
           # ─── SENSORS ───────────────────────────────────────────────────────────────────────────
@@ -357,27 +332,31 @@ views:
 
           # Living room ───────────────────────────────────────────────────────────────────────────
 
-          - type: state-icon
-            entity: binary_sensor.titanium
-            tap_action:
-              action: call-service
-              service: script.titanium_start
-            style:
-              display: flex
-              align-items: center
-              justify-content: center
-              top: 62%
-              left: 80%
-              width: 35px
-              height: 35px
-              border-radius: 50%
-              background-color: "#fff"
-              box-shadow: 0 0 5px rgba(0, 0, 0, 0.6)
-              --divider-color: rgba(255, 255, 255, 0.4)
-              --paper-item-icon-color: rgba(50, 50, 50, 0.8)
-              --paper-item-icon-active-color: "#007cd6"
-              --iron-icon-width: 18px
-              --iron-icon-height: 18px
+          - type: custom:decluttering-card
+            template: floorplan_state_icon
+            variables:
+              - entity: binary_sensor.titanium
+              - top: 62%
+              - left: 80%
+              - tap_action:
+                  action: call-service
+                  service: script.titanium_start
+
+          - type: custom:decluttering-card
+            template: floorplan_state_icon
+            variables:
+              - entity: sensor.synology_dsm_type_volume_1
+              - top: 54%
+              - left: 75%
+              - tap_action:
+                  action: more-info
+
+          - type: custom:decluttering-card
+            template: floorplan_state_icon
+            variables:
+              - entity: media_player.nvidia_shield
+              - top: 54%
+              - left: 60%
 
           - type: conditional
             conditions:
@@ -399,27 +378,12 @@ views:
           # Master Bedroom ────────────────────────────────────────────────────────────────────────
 
           # Puifier
-          - type: state-icon
-            entity: fan.philips_airpurifier
-            icon: mdi:air-filter
-            tap_action:
-              action: toggle
-            style:
-              display: flex
-              align-items: center
-              justify-content: center
-              top: 44.5%
-              left: 62%
-              width: 35px
-              height: 35px
-              border-radius: 50%
-              background-color: "#fff"
-              box-shadow: 0 0 5px rgba(0, 0, 0, 0.6)
-              --divider-color: rgba(255, 255, 255, 0.4)
-              --paper-item-icon-color: rgba(50, 50, 50, 0.8)
-              --paper-item-icon-active-color: "#007cd6"
-              --iron-icon-width: 18px
-              --iron-icon-height: 18px
+          - type: custom:decluttering-card
+            template: floorplan_state_icon
+            variables:
+              - entity: fan.philips_airpurifier
+              - top: 44.5%
+              - left: 62%
 
           # Window
           - type: conditional

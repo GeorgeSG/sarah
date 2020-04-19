@@ -1,0 +1,24 @@
+floorplan_state_icon:
+  default:
+    - tap_action:
+        action: toggle
+  element:
+    type: state-icon
+    entity: "[[entity]]"
+    tap_action: "[[tap_action]]"
+    style:
+      top: "[[top]]"
+      left: "[[left]]"
+      display: flex
+      align-items: center
+      justify-content: center
+      width: 35px
+      height: 35px
+      border-radius: 50%
+      background-color: "#fff"
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.6)
+      --divider-color: rgba(255, 255, 255, 0.4)
+      --paper-item-icon-color: rgba(50, 50, 50, 0.8)
+      --paper-item-icon-active-color: "#007cd6"
+      --iron-icon-width: 18px
+      --iron-icon-height: 18px
