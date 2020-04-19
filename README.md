@@ -61,15 +61,19 @@ The `speech` module uses [partial templates](https://github.com/GeorgeSG/sarah/t
 
 ### Home
 
-![Home Screen](assets/screenshot-home.png?raw=true)
+![Home screen](assets/screenshot-home.png?raw=true)
 
-### Tablet view
+### Network
 
-![Home Screen](assets/screenshot-tablet.png?raw=true)
+![Network screen](assets/screenshot-network.png?raw=true)
+
+### Tablet dashboard
+
+![Tablet dashboard](assets/screenshot-tablet.png?raw=true)
 
 ### Floorplan
 
-![Home Screen](assets/screenshot-floorplan.jpg?raw=true)
+![Floorplan](assets/screenshot-floorplan.jpg?raw=true)
 
 ## Inspiration
 
