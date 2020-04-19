@@ -115,4 +115,6 @@ automation:
         data:
           brightness_pct: 100
       - service: light.turn_off
-        entity_id: light.tuya_hallway_all_lights
+        entity_id:
+          - light.light_le_6
+          - light.light_le_8
