@@ -73,11 +73,12 @@ The `speech` module uses [partial templates](https://github.com/GeorgeSG/sarah/t
 
 ## Inspiration
 
-1. [Bear Stone Smart Home Documentation](https://github.com/CCOSTAN/Home-AssistantConfig)
+1. [CCOSTAN/Home-AssistantConfig](https://github.com/CCOSTAN/Home-AssistantConfig)
+1. [lukevink/hass-config-lajv](https://github.com/lukevink/hass-config-lajv)
+1. [matt8707/hass-config](https://github.com/matt8707/hass-config)
 1. [stanvx/Home-Assistant-Configuration](https://github.com/stanvx/Home-Assistant-Configuration)
 1. [Apocrathia/home-assistant-config](https://github.com/Apocrathia/home-assistant-config)
 1. [geekofweek/homeassistant](https://github.com/geekofweek/homeassistant)
-1. [matt8707/hass-config](https://github.com/matt8707/hass-config)
 
 ## Meta
 
