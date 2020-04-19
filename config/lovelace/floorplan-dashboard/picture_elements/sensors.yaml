@@ -13,11 +13,12 @@
 
 # Platinum
 - type: custom:decluttering-card
-  template: floorplan_state_icon
+  template: floorplan_state_with_icon
   variables:
     - entity: sensor.synology_dsm_type_volume_1
     - top: 54%
     - left: 75%
+    - icon: mdi:nas
     - tap_action:
         action: more-info
 
@@ -66,7 +67,7 @@
   variables:
     - entity: fan.philips_airpurifier
     - top: 44.5%
-    - left: 62%
+    - left: 61.6%
 
 # Sonos
 - type: custom:decluttering-card
@@ -102,7 +103,7 @@
   entity: sensor.bedroom_weather_temperature
   style:
     top: 38%
-    left: 74%
+    left: 75%
     color: "#000"
     border-radius: 6px
     text-align: center
@@ -142,7 +143,7 @@
   template: floorplan_state_with_icon
   variables:
     - entity: media_player.bathroom
-    - top: 26%
+    - top: 25%
     - left: 39%
     - icon: mdi:speaker
     - tap_action:

@@ -30,7 +30,7 @@
   template: floorplan_state_icon
   variables:
     - entity: light.tuya_kitchen_secondary_lights
-    - top: 28%
+    - top: 29%
     - left: 12.9%
 
 - type: custom:decluttering-card
@@ -44,7 +44,7 @@
   template: floorplan_state_icon
   variables:
     - entity: light.tuya_hallway_entrance_lights
-    - top: 26%
+    - top: 25%
     - left: 50.2%
 
 - type: custom:decluttering-card
