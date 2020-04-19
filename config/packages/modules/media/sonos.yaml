@@ -19,8 +19,11 @@ binary_sensor:
         friendly_name: Sonos recoverable
         entity_id: media_player.master_bedroom
         value_template: >-
-          {% if state_attr('media_player.master_bedroom', 'media_content_id').startswith('x-sonos-spotify:spotify')
-              or state_attr('media_player.master_bedroom', 'media_content_id').startswith('x-sonosapi-hls-static') %}
+
+          {% set content_id = state_attr('media_player.master_bedroom', 'media_content_id') %}
+          {% if content_id == None
+              or content_id.startswith('x-sonos-spotify:spotify')
+              or content_id.startswith('x-sonosapi-hls-static') %}
             True
           {% else %}
             False
