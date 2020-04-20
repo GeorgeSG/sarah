@@ -51,6 +51,26 @@ binary_sensor:
           {% else %} mdi:account-off-outline
           {% endif %}
 
+sensor:
+  - platform: history_stats
+    name: Quarantined percent
+    entity_id: input_boolean.georgi_home
+    state: "on"
+    type: ratio
+    duration:
+      days: 14
+    end: "{{ now() }}"
+
+  - platform: history_stats
+    name: Quarantine times left
+    entity_id: input_boolean.georgi_home
+    state: "on"
+    type: count
+    duration:
+      days: 14
+    end: "{{ now() }}"
+
+
 automation:
   # When my state changes to "home", wait for 15 minutes for the door to be opened, and then mark me as home
   - alias: Presence · Arrival detection

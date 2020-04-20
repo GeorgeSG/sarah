@@ -131,6 +131,19 @@ cards:
                 - entity: input_boolean.alarm_enabled
                   name: Alarm
                 - input_datetime.alarm_time
+            - type: entities
+              title: Quarantine
+              icon: mdi:biohazard
+              entities:
+                - type: custom:decluttering-card
+                  template: percentage_card
+                  variables:
+                    - name: Quarantined percent
+                    - entity: sensor.quarantined_percent
+                    - icon: mdi:percent
+                    - orange: 100
+                    - red: 100
+                - sensor.quarantine_times_left
             - type: "custom:weather-card"
               current: true
               details: true
