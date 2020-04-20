@@ -73,7 +73,7 @@ The `speech` module uses [partial templates](https://github.com/GeorgeSG/sarah/t
 
 ### Floorplan
 
-![Floorplan](assets/screenshot-floorplan.jpg?raw=true)
+![Floorplan](assets/screenshot-floorplan.png?raw=true)
 
 ## Inspiration
 
