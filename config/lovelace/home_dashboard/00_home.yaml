@@ -76,11 +76,6 @@ cards:
                   variables:
                     - player: media_player.master_bedroom
 
-                - type: entities
-                  show_header_toggle: false
-                  entities:
-                    - binary_sensor.sonos_recoverable
-
         # Column 2: Sensors
         - type: vertical-stack
           cards:
