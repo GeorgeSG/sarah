@@ -1,10 +1,10 @@
 # Dark mode override
-- type: image
-  entity: input_boolean.floorplan_night_mode
-  tap_action:
-    action: toggle
-  image: /local/images/floorplan/transparent.png
-  style:
-    top: 1%
-    left: 1%
-    width: 10%
+
+- type: custom:decluttering-card
+  template: floorplan_state_with_icon
+  variables:
+    - entity: input_boolean.floorplan_night_mode
+    - top: 3.2%
+    - left: 1.8%
+    - icon: mdi:white-balance-sunny
+
