@@ -138,12 +138,13 @@ cards:
                 - type: custom:decluttering-card
                   template: percentage_card
                   variables:
-                    - name: Quarantined percent
+                    - name: Percent
                     - entity: sensor.quarantined_percent
                     - icon: mdi:percent
                     - orange: 100
                     - red: 100
-                - sensor.quarantine_times_left
+                - entity: sensor.quarantine_times_left
+                  name: Times left
             - type: "custom:weather-card"
               current: true
               details: true
