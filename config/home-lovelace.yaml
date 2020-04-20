@@ -135,7 +135,12 @@ views:
                       cards:
                         - type: custom:button-card
                           template: small
-                          entity: input_boolean.georgi_home
+                          entity: binary_sensor.georgi_home
+                          tap_action:
+                            action: call-service
+                            service: input_boolean.toggle
+                            service_data:
+                              entity_id: input_boolean.georgi_home
                         - type: custom:button-card
                           template: small
                           entity: device_tracker.mikrotik_carbon
