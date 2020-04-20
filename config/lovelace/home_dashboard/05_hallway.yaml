@@ -9,10 +9,10 @@ cards:
         $:
           .: |
             #columns {
-              margin: 0 10px;
+              padding: 0 10px;
             }
             #columns .column {
-              margin: 20px 10px;
+              padding: 20px 10px;
             }
     card:
       type: custom:layout-card

@@ -29,7 +29,7 @@ covid_19:
             points_per_hour: 0.04
             font_size: 75
             icon: "mdi:emoticon-sad-outline"
-            line_color: var(--accent-color)
+            line_color: var(--color-blue)
             line_width: 8
             show:
               state: false
@@ -43,7 +43,7 @@ covid_19:
             points_per_hour: 0.04
             font_size: 75
             icon: "mdi:emoticon-cry-outline"
-            line_color: "#e74c3c"
+            line_color: var(--color-red)
             line_width: 8
             show:
               state: false
@@ -57,7 +57,7 @@ covid_19:
             points_per_hour: 0.04
             font_size: 75
             icon: "mdi:emoticon-cool-outline"
-            line_color: var(--paper-green-400)
+            line_color: var(--color-green)
             line_width: 8
             show:
               state: false

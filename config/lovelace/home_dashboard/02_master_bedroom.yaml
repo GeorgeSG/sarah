@@ -9,10 +9,10 @@ cards:
         $:
           .: |
             #columns {
-              margin: 0 10px;
+              padding: 0 10px;
             }
             #columns .column {
-              margin: 20px 10px;
+              padding: 20px 10px;
             }
     card:
       type: custom:layout-card
@@ -90,6 +90,7 @@ cards:
             - type: "custom:mini-graph-card"
               animate: true
               line_width: 3
+              line_color: var(--color-blue)
               points_per_hour: 1
               show:
                 average: true
@@ -104,7 +105,7 @@ cards:
                   name: Humidity
                   font_size: 75
                   icon: "mdi:water"
-                  line_color: green
+                  line_color: var(--color-blue)
                   line_width: 8
                   entities:
                     - sensor.bedroom_weather_humidity
@@ -114,14 +115,14 @@ cards:
                   entities:
                     - sensor.bedroom_weather_pressure
                   font_size: 75
-                  line_color: var(--accent-color)
+                  line_color: var(--color-red)
                   line_width: 8
 
                 - type: "custom:mini-graph-card"
                   name: Air Quality
                   font_size: 75
                   icon: "mdi:weather-windy"
-                  line_color: "#e74c3c"
+                  line_color: var(--color-green)
                   line_width: 8
                   entities:
                     - sensor.purifier_air_quality

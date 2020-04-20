@@ -2,7 +2,6 @@ title: Media
 path: media
 panel: true
 icon: mdi:youtube
-badges: []
 cards:
   - type: custom:layout-card
     layout: horizontal

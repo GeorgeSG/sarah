@@ -9,10 +9,10 @@ cards:
         $:
           .: |
             #columns {
-              margin: 0 10px;
+              padding: 0 10px;
             }
             #columns .column {
-              margin: 20px 10px;
+              padding: 20px 10px;
             }
     card:
       type: custom:layout-card
@@ -81,7 +81,6 @@ cards:
                   entities:
                     - binary_sensor.sonos_recoverable
 
-        - break
         # Column 2: Sensors
         - type: vertical-stack
           cards:
@@ -122,7 +121,7 @@ cards:
               entities:
                 - sensor.home_to_work
                 - sensor.work_to_home
-        - break
+
         # Column 3: Misc
         - type: vertical-stack
           title: Alarm
