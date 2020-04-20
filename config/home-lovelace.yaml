@@ -215,7 +215,6 @@ views:
                       line_color: var(--color-blue)
                       line_width: 4
                       height: 40
-                      font_size: 50
                       show:
                         fill: fade
                         labels: hover
