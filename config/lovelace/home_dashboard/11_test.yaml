@@ -1,11 +1,23 @@
 title: test
 path: test
 cards:
-  - type: custom:button-card
-    name: Reload themes
-    tap_action:
-      action: call-service
-      service: frontend.reload_themes
+  - type: horizontal-stack
+    cards:
+      - type: custom:button-card
+        name: Reload themes
+        tap_action:
+          action: call-service
+          service: frontend.reload_themes
+      - type: custom:button-card
+        name: Reload automations
+        tap_action:
+          action: call-service
+          service: automation.reload
+      - type: custom:button-card
+        name: Reload scripts
+        tap_action:
+          action: call-service
+          service: script.reload
 
   - type: entities
     entities:

@@ -22,6 +22,7 @@ cards:
           title: Automations
           show_header_toggle: false
           entities:
+            # Presence
             - type: custom:fold-entity-row
               head:
                 type: custom:dummy-entity-row
@@ -37,12 +38,14 @@ cards:
 
             - type: divider
 
+            # Lighting
             - type: custom:fold-entity-row
               head:
                 type: custom:dummy-entity-row
                 entity: sun.sun
                 name: Lighting
                 icon: mdi:lightbulb
+                tap_action: none
               entities:
                 - automation.lighting_turn_on_ceiling_lights_after_sunset
                 - automation.lighting_turn_off_all_lights_after_sunrise
@@ -58,12 +61,14 @@ cards:
 
             - type: divider
 
+            # Music
             - type: custom:fold-entity-row
               head:
                 type: custom:dummy-entity-row
                 entity: sun.sun
                 name: Music
                 icon: mdi:music-note
+                tap_action: none
               entities:
                 - automation.music_play_pause_on_magic_cube_knock
                 - automation.music_volume_down_on_magic_cube_rotate_left
@@ -71,12 +76,14 @@ cards:
 
             - type: divider
 
+            # Media
             - type: custom:fold-entity-row
               head:
                 type: custom:dummy-entity-row
                 entity: sun.sun
                 name: Media
                 icon: mdi:play-box-outline
+                tap_action: none
               entities:
                 - automation.tv_join_beam_to_sonos_group_when_off
                 - automation.tv_plex_setup_house_for_plex
@@ -87,6 +94,20 @@ cards:
 
             - type: divider
 
+            # Notifications
+            - type: custom:fold-entity-row
+              head:
+                type: custom:dummy-entity-row
+                entity: sun.sun
+                name: Notifications
+                icon: mdi:play-box-outline
+                tap_action: none
+              entities:
+                - automation.notification_phone_battery_low
+
+            - type: divider
+
+            # Sleep Mode
             - type: custom:fold-entity-row
               head:
                 type: custom:dummy-entity-row
@@ -101,6 +122,7 @@ cards:
 
             - type: divider
 
+            # Guest Mode
             - type: custom:fold-entity-row
               head:
                 type: custom:dummy-entity-row
@@ -113,6 +135,7 @@ cards:
 
             - type: divider
 
+            # Domestina
             - type: custom:fold-entity-row
               head:
                 type: custom:dummy-entity-row
@@ -125,24 +148,28 @@ cards:
 
             - type: divider
 
+            # Security
             - type: custom:fold-entity-row
               head:
                 type: custom:dummy-entity-row
                 entity: sun.sun
                 name: Security
                 icon: mdi:shield-home
+                tap_action: none
               entities:
                 - automation.security_door_opened_while_away
                 - automation.camera_startup
 
             - type: divider
 
+            # System
             - type: custom:fold-entity-row
               head:
                 type: custom:dummy-entity-row
                 entity: sun.sun
                 icon: mdi:cogs
                 name: System
+                tap_action: none
               entities:
                 - automation.system_announce_start
                 - automation.system_telegram_announce_status

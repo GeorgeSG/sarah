@@ -1,0 +1,21 @@
+automation:
+  - alias: Notification · Phone battery low
+    trigger:
+      platform: template
+      value_template: "{{ states('sensor.carbon_battery_level') | int < 10 }}"
+    condition:
+      condition: state
+      entity_id: sensor.carbon_battery_state
+      state: "Not Charging"
+    action:
+      service: script.say
+      data_template:
+        title: "❕*Notification Module*"
+        message: >-
+
+          {{
+            [
+              "Hey, just wanted to let you know your phone needs charging!",
+              "Hey, your phone is running low on battery, put it on the charger!"
+            ] | random
+          }}

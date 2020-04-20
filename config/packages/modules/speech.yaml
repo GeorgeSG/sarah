@@ -36,7 +36,7 @@ script:
       # Combine partials for speech message.
       - service: script.say_discretely
         data_template:
-          volume_level: "{{ volume_level }}" # For sonos only
+          title: "{{ title | default('💬 *Speech Module*') }}"
           message: >-
             {%- if partials is defined -%}
               {%- for partial in partials -%}
@@ -65,9 +65,8 @@ script:
             {% endif %}
           {% endif %}
         data_template:
-          title: "💬 *Speech Module*" # For telegram only
+          title: "{{ title | default('💬 *Speech Module*') }}" # For telegram only
           message: "{{ message }}"
-          volume_level: "{{ volume_level }}" # For sonos only
 
   sonos_blast:
     alias: Speech · Sonos blast

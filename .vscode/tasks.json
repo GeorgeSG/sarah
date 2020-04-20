@@ -31,6 +31,15 @@
       }
     },
     {
+      "label": "upload",
+      "type": "shell",
+      "command": "./bin/upload",
+      "problemMatcher": [],
+      "presentation": {
+        "focus": true
+      }
+    },
+    {
       "label": "logs",
       "type": "shell",
       "command": "./bin/logs",
