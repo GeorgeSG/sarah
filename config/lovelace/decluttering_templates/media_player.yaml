@@ -1,6 +1,6 @@
 sonos_media_player:
   default:
-    - info: "scroll"
+    - info: "short"
   card:
     type: custom:mini-media-player
     artwork: cover
@@ -26,17 +26,15 @@ sonos_media_player:
       when_standby: true
 
 sonos_media_player_small:
-  default:
-    - info: "short"
   card:
     type: custom:mini-media-player
-    artwork: cover
-    info: "[[info]]"
+    artwork: none
     entity: "[[player]]"
     hide:
       power: true
       icon: true
-      shuffle: false
+      info: true
+      shuffle: true
     idle_view:
       when_idle: true
       when_standby: true

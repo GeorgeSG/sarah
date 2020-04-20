@@ -18,3 +18,10 @@ small:
           - color: black
         icon:
             - color: black
+    - value: 'home'
+      styles:
+        card:
+          - background-color: var(--primary-color)
+          - color: black
+        icon:
+            - color: black
