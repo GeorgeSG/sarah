@@ -25,24 +25,24 @@ lovelace:
   mode: yaml
   resources: !include lovelace/resources.yaml
   dashboards:
-    lovelace-main:
+    lovelace-home:
       mode: yaml
-      title: Advanced
+      title: Home
       icon: mdi:home
       show_in_sidebar: true
-      filename: ui-lovelace.yaml
-    lovelace-tablet:
-      mode: yaml
-      title: Tablet
-      icon: mdi:tablet-ipad
-      show_in_sidebar: true
-      filename: tablet-lovelace.yaml
+      filename: home-lovelace.yaml
     lovelace-floorlan:
       mode: yaml
       title: Floorplan
-      icon: mdi:map
+      icon: mdi:floor-plan
       show_in_sidebar: true
       filename: floorplan-lovelace.yaml
+    lovelace-main:
+      mode: yaml
+      title: Advanced
+      icon: mdi:flask
+      show_in_sidebar: true
+      filename: advanced-lovelace.yaml
 
 # https://www.home-assistant.io/components/logbook
 # logbook:
@@ -103,13 +103,6 @@ media_extractor:
 
 # https://www.home-assistant.io/integrations/mobile_app
 mobile_app:
-
-# https://www.home-assistant.io/integrations/notify
-notify:
-  - name: telegram
-    platform: telegram
-    api_key: !secret telegram_token
-    chat_id: !secret telegram_georgi_chat_id
 
 # https://www.home-assistant.io/integrations/panel_iframe
 panel_iframe:

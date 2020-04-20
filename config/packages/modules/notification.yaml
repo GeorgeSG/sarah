@@ -1,3 +1,10 @@
+# https://www.home-assistant.io/integrations/notify
+notify:
+  - name: telegram
+    platform: telegram
+    api_key: !secret telegram_token
+    chat_id: !secret telegram_georgi_chat_id
+
 automation:
   - alias: Notification · Phone battery low
     trigger:
