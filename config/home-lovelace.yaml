@@ -78,6 +78,28 @@ views:
                         - type: custom:button-card
                           template: small
                           entity: media_player.nvidia_shield
+                          tap_action:
+                            action: call-service
+                            service: media_player.toggle
+                            service_data:
+                              entity_id: media_player.nvidia_shield
+                          state:
+                            - value: 'playing'
+                              styles:
+                                card:
+                                  - background-color: var(--primary-color)
+                                  - color: black
+                                icon:
+                                  - color: black
+                            - value: 'standby'
+                              styles:
+                                card:
+                                  - background-color: var(--primary-color)
+                                  - color: black
+                                icon:
+                                  - color: black
+
+
                         - type: custom:button-card
                           template: small
                           entity: media_player.living_room_tv
@@ -221,8 +243,6 @@ views:
                           entity: script.music_play
                           name: Chill
                           icon: mdi:music
-                          tap_action:
-                            action: toggle
                         - type: custom:button-card
                           template: small
                           entity: script.music_play
@@ -237,8 +257,6 @@ views:
                           template: small
                           entity: script.tv_fireplace
                           name: Fireplace
-                          tap_action:
-                            action: toggle
 
                     - type: horizontal-stack
                       cards:
@@ -247,15 +265,11 @@ views:
                           entity: script.sonos_join_bedroom
                           name: Sonos from Bedroom
                           icon: mdi:speaker-multiple
-                          tap_action:
-                            action: toggle
                         - type: custom:button-card
                           template: small
                           entity: script.sonos_join_tv
                           icon: mdi:speaker-multiple
                           name: Sonos from TV
-                          tap_action:
-                            action: toggle
 
                     - type: custom:decluttering-card
                       template: sonos_media_player

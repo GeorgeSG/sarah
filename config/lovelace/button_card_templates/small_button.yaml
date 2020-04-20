@@ -2,8 +2,6 @@ small:
   size: 30px
   hold_action:
     action: more-info
-  double_tap_action:
-    action: more-info
   styles:
     card:
       - height: 100px
@@ -17,11 +15,11 @@ small:
           - background-color: var(--primary-color)
           - color: black
         icon:
-            - color: black
+          - color: black
     - value: 'home'
       styles:
         card:
           - background-color: var(--primary-color)
           - color: black
         icon:
-            - color: black
+          - color: black
