@@ -8,3 +8,10 @@
     - left: 1.8%
     - icon: mdi:white-balance-sunny
 
+- type: custom:decluttering-card
+  template: floorplan_state_with_icon
+  variables:
+    - entity: input_boolean.floorplan_show_all
+    - top: 9.5%
+    - left: 1.8%
+    - icon: mdi:arrow-expand-all

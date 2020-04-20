@@ -1,6 +1,7 @@
 input_boolean:
   floorplan_night_mode:
     initial: off
+  floorplan_show_all:
 
 binary_sensor:
   - platform: template

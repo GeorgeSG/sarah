@@ -1,47 +1,138 @@
+
+- type: conditional
+  conditions:
+    - entity: input_boolean.floorplan_show_all
+      state: 'on'
+  elements:
 # Living room ───────────────────────────────────────────────────────────────────────────
+    # Titanium
+    - type: custom:decluttering-card
+      template: floorplan_state_icon
+      variables:
+        - entity: binary_sensor.titanium
+        - top: 62%
+        - left: 81%
+        - tap_action:
+            action: call-service
+            service: script.titanium_start
 
-# Titanium
-- type: custom:decluttering-card
-  template: floorplan_state_icon
-  variables:
-    - entity: binary_sensor.titanium
-    - top: 62%
-    - left: 81%
-    - tap_action:
-        action: call-service
-        service: script.titanium_start
+    # Platinum
+    - type: custom:decluttering-card
+      template: floorplan_state_with_icon
+      variables:
+        - entity: sensor.synology_dsm_type_volume_1
+        - top: 54%
+        - left: 75%
+        - icon: mdi:nas
+        - tap_action:
+            action: more-info
 
-# Platinum
-- type: custom:decluttering-card
-  template: floorplan_state_with_icon
-  variables:
-    - entity: sensor.synology_dsm_type_volume_1
-    - top: 54%
-    - left: 75%
-    - icon: mdi:nas
-    - tap_action:
-        action: more-info
+    # Shield + TV
+    - type: custom:decluttering-card
+      template: floorplan_state_with_icon
+      variables:
+        - entity: media_player.nvidia_shield
+        - top: 54%
+        - left: 60%
+        - icon: mdi:set-top-box
+        - tap_action:
+            action: more-info
 
-# Shield + TV
-- type: custom:decluttering-card
-  template: floorplan_state_with_icon
-  variables:
-    - entity: media_player.nvidia_shield
-    - top: 54%
-    - left: 60%
-    - icon: mdi:set-top-box
-    - tap_action:
-        action: more-info
+    # Camera
+    - type: custom:decluttering-card
+      template: floorplan_state_with_icon
+      variables:
+        - entity: switch.camera
+        - top: 83%
+        - left: 48%
+        - icon: mdi:video
 
-# Camera
-- type: custom:decluttering-card
-  template: floorplan_state_with_icon
-  variables:
-    - entity: switch.camera
-    - top: 83%
-    - left: 48%
-    - icon: mdi:video
+# Master Bedroom ────────────────────────────────────────────────────────────────────────
 
+    # Puifier
+    - type: custom:decluttering-card
+      template: floorplan_state_icon
+      variables:
+        - entity: fan.philips_airpurifier
+        - top: 44.5%
+        - left: 61.6%
+
+    # Sonos
+    - type: custom:decluttering-card
+      template: floorplan_state_with_icon
+      variables:
+        - entity: media_player.master_bedroom
+        - top: 44.5%
+        - left: 66%
+        - icon: mdi:speaker
+        - tap_action:
+            action: more-info
+
+# Temperature
+    - type: state-label
+      entity: sensor.bedroom_weather_temperature
+      style:
+        top: 41%
+        left: 75%
+        color: "#000"
+        border-radius: 6px
+        text-align: center
+        background-color: "rgba(255, 255, 255, 0.9)"
+        font-size: 13px
+        font-weight: bold
+        line-height: 8px
+
+# Kitchen ────────────────────────────────────────────────────────────────────────
+
+    # Sonos
+    - type: custom:decluttering-card
+      template: floorplan_state_with_icon
+      variables:
+        - entity: media_player.kitchen
+        - top: 19%
+        - left: 16%
+        - icon: mdi:speaker
+        - tap_action:
+            action: more-info
+
+    # Motion
+    - type: custom:decluttering-card
+      template: floorplan_state_icon
+      variables:
+        - entity: binary_sensor.motion_1_ias_zone
+        - top: 34%
+        - left: 27%
+        - tap_action:
+            action: more-info
+
+# Bathroom ────────────────────────────────────────────────────────────────────────
+
+    # Sonos
+    - type: custom:decluttering-card
+      template: floorplan_state_with_icon
+      variables:
+        - entity: media_player.bathroom
+        - top: 25%
+        - left: 39%
+        - icon: mdi:speaker
+        - tap_action:
+            action: more-info
+
+# Hallway ────────────────────────────────────────────────────────────────────────
+
+    # Motion
+    - type: custom:decluttering-card
+      template: floorplan_state_icon
+      variables:
+        - entity: binary_sensor.motion_2_ias_zone
+        - top: 34%
+        - left: 54%
+        - tap_action:
+            action: more-info
+
+# Always visible ────────────────────────────────────────────────────────────────────────
+
+# Living room window
 - type: conditional
   conditions:
     - entity: binary_sensor.living_room_right_window_on_off_wrapper
@@ -59,28 +150,7 @@
         color: transparent
         transform: perspective(2000px) rotateX(174.6deg) rotateZ(0deg) rotateY(74.1deg)
 
-# Master Bedroom ────────────────────────────────────────────────────────────────────────
-
-# Puifier
-- type: custom:decluttering-card
-  template: floorplan_state_icon
-  variables:
-    - entity: fan.philips_airpurifier
-    - top: 44.5%
-    - left: 61.6%
-
-# Sonos
-- type: custom:decluttering-card
-  template: floorplan_state_with_icon
-  variables:
-    - entity: media_player.master_bedroom
-    - top: 44.5%
-    - left: 66%
-    - icon: mdi:speaker
-    - tap_action:
-        action: more-info
-
-# Window
+# Master bedroom window
 - type: conditional
   conditions:
     - entity: binary_sensor.bedroom_right_window_on_off_wrapper
@@ -97,66 +167,3 @@
         background-color: rgba(255,0,0,0.5)
         color: transparent
         transform: perspective(2000px) rotateX(185.6deg) rotateY(73.1deg)
-
-# Temperature
-- type: state-label
-  entity: sensor.bedroom_weather_temperature
-  style:
-    top: 41%
-    left: 75%
-    color: "#000"
-    border-radius: 6px
-    text-align: center
-    background-color: "rgba(255, 255, 255, 0.9)"
-    font-size: 13px
-    font-weight: bold
-    line-height: 8px
-
-# Kitchen ────────────────────────────────────────────────────────────────────────
-
-# Sonos
-- type: custom:decluttering-card
-  template: floorplan_state_with_icon
-  variables:
-    - entity: media_player.kitchen
-    - top: 19%
-    - left: 16%
-    - icon: mdi:speaker
-    - tap_action:
-        action: more-info
-
-# Motion
-- type: custom:decluttering-card
-  template: floorplan_state_icon
-  variables:
-    - entity: binary_sensor.motion_1_ias_zone
-    - top: 34%
-    - left: 27%
-    - tap_action:
-        action: more-info
-
-
-# Bathroom ────────────────────────────────────────────────────────────────────────
-
-# Sonos
-- type: custom:decluttering-card
-  template: floorplan_state_with_icon
-  variables:
-    - entity: media_player.bathroom
-    - top: 25%
-    - left: 39%
-    - icon: mdi:speaker
-    - tap_action:
-        action: more-info
-
-# Hallway ────────────────────────────────────────────────────────────────────────
-
-# Motion
-- type: custom:decluttering-card
-  template: floorplan_state_icon
-  variables:
-    - entity: binary_sensor.motion_2_ias_zone
-    - top: 34%
-    - left: 54%
-    - tap_action:
-        action: more-info
