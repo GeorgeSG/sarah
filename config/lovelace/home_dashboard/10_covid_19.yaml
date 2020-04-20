@@ -2,37 +2,49 @@ title: COVID-19
 path: covid-19
 panel: true
 icon: "mdi:biohazard"
-badges: []
 cards:
-  - type: custom:layout-card
-    max_columns: 3
-    cards:
-      - type: custom:decluttering-card
-        template: covid_19
-        variables:
-          - name: Worldwide
-          - location: worldwide
+  - type: custom:mod-card
+    style:
+      layout-card:
+        $:
+          .: |
+            #columns {
+              margin: 0 10px;
+            }
+            #columns .column {
+              margin: 20px 10px;
+            }
+    card:
+      type: custom:layout-card
+      layout: horizontal
+      max_columns: 3
+      cards:
+        - type: custom:decluttering-card
+          template: covid_19
+          variables:
+            - name: Worldwide
+            - location: worldwide
 
-      - type: custom:decluttering-card
-        template: covid_19
-        variables:
-          - name: Bulgaria
-          - location: bulgaria
+        - type: custom:decluttering-card
+          template: covid_19
+          variables:
+            - name: Bulgaria
+            - location: bulgaria
 
-      - type: custom:decluttering-card
-        template: covid_19
-        variables:
-          - name: Italy
-          - location: italy
+        - type: custom:decluttering-card
+          template: covid_19
+          variables:
+            - name: Italy
+            - location: italy
 
-      - type: custom:decluttering-card
-        template: covid_19
-        variables:
-          - name: France
-          - location: france
+        - type: custom:decluttering-card
+          template: covid_19
+          variables:
+            - name: France
+            - location: france
 
-      - type: custom:decluttering-card
-        template: covid_19
-        variables:
-          - name: USA
-          - location: us
+        - type: custom:decluttering-card
+          template: covid_19
+          variables:
+            - name: USA
+            - location: us

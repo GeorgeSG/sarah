@@ -1,133 +1,144 @@
 title: Living Room
 path: living-room
 icon: "mdi:sofa"
-badges: []
 panel: true
 cards:
-  - type: custom:layout-card
-    layout: horizontal
-    cards:
-      - type: vertical-stack
-        cards:
-          - type: entities
-            title: Lights
-            show_header_toggle: false
-            entities:
-              - type: custom:slider-entity-row
-                entity: light.living_room_all_lights
-                name: All lights
-                toggle: true
-                step: 5
-              - type: custom:fold-entity-row
-                head:
-                  entity: light.living_room_main_lights
-                  name: Main lights
-                entities:
-                  - type: custom:slider-entity-row
+  - type: custom:mod-card
+    style:
+      layout-card:
+        $:
+          .: |
+            #columns {
+              margin: 0 10px;
+            }
+            #columns .column {
+              margin: 20px 10px;
+            }
+    card:
+      type: custom:layout-card
+      layout: horizontal
+      cards:
+        - type: vertical-stack
+          cards:
+            - type: entities
+              title: Lights
+              show_header_toggle: false
+              entities:
+                - type: custom:slider-entity-row
+                  entity: light.living_room_all_lights
+                  name: All lights
+                  toggle: true
+                  step: 5
+                - type: custom:fold-entity-row
+                  head:
                     entity: light.living_room_main_lights
-                    name: Brightness
-                    hide_state: true
-                    step: 5
-                  - type: custom:slider-entity-row
-                    entity: light.living_room_main_lights
-                    name: Temperature
-                    attribute: color_temp
-                    hide_state: true
-                    min: 153
-                    max: 500
-                    step: 5
-                  - type: custom:decluttering-card
+                    name: Main lights
+                  entities:
+                    - type: custom:slider-entity-row
+                      entity: light.living_room_main_lights
+                      name: Brightness
+                      hide_state: true
+                      step: 5
+                    - type: custom:slider-entity-row
+                      entity: light.living_room_main_lights
+                      name: Temperature
+                      attribute: color_temp
+                      hide_state: true
+                      min: 153
+                      max: 500
+                      step: 5
+                    - type: custom:decluttering-card
+                      template: light_with_fade_and_switch
+                      variables:
+                        - light: light.light_lohas_1
+                        - fade: switch.light_lohas_1_fade
+                        - wifi: sensor.light_lohas_1_wifi
+                    - type: custom:decluttering-card
+                      template: light_with_fade_and_switch
+                      variables:
+                        - light: light.light_lohas_2
+                        - fade: switch.light_lohas_2_fade
+                        - wifi: sensor.light_lohas_2_wifi
+                    - type: custom:decluttering-card
+                      template: light_with_fade_and_switch
+                      variables:
+                        - light: light.light_lohas_3
+                        - fade: switch.light_lohas_3_fade
+                        - wifi: sensor.light_lohas_3_wifi
+                    - type: custom:decluttering-card
+                      template: light_with_fade_and_switch
+                      variables:
+                        - light: light.light_lohas_4
+                        - fade: switch.light_lohas_4_fade
+                        - wifi: sensor.light_lohas_4_wifi
+                - type: custom:fold-entity-row
+                  head:
+                    type: custom:decluttering-card
                     template: light_with_fade_and_switch
                     variables:
-                      - light: light.light_lohas_1
-                      - fade: switch.light_lohas_1_fade
-                      - wifi: sensor.light_lohas_1_wifi
-                  - type: custom:decluttering-card
-                    template: light_with_fade_and_switch
-                    variables:
-                      - light: light.light_lohas_2
-                      - fade: switch.light_lohas_2_fade
-                      - wifi: sensor.light_lohas_2_wifi
-                  - type: custom:decluttering-card
-                    template: light_with_fade_and_switch
-                    variables:
-                      - light: light.light_lohas_3
-                      - fade: switch.light_lohas_3_fade
-                      - wifi: sensor.light_lohas_3_wifi
-                  - type: custom:decluttering-card
-                    template: light_with_fade_and_switch
-                    variables:
-                      - light: light.light_lohas_4
-                      - fade: switch.light_lohas_4_fade
-                      - wifi: sensor.light_lohas_4_wifi
-              - type: custom:fold-entity-row
-                head:
-                  type: custom:decluttering-card
-                  template: light_with_fade_and_switch
-                  variables:
-                    - light: light.pc
-                    - fade: switch.pc_light_fade
-                    - wifi: sensor.pc_light_wifi
-                entities:
-                  - type: custom:slider-entity-row
-                    entity: light.pc
-                    name: Brightness
-                    hide_state: true
-                    step: 5
+                      - light: light.pc
+                      - fade: switch.pc_light_fade
+                      - wifi: sensor.pc_light_wifi
+                  entities:
+                    - type: custom:slider-entity-row
+                      entity: light.pc
+                      name: Brightness
+                      hide_state: true
+                      step: 5
 
-          - type: custom:decluttering-card
-            template: sonos_media_player
-            variables:
-              - player: media_player.living_room
+            - type: custom:decluttering-card
+              template: sonos_media_player
+              variables:
+                - player: media_player.living_room
 
-          - type: "custom:mini-media-player"
-            entity: media_player.living_room_tv
+            - type: "custom:mini-media-player"
+              entity: media_player.living_room_tv
 
-          - type: "custom:mini-media-player"
-            entity: media_player.nvidia_shield
+            - type: "custom:mini-media-player"
+              entity: media_player.nvidia_shield
 
-          - type: glance
-            show_state: false
-            entities:
-              - binary_sensor.titanium
-              - entity: script.titanium_start
-                name: Start
+            - type: glance
+              show_state: false
+              entities:
+                - binary_sensor.titanium
+                - entity: script.titanium_start
+                  name: Start
 
-      - type: vertical-stack
-        cards:
-          - type: glance
-            title: Window
-            show_icon: true
-            show_name: false
-            show_state: true
-            entities:
-              - binary_sensor.living_room_right_window_on_off_wrapper
-              - sensor.living_room_right_window_power
-          - type: entities
-            title: Power
-            entities:
-              - switch.outlet_1_switch
-              - sensor.outlet_1_power
-              - sensor.outlet_1_voltage
-              - sensor.outlet_1_current
-              - sensor.outlet_1_energy_today
-              - sensor.outlet_1_energy_yesterday
-              - sensor.outlet_1_energy_total
-              - sensor.outlet_1_energy_total_start_time
-              - sensor.outlet_1_wifi
+        - type: vertical-stack
+          cards:
+            - type: glance
+              title: Window
+              show_icon: true
+              show_name: false
+              show_state: true
+              entities:
+                - binary_sensor.living_room_right_window_on_off_wrapper
+                - sensor.living_room_right_window_power
+            - type: entities
+              title: Power
+              entities:
+                - switch.outlet_1_switch
+                - sensor.outlet_1_power
+                - sensor.outlet_1_voltage
+                - sensor.outlet_1_current
+                - sensor.outlet_1_energy_today
+                - sensor.outlet_1_energy_yesterday
+                - sensor.outlet_1_energy_total
+                - sensor.outlet_1_energy_total_start_time
+                - sensor.outlet_1_wifi
 
-      - type: vertical-stack
-        cards:
-          - type: picture-entity
-            aspect_ratio: 50%
-            entity: camera.amcrest_camera
-            show_name: true
-            show_state: true
+        - type: vertical-stack
+          cards:
+            - type: picture-entity
+              aspect_ratio: 50%
+              entity: camera.amcrest_camera
+              show_name: true
+              show_state: true
 
-          - type: entities
-            title: Camera Controls
-            show_header_toggle: false
-            entities:
-              - switch.camera
-              - binary_sensor.amcrest_camera_online
-              - binary_sensor.amcrest_camera_motion_detected
+            - type: entities
+              title: Camera Controls
+              show_header_toggle: false
+              entities:
+                - switch.camera
+                - binary_sensor.amcrest_camera_online
+                - binary_sensor.amcrest_camera_motion_detected

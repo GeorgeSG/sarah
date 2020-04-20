@@ -1,154 +1,169 @@
 title: Master Bedroom
 path: master-bedroom
 icon: "mdi:bed-empty"
-badges: []
+panel: true
 cards:
-  - type: vertical-stack
-    cards:
-      - type: entities
-        title: Lights
-        show_header_toggle: false
-        entities:
-          - type: custom:slider-entity-row
-            entity: light.master_bedroom_all_lights
-            name: All lights
-            toggle: true
-            step: 5
-          - type: custom:fold-entity-row
-            head:
-              entity: light.master_bedroom_main_lights
-              name: Main lights
-            entities:
-              - type: custom:slider-entity-row
-                entity: light.master_bedroom_main_lights
-                name: Brightness
-                hide_state: true
-                step: 5
-              - type: custom:slider-entity-row
-                entity: light.master_bedroom_main_lights
-                name: Temperature
-                attribute: color_temp
-                hide_state: true
-                min: 153
-                max: 500
-                step: 5
-              - type: custom:decluttering-card
-                template: light_with_fade_and_switch
-                variables:
-                  - light: light.light_le_1
-                  - fade: switch.light_le_1_fade
-                  - wifi: sensor.light_le_1_wifi
-              - type: custom:decluttering-card
-                template: light_with_fade_and_switch
-                variables:
-                  - light: light.light_le_2
-                  - fade: switch.light_le_2_fade
-                  - wifi: sensor.light_le_2_wifi
-              - type: custom:decluttering-card
-                template: light_with_fade_and_switch
-                variables:
-                  - light: light.light_le_3
-                  - fade: switch.light_le_3_fade
-                  - wifi: sensor.light_le_3_wifi
-              - type: custom:decluttering-card
-                template: light_with_fade_and_switch
-                variables:
-                  - light: light.light_le_4
-                  - fade: switch.light_le_4_fade
-                  - wifi: sensor.light_le_4_wifi
-          - light.bedside_light
+  - type: custom:mod-card
+    style:
+      layout-card:
+        $:
+          .: |
+            #columns {
+              margin: 0 10px;
+            }
+            #columns .column {
+              margin: 20px 10px;
+            }
+    card:
+      type: custom:layout-card
+      layout: horizontal
+      cards:
+        - type: vertical-stack
+          cards:
+            - type: entities
+              title: Lights
+              show_header_toggle: false
+              entities:
+                - type: custom:slider-entity-row
+                  entity: light.master_bedroom_all_lights
+                  name: All lights
+                  toggle: true
+                  step: 5
+                - type: custom:fold-entity-row
+                  head:
+                    entity: light.master_bedroom_main_lights
+                    name: Main lights
+                  entities:
+                    - type: custom:slider-entity-row
+                      entity: light.master_bedroom_main_lights
+                      name: Brightness
+                      hide_state: true
+                      step: 5
+                    - type: custom:slider-entity-row
+                      entity: light.master_bedroom_main_lights
+                      name: Temperature
+                      attribute: color_temp
+                      hide_state: true
+                      min: 153
+                      max: 500
+                      step: 5
+                    - type: custom:decluttering-card
+                      template: light_with_fade_and_switch
+                      variables:
+                        - light: light.light_le_1
+                        - fade: switch.light_le_1_fade
+                        - wifi: sensor.light_le_1_wifi
+                    - type: custom:decluttering-card
+                      template: light_with_fade_and_switch
+                      variables:
+                        - light: light.light_le_2
+                        - fade: switch.light_le_2_fade
+                        - wifi: sensor.light_le_2_wifi
+                    - type: custom:decluttering-card
+                      template: light_with_fade_and_switch
+                      variables:
+                        - light: light.light_le_3
+                        - fade: switch.light_le_3_fade
+                        - wifi: sensor.light_le_3_wifi
+                    - type: custom:decluttering-card
+                      template: light_with_fade_and_switch
+                      variables:
+                        - light: light.light_le_4
+                        - fade: switch.light_le_4_fade
+                        - wifi: sensor.light_le_4_wifi
+                - light.bedside_light
 
-      - type: custom:decluttering-card
-        template: sonos_media_player
-        variables:
-          - player: media_player.master_bedroom
+            - type: custom:decluttering-card
+              template: sonos_media_player
+              variables:
+                - player: media_player.master_bedroom
 
-  - type: vertical-stack
-    cards:
-      - type: glance
-        title: Window
-        show_name: false
-        entities:
-          - binary_sensor.bedroom_right_window_on_off_wrapper
-          - sensor.bedroom_right_window_power
+        - type: vertical-stack
+          cards:
+            - type: glance
+              title: Window
+              show_name: false
+              entities:
+                - binary_sensor.bedroom_right_window_on_off_wrapper
+                - sensor.bedroom_right_window_power
 
-      - type: "custom:mini-graph-card"
-        animate: true
-        line_width: 3
-        points_per_hour: 1
-        show:
-          average: true
-          extrema: true
-        entities:
-          - entity: sensor.bedroom_weather_temperature
-            name: Temperature
+            - type: "custom:mini-graph-card"
+              animate: true
+              line_width: 3
+              points_per_hour: 1
+              show:
+                average: true
+                extrema: true
+              entities:
+                - entity: sensor.bedroom_weather_temperature
+                  name: Temperature
 
-      - type: horizontal-stack
-        cards:
-          - type: "custom:mini-graph-card"
-            name: Humidity
-            font_size: 75
-            icon: "mdi:water"
-            line_color: green
-            line_width: 8
-            entities:
-              - sensor.bedroom_weather_humidity
+            - type: horizontal-stack
+              cards:
+                - type: "custom:mini-graph-card"
+                  name: Humidity
+                  font_size: 75
+                  icon: "mdi:water"
+                  line_color: green
+                  line_width: 8
+                  entities:
+                    - sensor.bedroom_weather_humidity
 
-          - type: "custom:mini-graph-card"
-            name: Pressure
-            entities:
-              - sensor.bedroom_weather_pressure
-            font_size: 75
-            line_color: var(--accent-color)
-            line_width: 8
+                - type: "custom:mini-graph-card"
+                  name: Pressure
+                  entities:
+                    - sensor.bedroom_weather_pressure
+                  font_size: 75
+                  line_color: var(--accent-color)
+                  line_width: 8
 
-          - type: "custom:mini-graph-card"
-            name: Air Quality
-            font_size: 75
-            icon: "mdi:weather-windy"
-            line_color: "#e74c3c"
-            line_width: 8
-            entities:
-              - sensor.purifier_air_quality
+                - type: "custom:mini-graph-card"
+                  name: Air Quality
+                  font_size: 75
+                  icon: "mdi:weather-windy"
+                  line_color: "#e74c3c"
+                  line_width: 8
+                  entities:
+                    - sensor.purifier_air_quality
 
-  - type: vertical-stack
-    cards:
-      - type: entities
-        title: Air Purifier
-        show_header_toggle: false
-        entities:
-          - entity: fan.philips_airpurifier
-            name: Purifier Working
-          - type: custom:fold-entity-row
-            head:
-              type: custom:dummy-entity-row
-              entity: sensor.purifier_air_quality
-              name: Sensors
-              icon: mdi:air-purifier
-            open: true
-            entities:
-              - sensor.purifier_air_quality
-              - sensor.purifier_allergens
-              - sensor.purifier_temperature
-              - sensor.purifier_humidity
-              - sensor.purifier_water_level
-          - type: custom:fold-entity-row
-            head:
-              type: custom:dummy-entity-row
-              entity: sensor.purifier_speed
-              name: Mode
-            entities:
-              - sensor.purifier_speed
-              - sensor.purifier_mode
-              - sensor.purifier_brightness
-              - sensor.purifier_target_humidity
-          - type: custom:fold-entity-row
-            head:
-              type: custom:dummy-entity-row
-              entity: sensor.purifier_pre_filter
-              name: Filters
-            entities:
-              - sensor.purifier_pre_filter
-              - sensor.purifier_hepa_filter
-              - sensor.purifier_carbon_filter
-              - sensor.purifier_wick_filter
+        - type: vertical-stack
+          cards:
+            - type: entities
+              title: Air Purifier
+              show_header_toggle: false
+              entities:
+                - entity: fan.philips_airpurifier
+                  name: Purifier Working
+                - type: custom:fold-entity-row
+                  head:
+                    type: custom:dummy-entity-row
+                    entity: sensor.purifier_air_quality
+                    name: Sensors
+                    icon: mdi:air-purifier
+                  open: true
+                  entities:
+                    - sensor.purifier_air_quality
+                    - sensor.purifier_allergens
+                    - sensor.purifier_temperature
+                    - sensor.purifier_humidity
+                    - sensor.purifier_water_level
+                - type: custom:fold-entity-row
+                  head:
+                    type: custom:dummy-entity-row
+                    entity: sensor.purifier_speed
+                    name: Mode
+                  entities:
+                    - sensor.purifier_speed
+                    - sensor.purifier_mode
+                    - sensor.purifier_brightness
+                    - sensor.purifier_target_humidity
+                - type: custom:fold-entity-row
+                  head:
+                    type: custom:dummy-entity-row
+                    entity: sensor.purifier_pre_filter
+                    name: Filters
+                  entities:
+                    - sensor.purifier_pre_filter
+                    - sensor.purifier_hepa_filter
+                    - sensor.purifier_carbon_filter
+                    - sensor.purifier_wick_filter

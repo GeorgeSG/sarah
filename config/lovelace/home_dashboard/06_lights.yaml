@@ -1,65 +1,79 @@
 title: Lights
 path: lights
-panel: false
 icon: mdi:lightbulb
-badges: []
+panel: true
 cards:
-  - type: entities
-    title: Living room
-    icon: mdi:sofa
-    show_header_toggle: false
-    entities:
-      - light.living_room_all_lights
-      - light.living_room_main_lights
-      - light.light_lohas_1
-      - light.light_lohas_2
-      - light.light_lohas_3
-      - light.light_lohas_4
-      - light.pc
+  - type: custom:mod-card
+    style:
+      layout-card:
+        $:
+          .: |
+            #columns {
+              margin: 0 10px;
+            }
+            #columns .column {
+              margin: 20px 10px;
+            }
+    card:
+      type: custom:layout-card
+      layout: horizontal
+      cards:
+        - type: entities
+          title: Living room
+          icon: mdi:sofa
+          show_header_toggle: false
+          entities:
+            - light.living_room_all_lights
+            - light.living_room_main_lights
+            - light.light_lohas_1
+            - light.light_lohas_2
+            - light.light_lohas_3
+            - light.light_lohas_4
+            - light.pc
 
-  - type: entities
-    title: Master bedroom
-    icon: mdi:bed-empty
-    show_header_toggle: false
-    entities:
-      - light.master_bedroom_all_lights
-      - light.master_bedroom_main_lights
-      - light.light_le_1
-      - light.light_le_2
-      - light.light_le_3
-      - light.light_le_4
-      - light.bedside_light
+        - type: entities
+          title: Master bedroom
+          icon: mdi:bed-empty
+          show_header_toggle: false
+          entities:
+            - light.master_bedroom_all_lights
+            - light.master_bedroom_main_lights
+            - light.light_le_1
+            - light.light_le_2
+            - light.light_le_3
+            - light.light_le_4
+            - light.bedside_light
 
-  - type: entities
-    title: Kitchen
-    icon: mdi:chef-hat
-    show_header_toggle: false
-    entities:
-      - light.tuya_kitchen_all_lights
-      - light.tuya_kitchen_main_lights
-      - light.tuya_kitchen_secondary_lights
-      - type: divider
-      - light.kitchen_main_lights
-      - light.light_le_11
-      - light.light_le_12
-      - light.light_orbecco_1
-      - light.kitchen_secondary_lights
-      - light.light_le_9
-      - light.light_le_10
+        - type: entities
+          title: Kitchen
+          icon: mdi:chef-hat
+          show_header_toggle: false
+          entities:
+            - light.tuya_kitchen_all_lights
+            - light.tuya_kitchen_main_lights
+            - light.tuya_kitchen_secondary_lights
+            - type: divider
+            - light.kitchen_main_lights
+            - light.light_le_11
+            - light.light_le_12
+            - light.light_orbecco_1
+            - light.kitchen_secondary_lights
+            - light.light_le_9
+            - light.light_le_10
 
-  - type: entities
-    title: Hallway
-    icon: mdi:door-closed
-    show_header_toggle: false
-    entities:
-      - light.tuya_hallway_all_lights
-      - light.tuya_hallway_main_lights
-      - light.tuya_hallway_entrance_lights
-      - type: divider
-      - light.hallway_all_lights
-      - light.hallway_main_lights
-      - light.hallway_entrance_lights
-      - light.light_le_5
-      - light.light_le_6
-      - light.light_le_7
-      - light.light_le_8
+        - type: entities
+          title: Hallway
+          icon: mdi:door-closed
+          show_header_toggle: false
+          entities:
+            - light.tuya_hallway_all_lights
+            - light.tuya_hallway_main_lights
+            - light.tuya_hallway_entrance_lights
+            - type: divider
+            - light.hallway_all_lights
+            - light.hallway_main_lights
+            - light.hallway_entrance_lights
+            - light.light_le_5
+            - light.light_le_6
+            - light.light_le_7
+            - light.light_le_8

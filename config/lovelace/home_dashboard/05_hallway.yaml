@@ -1,46 +1,61 @@
 title: Hallway
 path: hallway
 icon: "mdi:door-closed"
-badges: []
+panel: true
 cards:
-  - type: entities
-    title: Lights
-    show_header_toggle: false
-    entities:
-      - light.tuya_hallway_all_lights
-      - light.tuya_hallway_entrance_lights
-      - light.tuya_hallway_main_lights
-      - type: divider
-      - type: custom:fold-entity-row
-        entity: light.hallway_entrance_lights
-        name: Entrance lights
-        entities:
-          - light.light_le_5
-          - light.light_le_6
-      - type: custom:fold-entity-row
-        entity: light.hallway_main_lights
-        name: Main lights
-        entities:
-          - light.light_le_7
-          - light.light_le_8
+  - type: custom:mod-card
+    style:
+      layout-card:
+        $:
+          .: |
+            #columns {
+              margin: 0 10px;
+            }
+            #columns .column {
+              margin: 20px 10px;
+            }
+    card:
+      type: custom:layout-card
+      layout: horizontal
+      cards:
+        - type: entities
+          title: Lights
+          show_header_toggle: false
+          entities:
+            - light.tuya_hallway_all_lights
+            - light.tuya_hallway_entrance_lights
+            - light.tuya_hallway_main_lights
+            - type: divider
+            - type: custom:fold-entity-row
+              entity: light.hallway_entrance_lights
+              name: Entrance lights
+              entities:
+                - light.light_le_5
+                - light.light_le_6
+            - type: custom:fold-entity-row
+              entity: light.hallway_main_lights
+              name: Main lights
+              entities:
+                - light.light_le_7
+                - light.light_le_8
 
-  - type: vertical-stack
-    cards:
-      - type: glance
-        title: Sensors
-        entities:
-          - entity: binary_sensor.motion_2_ias_zone
-          - entity: sensor.motion_2_illuminance
-          - entity: binary_sensor.motion_2_occupancy
-          - entity: sensor.motion_2_power
+        - type: vertical-stack
+          cards:
+            - type: glance
+              title: Sensors
+              entities:
+                - entity: binary_sensor.motion_2_ias_zone
+                - entity: sensor.motion_2_illuminance
+                - entity: binary_sensor.motion_2_occupancy
+                - entity: sensor.motion_2_power
 
-      - type: "custom:mini-graph-card"
-        animate: true
-        points_per_hour: 1
-        hours_to_show: 48
-        show:
-          graph: bar
-          average: true
-          extrema: true
-        entities:
-          - entity: sensor.motion_2_illuminance
+            - type: "custom:mini-graph-card"
+              animate: true
+              points_per_hour: 1
+              hours_to_show: 48
+              show:
+                graph: bar
+                average: true
+                extrema: true
+              entities:
+                - entity: sensor.motion_2_illuminance

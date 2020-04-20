@@ -1,158 +1,174 @@
 title: System
 path: system
 icon: "mdi:hammer-wrench"
+panel: true
 cards:
-  - type: entities
-    title: Automations
-    show_header_toggle: false
-    entities:
-      - type: custom:fold-entity-row
-        head:
-          type: custom:dummy-entity-row
-          entity: binary_sensor.georgi_home
-          name: Presence
-        entities:
-          - input_boolean.routine_welcome_home
-          - automation.presence_arrival_detection
-          - automation.presence_coming_home
-          - automation.presence_leaving_home
-          - automation.routine_coming_home_left_work
-          - automation.presence_leaving_work
+  - type: custom:mod-card
+    style:
+      layout-card:
+        $:
+          .: |
+            #columns {
+              margin: 0 10px;
+            }
+            #columns .column {
+              margin: 20px 10px;
+            }
+    card:
+      type: custom:layout-card
+      layout: horizontal
+      cards:
+        - type: entities
+          title: Automations
+          show_header_toggle: false
+          entities:
+            - type: custom:fold-entity-row
+              head:
+                type: custom:dummy-entity-row
+                entity: binary_sensor.georgi_home
+                name: Presence
+              entities:
+                - input_boolean.routine_welcome_home
+                - automation.presence_arrival_detection
+                - automation.presence_coming_home
+                - automation.presence_leaving_home
+                - automation.routine_coming_home_left_work
+                - automation.presence_leaving_work
 
-      - type: divider
+            - type: divider
 
-      - type: custom:fold-entity-row
-        head:
-          type: custom:dummy-entity-row
-          entity: sun.sun
-          name: Lighting
-          icon: mdi:lightbulb
-        entities:
-          - automation.lighting_turn_on_ceiling_lights_after_sunset
-          - automation.lighting_turn_off_all_lights_after_sunrise
-          - automation.lighting_adjust_temperature_on_start
-          - automation.lighting_master_bedroom_toggle_lights_on_bedside_switch_single_click
-          - automation.lighting_master_bedroom_adjust_temperature_based_on_time
-          - automation.lighting_living_room_adjust_temperature_based_on_time
-          - automation.lighting_living_room_turn_all_lights_on_on_magic_cube_flip_90
-          - automation.lighting_living_room_turn_all_lights_off_on_magic_cube_flip_180
-          - automation.lighting_night_mode_kitchen_turn_lights_on_motion
-          - automation.lighting_night_mode_hallway_turn_lights_on_motion
-          - automation.lighting_sync_tasmota_states_on_start_up
+            - type: custom:fold-entity-row
+              head:
+                type: custom:dummy-entity-row
+                entity: sun.sun
+                name: Lighting
+                icon: mdi:lightbulb
+              entities:
+                - automation.lighting_turn_on_ceiling_lights_after_sunset
+                - automation.lighting_turn_off_all_lights_after_sunrise
+                - automation.lighting_adjust_temperature_on_start
+                - automation.lighting_master_bedroom_toggle_lights_on_bedside_switch_single_click
+                - automation.lighting_master_bedroom_adjust_temperature_based_on_time
+                - automation.lighting_living_room_adjust_temperature_based_on_time
+                - automation.lighting_living_room_turn_all_lights_on_on_magic_cube_flip_90
+                - automation.lighting_living_room_turn_all_lights_off_on_magic_cube_flip_180
+                - automation.lighting_night_mode_kitchen_turn_lights_on_motion
+                - automation.lighting_night_mode_hallway_turn_lights_on_motion
+                - automation.lighting_sync_tasmota_states_on_start_up
 
-      - type: divider
+            - type: divider
 
-      - type: custom:fold-entity-row
-        head:
-          type: custom:dummy-entity-row
-          entity: sun.sun
-          name: Music
-          icon: mdi:music-note
-        entities:
-          - automation.music_play_pause_on_magic_cube_knock
-          - automation.music_volume_down_on_magic_cube_rotate_left
-          - automation.music_volume_up_on_magic_cube_rotate_right
+            - type: custom:fold-entity-row
+              head:
+                type: custom:dummy-entity-row
+                entity: sun.sun
+                name: Music
+                icon: mdi:music-note
+              entities:
+                - automation.music_play_pause_on_magic_cube_knock
+                - automation.music_volume_down_on_magic_cube_rotate_left
+                - automation.music_volume_up_on_magic_cube_rotate_right
 
-      - type: divider
+            - type: divider
 
-      - type: custom:fold-entity-row
-        head:
-          type: custom:dummy-entity-row
-          entity: sun.sun
-          name: Media
-          icon: mdi:play-box-outline
-        entities:
-          - automation.tv_join_beam_to_sonos_group_when_off
-          - automation.tv_plex_setup_house_for_plex
-          - automation.tv_plex_restore_house_after_plex
-          - automation.youtube_download_latest_pds
-          - automation.media_sonos_put_beam_in_night_mode
-          - automation.media_sonos_put_beam_in_day_mode
+            - type: custom:fold-entity-row
+              head:
+                type: custom:dummy-entity-row
+                entity: sun.sun
+                name: Media
+                icon: mdi:play-box-outline
+              entities:
+                - automation.tv_join_beam_to_sonos_group_when_off
+                - automation.tv_plex_setup_house_for_plex
+                - automation.tv_plex_restore_house_after_plex
+                - automation.youtube_download_latest_pds
+                - automation.media_sonos_put_beam_in_night_mode
+                - automation.media_sonos_put_beam_in_day_mode
 
-      - type: divider
+            - type: divider
 
-      - type: custom:fold-entity-row
-        head:
-          type: custom:dummy-entity-row
-          entity: input_boolean.sleep_mode
-        entities:
-          - automation.routine_bedtime_toggle_on_bedside_switch_hold
-          - automation.sleep_mode_enable
-          - automation.sleep_mode_disable
-          - automation.sleep_mode_toggle_on_bedside_switch_double_click
-          - automation.alarm_wake_up
-          - automation.alarm_set_time
+            - type: custom:fold-entity-row
+              head:
+                type: custom:dummy-entity-row
+                entity: input_boolean.sleep_mode
+              entities:
+                - automation.routine_bedtime_toggle_on_bedside_switch_hold
+                - automation.sleep_mode_enable
+                - automation.sleep_mode_disable
+                - automation.sleep_mode_toggle_on_bedside_switch_double_click
+                - automation.alarm_wake_up
+                - automation.alarm_set_time
 
-      - type: divider
+            - type: divider
 
-      - type: custom:fold-entity-row
-        head:
-          type: custom:dummy-entity-row
-          entity: input_boolean.guest_mode
-        entities:
-          - automation.guest_mode_enable
-          - automation.guest_mode_disable
-          - automation.guest_mode_enable_from_telegram
-          - automation.guest_mode_disable_from_telegram
+            - type: custom:fold-entity-row
+              head:
+                type: custom:dummy-entity-row
+                entity: input_boolean.guest_mode
+              entities:
+                - automation.guest_mode_enable
+                - automation.guest_mode_disable
+                - automation.guest_mode_enable_from_telegram
+                - automation.guest_mode_disable_from_telegram
 
-      - type: divider
+            - type: divider
 
-      - type: custom:fold-entity-row
-        head:
-          type: custom:dummy-entity-row
-          entity: input_boolean.domestina
-        entities:
-          - automation.domestina_automate_start
-          - automation.domestina_start
-          - automation.domestina_automate_end
-          - automation.domestina_end
+            - type: custom:fold-entity-row
+              head:
+                type: custom:dummy-entity-row
+                entity: input_boolean.domestina
+              entities:
+                - automation.domestina_automate_start
+                - automation.domestina_start
+                - automation.domestina_automate_end
+                - automation.domestina_end
 
-      - type: divider
+            - type: divider
 
-      - type: custom:fold-entity-row
-        head:
-          type: custom:dummy-entity-row
-          entity: sun.sun
-          name: Security
-          icon: mdi:shield-home
-        entities:
-          - automation.security_door_opened_while_away
-          - automation.camera_startup
+            - type: custom:fold-entity-row
+              head:
+                type: custom:dummy-entity-row
+                entity: sun.sun
+                name: Security
+                icon: mdi:shield-home
+              entities:
+                - automation.security_door_opened_while_away
+                - automation.camera_startup
 
-      - type: divider
+            - type: divider
 
-      - type: custom:fold-entity-row
-        head:
-          type: custom:dummy-entity-row
-          entity: sun.sun
-          icon: mdi:cogs
-          name: System
-        entities:
-          - automation.system_announce_start
-          - automation.system_telegram_announce_status
-          - automation.speech_telegram_action_do_nothing
-          - automation.ifttt_call_service
+            - type: custom:fold-entity-row
+              head:
+                type: custom:dummy-entity-row
+                entity: sun.sun
+                icon: mdi:cogs
+                name: System
+              entities:
+                - automation.system_announce_start
+                - automation.system_telegram_announce_status
+                - automation.speech_telegram_action_do_nothing
+                - automation.ifttt_call_service
 
-  - type: entities
-    title: Batteries
-    show_header_toggle: false
-    entities:
-      - type: custom:battery-entity
-        entity: sensor.carbon_battery_level
-      - type: divider
-      - type: custom:battery-entity
-        entity: sensor.front_door_power
-      - type: custom:battery-entity
-        entity: sensor.living_room_right_window_power
-      - type: custom:battery-entity
-        entity: sensor.bedroom_right_window_power
-      - type: custom:battery-entity
-        entity: sensor.bedroom_weather_power
-      - type: custom:battery-entity
-        entity: sensor.cube_power
-      - type: custom:battery-entity
-        entity: sensor.master_bedroom_bedside_switch_power
-      - type: custom:battery-entity
-        entity: sensor.motion_1_power
-      - type: custom:battery-entity
-        entity: sensor.motion_2_power
+        - type: entities
+          title: Batteries
+          show_header_toggle: false
+          entities:
+            - type: custom:battery-entity
+              entity: sensor.carbon_battery_level
+            - type: divider
+            - type: custom:battery-entity
+              entity: sensor.front_door_power
+            - type: custom:battery-entity
+              entity: sensor.living_room_right_window_power
+            - type: custom:battery-entity
+              entity: sensor.bedroom_right_window_power
+            - type: custom:battery-entity
+              entity: sensor.bedroom_weather_power
+            - type: custom:battery-entity
+              entity: sensor.cube_power
+            - type: custom:battery-entity
+              entity: sensor.master_bedroom_bedside_switch_power
+            - type: custom:battery-entity
+              entity: sensor.motion_1_power
+            - type: custom:battery-entity
+              entity: sensor.motion_2_power
