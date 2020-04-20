@@ -4,14 +4,14 @@
   template: floorplan_state_with_icon
   variables:
     - entity: input_boolean.floorplan_night_mode
-    - top: 3.2%
-    - left: 1.8%
+    - top: 25px
+    - left: 25px
     - icon: mdi:white-balance-sunny
 
 - type: custom:decluttering-card
   template: floorplan_state_with_icon
   variables:
     - entity: input_boolean.floorplan_show_all
-    - top: 9.5%
-    - left: 1.8%
+    - top: 70px
+    - left: 25px
     - icon: mdi:arrow-expand-all
