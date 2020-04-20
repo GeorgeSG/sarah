@@ -15,3 +15,24 @@
     - top: 70px
     - left: 25px
     - icon: mdi:arrow-expand-all
+
+- type: custom:decluttering-card
+  template: floorplan_state_icon
+  variables:
+    - entity: input_boolean.guest_mode
+    - top: 115px
+    - left: 25px
+
+- type: custom:decluttering-card
+  template: floorplan_state_icon
+  variables:
+    - entity: input_boolean.speech_notifications
+    - top: 160px
+    - left: 25px
+
+- type: custom:decluttering-card
+  template: floorplan_state_icon
+  variables:
+    - entity: input_boolean.georgi_home
+    - top: 205px
+    - left: 25px
