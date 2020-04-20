@@ -4,6 +4,8 @@ light_with_fade_and_switch:
     entity: "[[light]]"
     show_state: false
     entities:
+      - entity: "[[wifi]]"
+        name: Wifi
       - entity: "[[fade]]"
         name: Fade
         toggle: true

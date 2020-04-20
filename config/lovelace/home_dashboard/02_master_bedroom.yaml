@@ -37,21 +37,25 @@ cards:
                 variables:
                   - light: light.light_le_1
                   - fade: switch.light_le_1_fade
+                  - wifi: sensor.light_le_1_wifi
               - type: custom:decluttering-card
                 template: light_with_fade_and_switch
                 variables:
                   - light: light.light_le_2
                   - fade: switch.light_le_2_fade
+                  - wifi: sensor.light_le_2_wifi
               - type: custom:decluttering-card
                 template: light_with_fade_and_switch
                 variables:
                   - light: light.light_le_3
                   - fade: switch.light_le_3_fade
+                  - wifi: sensor.light_le_3_wifi
               - type: custom:decluttering-card
                 template: light_with_fade_and_switch
                 variables:
                   - light: light.light_le_4
                   - fade: switch.light_le_4_fade
+                  - wifi: sensor.light_le_4_wifi
           - light.bedside_light
 
       - type: custom:decluttering-card
