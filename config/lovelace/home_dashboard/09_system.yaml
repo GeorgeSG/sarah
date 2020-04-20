@@ -104,6 +104,7 @@ cards:
                 tap_action: none
               entities:
                 - automation.notification_phone_battery_low
+                - automation.notification_door_opened
 
             - type: divider
 

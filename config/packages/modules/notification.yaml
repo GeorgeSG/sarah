@@ -19,3 +19,23 @@ automation:
               "Hey, your phone is running low on battery, put it on the charger!"
             ] | random
           }}
+
+  - alias: Notification · Door opened
+    trigger:
+      platform: state
+      entity_id: binary_sensor.front_door_on_off
+      to: "on"
+      for:
+        minutes: 2
+    action:
+      service: script.say
+      data_template:
+        title: "❕*Notification Module*"
+        message: >-
+
+          {{
+            [
+              "Hey, the front door is opened. Are you home?!",
+              "Hey, the front door has been opened for 2 minutes!"
+            ] | random
+          }}
