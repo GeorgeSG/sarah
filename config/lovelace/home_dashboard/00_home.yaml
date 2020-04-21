@@ -104,7 +104,7 @@ cards:
                 - input_boolean.speech_notifications
                 - input_boolean.guest_mode
                 - input_boolean.domestina
-                - input_boolean.sleep_mode
+                - input_select.house_mode
                 - input_boolean.georgi_home
 
             - type: "custom:travel-time-card"

@@ -31,14 +31,3 @@ script:
           - media_player.living_room_tv
       - service: light.turn_off
         entity_id: light.ceiling_lights
-
-automation:
-  - alias: Routine · Bedtime · Toggle on bedside switch hold
-    trigger:
-      - platform: event
-        event_type: zha_event
-        event_data:
-          device_ieee: !secret master_bedroom_bedside_switch_ieee
-          command: hold
-    action:
-      - service: script.routine_bedtime

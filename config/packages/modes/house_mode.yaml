@@ -1,3 +1,30 @@
+# Mode config
+input_select:
+  house_mode:
+    name: House mode
+    icon: mdi:home-analytics
+    options:
+      - day
+      - bed
+      - night
+
+binary_sensor:
+  - platform: template
+    sensors:
+      house_mode:
+        friendly_name: House mode
+        value_template: "{{ states('input_select.house_mode') }}"
+        icon_template: >-
+
+          {% if is_state('input_select.house_mode', 'day') %}
+            mdi:weather-sunny
+          {% elif is_state('input_select.house_mode', 'bed') %}
+            mdi:bed-queen
+          {% else %}
+            mdi:weather-night
+          {% endif %}
+
+# Alarm config
 input_datetime:
   alarm_time:
     name: Wake up time
@@ -5,34 +32,38 @@ input_datetime:
     has_time: true
 
 input_boolean:
-  sleep_mode:
-    name: Sleep mode
-    initial: off
-    icon: mdi:sleep
   alarm_enabled:
     name: Enable alarm
     icon: mdi:alarm
 
-automation:
-  - alias: Sleep mode · Enable
-    trigger:
-      platform: state
-      entity_id: input_boolean.sleep_mode
-      from: "off"
-      to: "on"
-    action:
-      - service: script.routine_good_night
 
-  - alias: Sleep mode · Disable
+automation:
+
+  - alias: House mode · Set to day
     trigger:
       platform: state
-      entity_id: input_boolean.sleep_mode
-      from: "on"
-      to: "off"
+      entity_id: input_select.house_mode
+      to: "day"
     action:
       - service: script.routine_waking_up
 
-  - alias: Sleep mode · Toggle on bedside switch double click
+  - alias: House mode · Set to bed
+    trigger:
+      platform: state
+      entity_id: input_select.house_mode
+      to: "bed"
+    action:
+      - service: script.routine_bedtime
+
+  - alias: House mode · Set to night
+    trigger:
+      platform: state
+      entity_id: input_select.house_mode
+      to: "night"
+    action:
+      - service: script.routine_good_night
+
+  - alias: House mode · Set to night on bedside switch double click
     trigger:
       - platform: event
         event_type: zha_event
@@ -40,13 +71,30 @@ automation:
           device_ieee: !secret master_bedroom_bedside_switch_ieee
           command: double
     action:
-      - service_template: >-
-          {% if now().strftime('%H')|int > 20 or now().strftime('%H')|int < 6 %}
-            input_boolean.turn_on
-          {% else %}
-            input_boolean.turn_off
-          {% endif %}
-        entity_id: input_boolean.sleep_mode
+      - service: input_select.select_option
+        entity_id: input_select.house_mode
+        data_template:
+          option: >
+
+            {% if now().strftime('%H')|int > 20 or now().strftime('%H')|int < 6 %}
+              night
+            {% else %}
+              day
+            {% endif %}
+
+  - alias: House mode · Set to bed on bedside switch hold
+    trigger:
+      - platform: event
+        event_type: zha_event
+        event_data:
+          device_ieee: !secret master_bedroom_bedside_switch_ieee
+          command: hold
+    action:
+      - service: input_select.select_option
+        entity_id: input_select.house_mode
+        data:
+          option: bed
+
 
   - alias: Alarm · Wake up
     trigger:
@@ -59,8 +107,8 @@ automation:
           entity_id: input_boolean.alarm_enabled
           state: "on"
         - condition: state
-          entity_id: input_boolean.sleep_mode
-          state: "on"
+          entity_id: input_select.house_mode
+          state: "night"
     action:
       - service: script.music_play
         data:
@@ -68,8 +116,8 @@ automation:
 
       - delay: 00:01:00
       - condition: state
-        entity_id: input_boolean.sleep_mode
-        state: "on"
+        entity_id: input_select.house_mode
+        state: "night"
       - service: script.sonos_say
         data:
           message: "Hey! It's time to wake up!"
@@ -82,8 +130,8 @@ automation:
 
       - delay: 00:02:00
       - condition: state
-        entity_id: input_boolean.sleep_mode
-        state: "on"
+        entity_id: input_select.house_mode
+        state: "night"
       - service: script.sonos_say
         data:
           message: "Good morning! Time to get out of bed!"
@@ -96,8 +144,8 @@ automation:
 
       - delay: 00:05:00
       - condition: state
-        entity_id: input_boolean.sleep_mode
-        state: "on"
+        entity_id: input_select.house_mode
+        state: "night"
       - service: script.sonos_say
         data:
           message: "Hey! It's time to wake up!"

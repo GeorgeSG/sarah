@@ -69,8 +69,8 @@ automation:
       to: "off"
     condition:
       condition: state
-      entity_id: input_boolean.sleep_mode
-      state: "off"
+      entity_id: input_select.house_mode
+      state: "day"
     action:
       - service: sonos.join
         data:

@@ -33,10 +33,10 @@ automation:
         data_template:
           entity_id: >-
 
-            {% if is_state('input_boolean.sleep_mode', 'on') %}
-              light.bedside_light
-            {% else %}
+            {% if is_state('input_select.house_mode', 'day') %}
               light.master_bedroom_main_lights
+            {% else %}
+              light.bedside_light
             {% endif %}
 
   - alias: Lighting · Living room · Turn all lights on on Magic Cube flip 90
@@ -72,9 +72,8 @@ automation:
       from: "off"
       to: "on"
     condition:
-      condition: state
-      entity_id: input_boolean.sleep_mode
-      state: "on"
+      condition: template
+      value_template: "{{ not is_state('input_select.house_mode', 'day') }}"
     action:
       - service: light.turn_on
         entity_id: light.light_le_12
@@ -96,9 +95,8 @@ automation:
       from: "off"
       to: "on"
     condition:
-      condition: state
-      entity_id: input_boolean.sleep_mode
-      state: "on"
+      condition: template
+      value_template: "{{ not is_state('input_select.house_mode', 'day') }}"
     action:
       - service: light.turn_on
         entity_id:

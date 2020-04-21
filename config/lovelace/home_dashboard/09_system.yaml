@@ -112,12 +112,13 @@ cards:
             - type: custom:fold-entity-row
               head:
                 type: custom:dummy-entity-row
-                entity: input_boolean.sleep_mode
+                entity: binary_sensor.house_mode
               entities:
-                - automation.routine_bedtime_toggle_on_bedside_switch_hold
-                - automation.sleep_mode_enable
-                - automation.sleep_mode_disable
-                - automation.sleep_mode_toggle_on_bedside_switch_double_click
+                - automation.house_mode_set_to_day
+                - automation.house_mode_set_to_bed
+                - automation.house_mode_set_to_night
+                - automation.house_mode_set_to_night_on_bedside_switch_double_click
+                - automation.house_mode_set_to_bed_on_bedside_switch_hold
                 - automation.alarm_wake_up
                 - automation.alarm_set_time
 

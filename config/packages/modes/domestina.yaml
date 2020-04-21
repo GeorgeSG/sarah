@@ -9,9 +9,12 @@ group:
     - automation.presence_coming_home
     - automation.routine_coming_home_left_work
     - automation.presence_leaving_home
-    - automation.sleep_mode_enable
-    - automation.sleep_mode_disable
-    - automation.sleep_mode_toggle_on_bedside_switch_double_click
+    - automation.house_mode_set_to_night
+    - automation.house_mode_set_to_bed
+    - automation.house_mode_set_to_day
+    - automation.house_mode_set_to_night_on_bedside_switch_double_click
+    - automation.house_mode_set_to_bed_on_bedside_switch_hold
+    - automation.alarm_wake_up
     - automation.music_play_pause_on_magic_cube_knock
     - automation.music_volume_down_on_magic_cube_rotate_left
     - automation.music_volume_up_on_magic_cube_rotate_right
@@ -19,7 +22,6 @@ group:
     - automation.lighting_turn_off_all_lights_after_sunrise
     - automation.lighting_living_room_turn_all_lights_on_on_magic_cube_flip_90
     - automation.lighting_living_room_turn_all_lights_off_on_magic_cube_flip_180
-    - automation.routine_bedtime_toggle_on_bedside_switch_hold
 
 automation:
   - alias: Domestina · Automate start

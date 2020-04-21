@@ -165,7 +165,7 @@ views:
                           name: Speech
                         - type: custom:button-card
                           template: small
-                          entity: input_boolean.sleep_mode
+                          entity: binary_sensor.house_mode
                         - type: custom:button-card
                           template: small
                           entity: input_boolean.guest_mode
