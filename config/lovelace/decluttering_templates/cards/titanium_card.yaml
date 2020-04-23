@@ -1,0 +1,98 @@
+titanium_card:
+  default:
+    - title:
+    - icon:
+  card:
+    type: vertical-stack
+    cards:
+      - type: entities
+        title: "[[title]]"
+        icon: "[[icon]]"
+        entities:
+          - switch.titanium_power
+          - sensor.titanium_uptime
+          - binary_sensor.titanium_playing
+          - sensor.titanium_volume
+          - type: custom:fold-entity-row
+            head:
+              type: custom:decluttering-card
+              template: percentage_card
+              variables:
+                - name: Memory
+                - entity: sensor.titanium_memory_used_percent
+                - icon: mdi:memory
+                - orange: 70
+                - red: 85
+            entities:
+              - entity: sensor.titanium_memory_used
+                name: Memory used
+              - entity: sensor.titanium_memory_available
+                name: Memory available
+              - entity: sensor.titanium_memory_total
+                name: Memory total
+
+          - type: custom:fold-entity-row
+            head:
+              type: custom:decluttering-card
+              template: percentage_card
+              variables:
+                - name: "C: Drive"
+                - entity: sensor.titanium_c_usage
+                - icon: mdi:harddisk
+                - orange: 70
+                - red: 85
+            entities:
+              - entity: sensor.titanium_c_used_space
+                name: "C: Drive used"
+              - entity: sensor.titanium_c_free_space
+                name: "C: Drive available"
+              - entity: sensor.titanium_c_total_space
+                name: "C: Drive total"
+
+      - type: horizontal-stack
+        cards:
+          - type: custom:button-card
+            template: small
+            entity: script.titanium_lock
+            name: Lock
+            icon: mdi:lock
+            tap_action:
+              action: toggle
+          - type: custom:button-card
+            template: small
+            entity: script.titanium_vol_mute
+            name: Mute
+            icon: mdi:volume-mute
+            tap_action:
+              action: toggle
+          - type: custom:button-card
+            template: small
+            entity: script.titanium_set_volume
+            name: Set volume
+            icon: mdi:volume-medium
+            tap_action:
+              action: toggle
+
+      - type: horizontal-stack
+        cards:
+          - type: custom:button-card
+            template: small
+            entity: script.titanium_displays_on
+            name: Displays on
+            icon: mdi:monitor-dashboard
+            tap_action:
+              action: toggle
+          - type: custom:button-card
+            template: small
+            entity: script.titanium_displays_off
+            name: Displays off
+            icon: mdi:monitor-off
+            tap_action:
+              action: toggle
+          - type: custom:button-card
+            template: small
+            entity: script.titanium_refresh
+            name: Refresh
+            icon: mdi:refresh
+            tap_action:
+              action: toggle

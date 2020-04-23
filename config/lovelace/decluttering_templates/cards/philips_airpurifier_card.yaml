@@ -1,0 +1,45 @@
+philips_airpurifier_card:
+  default:
+    - title:
+  card:
+    type: vertical-stack
+    cards:
+      - type: entities
+        title: "[[title]]"
+        show_header_toggle: false
+        entities:
+          - entity: fan.philips_airpurifier
+            name: Purifier Working
+          - type: custom:fold-entity-row
+            head:
+              type: custom:dummy-entity-row
+              entity: sensor.purifier_air_quality
+              name: Sensors
+              icon: mdi:air-purifier
+            open: true
+            entities:
+              - sensor.purifier_air_quality
+              - sensor.purifier_allergens
+              - sensor.purifier_temperature
+              - sensor.purifier_humidity
+              - sensor.purifier_water_level
+          - type: custom:fold-entity-row
+            head:
+              type: custom:dummy-entity-row
+              entity: sensor.purifier_speed
+              name: Mode
+            entities:
+              - sensor.purifier_speed
+              - sensor.purifier_mode
+              - sensor.purifier_brightness
+              - sensor.purifier_target_humidity
+          - type: custom:fold-entity-row
+            head:
+              type: custom:dummy-entity-row
+              entity: sensor.purifier_pre_filter
+              name: Filters
+            entities:
+              - sensor.purifier_pre_filter
+              - sensor.purifier_hepa_filter
+              - sensor.purifier_carbon_filter
+              - sensor.purifier_wick_filter

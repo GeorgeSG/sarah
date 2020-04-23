@@ -1,0 +1,42 @@
+bedroom_climate_card:
+  card:
+    type: vertical-stack
+    cards:
+      - type: "custom:mini-graph-card"
+        animate: true
+        line_width: 3
+        points_per_hour: 1
+        show:
+          average: true
+          extrema: true
+        entities:
+          - entity: sensor.bedroom_weather_temperature
+            name: Temperature
+
+      - type: horizontal-stack
+        cards:
+          - type: "custom:mini-graph-card"
+            name: Humidity
+            font_size: 75
+            icon: "mdi:water"
+            line_color: green
+            line_width: 8
+            entities:
+              - sensor.bedroom_weather_humidity
+
+          - type: "custom:mini-graph-card"
+            name: Pressure
+            entities:
+              - sensor.bedroom_weather_pressure
+            font_size: 75
+            line_color: var(--accent-color)
+            line_width: 8
+
+          - type: "custom:mini-graph-card"
+            name: Air Quality
+            font_size: 75
+            icon: "mdi:weather-windy"
+            line_color: "#e74c3c"
+            line_width: 8
+            entities:
+              - sensor.purifier_air_quality
