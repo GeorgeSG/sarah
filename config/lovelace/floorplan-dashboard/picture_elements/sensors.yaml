@@ -184,4 +184,5 @@
         background-color: '${ states[''light.bed_led''].attributes.rgb_color ? "rgb(" + states[''light.bed_led''].attributes.rgb_color[0] + "," + states[''light.bed_led''].attributes.rgb_color[1] + "," + states[''light.bed_led''].attributes.rgb_color[2] + ")" : "rgba(0, 0, 0, 0)" }'
 
         color: transparent
-        box-shadow: '${ states[''light.bed_led''].attributes.rgb_color ? "0 0 10px 5px rgba(" + states[''light.bed_led''].attributes.rgb_color[0] + "," + states[''light.bed_led''].attributes.rgb_color[1] + "," + states[''light.bed_led''].attributes.rgb_color[2] + ",0.7)" : "none" }'
+        box-shadow: '${ states[''light.bed_led''].attributes.rgb_color ? "0 0 7px 4px rgb(" + states[''light.bed_led''].attributes.rgb_color[0] + "," + states[''light.bed_led''].attributes.rgb_color[1] + "," + states[''light.bed_led''].attributes.rgb_color[2] + ")" : "none" }'
+        opacity: 0.6

@@ -2,4 +2,4 @@ homeassistant:
   customize:
     light.bed_led:
       friendly_name: Bed LED
-      icon: mdi:led-strip
+      icon: bha:led-strip
