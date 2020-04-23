@@ -17,6 +17,8 @@ script:
         entity_id:
           - media_player.nvidia_shield
           - media_player.living_room_tv
+      - service: switch.turn_off
+        entity_id: switch.titanium_power
       # Use say_discretely instead of talk, because night mode is already on.
       - service: script.say_discretely
         data:

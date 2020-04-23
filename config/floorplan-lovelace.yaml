@@ -30,7 +30,7 @@ views:
           - media_player.nvidia_shield
 
           - switch.camera
-          - binary_sensor.titanium
+          - switch.titanium_power
           - sensor.synology_dsm_type_volume_1
           - binary_sensor.living_room_right_window_on_off_wrapper
 

@@ -100,9 +100,7 @@ cards:
             - type: glance
               show_state: false
               entities:
-                - binary_sensor.titanium
-                - entity: script.titanium_start
-                  name: Start
+                - switch.titanium_power
 
         - type: vertical-stack
           cards:

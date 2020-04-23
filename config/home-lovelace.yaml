@@ -46,8 +46,7 @@ views:
                           name: Living room
                         - type: custom:button-card
                           template: small
-                          entity: light.tuya_hallway_main_lights
-                          name: Hallway
+                          entity: light.pc
                     - type: horizontal-stack
                       cards:
                         - type: custom:button-card
@@ -70,7 +69,8 @@ views:
                           name: Kitchen
                         - type: custom:button-card
                           template: small
-                          entity: light.pc
+                          entity: light.tuya_hallway_main_lights
+                          name: Hallway
                         - type: custom:button-card
                           template: small
                           entity: light.tuya_hallway_entrance_lights
@@ -111,11 +111,7 @@ views:
                           entity: media_player.living_room_tv
                         - type: custom:button-card
                           template: small
-                          entity: binary_sensor.titanium
-                          name: Titanium
-                          tap_action:
-                            action: call-service
-                            service: script.titanium_start
+                          entity: switch.titanium_power
 
                     - type: horizontal-stack
                       cards:
@@ -125,14 +121,14 @@ views:
                           name: Camera
                         - type: custom:button-card
                           template: small
+                          entity: fan.philips_airpurifier
+                        - type: custom:button-card
+                          template: small
                           entity: sensor.synology_dsm_type_volume_1
                           name: Platinum
                           icon: mdi:nas
                           tap_action:
                             action: more-info
-                        - type: custom:button-card
-                          template: small
-                          entity: fan.philips_airpurifier
 
                 - type: vertical-stack
                   title: Presence

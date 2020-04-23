@@ -9,12 +9,9 @@
     - type: custom:decluttering-card
       template: floorplan_state_icon
       variables:
-        - entity: binary_sensor.titanium
+        - entity: switch.titanium_power
         - top: 62%
         - left: 81%
-        - tap_action:
-            action: call-service
-            service: script.titanium_start
 
     # Platinum
     - type: custom:decluttering-card

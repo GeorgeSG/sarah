@@ -37,8 +37,7 @@ cards:
                       name: Living room
                     - type: custom:button-card
                       template: small
-                      entity: light.tuya_hallway_main_lights
-                      name: Hallway
+                      entity: light.pc
                 - type: horizontal-stack
                   cards:
                     - type: custom:button-card
@@ -61,7 +60,8 @@ cards:
                       name: Kitchen
                     - type: custom:button-card
                       template: small
-                      entity: light.pc
+                      entity: light.tuya_hallway_main_lights
+                      name: Hallway
                     - type: custom:button-card
                       template: small
                       entity: light.tuya_hallway_entrance_lights
