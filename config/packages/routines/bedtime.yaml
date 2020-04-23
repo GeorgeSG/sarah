@@ -5,6 +5,10 @@ script:
       # Set master bedroom state
       - service: light.turn_on
         entity_id: light.bedside_light
+      - service: light.turn_on
+        entity_id: light.bed_led
+        data:
+          brightness_pct: 100
       - service: fan.turn_on
         entity_id: fan.philips_airpurifier
       - service: light.turn_off

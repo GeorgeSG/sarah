@@ -167,3 +167,21 @@
         background-color: rgba(255,0,0,0.5)
         color: transparent
         transform: perspective(2000px) rotateX(185.6deg) rotateY(73.1deg)
+
+# Master bedroom LED Strip
+- type: conditional
+  conditions:
+    - entity: light.bed_led
+      state: "on"
+  elements:
+    - type: state-label
+      entity: light.bed_led
+      style:
+        width: 9.9%
+        height: 0
+        top: 7.6%
+        left: 67.6%
+        background-color: '${ states[''light.bed_led''].attributes.rgb_color ? "rgb(" + states[''light.bed_led''].attributes.rgb_color[0] + "," + states[''light.bed_led''].attributes.rgb_color[1] + "," + states[''light.bed_led''].attributes.rgb_color[2] + ")" : "rgba(0, 0, 0, 0)" }'
+
+        color: transparent
+        box-shadow: '${ states[''light.bed_led''].attributes.rgb_color ? "0 0 10px 5px rgba(" + states[''light.bed_led''].attributes.rgb_color[0] + "," + states[''light.bed_led''].attributes.rgb_color[1] + "," + states[''light.bed_led''].attributes.rgb_color[2] + ",0.7)" : "none" }'

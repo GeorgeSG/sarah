@@ -72,6 +72,7 @@ cards:
                         - fade: switch.light_le_4_fade
                         - wifi: sensor.light_le_4_wifi
                 - light.bedside_light
+                - light.bed_led
 
             - type: custom:decluttering-card
               template: sonos_media_player

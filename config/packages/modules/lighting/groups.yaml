@@ -26,6 +26,7 @@ light:
     entities:
       - light.master_bedroom_main_lights
       - light.bedside_light
+      - light.bed_led
 
   - platform: group
     name: Kitchen main lights

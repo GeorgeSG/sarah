@@ -12,8 +12,7 @@ group:
     - automation.house_mode_set_to_night
     - automation.house_mode_set_to_bed
     - automation.house_mode_set_to_day
-    - automation.house_mode_set_to_night_on_bedside_switch_double_click
-    - automation.house_mode_set_to_bed_on_bedside_switch_hold
+    - automation.house_mode_toggle_on_bedside_switch_double_click
     - automation.alarm_wake_up
     - automation.music_play_pause_on_magic_cube_knock
     - automation.music_volume_down_on_magic_cube_rotate_left

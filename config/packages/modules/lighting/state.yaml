@@ -35,8 +35,17 @@ automation:
 
             {% if is_state('input_select.house_mode', 'day') %}
               light.master_bedroom_main_lights
+            {% elif is_state('input_select.house_mode', 'bed') %}
+              light.bedside_light, light.bed_led
+            {% elif is_state('input_select.house_mode', 'night') %}
+              light.bed_led
+            {% endif %}
+          brightness_pct: >-
+
+            {% if is_state('input_select.house_mode', 'night') %}
+              40
             {% else %}
-              light.bedside_light
+              100
             {% endif %}
 
   - alias: Lighting · Living room · Turn all lights on on Magic Cube flip 90
@@ -103,7 +112,7 @@ automation:
           - light.light_le_6
           - light.light_le_8
         data:
-          brightness_pct: 13
+          brightness_pct: 13 # this is the lowest it'll go ¯\_(ツ)_/¯
       - delay: 00:10:00
       # reset brightness and turn off
       - service: light.turn_on

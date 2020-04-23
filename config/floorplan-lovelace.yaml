@@ -11,8 +11,12 @@ views:
     panel: true
     icon: mdi:floor-plan
     cards:
-      - type: picture-elements
-        image: /local/images/floorplan/floorplan_night_transparent.png
-        style: |
-          height: 100%
-        elements: !include_dir_merge_list lovelace/floorplan-dashboard/picture_elements
+      - type: 'custom:config-template-card'
+        entities:
+          - light.bed_led
+        card:
+          type: picture-elements
+          image: /local/images/floorplan/floorplan_night_transparent.png
+          style: |
+            height: 100%
+          elements: !include_dir_merge_list lovelace/floorplan-dashboard/picture_elements

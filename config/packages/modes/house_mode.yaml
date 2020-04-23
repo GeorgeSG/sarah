@@ -63,7 +63,7 @@ automation:
     action:
       - service: script.routine_good_night
 
-  - alias: House mode · Set to night on bedside switch double click
+  - alias: House mode · Toggle on bedside switch double click
     trigger:
       - platform: event
         event_type: zha_event
@@ -76,25 +76,13 @@ automation:
         data_template:
           option: >
 
-            {% if now().strftime('%H')|int > 20 or now().strftime('%H')|int < 6 %}
+            {% if is_state('input_select.house_mode', 'day') %}
+              bed
+            {% elif is_state('input_select.house_mode', 'bed') %}
               night
             {% else %}
               day
             {% endif %}
-
-  - alias: House mode · Set to bed on bedside switch hold
-    trigger:
-      - platform: event
-        event_type: zha_event
-        event_data:
-          device_ieee: !secret master_bedroom_bedside_switch_ieee
-          command: hold
-    action:
-      - service: input_select.select_option
-        entity_id: input_select.house_mode
-        data:
-          option: bed
-
 
   - alias: Alarm · Wake up
     trigger:

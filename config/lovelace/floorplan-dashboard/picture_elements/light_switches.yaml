@@ -29,6 +29,13 @@
 - type: custom:decluttering-card
   template: floorplan_state_icon
   variables:
+    - entity: light.bed_led
+    - top: 11%
+    - left: 67.5%
+
+- type: custom:decluttering-card
+  template: floorplan_state_icon
+  variables:
     - entity: light.tuya_kitchen_secondary_lights
     - top: 29%
     - left: 12.9%
