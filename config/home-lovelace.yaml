@@ -171,6 +171,9 @@ views:
                         - type: custom:button-card
                           template: small
                           entity: input_boolean.guest_mode
+                          tap_action:
+                            action: call-service
+                            service: script.house_mode_next
                     - type: horizontal-stack
                       cards:
                         - type: custom:button-card
