@@ -54,8 +54,8 @@ binary_sensor:
 sensor:
   - platform: history_stats
     name: Quarantined percent
-    entity_id: input_boolean.georgi_home
-    state: "on"
+    entity_id: device_tracker.carbon
+    state: "home"
     type: ratio
     duration:
       days: 14
@@ -63,8 +63,8 @@ sensor:
 
   - platform: history_stats
     name: Quarantine times left
-    entity_id: input_boolean.georgi_home
-    state: "on"
+    entity_id: device_tracker.carbon
+    state: "home"
     type: count
     duration:
       days: 14
