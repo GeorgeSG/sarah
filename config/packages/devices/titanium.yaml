@@ -122,7 +122,7 @@ sensor:
     payload_available: "ON"
     payload_not_available: "OFF"
     state_topic: "iotlink/workgroup/titanium/windows-monitor/stats/media/volume"
-    unit_of_measurement: "GB"
+    unit_of_measurement: "%"
 
 camera:
   - platform: mqtt
