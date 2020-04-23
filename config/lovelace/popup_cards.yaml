@@ -8,6 +8,9 @@ broader_popup_style: &broad_popup_style
   width: 40%
   min-width: 500px
 
+no_margin: &no_margin
+  margin-bottom: 0
+
 binary_sensor.house_mode:
   title: House mode
   style: *popup_style
@@ -170,8 +173,8 @@ sensor.synology_dsm_type_volume_1:
   title: Platinum
   style:
     <<: *popup_style
+    <<: *no_margin
     height: 80%
-    margin-bottom: 0;
   card:
     type: custom:decluttering-card
     template: platinum_card
@@ -184,3 +187,12 @@ switch.titanium_power:
   card:
     type: custom:decluttering-card
     template: titanium_card
+
+sensor.fast_com_download:
+  title: Network Speed
+  style:
+    <<: *popup_style
+    <<: *broad_popup_style
+  card:
+    type: custom:decluttering-card
+    template: network_card

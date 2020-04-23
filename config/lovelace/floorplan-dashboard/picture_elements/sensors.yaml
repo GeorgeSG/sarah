@@ -24,6 +24,17 @@
         - tap_action:
             action: more-info
 
+    # Router
+    - type: custom:decluttering-card
+      template: floorplan_state_with_icon
+      variables:
+        - entity: sensor.fast_com_download
+        - top: 54%
+        - left: 54%
+        - icon: mdi:router-wireless
+        - tap_action:
+            action: more-info
+
     # Shield + TV
     - type: custom:decluttering-card
       template: floorplan_state_with_icon
