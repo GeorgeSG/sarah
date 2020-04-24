@@ -25,8 +25,8 @@ script:
     sequence:
       - service: script.sonos_join_bedroom
       - service: media_player.play_media
+        entity_id: media_player.master_bedroom
         data_template:
-          entity_id: media_player.master_bedroom
           media_content_id: >
             {{ states('sensor.sarah_url') }}/local{{ file.split('/config/www') | last }}
           media_content_type: "music"
@@ -63,8 +63,8 @@ script:
 
       - service: script.sonos_join_bedroom
       - service: media_player.play_media
+        entity_id: media_player.master_bedroom
         data_template:
-          entity_id: media_player.master_bedroom
           media_content_id: "{{ states('sensor.sarah_url') }}/local/audio/youtube/{{ states('input_text.youtube_download_name') }}.mp3"
           media_content_type: "music"
 
