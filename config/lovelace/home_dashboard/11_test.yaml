@@ -21,6 +21,8 @@ cards:
 
   - type: entities
     entities:
+      - input_boolean.magic_cube_enabled
+      - input_select.magic_cube_mode
       - entity: sensor.cube_analog_input
       - entity: sensor.cube_multistate_input
       - entity: sensor.cube_power

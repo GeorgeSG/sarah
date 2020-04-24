@@ -52,8 +52,6 @@ cards:
                 - automation.lighting_adjust_temperature_on_start
                 - type: divider
                 - automation.lighting_living_room_adjust_temperature_based_on_time
-                - automation.lighting_living_room_turn_all_lights_on_on_magic_cube_flip_90
-                - automation.lighting_living_room_turn_all_lights_off_on_magic_cube_flip_180
                 - automation.lighting_master_bedroom_toggle_lights_on_bedside_switch_single_click
                 - automation.lighting_master_bedroom_adjust_temperature_based_on_time
                 - automation.lighting_kitchen_day_mode_motion_turn_lights_on_after_sunset
@@ -63,21 +61,6 @@ cards:
                 - automation.lighting_hallway_night_mode_motion_turn_lights_on
                 - automation.lighting_hallway_night_mode_motion_turn_lights_off
                 - automation.lighting_sync_tasmota_states_on_start_up
-
-            - type: divider
-
-            # Music
-            - type: custom:fold-entity-row
-              head:
-                type: custom:dummy-entity-row
-                entity: sun.sun
-                name: Music
-                icon: mdi:music-note
-                tap_action: none
-              entities:
-                - automation.music_play_pause_on_magic_cube_knock
-                - automation.music_volume_down_on_magic_cube_rotate_left
-                - automation.music_volume_up_on_magic_cube_rotate_right
 
             - type: divider
 
@@ -183,6 +166,18 @@ cards:
                 - automation.ifttt_call_service
 
             - type: divider
+
+            # Magic cube
+            - type: custom:fold-entity-row
+              head:
+                entity: input_boolean.magic_cube_enabled
+                name: Magic Cube
+              entities:
+                - automation.magic_cube_mode_change
+                - automation.magic_cube_lighting_toggle_on_knock
+                - automation.magic_cube_music_play_pause_on_knock
+                - automation.magic_cube_music_volume_down_on_rotate_left
+                - automation.magic_cube_music_volume_up_rotate_right
 
             # Browser mod
             - type: custom:fold-entity-row
