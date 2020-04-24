@@ -23,12 +23,10 @@ light:
         icon_template: bha:ceiling-lamp-plafond
         turn_on:
           service: input_boolean.turn_on
-          data:
-            entity_id: input_boolean.tuya_kitchen_main_lights_state
+          entity_id: input_boolean.tuya_kitchen_main_lights_state
         turn_off:
           service: input_boolean.turn_off
-          data:
-            entity_id: input_boolean.tuya_kitchen_main_lights_state
+          entity_id: input_boolean.tuya_kitchen_main_lights_state
 
       tuya_kitchen_secondary_lights:
         friendly_name: Kitchen secondary lights (scene)
@@ -36,12 +34,10 @@ light:
         icon_template: bha:ceiling-lamp-plafond
         turn_on:
           service: input_boolean.turn_on
-          data:
-            entity_id: input_boolean.tuya_kitchen_secondary_lights_state
+          entity_id: input_boolean.tuya_kitchen_secondary_lights_state
         turn_off:
           service: input_boolean.turn_off
-          data:
-            entity_id: input_boolean.tuya_kitchen_secondary_lights_state
+          entity_id: input_boolean.tuya_kitchen_secondary_lights_state
 
       tuya_hallway_main_lights:
         friendly_name: Hallway main lights (scene)
@@ -49,12 +45,10 @@ light:
         icon_template: bha:ceiling-lamp-plafond
         turn_on:
           service: input_boolean.turn_on
-          data:
-            entity_id: input_boolean.tuya_hallway_main_lights_state
+          entity_id: input_boolean.tuya_hallway_main_lights_state
         turn_off:
           service: input_boolean.turn_off
-          data:
-            entity_id: input_boolean.tuya_hallway_main_lights_state
+          entity_id: input_boolean.tuya_hallway_main_lights_state
 
       tuya_hallway_entrance_lights:
         friendly_name: Entrance lights (scene)
@@ -62,12 +56,10 @@ light:
         icon_template: bha:ceiling-lamp-plafond
         turn_on:
           service: input_boolean.turn_on
-          data:
-            entity_id: input_boolean.tuya_hallway_entrance_lights_state
+          entity_id: input_boolean.tuya_hallway_entrance_lights_state
         turn_off:
           service: input_boolean.turn_off
-          data:
-            entity_id: input_boolean.tuya_hallway_entrance_lights_state
+          entity_id: input_boolean.tuya_hallway_entrance_lights_state
 
 # Try to keep input_booleans consistent.
 automation:
@@ -96,17 +88,13 @@ automation:
       - delay: 00:00:03
 
       - service_template: "input_boolean.turn_{{ states('light.kitchen_main_lights') }}"
-        data:
-          entity_id: input_boolean.tuya_kitchen_main_lights_state
+        entity_id: input_boolean.tuya_kitchen_main_lights_state
 
       - service_template: "input_boolean.turn_{{ states('light.kitchen_secondary_lights') }}"
-        data:
-          entity_id: input_boolean.tuya_kitchen_secondary_lights_state
+        entity_id: input_boolean.tuya_kitchen_secondary_lights_state
 
       - service_template: "input_boolean.turn_{{ states('light.hallway_main_lights') }}"
-        data:
-          entity_id: input_boolean.tuya_hallway_main_lights_state
+        entity_id: input_boolean.tuya_hallway_main_lights_state
 
       - service_template: "input_boolean.turn_{{ states('light.hallway_entrance_lights') }}"
-        data:
-          entity_id: input_boolean.tuya_hallway_entrance_lights_state
+        entity_id: input_boolean.tuya_hallway_entrance_lights_state

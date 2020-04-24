@@ -117,8 +117,7 @@ automation:
           state: "music"
     action:
       - service: media_player.media_play_pause
-        data:
-          entity_id: media_player.living_room
+        entity_id: media_player.living_room
 
   - alias: Magic Cube · Music · Volume down on rotate left
     trigger:
@@ -138,8 +137,7 @@ automation:
           state: "music"
     action:
       - service: media_player.volume_down
-        data:
-          entity_id: media_player.living_room
+        entity_id: media_player.living_room
 
   - alias: Magic Cube · Music · Volume up on rotate right
     trigger:
@@ -159,8 +157,7 @@ automation:
           state: "music"
     action:
       - service: media_player.volume_up
-        data:
-          entity_id: media_player.living_room
+        entity_id: media_player.living_room
 
 #
 # ─── CUSTOMIZATION ──────────────────────────────────────────────────────────────

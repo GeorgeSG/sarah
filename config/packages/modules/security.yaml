@@ -68,8 +68,8 @@ script:
   alarm_start:
     sequence:
       - service: media_player.play_media
+        entity_id: media_player.master_bedroom
         data:
-          entity_id: media_player.master_bedroom
           media_content_id: "https://raw.githubusercontent.com/saeedsohi/siren/master/FireTrucksSirens.mp3"
           media_content_type: music
       - service: light.turn_on
