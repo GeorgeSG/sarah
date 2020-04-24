@@ -9,6 +9,8 @@ pi_hole_card:
         title: "[[title]]"
         icon: "[[icon]]"
         entities:
+          - entity: binary_sensor.pi_hole_enabled
+            name: Status
           - entity: switch.pihole_temp_disable
             name: Pause for 5 mins
           - type: custom:dummy-entity-row

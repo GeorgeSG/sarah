@@ -61,7 +61,6 @@ binary_sensor:
     payload_on: "enabled"
     payload_off: "disabled"
     value_template: '{{ value_json.status }}'
-    device_class: connectivity
 
 # https://www.home-assistant.io/integrations/synologydsm
 sensor:
