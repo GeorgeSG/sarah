@@ -16,118 +16,13 @@ cards:
             }
     card:
       type: custom:layout-card
-      layout: horizontal
-      max_columns: 3
+      layout: horzontal
+      max_columns: 2
       cards:
-        # Column 1: Active Controls
         - type: vertical-stack
-          cards:
-            - type: vertical-stack
-              title: Lights
-              cards:
-                - type: horizontal-stack
-                  cards:
-                    - type: custom:button-card
-                      template: small
-                      entity: light.ceiling_lights
-                      name: Ceiling
-                    - type: custom:button-card
-                      template: small
-                      entity: light.living_room_main_lights
-                      name: Living room
-                    - type: custom:button-card
-                      template: small
-                      entity: light.pc
-                - type: horizontal-stack
-                  cards:
-                    - type: custom:button-card
-                      template: small
-                      entity: light.master_bedroom_main_lights
-                      name: "M. Bedroom"
-                    - type: custom:button-card
-                      template: small
-                      entity: light.bedside_light
-                      name: Bedside
-                    - type: custom:button-card
-                      template: small
-                      entity: light.bed_led
-                      name: Bed
-                - type: horizontal-stack
-                  cards:
-                    - type: custom:button-card
-                      template: small
-                      entity: light.tuya_kitchen_all_lights
-                      name: Kitchen
-                    - type: custom:button-card
-                      template: small
-                      entity: light.tuya_hallway_main_lights
-                      name: Hallway
-                    - type: custom:button-card
-                      template: small
-                      entity: light.tuya_hallway_entrance_lights
-                      name: Entrance
-
-                - type: entities
-                  title: Devices
-                  show_header_toggle: false
-                  entities:
-                    - switch.camera
-                    - media_player.living_room_tv
-                    - media_player.nvidia_shield
-                    - media_player.shield
-                    - fan.philips_airpurifier
-
-                - type: custom:decluttering-card
-                  template: sonos_media_player
-                  variables:
-                    - player: media_player.master_bedroom
-
-        # Column 2: Sensors
-        - type: vertical-stack
-          cards:
-            - type: horizontal-stack
-              title: Sensors
-              cards:
-                - type: custom:button-card
-                  template: small
-                  entity: binary_sensor.front_door_on_off_wrapper
-                - type: custom:button-card
-                  template: small
-                  entity: binary_sensor.living_room_right_window_on_off_wrapper
-                  name: Living room
-                - type: custom:button-card
-                  template: small
-                  entity: binary_sensor.bedroom_right_window_on_off_wrapper
-                  name: M. Bedroom
-                - type: custom:button-card
-                  template: small
-                  entity: device_tracker.carbon
-
-            - type: entities
-              title: Manual controls
-              show_header_toggle: false
-              entities:
-                - input_boolean.speech_notifications
-                - input_boolean.guest_mode
-                - input_boolean.domestina
-                - input_select.house_mode
-                - input_boolean.georgi_home
-
-            - type: "custom:travel-time-card"
-              title: Travel time
-              columns:
-                - name
-                - duration
-                - distance
-              entities:
-                - sensor.home_to_work
-                - sensor.work_to_home
-
-        # Column 3: Misc
-        - type: vertical-stack
-          title: Alarm
           cards:
             - type: entities
+              title: Alarm
               entities:
                 - entity: input_boolean.alarm_enabled
                   name: Alarm
@@ -151,3 +46,15 @@ cards:
               details: true
               entity: weather.dark_sky
               forecast: true
+
+        - type: vertical-stack
+          cards:
+            - type: "custom:travel-time-card"
+              title: Travel time
+              columns:
+                - name
+                - duration
+                - distance
+              entities:
+                - sensor.home_to_work
+                - sensor.work_to_home
