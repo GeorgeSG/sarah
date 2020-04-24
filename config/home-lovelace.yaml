@@ -131,7 +131,7 @@ views:
                             action: more-info
                         - type: custom:button-card
                           template: small
-                          entity: switch.pihole_temp_disable
+                          entity: binary_sensor.pi_hole_enabled
                           name: Pi-Hole
                           icon: mdi:pi-hole
 

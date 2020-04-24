@@ -54,6 +54,15 @@ switch:
         command_state: !secret pihole_status
         value_template: '{{ value_json.status == "disabled" }}'
 
+binary_sensor:
+  - platform: command_line
+    name: "Pi-Hole enabled"
+    command: !secret pihole_status
+    payload_on: "enabled"
+    payload_off: "disabled"
+    value_template: '{{ value_json.status }}'
+    device_class: connectivity
+
 # https://www.home-assistant.io/integrations/synologydsm
 sensor:
   - platform: synologydsm
