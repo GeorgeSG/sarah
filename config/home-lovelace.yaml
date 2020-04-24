@@ -129,6 +129,11 @@ views:
                           icon: mdi:nas
                           tap_action:
                             action: more-info
+                        - type: custom:button-card
+                          template: small
+                          entity: switch.pihole_temp_disable
+                          name: Pi-Hole
+                          icon: mdi:pi-hole
 
                 - type: vertical-stack
                   title: Presence

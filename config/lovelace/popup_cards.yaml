@@ -196,3 +196,12 @@ sensor.fast_com_download:
   card:
     type: custom:decluttering-card
     template: network_card
+
+switch.pihole_temp_disable:
+  title: Pi-Hole
+  style:
+    <<: *popup_style
+    <<: *broad_popup_style
+  card:
+    type: custom:decluttering-card
+    template: pi_hole_card

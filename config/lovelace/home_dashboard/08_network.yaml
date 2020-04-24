@@ -47,54 +47,12 @@ cards:
                 - entity: sensor.home_assistant_log
                   name: Logs
                   icon: mdi:view-list
-            - type: entities
-              title: Pi-Hole
-              icon: mdi:pi-hole
-              entities:
-                - switch.pihole_temp_disable
-                - type: custom:dummy-entity-row
-                  entity: sun.sun
-                  name: Open admin UI
-                  icon: mdi:firefox
-                  tap_action:
-                    action: url
-                    url_path: http://cobalt.lan:8081/admin
 
-            - type: horizontal-stack
-              cards:
-                - type: custom:mini-graph-card
-                  name: Total queries
-                  font_size: 75
-                  line_color: var(--accent-color)
-                  line_width: 6
-                  entities:
-                    - sensor.pi_hole_dns_queries_today
-
-                - type: custom:mini-graph-card
-                  name: Queries blocked
-                  font_size: 75
-                  line_color: var(--accent-color)
-                  line_width: 6
-                  entities:
-                    - sensor.pi_hole_ads_blocked_today
-
-            - type: horizontal-stack
-              cards:
-                - type: custom:mini-graph-card
-                  name: Percent blocked
-                  font_size: 75
-                  line_color: var(--accent-color)
-                  line_width: 6
-                  entities:
-                    - sensor.pi_hole_ads_percentage_blocked_today
-
-                - type: custom:mini-graph-card
-                  name: Seen clients
-                  font_size: 75
-                  line_color: var(--accent-color)
-                  line_width: 6
-                  entities:
-                    - sensor.pi_hole_seen_clients
+            - type: custom:decluttering-card
+              template: pi_hole_card
+              variables:
+                - title: Pi-Hole
+                - icon: mdi:pi-hole
 
         - type: custom:decluttering-card
           template: network_card
