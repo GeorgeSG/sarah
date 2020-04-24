@@ -96,7 +96,7 @@ cards:
 
             - type: divider
 
-            # Sleep Mode
+            # House mode
             - type: custom:fold-entity-row
               head:
                 type: custom:dummy-entity-row
@@ -106,8 +106,6 @@ cards:
                 - automation.house_mode_set_to_bed
                 - automation.house_mode_set_to_night
                 - automation.house_mode_toggle_on_bedside_switch_double_click
-                - automation.alarm_wake_up
-                - automation.alarm_set_time
 
             - type: divider
 
@@ -148,6 +146,20 @@ cards:
               entities:
                 - automation.security_door_opened_while_away
                 - automation.camera_startup
+
+            - type: divider
+
+            # Clock
+            - type: custom:fold-entity-row
+              head:
+                type: custom:dummy-entity-row
+                entity: sun.sun
+                icon: mdi:clock
+                name: Clock
+                tap_action: none
+              entities:
+                - automation.alarm_wake_up
+                - automation.alarm_set_time
 
             - type: divider
 
