@@ -107,7 +107,7 @@
     - type: custom:decluttering-card
       template: floorplan_state_icon
       variables:
-        - entity: binary_sensor.motion_1_ias_zone
+        - entity: binary_sensor.browser_kitchen
         - top: 34%
         - left: 27%
         - tap_action:

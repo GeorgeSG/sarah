@@ -48,37 +48,49 @@ automation:
               100
             {% endif %}
 
-  - alias: Lighting · Living room · Turn all lights on on Magic Cube flip 90
-    trigger:
-      platform: event
-      event_type: zha_event
-      event_data:
-        device_ieee: !secret magic_cube_ieee
-        command: flip
-        args:
-          flip_degrees: 90
-    action:
-      - service: light.turn_on
-        entity_id: light.living_room_all_lights
-
-  - alias: Lighting · Living room · Turn all lights off on Magic Cube flip 180
-    trigger:
-      platform: event
-      event_type: zha_event
-      event_data:
-        device_ieee: !secret magic_cube_ieee
-        command: flip
-        args:
-          flip_degrees: 180
-    action:
-      - service: light.turn_off
-        entity_id: light.living_room_all_lights
-
-  - alias: Lighting · Night mode · Kitchen · Turn lights on motion
+  - alias: Lighting · Kitchen · Day mode · Motion · Turn lights on after sunset
     trigger:
       platform: state
-      entity_id: binary_sensor.motion_1_ias_zone
-      from: "off"
+      entity_id: binary_sensor.browser_kitchen
+      to: "on"
+    condition:
+      condition: and
+      conditions:
+        - condition: state
+          entity_id: input_select.house_mode
+          state: 'day'
+        - condition: state
+          entity_id: sun.sun
+          state: 'below_horizon'
+    action:
+      - service: light.turn_on
+        entity_id: light.tuya_kitchen_all_lights
+
+  - alias: Lighting · Kitchen · Day mode · Motion · Turn lights off
+    trigger:
+      platform: state
+      entity_id: binary_sensor.browser_kitchen
+      to: "off"
+      for:
+        minutes: 30
+    condition:
+      condition: and
+      conditions:
+        - condition: state
+          entity_id: input_select.house_mode
+          state: 'day'
+        - condition: state
+          entity_id: sun.sun
+          state: 'below_horizon'
+    action:
+      - service: light.turn_off
+        entity_id: light.tuya_kitchen_all_lights
+
+
+  - alias: Lighting · Kitchen · Night mode · Motion · Turn lights on
+    trigger:
+      platform: state
+      entity_id: binary_sensor.browser_kitchen
       to: "on"
     condition:
       condition: template
@@ -88,8 +100,18 @@ automation:
         entity_id: light.light_le_12
         data:
           brightness_pct: 13
-      - delay: 00:10:00
-      # reset brightness and turn off
+
+  - alias: Lighting · Kitchen · Night mode · Motion · Turn lights off
+    trigger:
+      platform: state
+      entity_id: binary_sensor.browser_kitchen
+      to: "off"
+      for:
+        minutes: 10
+    condition:
+      condition: template
+      value_template: "{{ not is_state('input_select.house_mode', 'day') }}"
+    action:
       - service: light.turn_on
         entity_id: light.light_le_12
         data:
@@ -97,11 +119,10 @@ automation:
       - service: light.turn_off
         entity_id: light.light_le_12
 
-  - alias: Lighting · Night mode · Hallway · Turn lights on motion
+  - alias: Lighting · Hallway · Night mode · Motion · Turn lights on
     trigger:
       platform: state
       entity_id: binary_sensor.motion_2_ias_zone
-      from: "off"
       to: "on"
     condition:
       condition: template
@@ -113,8 +134,18 @@ automation:
           - light.light_le_8
         data:
           brightness_pct: 13 # this is the lowest it'll go ¯\_(ツ)_/¯
-      - delay: 00:10:00
-      # reset brightness and turn off
+
+  - alias: Lighting · Hallway · Night mode · Motion · Turn lights off
+    trigger:
+      platform: state
+      entity_id: binary_sensor.motion_2_ias_zone
+      to: "off"
+      for:
+        minutes: 10
+    condition:
+      condition: template
+      value_template: "{{ not is_state('input_select.house_mode', 'day') }}"
+    action:
       - service: light.turn_on
         entity_id:
           - light.light_le_6

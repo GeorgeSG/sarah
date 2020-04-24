@@ -1,3 +1,30 @@
+automation:
+  - alias: Lighting · Living room · Turn all lights on on Magic Cube flip 90
+    trigger:
+      platform: event
+      event_type: zha_event
+      event_data:
+        device_ieee: !secret magic_cube_ieee
+        command: flip
+        args:
+          flip_degrees: 90
+    action:
+      - service: light.turn_on
+        entity_id: light.living_room_all_lights
+
+  - alias: Lighting · Living room · Turn all lights off on Magic Cube flip 180
+    trigger:
+      platform: event
+      event_type: zha_event
+      event_data:
+        device_ieee: !secret magic_cube_ieee
+        command: flip
+        args:
+          flip_degrees: 180
+    action:
+      - service: light.turn_off
+        entity_id: light.living_room_all_lights
+
 #
 # ─── CUSTOMIZATION ──────────────────────────────────────────────────────────────
 #
