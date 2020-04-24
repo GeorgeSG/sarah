@@ -175,9 +175,11 @@ cards:
               entities:
                 - automation.magic_cube_mode_change
                 - automation.magic_cube_lighting_toggle_on_knock
+                - automation.magic_cube_lighting_dim_on_rotate_left
+                - automation.magic_cube_lighting_brighten_on_rotate_right
                 - automation.magic_cube_music_play_pause_on_knock
                 - automation.magic_cube_music_volume_down_on_rotate_left
-                - automation.magic_cube_music_volume_up_rotate_right
+                - automation.magic_cube_music_volume_up_on_rotate_right
 
             # Browser mod
             - type: custom:fold-entity-row

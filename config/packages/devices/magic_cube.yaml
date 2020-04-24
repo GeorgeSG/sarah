@@ -33,6 +33,7 @@ automation:
               {{ states('input_select.magic_cube_mode') }}
             {% endif %}
 
+  # Lighting
   - alias: Magic Cube · Lighting · Toggle on Knock
     trigger:
       platform: event
@@ -53,6 +54,51 @@ automation:
       - service: light.toggle
         entity_id: light.living_room_all_lights
 
+  - alias: Magic Cube · Lighting · Dim on rotate left
+    trigger:
+      platform: event
+      event_type: zha_event
+      event_data:
+        device_ieee: !secret magic_cube_ieee
+        command: rotate_left
+    condition:
+      condition: and
+      conditions:
+        - condition: state
+          entity_id: input_boolean.magic_cube_enabled
+          state: "on"
+        - condition: state
+          entity_id: input_select.magic_cube_mode
+          state: "light"
+    action:
+      - service: light.turn_on
+        entity_id: light.living_room_all_lights
+        data:
+          brightness_step_pct: -20
+
+  - alias: Magic Cube · Lighting · Brighten on rotate right
+    trigger:
+      platform: event
+      event_type: zha_event
+      event_data:
+        device_ieee: !secret magic_cube_ieee
+        command: rotate_right
+    condition:
+      condition: and
+      conditions:
+        - condition: state
+          entity_id: input_boolean.magic_cube_enabled
+          state: "on"
+        - condition: state
+          entity_id: input_select.magic_cube_mode
+          state: "light"
+    action:
+      - service: light.turn_on
+        entity_id: light.living_room_all_lights
+        data:
+          brightness_step_pct: 20
+
+  # Music
   - alias: Magic Cube · Music · Play/Pause on Knock
     trigger:
       platform: event
@@ -95,7 +141,7 @@ automation:
         data:
           entity_id: media_player.living_room
 
-  - alias: Magic Cube ‚ Music · Volume up rotate right
+  - alias: Magic Cube · Music · Volume up on rotate right
     trigger:
       platform: event
       event_type: zha_event
