@@ -8,28 +8,33 @@ script:
   routine_coming_home:
     alias: Routine · Coming home
     sequence:
-      # Enter home mode.
       - service: script.security_camera_off
       - service: light.turn_on
         entity_id:
           - light.tuya_hallway_entrance_lights
           - light.tuya_hallway_main_lights
-
-      # TODO: Only if it's dark in the living room
-      - service: light.turn_on
-        entity_id: light.living_room_all_lights
+          - light.bed_led
+      - service: script.routine_coming_home_after_sunset
       - service: script.sonos_join_bedroom
+      - service: script.routine_coming_home_welcome_home
 
-      # Check if welcome home is enabled, proceed with welcome routine.
+  routine_coming_home_after_sunset:
+    alias: Routine · Coming home · After sunset
+    sequence:
+      - condition: state
+        entity_id: sun.sun
+        state: "below_horizon"
+      - service: light.turn_on
+        entity_id: light.ceiling_lights
+        data:
+          brightness_pct: 100
+
+  routine_coming_home_welcome_home:
+    alias: Routine · Coming home · Welcome home
+    sequence:
       - condition: state
         entity_id: input_boolean.routine_welcome_home
         state: "on"
-
-      - service: script.coming_home_welcome_home
-
-  coming_home_welcome_home:
-    alias: Routine · Coming home · Welcome home
-    sequence:
       - service: script.say
         data_template:
           partials:

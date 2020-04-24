@@ -11,6 +11,8 @@ automation:
     action:
       - service: light.turn_on
         entity_id: light.ceiling_lights
+        data:
+          brightness_pct: 100
 
   - alias: Lighting · Turn off all lights after sunrise
     trigger:
