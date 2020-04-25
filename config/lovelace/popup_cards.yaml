@@ -125,16 +125,16 @@ media_player.nvidia_shield:
   card:
     type: vertical-stack
     cards:
-      - type: custom:decluttering-card
-        template: sonos_media_player
-        variables:
-          - player: media_player.living_room
+      - type: "custom:mini-media-player"
+        entity: media_player.nvidia_shield
 
       - type: "custom:mini-media-player"
         entity: media_player.living_room_tv
 
-      - type: "custom:mini-media-player"
-        entity: media_player.nvidia_shield
+      - type: custom:decluttering-card
+        template: sonos_media_player
+        variables:
+          - player: media_player.living_room
 
 light.living_room_main_lights:
   title: Living room lights

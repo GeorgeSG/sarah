@@ -1,0 +1,25 @@
+xs:
+  size: 20px
+  hold_action:
+    action: more-info
+  styles:
+    card:
+      - height: 70px
+      - font-size: 12px
+    name:
+      - height: 24px
+  state:
+    - value: 'on'
+      styles:
+        card:
+          - background-color: var(--primary-color)
+          - color: black
+        icon:
+          - color: black
+    - value: 'home'
+      styles:
+        card:
+          - background-color: var(--primary-color)
+          - color: black
+        icon:
+          - color: black

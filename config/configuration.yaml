@@ -30,7 +30,13 @@ lovelace:
       title: Home
       icon: mdi:home
       show_in_sidebar: true
-      filename: home-lovelace.yaml
+      filename: ui-lovelace.yaml
+    lovelace-kitchen:
+      mode: yaml
+      title: Kitchen
+      icon: mdi:chef-hat
+      show_in_sidebar: false
+      filename: kitchen-lovelace.yaml
     lovelace-floorlan:
       mode: yaml
       title: Floorplan

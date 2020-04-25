@@ -1,0 +1,119 @@
+- type: custom:mod-card
+  style:
+    layout-card:
+      $:
+        .: |
+          #columns {
+            padding: 0 10px;
+          }
+          #columns .column {
+            padding: 10px 10px;
+          }
+  card:
+    type: custom:layout-card
+    layout: horizontal
+    max_columns: 1
+    cards:
+      - type: horizontal-stack
+        title: Lights
+        cards:
+          - type: custom:button-card
+            template: small
+            entity: light.tuya_kitchen_all_lights
+            name: All lights
+          - type: custom:button-card
+            template: small
+            entity: light.tuya_kitchen_main_lights
+            name: Main
+          - type: custom:button-card
+            template: small
+            entity: light.tuya_kitchen_secondary_lights
+            name: Secondary
+
+      - type: horizontal-stack
+        title: Hallway
+        cards:
+          - type: custom:button-card
+            template: small
+            entity: light.hallway_all_lights
+            name: All lights
+          - type: custom:button-card
+            template: small
+            entity: light.hallway_entrance_lights
+            name: Entrance
+          - type: custom:button-card
+            template: small
+            entity: light.tuya_hallway_main_lights
+            name: Main
+
+      - type: vertical-stack
+        cards:
+          - type: vertical-stack
+            title: Media
+            cards:
+              - type: custom:decluttering-card
+                template: sonos_media_player
+                variables:
+                  - player: media_player.kitchen
+              - type: horizontal-stack
+                cards:
+                  - type: custom:button-card
+                    template: xs
+                    entity: sensor.philip_defranco
+                    name: Latest PDS
+                    tap_action:
+                      action: call-service
+                      service: script.youtube_play_latest_pds
+                  - type: custom:button-card
+                    template: xs
+                    entity: script.music_play
+                    name: Chill
+                    icon: mdi:music
+                    tap_action:
+                      action: toggle
+                  - type: custom:button-card
+                    template: xs
+                    entity: script.music_play
+                    name: Retro
+                    icon: mdi:music
+                    tap_action:
+                      action: call-service
+                      service: script.music_play
+                      service_data:
+                        playlist: "Retro"
+                  - type: custom:button-card
+                    template: xs
+                    entity: script.sonos_join_bedroom
+                    name: Bedroom
+                    icon: mdi:speaker-multiple
+                    tap_action:
+                      action: toggle
+                  - type: custom:button-card
+                    template: xs
+                    entity: script.sonos_join_tv
+                    icon: mdi:speaker-multiple
+                    name: TV
+                    tap_action:
+                      action: toggle
+
+      - type: horizontal-stack
+        cards:
+          - type: custom:button-card
+            template: xs
+            entity: binary_sensor.browser_kitchen
+            name: Motion
+          - type: custom:button-card
+            template: xs
+            entity: binary_sensor.motion_1_ias_zone
+            name: Motion 2
+          - type: custom:button-card
+            template: xs
+            entity: binary_sensor.motion_2_ias_zone
+            name: Hallway
+          - type: custom:button-card
+            template: xs
+            entity: media_player.nvidia_shield
+            name: Shield
+          - type: custom:button-card
+            template: xs
+            entity: switch.titanium_power
