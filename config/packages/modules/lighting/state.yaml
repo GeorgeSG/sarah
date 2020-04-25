@@ -10,7 +10,10 @@ automation:
         state: "on"
     action:
       - service: light.turn_on
-        entity_id: light.ceiling_lights
+        entity_id:
+          - light.living_room_all_lights
+          - light.master_bedroom_all_lights
+          - light.hallway_all_lights
         data:
           brightness_pct: 100
 
@@ -53,7 +56,7 @@ automation:
   - alias: Lighting · Kitchen · Day mode · Motion · Turn lights on after sunset
     trigger:
       platform: state
-      entity_id: binary_sensor.browser_kitchen
+      entity_id: binary_sensor.motion_1_ias_zone
       to: "on"
     condition:
       condition: and
@@ -71,7 +74,7 @@ automation:
   - alias: Lighting · Kitchen · Day mode · Motion · Turn lights off
     trigger:
       platform: state
-      entity_id: binary_sensor.browser_kitchen
+      entity_id: binary_sensor.motion_1_ias_zone
       to: "off"
       for:
         minutes: 30
@@ -92,7 +95,7 @@ automation:
   - alias: Lighting · Kitchen · Night mode · Motion · Turn lights on
     trigger:
       platform: state
-      entity_id: binary_sensor.browser_kitchen
+      entity_id: binary_sensor.motion_1_ias_zone
       to: "on"
     condition:
       condition: template
@@ -101,12 +104,12 @@ automation:
       - service: light.turn_on
         entity_id: light.light_le_12
         data:
-          brightness_pct: 13
+          brightness_pct: 13 # this is the lowest it'll go ¯\_(ツ)_/¯
 
   - alias: Lighting · Kitchen · Night mode · Motion · Turn lights off
     trigger:
       platform: state
-      entity_id: binary_sensor.browser_kitchen
+      entity_id: binary_sensor.motion_1_ias_zone
       to: "off"
       for:
         minutes: 10
@@ -131,10 +134,13 @@ automation:
       value_template: "{{ not is_state('input_select.house_mode', 'day') }}"
     action:
       - service: light.turn_on
-        entity_id:
-          - light.light_lohas_6
+        entity_id: light.light_le_8
         data:
-          brightness_pct: 13 # this is the lowest it'll go ¯\_(ツ)_/¯
+          brightness_pct: 13s
+      - service: light.turn_on
+        entity_id: light.light_lohas_6
+        data:
+          brightness_pct: 30
 
   - alias: Lighting · Hallway · Night mode · Motion · Turn lights off
     trigger:
@@ -149,9 +155,11 @@ automation:
     action:
       - service: light.turn_on
         entity_id:
+          - light.light_le_8
           - light.light_lohas_6
         data:
           brightness_pct: 100
       - service: light.turn_off
         entity_id:
           - light.light_lohas_6
+          - light.light_le_8
