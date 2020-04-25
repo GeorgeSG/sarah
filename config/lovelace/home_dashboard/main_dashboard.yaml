@@ -1,0 +1,312 @@
+title: Home
+path: default_view
+icon: "mdi:home"
+panel: true
+cards:
+  - type: custom:mod-card
+    style:
+      layout-card:
+        $:
+          .: |
+            #columns {
+              padding: 0 10px;
+            }
+            #columns .column {
+              padding: 10px 10px;
+            }
+    card:
+      type: custom:layout-card
+      layout: horizontal
+      max_columns: 3
+      cards:
+        # Column 1
+        - type: vertical-stack
+          cards:
+            - type: vertical-stack
+              title: Lights
+              cards:
+                - type: horizontal-stack
+                  cards:
+                    - type: custom:button-card
+                      template: small
+                      entity: light.ceiling_lights
+                      name: Ceiling
+                    - type: custom:button-card
+                      template: small
+                      entity: light.living_room_main_lights
+                      name: Living room
+                    - type: custom:button-card
+                      template: small
+                      entity: light.pc
+                - type: horizontal-stack
+                  cards:
+                    - type: custom:button-card
+                      template: small
+                      entity: light.master_bedroom_main_lights
+                      name: "M. Bedroom"
+                    - type: custom:button-card
+                      template: small
+                      entity: light.bedside_light
+                      name: Bedside
+                    - type: custom:button-card
+                      template: small
+                      entity: light.bed_led
+                      name: Bed
+                - type: horizontal-stack
+                  cards:
+                    - type: custom:button-card
+                      template: small
+                      entity: light.tuya_kitchen_all_lights
+                      name: Kitchen
+                    - type: custom:button-card
+                      template: small
+                      entity: light.tuya_hallway_main_lights
+                      name: Hallway
+                    - type: custom:button-card
+                      template: small
+                      entity: light.hallway_entrance_lights
+                      name: Entrance
+
+            - type: vertical-stack
+              title: Devices
+              cards:
+                - type: horizontal-stack
+                  cards:
+                    - type: custom:button-card
+                      template: small
+                      entity: media_player.nvidia_shield
+                      tap_action:
+                        action: call-service
+                        service: media_player.toggle
+                        service_data:
+                          entity_id: media_player.nvidia_shield
+                      state:
+                        - value: 'playing'
+                          styles:
+                            card:
+                              - background-color: var(--primary-color)
+                              - color: black
+                            icon:
+                              - color: black
+                        - value: 'standby'
+                          styles:
+                            card:
+                              - background-color: var(--primary-color)
+                              - color: black
+                            icon:
+                              - color: black
+
+
+                    - type: custom:button-card
+                      template: small
+                      entity: media_player.living_room_tv
+                    - type: custom:button-card
+                      template: small
+                      entity: switch.titanium_power
+
+                - type: horizontal-stack
+                  cards:
+                    - type: custom:button-card
+                      template: small
+                      entity: switch.camera
+                      name: Camera
+                    - type: custom:button-card
+                      template: small
+                      entity: fan.philips_airpurifier
+                    - type: custom:button-card
+                      template: small
+                      entity: sensor.synology_dsm_type_volume_1
+                      name: Platinum
+                      icon: mdi:nas
+                      tap_action:
+                        action: more-info
+                    - type: custom:button-card
+                      template: small
+                      entity: binary_sensor.pi_hole_enabled
+                      name: Pi-Hole
+                      icon: mdi:pi-hole
+
+            - type: vertical-stack
+              title: Presence
+              cards:
+                - type: horizontal-stack
+                  cards:
+                    - type: custom:button-card
+                      template: small
+                      entity: binary_sensor.georgi_home
+                      tap_action:
+                        action: call-service
+                        service: input_boolean.toggle
+                        service_data:
+                          entity_id: input_boolean.georgi_home
+                    - type: custom:button-card
+                      template: small
+                      entity: device_tracker.mikrotik_carbon
+                      name: Wifi
+                    - type: custom:button-card
+                      template: small
+                      entity: device_tracker.carbon
+                      name: GPS
+
+
+        # Column 2
+        - type: vertical-stack
+          cards:
+            - type: vertical-stack
+              title: Manual controls
+              cards:
+                - type: horizontal-stack
+                  cards:
+                    - type: custom:button-card
+                      template: small
+                      entity: input_boolean.speech_notifications
+                      name: Speech
+                    - type: custom:button-card
+                      template: small
+                      entity: binary_sensor.house_mode
+                    - type: custom:button-card
+                      template: small
+                      entity: input_boolean.guest_mode
+                      tap_action:
+                        action: call-service
+                        service: script.house_mode_next
+                - type: horizontal-stack
+                  cards:
+                    - type: custom:button-card
+                      template: small
+                      entity: input_boolean.alarm_enabled
+                      name: Alarm
+                      styles:
+                        card:
+                          - width: 150px
+                    - type: entities
+                      entities:
+                        - entity: input_datetime.alarm_time
+                          name: Time
+
+            - type: vertical-stack
+              title: Sensors
+              cards:
+                - type: horizontal-stack
+                  cards:
+                    - type: custom:button-card
+                      template: small
+                      entity: binary_sensor.front_door_on_off_wrapper
+                    - type: custom:button-card
+                      template: small
+                      entity: binary_sensor.living_room_right_window_on_off_wrapper
+                      name: Living room
+                    - type: custom:button-card
+                      template: small
+                      entity: binary_sensor.bedroom_right_window_on_off_wrapper
+                      name: M. Bedroom
+
+                - type: horizontal-stack
+                  cards:
+                    - type: custom:button-card
+                      template: small
+                      entity: binary_sensor.browser_kitchen
+                      name: Kitchen motion
+                    - type: custom:button-card
+                      template: small
+                      entity: binary_sensor.motion_1_ias_zone
+                      name: Kitchen motion 2
+                    - type: custom:button-card
+                      template: small
+                      entity: binary_sensor.motion_2_ias_zone
+                      name: Hallway motion
+
+            - type: vertical-stack
+              title: Temperature
+              cards:
+                - type: "custom:mini-graph-card"
+                  name: M. Bedroom
+                  font_size: 75
+                  line_color: var(--color-blue)
+                  line_width: 4
+                  height: 40
+                  show:
+                    fill: fade
+                    labels: hover
+                    legend: false
+                  entities:
+                    - sensor.bedroom_weather_temperature
+
+        # Column 3
+        - type: vertical-stack
+          cards:
+            - type: vertical-stack
+              title: Media
+              cards:
+                - type: horizontal-stack
+                  cards:
+                    - type: custom:button-card
+                      template: small
+                      entity: sensor.philip_defranco
+                      name: Latest PDS
+                      tap_action:
+                        action: call-service
+                        service: script.youtube_play_latest_pds
+                    - type: custom:button-card
+                      template: small
+                      entity: script.music_play
+                      name: Chill
+                      icon: mdi:music
+                      tap_action:
+                        action: toggle
+                    - type: custom:button-card
+                      template: small
+                      entity: script.music_play
+                      name: Retro
+                      icon: mdi:music
+                      tap_action:
+                        action: call-service
+                        service: script.music_play
+                        service_data:
+                          playlist: "Retro"
+                    - type: custom:button-card
+                      template: small
+                      entity: script.tv_fireplace
+                      name: Fireplace
+                      tap_action:
+                        action: toggle
+
+                - type: horizontal-stack
+                  cards:
+                    - type: custom:button-card
+                      template: small
+                      entity: script.sonos_join_bedroom
+                      name: Sonos from Bedroom
+                      icon: mdi:speaker-multiple
+                      tap_action:
+                        action: toggle
+                    - type: custom:button-card
+                      template: small
+                      entity: script.sonos_join_tv
+                      icon: mdi:speaker-multiple
+                      name: Sonos from TV
+                      tap_action:
+                        action: toggle
+
+                - type: custom:decluttering-card
+                  template: sonos_media_player
+                  variables:
+                    - player: media_player.master_bedroom
+
+                - type: custom:decluttering-card
+                  template: sonos_media_player
+                  variables:
+                    - player: media_player.living_room
+
+                - type: horizontal-stack
+                  cards:
+                    - type: custom:decluttering-card
+                      template: sonos_media_player_small
+                      variables:
+                        - player: media_player.kitchen
+
+                    - type: custom:decluttering-card
+                      template: sonos_media_player_small
+                      variables:
+                        - player: media_player.bathroom
+
