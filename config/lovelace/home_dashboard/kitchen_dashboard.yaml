@@ -73,7 +73,6 @@
                   - top: 5px
                   - right: 5px
                   - font-size: 12px
-
           - type: custom:button-card
             template: small
             name: New filter

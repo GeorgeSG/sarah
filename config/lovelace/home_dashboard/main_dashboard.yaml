@@ -120,28 +120,44 @@
                     name: Pi-Hole
                     icon: mdi:pi-hole
 
-          - type: vertical-stack
-            title: Presence
+          - type: horizontal-stack
+            title: Brita
             cards:
-              - type: horizontal-stack
-                cards:
-                  - type: custom:button-card
-                    template: small
-                    entity: binary_sensor.georgi_home
-                    tap_action:
-                      action: call-service
-                      service: input_boolean.toggle
-                      service_data:
-                        entity_id: input_boolean.georgi_home
-                  - type: custom:button-card
-                    template: small
-                    entity: device_tracker.mikrotik_carbon
-                    name: Wifi
-                  - type: custom:button-card
-                    template: small
-                    entity: device_tracker.carbon
-                    name: GPS
-
+              - type: custom:button-card
+                template: small
+                name: Pour water
+                entity: script.brita_pour_water
+                custom_fields:
+                  remaining_liters: "[[[ return states['input_number.brita_remaining_liters'].state ]]]"
+                tap_action:
+                  action: toggle
+                styles:
+                  card:
+                    - background: >
+                        [[[
+                          var remaining = states['input_number.brita_remaining_liters'].state;
+                          var percent = 100 - (remaining / 150 * 100);
+                          return 'linear-gradient(180deg, var(--paper-card-background-color) 0%, var(--paper-card-background-color)' + percent + '%, var(--primary-color) ' + percent + '%)'
+                        ]]]
+                    - color: white
+                  icon:
+                    - color: white
+                  custom_fields:
+                    remaining_liters:
+                      - position: absolute
+                      - top: 5px
+                      - right: 5px
+                      - font-size: 12px
+              - type: custom:button-card
+                template: small
+                name: New filter
+                entity: script.brita_new_filter
+                tap_action:
+                  action: toggle
+              - type: custom:button-card
+                template: small
+                name: Filter
+                entity: binary_sensor.brita_should_change_filter
 
       # Column 2
       - type: vertical-stack
@@ -225,6 +241,29 @@
                   legend: false
                 entities:
                   - sensor.bedroom_weather_temperature
+
+          - type: vertical-stack
+            title: Presence
+            cards:
+              - type: horizontal-stack
+                cards:
+                  - type: custom:button-card
+                    template: small
+                    entity: binary_sensor.georgi_home
+                    tap_action:
+                      action: call-service
+                      service: input_boolean.toggle
+                      service_data:
+                        entity_id: input_boolean.georgi_home
+                  - type: custom:button-card
+                    template: small
+                    entity: device_tracker.mikrotik_carbon
+                    name: Wifi
+                  - type: custom:button-card
+                    template: small
+                    entity: device_tracker.carbon
+                    name: GPS
+
 
       # Column 3
       - type: vertical-stack
