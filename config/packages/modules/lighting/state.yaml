@@ -10,10 +10,7 @@ automation:
         state: "on"
     action:
       - service: light.turn_on
-        entity_id:
-          - light.living_room_all_lights
-          - light.master_bedroom_all_lights
-          - light.hallway_all_lights
+        entity_id: light.on_after_dark
         data:
           brightness_pct: 100
 

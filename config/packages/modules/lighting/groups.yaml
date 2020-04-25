@@ -68,6 +68,13 @@ light:
       - light.tuya_hallway_main_lights
 
   - platform: group
+    name: On after dark
+    entities:
+      - light.living_room_all_lights
+      - light.master_bedroom_main_lights
+      - light.hallway_all_lights
+
+  - platform: group
     name: Ceiling lights
     entities:
       - light.living_room_all_lights
