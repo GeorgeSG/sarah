@@ -12,7 +12,6 @@ script:
       - service: light.turn_on
         entity_id:
           - light.hallway_entrance_lights
-          - light.tuya_hallway_main_lights
           - light.bed_led
       - service: script.routine_coming_home_after_sunset
       - service: script.sonos_join_bedroom
