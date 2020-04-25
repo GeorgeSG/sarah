@@ -15,4 +15,4 @@ views:
         image: /local/images/floorplan/floorplan_night_transparent.png
         style: |
           height: 100%
-        elements: !include_dir_merge_list lovelace/floorplan-dashboard/picture_elements
+        elements: !include_dir_merge_list lovelace/floorplan_dashboard/picture_elements
