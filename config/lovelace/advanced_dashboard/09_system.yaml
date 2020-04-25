@@ -50,7 +50,9 @@ cards:
                 - automation.lighting_turn_on_ceiling_lights_after_sunset
                 - automation.lighting_turn_off_all_lights_after_sunrise
                 - type: divider
-                - automation.lighting_temperature_adjust_on_start
+                - automation.lighting_temperature_adjust_living_room_on_start
+                - automation.lighting_temperature_adjust_bedroom_on_start
+                - automation.lighting_temperature_adjust_entrance_on_start
                 - automation.lighting_temperature_adjust_based_on_time
                 - type: divider
                 - automation.lighting_master_bedroom_toggle_lights_on_bedside_switch_single_click
