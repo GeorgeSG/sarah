@@ -11,15 +11,15 @@ button_card_templates: !include_dir_merge_named lovelace/button_card_templates
 
 title: Sarah
 views:
-  - !include lovelace/home_dashboard/00_home.yaml
-  - !include lovelace/home_dashboard/01_living_room.yaml
-  - !include lovelace/home_dashboard/02_master_bedroom.yaml
-  - !include lovelace/home_dashboard/03_kitchen.yaml
-  - !include lovelace/home_dashboard/04_bathroom.yaml
-  - !include lovelace/home_dashboard/05_hallway.yaml
-  - !include lovelace/home_dashboard/06_lights.yaml
-  - !include lovelace/home_dashboard/07_media.yaml
-  - !include lovelace/home_dashboard/08_network.yaml
-  - !include lovelace/home_dashboard/09_system.yaml
-  - !include lovelace/home_dashboard/10_covid_19.yaml
-  - !include lovelace/home_dashboard/11_test.yaml
+  - !include lovelace/advanced_dashboard/00_home.yaml
+  - !include lovelace/advanced_dashboard/01_living_room.yaml
+  - !include lovelace/advanced_dashboard/02_master_bedroom.yaml
+  - !include lovelace/advanced_dashboard/03_kitchen.yaml
+  - !include lovelace/advanced_dashboard/04_bathroom.yaml
+  - !include lovelace/advanced_dashboard/05_hallway.yaml
+  - !include lovelace/advanced_dashboard/06_lights.yaml
+  - !include lovelace/advanced_dashboard/07_media.yaml
+  - !include lovelace/advanced_dashboard/08_network.yaml
+  - !include lovelace/advanced_dashboard/09_system.yaml
+  - !include lovelace/advanced_dashboard/10_covid_19.yaml
+  - !include lovelace/advanced_dashboard/11_test.yaml
