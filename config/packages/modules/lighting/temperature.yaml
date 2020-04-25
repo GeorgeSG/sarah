@@ -10,41 +10,21 @@ script:
           color_temp: "{{ 400 if is_state('sun.sun', 'above_horizon') else 500 }}"
 
 automation:
-  # Can't use the script for these automations, because they all could be fired at the same time.
-  # Hass can't run the script multiple times simultaneously.
-  - alias: Lighting · Temperature · Adjust Living room on start
+  - alias: Lighting · Temperature · Adjust on start
     trigger:
       platform: state
-      entity_id: light.living_room_main_lights
+      entity_id:
+        - light.living_room_main_lights
+        - light.master_bedroom_main_lights
+        - light.hallway_entrance_lights
       to: "on"
     action:
+      # Can't use the script here, because they all could be fired at the same time.
+      # Hass can't run the script multiple times simultaneously.
       - service: light.turn_on
-        entity_id: light.living_room_main_lights
         data_template:
+          entity_id: "{{ trigger.entity_id }}"
           color_temp: "{{ 400 if is_state('sun.sun', 'above_horizon') else 500 }}"
-
-  - alias: Lighting · Temperature · Adjust Bedroom on start
-    trigger:
-      platform: state
-      entity_id: light.master_bedroom_main_lights
-      to: "on"
-    action:
-      - service: light.turn_on
-        entity_id: light.master_bedroom_main_lights
-        data_template:
-          color_temp: "{{ 400 if is_state('sun.sun', 'above_horizon') else 500 }}"
-
-  - alias: Lighting · Temperature · Adjust Entrance on start
-    trigger:
-      platform: state
-      entity_id: light.hallway_entrance_lights
-      to: "on"
-    action:
-      - service: light.turn_on
-        entity_id: light.hallway_entrance_lights
-        data_template:
-          color_temp: "{{ 400 if is_state('sun.sun', 'above_horizon') else 500 }}"
-
 
   - alias: Lighting · Temperature · Adjust based on time
     trigger:
