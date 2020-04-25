@@ -1,59 +1,39 @@
+script:
+  lighting_temperature_adjust:
+    alias: Lighting · Temperature · Adjust
+    sequence:
+      - condition: template
+        value_template: "{{ is_state(entity_id, 'on') }}"
+      - service: light.turn_on
+        data_template:
+          entity_id: "{{ entity_id }}"
+          color_temp: "{{ 400 if is_state('sun.sun', 'above_horizon') else 500 }}"
+
 automation:
-  - alias: Lighting · Adjust temperature on start
+  - alias: Lighting · Temperature · Adjust on start
     trigger:
       platform: state
       entity_id:
         - light.living_room_main_lights
         - light.master_bedroom_main_lights
+        - light.hallway_entrance_lights
       to: "on"
     action:
-      - service: light.turn_on
+      - service: script.lighting_temperature_adjust
         data_template:
           entity_id: "{{ trigger.entity_id }}"
-          color_temp: >-
 
-            {% if is_state('sun.sun', 'above_horizon') %}
-              350
-            {% else %}
-              500
-            {% endif %}
-
-  - alias: Lighting · Master bedroom · Adjust temperature based on time
+  - alias: Lighting · Temperature · Adjust based on time
     trigger:
       platform: state
       entity_id: sun.sun
-    condition:
-      condition: state
-      entity_id: light.master_bedroom_main_lights
-      state: "on"
     action:
-      - service: light.turn_on
-        entity_id: light.master_bedroom_main_lights
-        data_template:
-          color_temp: >-
-
-            {% if is_state('sun.sun', 'above_horizon') %}
-              350
-            {% else %}
-              500
-            {% endif %}
-
-  - alias: Lighting · Living room · Adjust temperature based on time
-    trigger:
-      platform: state
-      entity_id: sun.sun
-    condition:
-      condition: state
-      entity_id: light.living_room_main_lights
-      state: "on"
-    action:
-      - service: light.turn_on
-        entity_id: light.living_room_main_lights
-        data_template:
-          color_temp: >-
-
-            {% if is_state('sun.sun', 'above_horizon') %}
-              350
-            {% else %}
-              500
-            {% endif %}
+      - service: script.lighting_temperature_adjust
+        data:
+          entity_id: light.master_bedroom_main_lights
+      - service: script.lighting_temperature_adjust
+        data:
+          entity_id: light.living_room_main_lights
+      - service: script.lighting_temperature_adjust
+        data:
+          entity_id: light.hallway_entrance_lights
