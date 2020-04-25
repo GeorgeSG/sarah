@@ -8,8 +8,8 @@ alexa:
         - light.master_bedroom_main_lights
         - light.bedside_light
         - light.tuya_kitchen_all_lights
-        - light.tuya_hallway_entrance_lights
-        - light.tuya_hallway_all_lights
+        - light.hallway_entrance_lights
+        - light.hallway_all_lights
         - light.tuya_hallway_main_lights
 
         - switch.camera
@@ -51,10 +51,10 @@ alexa:
         name: "Bedroom"
       light.tuya_kitchen_all_lights:
         name: "Kitchen"
-      light.tuya_hallway_entrance_lights:
-        name: "Entrance"
-      light.tuya_hallway_all_lights:
+      light.hallway_all_lights:
         name: "Hallway"
+      light.hallway_entrance_lights:
+        name: "Entrance"
       light.tuya_hallway_main_lights:
         name: "Hallway main"
       media_player.master_bedroom:

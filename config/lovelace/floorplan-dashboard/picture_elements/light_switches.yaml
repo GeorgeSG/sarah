@@ -50,7 +50,7 @@
 - type: custom:decluttering-card
   template: floorplan_state_icon
   variables:
-    - entity: light.tuya_hallway_entrance_lights
+    - entity: light.hallway_entrance_lights
     - top: 25%
     - left: 50.2%
 

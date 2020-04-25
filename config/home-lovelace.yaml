@@ -73,7 +73,7 @@ views:
                           name: Hallway
                         - type: custom:button-card
                           template: small
-                          entity: light.tuya_hallway_entrance_lights
+                          entity: light.hallway_entrance_lights
                           name: Entrance
 
                 - type: vertical-stack

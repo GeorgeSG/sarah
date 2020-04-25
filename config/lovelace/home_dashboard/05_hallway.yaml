@@ -18,26 +18,65 @@ cards:
       type: custom:layout-card
       layout: horizontal
       cards:
-        - type: entities
-          title: Lights
-          show_header_toggle: false
-          entities:
-            - light.tuya_hallway_all_lights
-            - light.tuya_hallway_entrance_lights
-            - light.tuya_hallway_main_lights
-            - type: divider
-            - type: custom:fold-entity-row
-              entity: light.hallway_entrance_lights
-              name: Entrance lights
+        - type: vertical-stack
+          cards:
+            - type: entities
+              title: Lights
+              entities: []
+
+            - type: horizontal-stack
+              cards:
+                - type: custom:button-card
+                  template: small
+                  entity: light.hallway_all_lights
+                  name: All lights
+                - type: custom:button-card
+                  template: small
+                  entity: light.hallway_entrance_lights
+                  name: Entrance
+                - type: custom:button-card
+                  template: small
+                  entity: light.tuya_hallway_main_lights
+                  name: Main
+
+            - type: entities
+              show_header_toggle: false
               entities:
-                - light.light_le_5
-                - light.light_le_6
-            - type: custom:fold-entity-row
-              entity: light.hallway_main_lights
-              name: Main lights
-              entities:
-                - light.light_le_7
-                - light.light_le_8
+                - type: custom:fold-entity-row
+                  entity: light.hallway_entrance_lights
+                  name: Entrance lights
+                  entities:
+                    - type: custom:slider-entity-row
+                      entity: light.hallway_entrance_lights
+                      name: Brightness
+                      hide_state: true
+                      step: 5
+                    - type: custom:slider-entity-row
+                      entity: light.hallway_entrance_lights
+                      name: Temperature
+                      attribute: color_temp
+                      hide_state: true
+                      min: 153
+                      max: 500
+                      step: 5
+                    - type: custom:decluttering-card
+                      template: light_with_fade_and_switch
+                      variables:
+                        - light: light.light_lohas_5
+                        - fade: switch.light_lohas_5_fade
+                        - wifi: sensor.light_lohas_5_wifi
+                    - type: custom:decluttering-card
+                      template: light_with_fade_and_switch
+                      variables:
+                        - light: light.light_lohas_6
+                        - fade: switch.light_lohas_6_fade
+                        - wifi: sensor.light_lohas_6_wifi
+                - type: custom:fold-entity-row
+                  entity: light.hallway_main_lights
+                  name: Main lights
+                  entities:
+                    - light.light_le_7
+                    - light.light_le_8
 
         - type: vertical-stack
           cards:

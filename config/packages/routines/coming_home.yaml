@@ -11,7 +11,7 @@ script:
       - service: script.security_camera_off
       - service: light.turn_on
         entity_id:
-          - light.tuya_hallway_entrance_lights
+          - light.hallway_entrance_lights
           - light.tuya_hallway_main_lights
           - light.bed_led
       - service: script.routine_coming_home_after_sunset

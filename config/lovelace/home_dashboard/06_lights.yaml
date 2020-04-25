@@ -24,11 +24,13 @@ cards:
           show_header_toggle: false
           entities:
             - light.living_room_all_lights
+            - type: divider
             - light.living_room_main_lights
             - light.light_lohas_1
             - light.light_lohas_2
             - light.light_lohas_3
             - light.light_lohas_4
+            - type: divider
             - light.pc
 
         - type: entities
@@ -37,11 +39,13 @@ cards:
           show_header_toggle: false
           entities:
             - light.master_bedroom_all_lights
+            - type: divider
             - light.master_bedroom_main_lights
             - light.light_le_1
             - light.light_le_2
             - light.light_le_3
             - light.light_le_4
+            - type: divider
             - light.bedside_light
 
         - type: entities
@@ -50,14 +54,17 @@ cards:
           show_header_toggle: false
           entities:
             - light.tuya_kitchen_all_lights
-            - light.tuya_kitchen_main_lights
-            - light.tuya_kitchen_secondary_lights
             - type: divider
+            - light.tuya_kitchen_main_lights
             - light.kitchen_main_lights
             - light.light_le_11
             - light.light_le_12
             - light.light_orbecco_1
+            - type: divider
+            - light.tuya_kitchen_secondary_lights
             - light.kitchen_secondary_lights
+            - light.light_le_5
+            - light.light_le_6
             - light.light_le_9
             - light.light_le_10
 
@@ -66,14 +73,13 @@ cards:
           icon: mdi:door-closed
           show_header_toggle: false
           entities:
-            - light.tuya_hallway_all_lights
-            - light.tuya_hallway_main_lights
-            - light.tuya_hallway_entrance_lights
-            - type: divider
             - light.hallway_all_lights
-            - light.hallway_main_lights
+            - type: divider
             - light.hallway_entrance_lights
-            - light.light_le_5
-            - light.light_le_6
+            - light.light_lohas_5
+            - light.light_lohas_6
+            - type: divider
+            - light.tuya_hallway_main_lights
+            - light.hallway_main_lights
             - light.light_le_7
             - light.light_le_8

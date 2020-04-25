@@ -38,6 +38,8 @@ light:
   - platform: group
     name: Kitchen secondary lights
     entities:
+      - light.light_le_5
+      - light.light_le_6
       - light.light_le_9
       - light.light_le_10
 
@@ -50,8 +52,8 @@ light:
   - platform: group
     name: Hallway entrance lights
     entities:
-      - light.light_le_5
-      - light.light_le_6
+      - light.light_lohas_5
+      - light.light_lohas_6
 
   - platform: group
     name: Hallway main lights
@@ -63,12 +65,6 @@ light:
     name: Hallway all lights
     entities:
       - light.hallway_entrance_lights
-      - light.hallway_main_lights
-
-  - platform: group
-    name: Tuya Hallway all lights
-    entities:
-      - light.tuya_hallway_entrance_lights
       - light.tuya_hallway_main_lights
 
   - platform: group
@@ -77,7 +73,7 @@ light:
       - light.living_room_all_lights
       - light.master_bedroom_main_lights
       - light.tuya_kitchen_all_lights
-      - light.tuya_hallway_all_lights
+      - light.hallway_all_lights
 
   - platform: group
     name: All lights
@@ -85,7 +81,7 @@ light:
       - light.living_room_all_lights
       - light.master_bedroom_all_lights
       - light.tuya_kitchen_all_lights
-      - light.tuya_hallway_all_lights
+      - light.hallway_all_lights
 
 homeassistant:
   customize:
@@ -97,6 +93,8 @@ homeassistant:
       icon: bha:ceiling-lamp-plafond
     light.kitchen_main_lights:
       icon: bha:ceiling-lamp-plafond
+    light.kitchen_secondary_lights:
+      icon: bha:ceiling-lamp-plafond
     light.tuya_kitchen_all_lights:
       icon: bha:ceiling-lamp-plafond
     light.hallway_entrance_lights:
@@ -104,8 +102,6 @@ homeassistant:
     light.hallway_main_lights:
       icon: bha:ceiling-lamp-plafond
     light.hallway_all_lights:
-      icon: bha:ceiling-lamp-plafond
-    light.tuya_hallway_all_lights:
       icon: bha:ceiling-lamp-plafond
     light.ceiling_lights:
       icon: mdi:ceiling-light

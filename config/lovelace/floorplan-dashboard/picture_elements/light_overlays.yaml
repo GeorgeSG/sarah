@@ -194,7 +194,7 @@
   conditions:
     - entity: binary_sensor.floorplan_night_mode
       state: "on"
-    - entity: light.tuya_hallway_entrance_lights
+    - entity: light.hallway_entrance_lights
       state: "on"
     - entity: light.tuya_hallway_main_lights
       state: "off"
@@ -212,7 +212,7 @@
   conditions:
     - entity: binary_sensor.floorplan_night_mode
       state: "on"
-    - entity: light.tuya_hallway_entrance_lights
+    - entity: light.hallway_entrance_lights
       state: "off"
     - entity: light.tuya_hallway_main_lights
       state: "on"
@@ -230,7 +230,7 @@
   conditions:
     - entity: binary_sensor.floorplan_night_mode
       state: "on"
-    - entity: light.tuya_hallway_entrance_lights
+    - entity: light.hallway_entrance_lights
       state: "on"
     - entity: light.tuya_hallway_main_lights
       state: "on"

@@ -12,7 +12,6 @@ input_boolean:
   tuya_kitchen_main_lights_state:
   tuya_kitchen_secondary_lights_state:
   tuya_hallway_main_lights_state:
-  tuya_hallway_entrance_lights_state:
 
 light:
   - platform: template
@@ -50,17 +49,6 @@ light:
           service: input_boolean.turn_off
           entity_id: input_boolean.tuya_hallway_main_lights_state
 
-      tuya_hallway_entrance_lights:
-        friendly_name: Entrance lights (scene)
-        value_template: "{{ is_state('input_boolean.tuya_hallway_entrance_lights_state', 'on') }}"
-        icon_template: bha:ceiling-lamp-plafond
-        turn_on:
-          service: input_boolean.turn_on
-          entity_id: input_boolean.tuya_hallway_entrance_lights_state
-        turn_off:
-          service: input_boolean.turn_off
-          entity_id: input_boolean.tuya_hallway_entrance_lights_state
-
 # Try to keep input_booleans consistent.
 automation:
   - alias: Lighting · Tuya · Update kitchen lights
@@ -70,7 +58,6 @@ automation:
         - input_boolean.tuya_kitchen_main_lights_state
         - input_boolean.tuya_kitchen_secondary_lights_state
         - input_boolean.tuya_hallway_main_lights_state
-        - input_boolean.tuya_hallway_entrance_lights_state
     action:
       - service: scene.turn_on
         data_template:
@@ -95,6 +82,3 @@ automation:
 
       - service_template: "input_boolean.turn_{{ states('light.hallway_main_lights') }}"
         entity_id: input_boolean.tuya_hallway_main_lights_state
-
-      - service_template: "input_boolean.turn_{{ states('light.hallway_entrance_lights') }}"
-        entity_id: input_boolean.tuya_hallway_entrance_lights_state

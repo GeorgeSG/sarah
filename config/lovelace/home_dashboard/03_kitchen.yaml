@@ -24,12 +24,24 @@ cards:
           cards:
             - type: entities
               title: Lights
+              entities: []
+            - type: horizontal-stack
+              cards:
+                - type: custom:button-card
+                  template: small
+                  entity: light.tuya_kitchen_all_lights
+                  name: All lights
+                - type: custom:button-card
+                  template: small
+                  entity: light.tuya_kitchen_main_lights
+                  name: Main
+                - type: custom:button-card
+                  template: small
+                  entity: light.tuya_kitchen_secondary_lights
+                  name: Secondary
+            - type: entities
               show_header_toggle: false
               entities:
-                - light.tuya_kitchen_all_lights
-                - light.tuya_kitchen_main_lights
-                - light.tuya_kitchen_secondary_lights
-                - type: divider
                 - type: custom:fold-entity-row
                   entity: light.kitchen_main_lights
                   name: Main lights
@@ -37,6 +49,14 @@ cards:
                     - light.light_le_11
                     - light.light_le_12
                     - light.light_orbecco_1
+                - type: custom:fold-entity-row
+                  entity: light.kitchen_secondary_lights
+                  name: Secondary lights
+                  entities:
+                    - light.light_le_5
+                    - light.light_le_6
+                    - light.light_le_9
+                    - light.light_le_10
 
             - type: custom:decluttering-card
               template: sonos_media_player

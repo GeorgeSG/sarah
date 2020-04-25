@@ -218,6 +218,60 @@ light:
     qos: 1
     retain: false
 
+  - platform: mqtt
+    name: "light_lohas_5"
+    availability_topic: "tele/light_lohas_5/LWT"
+    command_topic: "cmnd/light_lohas_5/POWER"
+    state_topic: "tele/light_lohas_5/STATE"
+    state_value_template: "{{ value_json.POWER }}"
+    brightness_command_topic: "cmnd/light_lohas_5/Dimmer"
+    brightness_state_topic: "tele/light_lohas_5/STATE"
+    brightness_scale: 100
+    on_command_type: "brightness"
+    brightness_value_template: "{{ value_json.Dimmer }}"
+    hs_command_topic: "cmnd/light_lohas_5/HSBColor"
+    hs_state_topic: "tele/light_lohas_5/STATE"
+    hs_value_template: "{{ value_json.HSBColor.split(',')[0:2]|join(',') }}"
+    color_temp_command_topic: "cmnd/light_lohas_5/CT"
+    color_temp_state_topic: "tele/light_lohas_5/STATE"
+    color_temp_value_template: "{{ value_json.CT }}"
+    rgb_command_topic: "cmnd/light_lohas_5/Color"
+    rgb_state_topic: "tele/pc_light/STATE"
+    rgb_value_template: "{{ value_json.Color.split(',')[0:3]|join(',') }}"
+    payload_on: "ON"
+    payload_off: "OFF"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    qos: 1
+    retain: false
+
+  - platform: mqtt
+    name: "light_lohas_6"
+    availability_topic: "tele/light_lohas_6/LWT"
+    command_topic: "cmnd/light_lohas_6/POWER"
+    state_topic: "tele/light_lohas_6/STATE"
+    state_value_template: "{{ value_json.POWER }}"
+    brightness_command_topic: "cmnd/light_lohas_6/Dimmer"
+    brightness_state_topic: "tele/light_lohas_6/STATE"
+    brightness_scale: 100
+    on_command_type: "brightness"
+    brightness_value_template: "{{ value_json.Dimmer }}"
+    hs_command_topic: "cmnd/light_lohas_6/HSBColor"
+    hs_state_topic: "tele/light_lohas_6/STATE"
+    hs_value_template: "{{ value_json.HSBColor.split(',')[0:2]|join(',') }}"
+    color_temp_command_topic: "cmnd/light_lohas_6/CT"
+    color_temp_state_topic: "tele/light_lohas_6/STATE"
+    color_temp_value_template: "{{ value_json.CT }}"
+    rgb_command_topic: "cmnd/light_lohas_6/Color"
+    rgb_state_topic: "tele/pc_light/STATE"
+    rgb_value_template: "{{ value_json.Color.split(',')[0:3]|join(',') }}"
+    payload_on: "ON"
+    payload_off: "OFF"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    qos: 1
+    retain: false
+
 sensor:
   - platform: mqtt
     name: "PC light WiFi"
@@ -306,6 +360,26 @@ sensor:
     payload_available: "Online"
     payload_not_available: "Offline"
     state_topic: "tele/light_lohas_4/STATE"
+    unit_of_measurement: "%"
+    value_template: "{{ value_json.Wifi.RSSI }}"
+
+  - platform: mqtt
+    name: "light_lohas_5_wifi"
+    availability_topic: "tele/light_lohas_5/LWT"
+    device_class: signal_strength
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    state_topic: "tele/light_lohas_5/STATE"
+    unit_of_measurement: "%"
+    value_template: "{{ value_json.Wifi.RSSI }}"
+
+  - platform: mqtt
+    name: "light_lohas_6_wifi"
+    availability_topic: "tele/light_lohas_6/LWT"
+    device_class: signal_strength
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    state_topic: "tele/light_lohas_6/STATE"
     unit_of_measurement: "%"
     value_template: "{{ value_json.Wifi.RSSI }}"
 
@@ -407,6 +481,28 @@ switch:
     payload_not_available: "Offline"
     qos: 1
     state_topic: "stat/light_lohas_4/RESULT"
+    value_template: "{{ value_json.Fade }}"
+
+  - platform: mqtt
+    name: "light_lohas_5_fade"
+    availability_topic: "tele/light_lohas_5/LWT"
+    command_topic: "cmnd/light_lohas_5/FADE"
+    icon: mdi:gradient
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    qos: 1
+    state_topic: "stat/light_lohas_5/RESULT"
+    value_template: "{{ value_json.Fade }}"
+
+  - platform: mqtt
+    name: "light_lohas_6_fade"
+    availability_topic: "tele/light_lohas_6/LWT"
+    command_topic: "cmnd/light_lohas_6/FADE"
+    icon: mdi:gradient
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    qos: 1
+    state_topic: "stat/light_lohas_6/RESULT"
     value_template: "{{ value_json.Fade }}"
 
 automation:
