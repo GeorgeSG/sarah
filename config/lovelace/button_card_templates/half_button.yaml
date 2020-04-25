@@ -1,0 +1,24 @@
+half:
+  size: 30px
+  show_icon: false
+  hold_action:
+    action: more-info
+  styles:
+    card:
+      - height: 45px
+      - font-size: 14px
+  state:
+    - value: 'on'
+      styles:
+        card:
+          - background-color: var(--primary-color)
+          - color: black
+        icon:
+          - color: black
+    - value: 'home'
+      styles:
+        card:
+          - background-color: var(--primary-color)
+          - color: black
+        icon:
+          - color: black
