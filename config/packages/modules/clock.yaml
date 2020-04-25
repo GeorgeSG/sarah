@@ -73,8 +73,9 @@ automation:
 
   - alias: Alarm · Set time
     trigger:
-      platform: time
-      at: "21:00:00"
+      platform: state
+      entity_id: input_select.house_mode
+      to: "day"
     action:
       - service: input_datetime.set_datetime
         data_template:
