@@ -134,13 +134,13 @@ automation:
       value_template: "{{ not is_state('input_select.house_mode', 'day') }}"
     action:
       - service: light.turn_on
-        entity_id: light.light_le_8
-        data:
-          brightness_pct: 13s
-      - service: light.turn_on
         entity_id: light.light_lohas_6
         data:
           brightness_pct: 30
+      - service: light.turn_on
+        entity_id: light.light_le_8
+        data:
+          brightness_pct: 13
 
   - alias: Lighting · Hallway · Night mode · Motion · Turn lights off
     trigger:
