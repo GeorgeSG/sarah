@@ -11,45 +11,8 @@ views:
     panel: true
     icon: mdi:floor-plan
     cards:
-      - type: 'custom:config-template-card'
-        entities:
-          - light.living_room_main_lights
-          - light.pc
-          - light.master_bedroom_main_lights
-          - light.bed_led
-          - light.bedside_light
-          - light.tuya_kitchen_main_lights
-          - light.tuya_kitchen_secondary_lights
-          - light.tuya_hallway_entrance_lights
-          - light.tuya_hallway_main_lights
-
-          - media_player.living_room
-          - media_player.master_bedroom
-          - media_player.kitchen
-          - media_player.bathroom
-          - media_player.nvidia_shield
-
-          - switch.camera
-          - switch.titanium_power
-          - sensor.synology_dsm_type_volume_1
-          - binary_sensor.living_room_right_window_on_off_wrapper
-
-          - fan.philips_airpurifier
-          - sensor.bedroom_weather_temperature
-          - binary_sensor.bedroom_right_window_on_off_wrapper
-
-          - binary_sensor.browser_kitchen
-          - binary_sensor.motion_1_ias_zone
-          - binary_sensor.motion_2_ias_zone
-
-          - input_boolean.floorplan_night_mode
-          - input_boolean.floorplan_show_all
-          - input_boolean.guest_mode
-          - input_boolean.speech_notifications
-          - input_boolean.georgi_home
-        card:
-          type: picture-elements
-          image: /local/images/floorplan/floorplan_night_transparent.png
-          style: |
-            height: 100%
-          elements: !include_dir_merge_list lovelace/floorplan-dashboard/picture_elements
+      - type: picture-elements
+        image: /local/images/floorplan/floorplan_night_transparent.png
+        style: |
+          height: 100%
+        elements: !include_dir_merge_list lovelace/floorplan-dashboard/picture_elements
