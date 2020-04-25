@@ -41,12 +41,12 @@
                     name: "M. Bedroom"
                   - type: custom:button-card
                     template: small
-                    entity: light.bedside_light
-                    name: Bedside
-                  - type: custom:button-card
-                    template: small
                     entity: light.bed_led
                     name: Bed
+                  - type: custom:button-card
+                    template: small
+                    entity: light.bedside_light
+                    name: Bedside
               - type: horizontal-stack
                 cards:
                   - type: custom:button-card
