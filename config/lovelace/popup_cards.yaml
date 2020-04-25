@@ -1,29 +1,36 @@
-general_popup_style: &popup_style
-  '--ha-card-border-radius': 0 0 0.8em 0.8em
-  border-radius: 0.8em
-  opacity: 0.95
-  margin-bottom: 200px
-
-broader_popup_style: &broad_popup_style
-  width: 40%
-  min-width: 500px
-
-no_margin: &no_margin
-  margin-bottom: 0
-
 binary_sensor.house_mode:
   title: House mode
-  style: *popup_style
+  style: &popup_style
+    '--ha-card-border-radius': 0 0 0.8em 0.8em
+    border-radius: 0.8em
+    opacity: 0.95
+    margin-bottom: 200px
   card:
     type: entities
     entities:
       - input_select.house_mode
 
+sensor.synology_dsm_type_volume_1:
+  title: Platinum
+  style: &popup_style_no_margin
+    '--ha-card-border-radius': 0 0 0.8em 0.8em
+    border-radius: 0.8em
+    opacity: 0.95
+    margin-bottom: 0
+    height: 80%
+  card:
+    type: custom:decluttering-card
+    template: platinum_card
+
 binary_sensor.motion_1_ias_zone:
   title: Kitchen motion
-  style:
-    <<: *popup_style
-    <<: *broad_popup_style
+  style: &broad_popup_style
+    '--ha-card-border-radius': 0 0 0.8em 0.8em
+    border-radius: 0.8em
+    opacity: 0.95
+    margin-bottom: 200px
+    width: 40%
+    min-width: 500px
   card:
     type: vertical-stack
     cards:
@@ -46,9 +53,7 @@ binary_sensor.motion_1_ias_zone:
 
 binary_sensor.motion_2_ias_zone:
   title: Hallway motion
-  style:
-    <<: *popup_style
-    <<: *broad_popup_style
+  style: *broad_popup_style
   card:
     type: vertical-stack
     cards:
@@ -155,9 +160,7 @@ light.living_room_main_lights:
 
 sensor.bedroom_weather_temperature:
   title: Bedroom climate
-  style:
-    <<: *popup_style
-    <<: *broad_popup_style
+  style: *broad_popup_style
   card:
     type: custom:decluttering-card
     template: bedroom_climate_card
@@ -169,39 +172,23 @@ fan.philips_airpurifier:
     type: custom:decluttering-card
     template: philips_airpurifier_card
 
-sensor.synology_dsm_type_volume_1:
-  title: Platinum
-  style:
-    <<: *popup_style
-    <<: *no_margin
-    height: 80%
-  card:
-    type: custom:decluttering-card
-    template: platinum_card
-
-
 switch.titanium_power:
   title: Titanium
-  style:
-    <<: *popup_style
+  style: *popup_style
   card:
     type: custom:decluttering-card
     template: titanium_card
 
 sensor.fast_com_download:
   title: Network Speed
-  style:
-    <<: *popup_style
-    <<: *broad_popup_style
+  style: *broad_popup_style
   card:
     type: custom:decluttering-card
     template: network_card
 
 binary_sensor.pi_hole_enabled:
   title: Pi-Hole
-  style:
-    <<: *popup_style
-    <<: *broad_popup_style
+  style: *broad_popup_style
   card:
     type: custom:decluttering-card
     template: pi_hole_card
