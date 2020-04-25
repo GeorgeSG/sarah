@@ -91,7 +91,6 @@
                           icon:
                             - color: black
 
-
                   - type: custom:button-card
                     template: small
                     entity: media_player.living_room_tv

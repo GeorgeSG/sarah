@@ -1,5 +1,6 @@
 custom_header:
   hide_header: true
+  disable_sidebar: false
 
 decluttering_templates: !include_dir_merge_named lovelace/decluttering_templates
 button_card_templates: !include_dir_merge_named lovelace/button_card_templates
