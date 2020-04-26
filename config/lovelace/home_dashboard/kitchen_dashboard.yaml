@@ -20,15 +20,15 @@
           - type: horizontal-stack
             cards:
               - type: custom:button-card
-                template: small
+                template: default
                 entity: light.tuya_kitchen_all_lights
                 name: Kitchen
               - type: custom:button-card
-                template: small
+                template: default
                 entity: light.tuya_kitchen_main_lights
                 name: Main
               - type: custom:button-card
-                template: small
+                template: default
                 entity: light.tuya_kitchen_secondary_lights
                 name: Secondary
               - type: vertical-stack
@@ -49,7 +49,7 @@
         title: Brita
         cards:
           - type: custom:button-card
-            template: small
+            template: default
             name: Pour water
             entity: script.brita_pour_water
             custom_fields:
@@ -74,13 +74,13 @@
                   - right: 5px
                   - font-size: 12px
           - type: custom:button-card
-            template: small
+            template: default
             name: New filter
             entity: script.brita_new_filter
             tap_action:
               action: toggle
           - type: custom:button-card
-            template: small
+            template: default
             name: Filter
             entity: binary_sensor.brita_should_change_filter
 

@@ -23,42 +23,42 @@
               - type: horizontal-stack
                 cards:
                   - type: custom:button-card
-                    template: small
+                    template: default
                     entity: light.ceiling_lights
                     name: Ceiling
                   - type: custom:button-card
-                    template: small
+                    template: default
                     entity: light.living_room_main_lights
                     name: Living room
                   - type: custom:button-card
-                    template: small
+                    template: default
                     entity: light.pc
               - type: horizontal-stack
                 cards:
                   - type: custom:button-card
-                    template: small
+                    template: default
                     entity: light.master_bedroom_main_lights
                     name: "M. Bedroom"
                   - type: custom:button-card
-                    template: small
+                    template: default
                     entity: light.bed_led
                     name: Bed
                   - type: custom:button-card
-                    template: small
+                    template: default
                     entity: light.bedside_light
                     name: Bedside
               - type: horizontal-stack
                 cards:
                   - type: custom:button-card
-                    template: small
+                    template: default
                     entity: light.tuya_kitchen_all_lights
                     name: Kitchen
                   - type: custom:button-card
-                    template: small
+                    template: default
                     entity: light.tuya_hallway_main_lights
                     name: Hallway
                   - type: custom:button-card
-                    template: small
+                    template: default
                     entity: light.hallway_entrance_lights
                     name: Entrance
 
@@ -68,7 +68,7 @@
               - type: horizontal-stack
                 cards:
                   - type: custom:button-card
-                    template: small
+                    template: default
                     entity: media_player.nvidia_shield
                     tap_action:
                       action: call-service
@@ -92,30 +92,30 @@
                             - color: black
 
                   - type: custom:button-card
-                    template: small
+                    template: default
                     entity: media_player.living_room_tv
                   - type: custom:button-card
-                    template: small
+                    template: default
                     entity: switch.titanium_power
 
               - type: horizontal-stack
                 cards:
                   - type: custom:button-card
-                    template: small
+                    template: default
                     entity: switch.camera
                     name: Camera
                   - type: custom:button-card
-                    template: small
+                    template: default
                     entity: fan.philips_airpurifier
                   - type: custom:button-card
-                    template: small
+                    template: default
                     entity: sensor.synology_dsm_type_volume_1
                     name: Platinum
                     icon: mdi:nas
                     tap_action:
                       action: more-info
                   - type: custom:button-card
-                    template: small
+                    template: default
                     entity: binary_sensor.pi_hole_enabled
                     name: Pi-Hole
                     icon: mdi:pi-hole
@@ -124,7 +124,7 @@
             title: Brita
             cards:
               - type: custom:button-card
-                template: small
+                template: default
                 name: Pour water
                 entity: script.brita_pour_water
                 custom_fields:
@@ -149,13 +149,13 @@
                       - right: 5px
                       - font-size: 12px
               - type: custom:button-card
-                template: small
+                template: default
                 name: New filter
                 entity: script.brita_new_filter
                 tap_action:
                   action: toggle
               - type: custom:button-card
-                template: small
+                template: default
                 name: Filter
                 entity: binary_sensor.brita_should_change_filter
 
@@ -168,14 +168,14 @@
               - type: horizontal-stack
                 cards:
                   - type: custom:button-card
-                    template: small
+                    template: default
                     entity: input_boolean.speech_notifications
                     name: Speech
                   - type: custom:button-card
-                    template: small
+                    template: default
                     entity: binary_sensor.house_mode
                   - type: custom:button-card
-                    template: small
+                    template: default
                     entity: input_boolean.guest_mode
                     tap_action:
                       action: call-service
@@ -183,7 +183,7 @@
               - type: horizontal-stack
                 cards:
                   - type: custom:button-card
-                    template: small
+                    template: default
                     entity: input_boolean.alarm_enabled
                     name: Alarm
                     styles:
@@ -200,47 +200,37 @@
               - type: horizontal-stack
                 cards:
                   - type: custom:button-card
-                    template: small
+                    template: default
                     entity: binary_sensor.front_door_on_off_wrapper
                   - type: custom:button-card
-                    template: small
-                    entity: binary_sensor.living_room_right_window_on_off_wrapper
-                    name: Living room
+                    template:
+                      - small
+                      - temperature
+                    name: M. Bedroom
+                    entity: sensor.bedroom_weather_temperature
                   - type: custom:button-card
-                    template: small
+                    template: default
                     entity: binary_sensor.bedroom_right_window_on_off_wrapper
                     name: M. Bedroom
 
               - type: horizontal-stack
                 cards:
                   - type: custom:button-card
-                    template: small
-                    entity: binary_sensor.browser_kitchen
-                    name: Kitchen motion
-                  - type: custom:button-card
-                    template: small
-                    entity: binary_sensor.motion_1_ias_zone
-                    name: Kitchen motion 2
-                  - type: custom:button-card
-                    template: small
+                    template: default
                     entity: binary_sensor.motion_2_ias_zone
-                    name: Hallway motion
-
-          - type: vertical-stack
-            title: Temperature
-            cards:
-              - type: "custom:mini-graph-card"
-                name: M. Bedroom
-                font_size: 75
-                line_color: var(--color-blue)
-                line_width: 4
-                height: 40
-                show:
-                  fill: fade
-                  labels: hover
-                  legend: false
-                entities:
-                  - sensor.bedroom_weather_temperature
+                    name: Hallway
+                  - type: custom:button-card
+                    template: default
+                    entity: binary_sensor.browser_kitchen
+                    name: Kitchen
+                  - type: custom:button-card
+                    template: default
+                    entity: binary_sensor.motion_1_ias_zone
+                    name: Kitchen 2
+                  - type: custom:button-card
+                    template: default
+                    entity: binary_sensor.living_room_right_window_on_off_wrapper
+                    name: Living room
 
           - type: vertical-stack
             title: Presence
@@ -248,7 +238,7 @@
               - type: horizontal-stack
                 cards:
                   - type: custom:button-card
-                    template: small
+                    template: default
                     entity: binary_sensor.georgi_home
                     tap_action:
                       action: call-service
@@ -256,11 +246,11 @@
                       service_data:
                         entity_id: input_boolean.georgi_home
                   - type: custom:button-card
-                    template: small
+                    template: default
                     entity: device_tracker.mikrotik_carbon
                     name: Wifi
                   - type: custom:button-card
-                    template: small
+                    template: default
                     entity: device_tracker.carbon
                     name: GPS
 
@@ -274,21 +264,21 @@
               - type: horizontal-stack
                 cards:
                   - type: custom:button-card
-                    template: small
+                    template: default
                     entity: sensor.philip_defranco
                     name: Latest PDS
                     tap_action:
                       action: call-service
                       service: script.youtube_play_latest_pds
                   - type: custom:button-card
-                    template: small
+                    template: default
                     entity: script.music_play
                     name: Chill
                     icon: mdi:music
                     tap_action:
                       action: toggle
                   - type: custom:button-card
-                    template: small
+                    template: default
                     entity: script.music_play
                     name: Retro
                     icon: mdi:music
@@ -298,7 +288,7 @@
                       service_data:
                         playlist: "Retro"
                   - type: custom:button-card
-                    template: small
+                    template: default
                     entity: script.tv_fireplace
                     name: Fireplace
                     tap_action:
@@ -307,14 +297,14 @@
               - type: horizontal-stack
                 cards:
                   - type: custom:button-card
-                    template: small
+                    template: default
                     entity: script.sonos_join_bedroom
                     name: Sonos from Bedroom
                     icon: mdi:speaker-multiple
                     tap_action:
                       action: toggle
                   - type: custom:button-card
-                    template: small
+                    template: default
                     entity: script.sonos_join_tv
                     icon: mdi:speaker-multiple
                     name: Sonos from TV

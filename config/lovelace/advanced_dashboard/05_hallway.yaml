@@ -27,15 +27,15 @@ cards:
             - type: horizontal-stack
               cards:
                 - type: custom:button-card
-                  template: small
+                  template: default
                   entity: light.hallway_all_lights
                   name: All lights
                 - type: custom:button-card
-                  template: small
+                  template: default
                   entity: light.hallway_entrance_lights
                   name: Entrance
                 - type: custom:button-card
-                  template: small
+                  template: default
                   entity: light.tuya_hallway_main_lights
                   name: Main
 

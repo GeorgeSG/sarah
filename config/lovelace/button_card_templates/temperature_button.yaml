@@ -1,0 +1,47 @@
+temperature:
+  variables:
+    min_value: 5
+    max_value: 45
+    normal: 19
+    hot: 23
+    color_cold: "var(--primary-color)"
+    color_normal: "var(--color-green)"
+    color_hot: "var(--color-red)"
+  show_state: true
+  show_name: true
+  # state_display: '[[[ return entity.state.toString().split(".")[0] ]]]'
+  styles:
+    name:
+      - position: absolute
+      - width: 100%
+      - text-align: center
+      - top: 64%
+      - font-size: 1em
+    state:
+      - position: absolute
+      - top: 15%
+      - width: 100%
+      - display: flex
+      - align-items: center
+      - justify-content: center
+      - font-size: 2em
+    icon:
+      - position: absolute
+        top: 0
+        right: 0
+        height: 16px
+    card:
+      - background: >
+          [[[
+            var temp = entity.state;
+
+            var color = temp < variables.normal
+              ? variables.color_cold
+              : temp < variables.hot
+                ? variables.color_normal
+                : variables.color_hot;
+            var percent = (temp - variables.min_value)/(variables.max_value - variables.min_value) * 100;
+            var gradient = 100 - percent;
+
+            return 'linear-gradient(180deg, var(--paper-card-background-color) 0%, var(--paper-card-background-color)' + gradient + '%, ' + color + ' ' + gradient + '%)'
+          ]]]

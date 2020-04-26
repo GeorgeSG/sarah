@@ -1,0 +1,4 @@
+default:
+  template:
+    - small
+    - with_state

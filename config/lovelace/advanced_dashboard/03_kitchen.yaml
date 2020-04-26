@@ -28,15 +28,15 @@ cards:
             - type: horizontal-stack
               cards:
                 - type: custom:button-card
-                  template: small
+                  template: default
                   entity: light.tuya_kitchen_all_lights
                   name: All lights
                 - type: custom:button-card
-                  template: small
+                  template: default
                   entity: light.tuya_kitchen_main_lights
                   name: Main
                 - type: custom:button-card
-                  template: small
+                  template: default
                   entity: light.tuya_kitchen_secondary_lights
                   name: Secondary
             - type: entities

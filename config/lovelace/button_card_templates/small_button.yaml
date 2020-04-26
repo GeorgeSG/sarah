@@ -8,18 +8,4 @@ small:
       - font-size: 14px
     name:
       - height: 30px
-  state:
-    - value: 'on'
-      styles:
-        card:
-          - background-color: var(--primary-color)
-          - color: black
-        icon:
-          - color: black
-    - value: 'home'
-      styles:
-        card:
-          - background-color: var(--primary-color)
-          - color: black
-        icon:
-          - color: black
+
