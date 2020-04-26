@@ -127,7 +127,9 @@
                     tap_action:
                       action: toggle
                   - type: custom:button-card
-                    template: xs
+                    template:
+                      - xs
+                      - with_state
                     entity: script.sonos_join_tv
                     icon: mdi:speaker-multiple
                     name: TV
@@ -137,21 +139,31 @@
       - type: horizontal-stack
         cards:
           - type: custom:button-card
-            template: xs
+            template:
+              - xs
+              - with_state
             entity: binary_sensor.browser_kitchen
             name: Motion
           - type: custom:button-card
-            template: xs
+            template:
+              - xs
+              - with_state
             entity: binary_sensor.motion_1_ias_zone
             name: Motion 2
           - type: custom:button-card
-            template: xs
+            template:
+              - xs
+              - with_state
             entity: binary_sensor.motion_2_ias_zone
             name: Hallway
           - type: custom:button-card
-            template: xs
+            template:
+              - xs
+              - with_state
             entity: media_player.nvidia_shield
             name: Shield
           - type: custom:button-card
-            template: xs
+            template:
+              - xs
+              - with_state
             entity: switch.titanium_power
