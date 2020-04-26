@@ -1,0 +1,64 @@
+script:
+  hdmi_switch_1:
+    alias: HDMI Swtich · Set to 1
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: cmnd/ir_blaster_1/IRSend
+          payload: '{ "Protocol": "NEC", "Bits": 32, "Data": "0x01FE48B7" }'
+
+  hdmi_switch_2:
+    alias: HDMI Swtich · Set to 2
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: cmnd/ir_blaster_1/IRSend
+          payload: '{ "Protocol": "NEC", "Bits": 32, "Data": "0x01FE58A7" }'
+
+  hdmi_switch_3:
+    alias: HDMI Swtich · Set to 3
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: cmnd/ir_blaster_1/IRSend
+          payload: '{ "Protocol": "NEC", "Bits": 32, "Data": "0x01FE7887" }'
+
+  hdmi_switch_4:
+    alias: HDMI Swtich · Set to 4
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: cmnd/ir_blaster_1/IRSend
+          payload: '{ "Protocol": "NEC", "Bits": 32, "Data": "0x01FE807F" }'
+
+  hdmi_switch_next:
+    alias: HDMI Swtich · Next
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: cmnd/ir_blaster_1/IRSend
+          payload: '{ "Protocol": "NEC", "Bits": 32, "Data": "0x01FEC03F" }'
+
+  hdmi_switch_pip:
+    alias: HDMI Swtich · PIP
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: cmnd/ir_blaster_1/IRSend
+          payload: '{ "Protocol": "NEC", "Bits": 32, "Data": "0x01FE50AF" }'
+
+  hdmi_switch_sel:
+    alias: HDMI Swtich · SEL
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: cmnd/ir_blaster_1/IRSend
+          payload: '{ "Protocol": "NEC", "Bits": 32, "Data": "0x01FED827" }'
+
+  hdmi_switch_enter:
+    alias: HDMI Swtich · Enter
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: cmnd/ir_blaster_1/IRSend
+          payload: '{ "Protocol": "NEC", "Bits": 32, "Data": "0x01FEF807" }'

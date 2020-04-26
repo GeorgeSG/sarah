@@ -1,0 +1,192 @@
+script:
+  bulsatcom_power:
+    alias: Bulsatcom · Power
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: cmnd/ir_blaster_1/IRSend
+          payload: '{ "Protocol": "NEC", "Bits": 32, "Data": "0x020250AF" }'
+
+  bulsatcom_up:
+    alias: Bulsatcom · Up
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: cmnd/ir_blaster_1/IRSend
+          payload: '{ "Protocol": "NEC", "Bits": 32, "Data": "0x0202D02F" }'
+
+  bulsatcom_down:
+    alias: Bulsatcom · Down
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: cmnd/ir_blaster_1/IRSend
+          payload: '{ "Protocol": "NEC", "Bits": 32, "Data": "0x0202708F" }'
+
+  bulsatcom_left:
+    alias: Bulsatcom · Left
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: cmnd/ir_blaster_1/IRSend
+          payload: '{ "Protocol": "NEC", "Bits": 32, "Data": "0x020208F7" }'
+
+  bulsatcom_right:
+    alias: Bulsatcom · Right
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: cmnd/ir_blaster_1/IRSend
+          payload: '{ "Protocol": "NEC", "Bits": 32, "Data": "0x02028877" }'
+
+  bulsatcom_ok:
+    alias: Bulsatcom · OK
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: cmnd/ir_blaster_1/IRSend
+          payload: '{ "Protocol": "NEC", "Bits": 32, "Data": "0x0202B04F" }'
+
+  bulsatcom_1:
+    alias: Bulsatcom · 1
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: cmnd/ir_blaster_1/IRSend
+          payload: '{ "Protocol": "NEC", "Bits": 32, "Data": "0x0202807F" }'
+
+  bulsatcom_2:
+    alias: Bulsatcom · 2
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: cmnd/ir_blaster_1/IRSend
+          payload: '{ "Protocol": "NEC", "Bits": 32, "Data": "0x020240BF" }'
+
+  bulsatcom_3:
+    alias: Bulsatcom · 3
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: cmnd/ir_blaster_1/IRSend
+          payload: '{ "Protocol": "NEC", "Bits": 32, "Data": "0x0202C03F" }'
+
+  bulsatcom_4:
+    alias: Bulsatcom · 4
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: cmnd/ir_blaster_1/IRSend
+          payload: '{ "Protocol": "NEC", "Bits": 32, "Data": "0x020220DF" }'
+
+  bulsatcom_5:
+    alias: Bulsatcom · 5
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: cmnd/ir_blaster_1/IRSend
+          payload: '{ "Protocol": "NEC", "Bits": 32, "Data": "0x0202A05F" }'
+
+  bulsatcom_6:
+    alias: Bulsatcom · 6
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: cmnd/ir_blaster_1/IRSend
+          payload: '{ "Protocol": "NEC", "Bits": 32, "Data": "0x0202609F" }'
+
+  bulsatcom_7:
+    alias: Bulsatcom · 7
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: cmnd/ir_blaster_1/IRSend
+          payload: '{ "Protocol": "NEC", "Bits": 32, "Data": "0x0202E01F" }'
+
+  bulsatcom_8:
+    alias: Bulsatcom · 8
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: cmnd/ir_blaster_1/IRSend
+          payload: '{ "Protocol": "NEC", "Bits": 32, "Data": "0x020210EF" }'
+
+  bulsatcom_9:
+    alias: Bulsatcom · 9
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: cmnd/ir_blaster_1/IRSend
+          payload: '{ "Protocol": "NEC", "Bits": 32, "Data": "0x0202906F" }'
+
+  bulsatcom_0:
+    alias: Bulsatcom · 0
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: cmnd/ir_blaster_1/IRSend
+          payload: '{ "Protocol": "NEC", "Bits": 32, "Data": "0x020200FF" }'
+
+  bulsatcom_back:
+    alias: Bulsatcom · Back
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: cmnd/ir_blaster_1/IRSend
+          payload: '{ "Protocol": "NEC", "Bits": 32, "Data": "0x0202827D" }'
+
+  bulsatcom_info:
+    alias: Bulsatcom · Info
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: cmnd/ir_blaster_1/IRSend
+          payload: '{ "Protocol": "NEC", "Bits": 32, "Data": "0x020242BD" }'
+
+  bulsatcom_menu:
+    alias: Bulsatcom · Menu
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: cmnd/ir_blaster_1/IRSend
+          payload: '{ "Protocol": "NEC", "Bits": 32, "Data": "0x020202FD" }'
+
+  bulsatcom_volume_down:
+    alias: Bulsatcom · Volume down
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: cmnd/ir_blaster_1/IRSend
+          payload: '{ "Protocol": "NEC", "Bits": 32, "Data": "0x020238C7" }'
+
+  bulsatcom_volume_up:
+    alias: Bulsatcom · Volume up
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: cmnd/ir_blaster_1/IRSend
+          payload: '{ "Protocol": "NEC", "Bits": 32, "Data": "0x0202A857" }'
+
+  bulsatcom_mute:
+    alias: Bulsatcom · Mute
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: cmnd/ir_blaster_1/IRSend
+          payload: '{ "Protocol": "NEC", "Bits": 32, "Data": "0x020230CF" }'
+
+  bulsatcom_clock:
+    alias: Bulsatcom · Clock
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: cmnd/ir_blaster_1/IRSend
+          payload: '{ "Protocol": "NEC", "Bits": 32, "Data": "0x020248B7" }'
+
+  bulsatcom_epg:
+    alias: Bulsatcom · EPG
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: cmnd/ir_blaster_1/IRSend
+          payload: '{ "Protocol": "NEC", "Bits": 32, "Data": "0x0202E21D" }'

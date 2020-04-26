@@ -23,3 +23,4 @@ views:
   - !include lovelace/advanced_dashboard/09_system.yaml
   - !include lovelace/advanced_dashboard/10_covid_19.yaml
   - !include lovelace/advanced_dashboard/11_test.yaml
+  - !include lovelace/advanced_dashboard/12_remotes.yaml
