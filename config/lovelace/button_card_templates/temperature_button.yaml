@@ -27,9 +27,10 @@ temperature:
       - font-size: 2em
     icon:
       - position: absolute
-        top: 0
-        right: 0
-        height: 16px
+      - top: 0
+      - right: 0
+      - height: 16px
+      - transform: translateX(5px)
     card:
       - background: >
           [[[
