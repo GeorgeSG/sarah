@@ -1,7 +1,7 @@
 progress:
   variables:
     min_value: 5
-    max_value: 45
+    max_value: 40
     normal_value: 19
     high_value: 23
     low_color: "var(--primary-color)"
