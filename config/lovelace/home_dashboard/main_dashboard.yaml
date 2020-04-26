@@ -194,6 +194,34 @@
                       - entity: input_datetime.alarm_time
                         name: Time
 
+          - type: horizontal-stack
+            title: Bedroom
+            cards:
+              - type: custom:button-card
+                template:
+                  - small
+                  - progress
+                name: Temperature
+                entity: sensor.bedroom_weather_temperature
+              - type: custom:button-card
+                template:
+                  - small
+                  - progress
+                name: Humidity
+                entity: sensor.bedroom_weather_humidity
+                variables:
+                  min_value: 25
+                  max_value: 90
+                  normal_value: 40
+                  high_value: 65
+                  low_color: "var(--color-red)"
+                  normal_color: "var(--color-green)"
+                  high_color: "var(--color-red)"
+              - type: custom:button-card
+                template: default
+                entity: binary_sensor.bedroom_right_window_on_off_wrapper
+                name: Window
+
           - type: vertical-stack
             title: Sensors
             cards:
@@ -203,16 +231,9 @@
                     template: default
                     entity: binary_sensor.front_door_on_off_wrapper
                   - type: custom:button-card
-                    template:
-                      - small
-                      - temperature
-                    name: M. Bedroom
-                    entity: sensor.bedroom_weather_temperature
-                  - type: custom:button-card
                     template: default
-                    entity: binary_sensor.bedroom_right_window_on_off_wrapper
-                    name: M. Bedroom
-
+                    entity: binary_sensor.living_room_right_window_on_off_wrapper
+                    name: Living room
               - type: horizontal-stack
                 cards:
                   - type: custom:button-card
@@ -227,10 +248,6 @@
                     template: default
                     entity: binary_sensor.motion_1_ias_zone
                     name: Kitchen 2
-                  - type: custom:button-card
-                    template: default
-                    entity: binary_sensor.living_room_right_window_on_off_wrapper
-                    name: Living room
 
           - type: vertical-stack
             title: Presence
