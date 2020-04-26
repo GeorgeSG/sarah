@@ -35,7 +35,6 @@ lovelace:
       mode: yaml
       title: Kitchen
       icon: mdi:chef-hat
-
       show_in_sidebar: false
       filename: kitchen-lovelace.yaml
     lovelace-floorlan:
