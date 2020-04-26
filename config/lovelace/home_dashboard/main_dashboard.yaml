@@ -195,8 +195,12 @@
                         name: Time
 
           - type: horizontal-stack
-            title: Bedroom
+            title: Climate
             cards:
+              - type: custom:button-card
+                template: default
+                entity: binary_sensor.bedroom_right_window_on_off_wrapper
+                name: M. Bedroom
               - type: custom:button-card
                 template:
                   - small
@@ -217,10 +221,6 @@
                   low_color: "var(--color-red)"
                   normal_color: "var(--color-green)"
                   high_color: "var(--color-red)"
-              - type: custom:button-card
-                template: default
-                entity: binary_sensor.bedroom_right_window_on_off_wrapper
-                name: Window
 
           - type: vertical-stack
             title: Sensors
