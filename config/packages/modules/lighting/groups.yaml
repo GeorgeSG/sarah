@@ -2,10 +2,10 @@ light:
   - platform: group
     name: Living room main lights
     entities:
-      - light.light_lohas_1
-      - light.light_lohas_2
-      - light.light_lohas_3
-      - light.light_lohas_4
+      - light.light_le_1
+      - light.light_le_2
+      - light.light_le_3
+      - light.light_le_4
 
   - platform: group
     name: Living room all lights
@@ -16,10 +16,10 @@ light:
   - platform: group
     name: Master bedroom main lights
     entities:
-      - light.light_le_1
-      - light.light_le_2
-      - light.light_le_3
-      - light.light_le_4
+      - light.light_lohas_1
+      - light.light_lohas_2
+      - light.light_lohas_3
+      - light.light_lohas_4
 
   - platform: group
     name: Master bedroom all lights

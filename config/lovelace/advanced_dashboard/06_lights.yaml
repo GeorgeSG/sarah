@@ -41,10 +41,10 @@ cards:
             - light.master_bedroom_all_lights
             - type: divider
             - light.master_bedroom_main_lights
-            - light.light_le_1
-            - light.light_le_2
-            - light.light_le_3
-            - light.light_le_4
+            - light.light_lohas_1
+            - light.light_lohas_2
+            - light.light_lohas_3
+            - light.light_lohas_4
             - type: divider
             - light.bedside_light
 

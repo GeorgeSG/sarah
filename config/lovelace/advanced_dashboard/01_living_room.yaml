@@ -50,27 +50,27 @@ cards:
                     - type: custom:decluttering-card
                       template: light_with_fade_and_switch
                       variables:
-                        - light: light.light_lohas_1
-                        - fade: switch.light_lohas_1_fade
-                        - wifi: sensor.light_lohas_1_wifi
+                        - light: light.light_le_1
+                        - fade: switch.light_le_1_fade
+                        - wifi: sensor.light_le_1_wifi
                     - type: custom:decluttering-card
                       template: light_with_fade_and_switch
                       variables:
-                        - light: light.light_lohas_2
-                        - fade: switch.light_lohas_2_fade
-                        - wifi: sensor.light_lohas_2_wifi
+                        - light: light.light_le_2
+                        - fade: switch.light_le_2_fade
+                        - wifi: sensor.light_le_2_wifi
                     - type: custom:decluttering-card
                       template: light_with_fade_and_switch
                       variables:
-                        - light: light.light_lohas_3
-                        - fade: switch.light_lohas_3_fade
-                        - wifi: sensor.light_lohas_3_wifi
+                        - light: light.light_le_3
+                        - fade: switch.light_le_3_fade
+                        - wifi: sensor.light_le_3_wifi
                     - type: custom:decluttering-card
                       template: light_with_fade_and_switch
                       variables:
-                        - light: light.light_lohas_4
-                        - fade: switch.light_lohas_4_fade
-                        - wifi: sensor.light_lohas_4_wifi
+                        - light: light.light_le_4
+                        - fade: switch.light_le_4_fade
+                        - wifi: sensor.light_le_4_wifi
                 - type: custom:fold-entity-row
                   head:
                     type: custom:decluttering-card
