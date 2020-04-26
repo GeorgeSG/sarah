@@ -15,11 +15,11 @@ temperature:
       - position: absolute
       - width: 100%
       - text-align: center
-      - top: 64%
+      - top: 66%
       - font-size: 1em
     state:
       - position: absolute
-      - top: 15%
+      - top: 16%
       - width: 100%
       - display: flex
       - align-items: center
