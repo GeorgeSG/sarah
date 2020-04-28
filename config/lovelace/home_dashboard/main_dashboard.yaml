@@ -70,11 +70,10 @@
                   - type: custom:button-card
                     template: default
                     entity: media_player.nvidia_shield
+                    name: TV
+                    icon: mdi:television
                     tap_action:
-                      action: call-service
-                      service: media_player.toggle
-                      service_data:
-                        entity_id: media_player.nvidia_shield
+                      action: toggle
                     state:
                       - value: 'playing'
                         styles:
@@ -93,12 +92,15 @@
 
                   - type: custom:button-card
                     template: default
-                    entity: media_player.living_room_tv
-                    tap_action:
-                      action: toggle
+                    entity: switch.titanium_power
+
                   - type: custom:button-card
                     template: default
-                    entity: switch.titanium_power
+                    entity: sensor.synology_dsm_type_volume_1
+                    name: Platinum
+                    icon: mdi:nas
+                    tap_action:
+                      action: more-info
 
               - type: horizontal-stack
                 cards:
@@ -109,13 +111,6 @@
                   - type: custom:button-card
                     template: default
                     entity: fan.philips_airpurifier
-                  - type: custom:button-card
-                    template: default
-                    entity: sensor.synology_dsm_type_volume_1
-                    name: Platinum
-                    icon: mdi:nas
-                    tap_action:
-                      action: more-info
                   - type: custom:button-card
                     template: default
                     entity: binary_sensor.pi_hole_enabled

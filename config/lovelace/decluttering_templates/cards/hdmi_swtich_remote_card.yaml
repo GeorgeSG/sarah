@@ -1,0 +1,93 @@
+hdmi_switch_remote_card:
+  card:
+    type: picture-elements
+    image: /local/images/remotes/hdmi_switcher.png
+    elements:
+      - type: image
+        image: /local/images/floorplan/transparent.png
+        entity: script.hdmi_switch_1
+        tap_action:
+          action: toggle
+        style:
+          width: 23.6%
+          height: 11.8%
+          top: 9.6%
+          left: 19.5%
+          border-radius: 50%
+      - type: image
+        image: /local/images/floorplan/transparent.png
+        entity: script.hdmi_switch_2
+        tap_action:
+          action: toggle
+        style:
+          width: 23.6%
+          height: 11.8%
+          top: 9.6%
+          left: 50%
+          border-radius: 50%
+      - type: image
+        image: /local/images/floorplan/transparent.png
+        entity: script.hdmi_switch_3
+        tap_action:
+          action: toggle
+        style:
+          width: 23.6%
+          height: 11.8%
+          top: 9.6%
+          left: 80.5%
+          border-radius: 50%
+      - type: image
+        image: /local/images/floorplan/transparent.png
+        entity: script.hdmi_switch_4
+        tap_action:
+          action: toggle
+        style:
+          width: 23.6%
+          height: 11.8%
+          top: 23%
+          left: 19.5%
+          border-radius: 50%
+      - type: image
+        image: /local/images/floorplan/transparent.png
+        entity: script.hdmi_switch_next
+        tap_action:
+          action: toggle
+        style:
+          width: 23.6%
+          height: 11.8%
+          top: 23%
+          left: 80.5%
+          border-radius: 50%
+      - type: image
+        image: /local/images/floorplan/transparent.png
+        entity: script.hdmi_switch_pip
+        tap_action:
+          action: toggle
+        style:
+          width: 23.6%
+          height: 11.8%
+          top: 63.7%
+          left: 19.5%
+          border-radius: 50%
+      - type: image
+        image: /local/images/floorplan/transparent.png
+        entity: script.hdmi_switch_sel
+        tap_action:
+          action: toggle
+        style:
+          width: 23.6%
+          height: 11.8%
+          top: 63.7%
+          left: 50%
+          border-radius: 50%
+      - type: image
+        image: /local/images/floorplan/transparent.png
+        entity: script.hdmi_switch_enter
+        tap_action:
+          action: toggle
+        style:
+          width: 23.6%
+          height: 11.8%
+          top: 63.7%
+          left: 80.5%
+          border-radius: 50%

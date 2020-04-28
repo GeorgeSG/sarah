@@ -1,0 +1,268 @@
+bulsatcom_remote_card:
+  card:
+    type: picture-elements
+    image: /local/images/remotes/bulsatcom.png
+    elements:
+      - type: image
+        image: /local/images/floorplan/transparent.png
+        entity: script.bulsatcom_power
+        tap_action:
+          action: toggle
+        style:
+          width: 23.6%
+          height: 6.8%
+          top: 6.6%
+          left: 22%
+          border-radius: 50%
+      - type: image
+        image: /local/images/floorplan/transparent.png
+        entity: script.bulsatcom_mute
+        tap_action:
+          action: toggle
+        style:
+          width: 23.6%
+          height: 6.8%
+          top: 6.6%
+          left: 81%
+          border-radius: 50%
+      - type: image
+        image: /local/images/floorplan/transparent.png
+        entity: script.bulsatcom_ok
+        tap_action:
+          action: toggle
+        style:
+          width: 42.1%
+          height: 12%
+          top: 23%
+          left: 51.2%
+          border-radius: 50%
+      - type: image
+        image: /local/images/floorplan/transparent.png
+        entity: script.bulsatcom_left
+        tap_action:
+          action: toggle
+        style:
+          width: 18%
+          height: 5%
+          top: 23%
+          left: 19%
+      - type: image
+        image: /local/images/floorplan/transparent.png
+        entity: script.bulsatcom_right
+        tap_action:
+          action: toggle
+        style:
+          width: 18%
+          height: 5%
+          top: 23%
+          left: 83.8%
+      - type: image
+        image: /local/images/floorplan/transparent.png
+        entity: script.bulsatcom_up
+        tap_action:
+          action: toggle
+        style:
+          width: 50%
+          height: 4%
+          top: 14%
+          left: 51%
+      - type: image
+        image: /local/images/floorplan/transparent.png
+        entity: script.bulsatcom_down
+        tap_action:
+          action: toggle
+        style:
+          width: 50%
+          height: 4%
+          top: 32%
+          left: 51%
+      - type: image
+        image: /local/images/floorplan/transparent.png
+        entity: script.bulsatcom_back
+        tap_action:
+          action: toggle
+        style:
+          width: 23.6%
+          height: 6.8%
+          top: 39%
+          left: 21.2%
+          border-radius: 50%
+      - type: image
+        image: /local/images/floorplan/transparent.png
+        entity: script.bulsatcom_menu
+        tap_action:
+          action: toggle
+        style:
+          width: 28%
+          height: 8%
+          top: 43.5%
+          left: 51.4%
+          border-radius: 50%
+      - type: image
+        image: /local/images/floorplan/transparent.png
+        entity: script.bulsatcom_info
+        tap_action:
+          action: toggle
+        style:
+          width: 23.6%
+          height: 6.8%
+          top: 39%
+          left: 81.2%
+          border-radius: 50%
+      - type: image
+        image: /local/images/floorplan/transparent.png
+        entity: script.bulsatcom_volume_down
+        tap_action:
+          action: toggle
+        style:
+          width: 36.9%
+          height: 6.2%
+          top: 54%
+          left: 29.4%
+          border-top-left-radius: 45%
+          border-bottom-left-radius: 45%
+      - type: image
+        image: /local/images/floorplan/transparent.png
+        entity: script.bulsatcom_volume_up
+        tap_action:
+          action: toggle
+        style:
+          width: 36.9%
+          height: 6.2%
+          top: 54%
+          left: 72%
+          border-top-right-radius: 45%
+          border-bottom-right-radius: 45%
+      - type: image
+        image: /local/images/floorplan/transparent.png
+        entity: script.bulsatcom_1
+        tap_action:
+          action: toggle
+        style:
+          width: 22.2%
+          height: 4%
+          top: 62.5%
+          left: 20.5%
+          border-radius: 40%
+      - type: image
+        image: /local/images/floorplan/transparent.png
+        entity: script.bulsatcom_2
+        tap_action:
+          action: toggle
+        style:
+          width: 22.2%
+          height: 4%
+          top: 62.5%
+          left: 51%
+          border-radius: 40%
+      - type: image
+        image: /local/images/floorplan/transparent.png
+        entity: script.bulsatcom_3
+        tap_action:
+          action: toggle
+        style:
+          width: 22.2%
+          height: 4%
+          top: 62.5%
+          left: 81.5%
+          border-radius: 40%
+      - type: image
+        image: /local/images/floorplan/transparent.png
+        entity: script.bulsatcom_4
+        tap_action:
+          action: toggle
+        style:
+          width: 22.2%
+          height: 4%
+          top: 69.5%
+          left: 20.5%
+          border-radius: 40%
+      - type: image
+        image: /local/images/floorplan/transparent.png
+        entity: script.bulsatcom_5
+        tap_action:
+          action: toggle
+        style:
+          width: 22.2%
+          height: 4%
+          top: 69.5%
+          left: 51%
+          border-radius: 40%
+      - type: image
+        image: /local/images/floorplan/transparent.png
+        entity: script.bulsatcom_6
+        tap_action:
+          action: toggle
+        style:
+          width: 22.2%
+          height: 4%
+          top: 69.5%
+          left: 81.5%
+          border-radius: 40%
+      - type: image
+        image: /local/images/floorplan/transparent.png
+        entity: script.bulsatcom_7
+        tap_action:
+          action: toggle
+        style:
+          width: 22.2%
+          height: 4%
+          top: 76.5%
+          left: 21.5%
+          border-radius: 40%
+      - type: image
+        image: /local/images/floorplan/transparent.png
+        entity: script.bulsatcom_8
+        tap_action:
+          action: toggle
+        style:
+          width: 22.2%
+          height: 4%
+          top: 76.5%
+          left: 51%
+          border-radius: 40%
+      - type: image
+        image: /local/images/floorplan/transparent.png
+        entity: script.bulsatcom_9
+        tap_action:
+          action: toggle
+        style:
+          width: 22.2%
+          height: 4%
+          top: 76.5%
+          left: 81.5%
+          border-radius: 40%
+      - type: image
+        image: /local/images/floorplan/transparent.png
+        entity: script.bulsatcom_epg
+        tap_action:
+          action: toggle
+        style:
+          width: 22.2%
+          height: 4%
+          top: 83.5%
+          left: 21.5%
+          border-radius: 40%
+      - type: image
+        image: /local/images/floorplan/transparent.png
+        entity: script.bulsatcom_0
+        tap_action:
+          action: toggle
+        style:
+          width: 22.2%
+          height: 4%
+          top: 83.5%
+          left: 51%
+          border-radius: 40%
+      - type: image
+        image: /local/images/floorplan/transparent.png
+        entity: script.bulsatcom_clock
+        tap_action:
+          action: toggle
+        style:
+          width: 22.2%
+          height: 4%
+          top: 83.5%
+          left: 81.5%
+          border-radius: 40%
+

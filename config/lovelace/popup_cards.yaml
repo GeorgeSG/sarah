@@ -124,12 +124,45 @@ media_player.master_bedroom:
     variables:
       - player: media_player.master_bedroom
 
-media_player.nvidia_shield:
+media_player.nvidia_shield: &nvidia_shield
   title: TV
   style: *popup_style
   card:
     type: vertical-stack
     cards:
+      - type: horizontal-stack
+        cards:
+          - type: custom:button-card
+            icon: mdi:set-top-box
+            name: Set to Shield
+            template: default
+            tap_action:
+              action: call-service
+              service: media_player.select_source
+              service_data:
+                entity_id: media_player.living_room_tv
+                source: Shield
+
+          - type: custom:button-card
+            name: Set to Switch
+            icon: mdi:video-input-hdmi
+            template: default
+            tap_action:
+              action: call-service
+              service: media_player.select_source
+              service_data:
+                entity_id: media_player.living_room_tv
+                source: Switch
+
+
+          - type: custom:button-card
+            name: Bulsatcom
+            icon: mdi:remote-tv
+            template: default
+            tap_action:
+              action: call-service
+              service: script.tv_bulsatcom_toggle
+
       - type: "custom:mini-media-player"
         entity: media_player.nvidia_shield
 
@@ -140,6 +173,15 @@ media_player.nvidia_shield:
         template: sonos_media_player
         variables:
           - player: media_player.living_room
+
+      - type: horizontal-stack
+        cards:
+          - type: custom:decluttering-card
+            template: hdmi_switch_remote_card
+          - type: custom:decluttering-card
+            template: bulsatcom_remote_card
+
+media_player.living_room_tv: *nvidia_shield
 
 light.living_room_main_lights:
   title: Living room lights

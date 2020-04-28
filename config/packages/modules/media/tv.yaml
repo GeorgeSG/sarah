@@ -36,6 +36,22 @@ script:
           media_content_id: "https://www.youtube.com/watch?v=AWKzr6n0ea0"
           media_content_type: video/youtube
 
+  tv_bulsatcom_toggle:
+    icon: mdi:remote-tv
+    alias: TV · Bulsatcom toggle
+    sequence:
+      - service: script.bulsatcom_power
+      - condition: state
+        entity_id: media_player.living_room_tv
+        state: "off"
+      - service: media_player.turn_on
+        entity_id: media_player.living_room_tv
+      - service: script.hdmi_switch_1
+      - service: media_player.select_source
+        entity_id: media_player.living_room_tv
+        data:
+          source: Switch
+
   latest_pds:
     alias: Play the latest PDS
     sequence:
@@ -60,6 +76,10 @@ script:
           volume_level: "{{ volume_level | default(0.3) }}"
       - service: media_player.turn_on
         entity_id: media_player.nvidia_shield
+      - service: media_player.select_source
+        entity_id: media_player.living_room_tv
+        data:
+          source: Shield
 
 automation:
   - alias: TV · Join Beam to Sonos group when off
@@ -76,6 +96,7 @@ automation:
         data:
           master: media_player.master_bedroom
           entity_id: media_player.living_room
+
   - alias: TV · State · Sync on TV on
     trigger:
       platform: state
@@ -106,6 +127,7 @@ automation:
         entity_id: media_player.living_room_tv
         data:
           source: "Shield"
+
 
   - alias: TV · State · Sync on Shield off
     trigger:
