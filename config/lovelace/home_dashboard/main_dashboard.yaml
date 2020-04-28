@@ -94,6 +94,8 @@
                   - type: custom:button-card
                     template: default
                     entity: media_player.living_room_tv
+                    tap_action:
+                      action: toggle
                   - type: custom:button-card
                     template: default
                     entity: switch.titanium_power

@@ -79,6 +79,11 @@ cards:
                 tap_action: none
               entities:
                 - automation.tv_join_beam_to_sonos_group_when_off
+                - automation.tv_state_sync_on_tv_on
+                - automation.tv_state_sync_on_tv_off
+                - automation.tv_state_sync_on_shield_on
+                - automation.tv_state_sync_on_shield_off
+                - type: divider
                 - automation.tv_plex_setup_house_for_plex
                 - automation.tv_plex_restore_house_after_plex
                 - automation.youtube_download_latest_pds

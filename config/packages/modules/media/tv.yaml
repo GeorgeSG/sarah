@@ -76,6 +76,45 @@ automation:
         data:
           master: media_player.master_bedroom
           entity_id: media_player.living_room
+  - alias: TV · State · Sync on TV on
+    trigger:
+      platform: state
+      entity_id: media_player.living_room_tv
+      to: "on"
+    action:
+      - service: media_player.turn_on
+        entity_id: media_player.nvidia_shield
+
+  - alias: TV · State · Sync on TV off
+    trigger:
+      platform: state
+      entity_id: media_player.living_room_tv
+      to: "off"
+    action:
+      - service: media_player.turn_off
+        entity_id: media_player.nvidia_shield
+
+  - alias: TV · State · Sync on Shield on
+    trigger:
+      platform: state
+      entity_id: media_player.nvidia_shield
+      from: "off"
+    action:
+      - service: media_player.turn_on
+        entity_id: media_player.living_room_tv
+      - service: media_player.select_source
+        entity_id: media_player.living_room_tv
+        data:
+          source: "Shield"
+
+  - alias: TV · State · Sync on Shield off
+    trigger:
+      platform: state
+      entity_id: media_player.nvidia_shield
+      to: "off"
+    action:
+      - service: media_player.turn_off
+        entity_id: media_player.living_room_tv
 
 homeassistant:
   customize:
