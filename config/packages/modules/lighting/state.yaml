@@ -109,7 +109,7 @@ automation:
       entity_id: binary_sensor.motion_1_ias_zone
       to: "off"
       for:
-        minutes: 10
+        minutes: 5
     condition:
       condition: template
       value_template: "{{ not is_state('input_select.house_mode', 'day') }}"
@@ -120,6 +120,44 @@ automation:
           brightness_pct: 100
       - service: light.turn_off
         entity_id: light.light_le_12
+
+  - alias: Lighting · Hallway · Day mode · Motion · Turn lights on
+    trigger:
+      platform: state
+      entity_id: binary_sensor.motion_2_ias_zone
+      to: "on"
+    condition:
+      condition: and
+      conditions:
+        - condition: state
+          entity_id: input_select.house_mode
+          state: 'day'
+        - condition: state
+          entity_id: sun.sun
+          state: 'below_horizon'
+    action:
+      - service: light.turn_on
+        entity_id: light.hallway_all_lights
+
+  - alias: Lighting · Hallway · Day mode · Motion · Turn lights off
+    trigger:
+      platform: state
+      entity_id: binary_sensor.motion_2_ias_zone
+      to: "off"
+      for:
+        minutes: 5
+    condition:
+      condition: and
+      conditions:
+        - condition: state
+          entity_id: input_select.house_mode
+          state: 'day'
+        - condition: state
+          entity_id: sun.sun
+          state: 'below_horizon'
+    action:
+      - service: light.turn_off
+        entity_id: light.hallway_all_lights
 
   - alias: Lighting · Hallway · Night mode · Motion · Turn lights on
     trigger:
@@ -145,7 +183,7 @@ automation:
       entity_id: binary_sensor.motion_2_ias_zone
       to: "off"
       for:
-        minutes: 10
+        minutes: 5
     condition:
       condition: template
       value_template: "{{ not is_state('input_select.house_mode', 'day') }}"

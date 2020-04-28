@@ -60,6 +60,8 @@ cards:
                 - automation.lighting_kitchen_night_mode_motion_turn_lights_on
                 - automation.lighting_kitchen_night_mode_motion_turn_lights_off
                 - type: divider
+                - automation.lighting_hallway_day_mode_motion_turn_lights_on
+                - automation.lighting_hallway_day_mode_motion_turn_lights_off
                 - automation.lighting_hallway_night_mode_motion_turn_lights_on
                 - automation.lighting_hallway_night_mode_motion_turn_lights_off
                 - type: divider
