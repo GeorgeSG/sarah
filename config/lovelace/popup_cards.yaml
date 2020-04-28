@@ -5,6 +5,7 @@ binary_sensor.house_mode:
     border-radius: 0.8em
     opacity: 0.95
     margin-bottom: 200px
+    min-width: 400px
   card:
     type: entities
     entities:
@@ -18,6 +19,7 @@ sensor.synology_dsm_type_volume_1:
     opacity: 0.95
     margin-bottom: 0
     height: 80%
+    min-width: 400px
   card:
     type: custom:decluttering-card
     template: platinum_card
