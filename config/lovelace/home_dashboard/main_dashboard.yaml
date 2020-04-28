@@ -68,7 +68,7 @@
               - type: horizontal-stack
                 cards:
                   - type: custom:button-card
-                    template: default
+                    template: small
                     entity: media_player.nvidia_shield
                     name: TV
                     icon: mdi:television
@@ -76,19 +76,20 @@
                       action: toggle
                     state:
                       - value: 'playing'
-                        styles:
+                        styles: &on_styles
                           card:
                             - background-color: var(--primary-color)
                             - color: black
                           icon:
                             - color: black
                       - value: 'standby'
-                        styles:
-                          card:
-                            - background-color: var(--primary-color)
-                            - color: black
-                          icon:
-                            - color: black
+                        styles: *on_styles
+                      - value: 'on'
+                        styles: *on_styles
+                      - value: 'home'
+                        styles: *on_styles
+                      - value: 'idle'
+                        styles: *on_styles
 
                   - type: custom:button-card
                     template: default
