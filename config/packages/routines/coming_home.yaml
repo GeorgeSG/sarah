@@ -12,6 +12,8 @@ script:
         entity_id:
           - light.hallway_entrance_lights
           - light.bed_led
+        data:
+          brightness_pct: 100
       - service: script.security_camera_off
       - service: script.routine_coming_home_after_sunset
       - service: script.sonos_join_bedroom
