@@ -205,6 +205,8 @@
                   - progress
                 name: Temperature
                 entity: sensor.bedroom_weather_temperature
+                variables:
+                  degrees: 200
               - type: custom:button-card
                 template:
                   - small
@@ -219,6 +221,7 @@
                   low_color: "var(--color-red)"
                   normal_color: "var(--color-green)"
                   high_color: "var(--color-red)"
+                  degrees: 200
 
           - type: vertical-stack
             title: Sensors

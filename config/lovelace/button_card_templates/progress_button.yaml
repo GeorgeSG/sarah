@@ -7,6 +7,7 @@ progress:
     low_color: "var(--primary-color)"
     normal_color: "var(--color-green)"
     high_color: "var(--color-red)"
+    degrees: 180
   show_state: true
   show_name: true
   styles:
@@ -42,6 +43,7 @@ progress:
                 : variables.high_color;
             var percent = (temp - variables.min_value)/(variables.max_value - variables.min_value) * 100;
             var gradient = 100 - percent;
+            var degrees = variables.degrees + "deg";
 
-            return 'linear-gradient(180deg, var(--paper-card-background-color) 0%, var(--paper-card-background-color)' + gradient + '%, ' + color + ' ' + gradient + '%)'
+            return 'linear-gradient('+ degrees +', var(--paper-card-background-color) 0%, var(--paper-card-background-color)' + gradient + '%, ' + color + ' ' + gradient + '%)'
           ]]]
