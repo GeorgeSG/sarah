@@ -89,7 +89,7 @@ cards:
                 - sensor.bedroom_right_window_power
 
             - type: custom:decluttering-card
-              template: bedroom_climate_card
+              template: bedroom_temperature_card
 
         - type: vertical-stack
           cards:
