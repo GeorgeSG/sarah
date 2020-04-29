@@ -20,7 +20,7 @@ progress:
       - font-size: 1em
     state:
       - position: absolute
-      - top: 17%
+      - top: 22%
       - width: 100%
       - display: flex
       - align-items: center
