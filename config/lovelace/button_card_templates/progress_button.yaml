@@ -8,6 +8,7 @@ progress:
     normal_color: "var(--color-green)"
     high_color: "var(--color-red)"
     degrees: 180
+  triggers_update: all
   show_state: true
   show_name: true
   styles:
