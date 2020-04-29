@@ -17,7 +17,7 @@
     - type: custom:decluttering-card
       template: floorplan_state_with_icon
       variables:
-        - entity: sensor.synology_dsm_type_volume_1
+        - entity: sensor.synology_type_volume_1
         - top: 54%
         - left: 75%
         - icon: mdi:nas
