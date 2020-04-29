@@ -21,6 +21,7 @@ percentage_card:
         to: 100
         color: darkred
     positions:
+      name: outside
       icon: outside
       indicator: inside
       title: outside
