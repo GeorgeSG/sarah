@@ -12,7 +12,7 @@ platinum_card:
     icon: "[[icon]]"
     entities:
       - type: custom:dummy-entity-row
-        entity: sensor.synology_dsm_cpu_load_total
+        entity: sensor.synology_cpu_load_total
         name: Open admin UI
         icon: mdi:firefox
         tap_action:
@@ -24,22 +24,22 @@ platinum_card:
           template: percentage_card
           variables:
             - name: CPU
-            - entity: sensor.synology_dsm_cpu_load_total
+            - entity: sensor.synology_cpu_load_total
             - icon: mdi:chip
             - orange: 40
             - red: 60
         entities:
-          - entity: sensor.synology_dsm_cpu_load_system
+          - entity: sensor.synology_cpu_load_system
             name: CPU load (System)
-          - entity: sensor.synology_dsm_cpu_load_user
+          - entity: sensor.synology_cpu_load_user
             name: CPU load (User)
-          - entity: sensor.synology_dsm_cpu_load_other
+          - entity: sensor.synology_cpu_load_other
             name: CPU load (Other)
-          - entity: sensor.synology_dsm_cpu_load_1_min
+          - entity: sensor.synology_cpu_load_1_min
             name: CPU load (1 min)
-          - entity: sensor.synology_dsm_cpu_load_5_min
+          - entity: sensor.synology_cpu_load_5_min
             name: CPU load (5 min)
-          - entity: sensor.synology_dsm_cpu_load_15_min
+          - entity: sensor.synology_cpu_load_15_min
             name: CPU load (15 min)
 
       - type: custom:fold-entity-row
@@ -48,22 +48,22 @@ platinum_card:
           template: percentage_card
           variables:
             - name: Memory
-            - entity: sensor.synology_dsm_memory_usage_real
+            - entity: sensor.synology_memory_usage_real
             - icon: mdi:memory
             - orange: 70
             - red: 85
         entities:
-          - entity: sensor.synology_dsm_memory_cached
+          - entity: sensor.synology_memory_cached
             name: Memory cached
-          - entity: sensor.synology_dsm_memory_size
+          - entity: sensor.synology_memory_size
             name: Memory size
-          - entity: sensor.synology_dsm_memory_available_real
+          - entity: sensor.synology_memory_available_real
             name: Memory available (Real)
-          - entity: sensor.synology_dsm_memory_total_real
+          - entity: sensor.synology_memory_total_real
             name: Memory total (Real)
-          - entity: sensor.synology_dsm_memory_available_swap
+          - entity: sensor.synology_memory_available_swap
             name: Memory available (Swap)
-          - entity: sensor.synology_dsm_memory_total_swap
+          - entity: sensor.synology_memory_total_swap
             name: Memory total (Swap)
 
       - type: custom:fold-entity-row
@@ -72,18 +72,18 @@ platinum_card:
           template: percentage_card
           variables:
             - name: Volume 1
-            - entity: sensor.synology_dsm_volume_used_volume_1
+            - entity: sensor.synology_volume_used_volume_1
             - icon: mdi:harddisk
             - orange: 85
             - red: 90
         entities:
-          - entity: sensor.synology_dsm_average_disk_temp_volume_1
+          - entity: sensor.synology_average_disk_temp_volume_1
             name: Average temperature
-          - entity: sensor.synology_dsm_maximum_disk_temp_volume_1
+          - entity: sensor.synology_maximum_disk_temp_volume_1
             name: Maximum temperature
-          - entity: sensor.synology_dsm_used_space_volume_1
+          - entity: sensor.synology_used_space_volume_1
             name: Used space
-          - entity: sensor.synology_dsm_total_size_volume_1
+          - entity: sensor.synology_total_size_volume_1
             name: Total size
 
       - type: custom:fold-entity-row
@@ -92,70 +92,70 @@ platinum_card:
           template: percentage_card
           variables:
             - name: Volume 2
-            - entity: sensor.synology_dsm_volume_used_volume_2
+            - entity: sensor.synology_volume_used_volume_2
             - icon: mdi:harddisk
             - orange: 85
             - red: 90
         entities:
-          - entity: sensor.synology_dsm_average_disk_temp_volume_2
+          - entity: sensor.synology_average_disk_temp_volume_2
             name: Average temperature
-          - entity: sensor.synology_dsm_maximum_disk_temp_volume_2
+          - entity: sensor.synology_maximum_disk_temp_volume_2
             name: Maximum temperature
-          - entity: sensor.synology_dsm_used_space_volume_2
+          - entity: sensor.synology_used_space_volume_2
             name: Used space
-          - entity: sensor.synology_dsm_total_size_volume_2
+          - entity: sensor.synology_total_size_volume_2
             name: Total size
 
       - type: custom:fold-entity-row
         head:
-          entity: sensor.synology_dsm_status_sda
+          entity: sensor.synology_status_sda
           name: /sda
         entities:
-          - entity: sensor.synology_dsm_temperature_sda
+          - entity: sensor.synology_temperature_sda
             name: Temperature
-          - entity: sensor.synology_dsm_below_min_remaining_life_sda
+          - entity: sensor.synology_below_min_remaining_life_sda
             name: Below minimum remaining life
-          - entity: sensor.synology_dsm_exceeded_max_bad_sectors_sda
+          - entity: sensor.synology_exceeded_max_bad_sectors_sda
             name: Exceeded max bad sectors
       - type: custom:fold-entity-row
         head:
-          entity: sensor.synology_dsm_status_sdb
+          entity: sensor.synology_status_sdb
           name: /sdb
         entities:
-          - entity: sensor.synology_dsm_temperature_sdb
+          - entity: sensor.synology_temperature_sdb
             name: Temperature
-          - entity: sensor.synology_dsm_below_min_remaining_life_sdb
+          - entity: sensor.synology_below_min_remaining_life_sdb
             name: Below minimum remaining life
-          - entity: sensor.synology_dsm_exceeded_max_bad_sectors_sdb
+          - entity: sensor.synology_exceeded_max_bad_sectors_sdb
             name: Exceeded max bad sectors
       - type: custom:fold-entity-row
         head:
-          entity: sensor.synology_dsm_status_sdc
+          entity: sensor.synology_status_sdc
           name: /sdc
         entities:
-          - entity: sensor.synology_dsm_temperature_sdc
+          - entity: sensor.synology_temperature_sdc
             name: Temperature
-          - entity: sensor.synology_dsm_below_min_remaining_life_sdc
+          - entity: sensor.synology_below_min_remaining_life_sdc
             name: Below minimum remaining life
-          - entity: sensor.synology_dsm_exceeded_max_bad_sectors_sdc
+          - entity: sensor.synology_exceeded_max_bad_sectors_sdc
             name: Exceeded max bad sectors
       - type: custom:fold-entity-row
         head:
-          entity: sensor.synology_dsm_status_sdd
+          entity: sensor.synology_status_sdd
           name: /sdd
         entities:
-          - entity: sensor.synology_dsm_temperature_sdd
+          - entity: sensor.synology_temperature_sdd
             name: Temperature
-          - entity: sensor.synology_dsm_below_min_remaining_life_sdd
+          - entity: sensor.synology_below_min_remaining_life_sdd
             name: Below minimum remaining life
-          - entity: sensor.synology_dsm_exceeded_max_bad_sectors_sdd
+          - entity: sensor.synology_exceeded_max_bad_sectors_sdd
             name: Exceeded max bad sectors
 
       - type: custom:hui-horizontal-stack-card
         cards:
           - type: entities
             entities:
-              - entity: sensor.synology_dsm_network_down
+              - entity: sensor.synology_network_down
                 name: Down
                 style: |
                   :host {
@@ -184,7 +184,7 @@ platinum_card:
                         }
           - type: entities
             entities:
-              - entity: sensor.synology_dsm_network_up
+              - entity: sensor.synology_network_up
                 name: Up
                 style: |
                   :host {
@@ -196,9 +196,9 @@ platinum_card:
         align_state: left
         entities:
           - color: var(--accent-color)
-            entity: sensor.synology_dsm_network_up
+            entity: sensor.synology_network_up
           - color: green
-            entity: sensor.synology_dsm_network_down
+            entity: sensor.synology_network_down
         group: false
         points_per_hour: 1
         line_width: 3

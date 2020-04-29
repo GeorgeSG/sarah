@@ -11,7 +11,7 @@ binary_sensor.house_mode:
     entities:
       - input_select.house_mode
 
-sensor.synology_dsm_type_volume_1:
+sensor.synology_type_volume_1:
   title: Platinum
   style: &popup_style_no_margin
     '--ha-card-border-radius': 0 0 0.8em 0.8em

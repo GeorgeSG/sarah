@@ -97,7 +97,7 @@
 
                   - type: custom:button-card
                     template: default
-                    entity: sensor.synology_dsm_type_volume_1
+                    entity: sensor.synology_type_volume_1
                     name: Platinum
                     icon: mdi:nas
                     tap_action:
