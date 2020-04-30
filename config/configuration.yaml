@@ -122,6 +122,11 @@ panel_iframe:
     url: !secret tautulli_url
     require_admin: true
     icon: mdi:plex
+  portainer:
+    title: "Portainer"
+    url: !secret portainer_url
+    require_admin: true
+    icon: mdi:docker
   covidbg:
     title: "COVID Bulgaria"
     url: "https://esribulgaria.maps.arcgis.com/apps/opsdashboard/index.html#/6e2c968cf38540f29a4311295dce390f"
