@@ -60,8 +60,8 @@
               card:
                 - background: >
                     [[[
-                      var remaining = states['input_number.brita_remaining_liters'].state;
-                      var percent = 100 - (remaining / 150 * 100);
+                      const remaining = states['input_number.brita_remaining_liters'].state;
+                      const percent = 100 - (remaining / 150 * 100);
                       return 'linear-gradient(180deg, var(--paper-card-background-color) 0%, var(--paper-card-background-color)' + percent + '%, var(--primary-color) ' + percent + '%)'
                     ]]]
                 - color: white
