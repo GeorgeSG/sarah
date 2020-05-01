@@ -243,3 +243,12 @@ binary_sensor.pi_hole_enabled:
   card:
     type: custom:decluttering-card
     template: pi_hole_card
+
+input_boolean.alarm_enabled:
+  title: Alarm
+  style: *popup_style
+  card:
+    type: entities
+    entities:
+      - input_boolean.alarm_enabled
+      - input_datetime.alarm_time

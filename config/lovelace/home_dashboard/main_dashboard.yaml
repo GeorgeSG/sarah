@@ -167,6 +167,17 @@
                 cards:
                   - type: custom:button-card
                     template: default
+                    entity: input_boolean.alarm_enabled
+                    state_display: "[[[return states['input_datetime.alarm_time'].state.split(':').slice(0, -1).join(':'); ]]]"
+                    show_state: true
+                    show_name: false
+                    styles:
+                      icon:
+                        - transform: translateY(-10px)
+                      state:
+                        - transform: translateY(-15px)
+                  - type: custom:button-card
+                    template: default
                     entity: input_boolean.speech_notifications
                     name: Speech
                   - type: custom:button-card
@@ -178,19 +189,6 @@
                     tap_action:
                       action: call-service
                       service: script.house_mode_next
-              - type: horizontal-stack
-                cards:
-                  - type: custom:button-card
-                    template: default
-                    entity: input_boolean.alarm_enabled
-                    name: Alarm
-                    styles:
-                      card:
-                        - width: 150px
-                  - type: entities
-                    entities:
-                      - entity: input_datetime.alarm_time
-                        name: Time
 
           - type: horizontal-stack
             title: Climate
