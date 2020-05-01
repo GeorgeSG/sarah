@@ -1,0 +1,55 @@
+- type: custom:mod-card
+  style:
+    layout-card:
+      $:
+        .: |
+          #columns {
+            padding: 0 10px;
+          }
+          #columns .column {
+            padding: 10px 10px;
+          }
+  card:
+    type: custom:layout-card
+    layout: horizontal
+    max_columns: 1
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: horizontal-stack
+            title: Lights
+            cards:
+              - type: custom:button-card
+                template: default
+                entity: light.hallway_all_lights
+                name: Hallway
+              - type: custom:button-card
+                template: default
+                entity: light.hallway_entrance_lights
+                name: Entrance
+              - type: custom:button-card
+                template: default
+                entity: light.hallway_main_lights
+                name: Main
+
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                template:
+                  - default
+                  - with_state_indicator
+                entity: binary_sensor.motion_2_ias_zone
+                name: Hallway
+                variables:
+                  state_indicator_id: automation.lighting_hallway_day_mode_motion_turn_lights_on
+              - type: custom:button-card
+                template:
+                  - small
+                  - progress
+                entity: sensor.motion_2_illuminance
+                name: Lux
+                variables:
+                  min_value: 0
+                  max_value: 1000
+                  normal_value: 1000
+

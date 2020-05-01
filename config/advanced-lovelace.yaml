@@ -15,7 +15,6 @@ views:
   - !include lovelace/advanced_dashboard/01_living_room.yaml
   - !include lovelace/advanced_dashboard/02_master_bedroom.yaml
   - !include lovelace/advanced_dashboard/03_kitchen.yaml
-  - !include lovelace/advanced_dashboard/04_bathroom.yaml
   - !include lovelace/advanced_dashboard/05_hallway.yaml
   - !include lovelace/advanced_dashboard/06_lights.yaml
   - !include lovelace/advanced_dashboard/07_media.yaml

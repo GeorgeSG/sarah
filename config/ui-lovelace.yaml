@@ -32,3 +32,13 @@ views:
     icon: "mdi:chef-hat"
     panel: true
     cards: !include lovelace/home_dashboard/kitchen_dashboard.yaml
+  - title: Bathroom
+    path: bathroom
+    icon: "mdi:shower-head"
+    panel: true
+    cards: !include lovelace/home_dashboard/bathroom_dashboard.yaml
+  - title: Hallway
+    path: hallway
+    icon: "mdi:door-closed"
+    panel: true
+    cards: !include lovelace/home_dashboard/hallway_dashboard.yaml

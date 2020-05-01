@@ -1,8 +1,0 @@
-title: Bathroom
-path: bathroom
-icon: "mdi:shower-head"
-cards:
-  - type: custom:decluttering-card
-    template: sonos_media_player
-    variables:
-      - player: media_player.bathroom
