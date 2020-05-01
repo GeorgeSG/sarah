@@ -39,7 +39,7 @@ with_state_indicator:
             if (entity.state === 'on') {
               color = is_state_indicator_on
                   ? variables.state_on_indicator_on_color
-                  : variables.state_off_indicator_off_color;
+                  : variables.state_on_indicator_off_color;
             } else {
               color = is_state_indicator_on
                   ? variables.state_indicator_on_color
