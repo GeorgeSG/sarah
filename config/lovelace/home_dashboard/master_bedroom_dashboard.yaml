@@ -58,11 +58,6 @@
                     variables:
                       state_indicator_id: automation.alarm_set_time
                   - type: custom:button-card
-                    template: default
-                    entity: binary_sensor.house_mode
-              - type: horizontal-stack
-                cards:
-                  - type: custom:button-card
                     template:
                       - default
                       - with_state_indicator
@@ -73,6 +68,11 @@
                       state_indicator_off_size: 0px
                       state_indicator_on_color: var(--color-red)
                       state_on_indicator_on_color: var(--color-red)
+                  - type: custom:button-card
+                    template: default
+                    entity: binary_sensor.house_mode
+              - type: horizontal-stack
+                cards:
                   - type: custom:button-card
                     template: default
                     entity: media_player.nvidia_shield
