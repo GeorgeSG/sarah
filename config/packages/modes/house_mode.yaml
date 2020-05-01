@@ -19,7 +19,7 @@ binary_sensor:
           {% if is_state('input_select.house_mode', 'day') %}
             mdi:weather-sunny
           {% elif is_state('input_select.house_mode', 'bed') %}
-            mdi:bed-queen
+            mdi:bed-king-outline
           {% else %}
             mdi:weather-night
           {% endif %}
