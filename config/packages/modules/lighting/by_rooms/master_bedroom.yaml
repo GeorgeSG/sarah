@@ -1,3 +1,47 @@
+script:
+  scene_bedroom_neon:
+    icon: "mdi:weather-night"
+    sequence:
+      - service: light.turn_on
+        entity_id: light.master_bedroom_main_lights
+        data:
+          rgb_color: [255, 0, 190]
+          brightness_pct: 40
+      - service: light.turn_on
+        entity_id: light.bedside_light
+        data:
+          xy_color: [0.384, 0.159]
+          brightness_pct: 1
+      - service: light.turn_on
+        entity_id: light.bed_led
+        data:
+          rgb_color: [0, 255, 190]
+          brightness_pct: 100
+      - service: light.turn_on
+        entity_id: light.bed_led
+        data:
+          rgb_color: [0, 255, 190]
+      - delay: 00:00:05
+      - service: light.turn_on
+        entity_id: light.bed_led
+
+
+  scene_bedroom_regular:
+    icon: "mdi:weather-sunny"
+    sequence:
+      - service: light.turn_on
+        entity_id:
+          - light.master_bedroom_main_lights
+          - light.bed_led
+        data:
+          color_temp: 500
+          brightness_pct: 100
+      - service: light.turn_on
+        entity_id: light.bedside_light
+        data:
+          color_temp: 500
+          brightness_pct: 20
+
 automation:
   - alias: Lighting · Master bedroom · Toggle lights on bedside switch single click
     trigger:

@@ -81,6 +81,28 @@
       - type: vertical-stack
         cards:
           - type: horizontal-stack
+            title: Scenes
+            cards:
+              - type: custom:button-card
+                template: default
+                entity: script.scene_bedroom_neon
+                name: Neon
+                tap_action:
+                  action: toggle
+                styles:
+                  card:
+                    - background: "linear-gradient(315deg, rgb(255, 0, 190) 7%, rgb(0, 255, 190) 7%, rgb(0, 255, 190) 11%, var(--paper-card-background-color) 11%)"
+              - type: custom:button-card
+                template: default
+                entity: script.scene_bedroom_regular
+                name: Regular
+                tap_action:
+                  action: toggle
+                styles:
+                  card:
+                    - background: "linear-gradient(315deg, rgb(254, 255, 209) 11%, var(--paper-card-background-color) 11%)"
+
+          - type: horizontal-stack
             title: Sensors
             cards:
               - type: custom:button-card
