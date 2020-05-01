@@ -46,20 +46,36 @@
                         - height: 46px
 
       - type: horizontal-stack
-        title: Brita
+        title: Devices
         cards:
           - type: custom:decluttering-card
             template: brita_water_card
           - type: custom:button-card
             template: default
-            name: New filter
-            entity: script.brita_new_filter
+            entity: media_player.nvidia_shield
+            name: TV
+            icon: mdi:television
             tap_action:
               action: toggle
+            state:
+              - value: 'playing'
+                styles: &on_styles
+                  card:
+                    - background-color: var(--primary-color)
+                    - color: black
+                  icon:
+                    - color: black
+              - value: 'standby'
+                styles: *on_styles
+              - value: 'on'
+                styles: *on_styles
+              - value: 'home'
+                styles: *on_styles
+              - value: 'idle'
+                styles: *on_styles
           - type: custom:button-card
             template: default
-            name: Filter
-            entity: binary_sensor.brita_should_change_filter
+            entity: switch.titanium_power
 
       - type: vertical-stack
         cards:
@@ -70,6 +86,7 @@
                 template: sonos_media_player
                 variables:
                   - player: media_player.kitchen
+                  - sync_volume: false
               - type: horizontal-stack
                 cards:
                   - type: custom:button-card
@@ -119,28 +136,11 @@
             template:
               - xs
               - with_state_background
-            entity: binary_sensor.browser_kitchen
-            name: Motion
-          - type: custom:button-card
-            template:
-              - xs
-              - with_state_background
             entity: binary_sensor.motion_1_ias_zone
-            name: Motion 2
+            name: Motion
           - type: custom:button-card
             template:
               - xs
               - with_state_background
             entity: binary_sensor.motion_2_ias_zone
             name: Hallway
-          - type: custom:button-card
-            template:
-              - xs
-              - with_state_background
-            entity: media_player.nvidia_shield
-            name: Shield
-          - type: custom:button-card
-            template:
-              - xs
-              - with_state_background
-            entity: switch.titanium_power

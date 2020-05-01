@@ -211,8 +211,6 @@
                         template: default
                         entity: binary_sensor.living_room_right_window_on_off_wrapper
                         name: Living room
-                  - type: horizontal-stack
-                    cards:
                       - type: custom:button-card
                         template:
                           - default
@@ -222,15 +220,11 @@
                         variables:
                           state_indicator_id: automation.lighting_hallway_day_mode_motion_turn_lights_on
                       - type: custom:button-card
-                        template: default
-                        entity: binary_sensor.browser_kitchen
-                        name: Kitchen
-                      - type: custom:button-card
                         template:
                           - default
                           - with_state_indicator
                         entity: binary_sensor.motion_1_ias_zone
-                        name: Kitchen 2
+                        name: Kitchen
                         variables:
                           state_indicator_id: automation.lighting_kitchen_day_mode_motion_turn_lights_on_after_sunset
 
