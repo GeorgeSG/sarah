@@ -92,7 +92,7 @@
                   - type: custom:button-card
                     template: xs
                     entity: sensor.philip_defranco
-                    name: Latest PDS
+                    name: PDS
                     tap_action:
                       action: call-service
                       service: script.youtube_play_latest_pds
