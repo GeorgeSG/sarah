@@ -117,45 +117,37 @@
                     entity: binary_sensor.pi_hole_enabled
                     name: Pi-Hole
                     icon: mdi:pi-hole
-
-          - type: horizontal-stack
-            title: Brita
-            cards:
-              - type: custom:button-card
-                template: default
-                name: Pour water
-                entity: script.brita_pour_water
-                custom_fields:
-                  remaining_liters: "[[[ return states['input_number.brita_remaining_liters'].state ]]]"
-                tap_action:
-                  action: toggle
-                styles:
-                  card:
-                    - background: >
-                        [[[
-                          const remaining = states['input_number.brita_remaining_liters'].state;
-                          const percent = 100 - (remaining / 150 * 100);
-                          return 'linear-gradient(180deg, var(--paper-card-background-color) 0%, var(--paper-card-background-color)' + percent + '%, var(--primary-color) ' + percent + '%)'
-                        ]]]
-                    - color: white
-                  icon:
-                    - color: white
-                  custom_fields:
-                    remaining_liters:
-                      - position: absolute
-                      - top: 5px
-                      - right: 5px
-                      - font-size: 12px
-              - type: custom:button-card
-                template: default
-                name: New filter
-                entity: script.brita_new_filter
-                tap_action:
-                  action: toggle
-              - type: custom:button-card
-                template: default
-                name: Filter
-                entity: binary_sensor.brita_should_change_filter
+                  - type: custom:button-card
+                    template:
+                      - default
+                      - with_state_indicator
+                    name: Brita water
+                    entity: script.brita_pour_water
+                    custom_fields:
+                      remaining_liters: "[[[ return states['input_number.brita_remaining_liters'].state ]]]"
+                    tap_action:
+                      action: toggle
+                    styles:
+                      card:
+                        - background: >
+                            [[[
+                              const remaining = states['input_number.brita_remaining_liters'].state;
+                              const percent = 100 - (remaining / 150 * 100);
+                              return 'linear-gradient(180deg, var(--paper-card-background-color) 0%, var(--paper-card-background-color)' + percent + '%, var(--primary-color) ' + percent + '%)'
+                            ]]]
+                        - color: white
+                      icon:
+                        - color: white
+                      custom_fields:
+                        remaining_liters:
+                          - position: absolute
+                          - top: 5px
+                          - right: 5px
+                          - font-size: 12px
+                    variables:
+                      state_indicator_id: binary_sensor.brita_should_change_filter
+                      state_indicator_off_color: white
+                      state_indicator_on_color: red
 
       # Column 2
       - type: vertical-stack
@@ -228,59 +220,60 @@
           - type: vertical-stack
             title: Sensors
             cards:
-              - type: horizontal-stack
+              - type: vertical-stack
                 cards:
-                  - type: custom:button-card
-                    template: default
-                    entity: binary_sensor.front_door_on_off_wrapper
-                  - type: custom:button-card
-                    template: default
-                    entity: binary_sensor.living_room_right_window_on_off_wrapper
-                    name: Living room
-              - type: horizontal-stack
-                cards:
-                  - type: custom:button-card
-                    template:
-                      - default
-                      - with_state_indicator
-                    entity: binary_sensor.motion_2_ias_zone
-                    name: Hallway
-                    variables:
-                      state_indicator_id: automation.lighting_hallway_day_mode_motion_turn_lights_on
-                  - type: custom:button-card
-                    template: default
-                    entity: binary_sensor.browser_kitchen
-                    name: Kitchen
-                  - type: custom:button-card
-                    template:
-                      - default
-                      - with_state_indicator
-                    entity: binary_sensor.motion_1_ias_zone
-                    name: Kitchen 2
-                    variables:
-                      state_indicator_id: automation.lighting_kitchen_day_mode_motion_turn_lights_on_after_sunset
+                  - type: horizontal-stack
+                    cards:
+                      - type: custom:button-card
+                        template: default
+                        entity: binary_sensor.front_door_on_off_wrapper
+                      - type: custom:button-card
+                        template: default
+                        entity: binary_sensor.living_room_right_window_on_off_wrapper
+                        name: Living room
+                  - type: horizontal-stack
+                    cards:
+                      - type: custom:button-card
+                        template:
+                          - default
+                          - with_state_indicator
+                        entity: binary_sensor.motion_2_ias_zone
+                        name: Hallway
+                        variables:
+                          state_indicator_id: automation.lighting_hallway_day_mode_motion_turn_lights_on
+                      - type: custom:button-card
+                        template: default
+                        entity: binary_sensor.browser_kitchen
+                        name: Kitchen
+                      - type: custom:button-card
+                        template:
+                          - default
+                          - with_state_indicator
+                        entity: binary_sensor.motion_1_ias_zone
+                        name: Kitchen 2
+                        variables:
+                          state_indicator_id: automation.lighting_kitchen_day_mode_motion_turn_lights_on_after_sunset
 
-          - type: vertical-stack
-            title: Presence
-            cards:
-              - type: horizontal-stack
+              - type: vertical-stack
                 cards:
-                  - type: custom:button-card
-                    template: default
-                    entity: binary_sensor.georgi_home
-                    tap_action:
-                      action: call-service
-                      service: input_boolean.toggle
-                      service_data:
-                        entity_id: input_boolean.georgi_home
-                  - type: custom:button-card
-                    template: default
-                    entity: device_tracker.mikrotik_carbon
-                    name: Wifi
-                  - type: custom:button-card
-                    template: default
-                    entity: device_tracker.carbon
-                    name: GPS
+                  - type: horizontal-stack
+                    cards:
+                      - type: custom:button-card
+                        template: default
+                        entity: binary_sensor.georgi_home
+                        tap_action:
+                          action: call-service
+                          service: input_boolean.toggle
+                          service_data:
+                            entity_id: input_boolean.georgi_home
+                      - type: custom:button-card
+                        template: default
+                        entity: device_tracker.mikrotik_carbon
+                        name: Wifi
+                      - type: custom:button-card
+                        template: default
+                        entity: device_tracker.carbon
+                        name: GPS
 
 
       # Column 3
