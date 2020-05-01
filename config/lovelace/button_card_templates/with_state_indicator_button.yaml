@@ -4,6 +4,10 @@ with_state_indicator:
     state_indicator_size: 3px
     state_indicator_on_color: white
     state_indicator_off_color: transparent
+
+    # Used when the button entity's state is 'on':
+    state_on_indicator_on_color: white
+    state_on_indicator_off_color: transparent
   triggers_update: all # unfortunately a template doesn't seem to work here :/
   double_tap_action:
     action: call-service
@@ -14,9 +18,17 @@ with_state_indicator:
     card:
       - border-bottom: >-
           [[[
-            const color = states[variables.state_indicator_id].state === 'on'
+            let color;
+
+            if (entity.state === 'on') {
+              color = states[variables.state_indicator_id].state === 'on'
+                ? variables.state_on_indicator_on_color
+                : variables.state_on_indicator_off_color;
+            } else {
+              color = states[variables.state_indicator_id].state === 'on'
                 ? variables.state_indicator_on_color
                 : variables.state_indicator_off_color;
+            }
 
             return variables.state_indicator_size + ' solid ' + color;
           ]]]
