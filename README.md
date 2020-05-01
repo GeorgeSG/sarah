@@ -33,28 +33,33 @@ The `speech` module uses [partial templates](https://github.com/GeorgeSG/sarah/t
 
 **Controllers:**
 
-- [ConBee II](https://www.phoscon.de/en/conbee2) - ZigBee controller
+- [ConBee II](https://www.phoscon.de/en/conbee2) - Zigbee controller
 
 **Sensors:**
 
-- [Aqara Temperature and Humidity Sensor](https://www.aqara.com/us/temperature_humidity_sensor.html)
-- [Aqara Door and Window Sensor](https://www.aqara.com/us/door_and_window_sensor.html)
-- [Aqara Wireless Mini Switch](https://www.aqara.com/en/smart_wireless_mini_switch.html)
+- [Aqara Temperature and Humidity Sensor](https://www.aqara.com/us/temperature_humidity_sensor.html) (Zigbee)
+- [Aqara Door and Window Sensor](https://www.aqara.com/us/door_and_window_sensor.html) (Zigbee)
+- [Aqara Wireless Mini Switch](https://www.aqara.com/en/smart_wireless_mini_switch.html) (Zigbee)
+- [Aqara Motion Sensor](https://www.aqara.com/eu/motion_sensor.html) (Zigbee)
 
 **Lights:**
 
-- A bunch of random Tuya E14 lights
-- [Yeelight S1 Lights](https://www.yeelight.com/en_US/product/lemon2-color)
+- A bunch of random Tuya E14 lights (wifi - some flashed with Tasmota, some runing on Tuya Cloud)
+- [Yeelight S1 Lights](https://www.yeelight.com/en_US/product/lemon2-color) (wifi)
+- [Random LED strip from AliExpress](https://www.aliexpress.com/item/4000068013535.html?spm=a2g0s.9042311.0.0.6ea44c4d3Tm6AF) (Zigbee)
 
 **Media:**
 
-- [LG C8 TV](https://www.lg.com/uk/tvs/lg-OLED55C8PLA) with [NVidia Shield TV Pro ](https://www.nvidia.com/en-us/shield/shield-tv-pro/)
+- [LG C8 TV](https://www.lg.com/uk/tvs/lg-OLED55C8PLA) with [NVidia Shield TV Pro](https://www.nvidia.com/en-us/shield/shield-tv-pro/)
 - [Sonos One](https://www.sonos.com/en-us/shop/one.html)
+- [Sonos Beam](https://www.sonos.com/en-us/shop/beam.html)
 
 **Misc:**
 
-- [Aqara Magic Cube](https://www.gearbest.com/access-control/pp_1845856.html)
-- [Philips AC2729 Air Purifier and Humidifier](https://www.p4c.philips.com/cgi-bin/cpindex.pl?scy=EE&slg=EN&ctn=AC2729/10)
+- [Aqara Magic Cube](https://www.gearbest.com/access-control/pp_1845856.html) (Zigbee)
+- [Philips AC2729 Air Purifier and Humidifier](https://www.p4c.philips.com/cgi-bin/cpindex.pl?scy=EE&slg=EN&ctn=AC2729/10) (wifi)
+- [Hama Wifi Socket](https://de.hama.com/00176565/hama-wifi-socket-with-integrated-current-measuring-device-3680-w-16-a) (wifi - Tasmota / MQTT)
+- [FrankEver IR Remote Controller](https://www.amazon.com/Controller-Universal-Infrared-Repeater-Compatible/dp/B07ZP5NQWF) (wifi - Tasmota / MQTT)
 - Amcrest Security Camera
 
 ## Screenshots
@@ -66,10 +71,6 @@ The `speech` module uses [partial templates](https://github.com/GeorgeSG/sarah/t
 ### Network
 
 ![Network screen](assets/screenshot-network.png?raw=true)
-
-### Tablet dashboard
-
-![Tablet dashboard](assets/screenshot-tablet.png?raw=true)
 
 ### Floorplan
 
