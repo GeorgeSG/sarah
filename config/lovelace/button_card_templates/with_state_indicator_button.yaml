@@ -21,9 +21,7 @@ with_state_indicator:
       - border-bottom: >-
           [[[
             let color;
-            const state_indicator = (!variables.state_indicator_id)
-                ? entity.entity_id
-                : variables.state_indicator_id;
+            const state_indicator = variables.state_indicator_id || entity.entity_id;
 
             if (entity.state === 'on') {
               color = states[state_indicator].state === 'on'
