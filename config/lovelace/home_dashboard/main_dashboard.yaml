@@ -166,16 +166,20 @@
               - type: horizontal-stack
                 cards:
                   - type: custom:button-card
-                    template: default
+                    template:
+                      - default
+                      - with_state_indicator
                     entity: input_boolean.alarm_enabled
                     state_display: "[[[return states['input_datetime.alarm_time'].state.split(':').slice(0, -1).join(':'); ]]]"
                     show_state: true
                     show_name: false
                     styles:
                       icon:
-                        - transform: translateY(-10px)
+                        - transform: translateY(-8px) # adjusted for state indicator size
                       state:
-                        - transform: translateY(-15px)
+                        - transform: translateY(-13px) # adjusted for state indicator size
+                    variables:
+                      state_indicator_id: automation.alarm_set_time
                   - type: custom:button-card
                     template: default
                     entity: input_boolean.speech_notifications
