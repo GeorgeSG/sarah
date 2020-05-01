@@ -76,14 +76,9 @@ automation:
       for:
         minutes: 30
     condition:
-      condition: and
-      conditions:
-        - condition: state
-          entity_id: input_select.house_mode
-          state: 'day'
-        - condition: state
-          entity_id: sun.sun
-          state: 'below_horizon'
+      condition: state
+      entity_id: input_select.house_mode
+      state: 'day'
     action:
       - service: light.turn_off
         entity_id: light.tuya_kitchen_all_lights
@@ -147,14 +142,9 @@ automation:
       for:
         minutes: 5
     condition:
-      condition: and
-      conditions:
-        - condition: state
-          entity_id: input_select.house_mode
-          state: 'day'
-        - condition: state
-          entity_id: sun.sun
-          state: 'below_horizon'
+      condition: state
+      entity_id: input_select.house_mode
+      state: 'day'
     action:
       - service: light.turn_off
         entity_id: light.hallway_all_lights
