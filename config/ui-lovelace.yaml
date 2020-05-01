@@ -1,6 +1,10 @@
 custom_header:
-  hide_header: true
-  disable_sidebar: false
+  compact_mode: true
+  hide_config: true
+  hide_help: true
+  hide_unused: true
+  hide_reload_resources: true
+  indicator_top: true
 
 decluttering_templates: !include_dir_merge_named lovelace/decluttering_templates
 button_card_templates: !include_dir_merge_named lovelace/button_card_templates
@@ -13,3 +17,18 @@ views:
     icon: "mdi:home"
     panel: true
     cards: !include lovelace/home_dashboard/main_dashboard.yaml
+  - title: Living room
+    path: living_room
+    icon: "mdi:sofa"
+    panel: true
+    cards: !include lovelace/home_dashboard/living_room_dashboard.yaml
+  - title: Master bedroom
+    path: master_bedroom
+    icon: "mdi:bed-empty"
+    panel: true
+    cards: !include lovelace/home_dashboard/master_bedroom_dashboard.yaml
+  - title: Kitchen
+    path: kitchen
+    icon: "mdi:chef-hat"
+    panel: true
+    cards: !include lovelace/home_dashboard/kitchen_dashboard.yaml

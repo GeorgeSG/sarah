@@ -1,0 +1,186 @@
+- type: custom:mod-card
+  style:
+    layout-card:
+      $:
+        .: |
+          #columns {
+            padding: 0 10px;
+          }
+          #columns .column {
+            padding: 10px 10px;
+          }
+  card:
+    type: custom:layout-card
+    layout: horizontal
+    max_columns: 2
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: horizontal-stack
+            title: Lights
+            cards:
+              - type: custom:button-card
+                template: default
+                entity: light.master_bedroom_all_lights
+                name: M. Bedroom
+              - type: custom:button-card
+                template: default
+                entity: light.master_bedroom_main_lights
+                name: Main
+              - type: custom:button-card
+                template: default
+                entity: light.bed_led
+                name: LED
+              - type: custom:button-card
+                template: default
+                entity: light.bedside_light
+                name: Bedside
+
+
+          - type: horizontal-stack
+            title: Devices
+            cards:
+              - type: custom:button-card
+                template:
+                  - default
+                  - with_state_indicator
+                entity: fan.philips_airpurifier
+                variables:
+                  state_indicator_id: binary_sensor.purifier_filter_needs_change
+                  state_indicator_size: 5px
+                  state_indicator_off_size: 0px
+                  state_indicator_on_color: var(--color-red)
+                  state_on_indicator_on_color: var(--color-red)
+              - type: custom:button-card
+                template: default
+                entity: media_player.nvidia_shield
+                name: TV
+                icon: mdi:television
+                tap_action:
+                  action: toggle
+                state:
+                  - value: 'playing'
+                    styles: &on_styles
+                      card:
+                        - background-color: var(--primary-color)
+                        - color: black
+                      icon:
+                        - color: black
+                  - value: 'standby'
+                    styles: *on_styles
+                  - value: 'on'
+                    styles: *on_styles
+                  - value: 'home'
+                    styles: *on_styles
+                  - value: 'idle'
+                    styles: *on_styles
+              - type: custom:button-card
+                template: default
+                entity: switch.titanium_power
+              - type: custom:button-card
+                template: default
+                entity: switch.camera
+                name: Camera
+
+          - type: vertical-stack
+            cards:
+              - type: vertical-stack
+                title: Media
+                cards:
+                  - type: custom:decluttering-card
+                    template: sonos_media_player
+                    variables:
+                      - player: media_player.master_bedroom
+                      - sync_volume: false
+                  - type: horizontal-stack
+                    cards:
+                      - type: custom:button-card
+                        template: xs
+                        entity: sensor.philip_defranco
+                        name: PDS
+                        tap_action:
+                          action: call-service
+                          service: script.youtube_play_latest_pds
+                      - type: custom:button-card
+                        template: xs
+                        entity: script.music_play
+                        name: Chill
+                        icon: mdi:music
+                        tap_action:
+                          action: toggle
+                      - type: custom:button-card
+                        template: xs
+                        entity: script.music_play
+                        name: Retro
+                        icon: mdi:music
+                        tap_action:
+                          action: call-service
+                          service: script.music_play
+                          service_data:
+                            playlist: "Retro"
+                      - type: custom:button-card
+                        template:
+                          - xs
+                          - with_state_background
+                        entity: binary_sensor.sonos_is_bedroom_master
+                        name: Bedroom
+                        icon: mdi:speaker-multiple
+                        tap_action:
+                          action: call-service
+                          service: script.sonos_join_bedroom
+                      - type: custom:button-card
+                        template:
+                          - xs
+                          - with_state_background
+                        entity: binary_sensor.sonos_is_living_room_master
+                        name: TV
+                        icon: mdi:speaker-multiple
+                        tap_action:
+                          action: call-service
+                          service: script.sonos_join_tv
+
+
+      - type: vertical-stack
+        cards:
+          - type: horizontal-stack
+            title: Sensors
+            cards:
+              - type: custom:button-card
+                template: default
+                entity: binary_sensor.bedroom_right_window_on_off_wrapper
+                name: M. Bedroom
+              - type: custom:button-card
+                template:
+                  - small
+                  - progress
+                name: Temperature
+                entity: sensor.bedroom_weather_temperature
+                variables:
+                  degrees: 200
+              - type: custom:button-card
+                template:
+                  - small
+                  - progress
+                name: Humidity
+                entity: sensor.bedroom_weather_humidity
+                variables:
+                  min_value: 25
+                  max_value: 90
+                  normal_value: 40
+                  high_value: 65
+                  low_color: "var(--color-red)"
+                  normal_color: "var(--color-green)"
+                  high_color: "var(--color-red)"
+                  degrees: 200
+
+              - type: custom:button-card
+                template:
+                  - default
+                  - with_state_indicator
+                entity: binary_sensor.motion_2_ias_zone
+                name: Hallway
+                variables:
+                  state_indicator_id: automation.lighting_hallway_day_mode_motion_turn_lights_on
+
+          - type: custom:decluttering-card
+            template: bedroom_temperature_card

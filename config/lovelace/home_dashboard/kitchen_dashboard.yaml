@@ -141,11 +141,19 @@
             template:
               - xs
               - with_state_background
+              - with_state_indicator
             entity: binary_sensor.motion_1_ias_zone
             name: Motion
+            variables:
+              state_indicator_id: automation.lighting_kitchen_day_mode_motion_turn_lights_on_after_sunset
+
           - type: custom:button-card
             template:
               - xs
               - with_state_background
+              - with_state_indicator
             entity: binary_sensor.motion_2_ias_zone
             name: Hallway
+            variables:
+              state_indicator_id: automation.lighting_hallway_day_mode_motion_turn_lights_on
+
