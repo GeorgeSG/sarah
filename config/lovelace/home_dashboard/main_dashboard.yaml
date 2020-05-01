@@ -110,8 +110,17 @@
                     entity: switch.camera
                     name: Camera
                   - type: custom:button-card
-                    template: default
+                    template:
+                      - default
+                      - with_state_indicator
                     entity: fan.philips_airpurifier
+                    variables:
+                      state_indicator_id: binary_sensor.purifier_filter_needs_change
+                      state_indicator_size: 5px
+                      state_indicator_off_size: 0px
+                      state_indicator_on_color: var(--color-red)
+                      state_on_indicator_on_color: var(--color-red)
+
                   - type: custom:button-card
                     template: default
                     entity: binary_sensor.pi_hole_enabled
@@ -146,8 +155,10 @@
                           - font-size: 12px
                     variables:
                       state_indicator_id: binary_sensor.brita_should_change_filter
-                      state_indicator_off_color: white
-                      state_indicator_on_color: red
+                      state_indicator_size: 5px
+                      state_indicator_off_size: 0px
+                      state_indicator_on_color: var(--color-red)
+                      state_on_indicator_on_color: var(--color-red)
 
       # Column 2
       - type: vertical-stack

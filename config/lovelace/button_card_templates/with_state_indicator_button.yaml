@@ -5,7 +5,9 @@ with_state_indicator:
     state_indicator_on_color: white
     state_indicator_off_color: transparent
 
-    # Used when the button entity's state is 'on':
+    state_indicator_off_size: # If set, used when the state_indicator entity is off
+
+    # state_on_indicator_s are used when the entity's state is 'on':
     state_on_indicator_on_color: white
     state_on_indicator_off_color: transparent
   triggers_update: all # unfortunately a template doesn't seem to work here :/
@@ -16,22 +18,37 @@ with_state_indicator:
       entity_id: "[[[ return variables.state_indicator_id || entity.entity_id ]]]"
   styles:
     name:
-      - transform: "[[[ return 'translateY(' + variables.state_indicator_size + ')' ]]]"
+      - transform: >
+          [[[
+            const state_indicator_entity = variables.state_indicator_id || entity.entity_id;
+
+            const size = states[state_indicator_entity].state === 'on'
+              ? variables.state_indicator_size
+              : variables.state_indicator_off_size || variables.state_indicator_size
+
+            return 'translateY(' + size + ')'
+          ]]]
+
     card:
       - border-bottom: >-
           [[[
             let color;
-            const state_indicator = variables.state_indicator_id || entity.entity_id;
+            const state_indicator_entity = variables.state_indicator_id || entity.entity_id;
+            const is_state_indicator_on = Boolean(states[state_indicator_entity].state === 'on');
 
             if (entity.state === 'on') {
-              color = states[state_indicator].state === 'on'
+              color = is_state_indicator_on
                   ? variables.state_on_indicator_on_color
-                  : variables.state_on_indicator_off_color;
+                  : variables.state_off_indicator_off_color;
             } else {
-              color = states[state_indicator].state === 'on'
+              color = is_state_indicator_on
                   ? variables.state_indicator_on_color
                   : variables.state_indicator_off_color;
             }
 
-            return variables.state_indicator_size + ' solid ' + color;
+            const size = is_state_indicator_on
+              ? variables.state_indicator_size
+              : variables.state_indicator_off_size || variables.state_indicator_size
+
+            return size + ' solid ' + color;
           ]]]
