@@ -175,3 +175,18 @@
                     show_state: false
                   - entity: binary_sensor.amcrest_camera_motion_detected
                     show_state: false
+
+          - type: vertical-stack
+            title: Power
+            cards:
+              - type: entities
+                entities:
+                  - switch.outlet_1_switch
+                  - sensor.outlet_1_power
+                  - sensor.outlet_1_voltage
+                  - sensor.outlet_1_current
+                  - sensor.outlet_1_energy_today
+                  - sensor.outlet_1_energy_yesterday
+                  - sensor.outlet_1_energy_total
+                  - sensor.outlet_1_energy_total_start_time
+                  - sensor.outlet_1_wifi
