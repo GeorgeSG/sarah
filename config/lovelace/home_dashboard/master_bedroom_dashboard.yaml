@@ -37,50 +37,72 @@
                 name: Bedside
 
 
-          - type: horizontal-stack
-            title: Devices
+          - type: vertical-stack
+            title: Controls
             cards:
-              - type: custom:button-card
-                template:
-                  - default
-                  - with_state_indicator
-                entity: fan.philips_airpurifier
-                variables:
-                  state_indicator_id: binary_sensor.purifier_filter_needs_change
-                  state_indicator_size: 5px
-                  state_indicator_off_size: 0px
-                  state_indicator_on_color: var(--color-red)
-                  state_on_indicator_on_color: var(--color-red)
-              - type: custom:button-card
-                template: default
-                entity: media_player.nvidia_shield
-                name: TV
-                icon: mdi:television
-                tap_action:
-                  action: toggle
-                state:
-                  - value: 'playing'
-                    styles: &on_styles
-                      card:
-                        - background-color: var(--primary-color)
-                        - color: black
+              - type: horizontal-stack
+                cards:
+                  - type: custom:button-card
+                    template:
+                      - default
+                      - with_state_indicator
+                    entity: input_boolean.alarm_enabled
+                    state_display: "[[[return states['input_datetime.alarm_time'].state.split(':').slice(0, -1).join(':'); ]]]"
+                    show_state: true
+                    show_name: false
+                    styles:
                       icon:
-                        - color: black
-                  - value: 'standby'
-                    styles: *on_styles
-                  - value: 'on'
-                    styles: *on_styles
-                  - value: 'home'
-                    styles: *on_styles
-                  - value: 'idle'
-                    styles: *on_styles
-              - type: custom:button-card
-                template: default
-                entity: switch.titanium_power
-              - type: custom:button-card
-                template: default
-                entity: switch.camera
-                name: Camera
+                        - transform: translateY(-8px) # adjusted for state indicator size
+                      state:
+                        - transform: translateY(-13px) # adjusted for state indicator size
+                    variables:
+                      state_indicator_id: automation.alarm_set_time
+                  - type: custom:button-card
+                    template: default
+                    entity: binary_sensor.house_mode
+              - type: horizontal-stack
+                cards:
+                  - type: custom:button-card
+                    template:
+                      - default
+                      - with_state_indicator
+                    entity: fan.philips_airpurifier
+                    variables:
+                      state_indicator_id: binary_sensor.purifier_filter_needs_change
+                      state_indicator_size: 5px
+                      state_indicator_off_size: 0px
+                      state_indicator_on_color: var(--color-red)
+                      state_on_indicator_on_color: var(--color-red)
+                  - type: custom:button-card
+                    template: default
+                    entity: media_player.nvidia_shield
+                    name: TV
+                    icon: mdi:television
+                    tap_action:
+                      action: toggle
+                    state:
+                      - value: 'playing'
+                        styles: &on_styles
+                          card:
+                            - background-color: var(--primary-color)
+                            - color: black
+                          icon:
+                            - color: black
+                      - value: 'standby'
+                        styles: *on_styles
+                      - value: 'on'
+                        styles: *on_styles
+                      - value: 'home'
+                        styles: *on_styles
+                      - value: 'idle'
+                        styles: *on_styles
+                  - type: custom:button-card
+                    template: default
+                    entity: switch.titanium_power
+                  - type: custom:button-card
+                    template: default
+                    entity: switch.camera
+                    name: Camera
 
           - type: vertical-stack
             cards:

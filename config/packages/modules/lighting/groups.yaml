@@ -96,6 +96,8 @@ homeassistant:
       icon: bha:ceiling-lamp-plafond
     light.living_room_all_lights:
       icon: bha:ceiling-lamp-plafond
+    light.master_bedroom_all_lights:
+      icon: bha:ceiling-lamp-plafond
     light.master_bedroom_main_lights:
       icon: bha:ceiling-lamp-plafond
     light.kitchen_main_lights:
