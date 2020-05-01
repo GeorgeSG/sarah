@@ -17,36 +17,129 @@ cards:
     card:
       type: custom:layout-card
       layout: horizontal
+      max_columns: 2
       cards:
         - type: entities
           title: Living room
           icon: mdi:sofa
           show_header_toggle: false
           entities:
-            - light.living_room_all_lights
-            - type: divider
-            - light.living_room_main_lights
-            - light.light_lohas_1
-            - light.light_lohas_2
-            - light.light_lohas_3
-            - light.light_lohas_4
-            - type: divider
-            - light.pc
+            - type: custom:slider-entity-row
+              entity: light.living_room_all_lights
+              name: All lights
+              toggle: true
+              step: 5
+            - type: custom:fold-entity-row
+              head:
+                entity: light.living_room_main_lights
+                name: Main lights
+              entities:
+                - type: custom:slider-entity-row
+                  entity: light.living_room_main_lights
+                  name: Brightness
+                  hide_state: true
+                  step: 5
+                - type: custom:slider-entity-row
+                  entity: light.living_room_main_lights
+                  name: Temperature
+                  attribute: color_temp
+                  hide_state: true
+                  min: 153
+                  max: 500
+                  step: 5
+                - type: custom:decluttering-card
+                  template: light_with_fade_and_switch
+                  variables:
+                    - light: light.light_le_1
+                    - fade: switch.light_le_1_fade
+                    - wifi: sensor.light_le_1_wifi
+                - type: custom:decluttering-card
+                  template: light_with_fade_and_switch
+                  variables:
+                    - light: light.light_le_2
+                    - fade: switch.light_le_2_fade
+                    - wifi: sensor.light_le_2_wifi
+                - type: custom:decluttering-card
+                  template: light_with_fade_and_switch
+                  variables:
+                    - light: light.light_le_3
+                    - fade: switch.light_le_3_fade
+                    - wifi: sensor.light_le_3_wifi
+                - type: custom:decluttering-card
+                  template: light_with_fade_and_switch
+                  variables:
+                    - light: light.light_le_4
+                    - fade: switch.light_le_4_fade
+                    - wifi: sensor.light_le_4_wifi
+            - type: custom:fold-entity-row
+              head:
+                type: custom:decluttering-card
+                template: light_with_fade_and_switch
+                variables:
+                  - light: light.pc
+                  - fade: switch.pc_light_fade
+                  - wifi: sensor.pc_light_wifi
+              entities:
+                - type: custom:slider-entity-row
+                  entity: light.pc
+                  name: Brightness
+                  hide_state: true
+                  step: 5
 
         - type: entities
           title: Master bedroom
           icon: mdi:bed-empty
           show_header_toggle: false
           entities:
-            - light.master_bedroom_all_lights
-            - type: divider
-            - light.master_bedroom_main_lights
-            - light.light_lohas_1
-            - light.light_lohas_2
-            - light.light_lohas_3
-            - light.light_lohas_4
-            - type: divider
+            - type: custom:slider-entity-row
+              entity: light.master_bedroom_all_lights
+              name: All lights
+              toggle: true
+              step: 5
+            - type: custom:fold-entity-row
+              head:
+                entity: light.master_bedroom_main_lights
+                name: Main lights
+              entities:
+                - type: custom:slider-entity-row
+                  entity: light.master_bedroom_main_lights
+                  name: Brightness
+                  hide_state: true
+                  step: 5
+                - type: custom:slider-entity-row
+                  entity: light.master_bedroom_main_lights
+                  name: Temperature
+                  attribute: color_temp
+                  hide_state: true
+                  min: 153
+                  max: 500
+                  step: 5
+                - type: custom:decluttering-card
+                  template: light_with_fade_and_switch
+                  variables:
+                    - light: light.light_lohas_1
+                    - fade: switch.light_lohas_1_fade
+                    - wifi: sensor.light_lohas_1_wifi
+                - type: custom:decluttering-card
+                  template: light_with_fade_and_switch
+                  variables:
+                    - light: light.light_lohas_2
+                    - fade: switch.light_lohas_2_fade
+                    - wifi: sensor.light_lohas_2_wifi
+                - type: custom:decluttering-card
+                  template: light_with_fade_and_switch
+                  variables:
+                    - light: light.light_lohas_3
+                    - fade: switch.light_lohas_3_fade
+                    - wifi: sensor.light_lohas_3_wifi
+                - type: custom:decluttering-card
+                  template: light_with_fade_and_switch
+                  variables:
+                    - light: light.light_lohas_4
+                    - fade: switch.light_lohas_4_fade
+                    - wifi: sensor.light_lohas_4_wifi
             - light.bedside_light
+            - light.bed_led
 
         - type: entities
           title: Kitchen
@@ -56,17 +149,23 @@ cards:
             - light.tuya_kitchen_all_lights
             - type: divider
             - light.tuya_kitchen_main_lights
-            - light.kitchen_main_lights
-            - light.light_le_11
-            - light.light_le_12
-            - light.light_orbecco_1
+            - type: custom:fold-entity-row
+              entity: light.kitchen_main_lights
+              name: Main lights
+              entities:
+                - light.light_le_11
+                - light.light_le_12
+                - light.light_orbecco_1
             - type: divider
             - light.tuya_kitchen_secondary_lights
-            - light.kitchen_secondary_lights
-            - light.light_le_5
-            - light.light_le_6
-            - light.light_le_9
-            - light.light_le_10
+            - type: custom:fold-entity-row
+              entity: light.kitchen_secondary_lights
+              name: Secondary lights
+              entities:
+                - light.light_le_5
+                - light.light_le_6
+                - light.light_le_9
+                - light.light_le_10
 
         - type: entities
           title: Hallway
@@ -75,11 +174,40 @@ cards:
           entities:
             - light.hallway_all_lights
             - type: divider
-            - light.hallway_entrance_lights
-            - light.light_lohas_5
-            - light.light_lohas_6
+            - type: custom:fold-entity-row
+              entity: light.hallway_entrance_lights
+              name: Entrance lights
+              entities:
+                - type: custom:slider-entity-row
+                  entity: light.hallway_entrance_lights
+                  name: Brightness
+                  hide_state: true
+                  step: 5
+                - type: custom:slider-entity-row
+                  entity: light.hallway_entrance_lights
+                  name: Temperature
+                  attribute: color_temp
+                  hide_state: true
+                  min: 153
+                  max: 500
+                  step: 5
+                - type: custom:decluttering-card
+                  template: light_with_fade_and_switch
+                  variables:
+                    - light: light.light_lohas_5
+                    - fade: switch.light_lohas_5_fade
+                    - wifi: sensor.light_lohas_5_wifi
+                - type: custom:decluttering-card
+                  template: light_with_fade_and_switch
+                  variables:
+                    - light: light.light_lohas_6
+                    - fade: switch.light_lohas_6_fade
+                    - wifi: sensor.light_lohas_6_wifi
             - type: divider
             - light.tuya_hallway_main_lights
-            - light.hallway_main_lights
-            - light.light_le_7
-            - light.light_le_8
+            - type: custom:fold-entity-row
+              entity: light.hallway_main_lights
+              name: Main lights
+              entities:
+                - light.light_le_7
+                - light.light_le_8
