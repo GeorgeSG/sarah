@@ -1,13 +1,14 @@
 sonos_media_player:
   default:
     - info: "short"
+    - sync_volume: true
   card:
     type: custom:mini-media-player
     artwork: cover
     info: "[[info]]"
     entity: "[[player]]"
     speaker_group:
-      sync_volume: true
+      sync_volume: "[[sync_volume]]"
       entities:
         - entity_id: media_player.master_bedroom
           name: M. Bedroom

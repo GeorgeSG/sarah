@@ -366,6 +366,7 @@
                 template: sonos_media_player
                 variables:
                   - player: media_player.living_room
+                  - sync_volume: false
 
               - type: horizontal-stack
                 cards:
