@@ -208,7 +208,7 @@ sensor.bedroom_weather_humidity:
     template: bedroom_humidity_card
 
 fan.philips_airpurifier:
-  title: Bedroom air
+  title: Air purifier
   style: *popup_style
   card:
     type: custom:decluttering-card
