@@ -13,7 +13,7 @@ with_state_indicator:
     action: call-service
     service: homeassistant.toggle
     service_data:
-      entity_id: "[[[ return variables.state_indicator_id || entity ]]]"
+      entity_id: "[[[ return variables.state_indicator_id || entity.entity_id ]]]"
   styles:
     name:
       - transform: "[[[ return 'translateY(' + variables.state_indicator_size + ')' ]]]"
