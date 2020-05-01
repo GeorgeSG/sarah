@@ -134,7 +134,6 @@
                       action: call-service
                       service: script.sonos_join_tv
 
-
       - type: horizontal-stack
         cards:
           - type: custom:button-card
@@ -146,7 +145,16 @@
             name: Motion
             variables:
               state_indicator_id: automation.lighting_kitchen_day_mode_motion_turn_lights_on_after_sunset
-
+          - type: custom:button-card
+            template:
+              - xs
+              - progress
+            entity: sensor.motion_1_illuminance
+            name: Lux
+            variables:
+              min_value: 0
+              max_value: 1000
+              normal_value: 1000
           - type: custom:button-card
             template:
               - xs
