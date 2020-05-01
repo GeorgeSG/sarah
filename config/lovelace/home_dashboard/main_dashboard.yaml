@@ -292,27 +292,21 @@
               - type: horizontal-stack
                 cards:
                   - type: custom:button-card
-                    template:
-                      - small
-                      - with_state_indicator
-                    entity: script.sonos_join_bedroom
+                    template: default
+                    entity: binary_sensor.sonos_is_bedroom_master
                     name: Sonos from Bedroom
                     icon: mdi:speaker-multiple
                     tap_action:
-                      action: toggle
-                    variables:
-                      state_indicator_id: binary_sensor.sonos_is_bedroom_master
+                      action: call-service
+                      service: script.sonos_join_bedroom
                   - type: custom:button-card
-                    template:
-                      - small
-                      - with_state_indicator
-                    entity: script.sonos_join_tv
+                    template: default
+                    entity: binary_sensor.sonos_is_living_room_master
                     icon: mdi:speaker-multiple
                     name: Sonos from TV
                     tap_action:
-                      action: toggle
-                    variables:
-                      state_indicator_id: binary_sensor.sonos_is_living_room_master
+                      action: call-service
+                      service: script.sonos_join_tv
 
               - type: custom:decluttering-card
                 template: sonos_media_player
