@@ -22,12 +22,6 @@ cards:
         - type: vertical-stack
           cards:
             - type: entities
-              title: Alarm
-              entities:
-                - entity: input_boolean.alarm_enabled
-                  name: Alarm
-                - input_datetime.alarm_time
-            - type: entities
               title: Quarantine
               icon: mdi:biohazard
               entities:

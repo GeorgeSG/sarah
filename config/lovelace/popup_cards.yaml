@@ -240,9 +240,12 @@ input_boolean.alarm_enabled:
   style: *popup_style
   card:
     type: entities
+    show_header_toggle: false
     entities:
       - input_boolean.alarm_enabled
       - input_datetime.alarm_time
+      - entity: automation.alarm_set_time
+        name: Automatically set time
 
 script.brita_pour_water:
   title: Brita
