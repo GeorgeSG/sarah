@@ -1,15 +1,12 @@
 philips_airpurifier_card:
-  default:
-    - title:
   card:
     type: vertical-stack
     cards:
       - type: entities
-        title: "[[title]]"
         show_header_toggle: false
         entities:
           - entity: fan.philips_airpurifier
-            name: Purifier Working
+            name: Enable purifier
           - type: custom:fold-entity-row
             head:
               type: custom:dummy-entity-row
