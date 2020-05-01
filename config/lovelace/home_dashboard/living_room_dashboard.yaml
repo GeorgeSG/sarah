@@ -49,9 +49,7 @@
             title: Devices
             cards:
               - type: custom:button-card
-                template:
-                  - xs
-                  - with_state_background
+                template: default
                 entity: media_player.nvidia_shield
                 name: TV
                 icon: mdi:television
@@ -74,29 +72,17 @@
                   - value: 'idle'
                     styles: *on_styles
               - type: custom:button-card
-                template:
-                  - xs
-                  - with_state_background
+                template: default
                 entity: switch.titanium_power
               - type: custom:button-card
-                template:
-                  - xs
-                  - with_state_background
+                template: default
                 entity: sensor.synology_type_volume_1
                 name: Platinum
                 icon: mdi:nas
                 tap_action:
                   action: more-info
               - type: custom:button-card
-                template:
-                  - xs
-                  - with_state_background
-                entity: switch.camera
-                name: Camera
-              - type: custom:button-card
-                template:
-                  - xs
-                  - with_state_background
+                template: default
                 entity: binary_sensor.pi_hole_enabled
                 name: Pi-Hole
                 icon: mdi:pi-hole
@@ -179,19 +165,13 @@
           - type: vertical-stack
             title: Camera
             cards:
-              - type: picture-entity
-                aspect_ratio: 50%
-                entity: camera.amcrest_camera
-                show_name: true
-                show_state: true
-
-              - type: horizontal-stack
-                cards:
-                  - type: custom:button-card
-                    template: default
-                    entity: binary_sensor.amcrest_camera_online
-                    name: Online
-                  - type: custom:button-card
-                    template: default
-                    entity: binary_sensor.amcrest_camera_motion_detected
-                    name: Motion
+              - type: picture-glance
+                camera_image: camera.amcrest_camera
+                entities:
+                  - entity: camera.amcrest_camera
+                  - entity: switch.camera
+                    show_state: false
+                  - entity: binary_sensor.amcrest_camera_online
+                    show_state: false
+                  - entity: binary_sensor.amcrest_camera_motion_detected
+                    show_state: false
