@@ -68,6 +68,19 @@ sensor:
         value_template: "{{ state_attr('fan.philips_airpurifier', 'light_brightness') }}"
         icon_template: mdi:brightness-6
 
+binary_sensor:
+  - platform: template
+    sensors:
+      purifier_filter_needs_change:
+        friendly_name: Purifier filter needs change
+        device_class: problem
+        value_template: >
+
+          {{ is_state('sensor.purifier_pre_filter', 0)
+              or is_state('sensor.purifier_wick_filter', 0)
+              or is_state('sensor.purifier_carbon_filter', 0)
+              or is_state('sensor.purifier_hepa_filter', 0) }}
+
 homeassistant:
   customize:
     fan.philips_airpurifier:
