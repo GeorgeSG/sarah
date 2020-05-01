@@ -14,17 +14,21 @@ progress:
   styles:
     name:
       - position: absolute
-      - width: 100%
-      - text-align: center
-      - top: 66%
-      - font-size: 1em
-    state:
-      - position: absolute
-      - top: 22%
-      - width: 100%
+      - top: "[[[ return this.___config.show_state ? '65%' : 'initial' ]]]"
       - display: flex
       - align-items: center
       - justify-content: center
+      - width: 100%
+      - height: "[[[ return this.___config.show_state ? 'initial' : '100%' ]]]"
+      - font-size: 1em
+    state:
+      - position: absolute
+      - top: "[[[ return this.___config.show_name ? '22%' : 'initial' ]]]"
+      - display: flex
+      - align-items: center
+      - justify-content: center
+      - width: 100%
+      - height: "[[[ return this.___config.show_name ? 'initial' : '100%' ]]]"
       - font-size: 1.9em
     icon:
       - position: absolute
