@@ -129,7 +129,7 @@
                   - type: custom:button-card
                     template:
                       - xs
-                      - with_state
+                      - with_state_background
                     entity: script.sonos_join_tv
                     icon: mdi:speaker-multiple
                     name: TV
@@ -141,29 +141,29 @@
           - type: custom:button-card
             template:
               - xs
-              - with_state
+              - with_state_background
             entity: binary_sensor.browser_kitchen
             name: Motion
           - type: custom:button-card
             template:
               - xs
-              - with_state
+              - with_state_background
             entity: binary_sensor.motion_1_ias_zone
             name: Motion 2
           - type: custom:button-card
             template:
               - xs
-              - with_state
+              - with_state_background
             entity: binary_sensor.motion_2_ias_zone
             name: Hallway
           - type: custom:button-card
             template:
               - xs
-              - with_state
+              - with_state_background
             entity: media_player.nvidia_shield
             name: Shield
           - type: custom:button-card
             template:
               - xs
-              - with_state
+              - with_state_background
             entity: switch.titanium_power

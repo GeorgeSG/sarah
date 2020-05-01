@@ -1,4 +1,4 @@
-with_state:
+with_state_background:
   state:
     - value: 'on'
       styles:

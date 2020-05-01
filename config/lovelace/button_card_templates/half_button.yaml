@@ -1,5 +1,5 @@
 half:
-  template: with_state
+  template: with_state_background
   size: 30px
   show_icon: false
   hold_action:
