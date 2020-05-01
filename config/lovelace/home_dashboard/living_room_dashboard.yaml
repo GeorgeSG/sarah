@@ -162,6 +162,17 @@
                 name: Hallway
                 variables:
                   state_indicator_id: automation.lighting_hallway_day_mode_motion_turn_lights_on
+              - type: custom:button-card
+                template:
+                  - small
+                  - progress
+                entity: sensor.outlet_1_power
+                name: Desk power
+                variables:
+                  min_value: 1
+                  max_value: 800
+                  normal_value: 100
+                  high_value: 300
           - type: vertical-stack
             title: Camera
             cards:
@@ -176,17 +187,3 @@
                   - entity: binary_sensor.amcrest_camera_motion_detected
                     show_state: false
 
-          - type: vertical-stack
-            title: Power
-            cards:
-              - type: entities
-                entities:
-                  - switch.outlet_1_switch
-                  - sensor.outlet_1_power
-                  - sensor.outlet_1_voltage
-                  - sensor.outlet_1_current
-                  - sensor.outlet_1_energy_today
-                  - sensor.outlet_1_energy_yesterday
-                  - sensor.outlet_1_energy_total
-                  - sensor.outlet_1_energy_total_start_time
-                  - sensor.outlet_1_wifi

@@ -267,3 +267,28 @@ script.brita_pour_water:
             template: default
             name: Filter
             entity: binary_sensor.brita_should_change_filter
+
+sensor.outlet_1_power:
+  title: Desk power
+  style: *popup_style
+  card:
+    type: entities
+    entities:
+      - entity: switch.outlet_1_switch
+        name: Turned on
+      - entity: sensor.outlet_1_power
+        name: Power
+      - entity: sensor.outlet_1_voltage
+        name: Voltage
+      - entity: sensor.outlet_1_current
+        name: Current
+      - entity: sensor.outlet_1_energy_today
+        name: Energy today
+      - entity: sensor.outlet_1_energy_yesterday
+        name: Energy yesterday
+      - entity: sensor.outlet_1_energy_total
+        name: Total energy
+      - entity: sensor.outlet_1_energy_total_start_time
+        name: Total energy start
+      - entity: sensor.outlet_1_wifi
+        name: Wifi strength
