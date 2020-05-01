@@ -146,17 +146,11 @@
             title: Sensors
             cards:
               - type: custom:button-card
-                template: default
-                entity: binary_sensor.bedroom_right_window_on_off_wrapper
-                name: M. Bedroom
-              - type: custom:button-card
                 template:
                   - small
                   - progress
                 name: Temperature
                 entity: sensor.bedroom_weather_temperature
-                variables:
-                  degrees: 200
               - type: custom:button-card
                 template:
                   - small
@@ -169,10 +163,23 @@
                   normal_value: 40
                   high_value: 65
                   low_color: "var(--color-red)"
-                  normal_color: "var(--color-green)"
-                  high_color: "var(--color-red)"
-                  degrees: 200
-
+              - type: custom:button-card
+                template:
+                  - small
+                  - progress
+                name: Air Quality
+                entity: sensor.purifier_air_quality
+                variables:
+                  min_value: 1
+                  max_value: 90
+                  normal_value: 10
+                  high_value: 30
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                template: default
+                entity: binary_sensor.bedroom_right_window_on_off_wrapper
+                name: M. Bedroom
               - type: custom:button-card
                 template:
                   - default
@@ -182,5 +189,3 @@
                 variables:
                   state_indicator_id: automation.lighting_hallway_day_mode_motion_turn_lights_on
 
-          - type: custom:decluttering-card
-            template: bedroom_temperature_card
