@@ -13,7 +13,7 @@ with_state_indicator:
     action: call-service
     service: homeassistant.toggle
     service_data:
-      entity_id: "[[[ return variables.state_indicator_id ]]]"
+      entity_id: "[[[ return variables.state_indicator_id || entity ]]]"
   styles:
     name:
       - transform: "[[[ return 'translateY(' + variables.state_indicator_size + ')' ]]]"
@@ -21,15 +21,18 @@ with_state_indicator:
       - border-bottom: >-
           [[[
             let color;
+            const state_indicator = (!variables.state_indicator_id)
+                ? entity.entity_id
+                : variables.state_indicator_id;
 
             if (entity.state === 'on') {
-              color = states[variables.state_indicator_id].state === 'on'
-                ? variables.state_on_indicator_on_color
-                : variables.state_on_indicator_off_color;
+              color = states[state_indicator].state === 'on'
+                  ? variables.state_on_indicator_on_color
+                  : variables.state_on_indicator_off_color;
             } else {
-              color = states[variables.state_indicator_id].state === 'on'
-                ? variables.state_indicator_on_color
-                : variables.state_indicator_off_color;
+              color = states[state_indicator].state === 'on'
+                  ? variables.state_indicator_on_color
+                  : variables.state_indicator_off_color;
             }
 
             return variables.state_indicator_size + ' solid ' + color;
