@@ -11,7 +11,7 @@ with_state_indicator:
   triggers_update: all # unfortunately a template doesn't seem to work here :/
   double_tap_action:
     action: call-service
-    service: "[[[ return variables.state_indicator_id.split('.')[0] + '.toggle' ]]]"
+    service: homeassistant.toggle
     service_data:
       entity_id: "[[[ return variables.state_indicator_id ]]]"
   styles:
