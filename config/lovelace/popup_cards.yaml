@@ -248,25 +248,8 @@ script.brita_pour_water:
   title: Brita
   style: *popup_style
   card:
-    type: vertical-stack
-    cards:
-      - type: entities
-        entities:
-          - input_number.brita_remaining_liters
-          - input_datetime.brita_next_change
-
-      - type: horizontal-stack
-        cards:
-          - type: custom:button-card
-            template: default
-            name: New filter
-            entity: script.brita_new_filter
-            tap_action:
-              action: toggle
-          - type: custom:button-card
-            template: default
-            name: Filter
-            entity: binary_sensor.brita_should_change_filter
+    type: custom:decluttering-card
+    template: brita_card
 
 sensor.outlet_1_power:
   title: Desk power

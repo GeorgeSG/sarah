@@ -77,62 +77,10 @@
                 template: default
                 entity: switch.titanium_power
 
-          - type: vertical-stack
-            cards:
-              - type: vertical-stack
-                title: Media
-                cards:
-                  - type: custom:decluttering-card
-                    template: sonos_media_player
-                    variables:
-                      - player: media_player.kitchen
-                      - sync_volume: false
-                  - type: horizontal-stack
-                    cards:
-                      - type: custom:button-card
-                        template: xs
-                        entity: sensor.philip_defranco
-                        name: PDS
-                        tap_action:
-                          action: call-service
-                          service: script.youtube_play_latest_pds
-                      - type: custom:button-card
-                        template: xs
-                        entity: script.music_play
-                        name: Chill
-                        icon: mdi:music
-                        tap_action:
-                          action: toggle
-                      - type: custom:button-card
-                        template: xs
-                        entity: script.music_play
-                        name: Retro
-                        icon: mdi:music
-                        tap_action:
-                          action: call-service
-                          service: script.music_play
-                          service_data:
-                            playlist: "Retro"
-                      - type: custom:button-card
-                        template:
-                          - xs
-                          - with_state_background
-                        entity: binary_sensor.sonos_is_bedroom_master
-                        name: Bedroom
-                        icon: mdi:speaker-multiple
-                        tap_action:
-                          action: call-service
-                          service: script.sonos_join_bedroom
-                      - type: custom:button-card
-                        template:
-                          - xs
-                          - with_state_background
-                        entity: binary_sensor.sonos_is_living_room_master
-                        name: TV
-                        icon: mdi:speaker-multiple
-                        tap_action:
-                          action: call-service
-                          service: script.sonos_join_tv
+          - type: custom:decluttering-card
+            template: media_with_controls
+            variables:
+              - player: media_player.kitchen
 
           - type: horizontal-stack
             cards:
@@ -162,18 +110,3 @@
                 name: Hallway
                 variables:
                   state_indicator_id: automation.lighting_hallway_day_mode_motion_turn_lights_on
-
-      - type: vertical-stack
-        cards:
-          - type: vertical-stack
-            title: Brita
-            cards:
-              - type: entities
-                title: Brita Filter
-                icon: mdi:filter-outline
-                entities:
-                  - input_number.brita_remaining_liters
-                  - input_datetime.brita_next_change
-                  - binary_sensor.brita_should_change_filter
-                  - script.brita_new_filter
-                  - script.brita_pour_water
