@@ -34,11 +34,13 @@ script:
           - media_player.living_room
           - media_player.kitchen
           - media_player.bathroom
-      - service: media_player.turn_off
+      - service: homeassistant.turn_off
         entity_id:
           - media_player.nvidia_shield
           - media_player.living_room_tv
-      - service: light.turn_off
-        entity_id: light.ceiling_lights
-      - service: switch.turn_off
-        entity_id: switch.titanium_power
+          - light.ceiling_lights
+          - switch.titanium_power
+      - service: light.turn_on
+        entity_id: light.browser_kitchen
+        data:
+          brightness_pct: 1

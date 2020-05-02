@@ -25,7 +25,6 @@ script:
         data:
           message: "Here's some music to start the day!"
       - delay: 00:00:02
-      - service: script.sonos_join_bedroom
       - service: script.music_play
 
   routine_morning_briefing:

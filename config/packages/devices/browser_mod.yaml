@@ -5,49 +5,6 @@ browser_mod:
     40b846ed-78c5016a:
       name: browser_kitchen
 
-automation:
-  - alias: Browser mod · Kitchen · Night brightness
-    trigger:
-      platform: state
-      entity_id: input_select.house_mode
-      to: "night"
-    action:
-      - service: browser_mod.no_blackout
-        data:
-          deviceID: "40b846ed-78c5016a"
-          brightness: 1
-
-  - alias: Browser mod · Kitchen · Day brightness
-    trigger:
-      platform: state
-      entity_id: input_select.house_mode
-      from: "night"
-    action:
-      - service: browser_mod.no_blackout
-        data:
-          deviceID: "40b846ed-78c5016a"
-          brightness: 255
-
-  - alias: Browser mod · Kitchen · Home
-    trigger:
-      platform: state
-      entity_id: input_boolean.georgi_home
-      to: "on"
-    action:
-      - service: browser_mod.no_blackout
-        data:
-          deviceID: "40b846ed-78c5016a"
-
-  - alias: Browser mod · Kitchen · Away
-    trigger:
-      platform: state
-      entity_id: input_boolean.georgi_home
-      to: "off"
-    action:
-      - service: browser_mod.blackout
-        data:
-          deviceID: "40b846ed-78c5016a"
-
 homeassistant:
   customize:
     binary_sensor.browser_kitchen:

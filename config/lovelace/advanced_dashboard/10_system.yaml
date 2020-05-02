@@ -222,22 +222,6 @@ cards:
                 - automation.magic_cube_music_volume_down_on_rotate_left
                 - automation.magic_cube_music_volume_up_on_rotate_right
 
-            - type: divider
-
-            # Browser mod
-            - type: custom:fold-entity-row
-              head:
-                type: custom:dummy-entity-row
-                entity: sun.sun
-                icon: mdi:google-chrome
-                name: Browser mod
-                tap_action: none
-              entities:
-                - automation.browser_mod_kitchen_night_brightness
-                - automation.browser_mod_kitchen_day_brightness
-                - automation.browser_mod_kitchen_home
-                - automation.browser_mod_kitchen_away
-
         - type: entities
           title: Batteries
           show_header_toggle: false

@@ -12,6 +12,7 @@ script:
         entity_id:
           - light.hallway_entrance_lights
           - light.bed_led
+          - light.browser_kitchen
         data:
           brightness_pct: 100
       - service: script.security_camera_off

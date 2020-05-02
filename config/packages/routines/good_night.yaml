@@ -15,18 +15,18 @@ script:
           option: "Sleep Mode"
       - service: media_player.media_stop
         entity_id: group.all_sonos
-      - service: light.turn_off
-        entity_id: light.all_lights
-      - service: media_player.turn_off
+      - service: homeassistant.turn_off
         entity_id:
+          - light.all_lights
           - media_player.nvidia_shield
           - media_player.living_room_tv
-      - service: switch.turn_off
-        entity_id: switch.titanium_power
+          - switch.titanium_power
       # Use say_discretely instead of talk, because night mode is already on.
       - service: script.say_discretely
         data:
           message: "Entering night mode. Good night!"
 
-      - service: light.turn_off
-        entity_id: light.bed_led
+      - service: light.turn_on
+        entity_id: light.browser_kitchen
+        data:
+          brightness_pct: 1
