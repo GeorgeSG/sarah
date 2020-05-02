@@ -32,7 +32,6 @@ sensor:
         friendly_name: Air quality
         value_template: "{{ state_attr('fan.philips_airpurifier', 'pm25') }}"
         icon_template: mdi:weather-windy
-        unit_of_measurement: "pm2.5"
       purifier_humidity:
         friendly_name: Humidity
         unit_of_measurement: "%"
