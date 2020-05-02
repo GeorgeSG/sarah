@@ -25,23 +25,6 @@ binary_sensor:
           {% endif %}
 
 
-script:
-  house_mode_next:
-    alias: House mode · Next
-    sequence:
-      - service: input_select.select_option
-        entity_id: input_select.house_mode
-        data_template:
-          option: >
-
-            {% if is_state('input_select.house_mode', 'day') %}
-              bed
-            {% elif is_state('input_select.house_mode', 'bed') %}
-              night
-            {% else %}
-              day
-            {% endif %}
-
 automation:
   - alias: House mode · Set to day
     trigger:
@@ -75,5 +58,6 @@ automation:
           device_ieee: !secret master_bedroom_bedside_switch_ieee
           command: double
     action:
-      - service: script.house_mode_next
+      - service: input_select.select_next
+        entity_id: input_select.house_mode
 
