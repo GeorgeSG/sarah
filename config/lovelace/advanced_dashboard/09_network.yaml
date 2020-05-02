@@ -40,6 +40,7 @@ cards:
               icon: mdi:home-assistant
               entities:
                 - binary_sensor.updater
+                - sensor.hacs
                 - sensor.uptime
                 - entity: sensor.home_assistant_v2_db
                   name: Database

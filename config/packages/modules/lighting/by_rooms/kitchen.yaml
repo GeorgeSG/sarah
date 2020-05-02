@@ -15,7 +15,9 @@ automation:
           state: 'below_horizon'
     action:
       - service: light.turn_on
-        entity_id: light.tuya_kitchen_all_lights
+        entity_id:
+          - light.tuya_kitchen_all_lights
+          - light.browser_kitchen
 
   - alias: Lighting · Kitchen · Day mode · Motion · Turn lights off
     trigger:
@@ -30,7 +32,9 @@ automation:
       state: 'day'
     action:
       - service: light.turn_off
-        entity_id: light.tuya_kitchen_all_lights
+        entity_id:
+          - light.tuya_kitchen_all_lights
+          - light.browser_kitchen
 
   - alias: Lighting · Kitchen · Night mode · Motion · Turn lights on
     trigger:
@@ -42,9 +46,11 @@ automation:
       value_template: "{{ not is_state('input_select.house_mode', 'day') }}"
     action:
       - service: light.turn_on
-        entity_id: light.light_le_12
+        entity_id:
+          - light.light_le_12
+          - light.browser_kitchen
         data:
-          brightness_pct: 13 # this is the lowest it'll go ¯\_(ツ)_/¯
+          brightness_pct: 13 # this is the lowest LE will go ¯\_(ツ)_/¯
 
   - alias: Lighting · Kitchen · Night mode · Motion · Turn lights off
     trigger:
@@ -62,4 +68,6 @@ automation:
         data:
           brightness_pct: 100
       - service: light.turn_off
-        entity_id: light.light_le_12
+        entity_id:
+          - light.light_le_12
+          - light.browser_kitchen
