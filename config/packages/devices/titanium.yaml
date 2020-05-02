@@ -33,11 +33,31 @@ binary_sensor:
 sensor:
   - platform: mqtt
     name: "Titanium uptime"
-    icon: mdi:clock-check-outline
+    icon: mdi:clock-check
     availability_topic: "iotlink/workgroup/titanium/lwt"
     payload_available: "ON"
     payload_not_available: "OFF"
     state_topic: "iotlink/workgroup/titanium/windows-monitor/stats/system/uptime"
+
+  - platform: mqtt
+    name: "Titanium idle time"
+    icon: mdi:clock-alert
+    availability_topic: "iotlink/workgroup/titanium/lwt"
+    payload_available: "ON"
+    payload_not_available: "OFF"
+    state_topic: "iotlink/workgroup/titanium/windows-monitor/stats/system/idle-time"
+    value_template: "{{ value | multiply(1/60) | round(0) }}"
+    unit_of_measurement: "minutes"
+
+  # CPU
+  - platform: mqtt
+    name: "Titanium CPU usage"
+    icon: mdi:chip
+    availability_topic: "iotlink/workgroup/titanium/lwt"
+    payload_available: "ON"
+    payload_not_available: "OFF"
+    state_topic: "iotlink/workgroup/titanium/windows-monitor/stats/cpu/usage"
+    unit_of_measurement: "%"
 
   # Memory
   - platform: mqtt

@@ -32,15 +32,15 @@ cards:
                 - title: Platinum
                 - icon: mdi:nas
 
-
         - type: vertical-stack
           cards:
             - type: entities
               title: SARAH
               icon: mdi:home-assistant
               entities:
-                - binary_sensor.updater
+                - sensor.cobalt_cpu_temperature
                 - sensor.hacs
+                - binary_sensor.updater
                 - sensor.uptime
                 - entity: sensor.home_assistant_v2_db
                   name: Database
