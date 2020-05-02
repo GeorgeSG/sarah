@@ -145,7 +145,7 @@ binary_sensor:
 
 script:
   purifier_toggle_function:
-    alias: Air Purifier · Toggle function
+    alias: Purifier · Toggle function
     sequence:
       - condition: state
         entity_id: input_boolean.purifier_out_of_water
@@ -159,6 +159,13 @@ script:
             {% else %}
               {{ 'Purification' }}
             {% endif %}
+      - service: script.purifier_request_update
+
+  purifier_request_update:
+    alias: Purifier · Request update
+    sequence:
+      - service: homeassistant.update_entity
+        entity_id: fan.philips_airpurifier
 
 automation:
   - alias: Purifier · On start · Sync and update state
@@ -192,6 +199,7 @@ automation:
         entity_id: fan.philips_airpurifier
         data_template:
           speed: "{{ states('input_select.purifier_speed') }}"
+      - service: script.purifier_request_update
 
   - alias: Purifier · Sync speed
     trigger:
@@ -220,6 +228,7 @@ automation:
             {% else %}
               60
             {% endif %}
+      - service: script.purifier_request_update
 
   - alias: Purifier · Sync humidity
     trigger:
@@ -230,7 +239,7 @@ automation:
         entity_id: input_select.purifier_target_humidity
         data_template:
           option: "{{ states('sensor.purifier_target_humidity') }}"
-
+      - service: script.purifier_request_update
   - alias: Purifier · Turn on · Low humidity
     trigger:
       platform: numeric_state
@@ -255,6 +264,7 @@ automation:
       - service: script.say
         data:
           message: "Hey, I'm turning on the purifier, because humidity is low and there is water in the tank"
+      - service: script.purifier_request_update
 
   - alias: Purifier · Turn on · Low air quality
     trigger:
@@ -281,6 +291,7 @@ automation:
       - service: script.say
         data:
           message: "Also, switching to humidification, because there is water in the tank"
+      - service: script.purifier_request_update
 
   - alias: Purifier · Turn off · Okay humidity
     trigger:
@@ -302,6 +313,7 @@ automation:
       - service: script.say
         data:
           message: "Hey, I'm turning the purifier off, because humidity is below 30"
+      - service: script.purifier_request_update
 
 homeassistant:
   customize:
