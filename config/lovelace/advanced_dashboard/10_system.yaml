@@ -173,6 +173,25 @@ cards:
 
             - type: divider
 
+            - type: custom:fold-entity-row
+              head:
+                type: custom:dummy-entity-row
+                entity: fan.philips_airpurifier
+                icon: mdi:air-purifier
+                name: Climate
+                tap_action: none
+              entities:
+                - automation.purifier_on_start_sync_and_update_state
+                - automation.purifier_change_speed
+                - automation.purifier_sync_speed
+                - automation.purifier_change_humidity
+                - automation.purifier_sync_humidity
+                - automation.purifier_turn_on_low_humidity
+                - automation.purifier_turn_on_low_air_quality
+                - automation.purifier_turn_off_okay_humidity
+
+            - type: divider
+
             # System
             - type: custom:fold-entity-row
               head:
@@ -203,6 +222,8 @@ cards:
                 - automation.magic_cube_music_volume_down_on_rotate_left
                 - automation.magic_cube_music_volume_up_on_rotate_right
 
+            - type: divider
+
             # Browser mod
             - type: custom:fold-entity-row
               head:
@@ -216,7 +237,6 @@ cards:
                 - automation.browser_mod_kitchen_day_brightness
                 - automation.browser_mod_kitchen_home
                 - automation.browser_mod_kitchen_away
-
 
         - type: entities
           title: Batteries

@@ -4,6 +4,27 @@ fan:
   platform: philips_airpurifier
   host: !secret philips_purifier_ip
 
+input_select:
+  purifier_speed:
+    name: Speed
+    icon: mdi:speedometer
+    options:
+      - Auto Mode
+      - Allergen Mode
+      - Sleep Mode
+      - Speed 1
+      - Speed 2
+      - Speed 3
+      - Turbo
+
+  purifier_target_humidity:
+    name: Target humidity
+    icon: mdi:water-percent
+    options:
+      - 40
+      - 50
+      - 60
+
 sensor:
   - platform: template
     sensors:
@@ -11,27 +32,52 @@ sensor:
         friendly_name: Air quality
         value_template: "{{ state_attr('fan.philips_airpurifier', 'pm25') }}"
         icon_template: mdi:weather-windy
+        unit_of_measurement: "pm2.5"
       purifier_humidity:
         friendly_name: Humidity
         unit_of_measurement: "%"
+        device_class: humidity
         value_template: "{{ state_attr('fan.philips_airpurifier', 'humidity') }}"
         icon_template: mdi:water
       purifier_temperature:
         friendly_name: Temperature
         unit_of_measurement: "°C"
+        device_class: temperature
         value_template: "{{ state_attr('fan.philips_airpurifier', 'temperature') }}"
         icon_template: mdi:thermometer
       purifier_speed:
         friendly_name: Speed
         value_template: "{{ state_attr('fan.philips_airpurifier', 'speed') }}"
-        icon_template: mdi:speedometer
+        icon_template: >-
+          {% set value = state_attr('fan.philips_airpurifier', 'speed') %}
+          {% if value == 'Auto Mode' %}
+            {{ 'mdi:brightness-auto' }}
+          {% elif value == 'Speed 1' %}
+            {{ 'mdi:speedometer-slow' }}
+          {% elif value == 'Speed 2' %}
+            {{ 'mdi:speedometer-medium' }}
+          {% elif value == 'Speed 3' %}
+            {{ 'mdi:speedometer' }}
+          {% elif value == 'Turbo' %}
+            {{ 'mdi:car-turbocharger' }}
+          {% elif value == 'Sleep Mode' %}
+            {{ 'mdi:power-sleep' }}
+          {% elif value == 'Allergen Mode' %}
+            {{ 'mdi:allergy' }}
+          {% endif %}
       purifier_allergens:
         friendly_name: Allergen index
         value_template: "{{ state_attr('fan.philips_airpurifier', 'allergen_index') }}"
         icon_template: mdi:weather-windy-variant
-      purifier_mode:
-        friendly_name: Mode
+      purifier_function:
+        friendly_name: Function
         value_template: "{{ state_attr('fan.philips_airpurifier', 'function') }}"
+        icon_template: >-
+          {% if state_attr('fan.philips_airpurifier', 'function') == 'Purification' %}
+            {{ 'mdi:air-purifier' }}
+          {% else %}
+            {{ 'mdi:air-humidifier' }}
+          {% endif %}
       purifier_pre_filter:
         friendly_name: Pre-filter
         unit_of_measurement: "Hrs"
@@ -56,23 +102,38 @@ sensor:
         friendly_name: Target humidity
         unit_of_measurement: "%"
         value_template: "{{ state_attr('fan.philips_airpurifier', 'target_humidity') }}"
-        icon_template: mdi:water
-      purifier_water_level:
-        friendly_name: Water level
-        unit_of_measurement: "%"
-        value_template: "{{ state_attr('fan.philips_airpurifier', 'water_level') }}"
         icon_template: mdi:water-percent
       purifier_brightness:
         friendly_name: Brightness
         unit_of_measurement: "%"
         value_template: "{{ state_attr('fan.philips_airpurifier', 'light_brightness') }}"
         icon_template: mdi:brightness-6
+      purifier_timer:
+        friendly_name: Timer
+        unit_of_measurement: "hrs"
+        value_template: "{{ state_attr('fan.philips_airpurifier', 'timer') }}"
+        icon_template: mdi:timer
+      purifier_time_remaining:
+        friendly_name: Time remaining
+        unit_of_measurement: "minutes"
+        value_template: "{{ state_attr('fan.philips_airpurifier', 'timer_remaining_minutes') }}"
+        icon_template: mdi:timer
 
 binary_sensor:
   - platform: template
     sensors:
+      purifier_out_of_water:
+        friendly_name: Water level
+        device_class: problem
+        value_template: "{{ state_attr('fan.philips_airpurifier', 'water_level') == 0 }}"
+      purifier_child_lock:
+        friendly_name: Child lock
+        value_template: "{{ state_attr('fan.philips_airpurifier', 'child_lock') }}"
+      purifier_display_light:
+        friendly_name: Display light
+        value_template: "{{ state_attr('fan.philips_airpurifier', 'display_light') }}"
       purifier_filter_needs_change:
-        friendly_name: Purifier filter needs change
+        friendly_name: Filter needs change
         device_class: problem
         value_template: >
 
@@ -80,6 +141,167 @@ binary_sensor:
               or is_state('sensor.purifier_wick_filter', 0)
               or is_state('sensor.purifier_carbon_filter', 0)
               or is_state('sensor.purifier_hepa_filter', 0) }}
+
+
+script:
+  purifier_toggle_function:
+    alias: Air Purifier · Toggle function
+    sequence:
+      - condition: state
+        entity_id: input_boolean.purifier_out_of_water
+        state: 'off'
+      - service: philips_airpurifier.set_function
+        entity_id: fan.philips_airpurifier
+        data_template:
+          function: >-
+            {% if state_attr('fan.philips_airpurifier', 'function') == 'Purification' %}
+              {{ 'Purification & Humidification' }}
+            {% else %}
+              {{ 'Purification' }}
+            {% endif %}
+
+automation:
+  - alias: Purifier · On start · Sync and update state
+    trigger:
+      platform: state
+      entity_id: fan.philips_airpurifier
+      to: 'on'
+    action:
+      - service: input_select.select_option
+        entity_id: input_select.purifier_target_humidity
+        data_template:
+          option: "{{ states('sensor.purifier_target_humidity') }}"
+      - service: input_select.select_option
+        entity_id: input_select.purifier_speed
+        data_template:
+          option: "{{ states('sensor.purifier_speed') }}"
+      - condition: state
+        entity_id: binary_sensor.purifier_out_of_water
+        state: "on"
+      - service: philips_airpurifier.set_function
+        entity_id: fan.philips_airpurifier
+        data:
+          function: 'Purification'
+
+  - alias: Purifier · Change speed
+    trigger:
+      platform: state
+      entity_id: input_select.purifier_speed
+    action:
+      - service: fan.set_speed
+        entity_id: fan.philips_airpurifier
+        data_template:
+          speed: "{{ states('input_select.purifier_speed') }}"
+
+  - alias: Purifier · Sync speed
+    trigger:
+      platform: state
+      entity_id: sensor.purifier_speed
+    action:
+      - service: input_select.select_option
+        entity_id: input_select.purifier_speed
+        data_template:
+          option: "{{ states('sensor.purifier_speed') }}"
+
+  - alias: Purifier · Change humidity
+    trigger:
+      platform: state
+      entity_id: input_select.purifier_target_humidity
+    action:
+      - service: philips_airpurifier.set_target_humidity
+        entity_id: fan.philips_airpurifier
+        data_template:
+          humidity: >-
+            {% set state = states('input_select.purifier_target_humidity') | int %}
+            {% if state == 40 %}
+              40
+            {% elif state == 50 %}
+              50
+            {% else %}
+              60
+            {% endif %}
+
+  - alias: Purifier · Sync humidity
+    trigger:
+      platform: state
+      entity_id: sensor.purifier_target_humidity
+    action:
+      - service: input_select.select_option
+        entity_id: input_select.purifier_target_humidity
+        data_template:
+          option: "{{ states('sensor.purifier_target_humidity') }}"
+
+  - alias: Purifier · Turn on · Low humidity
+    trigger:
+      platform: numeric_state
+      entity_id: sensor.bedroom_weather_humidity
+      below: 20
+    condition:
+      condition: and
+      conditions:
+        - condition: state
+          entity_id: binary_sensor.purifier_out_of_water
+          state: "off"
+        - condition: state
+          entity_id: input_boolean.georgi_home
+          state: "on"
+    action:
+      - service: fan.turn_on
+        entity_id: fan.philips_airpurifier
+      - service: philips_airpurifier.set_function
+        entity_id: fan.philips_airpurifier
+        data:
+          function: "Purification & Humidification"
+      - service: script.say
+        data:
+          message: "Hey, I'm turning on the purifier, because humidity is low and there is water in the tank"
+
+  - alias: Purifier · Turn on · Low air quality
+    trigger:
+      platform: numeric_state
+      entity_id: sensor.purifier_air_quality
+      above: 30
+    condition:
+      condition: state
+      entity_id: input_boolean.georgi_home
+      state: "on"
+    action:
+      - service: fan.turn_on
+        entity_id: fan.philips_airpurifier
+      - service: script.say
+        data:
+          message: "Hey, I'm turning on the purifier, because air quality is above 30"
+      - condition: state
+        entity_id: binary_sensor.purifier_out_of_water
+        state: "off"
+      - service: philips_airpurifier.set_function
+        entity_id: fan.philips_airpurifier
+        data:
+          funcition: "Purification & Humidification"
+      - service: script.say
+        data:
+          message: "Also, switching to humidification, because there is water in the tank"
+
+  - alias: Purifier · Turn off · Okay humidity
+    trigger:
+      platform: numeric_state
+      entity_id: sensor.bedroom_weather_humidity
+      above: 50
+    condition:
+      condition: and
+      conditions:
+        - condition: state
+          entity_id: sensor.purifier_function
+          state: "Purification & Humidification"
+        - condition: numeric_state
+          entity_id: sensor.purifier_air_quality
+          below: 30
+    action:
+      - service: fan.turn_off
+        entity_id: fan.philips_airpurifier
+      - service: script.say
+        data:
+          message: "Hey, I'm turning the purifier off, because humidity is below 30"
 
 homeassistant:
   customize:

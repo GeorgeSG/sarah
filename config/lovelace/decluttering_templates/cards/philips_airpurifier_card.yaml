@@ -3,10 +3,54 @@ philips_airpurifier_card:
     type: vertical-stack
     cards:
       - type: entities
-        show_header_toggle: false
         entities:
           - entity: fan.philips_airpurifier
             name: Enable purifier
+      - type: horizontal-stack
+        cards:
+          - type: custom:button-card
+            template: default
+            entity: sensor.purifier_speed
+            tap_action:
+              action: call-service
+              service: input_select.select_next
+              service_data:
+                entity_id: input_select.purifier_speed
+          - type: custom:button-card
+            template: default
+            entity: sensor.purifier_function
+            tap_action:
+              action: call-service
+              service: script.purifier_toggle_function
+          - type: custom:button-card
+            template:
+              - small
+              - progress
+              - with_state_indicator
+            entity: sensor.purifier_target_humidity
+            tap_action:
+              action: call-service
+              service: input_select.select_next
+              service_data:
+                entity_id: input_select.purifier_target_humidity
+            show_state: true
+            show_icon: false
+            variables:
+              min_value: 30
+              max_value: 60
+              normal_value: 61
+              high_value: 70
+              state_indicator_id: binary_sensor.purifier_out_of_water
+              state_indicator_size: 5px
+              state_indicator_off_size: 0px
+              state_indicator_on_color: var(--color-red)
+              state_on_indicator_on_color: var(--color-red)
+
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - input_select.purifier_speed
+          - input_select.purifier_target_humidity
           - type: custom:fold-entity-row
             head:
               type: custom:dummy-entity-row
@@ -19,17 +63,22 @@ philips_airpurifier_card:
               - sensor.purifier_allergens
               - sensor.purifier_temperature
               - sensor.purifier_humidity
-              - sensor.purifier_water_level
+              - binary_sensor.purifier_out_of_water
           - type: custom:fold-entity-row
             head:
               type: custom:dummy-entity-row
               entity: sensor.purifier_speed
               name: Mode
+            open: true
             entities:
               - sensor.purifier_speed
-              - sensor.purifier_mode
-              - sensor.purifier_brightness
+              - sensor.purifier_function
               - sensor.purifier_target_humidity
+              - sensor.purifier_brightness
+              - sensor.purifier_timer
+              - sensor.purifier_time_remaining
+              - binary_sensor.purifier_child_lock
+              - binary_sensor.purifier_display_light
           - type: custom:fold-entity-row
             head:
               type: custom:dummy-entity-row
