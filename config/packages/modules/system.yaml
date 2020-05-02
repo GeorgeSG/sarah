@@ -10,6 +10,12 @@ binary_sensor:
         value_template: "{{ states('sun.sun') == 'below_horizon' or is_state('input_boolean.floorplan_night_mode', 'on') }}"
 
 sensor:
+  - platform: command_line
+    name: Cobalt CPU Temperature
+    command: "cat /sys/class/thermal/thermal_zone3/temp"
+    unit_of_measurement: "°C"
+    value_template: '{{ value | multiply(0.001) | round(1) }}'
+
   - platform: time_date
     display_options:
       - "time"
@@ -27,6 +33,7 @@ sensor:
       sarah_url:
         friendly_name: "SARAH's URL"
         value_template: !secret sarah_url
+
 
 shell_command:
   clear_logs: truncate -s 0 /config/home-assistant.log
