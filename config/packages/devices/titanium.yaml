@@ -234,3 +234,15 @@ script:
         data:
           topic: "iotlink/workgroup/titanium/refresh"
           payload: ""
+
+automation:
+  - alias: Titanium · Turn off when idle
+    trigger:
+      platform: numeric_state
+      entity_id: sensor.titanium_idle_time
+      above: 180
+    action:
+      - service: script.titanium_shutdown
+      - service: script.say
+        data:
+          message: "Hey, I'm turning Titanium off. It's been idling for 3 hours."

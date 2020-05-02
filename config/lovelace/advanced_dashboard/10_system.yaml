@@ -22,6 +22,8 @@ cards:
           title: Automations
           show_header_toggle: false
           entities:
+            - automation.titanium_turn_off_when_idle
+            - type: divider
             # Presence
             - type: custom:fold-entity-row
               head:
@@ -173,6 +175,7 @@ cards:
 
             - type: divider
 
+            # Purifier
             - type: custom:fold-entity-row
               head:
                 type: custom:dummy-entity-row

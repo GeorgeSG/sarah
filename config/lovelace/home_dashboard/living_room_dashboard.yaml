@@ -72,8 +72,12 @@
                   - value: 'idle'
                     styles: *on_styles
               - type: custom:button-card
-                template: default
+                template:
+                  - default
+                  - with_state_indicator
                 entity: switch.titanium
+                variables:
+                  state_indicator_id: automation.titanium_turn_off_when_idle
               - type: custom:button-card
                 template: default
                 entity: sensor.synology_type_volume_1
