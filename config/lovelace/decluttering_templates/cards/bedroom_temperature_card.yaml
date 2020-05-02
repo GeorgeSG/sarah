@@ -10,8 +10,7 @@ bedroom_temperature_card:
           average: true
           extrema: true
         entities:
-          - entity: sensor.bedroom_weather_temperature
-            name: Temperature
+          - sensor.bedroom_weather_temperature
 
       - type: horizontal-stack
         cards:
@@ -25,7 +24,6 @@ bedroom_temperature_card:
               - sensor.bedroom_weather_humidity
 
           - type: "custom:mini-graph-card"
-            name: Pressure
             entities:
               - sensor.bedroom_weather_pressure
             font_size: 75

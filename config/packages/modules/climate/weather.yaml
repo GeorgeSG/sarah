@@ -57,10 +57,10 @@ homeassistant:
       friendly_name: Bedroom weather battery
 
     sensor.bedroom_weather_temperature:
-      friendly_name: Bedroom temperature
+      friendly_name: Temperature
 
     sensor.bedroom_weather_pressure:
-      friendly_name: Bedroom pressure
+      friendly_name: Pressure
 
     sensor.bedroom_weather_humidity:
-      friendly_name: Bedroom humidity
+      friendly_name: Humidity

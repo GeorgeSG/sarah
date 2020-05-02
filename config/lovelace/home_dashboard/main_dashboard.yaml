@@ -185,7 +185,6 @@
                 template:
                   - small
                   - progress
-                name: Temperature
                 entity: sensor.bedroom_weather_temperature
                 variables:
                   degrees: 200
@@ -193,7 +192,6 @@
                 template:
                   - small
                   - progress
-                name: Humidity
                 entity: sensor.bedroom_weather_humidity
                 variables:
                   min_value: 25

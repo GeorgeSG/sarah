@@ -112,13 +112,11 @@
                 template:
                   - small
                   - progress
-                name: Temperature
                 entity: sensor.bedroom_weather_temperature
               - type: custom:button-card
                 template:
                   - small
                   - progress
-                name: Humidity
                 entity: sensor.bedroom_weather_humidity
                 variables:
                   min_value: 25

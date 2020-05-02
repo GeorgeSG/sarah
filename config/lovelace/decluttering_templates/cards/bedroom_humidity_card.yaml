@@ -10,13 +10,11 @@ bedroom_humidity_card:
           average: true
           extrema: true
         entities:
-          - entity: sensor.bedroom_weather_humidity
-            name: Humidity
+          - sensor.bedroom_weather_humidity
 
       - type: horizontal-stack
         cards:
           - type: "custom:mini-graph-card"
-            name: Temperature
             font_size: 75
             icon: "mdi:thermometer"
             line_color: green
@@ -25,7 +23,6 @@ bedroom_humidity_card:
               - sensor.bedroom_weather_temperature
 
           - type: "custom:mini-graph-card"
-            name: Pressure
             entities:
               - sensor.bedroom_weather_pressure
             font_size: 75
