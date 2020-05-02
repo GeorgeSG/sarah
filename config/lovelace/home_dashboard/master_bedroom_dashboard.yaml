@@ -130,8 +130,17 @@
                 template:
                   - small
                   - progress
-                name: Air Quality
                 entity: sensor.purifier_air_quality
+                variables:
+                  min_value: 1
+                  max_value: 90
+                  normal_value: 10
+                  high_value: 30
+              - type: custom:button-card
+                template:
+                  - small
+                  - progress
+                entity: sensor.purifier_allergens
                 variables:
                   min_value: 1
                   max_value: 90
