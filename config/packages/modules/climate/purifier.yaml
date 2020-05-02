@@ -147,7 +147,7 @@ script:
     alias: Purifier · Toggle function
     sequence:
       - condition: state
-        entity_id: input_boolean.purifier_out_of_water
+        entity_id: binary_sensor.purifier_out_of_water
         state: 'off'
       - service: philips_airpurifier.set_function
         entity_id: fan.philips_airpurifier
@@ -239,6 +239,7 @@ automation:
         data_template:
           option: "{{ states('sensor.purifier_target_humidity') }}"
       - service: script.purifier_request_update
+
   - alias: Purifier · Turn on · Low humidity
     trigger:
       platform: numeric_state

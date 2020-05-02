@@ -22,29 +22,8 @@ philips_airpurifier_card:
             tap_action:
               action: call-service
               service: script.purifier_toggle_function
-          - type: custom:button-card
-            template:
-              - small
-              - progress
-              - with_state_indicator
-            entity: sensor.purifier_target_humidity
-            tap_action:
-              action: call-service
-              service: input_select.select_next
-              service_data:
-                entity_id: input_select.purifier_target_humidity
-            show_state: true
-            show_icon: false
-            variables:
-              min_value: 30
-              max_value: 60
-              normal_value: 61
-              high_value: 70
-              state_indicator_id: binary_sensor.purifier_out_of_water
-              state_indicator_size: 5px
-              state_indicator_off_size: 0px
-              state_indicator_on_color: var(--color-red)
-              state_on_indicator_on_color: var(--color-red)
+          - type: custom:decluttering-card
+            template: purifier_target_humidity
 
       - type: entities
         show_header_toggle: false
