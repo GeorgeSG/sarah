@@ -2,14 +2,16 @@ sonos_media_player:
   default:
     - info: "short"
     - sync_volume: true
+    - name:
   card:
     type: custom:mini-media-player
     artwork: cover
+    name: "[[name]]"
     info: "[[info]]"
     entity: "[[player]]"
     speaker_group:
       sync_volume: "[[sync_volume]]"
-      entities:
+      entities: &entities_in_gorup
         - entity_id: media_player.master_bedroom
           name: M. Bedroom
         - entity_id: media_player.living_room
@@ -29,13 +31,17 @@ sonos_media_player:
 sonos_media_player_small:
   card:
     type: custom:mini-media-player
-    artwork: none
+    artwork: cover
+    name: "[[name]]"
     entity: "[[player]]"
+    speaker_group:
+      entities: *entities_in_gorup
     hide:
       power: true
       icon: true
-      info: true
+      controls: true
       shuffle: true
+      info: true
     idle_view:
       when_idle: true
       when_standby: true

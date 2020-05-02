@@ -93,6 +93,7 @@
                 template: media_with_controls
                 variables:
                   - player: media_player.living_room
+                  - player_name: Living room
 
 
       - type: vertical-stack

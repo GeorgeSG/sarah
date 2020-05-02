@@ -98,6 +98,8 @@ media_player.kitchen:
     template: sonos_media_player
     variables:
       - player: media_player.kitchen
+      - name: Kitchen
+      - sync_volume: false
 
 media_player.bathroom:
   title: Bathroom Sonos
@@ -107,6 +109,8 @@ media_player.bathroom:
     template: sonos_media_player
     variables:
       - player: media_player.bathroom
+      - name: Bathroom
+      - sync_volume: false
 
 media_player.master_bedroom:
   title: Master bedroom Sonos
@@ -116,6 +120,8 @@ media_player.master_bedroom:
     template: sonos_media_player
     variables:
       - player: media_player.master_bedroom
+      - name: M. Bedroom
+      - sync_volume: false
 
 media_player.nvidia_shield: &nvidia_shield
   title: TV
@@ -166,6 +172,8 @@ media_player.nvidia_shield: &nvidia_shield
         template: sonos_media_player
         variables:
           - player: media_player.living_room
+          - name: Living room
+          - sync_volume: false
 
       - type: horizontal-stack
         cards:

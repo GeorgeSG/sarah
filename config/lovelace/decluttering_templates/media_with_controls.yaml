@@ -1,4 +1,6 @@
 media_with_controls:
+  defaults:
+    - player_name:
   card:
     type: vertical-stack
     title: Media
@@ -7,6 +9,7 @@ media_with_controls:
         template: sonos_media_player
         variables:
           - player: "[[player]]"
+          - name: "[[player_name]]"
           - sync_volume: false
       - type: horizontal-stack
         cards:

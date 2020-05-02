@@ -81,6 +81,7 @@
             template: media_with_controls
             variables:
               - player: media_player.kitchen
+              - player_name: Kitchen
 
           - type: horizontal-stack
             cards:

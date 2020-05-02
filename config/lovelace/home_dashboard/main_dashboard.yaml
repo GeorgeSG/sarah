@@ -314,22 +314,23 @@
                 template: sonos_media_player
                 variables:
                   - player: media_player.master_bedroom
+                  - name: M. Bedroom
 
               - type: custom:decluttering-card
-                template: sonos_media_player
+                template: sonos_media_player_small
                 variables:
                   - player: media_player.living_room
-                  - sync_volume: false
+                  - name: Living room
 
-              - type: horizontal-stack
-                cards:
-                  - type: custom:decluttering-card
-                    template: sonos_media_player_small
-                    variables:
-                      - player: media_player.kitchen
+              - type: custom:decluttering-card
+                template: sonos_media_player_small
+                variables:
+                  - player: media_player.kitchen
+                  - name: Kitchen
 
-                  - type: custom:decluttering-card
-                    template: sonos_media_player_small
-                    variables:
-                      - player: media_player.bathroom
+              - type: custom:decluttering-card
+                template: sonos_media_player_small
+                variables:
+                  - player: media_player.bathroom
+                  - name: Bathroom
 
