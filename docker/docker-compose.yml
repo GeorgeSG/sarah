@@ -10,6 +10,7 @@ services:
     image: homeassistant/home-assistant:stable
     volumes:
       - ../config:/config
+      - /sys/class/thermal/thermal_zone3/type:/sys/cobalt/temp
     devices:
       - /dev/ttyACM0:/dev/ttyACM0
     environment:
