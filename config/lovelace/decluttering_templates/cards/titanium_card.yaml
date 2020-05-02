@@ -9,7 +9,7 @@ titanium_card:
         title: "[[title]]"
         icon: "[[icon]]"
         entities:
-          - switch.titanium_power
+          - switch.titanium
       - type: vertical-stack
         cards:
           - type: entities

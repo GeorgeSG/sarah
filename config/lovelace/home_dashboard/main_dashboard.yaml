@@ -93,7 +93,7 @@
 
                   - type: custom:button-card
                     template: default
-                    entity: switch.titanium_power
+                    entity: switch.titanium
 
                   - type: custom:button-card
                     template: default

@@ -73,7 +73,7 @@
                     styles: *on_styles
               - type: custom:button-card
                 template: default
-                entity: switch.titanium_power
+                entity: switch.titanium
               - type: custom:button-card
                 template: default
                 entity: sensor.synology_type_volume_1

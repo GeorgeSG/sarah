@@ -135,7 +135,7 @@ camera:
 switch:
   - platform: template
     switches:
-      titanium_power:
+      titanium:
         friendly_name: Titanium
         value_template: "{{ is_state('binary_sensor.titanium', 'on') }}"
         turn_on:

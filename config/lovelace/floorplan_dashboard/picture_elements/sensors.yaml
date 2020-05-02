@@ -9,7 +9,7 @@
     - type: custom:decluttering-card
       template: floorplan_state_icon
       variables:
-        - entity: switch.titanium_power
+        - entity: switch.titanium
         - top: 62%
         - left: 81%
 

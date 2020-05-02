@@ -75,7 +75,7 @@
                     styles: *on_styles
               - type: custom:button-card
                 template: default
-                entity: switch.titanium_power
+                entity: switch.titanium
 
           - type: custom:decluttering-card
             template: media_with_controls

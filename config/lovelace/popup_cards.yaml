@@ -222,7 +222,7 @@ fan.philips_airpurifier:
     type: custom:decluttering-card
     template: philips_airpurifier_card
 
-switch.titanium_power:
+switch.titanium:
   title: Titanium
   style: *popup_style
   card:

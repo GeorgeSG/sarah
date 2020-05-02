@@ -39,7 +39,7 @@ script:
           - media_player.nvidia_shield
           - media_player.living_room_tv
           - light.ceiling_lights
-          - switch.titanium_power
+          - switch.titanium
       - service: light.turn_on
         entity_id: light.browser_kitchen
         data:
