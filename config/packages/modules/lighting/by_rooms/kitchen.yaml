@@ -32,7 +32,6 @@ automation:
       - service: light.turn_off
         entity_id: light.tuya_kitchen_all_lights
 
-
   - alias: Lighting · Kitchen · Night mode · Motion · Turn lights on
     trigger:
       platform: state
