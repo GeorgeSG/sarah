@@ -1,5 +1,7 @@
-# Depends on:
-# - https://www.home-assistant.io/integrations/spotify
+# https://www.home-assistant.io/integrations/spotify
+spotify:
+  client_id: !secret spotify_client_id
+  client_secret: !secret spotify_client_secret
 
 script:
   music_play:
