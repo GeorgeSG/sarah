@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -o allexport; source "$(dirname $0)/.env"; set +o allexport
+
+echo "Restarting..."
+ssh $REMOTE_HOST -p $REMOTE_PORT \
+    "docker-compose -f $REMOTE_REPO_PATH/docker/docker-compose.yml restart"

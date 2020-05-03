@@ -76,6 +76,19 @@ The `speech` module uses [partial templates](https://github.com/GeorgeSG/sarah/t
 
 ![Floorplan](assets/screenshot-floorplan.png?raw=true)
 
+## Helpers
+
+There are some useful scripts in `./bin`.
+
+In order to use them, copy `./bin/.env.example` to `./bin/.env` and set the correct values.
+You must be able to ssh to the host with a ssh key.
+
+- `./bin/ui` - re-uploads only UI configuration files
+- `./bin/upload` - re-uploads all configuration files
+- `./bin/restart` - restarts Home Assistant via docker-compose
+- `./bin/update` - `upload` and then `restart`
+- `./bin/logs` - tails the logs of Home Assisstant via docker-compose
+
 ## Inspiration
 
 1. [CCOSTAN/Home-AssistantConfig](https://github.com/CCOSTAN/Home-AssistantConfig)

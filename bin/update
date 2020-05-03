@@ -1,0 +1,6 @@
+#!/bin/bash
+
+sh "$(dirname $0)/upload"
+
+echo
+sh "$(dirname $0)/restart"

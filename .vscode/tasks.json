@@ -9,7 +9,9 @@
       "command": "./bin/ui",
       "problemMatcher": [],
       "presentation": {
-        "focus": true
+        "panel": "shared",
+        "echo": false,
+        "clear": true
       }
     },
     {
@@ -18,7 +20,9 @@
       "command": "./bin/restart",
       "problemMatcher": [],
       "presentation": {
-        "focus": true
+        "panel": "shared",
+        "echo": false,
+        "clear": true
       }
     },
     {
@@ -27,7 +31,9 @@
       "command": "./bin/update",
       "problemMatcher": [],
       "presentation": {
-        "focus": true
+        "panel": "shared",
+        "echo": false,
+        "clear": true
       }
     },
     {
@@ -36,7 +42,9 @@
       "command": "./bin/upload",
       "problemMatcher": [],
       "presentation": {
-        "focus": true
+        "panel": "shared",
+        "echo": false,
+        "clear": true
       }
     },
     {
@@ -45,9 +53,9 @@
       "command": "./bin/logs",
       "problemMatcher": [],
       "presentation": {
-        "panel": "dedicated",
-        "clear": true,
-        "focus": true
+        "panel": "shared",
+        "echo": false,
+        "clear": true
       }
     }
   ]
