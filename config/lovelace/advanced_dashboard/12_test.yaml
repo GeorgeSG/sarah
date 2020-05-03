@@ -4,30 +4,54 @@ cards:
   - type: horizontal-stack
     cards:
       - type: custom:button-card
-        name: Reload themes
+        template: xs
+        name: Themes
+        icon: mdi:reload
         tap_action:
           action: call-service
           service: frontend.reload_themes
       - type: custom:button-card
-        name: Reload automations
+        template: xs
+        name: Auto
+        icon: mdi:reload
         tap_action:
           action: call-service
           service: automation.reload
       - type: custom:button-card
-        name: Reload scripts
+        template: xs
+        name: Scripts
+        icon: mdi:reload
         tap_action:
           action: call-service
           service: script.reload
+      - type: custom:button-card
+        template: xs
+        name: Scenes
+        icon: mdi:reload
+        tap_action:
+          action: call-service
+          service: scene.reload
+      - type: custom:button-card
+        template: xs
+        name: Groups
+        icon: mdi:reload
+        tap_action:
+          action: call-service
+          service: group.reload
 
   - type: entities
     entities:
       - input_boolean.magic_cube_enabled
       - input_select.magic_cube_mode
-      - entity: sensor.cube_analog_input
-      - entity: sensor.cube_multistate_input
-      - entity: sensor.cube_power
-      - entity: sensor.carbon_activity
-      - entity: sensor.carbon_last_update_trigger
+      - sensor.cube_analog_input
+      - sensor.cube_multistate_input
+      - sensor.cube_power
+      - type: divider
+      - entity: binary_sensor.lumi_lumi_vibration_aq1_b8c6c402_ias_zone
+        name: Vibration
+      - type: divider
+      - sensor.carbon_activity
+      - sensor.carbon_last_update_trigger
 
   - type: custom:mini-graph-card
     hours_to_show: 168
@@ -36,41 +60,52 @@ cards:
     entities:
       - sensor.dark_sky_cloud_coverage
       - sensor.dark_sky_uv_index
-  - type: "custom:mini-graph-card"
-    animate: true
+  - type: custom:mini-graph-card
+    hours_to_show: 168
+    points_per_hour: 0.25
+    # line_width: 2
     entities:
-      - entity: sensor.purifier_temperature
-        index: 0
-        name: Purifier Temperature
-      - entity: sensor.bedroom_weather_temperature
-        index: 1
-        name: Weather Temperature
-    line_color:
-      - "#e74c3c"
-      - var(--accent-color)
-    line_width: 3
-    points_per_hour: 1
-    hours_to_show: 72
+      - sensor.dark_sky_precip_intensity
+      - sensor.dark_sky_precip_probability
+  - type: history-graph
+    hours_to_show: 168
+    entities:
+      - sensor.dark_sky_precip
+      - sensor.dark_sky_precip_probability
 
-  - type: "custom:mini-graph-card"
-    animate: true
-    entities:
-      - entity: sensor.purifier_humidity
-        index: 0
-        name: Purifier humidity
-      - entity: sensor.bedroom_weather_humidity
-        index: 1
-        name: Weather humidity
-    line_color:
-      - "#e74c3c"
-      - var(--accent-color)
-    line_width: 3
-    points_per_hour: 1
-    hours_to_show: 72
+  - type: vertical-stack
+    cards:
+      - type: "custom:mini-graph-card"
+        animate: true
+        entities:
+          - entity: sensor.purifier_temperature
+            index: 0
+            name: Purifier Temperature
+          - entity: sensor.bedroom_weather_temperature
+            index: 1
+            name: Weather Temperature
+        line_color:
+          - "#e74c3c"
+          - var(--accent-color)
+        line_width: 3
+        points_per_hour: 1
+        hours_to_show: 72
 
-  - type: entities
-    entities:
-      - binary_sensor.lumi_lumi_vibration_aq1_b8c6c402_ias_zone
+      - type: "custom:mini-graph-card"
+        animate: true
+        entities:
+          - entity: sensor.purifier_humidity
+            index: 0
+            name: Purifier humidity
+          - entity: sensor.bedroom_weather_humidity
+            index: 1
+            name: Weather humidity
+        line_color:
+          - "#e74c3c"
+          - var(--accent-color)
+        line_width: 3
+        points_per_hour: 1
+        hours_to_show: 72
 
   - type: horizontal-stack
     cards:

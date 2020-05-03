@@ -12,7 +12,7 @@ automation:
           state: "on"
         - condition: state
           entity_id: input_select.house_mode
-          state: 'day'
+          state: "day"
         - condition: or
           conditions:
             - condition: sun
@@ -39,7 +39,7 @@ automation:
     condition:
       condition: state
       entity_id: input_select.house_mode
-      state: 'day'
+      state: "day"
     action:
       - service: light.turn_off
         entity_id:
