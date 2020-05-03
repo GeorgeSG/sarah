@@ -38,7 +38,7 @@ brita_water_card:
       custom_fields:
         remaining_liters:
           - position: absolute
-          - top: 5px
+          - top: 8px
           - right: 5px
           - font-size: 12px
     variables:
