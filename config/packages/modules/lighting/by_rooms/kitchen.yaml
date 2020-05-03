@@ -9,6 +9,8 @@ automation:
       conditions:
         - condition: state
           entity_id: input_select.house_mode
+# TODO: Look at outside visibility, not just sun state.
+# Maybe turn on just the main lights during the day?
           state: 'day'
         - condition: state
           entity_id: sun.sun
@@ -18,6 +20,8 @@ automation:
         entity_id:
           - light.tuya_kitchen_all_lights
           - light.browser_kitchen
+        data:
+          brightness_pct: 100
 
   - alias: Lighting · Kitchen · Day mode · Motion · Turn lights off
     trigger:
