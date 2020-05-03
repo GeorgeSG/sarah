@@ -1,7 +1,4 @@
 # https://www.home-assistant.io/integrations/sonos
-sonos:
-  media_player:
-    hosts: !secret sonos_hosts
 
 group:
   all_sonos:

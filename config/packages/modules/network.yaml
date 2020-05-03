@@ -15,13 +15,6 @@ speedtestdotnet:
 # https://www.home-assistant.io/integrations/wake_on_lan
 wake_on_lan:
 
-# https://www.home-assistant.io/integrations/mikrotik
-mikrotik:
-  - name: Mikrotik
-    host: !secret mikrotik_host
-    username: !secret mikrotik_username
-    password: !secret mikrotik_password
-
 # https://www.home-assistant.io/docs/mqtt
 mqtt:
   broker: !secret mqtt_ip
@@ -33,12 +26,6 @@ mqtt:
 pi_hole:
   - host: !secret pihole_host
     api_key: !secret pihole_api_key
-
-# https://www.home-assistant.io/integrations/zha
-zha:
-  usb_path: /dev/ttyUSB0
-  database_path: /config/zigbee.db
-
 
 #
 # ─── ENTITIES ───────────────────────────────────────────────────────────────────
@@ -61,12 +48,6 @@ binary_sensor:
     payload_on: "enabled"
     payload_off: "disabled"
     value_template: '{{ value_json.status }}'
-
-# https://www.home-assistant.io/integrations/synologydsm
-synology_dsm:
-  - host: !secret platinum_ip
-    username: !secret platinum_user
-    password: !secret platinum_password
 
 homeassistant:
   customize:

@@ -137,8 +137,4 @@ spotcast:
   username: !secret spotify_spotcast_username
   password: !secret spotify_spotcast_password
 
-hacs:
-  token: !secret hacs_github_token
-  appdaemon: true
-
 uilogs:
