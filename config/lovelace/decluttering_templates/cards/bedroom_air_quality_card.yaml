@@ -1,0 +1,22 @@
+bedroom_air_quality_card:
+  card:
+    type: vertical-stack
+    cards:
+      - type: "custom:mini-graph-card"
+        entities:
+          - sensor.purifier_air_quality
+        cache: false
+        group_by: hour
+        hours_to_show: 72
+        line_width: 2
+        show:
+          average: true
+          extrema: true
+          fill: true
+        color_thresholds:
+          - value: 10
+            color: "var(--color-green)"
+          - value: 20.5
+            color: "var(--color-blue)"
+          - value: 25
+            color: "var(--color-red)"

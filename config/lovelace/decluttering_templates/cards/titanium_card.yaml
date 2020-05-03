@@ -66,11 +66,11 @@ titanium_card:
                     entity: sensor.titanium_cpu_usage
                   - color: green
                     entity: sensor.titanium_memory_used_percent
-                group: false
                 points_per_hour: 1
                 line_width: 3
                 hour24: true
                 hours_to_show: 24
+                group_by: hour
                 show:
                   fill: fade
                   icon: true

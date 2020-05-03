@@ -132,9 +132,9 @@
                 entity: sensor.purifier_air_quality
                 variables:
                   min_value: 1
-                  max_value: 90
-                  normal_value: 10
-                  high_value: 30
+                  max_value: 30
+                  normal_value: 1
+                  high_value: 20
               - type: custom:button-card
                 template:
                   - small
@@ -142,9 +142,9 @@
                 entity: sensor.purifier_allergens
                 variables:
                   min_value: 1
-                  max_value: 90
-                  normal_value: 10
-                  high_value: 30
+                  max_value: 30
+                  normal_value: 1
+                  high_value: 10
 
           - type: horizontal-stack
             cards:

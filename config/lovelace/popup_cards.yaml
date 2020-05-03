@@ -202,18 +202,32 @@ light.living_room_main_lights:
           name: Toggle
 
 sensor.bedroom_weather_temperature:
-  title: Bedroom climate
+  title: Bedroom temperature
   style: *broad_popup_style
   card:
     type: custom:decluttering-card
     template: bedroom_temperature_card
 
 sensor.bedroom_weather_humidity:
-  title: Bedroom climate
+  title: Bedroom humidity
   style: *broad_popup_style
   card:
     type: custom:decluttering-card
     template: bedroom_humidity_card
+
+sensor.purifier_air_quality:
+  title: Bedroom air quality
+  style: *broad_popup_style
+  card:
+    type: custom:decluttering-card
+    template: bedroom_air_quality_card
+
+sensor.purifier_allergens:
+  title: Bedroom allergen index
+  style: *broad_popup_style
+  card:
+    type: custom:decluttering-card
+    template: bedroom_allergen_index_card
 
 fan.philips_airpurifier:
   title: Air purifier
