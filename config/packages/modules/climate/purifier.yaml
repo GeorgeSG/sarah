@@ -280,7 +280,7 @@ automation:
         entity_id: fan.philips_airpurifier
       - service: script.say
         data:
-          message: "Hey, I'm turning on the purifier, because air quality is above 30"
+          message: "Hey, I'm turning on the purifier, because air quality is low"
       - condition: state
         entity_id: binary_sensor.purifier_out_of_water
         state: "off"
@@ -297,7 +297,7 @@ automation:
     trigger:
       platform: numeric_state
       entity_id: sensor.bedroom_weather_humidity
-      above: 50
+      above: 55
     condition:
       condition: and
       conditions:
@@ -312,7 +312,7 @@ automation:
         entity_id: fan.philips_airpurifier
       - service: script.say
         data:
-          message: "Hey, I'm turning the purifier off, because humidity is below 30"
+          message: "Hey, I'm turning the purifier off, because humidity is okay"
       - service: script.purifier_request_update
 
 homeassistant:
