@@ -8,13 +8,19 @@ automation:
       condition: and
       conditions:
         - condition: state
-          entity_id: input_select.house_mode
-# TODO: Look at outside visibility, not just sun state.
-# Maybe turn on just the main lights during the day?
-          state: 'day'
+          entity_id: binary_sensor.georgi_home
+          state: "on"
         - condition: state
-          entity_id: sun.sun
-          state: 'below_horizon'
+          entity_id: input_select.house_mode
+          state: 'day'
+        - condition: or
+          conditions:
+            - condition: sun
+              after: sunset
+              after_offset: "-01:00:00"
+            - condition: numeric_state
+              entity_id: sensor.dark_sky_cloud_coverage
+              above: 80
     action:
       - service: light.turn_on
         entity_id:
@@ -46,8 +52,11 @@ automation:
       entity_id: binary_sensor.motion_1_ias_zone
       to: "on"
     condition:
-      condition: template
-      value_template: "{{ not is_state('input_select.house_mode', 'day') }}"
+      - condition: template
+        value_template: "{{ not is_state('input_select.house_mode', 'day') }}"
+      - condition: state
+        entity_id: input_boolean.georgi_home
+        state: "on"
     action:
       - service: light.turn_on
         entity_id:
