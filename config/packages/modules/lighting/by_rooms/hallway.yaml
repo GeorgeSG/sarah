@@ -5,11 +5,9 @@ automation:
       entity_id: binary_sensor.motion_2_ias_zone
       to: "on"
     condition:
-      condition: and
-      conditions:
-        - condition: state
-          entity_id: input_select.house_mode
-          state: 'day'
+      condition: state
+      entity_id: input_select.house_mode
+      state: 'day'
     action:
       - service: light.turn_on
         entity_id: light.hallway_all_lights

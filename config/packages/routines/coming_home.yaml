@@ -23,9 +23,8 @@ script:
   routine_coming_home_after_sunset:
     alias: Routine · Coming home · After sunset
     sequence:
-      - condition: state
-        entity_id: sun.sun
-        state: "below_horizon"
+      - condition: sun
+        after: sunset
       - service: light.turn_on
         entity_id: light.on_after_dark
         data:
