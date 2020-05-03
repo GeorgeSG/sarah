@@ -11,4 +11,4 @@ scp -P $REMOTE_PORT \
     -r config/themes/ config/*-lovelace.yaml config/lovelace \
     "${REMOTE_HOST}:${REMOTE_REPO_PATH}/config" > /dev/null
 
-log "${NO_FORMAT}[ui] ${GREEN}done${NO_FORMAT}"
+log "${NO_FORMAT}[ui] ${LIGHT_GREEN}done${NO_FORMAT}"

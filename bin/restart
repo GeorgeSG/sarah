@@ -8,4 +8,4 @@ log "[restart] Restarting Home Assistant..."
 ssh $REMOTE_HOST -p $REMOTE_PORT \
     "docker-compose -f $REMOTE_REPO_PATH/docker/docker-compose.yml restart"
 
-log "[restart] ${GREEN}done${NO_FORMAT}"
+log "[restart] ${LIGHT_GREEN}done${NO_FORMAT}"
