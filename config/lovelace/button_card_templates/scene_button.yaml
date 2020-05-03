@@ -1,0 +1,21 @@
+scene:
+  variables:
+    scene_color_1:
+    scene_color_2:
+    degrees: 315
+  tap_action:
+    action: toggle
+  styles:
+    card:
+      - background: >
+          [[[
+            const color_1 = variables.scene_color_1;
+            const color_2 = variables.scene_color_2 || variables.scene_color_1;
+            const degrees = variables.degrees;
+
+            return "linear-gradient("
+                + degrees + "deg, "
+                + color_1 + " 7%, "
+                + color_2 + " 7%, "
+                + color_2 + " 11%, var(--paper-card-background-color) 11%)"
+          ]]]
