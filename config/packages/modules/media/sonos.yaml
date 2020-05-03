@@ -1,4 +1,5 @@
-# https://www.home-assistant.io/integrations/sonos
+# Depends on:
+# - https://www.home-assistant.io/integrations/sonos
 
 group:
   all_sonos:

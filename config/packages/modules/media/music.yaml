@@ -1,3 +1,6 @@
+# Depends on:
+# - https://www.home-assistant.io/integrations/spotify
+
 script:
   music_play:
     alias: Music · Play

@@ -1,29 +1,34 @@
 # Sad panda.
 
-# hacs:
-#   token: !secret hacs_github_token
-#   appdaemon: true
-
 # https://www.home-assistant.io/integrations/zha
 # zha:
 #   usb_path: /dev/ttyUSB0
 #   database_path: /config/zigbee.db
 
-# sonos:
-#   media_player:
-#     hosts: !secret sonos_hosts
 
+# https://www.home-assistant.io/integrations/synologydsm
 # synology_dsm:
 #   - host: !secret platinum_ip
 #     username: !secret platinum_user
 #     password: !secret platinum_password
 
+# https://www.home-assistant.io/integrations/mikrotik
 # mikrotik:
 #   - name: Mikrotik
 #     host: !secret mikrotik_host
 #     username: !secret mikrotik_username
 #     password: !secret mikrotik_password
 
+# https://www.home-assistant.io/integrations/sonos
+# sonos:
+#   media_player:
+#     hosts: !secret sonos_hosts
+
+# https://www.home-assistant.io/integrations/spotify
 # spotify:
 #   client_id: !secret spotify_client_id
 #   client_secret: !secret spotify_client_secret
+
+# hacs:
+#   token: !secret hacs_github_token
+#   appdaemon: true

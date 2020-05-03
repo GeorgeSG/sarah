@@ -2,6 +2,11 @@
 # ─── INTEGRATIONS ───────────────────────────────────────────────────────────────
 #
 
+# Depends on:
+# - https://www.home-assistant.io/integrations/mikrotik
+# - https://www.home-assistant.io/integrations/zha
+# - https://www.home-assistant.io/integrations/synologydsm
+
 # https://www.home-assistant.io/integrations/fastdotcom
 fastdotcom:
   scan_interval:
