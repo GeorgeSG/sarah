@@ -139,6 +139,4 @@
                     show_state: false
                   - entity: binary_sensor.amcrest_camera_online
                     show_state: false
-                  - entity: binary_sensor.amcrest_camera_motion_detected
-                    show_state: false
 

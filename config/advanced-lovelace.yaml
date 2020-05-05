@@ -12,9 +12,11 @@ button_card_templates: !include_dir_merge_named lovelace/button_card_templates
 title: Sarah
 views:
   - !include lovelace/advanced_dashboard/00_home.yaml
+  - !include lovelace/advanced_dashboard/01_new.yaml
   - !include lovelace/advanced_dashboard/06_lights.yaml
   - !include lovelace/advanced_dashboard/07_media.yaml
   - !include lovelace/advanced_dashboard/09_network.yaml
   - !include lovelace/advanced_dashboard/10_system.yaml
   - !include lovelace/advanced_dashboard/11_covid_19.yaml
   - !include lovelace/advanced_dashboard/12_test.yaml
+  - !include lovelace/advanced_dashboard/13_dev.yaml

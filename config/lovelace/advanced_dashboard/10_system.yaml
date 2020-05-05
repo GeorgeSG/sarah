@@ -211,6 +211,23 @@ cards:
 
             - type: divider
 
+            # Wallmote
+            - type: custom:fold-entity-row
+              head:
+                type: custom:dummy-entity-row
+                name: Wallmote
+                icon: mdi:light-switch
+                entity: sun.sun
+              entities:
+                - automation.wallmote_living_room_1_tap_toggle_lights
+                - automation.wallmote_living_room_1_hold_dim_lights
+                - automation.wallmote_living_room_2_tap_toggle_music
+                - automation.wallmote_living_room_2_hold_play_music
+                - automation.wallmote_living_room_3_tap_volume_down
+                - automation.wallmote_living_room_3_hold_volume_up
+                - automation.wallmote_living_room_4_hold_toggle_titanium
+            - type: divider
+
             # Magic cube
             - type: custom:fold-entity-row
               head:
@@ -231,6 +248,19 @@ cards:
           entities:
             - type: custom:battery-entity
               entity: sensor.carbon_battery_level
+            - type: divider
+            - type: custom:battery-entity
+              entity: sensor.trisensor_battery_level
+              name: Trisensor
+            - type: custom:battery-entity
+              entity: sensor.multisensor_6_battery_level
+              name: Multisensor
+            - type: custom:battery-entity
+              entity: sensor.living_room_thermostat_battery_level
+              name: Thermostat
+            - type: custom:battery-entity
+              entity: sensor.aeon_labs_zw130_wallmote_quad_battery_level
+              name: Wallmote
             - type: divider
             - type: custom:battery-entity
               entity: sensor.front_door_power

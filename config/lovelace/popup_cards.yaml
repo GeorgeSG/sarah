@@ -1,7 +1,7 @@
 binary_sensor.house_mode:
   title: House mode
   style: &popup_style
-    '--ha-card-border-radius': 0 0 0.8em 0.8em
+    "--ha-card-border-radius": 0 0 0.8em 0.8em
     border-radius: 0.8em
     opacity: 0.95
     min-width: 400px
@@ -13,7 +13,7 @@ binary_sensor.house_mode:
 binary_sensor.motion_1_ias_zone:
   title: Kitchen motion
   style: &broad_popup_style
-    '--ha-card-border-radius': 0 0 0.8em 0.8em
+    "--ha-card-border-radius": 0 0 0.8em 0.8em
     border-radius: 0.8em
     opacity: 0.95
     margin-bottom: 200px
@@ -87,8 +87,6 @@ switch.camera:
         entities:
           - switch.camera
           - binary_sensor.amcrest_camera_online
-          - binary_sensor.amcrest_camera_motion_detected
-
 
 media_player.kitchen:
   title: Kitchen Sonos
@@ -153,7 +151,6 @@ media_player.nvidia_shield: &nvidia_shield
                 entity_id: media_player.living_room_tv
                 source: Switch
 
-
           - type: custom:button-card
             name: Bulsatcom
             icon: mdi:remote-tv
@@ -193,6 +190,7 @@ light.living_room_main_lights:
       type: custom:light-popup-card
       entity: light.living_room_main_lights
       fullscreen: false
+      supportedFeaturesTreshold: -1
       actionsInARow: 2
       actions:
         - service: light.toggle

@@ -1,0 +1,41 @@
+title: dev
+path: dev
+cards:
+  - type: entities
+    entities:
+      - type: custom:button-card
+        name: reload resources
+        tap_action:
+          action: call-service
+          service: lovelace.reload_resources
+  # FOLDER CARD
+  # - type: vertical-stack
+  #   cards:
+  #     - type: horizontal-stack
+  #       cards:
+  #         - type: custom:folder-card
+  #           entity: sensor.pds
+  #           max_count: 3
+  #           show_count: true
+  #         - type: custom:folder-card
+  #           entity: sensor.pds
+  #           max_count: 5
+  #         - type: custom:folder-card
+  #           entity: sensor.pds
+  #           max_count: 2
+  #     - type: custom:folder-card
+  #       entity: sensor.pds
+
+  # Time picker card
+  - type: vertical-stack
+    cards:
+      - type: horizontal-stack
+        cards:
+          - type: custom:time-picker-card
+            entity: input_datetime.alarm_time
+          - type: custom:time-picker-card
+            entity: input_datetime.alarm_time
+          - type: custom:time-picker-card
+            entity: input_datetime.alarm_time
+      - type: custom:time-picker-card
+        entity: input_datetime.alarm_time

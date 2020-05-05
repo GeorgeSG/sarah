@@ -134,6 +134,11 @@ panel_iframe:
 # https://www.home-assistant.io/integrations/zeroconf
 zeroconf:
 
+# https://www.home-assistant.io/docs/z-wave/installation/
+zwave:
+  usb_path: /dev/ttyACM1
+  # device_config: !include zwave_device_config.yaml
+
 #
 # ─── PLUGINS ────────────────────────────────────────────────────────────────────
 #

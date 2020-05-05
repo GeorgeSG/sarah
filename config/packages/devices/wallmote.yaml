@@ -1,0 +1,107 @@
+# "event_type": "zwave.scene_activated",
+# "data": {
+#     "entity_id": "zwave.aeon_labs_zw130_wallmote_quad",
+#     "node_id": 5,
+#     "scene_id": 2,
+#     "scene_data": 1
+# },
+
+automation:
+  - alias: Wallmote · Living room · 1 · Tap · Toggle lights
+    trigger:
+      platform: event
+      event_type: zwave.scene_activated
+      event_data:
+        entity_id: zwave.aeon_labs_zw130_wallmote_quad
+        node_id: 5
+        scene_id: 1
+        scene_data: 0
+    action:
+      - service: light.toggle
+        entity_id: light.living_room_all_lights
+
+  - alias: Wallmote · Living room · 1 · Hold · Dim lights
+    trigger:
+      platform: event
+      event_type: zwave.scene_activated
+      event_data:
+        entity_id: zwave.aeon_labs_zw130_wallmote_quad
+        node_id: 5
+        scene_id: 1
+        scene_data: 1
+    action:
+      - service: light.turn_on
+        entity_id: light.living_room_all_lights
+        data_template:
+          brightness: >
+
+              {% if state_attr('light.living_room_main_lights', 'brightness') < 255 %}
+                255
+              {% else %}
+                120
+              {% endif %}
+
+  - alias: Wallmote · Living room · 2 · Tap · Toggle Music
+    trigger:
+      platform: event
+      event_type: zwave.scene_activated
+      event_data:
+        entity_id: zwave.aeon_labs_zw130_wallmote_quad
+        node_id: 5
+        scene_id: 2
+        scene_data: 0
+    action:
+      - service: media_player.media_play_pause
+        entity_id: media_player.living_room
+
+  - alias: Wallmote · Living room · 2 · Hold · Play music
+    trigger:
+      platform: event
+      event_type: zwave.scene_activated
+      event_data:
+        entity_id: zwave.aeon_labs_zw130_wallmote_quad
+        node_id: 5
+        scene_id: 2
+        scene_data: 1
+    action:
+      - service: script.music_play
+
+  - alias: Wallmote · Living room · 3 · Tap · Volume down
+    trigger:
+      platform: event
+      event_type: zwave.scene_activated
+      event_data:
+        entity_id: zwave.aeon_labs_zw130_wallmote_quad
+        node_id: 5
+        scene_id: 3
+        scene_data: 0
+    action:
+      - service: media_player.volume_down
+        entity_id: media_player.living_room
+
+  - alias: Wallmote · Living room · 3 · Hold · Volume up
+    trigger:
+      platform: event
+      event_type: zwave.scene_activated
+      event_data:
+        entity_id: zwave.aeon_labs_zw130_wallmote_quad
+        node_id: 5
+        scene_id: 3
+        scene_data: 1
+    action:
+      - service: media_player.volume_up
+        entity_id: media_player.living_room
+
+  - alias: Wallmote · Living room · 4 · Hold · Toggle Titanium
+    trigger:
+      platform: event
+      event_type: zwave.scene_activated
+      event_data:
+        entity_id: zwave.aeon_labs_zw130_wallmote_quad
+        node_id: 5
+        scene_id: 4
+        scene_data: 1
+    action:
+      - service: switch.toggle
+        entity_id: switch.titanium
+
