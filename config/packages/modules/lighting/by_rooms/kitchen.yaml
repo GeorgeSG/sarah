@@ -42,9 +42,11 @@ automation:
       state: "day"
     action:
       - service: light.turn_off
-        entity_id:
-          - light.tuya_kitchen_all_lights
-          - light.browser_kitchen
+        entity_id: light.tuya_kitchen_all_lights
+      - service: light.turn_on
+        entity_id: light.browser_kitchen
+        data:
+          brightness_pct: 5
 
   - alias: Lighting · Kitchen · Night mode · Motion · Turn lights on
     trigger:
@@ -81,6 +83,8 @@ automation:
         data:
           brightness_pct: 100
       - service: light.turn_off
-        entity_id:
-          - light.light_le_12
-          - light.browser_kitchen
+        entity_id: light.light_le_12
+      - service: light.turn_on
+        entity_id: light.browser_kitchen
+        data:
+          brightness_pct: 5
