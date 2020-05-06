@@ -16,8 +16,9 @@ jobs:
       - name: Copy secrets
         run: |
           mv ./config/secrets.example.yaml ./config/secrets.yaml
-          sed -e '/uilogs/,+2d' < ./config/configuration.yaml > ./config/configuration.yaml
-          sed -e '/spotcast/,+2d' < ./config/configuration.yaml > ./config/configuration.yaml
+
+        # sed -e '/uilogs/,+2d' < ./config/configuration.yaml > ./config/configuration.yaml
+        # sed -e '/spotcast/,+2d' < ./config/configuration.yaml > ./config/configuration.yaml
 
       - name: Setup python
         uses: actions/setup-python@v2
