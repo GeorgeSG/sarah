@@ -1,0 +1,9 @@
+#
+# ─── PLUGINS ────────────────────────────────────────────────────────────────────
+#
+
+spotcast:
+  username: !secret spotify_spotcast_username
+  password: !secret spotify_spotcast_password
+
+uilogs:

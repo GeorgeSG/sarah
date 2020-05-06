@@ -138,13 +138,3 @@ zeroconf:
 zwave:
   usb_path: /dev/ttyACM1
   # device_config: !include zwave_device_config.yaml
-
-#
-# ─── PLUGINS ────────────────────────────────────────────────────────────────────
-#
-
-spotcast:
-  username: !secret spotify_spotcast_username
-  password: !secret spotify_spotcast_password
-
-uilogs:
