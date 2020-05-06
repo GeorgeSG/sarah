@@ -51,18 +51,6 @@ cards:
           extrema: true
           fill: true
 
-      - type: "custom:mini-graph-card"
-        entities:
-          - sensor.trisensor_burglar
-        cache: false
-        group_by: hour
-        hours_to_show: 72
-        line_width: 2
-        show:
-          average: true
-          extrema: true
-          fill: true
-
       - type: entities
         entities:
           - zwave.aeotec_limited_zwa005_trisensor
@@ -94,18 +82,6 @@ cards:
       - type: "custom:mini-graph-card"
         entities:
           - sensor.multisensor_6_luminance
-        cache: false
-        group_by: hour
-        hours_to_show: 72
-        line_width: 2
-        show:
-          average: true
-          extrema: true
-          fill: true
-
-      - type: "custom:mini-graph-card"
-        entities:
-          - sensor.multisensor_6_burglar
         cache: false
         group_by: hour
         hours_to_show: 72

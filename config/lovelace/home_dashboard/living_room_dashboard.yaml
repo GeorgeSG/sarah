@@ -100,6 +100,18 @@
                   - player_name: Living room
 
 
+          - type: vertical-stack
+            title: Camera
+            cards:
+              - type: picture-glance
+                camera_image: camera.amcrest_camera
+                entities:
+                  - entity: camera.amcrest_camera
+                  - entity: switch.camera
+                    show_state: false
+                  - entity: binary_sensor.amcrest_camera_online
+                    show_state: false
+
       - type: vertical-stack
         cards:
           - type: horizontal-stack
@@ -128,15 +140,66 @@
                   max_value: 800
                   normal_value: 100
                   high_value: 300
-          - type: vertical-stack
-            title: Camera
+
+          - type: horizontal-stack
+            title: Tri Sensor
             cards:
-              - type: picture-glance
-                camera_image: camera.amcrest_camera
-                entities:
-                  - entity: camera.amcrest_camera
-                  - entity: switch.camera
-                    show_state: false
-                  - entity: binary_sensor.amcrest_camera_online
-                    show_state: false
+              - type: custom:button-card
+                template:
+                  - small
+                  - progress
+                entity: sensor.trisensor_temperature
+                name: Temperature
+              - type: custom:button-card
+                template:
+                  - small
+                  - progress
+                entity: sensor.trisensor_luminance
+                name: Lux
+              - type: custom:button-card
+                template: default
+                entity: binary_sensor.trisensor_motion
+                name: Motion
+
+          - type: horizontal-stack
+            title: Multi Sensor
+            cards:
+              - type: custom:button-card
+                template:
+                  - small
+                  - progress
+                entity: sensor.multisensor_6_temperature
+                name: Temperature
+              - type: custom:button-card
+                template:
+                  - small
+                  - progress
+                entity: sensor.multisensor_6_luminance
+                name: Lux
+              - type: custom:button-card
+                template: default
+                entity: binary_sensor.multisensor_motion
+                name: Motion
+
+          - type: horizontal-stack
+            title: More
+            cards:
+              - type: custom:button-card
+                template:
+                  - small
+                  - progress
+                entity: sensor.living_room_thermostat_temperature
+                name: Radiator temperature
+              - type: custom:button-card
+                template:
+                  - small
+                  - progress
+                entity: sensor.multisensor_6_relative_humidity
+                name: Multi Humidity
+              - type: custom:button-card
+                template:
+                  - small
+                  - progress
+                entity: sensor.multisensor_6_ultraviolet
+                name: Multi UV
 
