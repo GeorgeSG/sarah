@@ -36,5 +36,6 @@ jobs:
           pip install distro
           pip install hass_nabucasa
           pip install fastdotcom
+          pip install speedtest
       - name: Test
         run: hass -c config/ --script check_config --info all
