@@ -1,0 +1,38 @@
+name: 'CI'
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Copy secrets
+        run: mv ./config/secrets.example.yaml ./config/secrets.yaml
+      - name: sed
+        uses: lefherz/action-sed@master
+        with:
+          args: sed -e '/uilogs/,+2d' < ./config/configuration.yaml > ./config/configuration.yaml
+      - name: sed
+        uses: lefherz/action-sed@master
+        with:
+          args: sed -e '/spotcast/,+2d' < ./config/configuration.yaml > ./config/configuration.yaml
+
+      - name: Setup python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.7.7
+          architecture: x64
+      - name: Install dependencies
+        run: |
+          pip3 install homeassistant
+          pip3 install colorlog
+          pip3 install python-dateutil
+      - name: Test
+        run: hass -c ./config --script check_config --info all
