@@ -25,8 +25,6 @@
 - type: module
   url: /hacsfiles/lovelace-fold-entity-row/fold-entity-row.js
 - type: module
-  url: /hacsfiles/lovelace-folder-card/folder-card.js
-- type: module
   url: /hacsfiles/lovelace-layout-card/layout-card.js
 - type: module
   url: /hacsfiles/lovelace-multiple-entity-row/multiple-entity-row.js
@@ -44,3 +42,12 @@
   url: /hacsfiles/travel-time-card/travel-time-card.js
 - type: module
   url: /hacsfiles/weather-card/weather-card.js
+
+- type: module
+  url: /hacsfiles/lovelace-folder-card/folder-card.js
+
+# Dev stuff
+# - type: module
+# url: "http://192.168.0.13:5000/time-picker-card.js"
+# - type: module
+#   url: "http://192.168.0.13:5000/folder-card.js"
