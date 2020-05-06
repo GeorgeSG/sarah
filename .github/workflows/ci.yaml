@@ -17,7 +17,7 @@ jobs:
         run: |
           mv ./config/secrets.example.yaml ./config/secrets.yaml
           rm ./config/packages/plugins.yaml
-          mkdir -p /config/www/audio/youtube
+          mkdir -p ./config/www/audio/youtube
 
       - name: Setup python
         uses: actions/setup-python@v2
