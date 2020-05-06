@@ -218,6 +218,7 @@ cards:
                 name: Wallmote
                 icon: mdi:light-switch
                 entity: sun.sun
+                tap_action: none
               entities:
                 - automation.wallmote_living_room_1_tap_toggle_lights
                 - automation.wallmote_living_room_1_hold_dim_lights
