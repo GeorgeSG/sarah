@@ -45,9 +45,11 @@
 
 - type: module
   url: /hacsfiles/lovelace-folder-card/folder-card.js
+- type: module
+  url: /hacsfiles/lovelace-time-picker-card/time-picker-card.js
 
 # Dev stuff
 # - type: module
-# url: "http://192.168.0.13:5000/time-picker-card.js"
+#   url: "http://192.168.0.13:5000/time-picker-card.js"
 # - type: module
 #   url: "http://192.168.0.13:5000/folder-card.js"
