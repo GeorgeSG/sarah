@@ -14,12 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Copy secrets
-        run: |
-          mv ./config/secrets.example.yaml ./config/secrets.yaml
-
-        # sed -e '/uilogs/,+2d' < ./config/configuration.yaml > ./config/configuration.yaml
-        # sed -e '/spotcast/,+2d' < ./config/configuration.yaml > ./config/configuration.yaml
-
+        run: mv ./config/secrets.example.yaml ./config/secrets.yaml
       - name: Setup python
         uses: actions/setup-python@v2
         with:
@@ -30,5 +25,13 @@ jobs:
           pip install homeassistant
           pip install colorlog
           pip install python-dateutil
+          pip install youtube_dl
+          pip install netdisco
+          pip install homeassistant-pyozw
+          pip install zeroconf
+          pip install sqlalchemy
+          pip install haffmpeg
+          pip install distro
+          pip install hass_nabucasa
       - name: Test
-        run: hass -c ./config --script check_config --info all
+        run: hass -c config/ --script check_config --info all
