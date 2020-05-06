@@ -31,8 +31,8 @@ jobs:
           architecture: x64
       - name: Install dependencies
         run: |
-          pip3 install homeassistant
-          pip3 install colorlog
-          pip3 install python-dateutil
+          pip install homeassistant
+          pip install colorlog
+          pip install python-dateutil
       - name: Test
         run: hass -c ./config --script check_config --info all
