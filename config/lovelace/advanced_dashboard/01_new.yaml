@@ -3,8 +3,66 @@ path: new
 icon: "mdi:new-box"
 cards:
   - type: vertical-stack
+    title: multi
+    cards:
+      - type: "custom:mini-graph-card"
+        entities:
+          - sensor.trisensor_temperature
+          - sensor.multisensor_6_temperature
+          - sensor.living_room_thermostat_temperature
+        cache: false
+        group_by: hour
+        hours_to_show: 72
+        line_width: 2
+
+      - type: "custom:mini-graph-card"
+        entities:
+          - sensor.trisensor_luminance
+          - sensor.multisensor_6_luminance
+        cache: false
+        group_by: hour
+        hours_to_show: 72
+        line_width: 2
+
+  - type: vertical-stack
     title: Trisensor
     cards:
+      - type: "custom:mini-graph-card"
+        entities:
+          - sensor.trisensor_temperature
+        cache: false
+        group_by: hour
+        hours_to_show: 72
+        line_width: 2
+        show:
+          average: true
+          extrema: true
+          fill: true
+
+      - type: "custom:mini-graph-card"
+        entities:
+          - sensor.trisensor_luminance
+        cache: false
+        group_by: hour
+        hours_to_show: 72
+        line_width: 2
+        show:
+          average: true
+          extrema: true
+          fill: true
+
+      - type: "custom:mini-graph-card"
+        entities:
+          - sensor.trisensor_burglar
+        cache: false
+        group_by: hour
+        hours_to_show: 72
+        line_width: 2
+        show:
+          average: true
+          extrema: true
+          fill: true
+
       - type: entities
         entities:
           - zwave.aeotec_limited_zwa005_trisensor
@@ -17,13 +75,70 @@ cards:
           - type: divider
           - entity: binary_sensor.trisensor_sensor
             name: Sensor
-          - entity: sensor.trisensor_alarm_level
-            name: Alarm level
-          - entity: sensor.trisensor_alarm_type
-            name: Alarm type
+
   - type: vertical-stack
     title: Multisensor
     cards:
+      - type: "custom:mini-graph-card"
+        entities:
+          - sensor.multisensor_6_temperature
+        cache: false
+        group_by: hour
+        hours_to_show: 72
+        line_width: 2
+        show:
+          average: true
+          extrema: true
+          fill: true
+
+      - type: "custom:mini-graph-card"
+        entities:
+          - sensor.multisensor_6_luminance
+        cache: false
+        group_by: hour
+        hours_to_show: 72
+        line_width: 2
+        show:
+          average: true
+          extrema: true
+          fill: true
+
+      - type: "custom:mini-graph-card"
+        entities:
+          - sensor.multisensor_6_burglar
+        cache: false
+        group_by: hour
+        hours_to_show: 72
+        line_width: 2
+        show:
+          average: true
+          extrema: true
+          fill: true
+
+      - type: "custom:mini-graph-card"
+        entities:
+          - sensor.multisensor_6_relative_humidity
+        cache: false
+        group_by: hour
+        hours_to_show: 72
+        line_width: 2
+        show:
+          average: true
+          extrema: true
+          fill: true
+
+      - type: "custom:mini-graph-card"
+        entities:
+          - sensor.multisensor_6_ultraviolet
+        cache: false
+        group_by: hour
+        hours_to_show: 72
+        line_width: 2
+        show:
+          average: true
+          extrema: true
+          fill: true
+
       - type: entities
         entities:
           - zwave.aeon_labs_zw100_multisensor_6
@@ -40,13 +155,23 @@ cards:
           - type: divider
           - entity: binary_sensor.multisensor_6_sensor
             name: Sensor
-          - entity: sensor.multisensor_6_alarm_level
-            name: Alarm level
-          - entity: sensor.multisensor_6_alarm_type
-            name: Alarm type
+
   - type: vertical-stack
     title: Thermostat
     cards:
+
+      - type: "custom:mini-graph-card"
+        entities:
+          - sensor.living_room_thermostat_temperature
+        cache: false
+        group_by: hour
+        hours_to_show: 72
+        line_width: 2
+        show:
+          average: true
+          extrema: true
+          fill: true
+
       - type: entities
         entities:
           - zwave.eurotronic_eur_spiritz_wall_radiator_thermostat
@@ -58,8 +183,3 @@ cards:
             name: Power management
           - entity: sensor.living_room_thermostat_system
             name: System
-          - type: divider
-          - entity: sensor.living_room_thermostat_alarm_level
-            name: Alarm level
-          - entity: sensor.living_room_thermostat_alarm_type
-            name: Alarm type
