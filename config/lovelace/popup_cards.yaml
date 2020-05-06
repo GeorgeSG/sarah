@@ -259,13 +259,21 @@ input_boolean.alarm_enabled:
   title: Alarm
   style: *popup_style
   card:
-    type: entities
-    show_header_toggle: false
-    entities:
-      - input_boolean.alarm_enabled
-      - input_datetime.alarm_time
-      - entity: automation.alarm_set_time
-        name: Automatically set time
+    type: vertical-stack
+    cards:
+      - type: custom:time-picker-card
+        entity: input_datetime.alarm_time
+        hour_mode: 12
+        minute_step: 10
+        hide:
+          name: true
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - input_boolean.alarm_enabled
+          - input_datetime.alarm_time
+          - entity: automation.alarm_set_time
+            name: Automatically set time
 
 script.brita_pour_water:
   title: Brita
