@@ -60,4 +60,3 @@ automation:
     action:
       - service: input_select.select_next
         entity_id: input_select.house_mode
-

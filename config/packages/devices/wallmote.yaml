@@ -104,4 +104,3 @@ automation:
     action:
       - service: switch.toggle
         entity_id: switch.titanium
-

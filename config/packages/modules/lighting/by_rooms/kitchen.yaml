@@ -65,7 +65,7 @@ automation:
           - light.light_le_12
           - light.browser_kitchen
         data:
-          brightness_pct: 13 # this is the lowest LE will go ¯\_(ツ)_/¯
+          brightness_pct: 13  # this is the lowest LE will go ¯\_(ツ)_/¯
 
   - alias: Lighting · Kitchen · Night mode · Motion · Turn lights off
     trigger:

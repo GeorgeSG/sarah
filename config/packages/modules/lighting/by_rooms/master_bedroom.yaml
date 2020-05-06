@@ -69,4 +69,3 @@ automation:
             {% else %}
               100
             {% endif %}
-

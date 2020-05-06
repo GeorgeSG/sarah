@@ -21,7 +21,7 @@ shell_command:
 
 script:
   youtube_play_file:
-    alias:  Youtube · Play file
+    alias: Youtube · Play file
     sequence:
       - service: script.sonos_join_bedroom
       - service: media_player.play_media
@@ -65,7 +65,9 @@ script:
       - service: media_player.play_media
         entity_id: media_player.master_bedroom
         data_template:
-          media_content_id: "{{ states('sensor.sarah_url') }}/local/audio/youtube/{{ states('input_text.youtube_download_name') }}.mp3"
+          media_content_id: >-
+            {% set name = states('input_text.youtube_download_name') %}
+            {{ states('sensor.sarah_url') }}/local/audio/youtube/{{ name }}.mp3
           media_content_type: "music"
 
       - service: input_text.set_value

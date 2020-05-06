@@ -19,7 +19,7 @@
       tap_action:
         action: none
 
- # Living Room
+# Living Room
 - type: conditional
   conditions:
     - entity: binary_sensor.floorplan_night_mode

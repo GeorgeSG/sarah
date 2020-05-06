@@ -20,10 +20,15 @@ binary_sensor:
       brita_should_change_filter:
         friendly_name: Should change Brita filter
         device_class: problem
-        value_template: >
+        value_template: >-
+
+          {% set liters_check = states('input_number.brita_remaining_liters')|int < 3 %}
 
           {% set next_change = states('input_datetime.brita_next_change') %}
-          {{ states('input_number.brita_remaining_liters') | int < 3 or (as_timestamp(next_change) - as_timestamp(now())) / (3600*24) | round(0) < 3 }}
+          {% set time_delta = (as_timestamp(next_change) - as_timestamp(now())) %}
+          {% set date_check = time_delta / (3600*24) | round(0) < 3 %}
+
+          {{ liters_check or date_check }}
 
 script:
   brita_pour_water:

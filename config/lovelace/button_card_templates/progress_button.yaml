@@ -47,9 +47,18 @@ progress:
               : temp < variables.high_value
                 ? variables.normal_color
                 : variables.high_color;
-            const percent = (temp - variables.min_value)/(variables.max_value - variables.min_value) * 100;
-            const gradient = 100 - percent;
-            const degrees = variables.degrees + "deg";
 
-            return 'linear-gradient('+ degrees +', var(--paper-card-background-color) 0%, var(--paper-card-background-color)' + gradient + '%, ' + color + ' ' + gradient + '%)'
+            const min             = variables.min_value;
+            const max             = variables.max_value;
+            const percent         = Math.round((temp - min)/(max - min) * 100);
+            const gradientPercent = 100 - percent;
+
+            const gradient = [
+              `${variables.degrees}deg`,
+              'var(--paper-card-background-color) 0%',
+              `var(--paper-card-background-color) ${gradientPercent}%`,
+              `${color} ${gradientPercent}%`
+            ]
+
+            return `linear-gradient(${gradient.join(',')})`;
           ]]]
