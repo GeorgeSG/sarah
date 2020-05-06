@@ -17,6 +17,8 @@ jobs:
         run: |
           mv ./config/secrets.example.yaml ./config/secrets.yaml
           rm ./config/packages/plugins.yaml
+          mkdir -p ./config/www/audio/youtube
+
       - name: Setup python
         uses: actions/setup-python@v2
         with:
@@ -31,7 +33,6 @@ jobs:
           pip install netdisco
           pip install zeroconf
           pip install sqlalchemy
-          pip install haffmpeg
           pip install distro
           pip install hass_nabucasa
       - name: Test
