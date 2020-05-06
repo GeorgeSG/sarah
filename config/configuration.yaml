@@ -8,7 +8,7 @@ homeassistant:
   packages: !include_dir_named packages
   whitelist_external_dirs:
     - ./config/www/audio/youtube
-    - /config
+    - ./config
 
 #
 # ─── HOME ASSISTANT COMPONENTS ENABLED ──────────────────────────────────────────
