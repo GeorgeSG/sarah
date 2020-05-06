@@ -1,41 +1,83 @@
 title: dev
 path: dev
 cards:
-  - type: entities
-    entities:
+  - type: horizontal-stack
+    cards:
       - type: custom:button-card
-        name: reload resources
+        template: small
+        icon: mdi:reload
+        name: Theme
+        tap_action:
+          action: call-service
+          service: frontend.reload_themes
+      - type: custom:button-card
+        template: small
+        icon: mdi:reload
+        name: Resources
         tap_action:
           action: call-service
           service: lovelace.reload_resources
-  # FOLDER CARD
-  # - type: vertical-stack
-  #   cards:
-  #     - type: horizontal-stack
-  #       cards:
-  #         - type: custom:folder-card
-  #           entity: sensor.pds
-  #           max_count: 3
-  #           show_count: true
-  #         - type: custom:folder-card
-  #           entity: sensor.pds
-  #           max_count: 5
-  #         - type: custom:folder-card
-  #           entity: sensor.pds
-  #           max_count: 2
-  #     - type: custom:folder-card
-  #       entity: sensor.pds
+      - type: custom:button-card
+        template: small
+        name: time picker
+        icon: mdi:clock
+        tap_action:
+          action: navigate
+          navigation_path: "#time_picker"
+      - type: custom:button-card
+        template: small
+        icon: mdi:folder
+        name: folder
+        tap_action:
+          action: navigate
+          navigation_path: "#folder"
 
-  # Time picker card
-  - type: vertical-stack
-    cards:
-      - type: horizontal-stack
+  - type: custom:state-switch
+    entity: hash
+    default: time_picker
+    states:
+      time_picker:
+        type: vertical-stack
         cards:
+          - type: markdown
+            content: "# 🕰 Time Picker Card dev"
+          - type: entities
+            entities:
+              - input_datetime.alarm_time
+          - type: horizontal-stack
+            cards:
+              - type: custom:time-picker-card
+                entity: input_datetime.alarm_time
+                name: Alarm time
+                hour_mode: 24
+              - type: custom:time-picker-card
+                entity: input_datetime.alarm_time
+                hour_mode: 12
+                hide:
+                  name: true
+
           - type: custom:time-picker-card
             entity: input_datetime.alarm_time
-          - type: custom:time-picker-card
-            entity: input_datetime.alarm_time
-          - type: custom:time-picker-card
-            entity: input_datetime.alarm_time
-      - type: custom:time-picker-card
-        entity: input_datetime.alarm_time
+
+
+      folder:
+        type: vertical-stack
+        cards:
+          - type: markdown
+            content: "# 📂 Folder Card dev"
+          - type: horizontal-stack
+            cards:
+              - type: custom:folder-card
+                entity: sensor.pds
+                max_count: 3
+                show_count: true
+              - type: custom:folder-card
+                entity: sensor.pds
+                max_count: 5
+              - type: custom:folder-card
+                entity: sensor.pds
+                max_count: 2
+          - type: custom:folder-card
+            entity: sensor.pds
+
+

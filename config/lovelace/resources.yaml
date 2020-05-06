@@ -39,6 +39,8 @@
 - type: module
   url: /hacsfiles/popup-backdrop-filter/popup-backdrop-filter.js
 - type: module
+  url: /hacsfiles/lovelace-state-switch/state-switch.js
+- type: module
   url: /hacsfiles/travel-time-card/travel-time-card.js
 - type: module
   url: /hacsfiles/weather-card/weather-card.js
