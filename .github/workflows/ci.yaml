@@ -13,8 +13,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Copy secrets
-        run: mv ./config/secrets.example.yaml ./config/secrets.yaml
+      - name: Setup config for testing
+        run: |
+          mv ./config/secrets.example.yaml ./config/secrets.yaml
+          rm ./config/packages/plugins.yaml
       - name: Setup python
         uses: actions/setup-python@v2
         with:

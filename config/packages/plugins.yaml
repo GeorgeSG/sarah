@@ -7,3 +7,8 @@ spotcast:
   password: !secret spotify_spotcast_password
 
 uilogs:
+
+# https://www.home-assistant.io/docs/z-wave/installation/
+zwave:
+  usb_path: /dev/ttyACM1
+  # device_config: !include zwave_device_config.yaml
