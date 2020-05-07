@@ -13,6 +13,13 @@ automation:
         entity_id: light.on_after_dark
         data:
           brightness_pct: 100
+      - service: notify.mobile_app_carbon
+        data:
+          title: "💡 Lights"
+          message: "Turning lights on - 30 mins before sunset"
+          data:
+            push:
+              thread-id: "lights"
 
   - alias: Lighting · Turn off all lights after sunrise
     trigger:

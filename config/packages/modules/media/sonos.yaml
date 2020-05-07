@@ -77,6 +77,13 @@ automation:
         entity_id: media_player.living_room
         data:
           night_sound: true
+      - service: notify.mobile_app_carbon
+        data:
+          title: "🔊 Sonos"
+          message: "Putting Beam in night mode"
+          data:
+            push:
+              thread-id: "sonos"
 
   - alias: Media · Sonos · Put Beam in day mode
     trigger:
@@ -87,6 +94,13 @@ automation:
         entity_id: media_player.living_room
         data:
           night_sound: false
+      - service: notify.mobile_app_carbon
+        data:
+          title: "🔊 Sonos"
+          message: "Putting Beam in day mode"
+          data:
+            push:
+              thread-id: "sonos"
 
 homeassistant:
   customize:

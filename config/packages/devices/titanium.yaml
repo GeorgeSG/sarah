@@ -246,3 +246,11 @@ automation:
       - service: script.say
         data:
           message: "Hey, I'm turning Titanium off. It's been idling for 3 hours."
+      - service: notify.mobile_app_carbon
+        data:
+          title: "Automation"
+          message: "Turning titanium off - idle for 3 hours"
+          data:
+            push:
+              thread-id: "titanium"
+

@@ -96,6 +96,13 @@ automation:
         data:
           master: media_player.master_bedroom
           entity_id: media_player.living_room
+      - service: notify.mobile_app_carbon
+        data:
+          title: "📺 Sonos"
+          message: "TV off - joining Beam to Sonos Group"
+          data:
+            push:
+              thread-id: "sonos"
 
   - alias: TV · State · Sync on TV on
     trigger:

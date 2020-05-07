@@ -15,17 +15,29 @@ automation:
       entity_id: sensor.carbon_battery_state
       state: "Not Charging"
     action:
-      service: script.say
-      data_template:
-        title: "❕*Notification Module*"
-        message: >-
+      - service: script.say
+        data_template:
+          title: "❕*Notification Module*"
+          message: >-
 
-          {{
-            [
-              "Hey, just wanted to let you know your phone needs charging!",
-              "Hey, your phone is running low on battery, put it on the charger!"
-            ] | random
-          }}
+            {{
+              [
+                "Hey, just wanted to let you know your phone needs charging!",
+                "Hey, your phone is running low on battery, put it on the charger!"
+              ] | random
+            }}
+      - service: notify.mobile_app_carbon
+        data_template:
+          title: "⚠️ Battery"
+          message: >-
+
+            {{
+              [
+                "Hey, just wanted to let you know your phone needs charging!",
+                "Hey, your phone is running low on battery, put it on the charger!"
+              ] | random
+            }}
+
 
   - alias: Notification · Door opened
     trigger:
@@ -35,14 +47,25 @@ automation:
       for:
         minutes: 2
     action:
-      service: script.say
-      data_template:
-        title: "❕*Notification Module*"
-        message: >-
+      - service: script.say
+        data_template:
+          title: "❕*Notification Module*"
+          message: >-
 
-          {{
-            [
-              "Hey, the front door is opened. Are you home?!",
-              "Hey, the front door has been opened for 2 minutes!"
-            ] | random
-          }}
+            {{
+              [
+                "Hey, the front door is opened. Are you home?!",
+                "Hey, the front door has been opened for 2 minutes!"
+              ] | random
+            }}
+      - service: notify.mobile_app_carbon
+        data_template:
+          title: "⚠️ Warning"
+          message: >-
+
+            {{
+              [
+                "Hey, the front door is opened. Are you home?!",
+                "Hey, the front door has been opened for 2 minutes!"
+              ] | random
+            }}

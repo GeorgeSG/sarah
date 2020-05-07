@@ -261,10 +261,18 @@ automation:
         entity_id: fan.philips_airpurifier
         data:
           function: "Purification & Humidification"
+      - service: script.purifier_request_update
       - service: script.say
         data:
           message: "Hey, I'm turning on the purifier, because humidity is low and there is water in the tank"
-      - service: script.purifier_request_update
+      - service: notify.mobile_app_carbon
+        data:
+          title: "💨 Climate"
+          message: "Turning purifier on - humidity is low"
+          data:
+            push:
+              thread-id: "purifier"
+
 
   - alias: Purifier · Turn on · Low air quality
     trigger:
@@ -281,6 +289,13 @@ automation:
       - service: script.say
         data:
           message: "Hey, I'm turning on the purifier, because air quality is low"
+      - service: notify.mobile_app_carbon
+        data:
+          title: "💨 Climate"
+          message: "Turning purifier on - air quality is low"
+          data:
+            push:
+              thread-id: "purifier"
       - condition: state
         entity_id: binary_sensor.purifier_out_of_water
         state: "off"
@@ -288,10 +303,17 @@ automation:
         entity_id: fan.philips_airpurifier
         data:
           funcition: "Purification & Humidification"
+      - service: script.purifier_request_update
       - service: script.say
         data:
           message: "Also, switching to humidification, because there is water in the tank"
-      - service: script.purifier_request_update
+      - service: notify.mobile_app_carbon
+        data:
+          title: "💨 Climate"
+          message: "Switching purifier to humidification - there is water in the tank"
+          data:
+            push:
+              thread-id: "purifier"
 
   - alias: Purifier · Turn off · Okay humidity
     trigger:
@@ -310,10 +332,17 @@ automation:
     action:
       - service: fan.turn_off
         entity_id: fan.philips_airpurifier
+      - service: script.purifier_request_update
       - service: script.say
         data:
           message: "Hey, I'm turning the purifier off, because humidity is okay"
-      - service: script.purifier_request_update
+      - service: notify.mobile_app_carbon
+        data:
+          title: "💨 Climate"
+          message: "Turning purifier off - humidity is okay"
+          data:
+            push:
+              thread-id: "purifier"
 
 homeassistant:
   customize:
