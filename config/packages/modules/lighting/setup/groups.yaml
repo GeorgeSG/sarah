@@ -185,5 +185,3 @@ homeassistant:
       friendly_name: Hallway 1
     light.light_le_8:
       friendly_name: Hallway 2
-
-

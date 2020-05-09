@@ -22,6 +22,14 @@ cards:
         - type: vertical-stack
           cards:
             - type: entities
+              title: Github
+              icon: mdi:github-circle
+              entities:
+                - entity: sensor.time_picker_card_downloads
+                  icon: mdi:clock
+                - entity: sensor.folder_card_downloads
+                  icon: mdi:folder
+            - type: entities
               title: Quarantine
               icon: mdi:biohazard
               entities:

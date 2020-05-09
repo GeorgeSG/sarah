@@ -50,7 +50,6 @@
                         - height: 46px
 
 
-
           - type: horizontal-stack
             title: Devices
             cards:

@@ -1,0 +1,75 @@
+sensor:
+  - platform: rest
+    resource: "https://api.github.com/repos/GeorgeSG/lovelace-time-picker-card/releases/latest"
+    name: Time Picker Card downloads
+    value_template: '{{ value_json.assets[0].download_count }}'
+    scan_interval: 60
+    headers:
+      Authorization: !secret github_access_token
+  - platform: rest
+    resource: "https://api.github.com/repos/GeorgeSG/lovelace-folder-card/releases/latest"
+    name: Folder Card downloads
+    value_template: '{{ value_json.assets[0].download_count }}'
+    scan_interval: 60
+    headers:
+      Authorization: !secret github_access_token
+
+
+automation:
+  - alias: Github Download
+    trigger:
+      platform: state
+      entity_id:
+        - sensor.time_picker_card_downloads
+        - sensor.folder_card_downloads
+    condition:
+      condition: template
+      value_template: "{{ not is_state('input_select.house_mode', 'night') }}"
+    action:
+      # Stoe powered state
+      - service: scene.create
+        data:
+          scene_id: pre_github_notify_1
+          snapshot_entities:
+            - light.bedside
+            - light.living_room_ambient_main
+      - service: light.turn_on
+        entity_id:
+          - light.bedside
+          - light.living_room_ambient_main
+
+      - delay: 00:00:01
+      # Store color after power on
+      - service: scene.create
+        data:
+          scene_id: pre_github_notify_2
+          snapshot_entities:
+            - light.bedside
+            - light.living_room_ambient_main
+      - service: light.turn_on
+        entity_id:
+          - light.bedside
+          - light.living_room_ambient_main
+        data:
+          rgb_color: [0, 255, 63]
+
+      - service: script.say
+        data_template:
+          message: >-
+
+            {% if trigger %}
+              {% set diff = trigger.to_state - trigger.from_state %}
+              Hey, {% if diff > 1 %}{{diff}} people{% else %}1 person{% endif%} just downloaded
+              {% if tigger.entity_id == 'sensor.folder_card_downloads' %} folder card
+              {% elif trigger.entity_id == 'sensor.time_picker_card_downloads' %} time picker card
+              {% else %} something, but I don't know what. This should never happen!
+              {% endif %}
+            {% else %}
+              Just testing
+            {% endif %}
+
+      - delay: 00:00:06
+      - service: scene.turn_on
+        entity_id: scene.pre_github_notify_2
+      - service: scene.turn_on
+        entity_id: scene.pre_github_notify_1

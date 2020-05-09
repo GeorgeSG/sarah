@@ -23,6 +23,7 @@ cards:
           show_header_toggle: false
           entities:
             - automation.titanium_turn_off_when_idle
+            - automation.github_download
             - type: divider
             # Presence
             - type: custom:fold-entity-row
