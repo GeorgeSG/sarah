@@ -267,19 +267,6 @@
                     cards:
                       - type: custom:button-card
                         template: default
-                        entity: binary_sensor.front_door_on_off_wrapper
-                      - type: custom:button-card
-                        template: default
-                        entity: binary_sensor.living_room_right_window_on_off_wrapper
-                        name: Living room
-                      - type: custom:button-card
-                        template: default
-                        entity: binary_sensor.bedroom_right_window_on_off_wrapper
-                        name: Bedroom
-                  - type: horizontal-stack
-                    cards:
-                      - type: custom:button-card
-                        template: default
                         entity: binary_sensor.multisensor_motion
                         name: Living room
                       - type: custom:button-card
@@ -302,6 +289,19 @@
                         name: Kitchen
                         variables:
                           state_indicator_id: automation.lighting_kitchen_day_mode_motion_turn_lights_on_after_sunset
+                  - type: horizontal-stack
+                    cards:
+                      - type: custom:button-card
+                        template: default
+                        entity: binary_sensor.front_door_on_off_wrapper
+                      - type: custom:button-card
+                        template: default
+                        entity: binary_sensor.living_room_right_window_on_off_wrapper
+                        name: Living room
+                      - type: custom:button-card
+                        template: default
+                        entity: binary_sensor.bedroom_right_window_on_off_wrapper
+                        name: Bedroom
 
               - type: vertical-stack
                 cards:
