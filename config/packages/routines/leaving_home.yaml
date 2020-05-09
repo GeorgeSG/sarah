@@ -13,7 +13,7 @@ script:
         entity_id: group.all_sonos
       - service: light.turn_off
         entity_id:
-          - light.all_lights
+          - light.all
           - light.browser_kitchen
       - service: fan.turn_off
         entity_id: fan.philips_airpurifier

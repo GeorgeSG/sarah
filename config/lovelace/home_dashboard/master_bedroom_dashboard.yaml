@@ -21,11 +21,11 @@
             cards:
               - type: custom:button-card
                 template: default
-                entity: light.master_bedroom_all_lights
-                name: M. Bedroom
+                entity: light.master_bedroom
+                name: Bedroom
               - type: custom:button-card
                 template: default
-                entity: light.master_bedroom_main_lights
+                entity: light.master_bedroom_main
                 name: Main
               - type: custom:button-card
                 template: default
@@ -33,7 +33,7 @@
                 name: LED
               - type: custom:button-card
                 template: default
-                entity: light.bedside_light
+                entity: light.bedside
                 name: Bedside
 
 
@@ -82,7 +82,7 @@
             template: media_with_controls
             variables:
               - player: media_player.master_bedroom
-              - player_name: M. Bedroom
+              - player_name: Bedroom
 
 
       - type: vertical-stack

@@ -23,43 +23,63 @@
               - type: horizontal-stack
                 cards:
                   - type: custom:button-card
-                    template: default
-                    entity: light.ceiling_lights
+                    template: half
+                    icon: none
+                    entity: light.all
+                    name: All
+                  - type: custom:button-card
+                    template: half
+                    icon: none
+                    entity: light.ceiling
                     name: Ceiling
-                  - type: custom:button-card
-                    template: default
-                    entity: light.living_room_main_lights
-                    name: Living room
-                  - type: custom:button-card
-                    template: default
-                    entity: light.pc
               - type: horizontal-stack
                 cards:
                   - type: custom:button-card
                     template: default
-                    entity: light.master_bedroom_main_lights
-                    name: "M. Bedroom"
+                    entity: light.living_room
+                    name: Living room
+                  - type: custom:button-card
+                    template: default
+                    entity: light.living_room_main
+                    name: Main
+                  - type: custom:button-card
+                    template: default
+                    entity: light.light_avatar_small_2
+                  - type: custom:button-card
+                    template: default
+                    entity: light.living_room_ambient
+                    name: Ambient
+              - type: horizontal-stack
+                cards:
+                  - type: custom:button-card
+                    template: default
+                    entity: light.master_bedroom
+                    name: Bedroom
+                  - type: custom:button-card
+                    template: default
+                    entity: light.master_bedroom_main
+                    name: Main
                   - type: custom:button-card
                     template: default
                     entity: light.bed_led
                     name: Bed
                   - type: custom:button-card
                     template: default
-                    entity: light.bedside_light
+                    entity: light.bedside
                     name: Bedside
               - type: horizontal-stack
                 cards:
                   - type: custom:button-card
                     template: default
-                    entity: light.tuya_kitchen_all_lights
+                    entity: light.tuya_kitchen
                     name: Kitchen
                   - type: custom:button-card
                     template: default
-                    entity: light.tuya_hallway_main_lights
+                    entity: light.tuya_hallway_main
                     name: Hallway
                   - type: custom:button-card
                     template: default
-                    entity: light.hallway_entrance_lights
+                    entity: light.hallway_entrance
                     name: Entrance
 
           - type: vertical-stack
@@ -184,7 +204,7 @@
               - type: custom:button-card
                 template: default
                 entity: binary_sensor.bedroom_right_window_on_off_wrapper
-                name: M. Bedroom
+                name: Bedroom
               - type: custom:button-card
                 template:
                   - small
@@ -320,7 +340,7 @@
                 template: sonos_media_player
                 variables:
                   - player: media_player.master_bedroom
-                  - name: M. Bedroom
+                  - name: Bedroom
 
               - type: custom:decluttering-card
                 template: sonos_media_player_small

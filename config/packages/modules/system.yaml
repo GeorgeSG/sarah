@@ -84,10 +84,10 @@ automation:
               Master bedroom: {{ states('binary_sensor.bedroom_right_window_on_off') }}
 
             Lights:
-              Living room: {{ states('light.living_room_all_lights') }}
-              Master bedroom: {{ states('light.master_bedroom_all_lights') }}
-              Kitchen: {{ states('light.kitchen_all_lights') }}
-              Hallway: {{ states('light.hallway_all_lights') }}
+              Living room: {{ states('light.living_room') }}
+              Master bedroom: {{ states('light.master_bedroom') }}
+              Kitchen: {{ states('light.kitchen') }}
+              Hallway: {{ states('light.hallway') }}
 
   - alias: IFTTT · Call service
     trigger:

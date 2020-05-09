@@ -52,7 +52,7 @@ automation:
           state: "light"
     action:
       - service: light.toggle
-        entity_id: light.living_room_all_lights
+        entity_id: light.living_room
 
   - alias: Magic Cube · Lighting · Dim on rotate left
     trigger:
@@ -72,7 +72,7 @@ automation:
           state: "light"
     action:
       - service: light.turn_on
-        entity_id: light.living_room_all_lights
+        entity_id: light.living_room
         data:
           brightness_step_pct: -20
 
@@ -94,7 +94,7 @@ automation:
           state: "light"
     action:
       - service: light.turn_on
-        entity_id: light.living_room_all_lights
+        entity_id: light.living_room
         data:
           brightness_step_pct: 20
 

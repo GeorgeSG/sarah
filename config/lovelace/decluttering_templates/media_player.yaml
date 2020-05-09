@@ -13,7 +13,7 @@ sonos_media_player:
       sync_volume: "[[sync_volume]]"
       entities: &entities_in_gorup
         - entity_id: media_player.master_bedroom
-          name: M. Bedroom
+          name: Bedroom
         - entity_id: media_player.living_room
           name: Living room
         - entity_id: media_player.kitchen

@@ -29,22 +29,26 @@ automation:
         data:
           scene_id: plex_before_start
           snapshot_entities:
-            - light.living_room_main_lights
-            - light.pc
-            - light.master_bedroom_main_lights
-            - light.tuya_kitchen_main_lights
-            - light.tuya_kitchen_secondary_lights
-            - light.hallway_entrance_lights
-            - light.tuya_hallway_main_lights
+            - light.living_room_main
+            - light.light_avatar_small_2
+            - light.living_room_ambient_main
+            - light.light_avatar_small_1
+            - light.master_bedroom_main
+            - light.tuya_kitchen_main
+            - light.tuya_kitchen_secondary
+            - light.hallway_entrance
+            - light.tuya_hallway_main
       - service: light.turn_off
         entity_id:
-          - light.living_room_main_lights
-          - light.pc
-          - light.master_bedroom_main_lights
-          - light.tuya_kitchen_main_lights
-          - light.tuya_kitchen_secondary_lights
-          - light.hallway_entrance_lights
-          - light.tuya_hallway_main_lights
+          - light.living_room_main
+          - light.light_avatar_small_2
+          - light.living_room_ambient_main
+          - light.light_avatar_small_1
+          - light.master_bedroom_main
+          - light.tuya_kitchen_main
+          - light.tuya_kitchen_secondary
+          - light.hallway_entrance
+          - light.tuya_hallway_main
 
   - alias: TV · Plex · Restore house after Plex
     trigger:
@@ -58,12 +62,12 @@ automation:
       - service: scene.turn_on
         # FIXME: Light colors are not being snapshotted/restored properly.
         entity_id: scene.plex_before_start
-      - delay: 00:00:01
-      - condition: state
-        entity_id: light.pc
-        state: "on"
-      # FIXME: There is nothing else to fix the temperature of the PC light
-      - service: light.turn_on
-        entity_id: light.pc
-        data:
-          color_temp: 250
+      # - delay: 00:00:01
+      # - condition: state
+      #   entity_id: light.light_avatar_small_2
+      #   state: "on"
+      # # FIXME: There is nothing else to fix the temperature of the PC light
+      # - service: light.turn_on
+      #   entity_id: light.light_avatar_small_2
+      #   data:
+      #     color_temp: 250

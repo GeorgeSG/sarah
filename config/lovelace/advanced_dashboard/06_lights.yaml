@@ -25,22 +25,22 @@ cards:
           show_header_toggle: false
           entities:
             - type: custom:slider-entity-row
-              entity: light.living_room_all_lights
+              entity: light.living_room
               name: All lights
               toggle: true
               step: 5
             - type: custom:fold-entity-row
               head:
-                entity: light.living_room_main_lights
+                entity: light.living_room_main
                 name: Main lights
               entities:
                 - type: custom:slider-entity-row
-                  entity: light.living_room_main_lights
+                  entity: light.living_room_main
                   name: Brightness
                   hide_state: true
                   step: 5
                 - type: custom:slider-entity-row
-                  entity: light.living_room_main_lights
+                  entity: light.living_room_main
                   name: Temperature
                   attribute: color_temp
                   hide_state: true
@@ -76,12 +76,27 @@ cards:
                 type: custom:decluttering-card
                 template: light_with_fade_and_switch
                 variables:
-                  - light: light.pc
-                  - fade: switch.pc_light_fade
-                  - wifi: sensor.pc_light_wifi
+                  - light: light.light_avatar_small_2
+                  - fade: switch.light_avatar_small_2_fade
+                  - wifi: sensor.light_avatar_small_2_wifi
               entities:
                 - type: custom:slider-entity-row
-                  entity: light.pc
+                  entity: light.light_avatar_small_2
+                  name: Brightness
+                  hide_state: true
+                  step: 5
+            - light.living_room_ambient
+            - type: custom:fold-entity-row
+              head:
+                type: custom:decluttering-card
+                template: light_with_fade_and_switch
+                variables:
+                  - light: light.light_avatar_small_1
+                  - fade: switch.light_avatar_small_1_fade
+                  - wifi: sensor.light_avatar_small_1_wifi
+              entities:
+                - type: custom:slider-entity-row
+                  entity: light.light_avatar_small_1
                   name: Brightness
                   hide_state: true
                   step: 5
@@ -92,22 +107,22 @@ cards:
           show_header_toggle: false
           entities:
             - type: custom:slider-entity-row
-              entity: light.master_bedroom_all_lights
+              entity: light.master_bedroom
               name: All lights
               toggle: true
               step: 5
             - type: custom:fold-entity-row
               head:
-                entity: light.master_bedroom_main_lights
+                entity: light.master_bedroom_main
                 name: Main lights
               entities:
                 - type: custom:slider-entity-row
-                  entity: light.master_bedroom_main_lights
+                  entity: light.master_bedroom_main
                   name: Brightness
                   hide_state: true
                   step: 5
                 - type: custom:slider-entity-row
-                  entity: light.master_bedroom_main_lights
+                  entity: light.master_bedroom_main
                   name: Temperature
                   attribute: color_temp
                   hide_state: true
@@ -138,7 +153,7 @@ cards:
                     - light: light.light_lohas_4
                     - fade: switch.light_lohas_4_fade
                     - wifi: sensor.light_lohas_4_wifi
-            - light.bedside_light
+            - light.bedside
             - light.bed_led
 
         - type: entities
@@ -146,20 +161,20 @@ cards:
           icon: mdi:chef-hat
           show_header_toggle: false
           entities:
-            - light.tuya_kitchen_all_lights
+            - light.tuya_kitchen
             - type: divider
-            - light.tuya_kitchen_main_lights
+            - light.tuya_kitchen_main
             - type: custom:fold-entity-row
-              entity: light.kitchen_main_lights
+              entity: light.kitchen_main
               name: Main lights
               entities:
                 - light.light_le_11
                 - light.light_le_12
                 - light.light_orbecco_1
             - type: divider
-            - light.tuya_kitchen_secondary_lights
+            - light.tuya_kitchen_secondary
             - type: custom:fold-entity-row
-              entity: light.kitchen_secondary_lights
+              entity: light.kitchen_secondary
               name: Secondary lights
               entities:
                 - light.light_le_5
@@ -172,19 +187,19 @@ cards:
           icon: mdi:door-closed
           show_header_toggle: false
           entities:
-            - light.hallway_all_lights
+            - light.hallway
             - type: divider
             - type: custom:fold-entity-row
-              entity: light.hallway_entrance_lights
+              entity: light.hallway_entrance
               name: Entrance lights
               entities:
                 - type: custom:slider-entity-row
-                  entity: light.hallway_entrance_lights
+                  entity: light.hallway_entrance
                   name: Brightness
                   hide_state: true
                   step: 5
                 - type: custom:slider-entity-row
-                  entity: light.hallway_entrance_lights
+                  entity: light.hallway_entrance
                   name: Temperature
                   attribute: color_temp
                   hide_state: true
@@ -204,9 +219,9 @@ cards:
                     - fade: switch.light_lohas_6_fade
                     - wifi: sensor.light_lohas_6_wifi
             - type: divider
-            - light.tuya_hallway_main_lights
+            - light.tuya_hallway_main
             - type: custom:fold-entity-row
-              entity: light.hallway_main_lights
+              entity: light.hallway_main
               name: Main lights
               entities:
                 - light.light_le_7

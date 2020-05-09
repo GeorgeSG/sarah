@@ -21,29 +21,35 @@
             cards:
               - type: custom:button-card
                 template: default
-                entity: light.living_room_all_lights
+                entity: light.living_room
                 name: Living room
               - type: custom:button-card
                 template: default
-                entity: light.living_room_main_lights
+                entity: light.living_room_main
                 name: Main
               - type: custom:button-card
                 template: default
-                entity: light.pc
+                entity: light.light_avatar_small_2
                 name: PC
+              - type: custom:button-card
+                template: default
+                entity: light.living_room_ambient
+                name: Ambient
               - type: vertical-stack
                 cards:
                   - type: custom:button-card
                     template: half
-                    entity: light.hallway_entrance_lights
-                    name: Entrance
+                    entity: light.living_room_ambient_main
+                    name: Main
                   - type: custom:button-card
                     template: half
-                    entity: light.tuya_hallway_main_lights
-                    name: Hallway
+                    entity: light.light_avatar_small_1
+                    name: Secondary
                     styles:
                       card:
                         - height: 46px
+
+
 
           - type: horizontal-stack
             title: Devices

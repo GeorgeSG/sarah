@@ -1,6 +1,6 @@
 >-
 
-  {%- if is_state('light.all_lights', 'on') -%}
+  {%- if is_state('light.all', 'on') -%}
     There are
     {%- for state in states.light if state.state == 'on' -%}
       {% if loop.last %} {{ loop.index }} {% endif %}

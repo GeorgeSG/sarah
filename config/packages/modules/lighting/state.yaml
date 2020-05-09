@@ -28,4 +28,4 @@ automation:
       offset: "+00:00:00"
     action:
       - service: light.turn_off
-        entity_id: light.all_lights
+        entity_id: light.all

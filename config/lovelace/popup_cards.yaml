@@ -118,7 +118,7 @@ media_player.master_bedroom:
     template: sonos_media_player
     variables:
       - player: media_player.master_bedroom
-      - name: M. Bedroom
+      - name: Bedroom
       - sync_volume: false
 
 media_player.nvidia_shield: &nvidia_shield
@@ -181,21 +181,21 @@ media_player.nvidia_shield: &nvidia_shield
 
 media_player.living_room_tv: *nvidia_shield
 
-light.living_room_main_lights:
+light.living_room_main:
   title: Living room lights
   style: *popup_style
   card:
     type: custom:mod-card
     card:
       type: custom:light-popup-card
-      entity: light.living_room_main_lights
+      entity: light.living_room_main
       fullscreen: false
       supportedFeaturesTreshold: -1
       actionsInARow: 2
       actions:
         - service: light.toggle
           service_data:
-            entity_id: light.living_room_main_lights
+            entity_id: light.living_room_main
           color: "#ffffcc"
           name: Toggle
 

@@ -17,7 +17,7 @@ script:
         entity_id: group.all_sonos
       - service: homeassistant.turn_off
         entity_id:
-          - light.all_lights
+          - light.all
           - media_player.nvidia_shield
           - media_player.living_room_tv
           - switch.titanium

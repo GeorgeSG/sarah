@@ -1,6 +1,6 @@
 light:
   - platform: group
-    name: Living room main lights
+    name: Living room main
     entities:
       - light.light_le_1
       - light.light_le_2
@@ -8,13 +8,25 @@ light:
       - light.light_le_4
 
   - platform: group
-    name: Living room all lights
+    name: Living room ceiling
     entities:
-      - light.living_room_main_lights
-      - light.pc
+      - light.living_room_main
+      - light.light_avatar_small_2
 
   - platform: group
-    name: Master bedroom main lights
+    name: Living room ambient
+    entities:
+      - light.living_room_ambient_main
+      - light.light_avatar_small_1
+
+  - platform: group
+    name: Living room
+    entities:
+      - light.living_room_ceiling
+      - light.living_room_ambient
+
+  - platform: group
+    name: Master bedroom main
     entities:
       - light.light_lohas_1
       - light.light_lohas_2
@@ -22,21 +34,21 @@ light:
       - light.light_lohas_4
 
   - platform: group
-    name: Master bedroom all lights
+    name: Master bedroom
     entities:
-      - light.master_bedroom_main_lights
-      - light.bedside_light
+      - light.master_bedroom_main
+      - light.bedside
       - light.bed_led
 
   - platform: group
-    name: Kitchen main lights
+    name: Kitchen main
     entities:
       - light.light_le_11
       - light.light_le_12
       - light.light_orbecco_1
 
   - platform: group
-    name: Kitchen secondary lights
+    name: Kitchen secondary
     entities:
       - light.light_le_5
       - light.light_le_6
@@ -44,77 +56,134 @@ light:
       - light.light_le_10
 
   - platform: group
-    name: Tuya Kitchen all lights
+    name: Tuya Kitchen
     entities:
-      - light.tuya_kitchen_main_lights
-      - light.tuya_kitchen_secondary_lights
+      - light.tuya_kitchen_main
+      - light.tuya_kitchen_secondary
 
   - platform: group
-    name: Hallway entrance lights
+    name: Hallway entrance
     entities:
       - light.light_lohas_5
       - light.light_lohas_6
 
   - platform: group
-    name: Hallway main lights
+    name: Hallway main
     entities:
       - light.light_le_7
       - light.light_le_8
 
   - platform: group
-    name: Hallway all lights
+    name: Hallway
     entities:
-      - light.hallway_entrance_lights
-      - light.tuya_hallway_main_lights
+      - light.hallway_entrance
+      - light.tuya_hallway_main
 
   - platform: group
     name: On after dark
     entities:
-      - light.living_room_all_lights
-      - light.master_bedroom_main_lights
-      - light.hallway_all_lights
+      - light.living_room
+      - light.master_bedroom_main
+      - light.hallway
 
   - platform: group
-    name: Ceiling lights
+    name: Ceiling
     entities:
-      - light.living_room_all_lights
-      - light.master_bedroom_main_lights
-      - light.tuya_kitchen_all_lights
-      - light.hallway_all_lights
+      - light.living_room_main
+      - light.light_avatar_small_2
+      - light.master_bedroom_main
+      - light.tuya_kitchen
+      - light.hallway
 
   - platform: group
-    name: All lights
+    name: All
     entities:
-      - light.living_room_all_lights
-      - light.master_bedroom_all_lights
-      - light.tuya_kitchen_all_lights
-      - light.hallway_all_lights
+      - light.living_room
+      - light.master_bedroom
+      - light.tuya_kitchen
+      - light.hallway
 
 homeassistant:
   customize:
-    light.living_room_main_lights:
-      icon: bha:ceiling-lamp-plafond
-    light.living_room_all_lights:
-      icon: bha:ceiling-lamp-plafond
-    light.master_bedroom_all_lights:
-      icon: bha:ceiling-lamp-plafond
-    light.master_bedroom_main_lights:
-      icon: bha:ceiling-lamp-plafond
-    light.kitchen_main_lights:
-      icon: bha:ceiling-lamp-plafond
-    light.kitchen_secondary_lights:
-      icon: bha:ceiling-lamp-plafond
-    light.tuya_kitchen_all_lights:
-      icon: bha:ceiling-lamp-plafond
-    light.hallway_entrance_lights:
-      icon: bha:ceiling-lamp-plafond
-    light.hallway_main_lights:
-      icon: bha:ceiling-lamp-plafond
-    light.hallway_all_lights:
-      icon: bha:ceiling-lamp-plafond
-    light.ceiling_lights:
+    light.ceiling:
       icon: mdi:ceiling-light
-    light.pc:
+
+
+    # Living room
+    light.living_room:
+      icon: bha:ceiling-lamp-plafond
+    light.living_room_ceiling:
+      icon: mdi:ceiling-light
+
+    light.living_room_main:
+      icon: bha:ceiling-lamp-plafond
+    light.light_le_1:
+      friendly_name: Living room 1
+    light.light_le_2:
+      friendly_name: Living room 2
+    light.light_le_3:
+      friendly_name: Living room 3
+    light.light_le_4:
+      friendly_name: Living room 4
+
+    light.light_avatar_small_2:
+      friendly_name: PC
       icon: bha:outdoor-lamp-variant
-    light.bedside_light:
+
+    light.living_room_ambient:
+      icon: mdi:floor-lamp-dual
+    light.light_avatar_small_1:
+      friendly_name: Living room ambient secondary
+
+    # Out of comission
+    # light.pc:
+    #   icon: bha:outdoor-lamp-variant
+
+    # Master bedroom
+    light.master_bedroom:
+      friendly_name: Bedroom
+      icon: bha:ceiling-lamp-plafond
+
+    light.master_bedroom_main:
+      friendly_name: Bedroom main
+      icon: bha:ceiling-lamp-plafond
+
+    light.light_lohas_1:
+      friendly_name: Bedroom 1
+    light.light_lohas_2:
+      friendly_name: Bedroom 2
+    light.light_lohas_3:
+      friendly_name: Bedroom 3
+    light.light_lohas_4:
+      friendly_name: Bedroom 4
+
+    light.bedside:
       icon: mdi:desk-lamp
+
+    # Kitchen
+    light.kitchen_main:
+      icon: bha:ceiling-lamp-plafond
+    light.kitchen_secondary:
+      icon: bha:ceiling-lamp-plafond
+    light.tuya_kitchen:
+      icon: bha:ceiling-lamp-plafond
+
+    # Hallway
+    light.hallway:
+      icon: bha:ceiling-lamp-plafond
+
+    light.hallway_entrance:
+      icon: bha:ceiling-lamp-plafond
+    light.light_lohas_5:
+      friendly_name: Entrance 1
+    light.light_lohas_6:
+      friendly_name: Entrance 2
+
+    light.hallway_main:
+      icon: bha:ceiling-lamp-plafond
+    light.light_le_7:
+      friendly_name: Hallway 1
+    light.light_le_8:
+      friendly_name: Hallway 2
+
+

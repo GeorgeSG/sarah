@@ -21,15 +21,15 @@
             cards:
               - type: custom:button-card
                 template: default
-                entity: light.hallway_all_lights
+                entity: light.hallway
                 name: Hallway
               - type: custom:button-card
                 template: default
-                entity: light.hallway_entrance_lights
+                entity: light.hallway_entrance
                 name: Entrance
               - type: custom:button-card
                 template: default
-                entity: light.hallway_main_lights
+                entity: light.hallway_main
                 name: Main
 
           - type: horizontal-stack

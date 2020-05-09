@@ -16,7 +16,7 @@ input_boolean:
 light:
   - platform: template
     lights:
-      tuya_kitchen_main_lights:
+      tuya_kitchen_main:
         friendly_name: Kitchen main lights (scene)
         value_template: "{{ is_state('input_boolean.tuya_kitchen_main_lights_state', 'on') }}"
         icon_template: bha:ceiling-lamp-plafond
@@ -27,7 +27,7 @@ light:
           service: input_boolean.turn_off
           entity_id: input_boolean.tuya_kitchen_main_lights_state
 
-      tuya_kitchen_secondary_lights:
+      tuya_kitchen_secondary:
         friendly_name: Kitchen secondary lights (scene)
         value_template: "{{ is_state('input_boolean.tuya_kitchen_secondary_lights_state', 'on') }}"
         icon_template: bha:ceiling-lamp-plafond
@@ -38,7 +38,7 @@ light:
           service: input_boolean.turn_off
           entity_id: input_boolean.tuya_kitchen_secondary_lights_state
 
-      tuya_hallway_main_lights:
+      tuya_hallway_main:
         friendly_name: Hallway main lights (scene)
         value_template: "{{ is_state('input_boolean.tuya_hallway_main_lights_state', 'on') }}"
         icon_template: bha:ceiling-lamp-plafond
@@ -74,11 +74,11 @@ automation:
     action:
       - delay: 00:00:03
 
-      - service_template: "input_boolean.turn_{{ states('light.kitchen_main_lights') }}"
+      - service_template: "input_boolean.turn_{{ states('light.kitchen_main') }}"
         entity_id: input_boolean.tuya_kitchen_main_lights_state
 
-      - service_template: "input_boolean.turn_{{ states('light.kitchen_secondary_lights') }}"
+      - service_template: "input_boolean.turn_{{ states('light.kitchen_secondary') }}"
         entity_id: input_boolean.tuya_kitchen_secondary_lights_state
 
-      - service_template: "input_boolean.turn_{{ states('light.hallway_main_lights') }}"
+      - service_template: "input_boolean.turn_{{ states('light.hallway_main') }}"
         entity_id: input_boolean.tuya_hallway_main_lights_state

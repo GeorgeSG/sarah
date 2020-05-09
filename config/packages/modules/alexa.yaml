@@ -2,15 +2,14 @@ alexa:
   smart_home:
     filter:
       include_entities:
-        - light.ceiling_lights
-        - light.living_room_main_lights
-        - light.pc
-        - light.master_bedroom_main_lights
-        - light.bedside_light
-        - light.tuya_kitchen_all_lights
-        - light.hallway_entrance_lights
-        - light.hallway_all_lights
-        - light.tuya_hallway_main_lights
+        - light.ceiling
+        - light.living_room_main
+        - light.master_bedroom_main
+        - light.bedside
+        - light.tuya_kitchen
+        - light.hallway_entrance
+        - light.hallway
+        - light.tuya_hallway_main
 
         - switch.camera
 
@@ -43,19 +42,19 @@ alexa:
         - script.titanium_start
 
     entity_config:
-      light.ceiling_lights:
+      light.ceiling:
         name: "Ceiling"
-      light.living_room_main_lights:
+      light.living_room_main:
         name: "Living room"
-      light.master_bedroom_main_lights:
+      light.master_bedroom_main:
         name: "Bedroom"
-      light.tuya_kitchen_all_lights:
+      light.tuya_kitchen:
         name: "Kitchen"
-      light.hallway_all_lights:
+      light.hallway:
         name: "Hallway"
-      light.hallway_entrance_lights:
+      light.hallway_entrance:
         name: "Entrance"
-      light.tuya_hallway_main_lights:
+      light.tuya_hallway_main:
         name: "Hallway main"
       media_player.master_bedroom:
         name: "Bedroom Sonos"

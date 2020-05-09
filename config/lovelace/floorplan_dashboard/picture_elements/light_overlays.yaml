@@ -24,9 +24,9 @@
   conditions:
     - entity: binary_sensor.floorplan_night_mode
       state: "on"
-    - entity: light.pc
+    - entity: light.light_avatar_small_2
       state: "on"
-    - entity: light.living_room_main_lights
+    - entity: light.living_room_main
       state: "off"
   elements:
     - type: image
@@ -42,9 +42,9 @@
   conditions:
     - entity: binary_sensor.floorplan_night_mode
       state: "on"
-    - entity: light.pc
+    - entity: light.light_avatar_small_2
       state: "off"
-    - entity: light.living_room_main_lights
+    - entity: light.living_room_main
       state: "on"
   elements:
     - type: image
@@ -60,9 +60,9 @@
   conditions:
     - entity: binary_sensor.floorplan_night_mode
       state: "on"
-    - entity: light.pc
+    - entity: light.light_avatar_small_2
       state: "on"
-    - entity: light.living_room_main_lights
+    - entity: light.living_room_main
       state: "on"
   elements:
     - type: image
@@ -80,9 +80,9 @@
   conditions:
     - entity: binary_sensor.floorplan_night_mode
       state: "on"
-    - entity: light.bedside_light
+    - entity: light.bedside
       state: "off"
-    - entity: light.master_bedroom_main_lights
+    - entity: light.master_bedroom_main
       state: "on"
   elements:
     - type: image
@@ -98,9 +98,9 @@
   conditions:
     - entity: binary_sensor.floorplan_night_mode
       state: "on"
-    - entity: light.bedside_light
+    - entity: light.bedside
       state: "on"
-    - entity: light.master_bedroom_main_lights
+    - entity: light.master_bedroom_main
       state: "off"
   elements:
     - type: image
@@ -116,9 +116,9 @@
   conditions:
     - entity: binary_sensor.floorplan_night_mode
       state: "on"
-    - entity: light.master_bedroom_main_lights
+    - entity: light.master_bedroom_main
       state: "on"
-    - entity: light.bedside_light
+    - entity: light.bedside
       state: "on"
   elements:
     - type: image
@@ -136,9 +136,9 @@
   conditions:
     - entity: binary_sensor.floorplan_night_mode
       state: "on"
-    - entity: light.tuya_kitchen_main_lights
+    - entity: light.tuya_kitchen_main
       state: "on"
-    - entity: light.tuya_kitchen_secondary_lights
+    - entity: light.tuya_kitchen_secondary
       state: "off"
   elements:
     - type: image
@@ -155,9 +155,9 @@
   conditions:
     - entity: binary_sensor.floorplan_night_mode
       state: "on"
-    - entity: light.tuya_kitchen_main_lights
+    - entity: light.tuya_kitchen_main
       state: "off"
-    - entity: light.tuya_kitchen_secondary_lights
+    - entity: light.tuya_kitchen_secondary
       state: "on"
   elements:
     - type: image
@@ -174,9 +174,9 @@
   conditions:
     - entity: binary_sensor.floorplan_night_mode
       state: "on"
-    - entity: light.tuya_kitchen_main_lights
+    - entity: light.tuya_kitchen_main
       state: "on"
-    - entity: light.tuya_kitchen_secondary_lights
+    - entity: light.tuya_kitchen_secondary
       state: "on"
   elements:
     - type: image
@@ -194,9 +194,9 @@
   conditions:
     - entity: binary_sensor.floorplan_night_mode
       state: "on"
-    - entity: light.hallway_entrance_lights
+    - entity: light.hallway_entrance
       state: "on"
-    - entity: light.tuya_hallway_main_lights
+    - entity: light.tuya_hallway_main
       state: "off"
   elements:
     - type: image
@@ -212,9 +212,9 @@
   conditions:
     - entity: binary_sensor.floorplan_night_mode
       state: "on"
-    - entity: light.hallway_entrance_lights
+    - entity: light.hallway_entrance
       state: "off"
-    - entity: light.tuya_hallway_main_lights
+    - entity: light.tuya_hallway_main
       state: "on"
   elements:
     - type: image
@@ -230,9 +230,9 @@
   conditions:
     - entity: binary_sensor.floorplan_night_mode
       state: "on"
-    - entity: light.hallway_entrance_lights
+    - entity: light.hallway_entrance
       state: "on"
-    - entity: light.tuya_hallway_main_lights
+    - entity: light.tuya_hallway_main
       state: "on"
   elements:
     - type: image

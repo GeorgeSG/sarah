@@ -4,7 +4,7 @@ script:
     sequence:
       # Set master bedroom state
       - service: light.turn_on
-        entity_id: light.bedside_light
+        entity_id: light.bedside
       - service: light.turn_on
         entity_id: light.bed_led
         data:

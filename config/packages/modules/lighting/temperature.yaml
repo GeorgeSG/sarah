@@ -42,10 +42,10 @@ automation:
     action:
       - service: script.lighting_temperature_adjust
         data:
-          entity_id: light.master_bedroom_main_lights
+          entity_id: light.master_bedroom_main
       - service: script.lighting_temperature_adjust
         data:
-          entity_id: light.living_room_main_lights
+          entity_id: light.living_room_main
       - service: script.lighting_temperature_adjust
         data:
-          entity_id: light.hallway_entrance_lights
+          entity_id: light.hallway_entrance

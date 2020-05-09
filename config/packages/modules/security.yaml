@@ -72,11 +72,11 @@ script:
           media_content_id: "https://raw.githubusercontent.com/saeedsohi/siren/master/FireTrucksSirens.mp3"
           media_content_type: music
       - service: light.turn_on
-        entity_id: light.bedside_light
+        entity_id: light.bedside
         data:
           brightness_pct: 100
       - service: light.turn_on
-        entity_id: light.bedside_light
+        entity_id: light.bedside
         data:
           effect: Police
 
@@ -85,7 +85,7 @@ script:
       - service: media_player.media_stop
         entity_id: media_player.master_bedroom
       - service: light.turn_on
-        entity_id: light.bedside_light
+        entity_id: light.bedside
         data:
           brightness_pct: 60
           kelvin: 2400

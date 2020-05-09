@@ -10,7 +10,7 @@ script:
     sequence:
       - service: light.turn_on
         entity_id:
-          - light.hallway_entrance_lights
+          - light.hallway_entrance
           - light.bed_led
           - light.browser_kitchen
         data:

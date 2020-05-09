@@ -21,25 +21,25 @@
             cards:
               - type: custom:button-card
                 template: default
-                entity: light.tuya_kitchen_all_lights
+                entity: light.tuya_kitchen
                 name: Kitchen
               - type: custom:button-card
                 template: default
-                entity: light.tuya_kitchen_main_lights
+                entity: light.tuya_kitchen_main
                 name: Main
               - type: custom:button-card
                 template: default
-                entity: light.tuya_kitchen_secondary_lights
+                entity: light.tuya_kitchen_secondary
                 name: Secondary
               - type: vertical-stack
                 cards:
                   - type: custom:button-card
                     template: half
-                    entity: light.hallway_entrance_lights
+                    entity: light.hallway_entrance
                     name: Entrance
                   - type: custom:button-card
                     template: half
-                    entity: light.tuya_hallway_main_lights
+                    entity: light.tuya_hallway_main
                     name: Hallway
                     styles:
                       card:

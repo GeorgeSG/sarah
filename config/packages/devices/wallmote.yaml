@@ -18,7 +18,7 @@ automation:
         scene_data: 0
     action:
       - service: light.toggle
-        entity_id: light.living_room_all_lights
+        entity_id: light.living_room
 
   - alias: Wallmote · Living room · 1 · Hold · Dim lights
     trigger:
@@ -31,11 +31,11 @@ automation:
         scene_data: 1
     action:
       - service: light.turn_on
-        entity_id: light.living_room_all_lights
+        entity_id: light.living_room
         data_template:
           brightness: >
 
-              {% if state_attr('light.living_room_main_lights', 'brightness') < 255 %}
+              {% if state_attr('light.living_room_main', 'brightness') < 255 %}
                 255
               {% else %}
                 120

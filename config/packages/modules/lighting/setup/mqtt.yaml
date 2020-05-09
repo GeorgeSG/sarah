@@ -1,14 +1,18 @@
 light:
   - platform: mqtt
-    name: "PC"
-    availability_topic: "tele/pc_light/LWT"
-    command_topic: "cmnd/pc_light/POWER"
+    name: "PC"  # should be hama_1.
     state_topic: "tele/pc_light/STATE"
     state_value_template: "{{ value_json.POWER }}"
+    command_topic: "cmnd/pc_light/POWER"
+    payload_on: "ON"
+    payload_off: "OFF"
+    availability_topic: "tele/pc_light/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    on_command_type: "brightness"
     brightness_command_topic: "cmnd/pc_light/Dimmer"
     brightness_state_topic: "tele/pc_light/STATE"
     brightness_scale: 100
-    on_command_type: "brightness"
     brightness_value_template: "{{ value_json.Dimmer }}"
     hs_command_topic: "cmnd/pc_light/HSBColor"
     hs_state_topic: "tele/pc_light/STATE"
@@ -19,107 +23,107 @@ light:
     rgb_command_topic: "cmnd/pc_light/Color"
     rgb_state_topic: "tele/pc_light/STATE"
     rgb_value_template: "{{ value_json.Color.split(',')[0:3]|join(',') }}"
-    payload_on: "ON"
-    payload_off: "OFF"
-    payload_available: "Online"
-    payload_not_available: "Offline"
     qos: 1
     retain: false
 
   - platform: mqtt
     name: "light_le_1"
-    availability_topic: "tele/light_le_1/LWT"
-    command_topic: "cmnd/light_le_1/POWER"
     state_topic: "tele/light_le_1/STATE"
     state_value_template: "{{ value_json.POWER }}"
+    command_topic: "cmnd/light_le_1/POWER"
+    payload_on: "ON"
+    payload_off: "OFF"
+    availability_topic: "tele/light_le_1/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    on_command_type: "brightness"
     brightness_command_topic: "cmnd/light_le_1/Dimmer"
     brightness_state_topic: "tele/light_le_1/STATE"
     brightness_scale: 100
-    on_command_type: "brightness"
     brightness_value_template: "{{ value_json.Dimmer }}"
     color_temp_command_topic: "cmnd/light_le_1/CT"
     color_temp_state_topic: "tele/light_le_1/STATE"
     color_temp_value_template: "{{ value_json.CT }}"
-    payload_on: "ON"
-    payload_off: "OFF"
-    payload_available: "Online"
-    payload_not_available: "Offline"
     qos: 1
     retain: false
 
   - platform: mqtt
     name: "light_le_2"
-    availability_topic: "tele/light_le_2/LWT"
-    command_topic: "cmnd/light_le_2/POWER"
     state_topic: "tele/light_le_2/STATE"
     state_value_template: "{{ value_json.POWER }}"
+    command_topic: "cmnd/light_le_2/POWER"
+    payload_on: "ON"
+    payload_off: "OFF"
+    availability_topic: "tele/light_le_2/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    on_command_type: "brightness"
     brightness_command_topic: "cmnd/light_le_2/Dimmer"
     brightness_state_topic: "tele/light_le_2/STATE"
     brightness_scale: 100
-    on_command_type: "brightness"
     brightness_value_template: "{{ value_json.Dimmer }}"
     color_temp_command_topic: "cmnd/light_le_2/CT"
     color_temp_state_topic: "tele/light_le_2/STATE"
     color_temp_value_template: "{{ value_json.CT }}"
-    payload_on: "ON"
-    payload_off: "OFF"
-    payload_available: "Online"
-    payload_not_available: "Offline"
     qos: 1
     retain: false
 
   - platform: mqtt
     name: "light_le_3"
-    availability_topic: "tele/light_le_3/LWT"
-    command_topic: "cmnd/light_le_3/POWER"
     state_topic: "tele/light_le_3/STATE"
     state_value_template: "{{ value_json.POWER }}"
+    command_topic: "cmnd/light_le_3/POWER"
+    payload_on: "ON"
+    payload_off: "OFF"
+    availability_topic: "tele/light_le_3/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    on_command_type: "brightness"
     brightness_command_topic: "cmnd/light_le_3/Dimmer"
     brightness_state_topic: "tele/light_le_3/STATE"
     brightness_scale: 100
-    on_command_type: "brightness"
     brightness_value_template: "{{ value_json.Dimmer }}"
     color_temp_command_topic: "cmnd/light_le_3/CT"
     color_temp_state_topic: "tele/light_le_3/STATE"
     color_temp_value_template: "{{ value_json.CT }}"
-    payload_on: "ON"
-    payload_off: "OFF"
-    payload_available: "Online"
-    payload_not_available: "Offline"
     qos: 1
     retain: false
 
   - platform: mqtt
     name: "light_le_4"
-    availability_topic: "tele/light_le_4/LWT"
-    command_topic: "cmnd/light_le_4/POWER"
     state_topic: "tele/light_le_4/STATE"
     state_value_template: "{{ value_json.POWER }}"
+    command_topic: "cmnd/light_le_4/POWER"
+    payload_on: "ON"
+    payload_off: "OFF"
+    availability_topic: "tele/light_le_4/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    on_command_type: "brightness"
     brightness_command_topic: "cmnd/light_le_4/Dimmer"
     brightness_state_topic: "tele/light_le_4/STATE"
     brightness_scale: 100
-    on_command_type: "brightness"
     brightness_value_template: "{{ value_json.Dimmer }}"
     color_temp_command_topic: "cmnd/light_le_4/CT"
     color_temp_state_topic: "tele/light_le_4/STATE"
     color_temp_value_template: "{{ value_json.CT }}"
-    payload_on: "ON"
-    payload_off: "OFF"
-    payload_available: "Online"
-    payload_not_available: "Offline"
     qos: 1
     retain: false
 
   - platform: mqtt
     name: "light_lohas_1"
-    availability_topic: "tele/light_lohas_1/LWT"
-    command_topic: "cmnd/light_lohas_1/POWER"
     state_topic: "tele/light_lohas_1/STATE"
     state_value_template: "{{ value_json.POWER }}"
+    command_topic: "cmnd/light_lohas_1/POWER"
+    payload_on: "ON"
+    payload_off: "OFF"
+    availability_topic: "tele/light_lohas_1/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    on_command_type: "brightness"
     brightness_command_topic: "cmnd/light_lohas_1/Dimmer"
     brightness_state_topic: "tele/light_lohas_1/STATE"
     brightness_scale: 100
-    on_command_type: "brightness"
     brightness_value_template: "{{ value_json.Dimmer }}"
     hs_command_topic: "cmnd/light_lohas_1/HSBColor"
     hs_state_topic: "tele/light_lohas_1/STATE"
@@ -130,23 +134,23 @@ light:
     rgb_command_topic: "cmnd/light_lohas_1/Color"
     rgb_state_topic: "tele/pc_light/STATE"
     rgb_value_template: "{{ value_json.Color.split(',')[0:3]|join(',') }}"
-    payload_on: "ON"
-    payload_off: "OFF"
-    payload_available: "Online"
-    payload_not_available: "Offline"
     qos: 1
     retain: false
 
   - platform: mqtt
     name: "light_lohas_2"
-    availability_topic: "tele/light_lohas_2/LWT"
-    command_topic: "cmnd/light_lohas_2/POWER"
     state_topic: "tele/light_lohas_2/STATE"
     state_value_template: "{{ value_json.POWER }}"
+    command_topic: "cmnd/light_lohas_2/POWER"
+    payload_on: "ON"
+    payload_off: "OFF"
+    availability_topic: "tele/light_lohas_2/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    on_command_type: "brightness"
     brightness_command_topic: "cmnd/light_lohas_2/Dimmer"
     brightness_state_topic: "tele/light_lohas_2/STATE"
     brightness_scale: 100
-    on_command_type: "brightness"
     brightness_value_template: "{{ value_json.Dimmer }}"
     hs_command_topic: "cmnd/light_lohas_2/HSBColor"
     hs_state_topic: "tele/light_lohas_2/STATE"
@@ -157,23 +161,23 @@ light:
     rgb_command_topic: "cmnd/light_lohas_2/Color"
     rgb_state_topic: "tele/pc_light/STATE"
     rgb_value_template: "{{ value_json.Color.split(',')[0:3]|join(',') }}"
-    payload_on: "ON"
-    payload_off: "OFF"
-    payload_available: "Online"
-    payload_not_available: "Offline"
     qos: 1
     retain: false
 
   - platform: mqtt
     name: "light_lohas_3"
-    availability_topic: "tele/light_lohas_3/LWT"
-    command_topic: "cmnd/light_lohas_3/POWER"
     state_topic: "tele/light_lohas_3/STATE"
     state_value_template: "{{ value_json.POWER }}"
+    command_topic: "cmnd/light_lohas_3/POWER"
+    payload_on: "ON"
+    payload_off: "OFF"
+    availability_topic: "tele/light_lohas_3/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    on_command_type: "brightness"
     brightness_command_topic: "cmnd/light_lohas_3/Dimmer"
     brightness_state_topic: "tele/light_lohas_3/STATE"
     brightness_scale: 100
-    on_command_type: "brightness"
     brightness_value_template: "{{ value_json.Dimmer }}"
     hs_command_topic: "cmnd/light_lohas_3/HSBColor"
     hs_state_topic: "tele/light_lohas_3/STATE"
@@ -184,23 +188,23 @@ light:
     rgb_command_topic: "cmnd/light_lohas_3/Color"
     rgb_state_topic: "tele/pc_light/STATE"
     rgb_value_template: "{{ value_json.Color.split(',')[0:3]|join(',') }}"
-    payload_on: "ON"
-    payload_off: "OFF"
-    payload_available: "Online"
-    payload_not_available: "Offline"
     qos: 1
     retain: false
 
   - platform: mqtt
     name: "light_lohas_4"
-    availability_topic: "tele/light_lohas_4/LWT"
-    command_topic: "cmnd/light_lohas_4/POWER"
     state_topic: "tele/light_lohas_4/STATE"
     state_value_template: "{{ value_json.POWER }}"
+    command_topic: "cmnd/light_lohas_4/POWER"
+    payload_on: "ON"
+    payload_off: "OFF"
+    availability_topic: "tele/light_lohas_4/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    on_command_type: "brightness"
     brightness_command_topic: "cmnd/light_lohas_4/Dimmer"
     brightness_state_topic: "tele/light_lohas_4/STATE"
     brightness_scale: 100
-    on_command_type: "brightness"
     brightness_value_template: "{{ value_json.Dimmer }}"
     hs_command_topic: "cmnd/light_lohas_4/HSBColor"
     hs_state_topic: "tele/light_lohas_4/STATE"
@@ -211,23 +215,23 @@ light:
     rgb_command_topic: "cmnd/light_lohas_4/Color"
     rgb_state_topic: "tele/pc_light/STATE"
     rgb_value_template: "{{ value_json.Color.split(',')[0:3]|join(',') }}"
-    payload_on: "ON"
-    payload_off: "OFF"
-    payload_available: "Online"
-    payload_not_available: "Offline"
     qos: 1
     retain: false
 
   - platform: mqtt
     name: "light_lohas_5"
-    availability_topic: "tele/light_lohas_5/LWT"
-    command_topic: "cmnd/light_lohas_5/POWER"
     state_topic: "tele/light_lohas_5/STATE"
     state_value_template: "{{ value_json.POWER }}"
+    command_topic: "cmnd/light_lohas_5/POWER"
+    payload_on: "ON"
+    payload_off: "OFF"
+    availability_topic: "tele/light_lohas_5/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    on_command_type: "brightness"
     brightness_command_topic: "cmnd/light_lohas_5/Dimmer"
     brightness_state_topic: "tele/light_lohas_5/STATE"
     brightness_scale: 100
-    on_command_type: "brightness"
     brightness_value_template: "{{ value_json.Dimmer }}"
     hs_command_topic: "cmnd/light_lohas_5/HSBColor"
     hs_state_topic: "tele/light_lohas_5/STATE"
@@ -238,23 +242,23 @@ light:
     rgb_command_topic: "cmnd/light_lohas_5/Color"
     rgb_state_topic: "tele/pc_light/STATE"
     rgb_value_template: "{{ value_json.Color.split(',')[0:3]|join(',') }}"
-    payload_on: "ON"
-    payload_off: "OFF"
-    payload_available: "Online"
-    payload_not_available: "Offline"
     qos: 1
     retain: false
 
   - platform: mqtt
     name: "light_lohas_6"
-    availability_topic: "tele/light_lohas_6/LWT"
-    command_topic: "cmnd/light_lohas_6/POWER"
     state_topic: "tele/light_lohas_6/STATE"
     state_value_template: "{{ value_json.POWER }}"
+    command_topic: "cmnd/light_lohas_6/POWER"
+    payload_on: "ON"
+    payload_off: "OFF"
+    availability_topic: "tele/light_lohas_6/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    on_command_type: "brightness"
     brightness_command_topic: "cmnd/light_lohas_6/Dimmer"
     brightness_state_topic: "tele/light_lohas_6/STATE"
     brightness_scale: 100
-    on_command_type: "brightness"
     brightness_value_template: "{{ value_json.Dimmer }}"
     hs_command_topic: "cmnd/light_lohas_6/HSBColor"
     hs_state_topic: "tele/light_lohas_6/STATE"
@@ -263,6 +267,52 @@ light:
     color_temp_state_topic: "tele/light_lohas_6/STATE"
     color_temp_value_template: "{{ value_json.CT }}"
     rgb_command_topic: "cmnd/light_lohas_6/Color"
+    rgb_state_topic: "tele/pc_light/STATE"
+    rgb_value_template: "{{ value_json.Color.split(',')[0:3]|join(',') }}"
+    qos: 1
+    retain: false
+
+  - platform: mqtt
+    name: "light_avatar_small_1"
+    availability_topic: "tele/light_avatar_small_1/LWT"
+    command_topic: "cmnd/light_avatar_small_1/POWER"
+    state_topic: "tele/light_avatar_small_1/STATE"
+    state_value_template: "{{ value_json.POWER }}"
+    brightness_command_topic: "cmnd/light_avatar_small_1/Dimmer"
+    brightness_state_topic: "tele/light_avatar_small_1/STATE"
+    brightness_scale: 100
+    brightness_value_template: "{{ value_json.Dimmer }}"
+    on_command_type: "brightness"
+    white_value_command_topic: "cmnd/light_avatar_small_1/WHITE"
+    white_value_scale: 100
+    white_value_state_topic: "tele/light_avatar_small_1/STATE"
+    white_value_template: "{{ value_json.WHITE }}"
+    rgb_command_topic: "cmnd/light_avatar_small_1/Color"
+    rgb_state_topic: "tele/pc_light/STATE"
+    rgb_value_template: "{{ value_json.Color.split(',')[0:3]|join(',') }}"
+    payload_on: "ON"
+    payload_off: "OFF"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    qos: 1
+    retain: false
+
+  - platform: mqtt
+    name: "light_avatar_small_2"
+    availability_topic: "tele/light_avatar_small_2/LWT"
+    command_topic: "cmnd/light_avatar_small_2/POWER"
+    state_topic: "tele/light_avatar_small_2/STATE"
+    state_value_template: "{{ value_json.POWER }}"
+    brightness_command_topic: "cmnd/light_avatar_small_2/Dimmer"
+    brightness_scale: 100
+    brightness_state_topic: "tele/light_avatar_small_2/STATE"
+    brightness_value_template: "{{ value_json.Dimmer }}"
+    on_command_type: "brightness"
+    white_value_command_topic: "cmnd/light_avatar_small_2/WHITE"
+    white_value_scale: 100
+    white_value_state_topic: "tele/light_avatar_small_2/STATE"
+    white_value_template: "{{ value_json.WHITE }}"
+    rgb_command_topic: "cmnd/light_avatar_small_2/Color"
     rgb_state_topic: "tele/pc_light/STATE"
     rgb_value_template: "{{ value_json.Color.split(',')[0:3]|join(',') }}"
     payload_on: "ON"
@@ -380,6 +430,26 @@ sensor:
     payload_available: "Online"
     payload_not_available: "Offline"
     state_topic: "tele/light_lohas_6/STATE"
+    unit_of_measurement: "%"
+    value_template: "{{ value_json.Wifi.RSSI }}"
+
+  - platform: mqtt
+    name: "light_avatar_small_1_wifi"
+    availability_topic: "tele/light_avatar_small_1/LWT"
+    device_class: signal_strength
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    state_topic: "tele/light_avatar_small_1/STATE"
+    unit_of_measurement: "%"
+    value_template: "{{ value_json.Wifi.RSSI }}"
+
+  - platform: mqtt
+    name: "light_avatar_small_2_wifi"
+    availability_topic: "tele/light_avatar_small_2/LWT"
+    device_class: signal_strength
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    state_topic: "tele/light_avatar_small_2/STATE"
     unit_of_measurement: "%"
     value_template: "{{ value_json.Wifi.RSSI }}"
 
@@ -504,6 +574,29 @@ switch:
     qos: 1
     state_topic: "stat/light_lohas_6/RESULT"
     value_template: "{{ value_json.Fade }}"
+
+  - platform: mqtt
+    name: "light_avatar_small_1_fade"
+    availability_topic: "tele/light_avatar_small_1/LWT"
+    command_topic: "cmnd/light_avatar_small_1/FADE"
+    icon: mdi:gradient
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    qos: 1
+    state_topic: "stat/light_avatar_small_1/RESULT"
+    value_template: "{{ value_json.Fade }}"
+
+  - platform: mqtt
+    name: "light_avatar_small_2_fade"
+    availability_topic: "tele/light_avatar_small_2/LWT"
+    command_topic: "cmnd/light_avatar_small_2/FADE"
+    icon: mdi:gradient
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    qos: 1
+    state_topic: "stat/light_avatar_small_2/RESULT"
+    value_template: "{{ value_json.Fade }}"
+
 
 automation:
   - alias: Lighting · Sync Tasmota states on start-up
