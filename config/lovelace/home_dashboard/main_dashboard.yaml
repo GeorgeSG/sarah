@@ -198,32 +198,65 @@
                     tap_action:
                       action: toggle
 
-          - type: horizontal-stack
+          - type: vertical-stack
             title: Climate
             cards:
-              - type: custom:button-card
-                template: default
-                entity: binary_sensor.bedroom_right_window_on_off_wrapper
-                name: Bedroom
-              - type: custom:button-card
-                template:
-                  - small
-                  - progress
-                entity: sensor.bedroom_weather_temperature
-                variables:
-                  degrees: 200
-              - type: custom:button-card
-                template:
-                  - small
-                  - progress
-                entity: sensor.bedroom_weather_humidity
-                variables:
-                  min_value: 25
-                  max_value: 90
-                  normal_value: 40
-                  high_value: 65
-                  low_color: "var(--color-red)"
-                  degrees: 200
+              - type: horizontal-stack
+                cards:
+                  - type: custom:button-card
+                    template:
+                      - small
+                      - progress
+                    entity: sensor.multisensor_6_temperature
+                    name: Living room
+                    state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
+                  - type: custom:button-card
+                    template:
+                      - small
+                      - progress
+                    entity: sensor.trisensor_temperature
+                    name: Desk
+                    state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
+                  - type: custom:button-card
+                    template:
+                      - small
+                      - progress
+                    entity: sensor.living_room_thermostat_temperature
+                    name: Radiator
+                    state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
+                  - type: custom:button-card
+                    template:
+                      - small
+                      - progress
+                    entity: sensor.bedroom_weather_temperature
+                    name: Bedroom
+                    state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
+              - type: horizontal-stack
+                cards:
+                  - type: custom:button-card
+                    template:
+                      - small
+                      - progress
+                    entity: sensor.multisensor_6_relative_humidity
+                    name: Living room
+                    variables:
+                      min_value: 25
+                      max_value: 90
+                      normal_value: 40
+                      high_value: 65
+                      low_color: "var(--color-red)"
+                  - type: custom:button-card
+                    template:
+                      - small
+                      - progress
+                    entity: sensor.bedroom_weather_humidity
+                    name: Bedroom
+                    variables:
+                      min_value: 25
+                      max_value: 90
+                      normal_value: 40
+                      high_value: 65
+                      low_color: "var(--color-red)"
 
           - type: vertical-stack
             title: Sensors
@@ -239,6 +272,20 @@
                         template: default
                         entity: binary_sensor.living_room_right_window_on_off_wrapper
                         name: Living room
+                      - type: custom:button-card
+                        template: default
+                        entity: binary_sensor.bedroom_right_window_on_off_wrapper
+                        name: Bedroom
+                  - type: horizontal-stack
+                    cards:
+                      - type: custom:button-card
+                        template: default
+                        entity: binary_sensor.multisensor_motion
+                        name: Living room
+                      - type: custom:button-card
+                        template: default
+                        entity: binary_sensor.trisensor_motion
+                        name: Desk
                       - type: custom:button-card
                         template:
                           - default
@@ -268,8 +315,8 @@
                           service: input_boolean.toggle
                           service_data:
                             entity_id: input_boolean.georgi_home
-                      - type: custom:button-card
-                        template: default
+                      - type: entity
+                        # template: default
                         entity: device_tracker.mikrotik_carbon
                         name: Wifi
                       - type: custom:button-card
