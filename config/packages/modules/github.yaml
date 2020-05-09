@@ -37,7 +37,6 @@ automation:
         entity_id:
           - light.bedside
           - light.living_room_ambient_main
-
       - delay: 00:00:01
       # Store color after power on
       - service: scene.create
@@ -52,15 +51,16 @@ automation:
           - light.living_room_ambient_main
         data:
           rgb_color: [0, 255, 63]
+          brightness_pct: 100
 
       - service: script.say
         data_template:
           message: >-
 
             {% if trigger %}
-              {% set diff = trigger.to_state.state - trigger.from_state.state %}
+              {% set diff = trigger.to_state.state|int - trigger.from_state.state|int %}
               Hey, {% if diff > 1 %}{{diff}} people{% else %}1 person{% endif%} just downloaded
-              {% if tigger.entity_id == 'sensor.folder_card_downloads' %} folder card
+              {% if trigger.entity_id == 'sensor.folder_card_downloads' %} folder card
               {% elif trigger.entity_id == 'sensor.time_picker_card_downloads' %} time picker card
               {% else %} something, but I don't know what. This should never happen!
               {% endif %}
