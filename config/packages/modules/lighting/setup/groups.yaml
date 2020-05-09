@@ -111,7 +111,7 @@ homeassistant:
 
     # Living room
     light.living_room:
-      icon: bha:ceiling-lamp-plafond
+      icon: mdi:lightbulb-group
     light.living_room_ceiling:
       icon: mdi:ceiling-light
 
@@ -142,7 +142,7 @@ homeassistant:
     # Master bedroom
     light.master_bedroom:
       friendly_name: Bedroom
-      icon: bha:ceiling-lamp-plafond
+      icon: mdi:lightbulb-group
 
     light.master_bedroom_main:
       friendly_name: Bedroom main
@@ -161,16 +161,16 @@ homeassistant:
       icon: mdi:desk-lamp
 
     # Kitchen
+    light.tuya_kitchen:
+      icon: mdi:lightbulb-group
     light.kitchen_main:
       icon: bha:ceiling-lamp-plafond
     light.kitchen_secondary:
       icon: bha:ceiling-lamp-plafond
-    light.tuya_kitchen:
-      icon: bha:ceiling-lamp-plafond
 
     # Hallway
     light.hallway:
-      icon: bha:ceiling-lamp-plafond
+      icon: mdi:lightbulb-group
 
     light.hallway_entrance:
       icon: bha:ceiling-lamp-plafond
