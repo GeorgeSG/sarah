@@ -92,10 +92,28 @@ frontend:
 
 # https://www.home-assistant.io/integrations/history
 history:
-  exclude:
+  include:
     domains:
-      - automation
-      - updater
+      - binary_sensor
+      - camera
+      - climate
+      - fan
+      - input_datetime
+      - input_select
+      - input_number
+      - person
+      - sensor
+      - weather
+      - zwave
+
+    entities:
+      - device_tracker.carbon
+      - input_boolean.georgi_home
+      - input_boolean.guest_mode
+      - switch.camera
+      - switch.titanium
+      - switch.outlet_1_switch
+      - switch.pihole_temp_disable
 
 # https://www.home-assistant.io/integrations/media_extractor
 # TODO: Add to media module
