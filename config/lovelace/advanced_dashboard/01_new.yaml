@@ -51,19 +51,6 @@ cards:
           extrema: true
           fill: true
 
-      - type: entities
-        entities:
-          - zwave.aeotec_limited_zwa005_trisensor
-          - entity: sensor.trisensor_temperature
-            name: Temperature
-          - entity: sensor.trisensor_luminance
-            name: Luminance
-          - entity: sensor.trisensor_burglar
-            name: Burglar
-          - type: divider
-          - entity: binary_sensor.trisensor_sensor
-            name: Sensor
-
   - type: vertical-stack
     title: Multisensor
     cards:
@@ -115,23 +102,6 @@ cards:
           extrema: true
           fill: true
 
-      - type: entities
-        entities:
-          - zwave.aeon_labs_zw100_multisensor_6
-          - entity: sensor.multisensor_6_temperature
-            name: Temperature
-          - entity: sensor.multisensor_6_luminance
-            name: Luminance
-          - entity: sensor.multisensor_6_burglar
-            name: Burglar
-          - entity: sensor.multisensor_6_relative_humidity
-            name: Relative humidity
-          - entity: sensor.multisensor_6_ultraviolet
-            name: Ultraviolet
-          - type: divider
-          - entity: binary_sensor.multisensor_6_sensor
-            name: Sensor
-
   - type: vertical-stack
     title: Thermostat
     cards:
@@ -147,15 +117,3 @@ cards:
           average: true
           extrema: true
           fill: true
-
-      - type: entities
-        entities:
-          - zwave.eurotronic_eur_spiritz_wall_radiator_thermostat
-          - entity: sensor.living_room_thermostat_temperature
-            name: Temperature
-          - entity: climate.living_room_thermostat_mode
-            name: Mode
-          - entity: sensor.living_room_thermostat_power_management
-            name: Power management
-          - entity: sensor.living_room_thermostat_system
-            name: System
