@@ -86,6 +86,7 @@ cards:
                   hide_state: true
                   step: 5
             - light.living_room_ambient
+            - light.living_room_ambient_main
             - type: custom:fold-entity-row
               head:
                 type: custom:decluttering-card
