@@ -70,7 +70,7 @@ sensor:
     state: "home"
     type: ratio
     duration:
-      days: 14
+      days: 7
     end: "{{ now() }}"
 
   - platform: history_stats
@@ -79,7 +79,7 @@ sensor:
     state: "home"
     type: count
     duration:
-      days: 14
+      days: 7
     end: "{{ now() }}"
 
 
