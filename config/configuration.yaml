@@ -90,6 +90,30 @@ frontend:
 #   client_id: !secret google_client_id
 #   client_secret: !secret google_client_secret
 
+recorder:
+  include:
+    domains:
+      - binary_sensor
+      - camera
+      - climate
+      - fan
+      - input_datetime
+      - input_select
+      - input_number
+      - person
+      - sensor
+      - weather
+      - zwave
+
+    entities:
+      - device_tracker.carbon
+      - input_boolean.georgi_home
+      - input_boolean.guest_mode
+      - switch.camera
+      - switch.titanium
+      - switch.outlet_1_switch
+      - switch.pihole_temp_disable
+
 # https://www.home-assistant.io/integrations/history
 history:
   include:
