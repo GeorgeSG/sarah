@@ -1,8 +1,5 @@
 version: "3"
 
-networks:
-  ha:
-
 volumes:
   mosquitto_data: {}
   mosquitto_log: {}
@@ -20,8 +17,6 @@ services:
       - "1883:1883"
       - "9001:9001"
     restart: always
-    networks:
-      - ha
 
   homeassistant:
     container_name: home-assistant
@@ -35,8 +30,6 @@ services:
       - TZ=Europe/Sofia
     restart: always
     network_mode: host
-    networks:
-      - ha
     depends_on:
       - mosquitto
 
@@ -52,6 +45,5 @@ services:
       - ${HOME}/docker_data/appdaemon/config:/conf
     depends_on:
       - homeassistant
-    networks:
-      - ha
+    network_mode: host
 
