@@ -286,9 +286,9 @@ light:
     white_value_command_topic: "cmnd/light_avatar_small_1/WHITE"
     white_value_scale: 100
     white_value_state_topic: "tele/light_avatar_small_1/STATE"
-    white_value_template: "{{ value_json.WHITE }}"
+    white_value_template: "{{ value_json.White }}"
     rgb_command_topic: "cmnd/light_avatar_small_1/Color"
-    rgb_state_topic: "tele/pc_light/STATE"
+    rgb_state_topic: "tele/light_avatar_small_1/STATE"
     rgb_value_template: "{{ value_json.Color.split(',')[0:3]|join(',') }}"
     payload_on: "ON"
     payload_off: "OFF"
@@ -311,9 +311,9 @@ light:
     white_value_command_topic: "cmnd/light_avatar_small_2/WHITE"
     white_value_scale: 100
     white_value_state_topic: "tele/light_avatar_small_2/STATE"
-    white_value_template: "{{ value_json.WHITE }}"
+    white_value_template: "{{ value_json.White }}"
     rgb_command_topic: "cmnd/light_avatar_small_2/Color"
-    rgb_state_topic: "tele/pc_light/STATE"
+    rgb_state_topic: "tele/light_avatar_small_2/STATE"
     rgb_value_template: "{{ value_json.Color.split(',')[0:3]|join(',') }}"
     payload_on: "ON"
     payload_off: "OFF"
