@@ -1,15 +1,47 @@
 sensor:
   - platform: rest
-    resource: "https://api.github.com/repos/GeorgeSG/lovelace-time-picker-card/releases/latest"
-    name: Time Picker Card downloads
-    value_template: '{{ value_json.assets[0].download_count }}'
+    resource: "https://api.github.com/rate_limit"
+    name: Github rate limit remaining
+    value_template: '{{ value_json.rate.remaining }}'
+    unit_of_measurement: 'queries'
     scan_interval: 60
     headers:
       Authorization: !secret github_access_token
+
+  - platform: rest
+    resource: "https://api.github.com/repos/GeorgeSG/lovelace-time-picker-card"
+    name: Time Picker Card stars
+    value_template: '{{ value_json.stargazers_count }}'
+    unit_of_measurement: 'stars'
+    scan_interval:
+      hours: 1
+    headers:
+      Authorization: !secret github_access_token
+
+  - platform: rest
+    resource: "https://api.github.com/repos/GeorgeSG/lovelace-time-picker-card/releases/latest"
+    name: Time Picker Card downloads
+    value_template: '{{ value_json.assets[0].download_count }}'
+    unit_of_measurement: 'downloads'
+    scan_interval: 60
+    headers:
+      Authorization: !secret github_access_token
+
+  - platform: rest
+    resource: "https://api.github.com/repos/GeorgeSG/lovelace-folder-card"
+    name: Folder Card stars
+    value_template: '{{ value_json.stargazers_count }}'
+    unit_of_measurement: 'stars'
+    scan_interval:
+      hours: 1
+    headers:
+      Authorization: !secret github_access_token
+
   - platform: rest
     resource: "https://api.github.com/repos/GeorgeSG/lovelace-folder-card/releases/latest"
     name: Folder Card downloads
     value_template: '{{ value_json.assets[0].download_count }}'
+    unit_of_measurement: 'downloads'
     scan_interval: 60
     headers:
       Authorization: !secret github_access_token
