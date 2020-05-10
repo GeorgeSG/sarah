@@ -52,6 +52,7 @@ cards:
                   line_width: 3
                   hour24: true
                   hours_to_show: 3
+                  lower_bound: 0
                   show:
                     fill: fade
                     icon: false

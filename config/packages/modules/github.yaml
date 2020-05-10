@@ -58,7 +58,7 @@ automation:
       condition: template
       value_template: "{{ not is_state('input_select.house_mode', 'night') }}"
     action:
-      # Stoe powered state
+      # Store powered state
       - service: scene.create
         data:
           scene_id: pre_github_notify_1
