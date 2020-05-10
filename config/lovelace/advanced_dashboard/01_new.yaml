@@ -117,3 +117,7 @@ cards:
           average: true
           extrema: true
           fill: true
+      - type: entities
+        entities:
+          - climate.living_room_thermostat_mode
+          - climate.toshiba_ac

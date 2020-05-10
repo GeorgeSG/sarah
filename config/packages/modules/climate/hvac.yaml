@@ -1,0 +1,27 @@
+# https://github.com/hristo-atanasov/Tasmota-IRHVAC/
+climate:
+  - platform: tasmota_irhvac
+    name: "TOSHIBA AC"
+    command_topic: "cmnd/ir_blaster_1/irhvac"
+    state_topic: "tele/ir_blaster_1/RESULT"
+    temperature_sensor: sensor.multisensor_6_temperature
+    protocol: "TOSHIBA_AC"
+    max_temp: 30 #optional - default 32 int value
+    min_temp: 17
+    target_temp: 22 #optional - default 26 int value
+    away_temp: 18 #optional - default 24 int value
+    supported_modes:
+      - "heat"
+      - "cool"
+      - "dry"
+      - "auto"
+      - "off"
+    supported_fan_speeds:
+      - "min"
+      - "low"
+      - "medium"
+      - "high"
+      - "max"
+      - "auto"
+    supported_swing_list:
+      - "off"
