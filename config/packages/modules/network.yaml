@@ -32,6 +32,61 @@ pi_hole:
   - host: !secret pihole_host
     api_key: !secret pihole_api_key
 
+homekit:
+  safe_mode: True
+  filter:
+    include_entities:
+      - light.living_room_main
+      - light.light_avatar_small_2
+      - light.living_room_ambient
+      - light.master_bedroom_main
+      - light.bedside
+      - light.bed_led
+      - light.hallway_entrance
+      - light.hallway_main
+      - light.tuya_kitchen
+      - binary_sensor.motion_1_ias_zone
+      - binary_sensor.motion_2_ias_zone
+      - binary_sensor.trisensor_motion
+      - binary_sensor.multisensor_motion
+      - sensor.bedroom_weather_temperature
+      - sensor.living_room_thermostat_temperature
+      - sensor.trisensor_temperature
+      - sensor.multisensor_6_temperature
+      - sensor.motion_2_illuminance
+      - sensor.motion_1_illuminance
+      - sensor.purifier_humidity
+      - sensor.bedroom_weather_humidity
+      - climate.living_room_thermostat_mode
+      - climate.toshiba_ac
+      - media_player.master_bedroom
+      - switch.outlet_1_switch
+      - switch.titanium
+      - fan.philips_airpurifier
+  entity_config:
+    light.light_avatar_small_2:
+      name: PC
+    binary_sensor.motion_1_ias_zone:
+      linked_battery_sensor: sensor.motion_1_power
+      low_battery_threshold: 20
+      name: Kitchen Motion
+    binary_sensor.motion_2_ias_zone:
+      linked_battery_sensor: sensor.motion_2_power
+      name: Hallway Motion
+    binary_sensor.trisensor_motion:
+      linked_battery_sensor: sensor.trisensor_battery_level
+      name: Desk Motion
+    binary_sensor.multisensor_motion:
+      linked_battery_sensor: sensor.multisensor_6_battery_level
+      name: Living room Motion
+    media_player.master_bedroom:
+      feature_list:
+        - feature: play_pause
+        - feature: play_stop
+        - feature: toggle_mute
+    switch.outlet_1_switch:
+      type: outlet
+
 #
 # ─── ENTITIES ───────────────────────────────────────────────────────────────────
 #
