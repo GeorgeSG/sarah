@@ -65,10 +65,12 @@ automation:
           snapshot_entities:
             - light.bedside
             - light.living_room_ambient_main
+            - light.light_avatar_small_2
       - service: light.turn_on
         entity_id:
           - light.bedside
           - light.living_room_ambient_main
+          - light.light_avatar_small_2
       - delay: 00:00:01
       # Store color after power on
       - service: scene.create
@@ -77,10 +79,12 @@ automation:
           snapshot_entities:
             - light.bedside
             - light.living_room_ambient_main
+            - light.light_avatar_small_2
       - service: light.turn_on
         entity_id:
           - light.bedside
           - light.living_room_ambient_main
+          - light.light_avatar_small_2
         data:
           rgb_color: [0, 255, 63]
           brightness_pct: 100
