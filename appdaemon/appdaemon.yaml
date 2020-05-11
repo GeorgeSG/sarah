@@ -1,0 +1,16 @@
+appdaemon:
+  latitude: !secret latitude
+  longitude: !secret longitude
+  elevation: !secret elevation
+  time_zone: Europe/Sofia
+  plugins:
+    HASS:
+      type: hass
+      ha_url: !secret url
+      token: !secret token
+
+http:
+  url: http://cobalt.lan:5050
+
+api:
+hadashboard:
