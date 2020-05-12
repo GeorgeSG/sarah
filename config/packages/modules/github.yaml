@@ -1,14 +1,5 @@
 sensor:
   - platform: rest
-    resource: "https://api.github.com/rate_limit"
-    name: Github rate limit remaining
-    value_template: '{{ value_json.rate.remaining }}'
-    unit_of_measurement: 'queries'
-    scan_interval: 60
-    headers:
-      Authorization: !secret github_access_token
-
-  - platform: rest
     resource: "https://api.github.com/repos/GeorgeSG/lovelace-time-picker-card"
     name: Time Picker Card stars
     value_template: '{{ value_json.stargazers_count }}'
@@ -23,7 +14,8 @@ sensor:
     name: Time Picker Card downloads
     value_template: '{{ value_json.assets[0].download_count }}'
     unit_of_measurement: 'downloads'
-    scan_interval: 60
+    scan_interval:
+      minutes: 10
     headers:
       Authorization: !secret github_access_token
 
@@ -42,7 +34,8 @@ sensor:
     name: Folder Card downloads
     value_template: '{{ value_json.assets[0].download_count }}'
     unit_of_measurement: 'downloads'
-    scan_interval: 60
+    scan_interval:
+      minutes: 10
     headers:
       Authorization: !secret github_access_token
 
@@ -64,9 +57,9 @@ automation:
 
             {% if trigger %}
               {% set diff = trigger.to_state.state|int - trigger.from_state.state|int %}
-              Hey, {% if diff > 1 %}{{diff}} people{% else %}1 person{% endif%} just downloaded
-              {% if trigger.entity_id == 'sensor.folder_card_downloads' %} folder card
-              {% elif trigger.entity_id == 'sensor.time_picker_card_downloads' %} time picker card
+              Hey, {% if diff > 1 %}{{diff}} people{% else %}1 person{% endif%} downloaded
+              {% if trigger.entity_id == 'sensor.folder_card_downloads' %} folder card in the last 10 minutes
+              {% elif trigger.entity_id == 'sensor.time_picker_card_downloads' %} time picker card in the last 10 minutes
               {% else %} something, but I don't know what. This should never happen!
               {% endif %}
             {% else %}

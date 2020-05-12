@@ -24,10 +24,6 @@ cards:
             - type: entities
               title: Github
               icon: mdi:github-circle
-              style: |
-                #states > div:last-child {
-                  margin: 0 -16px -16px -16px;
-                }
               entities:
                 - entity: sensor.time_picker_card_downloads
                   icon: mdi:clock
@@ -41,26 +37,6 @@ cards:
                 - entity: sensor.folder_card_stars
                   icon: mdi:star
                   name: Folder Card · Stars
-                - type: custom:mini-graph-card
-                  align_state: left
-                  entities:
-                    - color: var(--accent-color)
-                      entity: sensor.github_rate_limit_remaining
-                  name: Github · Rate Limit · Remaining
-                  group: false
-                  points_per_hour: 20
-                  line_width: 3
-                  hour24: true
-                  hours_to_show: 3
-                  lower_bound: 0
-                  show:
-                    fill: fade
-                    icon: false
-                    # name: false
-                    # state: false
-                    legend: false
-                  tap_action:
-                    action: none
 
             - type: "custom:weather-card"
               current: true
