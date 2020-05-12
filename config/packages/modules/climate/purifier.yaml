@@ -265,9 +265,9 @@ automation:
       - service: script.say
         data:
           message: "Hey, I'm turning on the purifier, because humidity is low and there is water in the tank"
-      - service: notify.mobile_app_carbon
+      - service: notify.carbon
         data:
-          title: "💨 Climate"
+          title: "💨 *Climate module · Purifier On*"
           message: "Turning purifier on - humidity is low"
           data:
             push:
@@ -289,9 +289,9 @@ automation:
       - service: script.say
         data:
           message: "Hey, I'm turning on the purifier, because air quality is low"
-      - service: notify.mobile_app_carbon
+      - service: notify.telegram
         data:
-          title: "💨 Climate"
+          title: "💨 *Climate Module · Purifier On"
           message: "Turning purifier on - air quality is low"
           data:
             push:
@@ -307,9 +307,9 @@ automation:
       - service: script.say
         data:
           message: "Also, switching to humidification, because there is water in the tank"
-      - service: notify.mobile_app_carbon
+      - service: notify.telegram
         data:
-          title: "💨 Climate"
+          title: "💨 *Climate Module · Purifier Function"
           message: "Switching purifier to humidification - there is water in the tank"
           data:
             push:
@@ -336,9 +336,9 @@ automation:
       - service: script.say
         data:
           message: "Hey, I'm turning the purifier off, because humidity is okay"
-      - service: notify.mobile_app_carbon
+      - service: notify.telegram
         data:
-          title: "💨 Climate"
+          title: "💨 *Climate Module · Purifier Off"
           message: "Turning purifier off - humidity is okay"
           data:
             push:

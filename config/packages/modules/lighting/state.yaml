@@ -13,10 +13,10 @@ automation:
         entity_id: light.on_after_dark
         data:
           brightness_pct: 100
-      - service: notify.mobile_app_carbon
+      - service: notify.telegram
         data:
-          title: "💡 Lights"
-          message: "Turning lights on - 30 mins before sunset"
+          title: "💡 *Lighting Module · Lights On"
+          message: "Turning lights on - it's 30 mins to sunset"
           data:
             push:
               thread-id: "lights"

@@ -96,9 +96,9 @@ automation:
         data:
           master: media_player.master_bedroom
           entity_id: media_player.living_room
-      - service: notify.mobile_app_carbon
+      - service: notify.telegram
         data:
-          title: "📺 Sonos"
+          title: "📺 *Media Module · Sonos Group"
           message: "TV off - joining Beam to Sonos Group"
           data:
             push:

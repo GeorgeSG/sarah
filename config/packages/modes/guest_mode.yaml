@@ -44,7 +44,7 @@ automation:
         entity_id: input_boolean.guest_mode
       - service: notify.telegram
         data:
-          title: "⚙️ *System Module*"
+          title: "⚙️ *System Module · Telegram*"
           message: "Okay, turning Guest mode on!"
 
   - alias: Guest mode · Disable · From Telegram
@@ -58,5 +58,5 @@ automation:
         entity_id: input_boolean.guest_mode
       - service: notify.telegram
         data:
-          title: "⚙️ *System Module*"
+          title: "⚙️ *System Module · Telegram*"
           message: "Okay, turning Guest mode off!"

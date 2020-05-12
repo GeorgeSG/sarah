@@ -74,7 +74,7 @@ automation:
     action:
       - service: notify.telegram
         data_template:
-          title: "⚙️ *System Module*"
+          title: "⚙️ *System Module · Status*"
           message: >-
 
             Guest mode: {{ states('input_boolean.guest_mode') }}

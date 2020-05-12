@@ -118,5 +118,5 @@ automation:
     action:
       - service: notify.telegram
         data:
-          title: "🛡 *Security Module · Door opened while away*"
+          title: "🛡 *Security Module · Front Door*"
           message: "It seems like the front door was opened while you are away! Check the camera!"

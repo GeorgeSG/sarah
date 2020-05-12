@@ -97,7 +97,7 @@ automation:
     action:
       - service: notify.telegram
         data:
-          title: "🏠 *Presence Module · Arrival detection*"
+          title: "🏠 *Presence Module · Arrival Detection*"
           message: "Device marked as home. Waiting for door to open!"
       - wait_template: "{{ is_state('binary_sensor.front_door_on_off', 'on') }}"
         continue_on_timeout: false
@@ -106,7 +106,7 @@ automation:
         entity_id: input_boolean.georgi_home
       - service: notify.telegram
         data:
-          title: "🏠 *Presence Module · Arrival detection*"
+          title: "🏠 *Presence Module · Arrival Detection*"
           message: "✅ Hey, I've marked you as home now!"
 
   - alias: Presence · Leaving home

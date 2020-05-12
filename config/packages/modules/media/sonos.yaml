@@ -77,9 +77,9 @@ automation:
         entity_id: media_player.living_room
         data:
           night_sound: true
-      - service: notify.mobile_app_carbon
+      - service: notify.telegram
         data:
-          title: "🔊 Sonos"
+          title: "🔊 *Media Module · Sonos Mode"
           message: "Putting Beam in night mode"
           data:
             push:
@@ -94,9 +94,9 @@ automation:
         entity_id: media_player.living_room
         data:
           night_sound: false
-      - service: notify.mobile_app_carbon
+      - service: notify.telegram
         data:
-          title: "🔊 Sonos"
+          title: "🔊 *Media Module · Sonos Mode"
           message: "Putting Beam in day mode"
           data:
             push:
