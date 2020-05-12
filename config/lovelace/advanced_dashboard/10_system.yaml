@@ -56,6 +56,9 @@ cards:
                 - automation.lighting_temperature_adjust_on_start
                 - automation.lighting_temperature_adjust_based_on_time
                 - type: divider
+                - automation.lighting_living_room_toggle_ceiling_lights_on_desk_switch_single_click
+                - automation.lighting_living_room_toggle_ambient_lights_on_desk_switch_double_click
+                - type: divider
                 - automation.lighting_master_bedroom_toggle_lights_on_bedside_switch_single_click
                 - type: divider
                 - automation.lighting_kitchen_day_mode_motion_turn_lights_on
@@ -92,6 +95,8 @@ cards:
                 - automation.youtube_download_latest_pds
                 - automation.media_sonos_put_beam_in_night_mode
                 - automation.media_sonos_put_beam_in_day_mode
+                - type: divider
+                - automation.music_living_room_play_pause_on_desk_switch_hold
 
             - type: divider
 
