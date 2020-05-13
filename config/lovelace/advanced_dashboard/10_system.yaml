@@ -59,6 +59,8 @@ cards:
                 - automation.lighting_living_room_toggle_ceiling_lights_on_desk_switch_single_click
                 - automation.lighting_living_room_toggle_ambient_lights_on_desk_switch_double_click
                 - type: divider
+                - automation.lighting_master_bedroom_toggle_lights_on_switch_single_click
+                - automation.lighting_master_bedroom_toggle_ambient_lights_on_switch_double_click
                 - automation.lighting_master_bedroom_toggle_lights_on_bedside_switch_single_click
                 - type: divider
                 - automation.lighting_kitchen_day_mode_motion_turn_lights_on
@@ -97,6 +99,7 @@ cards:
                 - automation.media_sonos_put_beam_in_day_mode
                 - type: divider
                 - automation.music_living_room_play_pause_on_desk_switch_hold
+                - automation.music_master_bedroom_play_pause_on_switch_hold
 
             - type: divider
 
