@@ -279,8 +279,12 @@ cards:
               entity: sensor.bedroom_weather_power
             - type: custom:battery-entity
               entity: sensor.cube_power
+            - type: divider
+            - type: custom:battery-entity
+              entity: sensor.desk_switch_power
             - type: custom:battery-entity
               entity: sensor.master_bedroom_bedside_switch_power
+            - type: divider
             - type: custom:battery-entity
               entity: sensor.motion_1_power
             - type: custom:battery-entity

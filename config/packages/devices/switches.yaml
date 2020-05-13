@@ -1,7 +1,0 @@
-homeassistant:
-  customize:
-    sensor.master_bedroom_bedside_switch_power:
-      friendly_name: Master Bedroom bedside switch power
-
-    sensor.master_bedroom_bedside_switch_multistate_input:
-      friendly_name: Master Bedroom bedside switch raw input
