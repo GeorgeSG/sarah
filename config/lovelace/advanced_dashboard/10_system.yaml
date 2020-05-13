@@ -95,8 +95,10 @@ cards:
                 - automation.tv_plex_setup_house_for_plex
                 - automation.tv_plex_restore_house_after_plex
                 - automation.youtube_download_latest_pds
+                - automation.youtube_play_latest_pds_on_bathroom_switch_dobule_click
                 - automation.media_sonos_put_beam_in_night_mode
                 - automation.media_sonos_put_beam_in_day_mode
+                - automation.media_sonos_volume_up_on_bathroom_switch_click
                 - type: divider
                 - automation.music_living_room_play_pause_on_desk_switch_hold
                 - automation.music_master_bedroom_play_pause_on_switch_hold
