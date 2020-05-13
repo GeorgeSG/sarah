@@ -102,6 +102,26 @@ automation:
             push:
               thread-id: "sonos"
 
+  - alias: Media · Sonos · Volume up on bathroom switch click
+    trigger:
+      platform: event
+      event_type: zha_event
+      event_data:
+        device_ieee: !secret bathroom_switch_ieee
+        command: single
+    action:
+      - service: media_player.volume_set
+        entity_id: media_player.bathroom
+        data_template:
+          volume_level: >-
+
+            {% if state_attr('media_player.bathroom', 'volume_level')|float > 0.5 %}
+              0.2
+            {% else %}
+              0.55
+            {% endif %}
+
+
 homeassistant:
   customize:
     media_player.master_bedroom:
