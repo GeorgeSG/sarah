@@ -17,9 +17,6 @@ automation:
         data:
           title: "💡 *Lighting Module · Lights On"
           message: "Turning lights on - it's 30 mins to sunset"
-          data:
-            push:
-              thread-id: "lights"
 
   - alias: Lighting · Turn off all lights after sunrise
     trigger:

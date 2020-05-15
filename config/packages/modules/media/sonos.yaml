@@ -81,9 +81,6 @@ automation:
         data:
           title: "🔊 *Media Module · Sonos Mode"
           message: "Putting Beam in night mode"
-          data:
-            push:
-              thread-id: "sonos"
 
   - alias: Media · Sonos · Put Beam in day mode
     trigger:
@@ -98,9 +95,6 @@ automation:
         data:
           title: "🔊 *Media Module · Sonos Mode"
           message: "Putting Beam in day mode"
-          data:
-            push:
-              thread-id: "sonos"
 
   - alias: Media · Sonos · Volume up on bathroom switch click
     trigger:

@@ -268,14 +268,10 @@ automation:
       - service: script.say
         data:
           message: "Hey, I'm turning on the purifier, because humidity is low and there is water in the tank"
-      - service: notify.carbon
+      - service: notify.telegram
         data:
           title: "💨 *Climate module · Purifier On*"
           message: "Turning purifier on - humidity is low"
-          data:
-            push:
-              thread-id: "purifier"
-
 
   - alias: Purifier · Turn on · Low air quality
     trigger:
@@ -301,9 +297,6 @@ automation:
         data:
           title: "💨 *Climate Module · Purifier On"
           message: "Turning purifier on - air quality is low"
-          data:
-            push:
-              thread-id: "purifier"
       - condition: state
         entity_id: binary_sensor.purifier_out_of_water
         state: "off"
@@ -319,9 +312,6 @@ automation:
         data:
           title: "💨 *Climate Module · Purifier Function"
           message: "Switching purifier to humidification - there is water in the tank"
-          data:
-            push:
-              thread-id: "purifier"
 
   - alias: Purifier · Turn off · Okay humidity
     trigger:
@@ -351,9 +341,6 @@ automation:
         data:
           title: "💨 *Climate Module · Purifier Off"
           message: "Turning purifier off - humidity is okay"
-          data:
-            push:
-              thread-id: "purifier"
 
 homeassistant:
   customize:
