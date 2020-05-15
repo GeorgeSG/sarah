@@ -77,9 +77,9 @@ automation:
         entity_id: media_player.living_room
         data:
           night_sound: true
-      - service: notify.telegram
+      - service: logbook.log
         data:
-          title: "🔊 *Media Module · Sonos Mode"
+          name: "🔊 *Media Module · Sonos Mode"
           message: "Putting Beam in night mode"
 
   - alias: Media · Sonos · Put Beam in day mode
@@ -91,9 +91,9 @@ automation:
         entity_id: media_player.living_room
         data:
           night_sound: false
-      - service: notify.telegram
+      - service: logbook.log
         data:
-          title: "🔊 *Media Module · Sonos Mode"
+          name: "🔊 *Media Module · Sonos Mode"
           message: "Putting Beam in day mode"
 
   - alias: Media · Sonos · Volume up on bathroom switch click

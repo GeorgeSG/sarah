@@ -96,9 +96,9 @@ automation:
         data:
           master: media_player.master_bedroom
           entity_id: media_player.living_room
-      - service: notify.telegram
+      - service: logbook.log
         data:
-          title: "📺 *Media Module · Sonos Group"
+          name: "📺 *Media Module · Sonos Group"
           message: "TV off - joining Beam to Sonos Group"
 
   - alias: TV · State · Sync on TV on
@@ -109,9 +109,9 @@ automation:
     action:
       - service: media_player.turn_on
         entity_id: media_player.nvidia_shield
-      - service: notify.telegram
+      - service: logbook.log
         data:
-          title: "📺 *Media Module · Sync TV state"
+          name: "📺 *Media Module · Sync TV state"
           message: "Shield on - TV is on"
 
 
@@ -123,9 +123,9 @@ automation:
     action:
       - service: media_player.turn_off
         entity_id: media_player.nvidia_shield
-      - service: notify.telegram
+      - service: logbook.log
         data:
-          title: "📺 *Media Module · Sync TV state"
+          name: "📺 *Media Module · Sync TV state"
           message: "Shield off - TV is off"
 
   - alias: TV · State · Sync on Shield on
@@ -140,9 +140,9 @@ automation:
         entity_id: media_player.living_room_tv
         data:
           source: "Shield"
-      - service: notify.telegram
+      - service: logbook.log
         data:
-          title: "📺 *Media Module · Sync TV state"
+          name: "📺 *Media Module · Sync TV state"
           message: "TV on - Shield is on"
 
 
@@ -154,9 +154,9 @@ automation:
     action:
       - service: media_player.turn_off
         entity_id: media_player.living_room_tv
-      - service: notify.telegram
+      - service: logbook.log
         data:
-          title: "📺 *Media Module · Sync TV state"
+          name: "📺 *Media Module · Sync TV state"
           message: "TV off - Shield is off"
 
 homeassistant:

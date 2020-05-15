@@ -46,6 +46,10 @@ automation:
         data:
           title: "⚙️ *System Module · Telegram*"
           message: "Okay, turning Guest mode on!"
+      - service: logbook.log
+        data:
+          name: "⚙️ *System Module · Telegram*"
+          message: "Okay, turning Guest mode on!"
 
   - alias: Guest mode · Disable · From Telegram
     trigger:
@@ -59,4 +63,8 @@ automation:
       - service: notify.telegram
         data:
           title: "⚙️ *System Module · Telegram*"
+          message: "Okay, turning Guest mode off!"
+      - service: logbook.log
+        data:
+          name: "⚙️ *System Module · Telegram*"
           message: "Okay, turning Guest mode off!"

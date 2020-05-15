@@ -45,7 +45,11 @@ lovelace:
       filename: advanced-lovelace.yaml
 
 # https://www.home-assistant.io/components/logbook
-# logbook:
+logbook:
+  include:
+    domains:
+      - sun
+      - automation
 
 # https://www.home-assistant.io/components/map
 # map:

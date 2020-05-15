@@ -268,9 +268,9 @@ automation:
       - service: script.say
         data:
           message: "Hey, I'm turning on the purifier, because humidity is low and there is water in the tank"
-      - service: notify.telegram
+      - service: logbook.log
         data:
-          title: "💨 *Climate module · Purifier On*"
+          name: "💨 *Climate module · Purifier On*"
           message: "Turning purifier on - humidity is low"
 
   - alias: Purifier · Turn on · Low air quality
@@ -293,9 +293,9 @@ automation:
       - service: script.say
         data:
           message: "Hey, I'm turning on the purifier, because air quality is low"
-      - service: notify.telegram
+      - service: logbook.log
         data:
-          title: "💨 *Climate Module · Purifier On"
+          name: "💨 *Climate Module · Purifier On"
           message: "Turning purifier on - air quality is low"
       - condition: state
         entity_id: binary_sensor.purifier_out_of_water
@@ -308,9 +308,9 @@ automation:
       - service: script.say
         data:
           message: "Also, switching to humidification, because there is water in the tank"
-      - service: notify.telegram
+      - service: logbook.log
         data:
-          title: "💨 *Climate Module · Purifier Function"
+          name: "💨 *Climate Module · Purifier Function"
           message: "Switching purifier to humidification - there is water in the tank"
 
   - alias: Purifier · Turn off · Okay humidity
@@ -337,9 +337,9 @@ automation:
       - service: script.say
         data:
           message: "Hey, I'm turning the purifier off, because humidity is okay"
-      - service: notify.telegram
+      - service: logbook.log
         data:
-          title: "💨 *Climate Module · Purifier Off"
+          name: "💨 *Climate Module · Purifier Off"
           message: "Turning purifier off - humidity is okay"
 
 homeassistant:

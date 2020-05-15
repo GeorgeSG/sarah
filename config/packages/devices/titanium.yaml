@@ -247,3 +247,7 @@ automation:
         data:
           title: "🖥 *Devices · Titanium*"
           message: "Hey, I'm turning Titanium off. It's been idling for 3 hours."
+      - service: logbook.log
+        data:
+          name: "🖥 *Devices · Titanium*"
+          message: "Hey, I'm turning Titanium off. It's been idling for 3 hours."
