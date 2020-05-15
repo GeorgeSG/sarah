@@ -252,6 +252,9 @@ automation:
           entity_id: binary_sensor.purifier_out_of_water
           state: "off"
         - condition: state
+          entity_id: fan.philips_airpurifier
+          state: "off"
+        - condition: state
           entity_id: input_boolean.georgi_home
           state: "on"
     action:
@@ -280,9 +283,14 @@ automation:
       entity_id: sensor.purifier_air_quality
       above: 30
     condition:
-      condition: state
-      entity_id: input_boolean.georgi_home
-      state: "on"
+      condition: and
+      conditions:
+        - condition: state
+          entity_id: input_boolean.georgi_home
+          state: "on"
+        - condition: state
+          entity_id: fan.philips_airpurifier
+          state: "off"
     action:
       - service: fan.turn_on
         entity_id: fan.philips_airpurifier
@@ -323,6 +331,9 @@ automation:
     condition:
       condition: and
       conditions:
+        - condition: state
+          entity_id: fan.philips_airpurifier
+          state: "on"
         - condition: state
           entity_id: sensor.purifier_function
           state: "Purification & Humidification"
