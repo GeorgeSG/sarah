@@ -44,17 +44,6 @@ lovelace:
       show_in_sidebar: true
       filename: advanced-lovelace.yaml
 
-# https://www.home-assistant.io/components/logbook
-logbook:
-  include:
-    domains:
-      - sun
-      - automation
-      - fan
-      - media_player
-      - light
-      - input_boolean
-
 # https://www.home-assistant.io/components/map
 # map:
 
@@ -98,9 +87,10 @@ frontend:
 #   client_id: !secret google_client_id
 #   client_secret: !secret google_client_secret
 
-recorder:
+recorder: &recorder_config
   include:
     domains:
+      - automation
       - binary_sensor
       - camera
       - climate
@@ -109,45 +99,37 @@ recorder:
       - input_datetime
       - input_number
       - input_select
-      - media_player
       - person
       - sensor
       - weather
       - zwave
-
     entities:
       - device_tracker.carbon
-      - input_boolean.georgi_home
-      - input_boolean.guest_mode
+      - media_player.living_room_tv
+      - media_player.nvidia_shield
       - switch.camera
       - switch.outlet_1_switch
       - switch.pihole_temp_disable
       - switch.titanium
 
 # https://www.home-assistant.io/integrations/history
-history:
+history: *recorder_config
+
+# https://www.home-assistant.io/components/logbook
+logbook:
   include:
     domains:
-      - binary_sensor
-      - camera
-      - climate
+      - sun
+      - automation
       - fan
-      - input_datetime
-      - input_select
-      - input_number
-      - person
-      - sensor
-      - weather
-      - zwave
-
+      - light
+      - input_boolean
     entities:
-      - device_tracker.carbon
-      - input_boolean.georgi_home
-      - input_boolean.guest_mode
-      - switch.camera
-      - switch.titanium
-      - switch.outlet_1_switch
-      - switch.pihole_temp_disable
+      - media_player.living_room_tv
+      - media_player.nvidia_shield
+  exclude:
+    entities:
+      - input_boolean.sarah_talking
 
 # https://www.home-assistant.io/integrations/media_extractor
 # TODO: Add to media module
