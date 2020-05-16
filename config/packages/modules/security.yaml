@@ -1,69 +1,4 @@
-# https://www.home-assistant.io/integrations/amcrest
-amcrest:
-  - host: !secret amcrest_ip
-    username: !secret amcrest_username
-    password: !secret amcrest_password
-    resolution: low
-    binary_sensors:
-      - online
-
-binary_sensor:
-  - platform: template
-    sensors:
-      camera_state:
-        friendly_name: Security camera
-        device_class: safety
-        value_template: >-
-          {{ state_attr('camera.amcrest_camera', 'motion_recording') != 'on' }}
-
-switch:
-  - platform: template
-    switches:
-      camera:
-        friendly_name: Security camera
-        value_template: "{{ state_attr('camera.amcrest_camera', 'motion_recording') == 'on' }}"
-        icon_template: >
-          {% if state_attr('camera.amcrest_camera', 'motion_recording') == 'on' %} mdi:shield-home
-          {% else %} mdi:shield-off
-          {% endif %}
-        turn_on:
-          service: script.security_camera_on
-        turn_off:
-          service: script.security_camera_off
-
 script:
-  security_camera_on:
-    alias: Security camera · Turn on
-    sequence:
-      - service: camera.turn_on
-        entity_id: camera.amcrest_camera
-      - service: amcrest.goto_preset
-        entity_id: camera.amcrest_camera
-        data:
-          preset: 1
-      - service: amcrest.enable_motion_recording
-        entity_id: camera.amcrest_camera
-      - service: amcrest.enable_recording
-        entity_id: camera.amcrest_camera
-      - service: amcrest.enable_audio
-        entity_id: camera.amcrest_camera
-
-  security_camera_off:
-    alias: Security camera · Turn off
-    sequence:
-      - service: amcrest.goto_preset
-        entity_id: camera.amcrest_camera
-        data:
-          preset: 3
-      - service: amcrest.disable_motion_recording
-        entity_id: camera.amcrest_camera
-      - service: amcrest.disable_recording
-        entity_id: camera.amcrest_camera
-      - service: amcrest.disable_audio
-        entity_id: camera.amcrest_camera
-      - service: camera.turn_off
-        entity_id: camera.amcrest_camera
-
   alarm_start:
     sequence:
       - service: media_player.play_media
@@ -90,17 +25,7 @@ script:
           brightness_pct: 60
           kelvin: 2400
 
-# Hack - the switch.camera initial state is wrong (ON) when the server starts.
 automation:
-  - alias: Camera · Startup
-    trigger:
-      - platform: homeassistant
-        event: start
-    action:
-      - delay: 00:00:10
-      - service: switch.turn_off
-        entity_id: switch.camera
-
   - alias: Security · Door opened while away
     trigger:
       - platform: state
