@@ -62,6 +62,7 @@ cards:
                 - automation.lighting_master_bedroom_toggle_lights_on_switch_single_click
                 - automation.lighting_master_bedroom_toggle_ambient_lights_on_switch_double_click
                 - automation.lighting_master_bedroom_toggle_lights_on_bedside_switch_single_click
+                - automation.lighting_master_bedroom_toggle_ambient_lights_on_bedside_switch_double_click
                 - type: divider
                 - automation.lighting_kitchen_day_mode_motion_turn_lights_on
                 - automation.lighting_kitchen_day_mode_motion_turn_lights_off
@@ -128,7 +129,7 @@ cards:
                 - automation.house_mode_set_to_day
                 - automation.house_mode_set_to_bed
                 - automation.house_mode_set_to_night
-                - automation.house_mode_toggle_on_bedside_switch_double_click
+                - automation.house_mode_toggle_on_bedside_switch_hold
 
             - type: divider
 

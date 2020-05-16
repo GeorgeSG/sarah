@@ -49,14 +49,3 @@ automation:
       to: "night"
     action:
       - service: script.routine_good_night
-
-  - alias: House mode · Toggle on bedside switch double click
-    trigger:
-      - platform: event
-        event_type: zha_event
-        event_data:
-          device_ieee: !secret master_bedroom_bedside_switch_ieee
-          command: double
-    action:
-      - service: input_select.select_next
-        entity_id: input_select.house_mode
