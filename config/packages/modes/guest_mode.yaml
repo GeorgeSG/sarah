@@ -48,7 +48,7 @@ automation:
           message: "Okay, turning Guest mode on!"
       - service: logbook.log
         data:
-          name: "⚙️ System Module · Telegram · Turning Guest mode on"
+          message: "⚙️ System Module · Telegram · Turning Guest mode on"
           entity_id: input_boolean.guest_mode
 
   - alias: Guest mode · Disable · From Telegram
@@ -66,5 +66,5 @@ automation:
           message: "Okay, turning Guest mode off!"
       - service: logbook.log
         data:
-          name: "⚙️ System Module · Telegram · Turning Guest mode off"
+          message: "⚙️ System Module · Telegram · Turning Guest mode off"
           entity_id: input_boolean.guest_mode

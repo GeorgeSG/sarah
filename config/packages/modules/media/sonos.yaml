@@ -79,7 +79,7 @@ automation:
           night_sound: true
       - service: logbook.log
         data:
-          name: "🔊 Media Module · Sonos Mode · Putting Beam in night mode"
+          message: "🔊 Media Module · Sonos Mode · Putting Beam in night mode"
           entity_id: media_player.living_room
           domain: media_player
 
@@ -94,7 +94,7 @@ automation:
           night_sound: false
       - service: logbook.log
         data:
-          name: "🔊 Media Module · Sonos Mode · Putting Beam in day mode"
+          message: "🔊 Media Module · Sonos Mode · Putting Beam in day mode"
           entity_id: media_player.living_room
           domain: media_player
 
