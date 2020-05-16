@@ -235,8 +235,8 @@ cards:
                 - automation.wallmote_living_room_1_hold_dim_lights
                 - automation.wallmote_living_room_2_tap_toggle_music
                 - automation.wallmote_living_room_2_hold_play_music
-                - automation.wallmote_living_room_3_tap_volume_down
-                - automation.wallmote_living_room_3_hold_volume_up
+                - automation.wallmote_living_room_3_tap_toggle_main_lights
+                - automation.wallmote_living_room_3_hold_toggle_ambient_lights
                 - automation.wallmote_living_room_4_hold_toggle_titanium
             - type: divider
 

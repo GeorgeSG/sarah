@@ -66,7 +66,7 @@ automation:
     action:
       - service: script.music_play
 
-  - alias: Wallmote · Living room · 3 · Tap · Volume down
+  - alias: Wallmote · Living room · 3 · Tap · Toggle Main lights
     trigger:
       platform: event
       event_type: zwave.scene_activated
@@ -76,10 +76,10 @@ automation:
         scene_id: 3
         scene_data: 0
     action:
-      - service: media_player.volume_down
-        entity_id: media_player.living_room
+      - service: light.toggle
+        entity_id: light.living_room_main
 
-  - alias: Wallmote · Living room · 3 · Hold · Volume up
+  - alias: Wallmote · Living room · 3 · Hold · Toggle Ambient lights
     trigger:
       platform: event
       event_type: zwave.scene_activated
@@ -89,8 +89,8 @@ automation:
         scene_id: 3
         scene_data: 1
     action:
-      - service: media_player.volume_up
-        entity_id: media_player.living_room
+      - service: light.toggle
+        entity_id: light.living_room_ambient
 
   - alias: Wallmote · Living room · 4 · Hold · Toggle Titanium
     trigger:
