@@ -270,8 +270,9 @@ automation:
           message: "Hey, I'm turning on the purifier, because humidity is low and there is water in the tank"
       - service: logbook.log
         data:
-          name: "💨 *Climate module · Purifier On*"
-          message: "Turning purifier on - humidity is low"
+          name: "💨 Climate module · Purifier On · Humidity is low"
+          entity_id: fan.philips_airpurifier
+          domain: fan
 
   - alias: Purifier · Turn on · Low air quality
     trigger:
@@ -295,8 +296,9 @@ automation:
           message: "Hey, I'm turning on the purifier, because air quality is low"
       - service: logbook.log
         data:
-          name: "💨 *Climate Module · Purifier On"
-          message: "Turning purifier on - air quality is low"
+          name: "💨 Climate Module · Purifier On · Air quality is low"
+          entity_id: fan.philips_airpurifier
+          domain: fan
       - condition: state
         entity_id: binary_sensor.purifier_out_of_water
         state: "off"
@@ -310,8 +312,9 @@ automation:
           message: "Also, switching to humidification, because there is water in the tank"
       - service: logbook.log
         data:
-          name: "💨 *Climate Module · Purifier Function"
-          message: "Switching purifier to humidification - there is water in the tank"
+          name: "💨 Climate Module · Purifier Function · Switching to humidification - there is water in the tank"
+          entity_id: fan.philips_airpurifier
+          domain: fan
 
   - alias: Purifier · Turn off · Okay humidity
     trigger:
@@ -339,8 +342,9 @@ automation:
           message: "Hey, I'm turning the purifier off, because humidity is okay"
       - service: logbook.log
         data:
-          name: "💨 *Climate Module · Purifier Off"
-          message: "Turning purifier off - humidity is okay"
+          name: "💨 Climate Module · Purifier Off · Humidity is okay"
+          entity_id: fan.philips_airpurifier
+          domain: fan
 
 homeassistant:
   customize:

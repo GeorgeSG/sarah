@@ -79,8 +79,9 @@ automation:
           night_sound: true
       - service: logbook.log
         data:
-          name: "🔊 *Media Module · Sonos Mode"
-          message: "Putting Beam in night mode"
+          name: "🔊 Media Module · Sonos Mode · Putting Beam in night mode"
+          entity_id: media_player.living_room
+          domain: media_player
 
   - alias: Media · Sonos · Put Beam in day mode
     trigger:
@@ -93,8 +94,9 @@ automation:
           night_sound: false
       - service: logbook.log
         data:
-          name: "🔊 *Media Module · Sonos Mode"
-          message: "Putting Beam in day mode"
+          name: "🔊 Media Module · Sonos Mode · Putting Beam in day mode"
+          entity_id: media_player.living_room
+          domain: media_player
 
   - alias: Media · Sonos · Volume up on bathroom switch click
     trigger:

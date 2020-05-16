@@ -98,8 +98,9 @@ automation:
           entity_id: media_player.living_room
       - service: logbook.log
         data:
-          name: "📺 *Media Module · Sonos Group"
-          message: "TV off - joining Beam to Sonos Group"
+          name: "📺 Media Module · Sonos Group · TV off - joining Beam to Sonos Group"
+          entity_id: media_player.living_room
+          domain: media_player
 
   - alias: TV · State · Sync on TV on
     trigger:
@@ -111,8 +112,9 @@ automation:
         entity_id: media_player.nvidia_shield
       - service: logbook.log
         data:
-          name: "📺 *Media Module · Sync TV state"
-          message: "Shield on - TV is on"
+          name: "📺 Media Module · Sync TV state · Turning Shield on - TV is on"
+          entity_id: media_player.nvidia_shield
+          domain: media_player
 
 
   - alias: TV · State · Sync on TV off
@@ -125,8 +127,9 @@ automation:
         entity_id: media_player.nvidia_shield
       - service: logbook.log
         data:
-          name: "📺 *Media Module · Sync TV state"
-          message: "Shield off - TV is off"
+          name: "📺 Media Module · Sync TV state · Turning Shield off - TV is off"
+          entity_id: media_player.nvidia_shield
+          domain: media_player
 
   - alias: TV · State · Sync on Shield on
     trigger:
@@ -142,8 +145,9 @@ automation:
           source: "Shield"
       - service: logbook.log
         data:
-          name: "📺 *Media Module · Sync TV state"
-          message: "TV on - Shield is on"
+          name: "📺 Media Module · Sync TV state · Turning TV on - Shield is on"
+          entity_id: media_player.living_room_tv
+          domain: media_player
 
 
   - alias: TV · State · Sync on Shield off
@@ -159,8 +163,9 @@ automation:
         entity_id: media_player.living_room_tv
       - service: logbook.log
         data:
-          name: "📺 *Media Module · Sync TV state"
-          message: "TV off - Shield is off"
+          name: "📺 Media Module · Sync TV state · Turning TV off - Shield is off"
+          entity_id: media_player.living_room_tv
+          domain: media_player
 
 homeassistant:
   customize:
