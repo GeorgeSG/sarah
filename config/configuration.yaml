@@ -120,7 +120,6 @@ logbook:
   include:
     domains:
       - sun
-      - automation
       - fan
       - light
       - input_boolean
