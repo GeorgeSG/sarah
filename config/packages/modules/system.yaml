@@ -12,12 +12,6 @@ binary_sensor:
               or is_state('input_boolean.floorplan_night_mode', 'on') }}
 
 sensor:
-  - platform: command_line
-    name: Cobalt CPU Temperature
-    command: "cat /sys/class/thermal/thermal_zone3/temp"
-    unit_of_measurement: "°C"
-    value_template: '{{ value | multiply(0.001) | round(1) }}'
-
   - platform: time_date
     display_options:
       - "time"
