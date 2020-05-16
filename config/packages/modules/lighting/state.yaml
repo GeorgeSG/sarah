@@ -15,7 +15,8 @@ automation:
           brightness_pct: 100
       - service: logbook.log
         data:
-          message: "💡 Lighting Module · Lights On · 30 mins to sunset"
+          name: "💡 Lighting Module · "
+          message: "Lights On · 30 mins to sunset"
           entity_id: light.on_after_dark
           domain: light
 

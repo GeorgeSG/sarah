@@ -270,7 +270,8 @@ automation:
           message: "Hey, I'm turning on the purifier, because humidity is low and there is water in the tank"
       - service: logbook.log
         data:
-          message: "💨 Climate module · Purifier On · Humidity is low"
+          name: "💨 Climate module · "
+          message: "Purifier On · Humidity is low"
           entity_id: fan.philips_airpurifier
           domain: fan
 
@@ -296,7 +297,8 @@ automation:
           message: "Hey, I'm turning on the purifier, because air quality is low"
       - service: logbook.log
         data:
-          message: "💨 Climate Module · Purifier On · Air quality is low"
+          name: "💨 Climate Module · "
+          message: "Purifier On · Air quality is low"
           entity_id: fan.philips_airpurifier
           domain: fan
       - condition: state
@@ -312,7 +314,8 @@ automation:
           message: "Also, switching to humidification, because there is water in the tank"
       - service: logbook.log
         data:
-          message: "💨 Climate Module · Purifier Function · Switching to humidification - there is water in the tank"
+          name: "💨 Climate Module · "
+          message: "Purifier Function · Switching to humidification - there is water in the tank"
           entity_id: fan.philips_airpurifier
           domain: fan
 
@@ -342,7 +345,8 @@ automation:
           message: "Hey, I'm turning the purifier off, because humidity is okay"
       - service: logbook.log
         data:
-          message: "💨 Climate Module · Purifier Off · Humidity is okay"
+          name: "💨 Climate Module · "
+          message: "Purifier Off · Humidity is okay"
           entity_id: fan.philips_airpurifier
           domain: fan
 

@@ -98,7 +98,8 @@ automation:
           entity_id: media_player.living_room
       - service: logbook.log
         data:
-          message: "📺 Media Module · Sonos Group · TV off - joining Beam to Sonos Group"
+          name: "📺 Media Module · "
+          message: "Sonos Group · TV off - joining Beam to Sonos Group"
           entity_id: media_player.living_room
           domain: media_player
 
@@ -112,7 +113,8 @@ automation:
         entity_id: media_player.nvidia_shield
       - service: logbook.log
         data:
-          message: "📺 Media Module · Sync TV state · Turning Shield on - TV is on"
+          name: "📺 Media Module · "
+          message: "Sync TV state · Turning Shield on - TV is on"
           entity_id: media_player.nvidia_shield
           domain: media_player
 
@@ -127,7 +129,8 @@ automation:
         entity_id: media_player.nvidia_shield
       - service: logbook.log
         data:
-          message: "📺 Media Module · Sync TV state · Turning Shield off - TV is off"
+          name: "📺 Media Module · "
+          message: "Sync TV state · Turning Shield off - TV is off"
           entity_id: media_player.nvidia_shield
           domain: media_player
 
@@ -145,7 +148,8 @@ automation:
           source: "Shield"
       - service: logbook.log
         data:
-          message: "📺 Media Module · Sync TV state · Turning TV on - Shield is on"
+          name: "📺 Media Module · "
+          message: "Sync TV state · Turning TV on - Shield is on"
           entity_id: media_player.living_room_tv
           domain: media_player
 
@@ -163,7 +167,8 @@ automation:
         entity_id: media_player.living_room_tv
       - service: logbook.log
         data:
-          message: "📺 Media Module · Sync TV state · Turning TV off - Shield is off"
+          name: "📺 Media Module · "
+          message: "Sync TV state · Turning TV off - Shield is off"
           entity_id: media_player.living_room_tv
           domain: media_player
 
