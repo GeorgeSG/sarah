@@ -105,7 +105,6 @@ cards:
   - type: vertical-stack
     title: Thermostat
     cards:
-
       - type: "custom:mini-graph-card"
         entities:
           - sensor.living_room_thermostat_temperature
@@ -117,7 +116,4 @@ cards:
           average: true
           extrema: true
           fill: true
-      - type: entities
-        entities:
-          - climate.living_room_thermostat_mode
-          - climate.toshiba_ac
+

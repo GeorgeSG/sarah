@@ -95,6 +95,12 @@
                 entity: binary_sensor.pi_hole_enabled
                 name: Pi-Hole
                 icon: mdi:pi-hole
+          - type: entities
+            entities:
+              - entity: climate.living_room_thermostat_mode
+                name: Radiator
+              - entity: climate.toshiba_ac
+                name: AC
 
           - type: vertical-stack
             cards:
