@@ -1,0 +1,27 @@
+automation:
+  - alias: Lighting · Master bedroom · Toggle lights on bedside switch single click
+    trigger:
+      platform: event
+      event_type: zha_event
+      event_data:
+        device_ieee: !secret master_bedroom_bedside_switch_ieee
+        command: single
+    action:
+      - service: light.toggle
+        data_template:
+          entity_id: >-
+
+            {% if is_state('input_select.house_mode', 'day') %}
+              light.master_bedroom_main
+            {% elif is_state('input_select.house_mode', 'bed') %}
+              light.bedside, light.bed_led
+            {% elif is_state('input_select.house_mode', 'night') %}
+              light.bed_led
+            {% endif %}
+          brightness_pct: >-
+
+            {% if is_state('input_select.house_mode', 'night') %}
+              40
+            {% else %}
+              100
+            {% endif %}

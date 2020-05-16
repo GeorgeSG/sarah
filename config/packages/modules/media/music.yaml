@@ -20,26 +20,3 @@ script:
         entity_id: media_player.master_bedroom
         data_template:
           source: "{{ playlist | default('Evening Chill') }}"
-
-automation:
-  - alias: Music · Living Room · Play pause on desk switch hold
-    trigger:
-      platform: event
-      event_type: zha_event
-      event_data:
-        device_ieee: !secret desk_switch_ieee
-        command: hold
-    action:
-      - service: media_player.media_play_pause
-        entity_id: media_player.living_room
-
-  - alias: Music · Master bedroom · Play pause on switch hold
-    trigger:
-      platform: event
-      event_type: zha_event
-      event_data:
-        device_ieee: !secret master_bedroom_switch_ieee
-        command: hold
-    action:
-      - service: media_player.media_play_pause
-        entity_id: media_player.master_bedroom
