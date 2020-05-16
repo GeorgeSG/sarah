@@ -49,3 +49,8 @@ automation:
       - service: script.lighting_temperature_adjust
         data:
           entity_id: light.hallway_entrance
+      - service: logbook.log
+        data_template:
+          name: "💡 Lighting Module · "
+          message: "Adjusting temperature - sun changed from {{ trigger.from_state.state }} to {{ trigger.to_state.state }}"
+          domain: light
