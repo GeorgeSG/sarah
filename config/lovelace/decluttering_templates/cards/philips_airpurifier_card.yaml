@@ -2,12 +2,11 @@ philips_airpurifier_card:
   card:
     type: vertical-stack
     cards:
-      - type: entities
-        entities:
-          - entity: fan.philips_airpurifier
-            name: Enable purifier
       - type: horizontal-stack
         cards:
+          - type: custom:button-card
+            template: default
+            entity: fan.philips_airpurifier
           - type: custom:button-card
             template: default
             entity: sensor.purifier_speed
@@ -28,8 +27,6 @@ philips_airpurifier_card:
       - type: entities
         show_header_toggle: false
         entities:
-          - input_select.purifier_speed
-          - input_select.purifier_target_humidity
           - type: custom:fold-entity-row
             head:
               type: custom:dummy-entity-row

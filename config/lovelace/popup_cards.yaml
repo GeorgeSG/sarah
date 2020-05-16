@@ -4,7 +4,7 @@ binary_sensor.house_mode:
     "--ha-card-border-radius": 0 0 0.8em 0.8em
     border-radius: 0.8em
     opacity: 0.95
-    min-width: 400px
+    width: 500px
   card:
     type: entities
     entities:
