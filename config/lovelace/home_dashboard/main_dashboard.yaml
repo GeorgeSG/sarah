@@ -291,15 +291,12 @@
                           state_indicator_id: automation.lighting_kitchen_day_mode_motion_turn_lights_on
                   - type: horizontal-stack
                     cards:
-                      - type: custom:button-card
-                        template: default
+                      - type: entity
                         entity: binary_sensor.front_door_on_off_wrapper
-                      - type: custom:button-card
-                        template: default
+                      - type: entity
                         entity: binary_sensor.living_room_right_window_on_off_wrapper
                         name: Living room
-                      - type: custom:button-card
-                        template: default
+                      - type: entity
                         entity: binary_sensor.bedroom_right_window_on_off_wrapper
                         name: Bedroom
 
@@ -316,11 +313,9 @@
                           service_data:
                             entity_id: input_boolean.georgi_home
                       - type: entity
-                        # template: default
                         entity: device_tracker.mikrotik_carbon
                         name: Wifi
-                      - type: custom:button-card
-                        template: default
+                      - type: entity
                         entity: device_tracker.carbon
                         name: GPS
 
