@@ -105,9 +105,11 @@ recorder:
       - camera
       - climate
       - fan
+      - input_boolean
       - input_datetime
-      - input_select
       - input_number
+      - input_select
+      - media_player
       - person
       - sensor
       - weather
@@ -118,9 +120,9 @@ recorder:
       - input_boolean.georgi_home
       - input_boolean.guest_mode
       - switch.camera
-      - switch.titanium
       - switch.outlet_1_switch
       - switch.pihole_temp_disable
+      - switch.titanium
 
 # https://www.home-assistant.io/integrations/history
 history:
