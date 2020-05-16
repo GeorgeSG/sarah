@@ -17,3 +17,10 @@ zigbee.db
 *.db-*
 *.log
 *.tile.conf
+.homekit.state
+options.xml
+OZW_Log.txt
+pyozw.sqlite
+zwave_device_config.yaml
+zwcfg_*
+zwscene.xml
