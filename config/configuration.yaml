@@ -108,7 +108,7 @@ recorder: &recorder_config
       - media_player.living_room_tv
       - media_player.nvidia_shield
       - switch.camera
-      - switch.outlet_1_switch
+      - switch.desk_outlet
       - switch.pihole_temp_disable
       - switch.titanium
 

@@ -144,7 +144,7 @@
                 template:
                   - small
                   - progress
-                entity: sensor.outlet_1_power
+                entity: sensor.desk_outlet_power
                 name: Desk power
                 variables:
                   min_value: 1

@@ -1,6 +1,6 @@
 switch:
   - platform: mqtt
-    name: "Outlet 1 switch"
+    name: "Desk Outlet"
     state_topic: "stat/outlet_1/RESULT"
     value_template: "{{ value_json.POWER }}"
     command_topic: "cmnd/outlet_1/POWER"
@@ -13,47 +13,47 @@ switch:
 
 sensor:
   - platform: mqtt
-    name: "Outlet 1 Energy today"
+    name: "Desk Outlet Energy today"
     state_topic: "tele/outlet_1/SENSOR"
     value_template: '{{ value_json.ENERGY.Today }}'
     device_class: power
     unit_of_measurement: "kWh"
   - platform: mqtt
-    name: "Outlet 1 Energy yesterday"
+    name: "Desk Outlet Energy yesterday"
     state_topic: "tele/outlet_1/SENSOR"
     value_template: '{{ value_json.ENERGY.Yesterday }}'
     device_class: power
     unit_of_measurement: "kWh"
   - platform: mqtt
-    name: "Outlet 1 Energy total"
+    name: "Desk Outlet Energy total"
     state_topic: "tele/outlet_1/SENSOR"
     value_template: '{{ value_json.ENERGY.Total }}'
     device_class: power
     unit_of_measurement: "kWh"
   - platform: mqtt
-    name: "Outlet 1 Energy total start time"
+    name: "Desk Outlet Energy total start time"
     state_topic: "tele/outlet_1/SENSOR"
     value_template: '{{ value_json.ENERGY.TotalStartTime }}'
     device_class: timestamp
   - platform: mqtt
-    name: "Outlet 1 Power"
+    name: "Desk Outlet Power"
     state_topic: "tele/outlet_1/SENSOR"
     value_template: '{{ value_json.ENERGY.Power }}'
     device_class: power
     unit_of_measurement: "W"
   - platform: mqtt
-    name: "Outlet 1 Voltage"
+    name: "Desk Outlet Voltage"
     state_topic: "tele/outlet_1/SENSOR"
     value_template: '{{ value_json.ENERGY.Voltage }}'
     unit_of_measurement: "V"
   - platform: mqtt
-    name: "Outlet 1 Current"
+    name: "Desk Outlet Current"
     state_topic: "tele/outlet_1/SENSOR"
     value_template: '{{ value_json.ENERGY.Current }}'
     unit_of_measurement: "A"
 
   - platform: mqtt
-    name: "Outlet 1 WiFi"
+    name: "Desk Outlet WiFi"
     state_topic: "tele/outlet_1/STATE"
     unit_of_measurement: "%"
     value_template: "{{value_json.Wifi.RSSI }}"

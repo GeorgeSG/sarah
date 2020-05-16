@@ -60,7 +60,7 @@ homekit:
       - climate.living_room_thermostat_mode
       - climate.toshiba_ac
       - media_player.master_bedroom
-      - switch.outlet_1_switch
+      - switch.desk_outlet
       - switch.titanium
       - fan.philips_airpurifier
   entity_config:
@@ -84,7 +84,7 @@ homekit:
         - feature: play_pause
         - feature: play_stop
         - feature: toggle_mute
-    switch.outlet_1_switch:
+    switch.desk_outlet:
       type: outlet
 
 #
