@@ -17,7 +17,6 @@ automation:
         data:
           name: "💡 Lighting Module · "
           message: "Lights On · 30 mins to sunset"
-          entity_id: light.on_after_dark
           domain: light
 
   - alias: Lighting · Turn off all lights after sunrise

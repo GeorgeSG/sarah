@@ -50,6 +50,10 @@ logbook:
     domains:
       - sun
       - automation
+      - fan
+      - media_player
+      - light
+      - input_boolean
 
 # https://www.home-assistant.io/components/map
 # map:

@@ -50,7 +50,7 @@ automation:
         data:
           name: "⚙️ System Module · "
           message: "Telegram · Turning Guest mode on"
-          entity_id: input_boolean.guest_mode
+          domain: input_boolean
 
   - alias: Guest mode · Disable · From Telegram
     trigger:
@@ -69,4 +69,4 @@ automation:
         data:
           name: "⚙️ System Module · "
           message: "Telegram · Turning Guest mode off"
-          entity_id: input_boolean.guest_mode
+          domain: input_boolean

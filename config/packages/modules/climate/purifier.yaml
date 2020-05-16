@@ -272,7 +272,6 @@ automation:
         data:
           name: "💨 Climate module · "
           message: "Purifier On · Humidity is low"
-          entity_id: fan.philips_airpurifier
           domain: fan
 
   - alias: Purifier · Turn on · Low air quality
@@ -299,7 +298,6 @@ automation:
         data:
           name: "💨 Climate Module · "
           message: "Purifier On · Air quality is low"
-          entity_id: fan.philips_airpurifier
           domain: fan
       - condition: state
         entity_id: binary_sensor.purifier_out_of_water
@@ -316,7 +314,6 @@ automation:
         data:
           name: "💨 Climate Module · "
           message: "Purifier Function · Switching to humidification - there is water in the tank"
-          entity_id: fan.philips_airpurifier
           domain: fan
 
   - alias: Purifier · Turn off · Okay humidity
@@ -347,7 +344,6 @@ automation:
         data:
           name: "💨 Climate Module · "
           message: "Purifier Off · Humidity is okay"
-          entity_id: fan.philips_airpurifier
           domain: fan
 
 homeassistant:

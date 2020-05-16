@@ -81,7 +81,6 @@ automation:
         data:
           name: "🔊 Media Module · "
           message: "Sonos Mode · Putting Beam in night mode"
-          entity_id: media_player.living_room
           domain: media_player
 
   - alias: Media · Sonos · Put Beam in day mode
@@ -97,7 +96,6 @@ automation:
         data:
           name: "🔊 Media Module · "
           message: "Sonos Mode · Putting Beam in day mode"
-          entity_id: media_player.living_room
           domain: media_player
 
   - alias: Media · Sonos · Volume up on bathroom switch click
