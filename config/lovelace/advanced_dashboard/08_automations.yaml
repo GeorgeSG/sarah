@@ -1,0 +1,196 @@
+title: Automations
+path: automations
+icon: "mdi:robot"
+panel: true
+cards:
+  - type: custom:mod-card
+    style:
+      layout-card:
+        $:
+          .: |
+            #columns {
+              padding: 0 10px;
+            }
+            #columns .column {
+              padding: 20px 10px;
+            }
+    card:
+      type: custom:layout-card
+      layout: horizontal
+      max_columns: 3
+      cards:
+        - type: entities
+          title: Misc
+          show_header_toggle: false
+          entities:
+            - automation.titanium_turn_off_when_idle
+            - automation.github_download
+
+        - type: entities
+          title: Presence
+          show_header_toggle: false
+          entities:
+            - input_boolean.routine_welcome_home
+            - automation.presence_arrival_detection
+            - automation.presence_coming_home
+            - automation.presence_leaving_home
+            - automation.routine_coming_home_left_work
+            - automation.presence_leaving_work
+
+        - type: entities
+          title: Lighting
+          show_header_toggle: false
+          icon: mdi:lightbulb
+          entities:
+            - automation.lighting_turn_on_ceiling_lights_after_sunset
+            - automation.lighting_turn_off_all_lights_after_sunrise
+            - type: divider
+            - automation.lighting_temperature_adjust_on_start
+            - automation.lighting_temperature_adjust_based_on_time
+            - type: divider
+            - automation.lighting_living_room_toggle_ceiling_lights_on_desk_switch_single_click
+            - automation.lighting_living_room_toggle_ambient_lights_on_desk_switch_double_click
+            - type: divider
+            - automation.lighting_master_bedroom_toggle_lights_on_switch_single_click
+            - automation.lighting_master_bedroom_toggle_ambient_lights_on_switch_double_click
+            - automation.lighting_master_bedroom_toggle_lights_on_bedside_switch_single_click
+            - automation.lighting_master_bedroom_toggle_ambient_lights_on_bedside_switch_double_click
+            - type: divider
+            - automation.lighting_kitchen_day_mode_motion_turn_lights_on
+            - automation.lighting_kitchen_day_mode_motion_turn_lights_off
+            - automation.lighting_kitchen_night_mode_motion_turn_lights_on
+            - automation.lighting_kitchen_night_mode_motion_turn_lights_off
+            - type: divider
+            - automation.lighting_hallway_day_mode_motion_turn_lights_on
+            - automation.lighting_hallway_day_mode_motion_turn_lights_off
+            - automation.lighting_hallway_night_mode_motion_turn_lights_on
+            - automation.lighting_hallway_night_mode_motion_turn_lights_off
+            - type: divider
+            - automation.lighting_sync_tasmota_states_on_start_up
+
+        - type: entities
+          title: Media
+          show_header_toggle: false
+          icon: mdi:play-box-outline
+          entities:
+            - automation.tv_join_beam_to_sonos_group_when_off
+            - automation.tv_state_sync_on_tv_on
+            - automation.tv_state_sync_on_tv_off
+            - automation.tv_state_sync_on_shield_on
+            - automation.tv_state_sync_on_shield_off
+            - type: divider
+            - automation.tv_plex_setup_house_for_plex
+            - automation.tv_plex_restore_house_after_plex
+            - automation.youtube_download_latest_pds
+            - automation.youtube_play_latest_pds_on_bathroom_switch_dobule_click
+            - automation.media_sonos_put_beam_in_night_mode
+            - automation.media_sonos_put_beam_in_day_mode
+            - automation.media_sonos_volume_up_on_bathroom_switch_click
+            - type: divider
+            - automation.music_living_room_play_pause_on_desk_switch_hold
+            - automation.music_master_bedroom_play_pause_on_switch_hold
+
+        - type: entities
+          title: Notifications
+          show_header_toggle: false
+          icon: mdi:play-box-outline
+          entities:
+            - automation.notification_phone_battery_low
+            - automation.notification_door_opened
+
+        - type: entities
+          title: House Mode
+          show_header_toggle: false
+          entities:
+            - automation.house_mode_set_to_day
+            - automation.house_mode_set_to_bed
+            - automation.house_mode_set_to_night
+            - automation.house_mode_toggle_on_bedside_switch_hold
+
+        - type: entities
+          title: Guest mode
+          show_header_toggle: false
+          entities:
+            - automation.guest_mode_enable
+            - automation.guest_mode_disable
+            - automation.guest_mode_enable_from_telegram
+            - automation.guest_mode_disable_from_telegram
+
+        - type: entities
+          title: Domestina
+          show_header_toggle: false
+          entities:
+            - automation.domestina_automate_start
+            - automation.domestina_start
+            - automation.domestina_automate_end
+            - automation.domestina_end
+
+        - type: entities
+          title: Security
+          show_header_toggle: false
+          icon: mdi:shield-home
+          entities:
+            - automation.security_door_opened_while_away
+            - automation.camera_startup
+
+        - type: entities
+          title: Clock
+          show_header_toggle: false
+          icon: mdi:clock
+          entities:
+            - automation.alarm_wake_up
+            - automation.alarm_set_time
+
+        - type: entities
+          title: Climate
+          show_header_toggle: false
+          icon: mdi:air-purifier
+          entities:
+            - automation.climate_ac_turn_on_if_hot
+            - automation.climate_ac_turn_off_if_window_opened
+            - automation.climate_ac_turn_off_if_cold
+            - automation.climate_ac_turn_off_if_working_at_night
+            - type: divider
+            - automation.purifier_on_start_sync_and_update_state
+            - automation.purifier_change_speed
+            - automation.purifier_sync_speed
+            - automation.purifier_change_humidity
+            - automation.purifier_sync_humidity
+            - automation.purifier_turn_on_low_humidity
+            - automation.purifier_turn_on_low_air_quality
+            - automation.purifier_turn_off_okay_humidity
+
+        - type: entities
+          title: System
+          show_header_toggle: false
+          icon: mdi:cogs
+          entities:
+            - automation.system_announce_start
+            - automation.system_telegram_announce_status
+            - automation.speech_telegram_action_do_nothing
+            - automation.ifttt_call_service
+
+        - type: entities
+          title: Wallmote
+          show_header_toggle: false
+          icon: mdi:light-switch
+          entities:
+            - automation.wallmote_living_room_1_tap_toggle_lights
+            - automation.wallmote_living_room_1_hold_dim_lights
+            - automation.wallmote_living_room_2_tap_toggle_music
+            - automation.wallmote_living_room_2_hold_play_music
+            - automation.wallmote_living_room_3_tap_toggle_main_lights
+            - automation.wallmote_living_room_3_hold_toggle_ambient_lights
+            - automation.wallmote_living_room_4_hold_toggle_titanium
+
+        - type: entities
+          title: Magic Cube
+          show_header_toggle: false
+          entities:
+            - automation.magic_cube_mode_change
+            - automation.magic_cube_lighting_toggle_on_knock
+            - automation.magic_cube_lighting_dim_on_rotate_left
+            - automation.magic_cube_lighting_brighten_on_rotate_right
+            - automation.magic_cube_music_play_pause_on_knock
+            - automation.magic_cube_music_volume_down_on_rotate_left
+            - automation.magic_cube_music_volume_up_on_rotate_right
