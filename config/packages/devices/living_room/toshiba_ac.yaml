@@ -42,6 +42,9 @@ automation:
         - condition: numeric_state
           entity_id: sensor.trisensor_temperature
           above: 24
+        - condition: numeric_state
+          entity_id: sensor.dark_sky_apparent_temperature
+          above: 24
         - condition: state
           entity_id: input_boolean.georgi_home
           state: "on"
