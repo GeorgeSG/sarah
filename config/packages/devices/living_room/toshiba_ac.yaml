@@ -25,3 +25,111 @@ climate:
       - "auto"
     supported_swing_list:
       - "off"
+
+automation:
+  - alias: Climate · AC · Turn on if hot
+    trigger:
+      - platform: numeric_state
+        entity_id: sensor.trisensor_temperature
+        above: 24
+      - platform: state
+        entity_id: binary_sensor.living_room_right_window_on_off_wrapper
+        from: "on"
+        to: "off"
+    condition:
+      condition: and
+      conditions:
+        - condition: numeric_state
+          entity_id: sensor.trisensor_temperature
+          above: 24
+        - condition: state
+          entity_id: input_boolean.georgi_home
+          state: "on"
+        - condition: state
+          entity_id: binary_sensor.living_room_right_window_on_off_wrapper
+          state: "off"
+        - condition: state
+          entity_id: binary_sensor.bedroom_right_window_on_off_wrapper
+          state: "off"
+        - condition: state
+          entity_id: climate.toshiba_ac
+          state: "off"
+    action:
+      - service: climate.turn_on
+        entity_id: climate.toshiba_ac
+      - delay: "00:00:01"
+      - service: climate.set_hvac_mode
+        entity_id: climate.toshiba_ac
+        data:
+          hvac_mode: "cool"
+      - service: climate.set_fan_mode
+        entity_id: climate.toshiba_ac
+        data:
+          fan_mode: "auto"
+      - delay: "00:00:01"
+      - service: climate.set_temperature
+        entity_id: climate.toshiba_ac
+        data:
+          temperature: 19
+      - service: logbook.log
+        data:
+          name: "💨 Climate Module · "
+          message: "AC · Switching on · Above 24 degrees, windows closed"
+          domain: climate
+
+  - alias: Climate · AC · Turn off if window opened
+    trigger:
+      platform: state
+      entity_id: binary_sensor.living_room_right_window_on_off_wrapper
+      from: "off"
+      to: "on"
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ not is_state('climate.toshiba_ac', 'off') }}"
+    action:
+      - service: climate.turn_off
+        entity_id: climate.toshiba_ac
+      - service: logbook.log
+        data:
+          name: "💨 Climate Module · "
+          message: "AC · Switching off · Window opene"
+          domain: climate
+
+  - alias: Climate · AC · Turn off if cold
+    trigger:
+      platform: numeric_state
+      entity_id: sensor.trisensor_temperature
+      below: 20
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ not is_state('climate.toshiba_ac', 'off') }}"
+    action:
+      - service: climate.turn_off
+        entity_id: climate.toshiba_ac
+      - service: logbook.log
+        data:
+          name: "💨 Climate Module · "
+          message: "AC · Switching off · Below 20 degrees"
+          domain: climate
+
+  - alias: Climate · AC · Turn off if working at night
+    trigger:
+      platform: time
+      at: "05:00:00"
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ not is_state('climate.toshiba_ac', 'off') }}"
+    action:
+      - service: climate.turn_off
+        entity_id: climate.toshiba_ac
+      - service: logbook.log
+        data:
+          name: "💨 Climate Module · "
+          message: "AC · Switching off · It's 5 AM"
+          domain: climate

@@ -196,6 +196,11 @@ cards:
                 name: Climate
                 tap_action: none
               entities:
+                - automation.climate_ac_turn_on_if_hot
+                - automation.climate_ac_turn_off_if_window_opened
+                - automation.climate_ac_turn_off_if_cold
+                - automation.climate_ac_turn_off_if_working_at_night
+                - type: divider
                 - automation.purifier_on_start_sync_and_update_state
                 - automation.purifier_change_speed
                 - automation.purifier_sync_speed
