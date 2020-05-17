@@ -3,28 +3,6 @@ path: new
 icon: "mdi:new-box"
 cards:
   - type: vertical-stack
-    title: multi
-    cards:
-      - type: "custom:mini-graph-card"
-        entities:
-          - sensor.trisensor_temperature
-          - sensor.multisensor_6_temperature
-          - sensor.living_room_thermostat_temperature
-        cache: false
-        group_by: hour
-        hours_to_show: 72
-        line_width: 2
-
-      - type: "custom:mini-graph-card"
-        entities:
-          - sensor.trisensor_luminance
-          - sensor.multisensor_6_luminance
-        cache: false
-        group_by: hour
-        hours_to_show: 72
-        line_width: 2
-
-  - type: vertical-stack
     title: Trisensor
     cards:
       - type: "custom:mini-graph-card"
