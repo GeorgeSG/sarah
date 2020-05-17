@@ -77,7 +77,9 @@ automation:
         scene_data: 0
     action:
       - service: light.toggle
-        entity_id: light.living_room_main
+        entity_id:
+          - light.living_room_main
+          - light.light_avatar_small_2
 
   - alias: Wallmote · Living room · 3 · Hold · Toggle Ambient lights
     trigger:
