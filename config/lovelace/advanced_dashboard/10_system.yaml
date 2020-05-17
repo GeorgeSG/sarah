@@ -17,14 +17,15 @@ cards:
     card:
       type: custom:layout-card
       layout: horizontal
+      max_columns: 3
       cards:
         - type: entities
-          title: Batteries
-          show_header_toggle: false
           entities:
             - type: custom:battery-entity
               entity: sensor.carbon_battery_level
-            - type: divider
+        - type: entities
+          title: Z-Wave Devices
+          entities:
             - type: custom:battery-entity
               entity: sensor.trisensor_battery_level
               name: Trisensor
@@ -37,7 +38,9 @@ cards:
             - type: custom:battery-entity
               entity: sensor.aeon_labs_zw130_wallmote_quad_battery_level
               name: Wallmote
-            - type: divider
+        - type: entities
+          title: Aqara sensors
+          entities:
             - type: custom:battery-entity
               entity: sensor.front_door_power
             - type: custom:battery-entity
@@ -47,16 +50,19 @@ cards:
             - type: custom:battery-entity
               entity: sensor.bedroom_weather_power
             - type: custom:battery-entity
-              entity: sensor.cube_power
-            - type: divider
+              entity: sensor.motion_1_power
+            - type: custom:battery-entity
+              entity: sensor.motion_2_power
+        - type: entities
+          title: Aqara Devices
+          entities:
             - type: custom:battery-entity
               entity: sensor.desk_switch_power
             - type: custom:battery-entity
               entity: sensor.master_bedroom_bedside_switch_power
             - type: custom:battery-entity
               entity: sensor.bathroom_switch_power
-            - type: divider
             - type: custom:battery-entity
-              entity: sensor.motion_1_power
-            - type: custom:battery-entity
-              entity: sensor.motion_2_power
+              entity: sensor.cube_power
+
+
