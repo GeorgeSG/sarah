@@ -123,12 +123,16 @@ logbook:
       - fan
       - light
       - input_boolean
+      - climate
     entities:
       - media_player.living_room_tv
       - media_player.nvidia_shield
   exclude:
     entities:
       - input_boolean.sarah_talking
+      - input_boolean.tuya_kitchen_main_lights_state
+      - input_boolean.tuya_kitchen_secondary_lights_state
+      - input_boolean.tuya_hallway_main_lights_state
 
 # https://www.home-assistant.io/integrations/media_extractor
 # TODO: Add to media module
