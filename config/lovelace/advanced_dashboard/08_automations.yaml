@@ -25,6 +25,8 @@ cards:
           entities:
             - automation.titanium_turn_off_when_idle
             - automation.github_download
+            - automation.speech_enable_when_meeting_is_over
+            - automation.speech_disable_when_meeting_starts
 
         - type: entities
           title: Presence
@@ -147,9 +149,7 @@ cards:
           icon: mdi:air-purifier
           entities:
             - automation.climate_ac_turn_on_if_hot
-            - automation.climate_ac_turn_off_if_window_opened
-            - automation.climate_ac_turn_off_if_cold
-            - automation.climate_ac_turn_off_if_working_at_night
+            - automation.climate_ac_turn_off
             - type: divider
             - automation.purifier_on_start_sync_and_update_state
             - automation.purifier_change_speed

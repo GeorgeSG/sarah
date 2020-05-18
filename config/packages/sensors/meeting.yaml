@@ -1,0 +1,11 @@
+binary_sensor:
+  - platform: template
+    sensors:
+      in_a_meeting:
+        friendly_name: In a meeting
+        value_template: >-
+
+          {% set slack_emoji = state_attr('sensor.slack_georgi', 'status_emoji') %}
+          {% set slack_status = state_attr('sensor.slack_georgi', 'status_text') %}
+
+          {{ slack_emoji == ':spiral_calendar_pad:' or 'meeting' in slack_status.lower() }}

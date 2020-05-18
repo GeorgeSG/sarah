@@ -33,7 +33,9 @@ automation:
         entity_id: sensor.trisensor_temperature
         above: 24
       - platform: state
-        entity_id: binary_sensor.living_room_right_window_on_off_wrapper
+        entity_id:
+          - binary_sensor.living_room_right_window_on_off_wrapper
+          - binary_sensor.bedroom_right_window_on_off_wrapper
         from: "on"
         to: "off"
     condition:
@@ -80,59 +82,30 @@ automation:
           message: "AC · Switching on · Above 24 degrees, windows closed"
           domain: climate
 
-  - alias: Climate · AC · Turn off if window opened
+  - alias: Climate · AC · Turn off
     trigger:
-      platform: state
-      entity_id: binary_sensor.living_room_right_window_on_off_wrapper
-      from: "off"
-      to: "on"
-    condition:
-      condition: and
-      conditions:
-        - condition: template
-          value_template: "{{ not is_state('climate.toshiba_ac', 'off') }}"
-    action:
-      - service: climate.turn_off
-        entity_id: climate.toshiba_ac
-      - service: logbook.log
-        data:
-          name: "💨 Climate Module · "
-          message: "AC · Switching off · Window opene"
-          domain: climate
+      - platform: time
+        at: "05:00:00"
 
-  - alias: Climate · AC · Turn off if cold
-    trigger:
-      platform: numeric_state
-      entity_id: sensor.trisensor_temperature
-      below: 20
-    condition:
-      condition: and
-      conditions:
-        - condition: template
-          value_template: "{{ not is_state('climate.toshiba_ac', 'off') }}"
-    action:
-      - service: climate.turn_off
-        entity_id: climate.toshiba_ac
-      - service: logbook.log
-        data:
-          name: "💨 Climate Module · "
-          message: "AC · Switching off · Below 20 degrees"
-          domain: climate
+      # TODO: this below trigger works only for summer :)
+      - platform: numeric_state
+        entity_id: sensor.trisensor_temperature
+        below: 20
 
-  - alias: Climate · AC · Turn off if working at night
-    trigger:
-      platform: time
-      at: "05:00:00"
+      - platform: state
+        entity_id:
+          - binary_sensor.living_room_right_window_on_off_wrapper
+          - binary_sensor.bedroom_right_window_on_off_wrapper
+        from: "off"
+        to: "on"
     condition:
-      condition: and
-      conditions:
-        - condition: template
-          value_template: "{{ not is_state('climate.toshiba_ac', 'off') }}"
+      condition: template
+      value_template: "{{ not is_state('climate.toshiba_ac', 'off') }}"
     action:
       - service: climate.turn_off
         entity_id: climate.toshiba_ac
       - service: logbook.log
         data:
           name: "💨 Climate Module · "
-          message: "AC · Switching off · It's 5 AM"
+          message: "AC · Switching off"
           domain: climate
