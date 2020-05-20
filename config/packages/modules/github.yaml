@@ -48,8 +48,11 @@ automation:
         - sensor.time_picker_card_downloads
         - sensor.folder_card_downloads
     condition:
-      condition: template
-      value_template: "{{ not is_state('input_select.house_mode', 'night') }}"
+      condition: not
+      conditions:
+        - condition: state
+          entity_id: input_select.house_mode
+          state: 'night'
     action:
       - service: script.say
         data_template:

@@ -30,8 +30,11 @@ script:
     alias: Speech · Say
     sequence:
       # Don't talk while in night mode.
-      - condition: template
-        value_template: "{{ not is_state('input_select.house_mode', 'night') }}"
+      - condition: not
+        conditions:
+        - condition: state
+          entity_id: input_select.house_mode
+          state: 'night'
       # Combine partials for speech message.
       - service: script.say_discretely
         data_template:

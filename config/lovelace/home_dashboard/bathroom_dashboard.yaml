@@ -16,6 +16,9 @@
     cards:
       - type: vertical-stack
         cards:
+          - type: entities
+            entities:
+              - media_player.bathroom
           - type: custom:decluttering-card
             template: media_with_controls
             variables:

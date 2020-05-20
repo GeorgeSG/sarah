@@ -99,8 +99,11 @@ automation:
         from: "off"
         to: "on"
     condition:
-      condition: template
-      value_template: "{{ not is_state('climate.toshiba_ac', 'off') }}"
+      condition: not
+      conditions:
+        - condition: state
+          entity_id: climate.toshiba_ac
+          state: 'off'
     action:
       - service: climate.turn_off
         entity_id: climate.toshiba_ac
