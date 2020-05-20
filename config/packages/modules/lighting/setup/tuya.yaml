@@ -1,5 +1,5 @@
 # Tuya Light groups setup via scenes
-# Depends on Tuya integration: https://www.home-assistant.io/integrations/tuya
+# Depends on Tuya integration (config flow): https://www.home-assistant.io/integrations/tuya
 # Credit: https://community.home-assistant.io/t/personal-setup-vps-vpn-faster-tuya-and-more/180995
 
 # Tuya lights respond faster if they're grouped into scenes in the Tuya app.

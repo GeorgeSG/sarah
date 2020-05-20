@@ -1,5 +1,35 @@
 # Sad panda.
 
+# hacs:
+#   token: !secret hacs_github_token
+#   appdaemon: true
+
+# https://www.home-assistant.io/integrations/mikrotik
+# mikrotik:
+#   - name: Mikrotik
+#     host: !secret mikrotik_host
+#     username: !secret mikrotik_username
+#     password: !secret mikrotik_password
+
+# https://www.home-assistant.io/integrations/plex
+# plex:
+#   host: !secret plex_host
+#   token: !secret plex_token
+#   media_player:
+#     use_episode_art: true
+#     ignore_new_shared_users: false
+
+# https://www.home-assistant.io/integrations/sonos
+# sonos:
+#   media_player:
+#     hosts: !secret sonos_hosts
+
+# https://www.home-assistant.io/integrations/synologydsm
+# synology_dsm:
+#   - host: !secret platinum_ip
+#     username: !secret platinum_user
+#     password: !secret platinum_password
+
 # https://www.home-assistant.io/integrations/tuya
 # tuya:
 #   username: !secret tuya_username
@@ -10,25 +40,3 @@
 # zha:
 #   usb_path: /dev/ttyUSB0
 #   database_path: /config/zigbee.db
-
-# https://www.home-assistant.io/integrations/synologydsm
-# synology_dsm:
-#   - host: !secret platinum_ip
-#     username: !secret platinum_user
-#     password: !secret platinum_password
-
-# https://www.home-assistant.io/integrations/mikrotik
-# mikrotik:
-#   - name: Mikrotik
-#     host: !secret mikrotik_host
-#     username: !secret mikrotik_username
-#     password: !secret mikrotik_password
-
-# https://www.home-assistant.io/integrations/sonos
-# sonos:
-#   media_player:
-#     hosts: !secret sonos_hosts
-
-# hacs:
-#   token: !secret hacs_github_token
-#   appdaemon: true

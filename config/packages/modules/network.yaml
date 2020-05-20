@@ -2,10 +2,10 @@
 # ─── INTEGRATIONS ───────────────────────────────────────────────────────────────
 #
 
-# Depends on:
+# Depends on integrations (config flow):
 # - https://www.home-assistant.io/integrations/mikrotik
-# - https://www.home-assistant.io/integrations/zha
 # - https://www.home-assistant.io/integrations/synologydsm
+# - https://www.home-assistant.io/integrations/zha
 
 # https://www.home-assistant.io/integrations/fastdotcom
 fastdotcom:

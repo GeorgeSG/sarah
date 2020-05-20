@@ -1,5 +1,4 @@
-# Depends on:
-# - https://www.home-assistant.io/integrations/sonos
+# Depends on Sonos integration (config flow): https://www.home-assistant.io/integrations/sonos
 
 group:
   all_sonos:

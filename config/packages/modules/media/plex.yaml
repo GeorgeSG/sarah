@@ -1,11 +1,4 @@
-# https://www.home-assistant.io/integrations/plex
-# Moved to config flow
-# plex:
-#   host: !secret plex_host
-#   token: !secret plex_token
-#   media_player:
-#     use_episode_art: true
-#     ignore_new_shared_users: false
+# Depends on Plex integration (config flow): https://www.home-assistant.io/integrations/plex
 
 automation:
   - alias: TV · Plex · Setup house for Plex
