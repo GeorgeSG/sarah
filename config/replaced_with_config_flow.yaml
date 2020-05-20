@@ -1,5 +1,11 @@
 # Sad panda.
 
+# https://www.home-assistant.io/integrations/tuya
+# tuya:
+#   username: !secret tuya_username
+#   password: !secret tuya_password
+#   country_code: bg
+
 # https://www.home-assistant.io/integrations/zha
 # zha:
 #   usb_path: /dev/ttyUSB0
