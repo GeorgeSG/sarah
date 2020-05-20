@@ -78,11 +78,14 @@
                     template: default
                     entity: binary_sensor.house_mode
 
-          - type: custom:decluttering-card
-            template: media_with_controls
-            variables:
-              - player: media_player.master_bedroom
-              - player_name: Bedroom
+          # TODO: Remove vertical-stack wrapper. 0.110 hack
+          - type: vertical-stack
+            cards:
+              - type: custom:decluttering-card
+                template: media_with_controls
+                variables:
+                  - player: media_player.master_bedroom
+                  - player_name: Bedroom
 
 
       - type: vertical-stack

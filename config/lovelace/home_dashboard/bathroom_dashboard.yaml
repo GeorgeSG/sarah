@@ -14,13 +14,8 @@
     layout: horizontal
     max_columns: 1
     cards:
-      - type: vertical-stack
-        cards:
-          - type: entities
-            entities:
-              - media_player.bathroom
-          - type: custom:decluttering-card
-            template: media_with_controls
-            variables:
-              - player: media_player.bathroom
-              - player_name: Bathroom
+      - type: custom:decluttering-card
+        template: media_with_controls
+        variables:
+          - player: media_player.bathroom
+          - player_name: Bathroom

@@ -81,11 +81,14 @@
                 variables:
                   state_indicator_id: automation.titanium_turn_off_when_idle
 
-          - type: custom:decluttering-card
-            template: media_with_controls
-            variables:
-              - player: media_player.kitchen
-              - player_name: Kitchen
+          # TODO: Remove vertical-stack wrapper. 0.110 hack
+          - type: vertical-stack
+            cards:
+              - type: custom:decluttering-card
+                template: media_with_controls
+                variables:
+                  - player: media_player.kitchen
+                  - player_name: Kitchen
 
           - type: horizontal-stack
             cards:
