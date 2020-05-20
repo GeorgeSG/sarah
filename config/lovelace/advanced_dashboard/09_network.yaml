@@ -18,19 +18,22 @@ cards:
       type: custom:layout-card
       layout: horizontal
       cards:
+        # TODO: Remove vertical-stack wrapper. 0.110 hack
         - type: vertical-stack
           cards:
-            - type: custom:decluttering-card
-              template: titanium_card
-              variables:
-                - title: Titanium
-                - icon: mdi:desktop-tower
+            - type: vertical-stack
+              cards:
+                - type: custom:decluttering-card
+                  template: titanium_card
+                  variables:
+                    - title: Titanium
+                    - icon: mdi:desktop-tower
 
-            - type: custom:decluttering-card
-              template: platinum_card
-              variables:
-                - title: Platinum
-                - icon: mdi:nas
+                - type: custom:decluttering-card
+                  template: platinum_card
+                  variables:
+                    - title: Platinum
+                    - icon: mdi:nas
 
         - type: vertical-stack
           cards:
