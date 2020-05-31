@@ -11,7 +11,8 @@ title: Sarah
 views:
   - !include lovelace/advanced_dashboard/00_home.yaml
   - !include lovelace/advanced_dashboard/01_new.yaml
-  - !include lovelace/advanced_dashboard/06_lights.yaml
+  - !include lovelace/advanced_dashboard/05_lights.yaml
+  - !include lovelace/advanced_dashboard/06_climate.yaml
   - !include lovelace/advanced_dashboard/07_media.yaml
   - !include lovelace/advanced_dashboard/08_automations.yaml
   - !include lovelace/advanced_dashboard/09_network.yaml

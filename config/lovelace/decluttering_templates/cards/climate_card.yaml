@@ -1,0 +1,40 @@
+climate_card:
+  default:
+    - main_name: "Temperature"
+    - left_name: "Humidity"
+    - right_name: "Pressure"
+  card:
+    type: vertical-stack
+    title: "[[title]]"
+    cards:
+      - type: "custom:mini-graph-card"
+        name: "[[main_name]]"
+        entities:
+          - "[[main_entity]]"
+        cache: false
+        group_by: hour
+        hours_to_show: 72
+        line_width: 2
+        show:
+          average: true
+          extrema: true
+          fill: true
+
+      - type: horizontal-stack
+        cards:
+          - type: "custom:mini-graph-card"
+            name: "[[left_name]]"
+            font_size: 75
+            icon: "mdi:water"
+            line_color: "var(--color-blue)"
+            line_width: 8
+            entities:
+              - "[[left_entity]]"
+
+          - type: "custom:mini-graph-card"
+            name: "[[right_name]]"
+            entities:
+              - "[[right_entity]]"
+            font_size: 75
+            line_color: "var(--color-blue)"
+            line_width: 8
