@@ -1,7 +1,7 @@
 binary_sensor:
   - platform: template
     sensors:
-      living_room_right_window_on_off_wrapper:
+      living_room_right_window:
         friendly_name: Living room window
         device_class: window
         value_template: "{{ is_state('binary_sensor.living_room_right_window_on_off', 'on') }}"
@@ -11,13 +11,33 @@ binary_sensor:
           {% else %} mdi:window-closed-variant
           {% endif %}
 
-      bedroom_right_window_on_off_wrapper:
-        friendly_name: Bedroom window
+      bedroom_right_window:
+        friendly_name: Bedroom right window
         device_class: window
         value_template: "{{ is_state('binary_sensor.bedroom_right_window_on_off', 'on') }}"
         entity_id: binary_sensor.bedroom_right_window_on_off
         icon_template: >
           {% if is_state('binary_sensor.bedroom_right_window_on_off', 'on') %} mdi:window-open-variant
+          {% else %} mdi:window-closed-variant
+          {% endif %}
+
+      bedroom_left_window:
+        friendly_name: Bedroom left window
+        device_class: window
+        value_template: "{{ is_state('binary_sensor.bedroom_left_window_raw', 'on') }}"
+        entity_id: binary_sensor.bedroom_left_window_raw
+        icon_template: >
+          {% if is_state('binary_sensor.bedroom_left_window_raw', 'on') %} mdi:window-open-variant
+          {% else %} mdi:window-closed-variant
+          {% endif %}
+
+      kitchen_window:
+        friendly_name: Kitchen window
+        device_class: window
+        value_template: "{{ is_state('binary_sensor.kitchen_window_raw', 'on') }}"
+        entity_id: binary_sensor.kitchen_window_raw
+        icon_template: >
+          {% if is_state('binary_sensor.kitchen_window_raw', 'on') %} mdi:window-open-variant
           {% else %} mdi:window-closed-variant
           {% endif %}
 
@@ -34,14 +54,14 @@ group:
 
 homeassistant:
   customize:
-    binary_sensor.living_room_right_window_on_off:
-      friendly_name: Living room window sensor
-
     sensor.living_room_right_window_power:
       friendly_name: Living room window battery
 
-    binary_sensor.bedroom_right_window_on_off:
-      friendly_name: Bedroom window sensor
+    sensor.bedroom_left_window_power:
+      friendly_name: Bedroom left window battery
 
     sensor.bedroom_right_window_power:
-      friendly_name: Bedroom window battery
+      friendly_name: Bedroom right window battery
+
+    sensor.kitchen_window_power:
+      friendly_name: Kitchen window battery

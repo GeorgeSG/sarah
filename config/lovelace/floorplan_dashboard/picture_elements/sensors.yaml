@@ -144,12 +144,12 @@
 # Living room window
 - type: conditional
   conditions:
-    - entity: binary_sensor.living_room_right_window_on_off_wrapper
+    - entity: binary_sensor.living_room_right_window
       state: "on"
   elements:
     - type: image
       image: /local/images/floorplan/transparent.png
-      entity: binary_sensor.living_room_right_window_on_off_wrapper
+      entity: binary_sensor.living_room_right_window
       style:
         width: 7.8%
         height: 8.4%
@@ -162,12 +162,12 @@
 # Master bedroom window
 - type: conditional
   conditions:
-    - entity: binary_sensor.bedroom_right_window_on_off_wrapper
+    - entity: binary_sensor.bedroom_right_window
       state: "on"
   elements:
     - type: image
       image: /local/images/floorplan/transparent.png
-      entity: binary_sensor.bedroom_right_window_on_off_wrapper
+      entity: binary_sensor.bedroom_right_window
       style:
         width: 7.5%
         height: 8.2%

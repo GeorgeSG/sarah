@@ -22,9 +22,9 @@ alexa:
         - media_player.living_room
         - media_player.bathroom
 
-        - binary_sensor.front_door_on_off_wrapper
-        - binary_sensor.living_room_right_window_on_off_wrapper
-        - binary_sensor.bedroom_right_window_on_off_wrapper
+        - binary_sensor.front_door
+        - binary_sensor.living_room_right_window
+        - binary_sensor.bedroom_right_window
 
         - sensor.bedroom_weather_temperature
         - sensor.bedroom_weather_humidity
@@ -64,11 +64,11 @@ alexa:
         name: "Living room Sonos"
       media_player.bathroom:
         name: "Bathroom Sonos"
-      binary_sensor.front_door_on_off_wrapper:
+      binary_sensor.front_door:
         name: "Front door"
-      binary_sensor.living_room_right_window_on_off_wrapper:
+      binary_sensor.living_room_right_window:
         name: "Living room window"
-      binary_sensor.bedroom_right_window_on_off_wrapper:
+      binary_sensor.bedroom_right_window:
         name: "Bedroom window"
       sensor.bedroom_weather_temperature:
         name: "Bedroom temperature"

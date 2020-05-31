@@ -35,11 +35,15 @@
           - type: horizontal-stack
             cards:
               - type: custom:button-card
+                template: default
+                entity: binary_sensor.front_door
+                name: Door
+              - type: custom:button-card
                 template:
                   - default
                   - with_state_indicator
                 entity: binary_sensor.motion_2_ias_zone
-                name: Hallway
+                name: Motion
                 variables:
                   state_indicator_id: automation.lighting_hallway_day_mode_motion_turn_lights_on
               - type: custom:button-card

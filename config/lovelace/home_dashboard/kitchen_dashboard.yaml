@@ -90,6 +90,10 @@
           - type: horizontal-stack
             cards:
               - type: custom:button-card
+                template: default
+                entity: binary_sensor.kitchen_window
+                name: Window
+              - type: custom:button-card
                 template:
                   - default
                   - with_state_indicator

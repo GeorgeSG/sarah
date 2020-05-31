@@ -154,13 +154,13 @@
             cards:
               - type: custom:button-card
                 template: default
-                entity: binary_sensor.bedroom_right_window_on_off_wrapper
-                name: Window
+                entity: binary_sensor.bedroom_door
+                name: Door
               - type: custom:button-card
-                template:
-                  - default
-                  - with_state_indicator
-                entity: binary_sensor.motion_2_ias_zone
-                name: Hallway
-                variables:
-                  state_indicator_id: automation.lighting_hallway_day_mode_motion_turn_lights_on
+                template: default
+                entity: binary_sensor.bedroom_left_window
+                name: Left window
+              - type: custom:button-card
+                template: default
+                entity: binary_sensor.bedroom_right_window
+                name: Right window

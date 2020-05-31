@@ -130,7 +130,7 @@
             cards:
               - type: custom:button-card
                 template: default
-                entity: binary_sensor.living_room_right_window_on_off_wrapper
+                entity: binary_sensor.living_room_right_window
                 name: Window
               - type: custom:button-card
                 template:

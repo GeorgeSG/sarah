@@ -34,8 +34,8 @@ automation:
         above: 24
       - platform: state
         entity_id:
-          - binary_sensor.living_room_right_window_on_off_wrapper
-          - binary_sensor.bedroom_right_window_on_off_wrapper
+          - binary_sensor.living_room_right_window
+          - binary_sensor.bedroom_right_window
         from: "on"
         to: "off"
     condition:
@@ -51,10 +51,10 @@ automation:
           entity_id: input_boolean.georgi_home
           state: "on"
         - condition: state
-          entity_id: binary_sensor.living_room_right_window_on_off_wrapper
+          entity_id: binary_sensor.living_room_right_window
           state: "off"
         - condition: state
-          entity_id: binary_sensor.bedroom_right_window_on_off_wrapper
+          entity_id: binary_sensor.bedroom_right_window
           state: "off"
         - condition: state
           entity_id: climate.toshiba_ac
@@ -94,8 +94,8 @@ automation:
 
       - platform: state
         entity_id:
-          - binary_sensor.living_room_right_window_on_off_wrapper
-          - binary_sensor.bedroom_right_window_on_off_wrapper
+          - binary_sensor.living_room_right_window
+          - binary_sensor.bedroom_right_window
         from: "off"
         to: "on"
     condition:
