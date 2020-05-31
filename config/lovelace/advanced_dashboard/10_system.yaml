@@ -45,6 +45,7 @@ cards:
               entity: sensor.front_door_power
             - type: custom:battery-entity
               entity: sensor.living_room_right_window_power
+            - type: divider
             - type: custom:battery-entity
               entity: sensor.bedroom_door_power
             - type: custom:battery-entity
@@ -52,9 +53,10 @@ cards:
             - type: custom:battery-entity
               entity: sensor.bedroom_right_window_power
             - type: custom:battery-entity
-              entity: sensor.kitchen_window_power
-            - type: custom:battery-entity
               entity: sensor.bedroom_weather_power
+            - type: divider
+            - type: custom:battery-entity
+              entity: sensor.kitchen_window_power
             - type: custom:battery-entity
               entity: sensor.motion_1_power
             - type: custom:battery-entity
