@@ -15,9 +15,9 @@
     max_columns: 2
     cards:
       - type: vertical-stack
+        title: Bedroom
         cards:
           - type: horizontal-stack
-            title: Lights
             cards:
               - type: custom:button-card
                 template: default

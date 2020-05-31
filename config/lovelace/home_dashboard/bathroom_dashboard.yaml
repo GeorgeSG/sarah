@@ -12,10 +12,19 @@
   card:
     type: custom:layout-card
     layout: horizontal
-    max_columns: 1
+    min_columns: 2
+    max_columns: 2
     cards:
       - type: custom:decluttering-card
         template: media_with_controls
         variables:
           - player: media_player.bathroom
           - player_name: Bathroom
+          - title: Bathroom
+      - type: custom:decluttering-card
+        template: climate_card
+        variables:
+          - title: "Climate"
+          - main_entity: sensor.bathroom_weather_temperature
+          - left_entity: sensor.bathroom_weather_humidity
+          - right_entity: sensor.bathroom_weather_pressure

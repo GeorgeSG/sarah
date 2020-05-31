@@ -15,9 +15,9 @@
     max_columns: 2
     cards:
       - type: vertical-stack
+        title: Kitchen
         cards:
           - type: horizontal-stack
-            title: Lights
             cards:
               - type: custom:button-card
                 template: default
@@ -119,3 +119,13 @@
                 name: Hallway
                 variables:
                   state_indicator_id: automation.lighting_hallway_day_mode_motion_turn_lights_on
+
+      - type: vertical-stack
+        cards:
+          - type: custom:decluttering-card
+            template: climate_card
+            variables:
+              - title: "Climate"
+              - main_entity: sensor.kitchen_weather_temperature
+              - left_entity: sensor.kitchen_weather_humidity
+              - right_entity: sensor.kitchen_weather_pressure

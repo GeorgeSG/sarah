@@ -12,12 +12,13 @@
   card:
     type: custom:layout-card
     layout: horizontal
-    max_columns: 1
+    min_columns: 2
+    max_columns: 2
     cards:
       - type: vertical-stack
+        title: Hallway
         cards:
           - type: horizontal-stack
-            title: Lights
             cards:
               - type: custom:button-card
                 template: default
@@ -56,3 +57,11 @@
                   min_value: 0
                   max_value: 1000
                   normal_value: 1000
+
+      - type: custom:decluttering-card
+        template: climate_card
+        variables:
+          - title: "Climate"
+          - main_entity: sensor.hallway_weather_temperature
+          - left_entity: sensor.hallway_weather_humidity
+          - right_entity: sensor.hallway_weather_pressure

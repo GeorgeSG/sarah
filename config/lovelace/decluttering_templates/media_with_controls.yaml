@@ -1,9 +1,10 @@
 media_with_controls:
   defaults:
     - player_name:
+    - title: "Media"
   card:
     type: vertical-stack
-    title: Media
+    title: "[[title]]"
     cards:
       - type: custom:decluttering-card
         template: sonos_media_player
