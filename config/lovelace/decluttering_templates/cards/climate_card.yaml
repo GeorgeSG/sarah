@@ -24,12 +24,12 @@ climate_card:
         cards:
           - type: "custom:mini-graph-card"
             name: "[[left_name]]"
-            font_size: 75
-            icon: "mdi:water"
-            line_color: "var(--color-blue)"
-            line_width: 8
             entities:
               - "[[left_entity]]"
+            font_size: 75
+            line_color: "var(--color-blue)"
+            line_width: 6
+            hours_to_show: 72
 
           - type: "custom:mini-graph-card"
             name: "[[right_name]]"
@@ -37,4 +37,5 @@ climate_card:
               - "[[right_entity]]"
             font_size: 75
             line_color: "var(--color-blue)"
-            line_width: 8
+            line_width: 6
+            hours_to_show: 72
