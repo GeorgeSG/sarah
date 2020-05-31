@@ -205,28 +205,28 @@
                 cards:
                   - type: custom:button-card
                     template:
-                      - small
+                      - xs
                       - progress
                     entity: sensor.multisensor_6_temperature
                     name: Living room
                     state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
                   - type: custom:button-card
                     template:
-                      - small
+                      - xs
                       - progress
                     entity: sensor.trisensor_temperature
                     name: Desk
                     state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
                   - type: custom:button-card
                     template:
-                      - small
+                      - xs
                       - progress
                     entity: sensor.living_room_thermostat_temperature
                     name: Radiator
                     state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
                   - type: custom:button-card
                     template:
-                      - small
+                      - xs
                       - progress
                     entity: sensor.bedroom_weather_temperature
                     name: Bedroom
@@ -235,9 +235,40 @@
                 cards:
                   - type: custom:button-card
                     template:
-                      - small
+                      - xs
+                      - progress
+                    entity: sensor.kitchen_weather_temperature
+                    name: Kitchen
+                    state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
+                  - type: custom:button-card
+                    template:
+                      - xs
+                      - progress
+                    entity: sensor.bathroom_weather_temperature
+                    name: Bathroom
+                    state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
+                  - type: custom:button-card
+                    template:
+                      - xs
+                      - progress
+                    entity: sensor.hallway_weather_temperature
+                    name: Hallway
+                    state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
+                  - type: custom:button-card
+                    template:
+                      - xs
+                      - progress
+                    entity: sensor.guest_bedroom_weather_temperature
+                    name: G. Bedroom
+                    state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
+              - type: horizontal-stack
+                cards:
+                  - type: custom:button-card
+                    template:
+                      - xs
                       - progress
                     entity: sensor.multisensor_6_relative_humidity
+                    state_display: "[[[ return Math.round(entity.state) + ' %' ]]]"
                     name: Living room
                     variables:
                       min_value: 25
@@ -247,10 +278,63 @@
                       low_color: "var(--color-red)"
                   - type: custom:button-card
                     template:
-                      - small
+                      - xs
                       - progress
                     entity: sensor.bedroom_weather_humidity
+                    state_display: "[[[ return Math.round(entity.state) + ' %' ]]]"
                     name: Bedroom
+                    variables:
+                      min_value: 25
+                      max_value: 90
+                      normal_value: 40
+                      high_value: 65
+                      low_color: "var(--color-red)"
+                  - type: custom:button-card
+                    template:
+                      - xs
+                      - progress
+                    entity: sensor.kitchen_weather_humidity
+                    state_display: "[[[ return Math.round(entity.state) + ' %' ]]]"
+                    name: Kitchen
+                    variables:
+                      min_value: 25
+                      max_value: 90
+                      normal_value: 40
+                      high_value: 65
+                      low_color: "var(--color-red)"
+                  - type: custom:button-card
+                    template:
+                      - xs
+                      - progress
+                    entity: sensor.bathroom_weather_humidity
+                    state_display: "[[[ return Math.round(entity.state) + ' %' ]]]"
+                    name: Bathroom
+                    variables:
+                      min_value: 25
+                      max_value: 90
+                      normal_value: 40
+                      high_value: 65
+                      low_color: "var(--color-red)"
+                  - type: custom:button-card
+                    template:
+                      - xs
+                      - progress
+                    entity: sensor.hallway_weather_humidity
+                    state_display: "[[[ return Math.round(entity.state) + ' %' ]]]"
+                    name: Hallway
+                    variables:
+                      min_value: 25
+                      max_value: 90
+                      normal_value: 40
+                      high_value: 65
+                      low_color: "var(--color-red)"
+                  - type: custom:button-card
+                    template:
+                      - xs
+                      - progress
+                    entity: sensor.guest_bedroom_weather_humidity
+                    state_display: "[[[ return Math.round(entity.state) + ' %' ]]]"
+                    name: G. Bedroom
                     variables:
                       min_value: 25
                       max_value: 90
@@ -259,9 +343,9 @@
                       low_color: "var(--color-red)"
 
           - type: vertical-stack
-            title: Sensors
             cards:
               - type: vertical-stack
+                title: Sensors
                 cards:
                   - type: horizontal-stack
                     cards:
@@ -291,17 +375,30 @@
                           state_indicator_id: automation.lighting_kitchen_day_mode_motion_turn_lights_on
                   - type: horizontal-stack
                     cards:
-                      - type: entity
-                        entity: binary_sensor.front_door
-                      - type: entity
+                      - type: custom:button-card
+                        template: default
                         entity: binary_sensor.living_room_right_window
                         name: Living room
-                      - type: entity
+                      - type: custom:button-card
+                        template: default
+                        entity: binary_sensor.bedroom_left_window
+                        name: Bedroom left
+                      - type: custom:button-card
+                        template: default
                         entity: binary_sensor.bedroom_right_window
-                        name: Bedroom
-
-              - type: vertical-stack
-                cards:
+                        name: Bedroom right
+                      - type: custom:button-card
+                        template: default
+                        entity: binary_sensor.kitchen_window
+                        name: Kitchen
+                  - type: horizontal-stack
+                    cards:
+                      - type: custom:button-card
+                        template: default
+                        entity: binary_sensor.front_door
+                      - type: custom:button-card
+                        template: default
+                        entity: binary_sensor.bedroom_door
                   - type: horizontal-stack
                     cards:
                       - type: custom:button-card
@@ -318,7 +415,6 @@
                       - type: entity
                         entity: device_tracker.carbon
                         name: GPS
-
 
       # Column 3
       - type: vertical-stack
