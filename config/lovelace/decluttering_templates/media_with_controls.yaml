@@ -1,7 +1,7 @@
 media_with_controls:
-  defaults:
-    - player_name:
+  default:
     - title: "Media"
+    - player_name:
   card:
     type: vertical-stack
     title: "[[title]]"
