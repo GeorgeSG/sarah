@@ -1,7 +1,8 @@
+version: "3"
 
 services:
   homeassistant-dev:
-    container_name: home-assistant-dev
+    container_name: homeassistant-dev
     image: homeassistant/home-assistant:stable
     volumes:
       - ../config-dev:/config
