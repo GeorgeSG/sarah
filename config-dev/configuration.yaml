@@ -1,8 +1,5 @@
-homeassistant:
-  name: Dev
-  unit_system: metric
-  time_zone: Europe/Sofia
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
 
 http:
   server_port: 8124
-
