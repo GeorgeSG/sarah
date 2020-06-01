@@ -1,0 +1,40 @@
+sensor:
+  - platform: min_max
+    type: mean
+    name: Average Temperature
+    entity_ids:
+      - sensor.trisensor_temperature
+      - sensor.bedroom_weather_temperature
+      - sensor.kitchen_weather_temperature
+      - sensor.bathroom_weather_temperature
+      - sensor.hallway_weather_temperature
+      - sensor.guest_bedroom_weather_temperature
+
+  - platform: min_max
+    type: mean
+    name: Average humidity
+    entity_ids:
+      - sensor.multisensor_6_relative_humidity
+      - sensor.bedroom_weather_humidity
+      - sensor.kitchen_weather_humidity
+      - sensor.bathroom_weather_humidity
+      - sensor.hallway_weather_humidity
+      - sensor.guest_bedroom_weather_humidity
+
+#
+# ─── CUSTOMIZATION ──────────────────────────────────────────────────────────────
+#
+
+homeassistant:
+  customize:
+    sensor.bedroom_weather_power:
+      friendly_name: Bedroom weather battery
+
+    sensor.bedroom_weather_temperature:
+      friendly_name: Temperature
+
+    sensor.bedroom_weather_pressure:
+      friendly_name: Pressure
+
+    sensor.bedroom_weather_humidity:
+      friendly_name: Humidity
