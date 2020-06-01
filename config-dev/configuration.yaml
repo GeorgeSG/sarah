@@ -1,0 +1,8 @@
+homeassistant:
+  name: Dev
+  unit_system: metric
+  time_zone: Europe/Sofia
+
+http:
+  server_port: 8124
+

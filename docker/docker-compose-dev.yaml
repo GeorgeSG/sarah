@@ -1,0 +1,10 @@
+
+services:
+  homeassistant-dev:
+    container_name: home-assistant-dev
+    image: homeassistant/home-assistant:stable
+    volumes:
+      - ../config-dev:/config
+    environment:
+      - TZ=Europe/Sofia
+    network_mode: host
