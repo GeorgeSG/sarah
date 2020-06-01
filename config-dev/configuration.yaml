@@ -3,3 +3,13 @@ default_config:
 
 http:
   server_port: 8124
+
+
+panel_custom:
+  - name: hacs-dev-frontend
+    sidebar_title: HACS (Dev frontend server)
+    sidebar_icon: mdi:alert-circle
+    url_path: hacs_dev
+    js_url: !secret hacs_dev_url
+    trust_external_script: true
+
