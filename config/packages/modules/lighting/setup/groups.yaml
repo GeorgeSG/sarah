@@ -64,7 +64,8 @@ light:
   - platform: group
     name: Hallway entrance
     entities:
-      - light.light_lohas_5
+      # - light.light_lohas_5
+      - light.light_hama_1
       - light.light_lohas_6
 
   - platform: group
@@ -174,7 +175,9 @@ homeassistant:
 
     light.hallway_entrance:
       icon: bha:ceiling-lamp-plafond
-    light.light_lohas_5:
+    # light.light_lohas_5:
+    #   friendly_name: Entrance 1
+    light.light_hama_1:
       friendly_name: Entrance 1
     light.light_lohas_6:
       friendly_name: Entrance 2

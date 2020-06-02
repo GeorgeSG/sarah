@@ -210,9 +210,9 @@ cards:
                 - type: custom:decluttering-card
                   template: light_with_fade_and_switch
                   variables:
-                    - light: light.light_lohas_5
-                    - fade: switch.light_lohas_5_fade
-                    - wifi: sensor.light_lohas_5_wifi
+                    - light: light.light_hama_1
+                    - fade: switch.light_hama_1_fade
+                    - wifi: sensor.light_hama_1_wifi
                 - type: custom:decluttering-card
                   template: light_with_fade_and_switch
                   variables:
