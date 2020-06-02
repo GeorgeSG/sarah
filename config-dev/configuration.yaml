@@ -4,12 +4,13 @@ default_config:
 http:
   server_port: 8124
 
+hacs:
+  token: !secret hacs_dev_token
+  appdaemon: true
+  netdaemon: true
+  frontend_repo_url: !secret hacs_dev_url
 
-panel_custom:
-  - name: hacs-dev-frontend
-    sidebar_title: HACS (Dev frontend server)
-    sidebar_icon: mdi:alert-circle
-    url_path: hacs_dev
-    js_url: !secret hacs_dev_url
-    trust_external_script: true
-
+logger:
+  default: info
+  logs:
+    hacs: debug

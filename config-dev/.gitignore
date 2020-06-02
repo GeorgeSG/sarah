@@ -4,3 +4,4 @@ home-assistant_v2.db
 .HA_VERSION
 secrets.yaml
 custom_components/
+themes/
