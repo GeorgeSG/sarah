@@ -5,6 +5,9 @@ mqtt:
   server: 'mqtt://192.168.0.27'
   user: '!secret user'
   password: '!secret password'
+serial:
+  port: /dev/ttyACM2
+  disable_led: true
 advanced:
   channel: 12
   log_level: debug
