@@ -107,7 +107,8 @@ sensor:
           - binary_sensor.kitchen_window
         friendly_name: Open window count
         value_template: >-
-          {{ states | selectattr('entity_id', 'in', state_attr('group.all_windows', 'entity_id')) | selectattr('state', 'eq', 'on') | list | count | int }}
+          {{ set entityStates = states | selectattr('entity_id', 'in', state_attr('group.all_windows', 'entity_id')) %}
+          {{ entityStates | selectattr('state', 'eq', 'on') | list | count | int }}
 
 #
 # ─── CUSTOMIZATION ──────────────────────────────────────────────────────────────
