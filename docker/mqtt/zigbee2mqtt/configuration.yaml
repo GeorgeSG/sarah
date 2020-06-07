@@ -32,3 +32,9 @@ devices:
     humidity_precision: 1
   '0x00158d0002f249d2':
     friendly_name: desk_switch
+  '0x00158d00045ee213':
+    friendly_name: front_door
+    retain: true
+  '0x00158d00044e85df':
+    friendly_name: bedroom_door
+    retain: true
