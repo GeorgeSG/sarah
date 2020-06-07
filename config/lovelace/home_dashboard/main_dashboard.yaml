@@ -166,6 +166,12 @@
                     icon: mdi:nas
                     tap_action:
                       action: more-info
+                  - type: custom:button-card
+                    template: default
+                    entity: binary_sensor.pi_hole_enabled
+                    name: Pi-Hole
+                    icon: mdi:pi-hole
+
               - type: horizontal-stack
                 cards:
                   - type: custom:button-card
@@ -184,11 +190,6 @@
                       state_indicator_on_color: var(--color-red)
                       state_on_indicator_on_color: var(--color-red)
 
-                  - type: custom:button-card
-                    template: default
-                    entity: binary_sensor.pi_hole_enabled
-                    name: Pi-Hole
-                    icon: mdi:pi-hole
                   - type: custom:decluttering-card
                     template: brita_water_card
 
