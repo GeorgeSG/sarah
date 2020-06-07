@@ -15,7 +15,7 @@ sensor:
     value_template: '{{ value_json.assets[0].download_count }}'
     unit_of_measurement: 'downloads'
     scan_interval:
-      minutes: 10
+      hours: 1
     headers:
       Authorization: !secret github_access_token
 
@@ -35,7 +35,7 @@ sensor:
     value_template: '{{ value_json.assets[0].download_count }}'
     unit_of_measurement: 'downloads'
     scan_interval:
-      minutes: 10
+      hours: 1
     headers:
       Authorization: !secret github_access_token
 
@@ -61,8 +61,8 @@ automation:
             {% if trigger %}
               {% set diff = trigger.to_state.state|int - trigger.from_state.state|int %}
               Hey, {% if diff > 1 %}{{diff}} people{% else %}1 person{% endif%} downloaded
-              {% if trigger.entity_id == 'sensor.folder_card_downloads' %} folder card in the last 10 minutes
-              {% elif trigger.entity_id == 'sensor.time_picker_card_downloads' %} time picker card in the last 10 minutes
+              {% if trigger.entity_id == 'sensor.folder_card_downloads' %} folder card in the last hour
+              {% elif trigger.entity_id == 'sensor.time_picker_card_downloads' %} time picker card in the last hour
               {% else %} something, but I don't know what. This should never happen!
               {% endif %}
             {% else %}
