@@ -30,3 +30,5 @@ devices:
     retain: true
     temperature_precision: 1
     humidity_precision: 1
+  '0x00158d0002f249d2':
+    friendly_name: desk_switch
