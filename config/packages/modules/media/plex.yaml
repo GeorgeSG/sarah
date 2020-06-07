@@ -55,12 +55,12 @@ automation:
       - service: scene.turn_on
         # FIXME: Light colors are not being snapshotted/restored properly.
         entity_id: scene.plex_before_start
-      # - delay: 00:00:01
-      # - condition: state
-      #   entity_id: light.light_avatar_small_2
-      #   state: "on"
-      # # FIXME: There is nothing else to fix the temperature of the PC light
-      # - service: light.turn_on
-      #   entity_id: light.light_avatar_small_2
-      #   data:
-      #     color_temp: 250
+        # - delay: 00:00:01
+        # - condition: state
+        #   entity_id: light.light_avatar_small_2
+        #   state: "on"
+        # # FIXME: There is nothing else to fix the temperature of the PC light
+        # - service: light.turn_on
+        #   entity_id: light.light_avatar_small_2
+        #   data:
+        #     color_temp: 250

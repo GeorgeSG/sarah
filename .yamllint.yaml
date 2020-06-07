@@ -1,6 +1,7 @@
 extends: default
 
 ignore: |
+  appdaemon/
   config/templates/partials/
   config/secrets.yaml
 
