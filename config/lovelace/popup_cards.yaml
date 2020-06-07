@@ -1,5 +1,6 @@
 binary_sensor.house_mode:
   title: House mode
+  auto_close: true
   style: &popup_style
     "--ha-card-border-radius": 0 0 0.8em 0.8em
     border-radius: 0.8em
@@ -12,6 +13,7 @@ binary_sensor.house_mode:
 
 binary_sensor.motion_1_ias_zone:
   title: Kitchen motion
+  auto_close: true
   style: &broad_popup_style
     "--ha-card-border-radius": 0 0 0.8em 0.8em
     border-radius: 0.8em
@@ -41,6 +43,7 @@ binary_sensor.motion_1_ias_zone:
 binary_sensor.motion_2_ias_zone:
   title: Hallway motion
   style: *broad_popup_style
+  auto_close: true
   card:
     type: vertical-stack
     cards:
@@ -65,6 +68,7 @@ binary_sensor.motion_2_ias_zone:
 sensor.synology_type_volume_1:
   title: Platinum
   style: *popup_style
+  auto_close: true
   card:
     type: custom:decluttering-card
     template: platinum_card
@@ -72,6 +76,7 @@ sensor.synology_type_volume_1:
 switch.camera:
   title: Security camera
   style: *popup_style
+  auto_close: true
   card:
     type: vertical-stack
     cards:
@@ -91,6 +96,7 @@ switch.camera:
 media_player.kitchen:
   title: Kitchen Sonos
   style: *popup_style
+  auto_close: true
   card:
     type: custom:decluttering-card
     template: sonos_media_player
@@ -102,6 +108,7 @@ media_player.kitchen:
 media_player.bathroom:
   title: Bathroom Sonos
   style: *popup_style
+  auto_close: true
   card:
     type: custom:decluttering-card
     template: sonos_media_player
@@ -113,6 +120,7 @@ media_player.bathroom:
 media_player.master_bedroom:
   title: Master bedroom Sonos
   style: *popup_style
+  auto_close: true
   card:
     type: custom:decluttering-card
     template: sonos_media_player
@@ -124,6 +132,7 @@ media_player.master_bedroom:
 media_player.nvidia_shield: &nvidia_shield
   title: TV
   style: *popup_style
+  auto_close: true
   card:
     type: vertical-stack
     cards:
@@ -184,6 +193,7 @@ media_player.living_room_tv: *nvidia_shield
 light.living_room_main:
   title: Living room lights
   style: *popup_style
+  auto_close: true
   card:
     type: custom:mod-card
     card:
@@ -202,6 +212,7 @@ light.living_room_main:
 sensor.bedroom_weather_temperature:
   title: Bedroom temperature
   style: *broad_popup_style
+  auto_close: true
   card:
     type: custom:decluttering-card
     template: bedroom_temperature_card
@@ -209,6 +220,7 @@ sensor.bedroom_weather_temperature:
 sensor.bedroom_weather_humidity:
   title: Bedroom humidity
   style: *broad_popup_style
+  auto_close: true
   card:
     type: custom:decluttering-card
     template: bedroom_humidity_card
@@ -216,6 +228,7 @@ sensor.bedroom_weather_humidity:
 sensor.purifier_air_quality:
   title: Bedroom air quality
   style: *broad_popup_style
+  auto_close: true
   card:
     type: custom:decluttering-card
     template: bedroom_air_quality_card
@@ -223,6 +236,7 @@ sensor.purifier_air_quality:
 sensor.purifier_allergens:
   title: Bedroom allergen index
   style: *broad_popup_style
+  auto_close: true
   card:
     type: custom:decluttering-card
     template: bedroom_allergen_index_card
@@ -230,6 +244,7 @@ sensor.purifier_allergens:
 fan.philips_airpurifier:
   title: Air purifier
   style: *popup_style
+  auto_close: true
   card:
     type: custom:decluttering-card
     template: philips_airpurifier_card
@@ -237,6 +252,7 @@ fan.philips_airpurifier:
 switch.titanium:
   title: Titanium
   style: *popup_style
+  auto_close: true
   card:
     type: custom:decluttering-card
     template: titanium_card
@@ -244,6 +260,7 @@ switch.titanium:
 sensor.fast_com_download:
   title: Network Speed
   style: *broad_popup_style
+  auto_close: true
   card:
     type: custom:decluttering-card
     template: network_card
@@ -251,6 +268,7 @@ sensor.fast_com_download:
 binary_sensor.pi_hole_enabled:
   title: Pi-Hole
   style: *broad_popup_style
+  auto_close: true
   card:
     type: custom:decluttering-card
     template: pi_hole_card
@@ -258,6 +276,7 @@ binary_sensor.pi_hole_enabled:
 input_boolean.alarm_enabled:
   title: Alarm
   style: *popup_style
+  auto_close: true
   card:
     type: vertical-stack
     cards:
@@ -278,6 +297,7 @@ input_boolean.alarm_enabled:
 script.brita_pour_water:
   title: Brita
   style: *popup_style
+  auto_close: true
   card:
     type: custom:decluttering-card
     template: brita_card
@@ -285,6 +305,7 @@ script.brita_pour_water:
 sensor.desk_outlet_power:
   title: Desk power
   style: *popup_style
+  auto_close: true
   card:
     type: entities
     entities:
@@ -306,3 +327,179 @@ sensor.desk_outlet_power:
         name: Total energy start
       - entity: sensor.desk_outlet_wifi
         name: Wifi strength
+
+sensor.average_temperature:
+  title: Temperatures
+  style: *popup_style
+  auto_close: true
+  card:
+    type: vertical-stack
+    cards:
+      - type: horizontal-stack
+        cards:
+          - type: custom:button-card
+            template:
+              - xs
+              - progress
+            entity: sensor.multisensor_6_temperature
+            name: Living room
+            state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
+          - type: custom:button-card
+            template:
+              - xs
+              - progress
+            entity: sensor.trisensor_temperature
+            name: Desk
+            state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
+          - type: custom:button-card
+            template:
+              - xs
+              - progress
+            entity: sensor.living_room_thermostat_temperature
+            name: Radiator
+            state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
+          - type: custom:button-card
+            template:
+              - xs
+              - progress
+            entity: sensor.bedroom_weather_temperature
+            name: Bedroom
+            state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
+      - type: horizontal-stack
+        cards:
+          - type: custom:button-card
+            template:
+              - xs
+              - progress
+            entity: sensor.kitchen_weather_temperature
+            name: Kitchen
+            state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
+          - type: custom:button-card
+            template:
+              - xs
+              - progress
+            entity: sensor.bathroom_weather_temperature
+            name: Bathroom
+            state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
+          - type: custom:button-card
+            template:
+              - xs
+              - progress
+            entity: sensor.hallway_weather_temperature
+            name: Hallway
+            state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
+          - type: custom:button-card
+            template:
+              - xs
+              - progress
+            entity: sensor.guest_bedroom_weather_temperature
+            name: G. Bedroom
+            state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
+      - type: entities
+        entities:
+          - type: custom:dummy-entity-row
+            entity: sensor.average_temperature
+            name: Open temperature dashboard
+            icon: mdi:thermometer
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-main/climate
+
+sensor.average_humidity:
+  title: Humidities
+  style: *popup_style
+  auto_close: true
+  card:
+    type: vertical-stack
+    cards:
+      - type: horizontal-stack
+        cards:
+          - type: custom:button-card
+            template:
+              - xs
+              - progress
+            entity: sensor.multisensor_6_relative_humidity
+            state_display: "[[[ return Math.round(entity.state) + ' %' ]]]"
+            name: Living room
+            variables:
+              min_value: 25
+              max_value: 90
+              normal_value: 40
+              high_value: 65
+              low_color: "var(--color-red)"
+          - type: custom:button-card
+            template:
+              - xs
+              - progress
+            entity: sensor.bedroom_weather_humidity
+            state_display: "[[[ return Math.round(entity.state) + ' %' ]]]"
+            name: Bedroom
+            variables:
+              min_value: 25
+              max_value: 90
+              normal_value: 40
+              high_value: 65
+              low_color: "var(--color-red)"
+          - type: custom:button-card
+            template:
+              - xs
+              - progress
+            entity: sensor.kitchen_weather_humidity
+            state_display: "[[[ return Math.round(entity.state) + ' %' ]]]"
+            name: Kitchen
+            variables:
+              min_value: 25
+              max_value: 90
+              normal_value: 40
+              high_value: 65
+              low_color: "var(--color-red)"
+      - type: horizontal-stack
+        cards:
+          - type: custom:button-card
+            template:
+              - xs
+              - progress
+            entity: sensor.bathroom_weather_humidity
+            state_display: "[[[ return Math.round(entity.state) + ' %' ]]]"
+            name: Bathroom
+            variables:
+              min_value: 25
+              max_value: 90
+              normal_value: 40
+              high_value: 65
+              low_color: "var(--color-red)"
+          - type: custom:button-card
+            template:
+              - xs
+              - progress
+            entity: sensor.hallway_weather_humidity
+            state_display: "[[[ return Math.round(entity.state) + ' %' ]]]"
+            name: Hallway
+            variables:
+              min_value: 25
+              max_value: 90
+              normal_value: 40
+              high_value: 65
+              low_color: "var(--color-red)"
+          - type: custom:button-card
+            template:
+              - xs
+              - progress
+            entity: sensor.guest_bedroom_weather_humidity
+            state_display: "[[[ return Math.round(entity.state) + ' %' ]]]"
+            name: G. Bedroom
+            variables:
+              min_value: 25
+              max_value: 90
+              normal_value: 40
+              high_value: 65
+              low_color: "var(--color-red)"
+      - type: entities
+        entities:
+          - type: custom:dummy-entity-row
+            entity: sensor.average_temperature
+            name: Open temperature dashboard
+            icon: mdi:thermometer
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-main/climate

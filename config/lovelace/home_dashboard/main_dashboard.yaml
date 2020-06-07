@@ -205,142 +205,25 @@
                 cards:
                   - type: custom:button-card
                     template:
-                      - xs
+                      - small
                       - progress
-                    entity: sensor.multisensor_6_temperature
-                    name: Living room
+                    entity: sensor.average_temperature
+                    icon: mdi:thermometer
                     state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
                   - type: custom:button-card
                     template:
-                      - xs
+                      - small
                       - progress
-                    entity: sensor.trisensor_temperature
-                    name: Desk
-                    state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
-                  - type: custom:button-card
-                    template:
-                      - xs
-                      - progress
-                    entity: sensor.living_room_thermostat_temperature
-                    name: Radiator
-                    state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
-                  - type: custom:button-card
-                    template:
-                      - xs
-                      - progress
-                    entity: sensor.bedroom_weather_temperature
-                    name: Bedroom
-                    state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
-              - type: horizontal-stack
-                cards:
-                  - type: custom:button-card
-                    template:
-                      - xs
-                      - progress
-                    entity: sensor.kitchen_weather_temperature
-                    name: Kitchen
-                    state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
-                  - type: custom:button-card
-                    template:
-                      - xs
-                      - progress
-                    entity: sensor.bathroom_weather_temperature
-                    name: Bathroom
-                    state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
-                  - type: custom:button-card
-                    template:
-                      - xs
-                      - progress
-                    entity: sensor.hallway_weather_temperature
-                    name: Hallway
-                    state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
-                  - type: custom:button-card
-                    template:
-                      - xs
-                      - progress
-                    entity: sensor.guest_bedroom_weather_temperature
-                    name: G. Bedroom
-                    state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
-              - type: horizontal-stack
-                cards:
-                  - type: custom:button-card
-                    template:
-                      - xs
-                      - progress
-                    entity: sensor.multisensor_6_relative_humidity
+                    entity: sensor.average_humidity
+                    icon: mdi:water-percent
                     state_display: "[[[ return Math.round(entity.state) + ' %' ]]]"
-                    name: Living room
                     variables:
                       min_value: 25
                       max_value: 90
                       normal_value: 40
                       high_value: 65
                       low_color: "var(--color-red)"
-                  - type: custom:button-card
-                    template:
-                      - xs
-                      - progress
-                    entity: sensor.bedroom_weather_humidity
-                    state_display: "[[[ return Math.round(entity.state) + ' %' ]]]"
-                    name: Bedroom
-                    variables:
-                      min_value: 25
-                      max_value: 90
-                      normal_value: 40
-                      high_value: 65
-                      low_color: "var(--color-red)"
-                  - type: custom:button-card
-                    template:
-                      - xs
-                      - progress
-                    entity: sensor.kitchen_weather_humidity
-                    state_display: "[[[ return Math.round(entity.state) + ' %' ]]]"
-                    name: Kitchen
-                    variables:
-                      min_value: 25
-                      max_value: 90
-                      normal_value: 40
-                      high_value: 65
-                      low_color: "var(--color-red)"
-                  - type: custom:button-card
-                    template:
-                      - xs
-                      - progress
-                    entity: sensor.bathroom_weather_humidity
-                    state_display: "[[[ return Math.round(entity.state) + ' %' ]]]"
-                    name: Bathroom
-                    variables:
-                      min_value: 25
-                      max_value: 90
-                      normal_value: 40
-                      high_value: 65
-                      low_color: "var(--color-red)"
-                  - type: custom:button-card
-                    template:
-                      - xs
-                      - progress
-                    entity: sensor.hallway_weather_humidity
-                    state_display: "[[[ return Math.round(entity.state) + ' %' ]]]"
-                    name: Hallway
-                    variables:
-                      min_value: 25
-                      max_value: 90
-                      normal_value: 40
-                      high_value: 65
-                      low_color: "var(--color-red)"
-                  - type: custom:button-card
-                    template:
-                      - xs
-                      - progress
-                    entity: sensor.guest_bedroom_weather_humidity
-                    state_display: "[[[ return Math.round(entity.state) + ' %' ]]]"
-                    name: G. Bedroom
-                    variables:
-                      min_value: 25
-                      max_value: 90
-                      normal_value: 40
-                      high_value: 65
-                      low_color: "var(--color-red)"
+
 
           - type: vertical-stack
             cards:

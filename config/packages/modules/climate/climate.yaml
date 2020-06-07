@@ -1,7 +1,7 @@
 sensor:
   - platform: min_max
     type: mean
-    name: Average Temperature
+    name: Average temperature
     entity_ids:
       - sensor.trisensor_temperature
       - sensor.bedroom_weather_temperature
