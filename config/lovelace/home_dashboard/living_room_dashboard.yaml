@@ -12,7 +12,7 @@
   card:
     type: custom:layout-card
     layout: horizontal
-    max_columns: 2
+    max_columns: 3
     cards:
       - type: vertical-stack
         title: Living room
@@ -110,19 +110,6 @@
                   - player: media_player.living_room
                   - player_name: Living room
 
-
-          - type: vertical-stack
-            title: Camera
-            cards:
-              - type: picture-glance
-                camera_image: camera.amcrest_camera
-                entities:
-                  - entity: camera.amcrest_camera
-                  - entity: switch.camera
-                    show_state: false
-                  - entity: binary_sensor.amcrest_camera_online
-                    show_state: false
-
       - type: vertical-stack
         cards:
           - type: horizontal-stack
@@ -213,3 +200,16 @@
                   - progress
                 entity: sensor.multisensor_6_ultraviolet
                 name: Multi UV
+
+
+      - type: vertical-stack
+        title: Camera
+        cards:
+          - type: picture-glance
+            camera_image: camera.amcrest_camera
+            entities:
+              - entity: camera.amcrest_camera
+              - entity: switch.camera
+                show_state: false
+              - entity: binary_sensor.amcrest_camera_online
+                show_state: false
