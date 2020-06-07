@@ -1,0 +1,33 @@
+version: "3"
+
+volumes:
+  mosquitto_data: {}
+  mosquitto_log: {}
+
+services:
+  mosquitto:
+    container_name: mosquitto
+    image: eclipse-mosquitto:latest
+    volumes:
+      - ./mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf
+      - ./mosquitto/passwd:/etc/mosquitto/passwd
+      - mosquitto_data:/mosquitto/data
+      - mosquitto_log:/mosquitto/log
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    restart: always
+
+  zigbee2mqtt:
+    container_name: zigbee2mqtt
+    image: koenkk/zigbee2mqtt
+    volumes:
+      - ./data:/app/data
+      - /run/udev:/run/udev:ro
+    devices:
+      - /dev/ttyACM2:/dev/ttyACM2
+    restart: always
+    network_mode: host
+    privileged: true
+    environment:
+      - TZ=Europe/Sofia
