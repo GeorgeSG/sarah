@@ -1,44 +1,6 @@
 title: test
 path: test
 cards:
-  - type: horizontal-stack
-    cards:
-      - type: custom:button-card
-        template: xs
-        name: Themes
-        icon: mdi:reload
-        tap_action:
-          action: call-service
-          service: frontend.reload_themes
-      - type: custom:button-card
-        template: xs
-        name: Auto
-        icon: mdi:reload
-        tap_action:
-          action: call-service
-          service: automation.reload
-      - type: custom:button-card
-        template: xs
-        name: Scripts
-        icon: mdi:reload
-        tap_action:
-          action: call-service
-          service: script.reload
-      - type: custom:button-card
-        template: xs
-        name: Scenes
-        icon: mdi:reload
-        tap_action:
-          action: call-service
-          service: scene.reload
-      - type: custom:button-card
-        template: xs
-        name: Groups
-        icon: mdi:reload
-        tap_action:
-          action: call-service
-          service: group.reload
-
   - type: entities
     entities:
       - input_boolean.magic_cube_enabled
@@ -46,9 +8,6 @@ cards:
       - sensor.cube_analog_input
       - sensor.cube_multistate_input
       - sensor.cube_power
-      - type: divider
-      - entity: binary_sensor.lumi_lumi_vibration_aq1_b8c6c402_ias_zone
-        name: Vibration
       - type: divider
       - sensor.carbon_activity
       - sensor.carbon_last_update_trigger

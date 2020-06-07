@@ -103,7 +103,7 @@ cards:
                   step: 5
 
         - type: entities
-          title: Master bedroom
+          title: Bedroom
           icon: mdi:bed-empty
           show_header_toggle: false
           entities:
