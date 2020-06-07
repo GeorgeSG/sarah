@@ -24,4 +24,3 @@ services:
   #   depends_on:
   #     - homeassistant
   #   network_mode: host
-

@@ -5,4 +5,3 @@ yeelight:
       name: Bedside
     !secret yeelight_living_room_ip:
       name: Living room Ambient main
-

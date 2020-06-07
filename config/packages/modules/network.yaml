@@ -33,7 +33,7 @@ pi_hole:
     api_key: !secret pihole_api_key
 
 homekit:
-  safe_mode: True
+  safe_mode: true
   filter:
     include_entities:
       - light.living_room_main

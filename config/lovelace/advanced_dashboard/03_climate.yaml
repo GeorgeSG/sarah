@@ -67,4 +67,3 @@ cards:
             - main_entity: sensor.guest_bedroom_weather_temperature
             - left_entity: sensor.guest_bedroom_weather_humidity
             - right_entity: sensor.guest_bedroom_weather_pressure
-

@@ -168,4 +168,3 @@ panel_iframe:
 zwave:
   usb_path: /dev/ttyACM1
   # device_config: !include zwave_device_config.yaml
-

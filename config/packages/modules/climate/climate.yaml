@@ -21,8 +21,7 @@ sensor:
       - sensor.hallway_weather_humidity
       - sensor.guest_bedroom_weather_humidity
 
-
-sensor:
+  # MQTT
   # Bedroom weather sensor
   - platform: mqtt
     name: "Bedroom weather temperature"

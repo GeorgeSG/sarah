@@ -91,4 +91,3 @@ automation:
       - service: script.say
         data:
           message: "Just wanted to let you know - a new PDS is available!"
-

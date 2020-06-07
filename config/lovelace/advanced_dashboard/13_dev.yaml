@@ -100,5 +100,3 @@ cards:
                 max_count: 2
           - type: custom:folder-card
             entity: sensor.pds
-
-

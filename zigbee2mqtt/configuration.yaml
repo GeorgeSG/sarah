@@ -62,5 +62,3 @@ devices:
     retain: true
     temperature_precision: 1
     humidity_precision: 1
-
-

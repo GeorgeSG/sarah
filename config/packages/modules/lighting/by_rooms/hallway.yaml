@@ -35,9 +35,9 @@ automation:
     condition:
       condition: not
       conditions:
-      - condition: state
-        entity_id: input_select.house_mode
-        state: 'day'
+        - condition: state
+          entity_id: input_select.house_mode
+          state: 'day'
     action:
       - service: light.turn_on
         entity_id: light.light_lohas_6
