@@ -48,6 +48,9 @@
   url: /hacsfiles/vertical-stack-in-card/vertical-stack-in-card.js
 - type: module
   url: /hacsfiles/weather-card/weather-card.js
+- type: module
+  url: /hacsfiles/zigbee2mqtt-networkmap/zigbee2mqtt-networkmap.js
+
 
 - type: module
   url: /hacsfiles/lovelace-folder-card/folder-card.js

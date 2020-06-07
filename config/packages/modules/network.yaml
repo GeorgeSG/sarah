@@ -109,6 +109,30 @@ binary_sensor:
     payload_off: "disabled"
     value_template: '{{ value_json.status }}'
 
+sensor:
+  - platform: mqtt
+    name: "Zigbee2MQTT Networkmap"
+    # if you change base_topic of Zigbee2mqtt, change state_topic accordingly
+    state_topic: "zigbee2mqtt/bridge/networkmap/raw"
+    value_template: "{{ now().strftime('%Y-%m-%d %H:%M:%S') }}"
+    # again, if you change base_topic of Zigbee2mqtt, change json_attributes_topic accordingly
+    json_attributes_topic: zigbee2mqtt/bridge/networkmap/raw
+  - platform: mqtt
+    name: "Zigbee2MQTT Devices count"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    state_topic: "zigbee2mqtt/bridge/config/devices"
+    value_template: "{{ value_json | count }}"
+    icon: "mdi:counter"
+
+script:
+  zigbee2mqtt_get_device_count:
+    alias: "Network · Zigbee2MQTT · Get device count"
+    icon: "mdi:reload"
+    sequence:
+      service: mqtt.publish
+      data:
+        topic: "zigbee2mqtt/bridge/config/devices/get"
+
 homeassistant:
   customize:
     switch.pihole_temp_disable:

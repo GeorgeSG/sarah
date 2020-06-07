@@ -1,6 +1,6 @@
 title: Batteries
 path: batteries
-icon: "mdi:battery-50"
+icon: "mdi:z-wave"
 panel: true
 cards:
   - type: custom:mod-card
@@ -42,21 +42,27 @@ cards:
           title: Aqara sensors
           entities:
             - type: custom:battery-entity
-              entity: sensor.front_door_power
+              entity: sensor.front_door_battery
             - type: custom:battery-entity
               entity: sensor.living_room_right_window_power
             - type: divider
             - type: custom:battery-entity
-              entity: sensor.bedroom_door_power
+              entity: sensor.bedroom_door_battery
             - type: custom:battery-entity
-              entity: sensor.bedroom_left_window_power
+              entity: sensor.bedroom_left_window_battery
             - type: custom:battery-entity
-              entity: sensor.bedroom_right_window_power
+              entity: sensor.bedroom_right_window_battery
             - type: custom:battery-entity
-              entity: sensor.bedroom_weather_power
+              entity: sensor.bedroom_weather_battery
             - type: divider
             - type: custom:battery-entity
-              entity: sensor.kitchen_window_power
+              entity: sensor.kitchen_window_battery
+            - type: custom:battery-entity
+              entity: sensor.kitchen_weather_battery
+            - type: custom:battery-entity
+              entity: sensor.bathroom_weather_battery
+            - type: custom:battery-entity
+              entity: sensor.hallway_weather_battery
             - type: custom:battery-entity
               entity: sensor.motion_1_power
             - type: custom:battery-entity
@@ -65,12 +71,36 @@ cards:
           title: Aqara Devices
           entities:
             - type: custom:battery-entity
-              entity: sensor.desk_switch_power
+              entity: sensor.desk_switch_battery
             - type: custom:battery-entity
               entity: sensor.master_bedroom_bedside_switch_power
             - type: custom:battery-entity
               entity: sensor.bathroom_switch_power
             - type: custom:battery-entity
               entity: sensor.cube_power
-
-
+        - type: vertical-stack
+          cards:
+            - type: entities
+              title: Zigbee2MQTT link quality
+              entities:
+                - sensor.front_door_lqi
+                - sensor.desk_switch_lqi
+                - type: divider
+                - sensor.bedroom_door_lqi
+                - sensor.bedroom_left_window_lqi
+                - sensor.bedroom_right_window_lqi
+                - sensor.bedroom_weather_lqi
+                - type: divider
+                - sensor.kitchen_window_lqi
+                - sensor.kitchen_weather_lqi
+                - type: divider
+                - sensor.bathroom_weather_lqi
+                - sensor.hallway_weather_lqi
+            - type: custom:vertical-stack-in-card
+              cards:
+                - type: entities
+                  entities:
+                    - sensor.zigbee2mqtt_devices_count
+                    - script.zigbee2mqtt_get_device_count
+                - type: custom:zigbee2mqtt-networkmap
+                  entity: sensor.zigbee2mqtt_networkmap

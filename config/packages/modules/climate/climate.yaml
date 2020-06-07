@@ -21,20 +21,152 @@ sensor:
       - sensor.hallway_weather_humidity
       - sensor.guest_bedroom_weather_humidity
 
-#
-# ─── CUSTOMIZATION ──────────────────────────────────────────────────────────────
-#
 
-homeassistant:
-  customize:
-    sensor.bedroom_weather_power:
-      friendly_name: Bedroom weather battery
+sensor:
+  # Bedroom weather sensor
+  - platform: mqtt
+    name: "Bedroom weather temperature"
+    state_topic: "zigbee2mqtt/bedroom_weather"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    unit_of_measurement: "°C"
+    device_class: "temperature"
+    value_template: "{{ value_json.temperature }}"
+  - platform: mqtt
+    name: "Bedroom weather humidity"
+    state_topic: "zigbee2mqtt/bedroom_weather"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    unit_of_measurement: "%"
+    device_class: "humidity"
+    value_template: "{{ value_json.humidity }}"
+  - platform: mqtt
+    name: "Bedroom weather pressure"
+    state_topic: "zigbee2mqtt/bedroom_weather"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    unit_of_measurement: "hPa"
+    device_class: "pressure"
+    value_template: "{{ value_json.pressure }}"
+  - platform: mqtt
+    name: "Bedroom weather battery"
+    state_topic: "zigbee2mqtt/bedroom_weather"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    unit_of_measurement: "%"
+    device_class: "battery"
+    value_template: "{{ value_json.battery }}"
+  - platform: mqtt
+    name: "Bedroom weather LQI"
+    state_topic: "zigbee2mqtt/bedroom_weather"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:signal"
+    unit_of_measurement: "lqi"
+    value_template: "{{ value_json.linkquality }}"
 
-    sensor.bedroom_weather_temperature:
-      friendly_name: Temperature
+  # Kitchen weather sensor
+  - platform: mqtt
+    name: "Kitchen weather temperature"
+    state_topic: "zigbee2mqtt/kitchen_weather"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    unit_of_measurement: "°C"
+    device_class: "temperature"
+    value_template: "{{ value_json.temperature }}"
+  - platform: mqtt
+    name: "Kitchen weather humidity"
+    state_topic: "zigbee2mqtt/kitchen_weather"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    unit_of_measurement: "%"
+    device_class: "humidity"
+    value_template: "{{ value_json.humidity }}"
+  - platform: mqtt
+    name: "Kitchen weather pressure"
+    state_topic: "zigbee2mqtt/kitchen_weather"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    unit_of_measurement: "hPa"
+    device_class: "pressure"
+    value_template: "{{ value_json.pressure }}"
+  - platform: mqtt
+    name: "Kitchen weather battery"
+    state_topic: "zigbee2mqtt/kitchen_weather"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    unit_of_measurement: "%"
+    device_class: "battery"
+    value_template: "{{ value_json.battery }}"
+  - platform: mqtt
+    name: "Kitchen weather LQI"
+    state_topic: "zigbee2mqtt/kitchen_weather"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:signal"
+    unit_of_measurement: "lqi"
+    value_template: "{{ value_json.linkquality }}"
 
-    sensor.bedroom_weather_pressure:
-      friendly_name: Pressure
+  # Bathroom weather sensor
+  - platform: mqtt
+    name: "Bathroom weather temperature"
+    state_topic: "zigbee2mqtt/bathroom_weather"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    unit_of_measurement: "°C"
+    device_class: "temperature"
+    value_template: "{{ value_json.temperature }}"
+  - platform: mqtt
+    name: "Bathroom weather humidity"
+    state_topic: "zigbee2mqtt/bathroom_weather"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    unit_of_measurement: "%"
+    device_class: "humidity"
+    value_template: "{{ value_json.humidity }}"
+  - platform: mqtt
+    name: "Bathroom weather pressure"
+    state_topic: "zigbee2mqtt/bathroom_weather"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    unit_of_measurement: "hPa"
+    device_class: "pressure"
+    value_template: "{{ value_json.pressure }}"
+  - platform: mqtt
+    name: "Bathroom weather battery"
+    state_topic: "zigbee2mqtt/bathroom_weather"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    unit_of_measurement: "%"
+    device_class: "battery"
+    value_template: "{{ value_json.battery }}"
+  - platform: mqtt
+    name: "Bathroom weather LQI"
+    state_topic: "zigbee2mqtt/bathroom_weather"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:signal"
+    unit_of_measurement: "lqi"
+    value_template: "{{ value_json.linkquality }}"
 
-    sensor.bedroom_weather_humidity:
-      friendly_name: Humidity
+  # Hallway weather sensor
+  - platform: mqtt
+    name: "Hallway weather temperature"
+    state_topic: "zigbee2mqtt/hallway_weather"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    unit_of_measurement: "°C"
+    device_class: "temperature"
+    value_template: "{{ value_json.temperature }}"
+  - platform: mqtt
+    name: "Hallway weather humidity"
+    state_topic: "zigbee2mqtt/hallway_weather"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    unit_of_measurement: "%"
+    device_class: "humidity"
+    value_template: "{{ value_json.humidity }}"
+  - platform: mqtt
+    name: "Hallway weather pressure"
+    state_topic: "zigbee2mqtt/hallway_weather"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    unit_of_measurement: "hPa"
+    device_class: "pressure"
+    value_template: "{{ value_json.pressure }}"
+  - platform: mqtt
+    name: "Hallway weather battery"
+    state_topic: "zigbee2mqtt/hallway_weather"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    unit_of_measurement: "%"
+    device_class: "battery"
+    value_template: "{{ value_json.battery }}"
+  - platform: mqtt
+    name: "Hallway weather LQI"
+    state_topic: "zigbee2mqtt/hallway_weather"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:signal"
+    unit_of_measurement: "lqi"
+    value_template: "{{ value_json.linkquality }}"
