@@ -7,7 +7,7 @@
             padding: 0 10px;
           }
           #columns .column {
-            padding: 10px 10px;
+            padding: 0 10px;
           }
   card:
     type: custom:layout-card
@@ -33,12 +33,15 @@
                 entity: light.hallway_main
                 name: Main
 
+      - type: vertical-stack
+        cards:
           - type: horizontal-stack
+            title: Sensors
             cards:
               - type: custom:button-card
                 template: default
                 entity: binary_sensor.front_door
-                name: Door
+                name: Front door
               - type: custom:button-card
                 template:
                   - default
@@ -58,10 +61,10 @@
                   max_value: 1000
                   normal_value: 1000
 
-      - type: custom:decluttering-card
-        template: climate_card
-        variables:
-          - title: "Climate"
-          - main_entity: sensor.hallway_weather_temperature
-          - left_entity: sensor.hallway_weather_humidity
-          - right_entity: sensor.hallway_weather_pressure
+          - type: custom:decluttering-card
+            template: climate_card
+            variables:
+              - title: "Climate"
+              - main_entity: sensor.hallway_weather_temperature
+              - left_entity: sensor.hallway_weather_humidity
+              - right_entity: sensor.hallway_weather_pressure

@@ -7,7 +7,7 @@
             padding: 0 10px;
           }
           #columns .column {
-            padding: 10px 10px;
+            padding: 0 10px;
           }
   card:
     type: custom:layout-card
@@ -87,7 +87,10 @@
               - player: media_player.kitchen
               - player_name: Kitchen
 
+      - type: vertical-stack
+        cards:
           - type: horizontal-stack
+            title: Sensors
             cards:
               - type: custom:button-card
                 template: default
@@ -120,8 +123,6 @@
                 variables:
                   state_indicator_id: automation.lighting_hallway_day_mode_motion_turn_lights_on
 
-      - type: vertical-stack
-        cards:
           - type: custom:decluttering-card
             template: climate_card
             variables:

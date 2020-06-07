@@ -7,7 +7,7 @@
             padding: 0 10px;
           }
           #columns .column {
-            padding: 10px 10px;
+            padding: 0 10px;
           }
   card:
     type: custom:layout-card
@@ -82,6 +82,46 @@
                     entity: light.hallway_entrance
                     name: Entrance
 
+          - type: horizontal-stack
+            title: Manual controls
+            cards:
+              - type: custom:button-card
+                template:
+                  - default
+                  - with_state_indicator
+                entity: input_boolean.alarm_enabled
+                state_display: >-
+                  [[[
+                    const time = states['input_datetime.alarm_time'].state;
+                    return time.split(':').slice(0, -1).join(':');
+                  ]]]
+                show_state: true
+                show_name: false
+                styles:
+                  icon:
+                    - transform: translateY(-8px)  # adjusted for state indicator size
+                  state:
+                    - transform: translateY(-13px)  # adjusted for state indicator size
+                variables:
+                  state_indicator_id: automation.alarm_set_time
+              - type: custom:button-card
+                template: default
+                entity: input_boolean.speech_notifications
+                name: Speech
+              - type: custom:button-card
+                template: default
+                entity: binary_sensor.house_mode
+                tap_action:
+                  action: call-service
+                  service: input_select.select_next
+                  service_data:
+                    entity_id: input_select.house_mode
+              - type: custom:button-card
+                template: default
+                entity: input_boolean.guest_mode
+                tap_action:
+                  action: toggle
+
           - type: vertical-stack
             title: Devices
             cards:
@@ -126,7 +166,6 @@
                     icon: mdi:nas
                     tap_action:
                       action: more-info
-
               - type: horizontal-stack
                 cards:
                   - type: custom:button-card
@@ -156,75 +195,6 @@
       # Column 2
       - type: vertical-stack
         cards:
-          - type: vertical-stack
-            title: Manual controls
-            cards:
-              - type: horizontal-stack
-                cards:
-                  - type: custom:button-card
-                    template:
-                      - default
-                      - with_state_indicator
-                    entity: input_boolean.alarm_enabled
-                    state_display: >-
-                      [[[
-                        const time = states['input_datetime.alarm_time'].state;
-                        return time.split(':').slice(0, -1).join(':');
-                      ]]]
-                    show_state: true
-                    show_name: false
-                    styles:
-                      icon:
-                        - transform: translateY(-8px)  # adjusted for state indicator size
-                      state:
-                        - transform: translateY(-13px)  # adjusted for state indicator size
-                    variables:
-                      state_indicator_id: automation.alarm_set_time
-                  - type: custom:button-card
-                    template: default
-                    entity: input_boolean.speech_notifications
-                    name: Speech
-                  - type: custom:button-card
-                    template: default
-                    entity: binary_sensor.house_mode
-                    tap_action:
-                      action: call-service
-                      service: input_select.select_next
-                      service_data:
-                        entity_id: input_select.house_mode
-                  - type: custom:button-card
-                    template: default
-                    entity: input_boolean.guest_mode
-                    tap_action:
-                      action: toggle
-
-          - type: vertical-stack
-            title: Climate
-            cards:
-              - type: horizontal-stack
-                cards:
-                  - type: custom:button-card
-                    template:
-                      - small
-                      - progress
-                    entity: sensor.average_temperature
-                    icon: mdi:thermometer
-                    state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
-                  - type: custom:button-card
-                    template:
-                      - small
-                      - progress
-                    entity: sensor.average_humidity
-                    icon: mdi:water-percent
-                    state_display: "[[[ return Math.round(entity.state) + ' %' ]]]"
-                    variables:
-                      min_value: 25
-                      max_value: 90
-                      normal_value: 40
-                      high_value: 65
-                      low_color: "var(--color-red)"
-
-
           - type: vertical-stack
             cards:
               - type: vertical-stack
@@ -298,6 +268,31 @@
                       - type: entity
                         entity: device_tracker.carbon
                         name: GPS
+          - type: vertical-stack
+            title: Climate
+            cards:
+              - type: horizontal-stack
+                cards:
+                  - type: custom:button-card
+                    template:
+                      - small
+                      - progress
+                    entity: sensor.average_temperature
+                    icon: mdi:thermometer
+                    state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
+                  - type: custom:button-card
+                    template:
+                      - small
+                      - progress
+                    entity: sensor.average_humidity
+                    icon: mdi:water-percent
+                    state_display: "[[[ return Math.round(entity.state) + ' %' ]]]"
+                    variables:
+                      min_value: 25
+                      max_value: 90
+                      normal_value: 40
+                      high_value: 65
+                      low_color: "var(--color-red)"
 
       # Column 3
       - type: vertical-stack
