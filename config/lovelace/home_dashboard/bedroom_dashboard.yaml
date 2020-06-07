@@ -30,7 +30,7 @@
               - type: custom:button-card
                 template: default
                 entity: light.bed_led
-                name: LED
+                name: Bed
               - type: custom:button-card
                 template: default
                 entity: light.bedside
@@ -62,73 +62,42 @@
                     variables:
                       state_indicator_id: automation.alarm_set_time
                   - type: custom:button-card
-                    template:
-                      - default
-                      - with_state_indicator
-                    entity: fan.philips_airpurifier
-                    variables:
-                      state_indicator_id: binary_sensor.purifier_filter_needs_change
-                      state_indicator_size: 5px
-                      state_indicator_off_size: 0px
-                      state_indicator_on_color: var(--color-red)
-                      state_on_indicator_on_color: var(--color-red)
-                  - type: custom:decluttering-card
-                    template: purifier_target_humidity
-                  - type: custom:button-card
                     template: default
                     entity: binary_sensor.house_mode
+                  - type: custom:button-card
+                    template:
+                      - default
+                      - scene
+                    entity: script.scene_bedroom_neon
+                    name: Neon
+                    variables:
+                      scene_color_1: rgb(255, 0, 190)
+                      scene_color_2: rgb(0, 255, 190)
+                  - type: custom:button-card
+                    template:
+                      - default
+                      - scene
+                    entity: script.scene_bedroom_regular
+                    name: Regular
+                    variables:
+                      scene_color_1: rgb(254, 255, 209)
 
-          - type: custom:decluttering-card
-            template: media_with_controls
-            variables:
-              - player: media_player.master_bedroom
-              - player_name: Bedroom
-
-
-      - type: vertical-stack
-        cards:
           - type: horizontal-stack
-            title: Scenes
+            title: Purifier
             cards:
               - type: custom:button-card
                 template:
                   - default
-                  - scene
-                entity: script.scene_bedroom_neon
-                name: Neon
+                  - with_state_indicator
+                entity: fan.philips_airpurifier
                 variables:
-                  scene_color_1: rgb(255, 0, 190)
-                  scene_color_2: rgb(0, 255, 190)
-              - type: custom:button-card
-                template:
-                  - default
-                  - scene
-                entity: script.scene_bedroom_regular
-                name: Regular
-                variables:
-                  scene_color_1: rgb(254, 255, 209)
-
-          - type: horizontal-stack
-            title: Sensors
-            cards:
-              - type: custom:button-card
-                template:
-                  - small
-                  - progress
-                entity: sensor.bedroom_weather_temperature
-                state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
-              - type: custom:button-card
-                template:
-                  - small
-                  - progress
-                entity: sensor.bedroom_weather_humidity
-                state_display: "[[[ return Math.round(entity.state) + ' %' ]]]"
-                variables:
-                  min_value: 25
-                  max_value: 90
-                  normal_value: 40
-                  high_value: 65
-                  low_color: "var(--color-red)"
+                  state_indicator_id: binary_sensor.purifier_filter_needs_change
+                  state_indicator_size: 5px
+                  state_indicator_off_size: 0px
+                  state_indicator_on_color: var(--color-red)
+                  state_on_indicator_on_color: var(--color-red)
+              - type: custom:decluttering-card
+                template: purifier_target_humidity
               - type: custom:button-card
                 template:
                   - small
@@ -150,7 +119,16 @@
                   normal_value: 1
                   high_value: 10
 
+          - type: custom:decluttering-card
+            template: media_with_controls
+            variables:
+              - player: media_player.master_bedroom
+              - player_name: Bedroom
+
+      - type: vertical-stack
+        cards:
           - type: horizontal-stack
+            title: Sensors
             cards:
               - type: custom:button-card
                 template: default
@@ -164,3 +142,11 @@
                 template: default
                 entity: binary_sensor.bedroom_right_window
                 name: Right window
+
+          - type: custom:decluttering-card
+            template: climate_card
+            variables:
+              - title: "Climate"
+              - main_entity: sensor.bedroom_weather_temperature
+              - left_entity: sensor.bedroom_weather_humidity
+              - right_entity: sensor.bedroom_weather_pressure

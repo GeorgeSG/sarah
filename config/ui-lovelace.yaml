@@ -24,7 +24,7 @@ views:
     path: master_bedroom
     icon: "mdi:bed-empty"
     panel: true
-    cards: !include lovelace/home_dashboard/master_bedroom_dashboard.yaml
+    cards: !include lovelace/home_dashboard/bedroom_dashboard.yaml
   - title: Kitchen
     path: kitchen
     icon: "mdi:chef-hat"
