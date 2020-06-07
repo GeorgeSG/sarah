@@ -6,7 +6,6 @@ sensor:
       - sensor.trisensor_temperature
       - sensor.bedroom_weather_temperature
       - sensor.kitchen_weather_temperature
-      - sensor.bathroom_weather_temperature
       - sensor.hallway_weather_temperature
       - sensor.guest_bedroom_weather_temperature
 
@@ -17,7 +16,6 @@ sensor:
       - sensor.multisensor_6_relative_humidity
       - sensor.bedroom_weather_humidity
       - sensor.kitchen_weather_humidity
-      - sensor.bathroom_weather_humidity
       - sensor.hallway_weather_humidity
       - sensor.guest_bedroom_weather_humidity
 
