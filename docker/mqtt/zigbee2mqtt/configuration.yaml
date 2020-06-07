@@ -48,4 +48,9 @@ devices:
     retain: true
     temperature_precision: 1
     humidity_precision: 1
+  '0x00158d000465ae58':
+    friendly_name: bedroom_weather
+    retain: true
+    temperature_precision: 1
+    humidity_precision: 1
 
