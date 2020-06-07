@@ -38,3 +38,14 @@ devices:
   '0x00158d00044e85df':
     friendly_name: bedroom_door
     retain: true
+  '0x00158d00045cf423':
+    friendly_name: kitchen_weather
+    retain: true
+    temperature_precision: 1
+    humidity_precision: 1
+  '0x00158d00047ba8af':
+    friendly_name: hallway_weather
+    retain: true
+    temperature_precision: 1
+    humidity_precision: 1
+
