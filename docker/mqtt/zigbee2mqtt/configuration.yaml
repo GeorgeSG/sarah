@@ -1,0 +1,29 @@
+homeassistant: false
+permit_join: true
+mqtt:
+  base_topic: zigbee2mqtt
+  server: 'mqtt://192.168.0.27'
+  user: '!secret user'
+  password: '!secret password'
+advanced:
+  channel: 12
+  log_level: debug
+devices:
+  '0x00158d0002a721fd':
+    friendly_name: magic_cube
+  '0x00158d0002c4c6b8':
+    friendly_name: vibration_sensor
+  '0x00158d00044e8210':
+    friendly_name: bedroom_left_window
+    retain: true
+  '0x00158d00045c0e3f':
+    friendly_name: bedroom_right_window
+    retain: true
+  '0x00158d00049ff1db':
+    friendly_name: kitchen_window
+    retain: true
+  '0x00158d00047ba6cd':
+    friendly_name: bathroom_weather
+    retain: true
+    temperature_precision: 1
+    humidity_precision: 1
