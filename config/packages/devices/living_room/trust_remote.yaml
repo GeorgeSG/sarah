@@ -1,0 +1,114 @@
+sensor:
+  - platform: mqtt
+    name: "Trust remote action"
+    state_topic: "zigbee2mqtt/trust_remote"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:gesture-double-tap"
+    value_template: "{{ value_json.action }}"
+  - platform: mqtt
+    name: "Trust remote group"
+    state_topic: "zigbee2mqtt/trust_remote"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:lightbulb-group"
+    value_template: "{{ value_json.action_group }}"
+  - platform: mqtt
+    name: "Trust remote LQI"
+    state_topic: "zigbee2mqtt/trust_remote"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:signal"
+    unit_of_measurement: "lqi"
+    value_template: "{{ value_json.linkquality }}"
+
+automation:
+  - alias: Trust remote · Dimming
+    trigger:
+      - platform: state
+        entity_id: sensor.trust_remote_action
+        to: "down-press"
+      - platform: state
+        entity_id: sensor.trust_remote_action
+        to: "up-press"
+    action:
+      - service: light.turn_on
+        data_template:
+          entity_id: >-
+            {% set groupId = states('sensor.trust_remote_group')[4] | int %}
+            {% if groupId == 5 %}
+              {% set entityId = 'light.living_room' %}
+            {% elif groupId == 0 %}
+              {% set entityId = 'light.living_room_main' %}
+            {% elif groupId == 1 %}
+              {% set entityId = 'light.light_avatar_small_2' %}
+            {% elif groupId == 2 %}
+              {% set entityId = 'light.living_room_ambient' %}
+            {% elif groupId == 3 %}
+              {% set entityId = 'light.living_room_ambient_main' %}
+            {% elif groupId == 4 %}
+              {% set entityId = 'light.light_avatar_small_1' %}
+            {% endif %}
+
+            {{ entityId }}
+
+          brightness_step_pct: >-
+            {% if trigger.to_state.state == "up-press" %}
+              20
+            {% else %}
+              -20
+            {% endif %}
+
+  - alias: Trust remote · Turn on
+    trigger:
+      - platform: mqtt
+        topic: zigbee2mqtt/trust_remote
+    condition:
+      - condition: template
+        value_template: >
+          {{ trigger.payload_json.action == "on" }}
+    action:
+      - service_template: light.turn_on
+        data_template:
+          entity_id: >-
+            {% set groupId = (trigger.payload_json.action_group % 10) %}
+            {% if groupId == 5 %}
+              light.living_room
+            {% elif groupId == 0 %}
+              light.living_room_main
+            {% elif groupId == 1 %}
+              light.light_avatar_small_2
+            {% elif groupId == 2 %}
+              light.living_room_ambient
+            {% elif groupId == 3 %}
+              light.living_room_ambient_main
+            {% elif groupId == 4 %}
+              light.light_avatar_small_1
+            {% endif %}
+          brightness_pct: 100
+
+  - alias: Trust remote · Turn off
+    trigger:
+      - platform: mqtt
+        topic: zigbee2mqtt/trust_remote
+    condition:
+      - condition: template
+        value_template: >-
+          {{ trigger.payload_json.action == "off" }}
+    action:
+      - service: light.turn_off
+        data_template:
+          entity_id: >-
+            {% set groupId = (trigger.payload_json.action_group % 10) %}
+            {% if groupId == 5 %}
+              {% set entityId = 'light.living_room' %}
+            {% elif groupId == 0 %}
+              {% set entityId = 'light.living_room_main' %}
+            {% elif groupId == 1 %}
+              {% set entityId = 'light.light_avatar_small_2' %}
+            {% elif groupId == 2 %}
+              {% set entityId = 'light.living_room_ambient' %}
+            {% elif groupId == 3 %}
+              {% set entityId = 'light.living_room_ambient_main' %}
+            {% elif groupId == 4 %}
+              {% set entityId = 'light.light_avatar_small_1' %}
+            {% endif %}
+
+            {{ entityId }}
