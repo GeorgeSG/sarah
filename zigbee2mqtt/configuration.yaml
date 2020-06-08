@@ -10,17 +10,14 @@ serial:
   disable_led: true
 advanced:
   channel: 12
-  log_level: info
+  log_level: debug
 devices:
-  # Living room
   '0x00158d0002a721fd':
     friendly_name: magic_cube
   '0x00158d0002c4c6b8':
     friendly_name: vibration_sensor
   '0x00158d0002f249d2':
     friendly_name: desk_switch
-
-  # Bedroom
   '0x00158d00044e8210':
     friendly_name: bedroom_left_window
     retain: true
@@ -35,8 +32,6 @@ devices:
     retain: true
     temperature_precision: 1
     humidity_precision: 1
-
-  # Kitchen
   '0x00158d00049ff1db':
     friendly_name: kitchen_window
     retain: true
@@ -45,15 +40,11 @@ devices:
     retain: true
     temperature_precision: 1
     humidity_precision: 1
-
-  # Bathroom
   '0x00158d00047ba6cd':
     friendly_name: bathroom_weather
     retain: true
     temperature_precision: 1
     humidity_precision: 1
-
-  # Hallway
   '0x00158d00045ee213':
     friendly_name: front_door
     retain: true
@@ -62,3 +53,5 @@ devices:
     retain: true
     temperature_precision: 1
     humidity_precision: 1
+  '0x00158d0001cbbb94':
+    friendly_name: trust_remote
