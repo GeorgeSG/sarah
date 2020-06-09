@@ -6,7 +6,7 @@ mqtt:
   user: '!secret user'
   password: '!secret password'
 serial:
-  port: /dev/ttyACM0
+  port: /dev/CONBEE
 advanced:
   channel: 12
   log_level: debug

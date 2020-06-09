@@ -25,7 +25,7 @@ services:
       - ../../zigbee2mqtt:/app/data
       - /run/udev:/run/udev:ro
     devices:
-      - /dev/ttyACM2:/dev/ttyACM2
+      - /dev/CC2531:/dev/CC2531
     restart: always
     network_mode: host
     privileged: true

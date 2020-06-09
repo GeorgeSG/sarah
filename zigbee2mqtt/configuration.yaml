@@ -6,7 +6,7 @@ mqtt:
   user: '!secret user'
   password: '!secret password'
 serial:
-  port: /dev/ttyACM2
+  port: /dev/CC2531
   disable_led: true
 advanced:
   channel: 12
