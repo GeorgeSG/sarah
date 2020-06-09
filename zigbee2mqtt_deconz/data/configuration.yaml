@@ -1,0 +1,12 @@
+homeassistant: false
+permit_join: true
+mqtt:
+  base_topic: zigbee2mqtt
+  server: 'mqtt://192.168.0.27'
+  user: '!secret user'
+  password: '!secret password'
+serial:
+  port: /dev/ttyACM0
+advanced:
+  channel: 12
+  log_level: debug

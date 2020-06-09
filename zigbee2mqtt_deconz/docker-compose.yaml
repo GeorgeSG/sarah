@@ -1,0 +1,15 @@
+
+  zigbee2mqtt_deconz:
+    container_name: zigbee2mqtt_deconz
+    build: .
+    dockerfile: Dockerfile
+    volumes:
+      - .data:/app/data
+      - /run/udev:/run/udev:ro
+    devices:
+      - /dev/ttyACM0:/dev/ttyACM0
+    restart: always
+    network_mode: host
+    privileged: true
+    environment:
+      - TZ=Europe/Sofia
