@@ -1,10 +1,13 @@
+version: "3.4"
 
+services:
   zigbee2mqtt_deconz:
     container_name: zigbee2mqtt_deconz
-    build: .
-    dockerfile: Dockerfile
+    build:
+      context: .
+      network: host
     volumes:
-      - .data:/app/data
+      - ./data:/app/data
       - /run/udev:/run/udev:ro
     devices:
       - /dev/ttyACM0:/dev/ttyACM0
