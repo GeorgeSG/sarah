@@ -59,3 +59,6 @@ devices:
     friendly_name: hallway_motion
   '0x00158d00041444bc':
     friendly_name: kitchen_motion
+  '0x00158d00042d163f':
+    friendly_name: living_room_right_window
+    retain: true
