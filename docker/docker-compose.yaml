@@ -7,8 +7,7 @@ services:
     volumes:
       - ../config:/config
     devices:
-      - /dev/CONBEE:/dev/ttyACM0
-      - /dev/ZWAVE:/dev/ttyACM1
+      - /dev/ttyACM2:/dev/ttyACM1
     environment:
       - TZ=Europe/Sofia
     restart: always
