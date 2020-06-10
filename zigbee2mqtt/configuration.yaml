@@ -66,3 +66,5 @@ devices:
     friendly_name: bed_led
   '0x00158d00040249c8':
     friendly_name: bedside_switch
+  '0x00158d0002f24a63':
+    friendly_name: bedroom_wall_switch
