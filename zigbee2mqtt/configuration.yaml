@@ -6,7 +6,7 @@ mqtt:
   user: '!secret user'
   password: '!secret password'
 serial:
-  port: /dev/CC2531
+  port: /dev/ttyACM1
   disable_led: true
 advanced:
   channel: 12
@@ -55,3 +55,5 @@ devices:
     humidity_precision: 1
   '0x00158d0001cbbb94':
     friendly_name: trust_remote
+  '0x00158d0003f42ea3':
+    friendly_name: hallway_motion
