@@ -57,3 +57,5 @@ devices:
     friendly_name: trust_remote
   '0x00158d0003f42ea3':
     friendly_name: hallway_motion
+  '0x00158d00041444bc':
+    friendly_name: kitchen_motion
