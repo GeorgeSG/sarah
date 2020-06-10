@@ -11,7 +11,7 @@ binary_sensor.house_mode:
     entities:
       - input_select.house_mode
 
-binary_sensor.motion_1_ias_zone:
+binary_sensor.kitchen_motion_occupancy:
   title: Kitchen motion
   auto_close: true
   style: &broad_popup_style
@@ -25,10 +25,9 @@ binary_sensor.motion_1_ias_zone:
     cards:
       - type: glance
         entities:
-          - entity: binary_sensor.motion_1_ias_zone
-          - entity: sensor.motion_1_illuminance
-          - entity: binary_sensor.motion_1_occupancy
-          - entity: sensor.motion_1_power
+          - entity: binary_sensor.kitchen_motion_occupancy
+          - entity: sensor.kitchen_motion_illuminance
+          - entity: sensor.kitchen_motion_battery
       - type: "custom:mini-graph-card"
         animate: true
         points_per_hour: 1
@@ -38,9 +37,9 @@ binary_sensor.motion_1_ias_zone:
           average: true
           extrema: true
         entities:
-          - entity: sensor.motion_1_illuminance
+          - entity: sensor.kitchen_motion_illuminance
 
-binary_sensor.motion_2_ias_zone:
+binary_sensor.hallway_motion_occupancy:
   title: Hallway motion
   style: *broad_popup_style
   auto_close: true
@@ -49,10 +48,9 @@ binary_sensor.motion_2_ias_zone:
     cards:
       - type: glance
         entities:
-          - entity: binary_sensor.motion_2_ias_zone
-          - entity: sensor.motion_2_illuminance
-          - entity: binary_sensor.motion_2_occupancy
-          - entity: sensor.motion_2_power
+          - entity: binary_sensor.hallway_motion_occupancy
+          - entity: sensor.hallway_motion_illuminance
+          - entity: sensor.hallway_motion_battery
 
       - type: "custom:mini-graph-card"
         animate: true
@@ -63,7 +61,7 @@ binary_sensor.motion_2_ias_zone:
           average: true
           extrema: true
         entities:
-          - entity: sensor.motion_2_illuminance
+          - entity: sensor.hallway_motion_illuminance
 
 sensor.synology_type_volume_1:
   title: Platinum

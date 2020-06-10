@@ -44,7 +44,9 @@ cards:
             - type: custom:battery-entity
               entity: sensor.front_door_battery
             - type: custom:battery-entity
-              entity: sensor.living_room_right_window_power
+              entity: sensor.desk_switch_battery
+            # - type: custom:battery-entity
+            #   entity: sensor.living_room_right_window_power
             - type: divider
             - type: custom:battery-entity
               entity: sensor.bedroom_door_battery
@@ -60,24 +62,25 @@ cards:
             - type: custom:battery-entity
               entity: sensor.kitchen_weather_battery
             - type: custom:battery-entity
+              entity: sensor.kitchen_motion_battery
+            - type: divider
+            - type: custom:battery-entity
               entity: sensor.bathroom_weather_battery
             - type: custom:battery-entity
               entity: sensor.hallway_weather_battery
             - type: custom:battery-entity
-              entity: sensor.motion_1_power
-            - type: custom:battery-entity
-              entity: sensor.motion_2_power
+              entity: sensor.hallway_motion_battery
         - type: entities
           title: Aqara Devices
           entities:
             - type: custom:battery-entity
               entity: sensor.desk_switch_battery
-            - type: custom:battery-entity
-              entity: sensor.master_bedroom_bedside_switch_power
-            - type: custom:battery-entity
-              entity: sensor.bathroom_switch_power
-            - type: custom:battery-entity
-              entity: sensor.cube_power
+            # - type: custom:battery-entity
+            #   entity: sensor.master_bedroom_bedside_switch_power
+            # - type: custom:battery-entity
+            #   entity: sensor.bathroom_switch_power
+            # - type: custom:battery-entity
+            #   entity: sensor.cube_power
         - type: vertical-stack
           cards:
             - type: entities
@@ -93,9 +96,11 @@ cards:
                 - type: divider
                 - sensor.kitchen_window_lqi
                 - sensor.kitchen_weather_lqi
+                - sensor.kitchen_motion_lqi
                 - type: divider
                 - sensor.bathroom_weather_lqi
                 - sensor.hallway_weather_lqi
+                - sensor.hallway_motion_lqi
             - type: custom:vertical-stack-in-card
               cards:
                 - type: entities

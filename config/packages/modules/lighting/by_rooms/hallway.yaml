@@ -2,7 +2,7 @@ automation:
   - alias: Lighting · Hallway · Day mode · Motion · Turn lights on
     trigger:
       platform: state
-      entity_id: binary_sensor.motion_2_ias_zone
+      entity_id: binary_sensor.hallway_motion_occupancy
       to: "on"
     condition:
       condition: state
@@ -15,7 +15,7 @@ automation:
   - alias: Lighting · Hallway · Day mode · Motion · Turn lights off
     trigger:
       platform: state
-      entity_id: binary_sensor.motion_2_ias_zone
+      entity_id: binary_sensor.hallway_motion_occupancy
       to: "off"
       for:
         minutes: 5
@@ -30,7 +30,7 @@ automation:
   - alias: Lighting · Hallway · Night mode · Motion · Turn lights on
     trigger:
       platform: state
-      entity_id: binary_sensor.motion_2_ias_zone
+      entity_id: binary_sensor.hallway_motion_occupancy
       to: "on"
     condition:
       condition: not
@@ -51,7 +51,7 @@ automation:
   - alias: Lighting · Hallway · Night mode · Motion · Turn lights off
     trigger:
       platform: state
-      entity_id: binary_sensor.motion_2_ias_zone
+      entity_id: binary_sensor.hallway_motion_occupancy
       to: "off"
       for:
         minutes: 5

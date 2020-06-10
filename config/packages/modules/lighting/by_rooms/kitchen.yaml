@@ -2,7 +2,7 @@ automation:
   - alias: Lighting · Kitchen · Day mode · Motion · Turn lights on
     trigger:
       platform: state
-      entity_id: binary_sensor.motion_1_ias_zone
+      entity_id: binary_sensor.kitchen_motion_occupancy
       to: "on"
     condition:
       condition: and
@@ -34,7 +34,7 @@ automation:
   - alias: Lighting · Kitchen · Day mode · Motion · Turn lights off
     trigger:
       platform: state
-      entity_id: binary_sensor.motion_1_ias_zone
+      entity_id: binary_sensor.kitchen_motion_occupancy
       to: "off"
       for:
         minutes: 30
@@ -53,7 +53,7 @@ automation:
   - alias: Lighting · Kitchen · Night mode · Motion · Turn lights on
     trigger:
       platform: state
-      entity_id: binary_sensor.motion_1_ias_zone
+      entity_id: binary_sensor.kitchen_motion_occupancy
       to: "on"
     condition:
       - condition: not
@@ -75,7 +75,7 @@ automation:
   - alias: Lighting · Kitchen · Night mode · Motion · Turn lights off
     trigger:
       platform: state
-      entity_id: binary_sensor.motion_1_ias_zone
+      entity_id: binary_sensor.kitchen_motion_occupancy
       to: "off"
       for:
         minutes: 5

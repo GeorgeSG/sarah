@@ -45,16 +45,16 @@ homekit:
       - light.hallway_entrance
       - light.hallway_main
       - light.tuya_kitchen
-      - binary_sensor.motion_1_ias_zone
-      - binary_sensor.motion_2_ias_zone
+      - binary_sensor.kitchen_motion_occupancy
+      - binary_sensor.hallway_motion_occupany
       - binary_sensor.trisensor_motion
       - binary_sensor.multisensor_motion
       - sensor.bedroom_weather_temperature
       - sensor.living_room_thermostat_temperature
       - sensor.trisensor_temperature
       - sensor.multisensor_6_temperature
-      - sensor.motion_2_illuminance
-      - sensor.motion_1_illuminance
+      - sensor.hallway_motion_illuminance
+      - sensor.kitchen_motion_illuminance
       - sensor.purifier_humidity
       - sensor.bedroom_weather_humidity
       - climate.living_room_thermostat_mode
@@ -66,12 +66,12 @@ homekit:
   entity_config:
     light.light_avatar_small_2:
       name: PC
-    binary_sensor.motion_1_ias_zone:
-      linked_battery_sensor: sensor.motion_1_power
+    binary_sensor.kitchen_motion_occupancy:
+      linked_battery_sensor: sensor.kitchen_motion_battery
       low_battery_threshold: 20
       name: Kitchen Motion
-    binary_sensor.motion_2_ias_zone:
-      linked_battery_sensor: sensor.motion_2_power
+    binary_sensor.hallway_motion_occupany:
+      linked_battery_sensor: sensor.hallway_motion_battery
       name: Hallway Motion
     binary_sensor.trisensor_motion:
       linked_battery_sensor: sensor.trisensor_battery_level

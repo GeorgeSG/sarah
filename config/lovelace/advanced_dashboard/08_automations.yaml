@@ -69,6 +69,10 @@ cards:
             - automation.lighting_hallway_night_mode_motion_turn_lights_off
             - type: divider
             - automation.lighting_sync_tasmota_states_on_start_up
+            - type: divider
+            - automation.trust_remote_dimming
+            - automation.trust_remote_turn_on
+            - automation.trust_remote_turn_off
 
         - type: entities
           title: Media

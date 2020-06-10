@@ -1,23 +1,62 @@
-#
-# ─── CUSTOMIZATION ──────────────────────────────────────────────────────────────
-#
+binary_sensor:
+  - platform: mqtt
+    name: "Hallway motion occupancy"
+    state_topic: "zigbee2mqtt/hallway_motion"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    payload_on: true
+    payload_off: false
+    value_template: "{{ value_json.occupancy }}"
+    device_class: "motion"
+  - platform: mqtt
+    name: "Kitchen motion occupancy"
+    state_topic: "zigbee2mqtt/kitchen_motion"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    payload_on: true
+    payload_off: false
+    value_template: "{{ value_json.occupancy }}"
+    device_class: "motion"
 
-homeassistant:
-  customize:
-    binary_sensor.motion_1_ias_zone:
-      friendly_name: Motion Sensor 1 ias zone
-    sensor.motion_1_illuminance:
-      friendly_name: Motion Sensor 1 Lux
-    binary_sensor.motion_1_occupancy:
-      friendly_name: Motion Sensor 1 Occupancy
-    sensor.motion_1_power:
-      friendly_name: Motion Sensor 1 Battery
+sensor:
+  # Hallway Motion
+  - platform: mqtt
+    name: "Hallway motion illuminance"
+    state_topic: "zigbee2mqtt/hallway_motion"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    device_class: "illuminance"
+    value_template: "{{ value_json.illuminance_lux }}"
+  - platform: mqtt
+    name: "Hallway motion battery"
+    state_topic: "zigbee2mqtt/hallway_motion"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    unit_of_measurement: "%"
+    device_class: "battery"
+    value_template: "{{ value_json.battery }}"
+  - platform: mqtt
+    name: "Hallway motion LQI"
+    state_topic: "zigbee2mqtt/hallway_motion"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:signal"
+    unit_of_measurement: "lqi"
+    value_template: "{{ value_json.linkquality }}"
 
-    binary_sensor.motion_2_ias_zone:
-      friendly_name: Motion Sensor 2 ias zone
-    sensor.motion_2_illuminance:
-      friendly_name: Motion Sensor 2 Lux
-    binary_sensor.motion_2_occupancy:
-      friendly_name: Motion Sensor 2 Occupancy
-    sensor.motion_2_power:
-      friendly_name: Motion Sensor 2 Battery
+  # Kitchen Motion
+  - platform: mqtt
+    name: "Kitchen motion illuminance"
+    state_topic: "zigbee2mqtt/kitchen_motion"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    device_class: "illuminance"
+    value_template: "{{ value_json.illuminance_lux }}"
+  - platform: mqtt
+    name: "Kitchen motion battery"
+    state_topic: "zigbee2mqtt/kitchen_motion"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    unit_of_measurement: "%"
+    device_class: "battery"
+    value_template: "{{ value_json.battery }}"
+  - platform: mqtt
+    name: "Kitchen motion LQI"
+    state_topic: "zigbee2mqtt/kitchen_motion"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:signal"
+    unit_of_measurement: "lqi"
+    value_template: "{{ value_json.linkquality }}"
