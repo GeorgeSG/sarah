@@ -62,3 +62,5 @@ devices:
   '0x00158d00042d163f':
     friendly_name: living_room_right_window
     retain: true
+  '0x00124b001f6fc6a2':
+    friendly_name: bed_led
