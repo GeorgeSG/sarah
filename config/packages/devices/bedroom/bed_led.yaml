@@ -1,0 +1,20 @@
+light:
+  - platform: "mqtt"
+    name: "Bed LED"
+    state_topic: "zigbee2mqtt/bed_led"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    brightness: true
+    color_temp: true
+    xy: true
+    schema: "json"
+    command_topic: "zigbee2mqtt/bed_led/set"
+    brightness_scale: 254
+
+sensor:
+  - platform: "mqtt"
+    name: "Bed LED LQI"
+    state_topic: "zigbee2mqtt/bed_led"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:signal"
+    unit_of_measurement: "lqi"
+    value_template: "{{ value_json.linkquality }}"

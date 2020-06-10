@@ -9,6 +9,15 @@ group:
 
 binary_sensor:
   - platform: mqtt
+    name: "Living room right window"
+    state_topic: "zigbee2mqtt/living_room_right_window"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    payload_on: false
+    payload_off: true
+    value_template: "{{ value_json.contact }}"
+    device_class: "window"
+
+  - platform: mqtt
     name: "Bedroom left window"
     state_topic: "zigbee2mqtt/bedroom_left_window"
     availability_topic: "zigbee2mqtt/bridge/state"
@@ -35,20 +44,23 @@ binary_sensor:
     value_template: "{{ value_json.contact }}"
     device_class: "window"
 
-
-  - platform: template
-    sensors:
-      living_room_right_window:
-        friendly_name: Living room window
-        device_class: window
-        value_template: "{{ is_state('binary_sensor.living_room_right_window_on_off', 'on') }}"
-        entity_id: binary_sensor.living_room_right_window_on_off
-        icon_template: >
-          {% if is_state('binary_sensor.living_room_right_window_on_off', 'on') %} mdi:window-open-variant
-          {% else %} mdi:window-closed-variant
-          {% endif %}
-
 sensor:
+  - platform: mqtt
+    name: "Living room right window battery"
+    state_topic: "zigbee2mqtt/living_room_right_window"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    unit_of_measurement: "%"
+    device_class: "battery"
+    value_template: "{{ value_json.battery }}"
+
+  - platform: mqtt
+    name: "Living room right window LQI"
+    state_topic: "zigbee2mqtt/living_room_right_window"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:signal"
+    unit_of_measurement: "lqi"
+    value_template: "{{ value_json.linkquality }}"
+
   - platform: mqtt
     name: "Bedroom left window battery"
     state_topic: "zigbee2mqtt/bedroom_left_window"
@@ -109,15 +121,3 @@ sensor:
         value_template: >-
           {% set entityStates = states | selectattr('entity_id', 'in', state_attr('group.all_windows', 'entity_id')) %}
           {{ entityStates | selectattr('state', 'eq', 'on') | list | count | int }}
-
-#
-# ─── CUSTOMIZATION ──────────────────────────────────────────────────────────────
-#
-
-homeassistant:
-  customize:
-    sensor.living_room_right_window_power:
-      friendly_name: Living room window battery
-
-    sensor.kitchen_window_power:
-      friendly_name: Kitchen window battery

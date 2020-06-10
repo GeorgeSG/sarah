@@ -44,9 +44,7 @@ cards:
             - type: custom:battery-entity
               entity: sensor.front_door_battery
             - type: custom:battery-entity
-              entity: sensor.desk_switch_battery
-            # - type: custom:battery-entity
-            #   entity: sensor.living_room_right_window_power
+              entity: sensor.living_room_right_window_battery
             - type: divider
             - type: custom:battery-entity
               entity: sensor.bedroom_door_battery
@@ -78,6 +76,8 @@ cards:
             # - type: custom:battery-entity
             #   entity: sensor.master_bedroom_bedside_switch_power
             # - type: custom:battery-entity
+            #   entity: sensor.master_bedroom_switch_power
+            # - type: custom:battery-entity
             #   entity: sensor.bathroom_switch_power
             # - type: custom:battery-entity
             #   entity: sensor.cube_power
@@ -88,6 +88,8 @@ cards:
               entities:
                 - sensor.front_door_lqi
                 - sensor.desk_switch_lqi
+                - sensor.bed_led_lqi
+                - sensor.living_room_right_window_lqi
                 - type: divider
                 - sensor.bedroom_door_lqi
                 - sensor.bedroom_left_window_lqi

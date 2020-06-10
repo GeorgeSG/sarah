@@ -64,3 +64,5 @@ devices:
     retain: true
   '0x00124b001f6fc6a2':
     friendly_name: bed_led
+  '0x00158d00040249c8':
+    friendly_name: bedside_switch
