@@ -73,8 +73,10 @@ cards:
           entities:
             - type: custom:battery-entity
               entity: sensor.desk_switch_battery
-            # - type: custom:battery-entity
-            #   entity: sensor.master_bedroom_bedside_switch_power
+            - type: custom:battery-entity
+              entity: sensor.bedside_switch_battery
+            - type: custom:battery-entity
+              entity: sensor.bedroom_wall_switch_battery
             # - type: custom:battery-entity
             #   entity: sensor.master_bedroom_switch_power
             # - type: custom:battery-entity
@@ -86,11 +88,12 @@ cards:
             - type: entities
               title: Zigbee2MQTT link quality
               entities:
-                - sensor.front_door_lqi
                 - sensor.desk_switch_lqi
-                - sensor.bed_led_lqi
                 - sensor.living_room_right_window_lqi
                 - type: divider
+                - sensor.bedside_switch_lqi
+                # - sensor.bed_led_lqi
+                - sensor.bedroom_wall_switch_lqi
                 - sensor.bedroom_door_lqi
                 - sensor.bedroom_left_window_lqi
                 - sensor.bedroom_right_window_lqi
@@ -101,6 +104,7 @@ cards:
                 - sensor.kitchen_motion_lqi
                 - type: divider
                 - sensor.bathroom_weather_lqi
+                - sensor.front_door_lqi
                 - sensor.hallway_weather_lqi
                 - sensor.hallway_motion_lqi
             - type: custom:vertical-stack-in-card

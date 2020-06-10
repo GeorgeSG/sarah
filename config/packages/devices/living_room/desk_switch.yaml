@@ -37,10 +37,6 @@ automation:
         entity_id: sensor.desk_switch_click
         state: 'single'
     action:
-      - service: logbook.log
-        data:
-          name: "Debug · "
-          message: "Desk switch single click toggled"
       - service: light.toggle
         data_template:
           entity_id: light.living_room_ceiling

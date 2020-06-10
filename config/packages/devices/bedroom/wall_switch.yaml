@@ -1,11 +1,41 @@
+sensor:
+  - platform: mqtt
+    name: "Bedroom wall switch click"
+    state_topic: "zigbee2mqtt/bedroom_wall_switch"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:toggle-switch"
+    value_template: "{{ value_json.click }}"
+  - platform: mqtt
+    name: "Bedroom wall switch battery"
+    state_topic: "zigbee2mqtt/bedroom_wall_switch"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    unit_of_measurement: "%"
+    device_class: "battery"
+    value_template: "{{ value_json.battery }}"
+  - platform: mqtt
+    name: "Bedroom wall switch action"
+    state_topic: "zigbee2mqtt/bedroom_wall_switch"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:gesture-double-tap"
+    value_template: "{{ value_json.action }}"
+  - platform: mqtt
+    name: "Bedroom wall switch LQI"
+    state_topic: "zigbee2mqtt/bedroom_wall_switch"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:signal"
+    unit_of_measurement: "lqi"
+    value_template: "{{ value_json.linkquality }}"
+
+
 automation:
   - alias: Lighting · Master bedroom · Toggle lights on switch single click
     trigger:
-      platform: event
-      event_type: zha_event
-      event_data:
-        device_ieee: !secret master_bedroom_switch_ieee
-        command: single
+      platform: mqtt
+      topic: "zigbee2mqtt/bedroom_wall_switch"
+    condition:
+      - condition: state
+        entity_id: sensor.bedroom_wall_switch_click
+        state: 'single'
     action:
       - service: light.toggle
         data_template:
@@ -20,11 +50,12 @@ automation:
 
   - alias: Lighting · Master bedroom · Toggle ambient lights on switch double click
     trigger:
-      platform: event
-      event_type: zha_event
-      event_data:
-        device_ieee: !secret master_bedroom_switch_ieee
-        command: double
+      platform: mqtt
+      topic: "zigbee2mqtt/bedroom_wall_switch"
+    condition:
+      - condition: state
+        entity_id: sensor.bedroom_wall_switch_click
+        state: 'double'
     action:
       - service: light.toggle
         data_template:
@@ -35,11 +66,9 @@ automation:
 
   - alias: Music · Master bedroom · Play pause on switch hold
     trigger:
-      platform: event
-      event_type: zha_event
-      event_data:
-        device_ieee: !secret master_bedroom_switch_ieee
-        command: hold
+      platform: state
+      entity_id: sensor.bedroom_wall_switch_action
+      to: 'hold'
     action:
       - service: media_player.media_play_pause
         entity_id: media_player.master_bedroom
