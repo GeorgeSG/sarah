@@ -29,7 +29,7 @@ automation:
   - alias: Security · Door opened while away
     trigger:
       - platform: state
-        entity_id: binary_sensor.front_door_on_off
+        entity_id: binary_sensor.front_door
         to: "on"
     condition:
       condition: and
