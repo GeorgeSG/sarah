@@ -1,5 +1,5 @@
 light:
-  - platform: "mqtt"
+  - platform: mqtt
     name: "Bed LED"
     state_topic: "zigbee2mqtt/bed_led"
     availability_topic: "zigbee2mqtt/bridge/state"
@@ -11,7 +11,7 @@ light:
     brightness_scale: 254
 
 sensor:
-  - platform: "mqtt"
+  - platform: mqtt
     name: "Bed LED LQI"
     state_topic: "zigbee2mqtt/bed_led"
     availability_topic: "zigbee2mqtt/bridge/state"

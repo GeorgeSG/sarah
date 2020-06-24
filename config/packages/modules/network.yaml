@@ -123,6 +123,13 @@ sensor:
     state_topic: "zigbee2mqtt/bridge/config/devices"
     value_template: "{{ value_json | count }}"
     icon: "mdi:counter"
+  - platform: mqtt
+    name: "Router 1 LQI"
+    state_topic: "zigbee2mqtt/router_1"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:signal"
+    unit_of_measurement: "lqi"
+    value_template: "{{ value_json.linkquality }}"
 
 script:
   zigbee2mqtt_get_device_count:

@@ -1,0 +1,8 @@
+title: Zigbee
+path: zigbee
+icon: "mdi:z-wave"
+panel: true
+cards:
+  - type: custom:zigbee2mqtt-networkmap
+    entity: sensor.zigbee2mqtt_networkmap
+    height: 800

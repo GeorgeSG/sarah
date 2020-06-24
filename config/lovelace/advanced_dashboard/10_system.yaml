@@ -77,10 +77,8 @@ cards:
               entity: sensor.bedside_switch_battery
             - type: custom:battery-entity
               entity: sensor.bedroom_wall_switch_battery
-            # - type: custom:battery-entity
-            #   entity: sensor.master_bedroom_switch_power
-            # - type: custom:battery-entity
-            #   entity: sensor.bathroom_switch_power
+            - type: custom:battery-entity
+              entity: sensor.bathroom_switch_battery
             # - type: custom:battery-entity
             #   entity: sensor.cube_power
         - type: vertical-stack
@@ -104,14 +102,15 @@ cards:
                 - sensor.kitchen_motion_lqi
                 - type: divider
                 - sensor.bathroom_weather_lqi
+                - sensor.bathroom_switch_lqi
                 - sensor.front_door_lqi
                 - sensor.hallway_weather_lqi
                 - sensor.hallway_motion_lqi
-            - type: custom:vertical-stack-in-card
-              cards:
-                - type: entities
-                  entities:
-                    - sensor.zigbee2mqtt_devices_count
-                    - script.zigbee2mqtt_get_device_count
-                - type: custom:zigbee2mqtt-networkmap
-                  entity: sensor.zigbee2mqtt_networkmap
+                - type: divider
+                - sensor.guest_bedroom_weather_lqi
+                - sensor.router_1_lqi
+
+            - type: entities
+              entities:
+                - sensor.zigbee2mqtt_devices_count
+                - script.zigbee2mqtt_get_device_count
