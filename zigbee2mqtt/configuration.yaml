@@ -68,3 +68,13 @@ devices:
     friendly_name: bedside_switch
   '0x00158d0002f24a63':
     friendly_name: bedroom_wall_switch
+  '0x00124b0018e27de7':
+    friendly_name: router_1
+  '0x00158d0002eb57bc':
+    friendly_name: bathroom_switch
+  '0x00158d00045c933d':
+    friendly_name: guest_bedroom_weather
+    retain: true
+    temperature_precision: 1
+    humidity_precision: 1
+
