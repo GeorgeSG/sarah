@@ -3,5 +3,7 @@ yeelight:
   devices:
     !secret yeelight_bedside_ip:
       name: Bedside
+      model: color1
     !secret yeelight_living_room_ip:
       name: Living room Ambient main
+      model: color1
