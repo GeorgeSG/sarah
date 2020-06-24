@@ -2,6 +2,11 @@ script:
   routine_good_night:
     alias: Routine · Going to sleep
     sequence:
+    # Use say_discretely instead of talk, because night mode is already on.
+      - service: script.say_discretely
+        data:
+          message: "Entering night mode. Good night!"
+
       - service: light.turn_on
         entity_id: light.bed_led
         data:
@@ -21,10 +26,6 @@ script:
           - media_player.nvidia_shield
           - media_player.living_room_tv
           - switch.titanium
-      # Use say_discretely instead of talk, because night mode is already on.
-      - service: script.say_discretely
-        data:
-          message: "Entering night mode. Good night!"
 
       - service: light.turn_on
         entity_id: light.browser_kitchen
