@@ -136,10 +136,10 @@ binary_sensor:
         device_class: problem
         value_template: >
 
-          {{ is_state('sensor.purifier_pre_filter', 0)
-              or is_state('sensor.purifier_wick_filter', 0)
-              or is_state('sensor.purifier_carbon_filter', 0)
-              or is_state('sensor.purifier_hepa_filter', 0) }}
+          {{ is_state('sensor.purifier_pre_filter', '0')
+              or is_state('sensor.purifier_wick_filter', '0')
+              or is_state('sensor.purifier_carbon_filter', '0')
+              or is_state('sensor.purifier_hepa_filter', '0') }}
 
 
 script:
