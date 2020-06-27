@@ -60,7 +60,7 @@ automation:
         conditions:
           - condition: state
             entity_id: input_select.house_mode
-            state: 'day'
+            state: "day"
       - condition: state
         entity_id: input_boolean.georgi_home
         state: "on"
