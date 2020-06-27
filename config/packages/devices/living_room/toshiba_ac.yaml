@@ -26,7 +26,27 @@ climate:
     supported_swing_list:
       - "off"
 
+input_number:
+  toshiba_cool_temp:
+    name: AC cool temp
+    unit_of_measurement: "ºC"
+    min: 18
+    max: 21
+    step: 1
+    icon: mdi:air-conditioner
+
 script:
+  toshiba_ac_toggle_cool:
+    sequence:
+      - service_template: >-
+          {% if is_state('climate.toshiba_ac', 'off') %}
+            script.toshiba_ac_on_cool
+          {% else %}
+            climate.turn_off
+          {% endif %}
+        data_template:
+          entity_id: "{% if not is_state('climate.toshiba_ac', 'off') %}climate.toshiba_ac{%endif%}"
+
   toshiba_ac_on_cool:
     sequence:
       - service: climate.turn_on
@@ -43,8 +63,8 @@ script:
       - delay: "00:00:01"
       - service: climate.set_temperature
         entity_id: climate.toshiba_ac
-        data:
-          temperature: 19
+        data_template:
+          temperature: "{{ states('input_number.toshiba_cool_temp') | default(19) }}"
       - service: logbook.log
         data:
           name: "💨 Climate Module · "

@@ -104,14 +104,7 @@ automation:
         scene_id: 4
         scene_data: 0
     action:
-      - service_template: >-
-          {% if is_state('climate.toshiba_ac', 'off') %}
-            script.toshiba_ac_on_cool
-          {% else %}
-            climate.turn_off
-          {% endif %}
-        data_template:
-          entity_id: "{% if not is_state('climate.toshiba_ac', 'off') %}climate.toshiba_ac{%endif%}"
+      - service: script.toshiba_ac_toggle_cool
 
   - alias: Wallmote · Living room · 4 · Hold · Toggle Titanium
     trigger:

@@ -176,6 +176,22 @@
                 cards:
                   - type: custom:button-card
                     template: default
+                    entity: climate.toshiba_ac
+                    name: AC
+                    state:
+                      - value: 'off'
+                        operator: '!='
+                        styles:
+                          card:
+                            - background-color: var(--primary-color)
+                            - color: black
+                          icon:
+                            - color: black
+                    tap_action:
+                      action: call-service
+                      service: script.toshiba_ac_toggle_cool
+                  - type: custom:button-card
+                    template: default
                     entity: switch.camera
                     name: Camera
                   - type: custom:button-card

@@ -101,6 +101,7 @@
                 name: Radiator
               - entity: climate.toshiba_ac
                 name: AC
+              - entity: input_number.toshiba_cool_temp
 
           - type: vertical-stack
             cards:
