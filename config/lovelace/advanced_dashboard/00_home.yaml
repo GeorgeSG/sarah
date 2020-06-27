@@ -19,53 +19,55 @@ cards:
       layout: horzontal
       max_columns: 2
       cards:
-        - type: horizontal-stack
+        - type: vertical-stack
           title: Reload
           cards:
-            - type: custom:button-card
-              template: small
-              name: Automations
-              icon: mdi:reload
-              tap_action:
-                action: call-service
-                service: automation.reload
-            - type: custom:button-card
-              template: small
-              name: Scripts
-              icon: mdi:reload
-              tap_action:
-                action: call-service
-                service: script.reload
-            - type: custom:button-card
-              template: small
-              name: Scenes
-              icon: mdi:reload
-              tap_action:
-                action: call-service
-                service: scene.reload
-        - type: horizontal-stack
-          cards:
-            - type: custom:button-card
-              template: small
-              name: Groups
-              icon: mdi:reload
-              tap_action:
-                action: call-service
-                service: group.reload
-            - type: custom:button-card
-              template: small
-              name: Theme
-              icon: mdi:reload
-              tap_action:
-                action: call-service
-                service: frontend.reload_themes
-            - type: custom:button-card
-              template: small
-              name: Resources
-              icon: mdi:reload
-              tap_action:
-                action: call-service
-                service: lovelace.reload_resources
+            - type: horizontal-stack
+              cards:
+                - type: custom:button-card
+                  template: small
+                  name: Automations
+                  icon: mdi:reload
+                  tap_action:
+                    action: call-service
+                    service: automation.reload
+                - type: custom:button-card
+                  template: small
+                  name: Scripts
+                  icon: mdi:reload
+                  tap_action:
+                    action: call-service
+                    service: script.reload
+                - type: custom:button-card
+                  template: small
+                  name: Scenes
+                  icon: mdi:reload
+                  tap_action:
+                    action: call-service
+                    service: scene.reload
+            - type: horizontal-stack
+              cards:
+                - type: custom:button-card
+                  template: small
+                  name: Groups
+                  icon: mdi:reload
+                  tap_action:
+                    action: call-service
+                    service: group.reload
+                - type: custom:button-card
+                  template: small
+                  name: Theme
+                  icon: mdi:reload
+                  tap_action:
+                    action: call-service
+                    service: frontend.reload_themes
+                - type: custom:button-card
+                  template: small
+                  name: Resources
+                  icon: mdi:reload
+                  tap_action:
+                    action: call-service
+                    service: lovelace.reload_resources
 
         - type: vertical-stack
           title: Github
