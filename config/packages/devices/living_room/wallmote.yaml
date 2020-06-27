@@ -94,6 +94,25 @@ automation:
       - service: light.toggle
         entity_id: light.living_room_ambient
 
+  - alias: Wallmote · Living room · 4 · Tap · Toggle AC
+    trigger:
+      platform: event
+      event_type: zwave.scene_activated
+      event_data:
+        entity_id: zwave.aeon_labs_zw130_wallmote_quad
+        node_id: 5
+        scene_id: 4
+        scene_data: 0
+    action:
+      - service_template: >-
+          {% if is_state('climate.toshiba_ac', 'off') %}
+            script.toshiba_ac_on_cool
+          {% else %}
+            climate.turn_off
+          {% endif %}
+        data_template:
+          entity_id: "{% if not is_state('climate.toshiba_ac', 'off') %}climate.toshiba_ac{%endif%}"
+
   - alias: Wallmote · Living room · 4 · Hold · Toggle Titanium
     trigger:
       platform: event

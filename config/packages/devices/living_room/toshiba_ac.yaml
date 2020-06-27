@@ -26,6 +26,31 @@ climate:
     supported_swing_list:
       - "off"
 
+script:
+  toshiba_ac_on_cool:
+    sequence:
+      - service: climate.turn_on
+        entity_id: climate.toshiba_ac
+      - delay: "00:00:01"
+      - service: climate.set_hvac_mode
+        entity_id: climate.toshiba_ac
+        data:
+          hvac_mode: "cool"
+      - service: climate.set_fan_mode
+        entity_id: climate.toshiba_ac
+        data:
+          fan_mode: "auto"
+      - delay: "00:00:01"
+      - service: climate.set_temperature
+        entity_id: climate.toshiba_ac
+        data:
+          temperature: 19
+      - service: logbook.log
+        data:
+          name: "💨 Climate Module · "
+          message: "AC · Switching on · Above 24 degrees, windows closed"
+          domain: climate
+
 automation:
   - alias: Climate · AC · Turn on if hot
     trigger:
@@ -60,27 +85,7 @@ automation:
           entity_id: climate.toshiba_ac
           state: "off"
     action:
-      - service: climate.turn_on
-        entity_id: climate.toshiba_ac
-      - delay: "00:00:01"
-      - service: climate.set_hvac_mode
-        entity_id: climate.toshiba_ac
-        data:
-          hvac_mode: "cool"
-      - service: climate.set_fan_mode
-        entity_id: climate.toshiba_ac
-        data:
-          fan_mode: "auto"
-      - delay: "00:00:01"
-      - service: climate.set_temperature
-        entity_id: climate.toshiba_ac
-        data:
-          temperature: 19
-      - service: logbook.log
-        data:
-          name: "💨 Climate Module · "
-          message: "AC · Switching on · Above 24 degrees, windows closed"
-          domain: climate
+      - service: script.toshiba_ac_on_cool
 
   - alias: Climate · AC · Turn off
     trigger:
