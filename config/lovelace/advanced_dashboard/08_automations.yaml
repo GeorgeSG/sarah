@@ -23,6 +23,8 @@ cards:
           title: Misc
           show_header_toggle: false
           entities:
+            - entity: sensor.automations_count
+              icon: mdi:pound
             - automation.titanium_turn_off_when_idle
             - automation.speech_enable_when_meeting_is_over
             - automation.speech_disable_when_meeting_starts

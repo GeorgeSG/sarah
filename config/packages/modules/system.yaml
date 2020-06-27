@@ -29,6 +29,9 @@ sensor:
       sarah_url:
         friendly_name: "SARAH's URL"
         value_template: !secret sarah_url
+      automations_count:
+        friendly_name: "Number of automations"
+        value_template: "{{ states.automation | count }}"
 
 
 shell_command:
