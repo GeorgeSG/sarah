@@ -24,7 +24,6 @@ cards:
           show_header_toggle: false
           entities:
             - automation.titanium_turn_off_when_idle
-            - automation.github_download
             - automation.speech_enable_when_meeting_is_over
             - automation.speech_disable_when_meeting_starts
 
