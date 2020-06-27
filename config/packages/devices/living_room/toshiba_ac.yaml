@@ -80,7 +80,7 @@ automation:
       - platform: state
         entity_id:
           - binary_sensor.living_room_right_window
-          - binary_sensor.bedroom_right_window
+          - group.bedroom_windows
         from: "on"
         to: "off"
     condition:
@@ -99,7 +99,7 @@ automation:
           entity_id: binary_sensor.living_room_right_window
           state: "off"
         - condition: state
-          entity_id: binary_sensor.bedroom_right_window
+          entity_id: group.bedroom_windows
           state: "off"
         - condition: state
           entity_id: climate.toshiba_ac

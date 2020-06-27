@@ -7,6 +7,12 @@ group:
       - binary_sensor.bedroom_right_window
       - binary_sensor.kitchen_window
 
+  bedroom_windows:
+    name: Bedroom windows
+    entities:
+      - binary_sensor.bedroom_left_window
+      - binary_sensor.bedroom_right_window
+
 binary_sensor:
   - platform: mqtt
     name: "Living room right window"
