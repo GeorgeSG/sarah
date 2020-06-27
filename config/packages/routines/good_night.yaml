@@ -2,7 +2,10 @@ script:
   routine_good_night:
     alias: Routine · Going to sleep
     sequence:
-    # Use say_discretely instead of talk, because night mode is already on.
+      - service: media_player.media_stop
+        entity_id: group.all_sonos
+
+      # Use say_discretely instead of talk, because night mode is already on.
       - service: script.say_discretely
         data:
           message: "Entering night mode. Good night!"
@@ -18,8 +21,6 @@ script:
         entity_id: input_select.purifier_speed
         data:
           option: "Sleep Mode"
-      - service: media_player.media_stop
-        entity_id: group.all_sonos
       - service: homeassistant.turn_off
         entity_id:
           - light.all
