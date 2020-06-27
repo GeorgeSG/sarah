@@ -71,41 +71,44 @@ script:
           message: "AC · Switching on · Above 24 degrees, windows closed"
           domain: climate
 
+  toshiba_ac_on_cool_if_hot:
+    sequence:
+      - condition: and
+        conditions:
+          - condition: numeric_state
+            entity_id: sensor.trisensor_temperature
+            above: 23
+          - condition: numeric_state
+            entity_id: sensor.dark_sky_apparent_temperature
+            above: 23
+          - condition: state
+            entity_id: input_boolean.georgi_home
+            state: "on"
+          - condition: state
+            entity_id: binary_sensor.living_room_right_window
+            state: "off"
+          - condition: state
+            entity_id: group.bedroom_windows
+            state: "off"
+          - condition: state
+            entity_id: climate.toshiba_ac
+            state: "off"
+      - service: script.toshiba_ac_on_cool
+
 automation:
   - alias: Climate · AC · Turn on if hot
     trigger:
       - platform: numeric_state
         entity_id: sensor.trisensor_temperature
-        above: 24
+        above: 23
       - platform: state
         entity_id:
           - binary_sensor.living_room_right_window
           - group.bedroom_windows
         from: "on"
         to: "off"
-    condition:
-      condition: and
-      conditions:
-        - condition: numeric_state
-          entity_id: sensor.trisensor_temperature
-          above: 24
-        - condition: numeric_state
-          entity_id: sensor.dark_sky_apparent_temperature
-          above: 24
-        - condition: state
-          entity_id: input_boolean.georgi_home
-          state: "on"
-        - condition: state
-          entity_id: binary_sensor.living_room_right_window
-          state: "off"
-        - condition: state
-          entity_id: group.bedroom_windows
-          state: "off"
-        - condition: state
-          entity_id: climate.toshiba_ac
-          state: "off"
     action:
-      - service: script.toshiba_ac_on_cool
+      - service: script.toshiba_ac_on_cool_if_hot
 
   - alias: Climate · AC · Turn off
     trigger:
@@ -120,7 +123,7 @@ automation:
       - platform: state
         entity_id:
           - binary_sensor.living_room_right_window
-          - binary_sensor.bedroom_right_window
+          - group.bedroom_windows
         from: "off"
         to: "on"
     condition:
