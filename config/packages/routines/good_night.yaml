@@ -14,7 +14,6 @@ script:
         entity_id: light.bed_led
         data:
           brightness_pct: 40
-          color_temp: 500
       - service: fan.turn_on
         entity_id: fan.philips_airpurifier
       - service: input_select.select_option
