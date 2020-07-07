@@ -134,7 +134,7 @@ automation:
     trigger:
       platform: state
       entity_id: person.georgi
-      from: "work"
+      from: "Work"
       to: "not_home"
     action:
       - service: notify.telegram
