@@ -7,7 +7,7 @@ services:
     volumes:
       - ../config:/config
     devices:
-      - /dev/ttyACM2:/dev/ttyACM1
+      - /dev/ttyACM0:/dev/ttyACM1
     environment:
       - TZ=Europe/Sofia
     restart: always
