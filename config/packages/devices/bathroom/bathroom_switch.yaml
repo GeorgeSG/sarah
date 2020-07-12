@@ -42,10 +42,10 @@ automation:
         data_template:
           volume_level: >-
 
-            {% if state_attr('media_player.bathroom', 'volume_level')|float > 0.5 %}
-              0.2
+            {% if state_attr('media_player.bathroom', 'volume_level')|float > 0.45 %}
+              0.25
             {% else %}
-              0.55
+              0.5
             {% endif %}
 
   - alias: Youtube · play latest pds on bathroom switch dobule click
@@ -60,5 +60,5 @@ automation:
       - service: media_player.volume_set
         entity_id: media_player.bathroom
         data:
-          volume_level: 0.55
+          volume_level: 0.5
       - service: script.youtube_play_latest_pds
