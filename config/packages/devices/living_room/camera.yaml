@@ -14,16 +14,16 @@ binary_sensor:
         friendly_name: Security camera
         device_class: safety
         value_template: >-
-          {{ state_attr('camera.amcrest_camera', 'motion_recording') != 'on' }}
+          {{ is_state('camera.amcrest_camera', 'streaming') or is_state('camera.amcrest_camera', 'recording') }}
 
 switch:
   - platform: template
     switches:
       camera:
         friendly_name: Security camera
-        value_template: "{{ state_attr('camera.amcrest_camera', 'motion_recording') == 'on' }}"
+        value_template: "{{ is_state('binary_sensor.camera_state', 'on') }}"
         icon_template: >
-          {% if state_attr('camera.amcrest_camera', 'motion_recording') == 'on' %} mdi:shield-home
+          {% if is_state('binary_sensor.camera_state', 'on') %} mdi:shield-home
           {% else %} mdi:shield-off
           {% endif %}
         turn_on:
@@ -41,8 +41,6 @@ script:
         entity_id: camera.amcrest_camera
         data:
           preset: 1
-      - service: amcrest.enable_motion_recording
-        entity_id: camera.amcrest_camera
       - service: amcrest.enable_recording
         entity_id: camera.amcrest_camera
       - service: amcrest.enable_audio
@@ -54,9 +52,7 @@ script:
       - service: amcrest.goto_preset
         entity_id: camera.amcrest_camera
         data:
-          preset: 3
-      - service: amcrest.disable_motion_recording
-        entity_id: camera.amcrest_camera
+          preset: 2
       - service: amcrest.disable_recording
         entity_id: camera.amcrest_camera
       - service: amcrest.disable_audio
