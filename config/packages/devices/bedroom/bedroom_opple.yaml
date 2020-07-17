@@ -125,7 +125,7 @@ automation:
 
 
   # Audio
-  - alias: Lighting · Master bedroom · Opple · Toggle music on 3 single
+  - alias: Media · Master bedroom · Opple · Toggle music on 3 single
     trigger:
       platform: mqtt
       topic: "z2m_deconz/opple_1"
@@ -137,7 +137,7 @@ automation:
       - service: media_player.media_play_pause
         entity_id: media_player.master_bedroom
 
-  - alias: Lighting · Master bedroom · Opple · Bring tv on 3 double
+  - alias: Media · Master bedroom · Opple · Bring tv on 3 double
     trigger:
       platform: mqtt
       topic: "z2m_deconz/opple_1"
@@ -148,7 +148,7 @@ automation:
     action:
       - service: script.sonos_join_tv
 
-  - alias: Lighting · Master bedroom · Opple · Bring bedroom on 3 triple
+  - alias: Media · Master bedroom · Opple · Bring bedroom on 3 triple
     trigger:
       platform: mqtt
       topic: "z2m_deconz/opple_1"
@@ -159,7 +159,7 @@ automation:
     action:
       - service: script.sonos_join_bedroom
 
-  - alias: Lighting · Master bedroom · Opple · Next song on 3 release
+  - alias: Media · Master bedroom · Opple · Next song on 3 release
     trigger:
       platform: mqtt
       topic: "z2m_deconz/opple_1"
@@ -171,7 +171,7 @@ automation:
       - service: media_player.play_next
         entity_id: media_player.master_bedroom
 
-  - alias: Lighting · Master bedroom · Opple · Play chill on 4 single
+  - alias: Media · Master bedroom · Opple · Play chill on 4 single
     trigger:
       platform: mqtt
       topic: "z2m_deconz/opple_1"
@@ -182,7 +182,7 @@ automation:
     action:
       - service: script.music_play
 
-  - alias: Lighting · Master bedroom · Opple · Play Starred on 4 double
+  - alias: Media · Master bedroom · Opple · Play Starred on 4 double
     trigger:
       platform: mqtt
       topic: "z2m_deconz/opple_1"
@@ -195,7 +195,7 @@ automation:
         data:
           playlist: 'Starred'
 
-  - alias: Lighting · Master bedroom · Opple · Play Retro on 4 triple
+  - alias: Media · Master bedroom · Opple · Play Retro on 4 triple
     trigger:
       platform: mqtt
       topic: "z2m_deconz/opple_1"
@@ -208,9 +208,9 @@ automation:
         data:
           playlist: 'Retro'
 
-  # Climate
 
-  - alias: Lighting · Master bedroom · Opple · Turn off purifier on 5 single
+  # Climate
+  - alias: Climate · Master bedroom · Opple · Turn off purifier on 5 single
     trigger:
       platform: mqtt
       topic: "z2m_deconz/opple_1"
@@ -222,7 +222,7 @@ automation:
       - service: fan.turn_off
         entity_id: fan.philips_airpurifier
 
-  - alias: Lighting · Master bedroom · Opple · Turn on purifier on 6 single
+  - alias: Climate · Master bedroom · Opple · Turn on purifier on 6 single
     trigger:
       platform: mqtt
       topic: "z2m_deconz/opple_1"

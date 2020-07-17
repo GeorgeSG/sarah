@@ -20,4 +20,3 @@ views:
   - !include lovelace/advanced_dashboard/10_system.yaml
   - !include lovelace/advanced_dashboard/12_test.yaml
   - !include lovelace/advanced_dashboard/13_dev.yaml
-  - !include lovelace/advanced_dashboard/14_zigbeemap.yaml

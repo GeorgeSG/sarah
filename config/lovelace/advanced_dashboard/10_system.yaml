@@ -86,12 +86,14 @@ cards:
             - type: entities
               title: Zigbee2MQTT link quality
               entities:
+                - sensor.living_room_opple_lqi
                 - sensor.desk_switch_lqi
                 - sensor.living_room_right_window_lqi
                 - type: divider
                 - sensor.bedside_switch_lqi
                 # - sensor.bed_led_lqi
                 - sensor.bedroom_wall_switch_lqi
+                - sensor.bedroom_opple_lqi
                 - sensor.bedroom_door_lqi
                 - sensor.bedroom_left_window_lqi
                 - sensor.bedroom_right_window_lqi
