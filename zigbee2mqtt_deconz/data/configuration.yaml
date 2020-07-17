@@ -28,9 +28,12 @@ advanced:
     - 12
     - 13
 devices:
-  '0x00158d0002eb57bc':
-    friendly_name: '0x00158d0002eb57bc'
-  '0x00158d0002f249d2':
-    friendly_name: '0x00158d0002f249d2'
   '0x00158d0002c4c6b8':
-    friendly_name: '0x00158d0002c4c6b8'
+    friendly_name: vibration_sensor
+  '0x00158d00042d163f':
+    friendly_name: living_room_right_window
+    retain: true
+  '0x00158d0003f42ea3':
+    friendly_name: hallway_motion
+  '0x00158d00041444bc':
+    friendly_name: kitchen_motion
