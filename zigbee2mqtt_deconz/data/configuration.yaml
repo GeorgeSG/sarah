@@ -6,7 +6,31 @@ mqtt:
   user: '!secret user'
   password: '!secret password'
 serial:
-  port: /dev/ttyACM0
+  port: /dev/ttyACM2
 advanced:
-  channel: 12
+  channel: 15
   log_level: debug
+  network_key:
+    - 5
+    - 7
+    - 5
+    - 1
+    - 9
+    - 11
+    - 3
+    - 15
+    - 0
+    - 2
+    - 4
+    - 6
+    - 8
+    - 11
+    - 12
+    - 13
+devices:
+  '0x00158d0002eb57bc':
+    friendly_name: '0x00158d0002eb57bc'
+  '0x00158d0002f249d2':
+    friendly_name: '0x00158d0002f249d2'
+  '0x00158d0002c4c6b8':
+    friendly_name: '0x00158d0002c4c6b8'

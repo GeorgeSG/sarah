@@ -1,5 +1,5 @@
 homeassistant: false
-permit_join: true
+permit_join: false
 mqtt:
   base_topic: zigbee2mqtt
   server: 'mqtt://192.168.0.27'
@@ -92,3 +92,5 @@ devices:
     humidity_precision: 1
   '0x04cf8cdf3c794dd1':
     friendly_name: opple_1
+  '0x00158d0002c4c6b8':
+    friendly_name: '0x00158d0002c4c6b8'
