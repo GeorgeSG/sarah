@@ -30,14 +30,66 @@ advanced:
 devices:
   '0x00158d0002c4c6b8':
     friendly_name: vibration_sensor
-  '0x00158d00042d163f':
-    friendly_name: living_room_right_window
+  '0x00158d0002f249d2':
+    friendly_name: desk_switch
+  '0x00158d00044e8210':
+    friendly_name: bedroom_left_window
     retain: true
+  '0x00158d00045c0e3f':
+    friendly_name: bedroom_right_window
+    retain: true
+  '0x00158d00044e85df':
+    friendly_name: bedroom_door
+    retain: true
+  '0x00158d000465ae58':
+    friendly_name: bedroom_weather
+    retain: true
+    temperature_precision: 1
+    humidity_precision: 1
+  '0x00158d00049ff1db':
+    friendly_name: kitchen_window
+    retain: true
+  '0x00158d00045cf423':
+    friendly_name: kitchen_weather
+    retain: true
+    temperature_precision: 1
+    humidity_precision: 1
+  '0x00158d00047ba6cd':
+    friendly_name: bathroom_weather
+    retain: true
+    temperature_precision: 1
+    humidity_precision: 1
+  '0x00158d00045ee213':
+    friendly_name: front_door
+    retain: true
+  '0x00158d00047ba8af':
+    friendly_name: hallway_weather
+    retain: true
+    temperature_precision: 1
+    humidity_precision: 1
+  '0x00158d0001cbbb94':
+    friendly_name: trust_remote
   '0x00158d0003f42ea3':
     friendly_name: hallway_motion
   '0x00158d00041444bc':
     friendly_name: kitchen_motion
+  '0x00158d00042d163f':
+    friendly_name: living_room_right_window
+    retain: true
+  '0x00124b001f6fc6a2':
+    friendly_name: bed_led
+  '0x00158d00040249c8':
+    friendly_name: bedside_switch
+  '0x00158d0002f24a63':
+    friendly_name: bedroom_wall_switch
+  '0x00124b0018e27de7':
+    friendly_name: router_1
   '0x00158d0002eb57bc':
-    friendly_name: '0x00158d0002eb57bc'
-  '0x00158d0002f249d2':
-    friendly_name: '0x00158d0002f249d2'
+    friendly_name: bathroom_switch
+  '0x00158d00045c933d':
+    friendly_name: guest_bedroom_weather
+    retain: true
+    temperature_precision: 1
+    humidity_precision: 1
+  '0x04cf8cdf3c794dd1':
+    friendly_name: opple_1
