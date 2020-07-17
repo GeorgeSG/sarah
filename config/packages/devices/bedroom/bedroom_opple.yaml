@@ -1,0 +1,235 @@
+sensor:
+  - platform: mqtt
+    name: "Bedroom Opple action"
+    state_topic: "zigbee2mqtt/opple_1"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:gesture-double-tap"
+    value_template: "{{ value_json.action }}"
+  - platform: mqtt
+    name: "Bedroom Opple battery"
+    state_topic: "zigbee2mqtt/opple_1"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    unit_of_measurement: "%"
+    device_class: "battery"
+    value_template: "{{ value_json.battery }}"
+  - platform: mqtt
+    name: "Bedroom Opple LQI"
+    state_topic: "zigbee2mqtt/opple_1"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:signal"
+    unit_of_measurement: "lqi"
+    value_template: "{{ value_json.linkquality }}"
+
+automation:
+
+  # Lights
+  - alias: Lighting · Master bedroom · Opple · Turn off lights on 1 click
+    trigger:
+      platform: mqtt
+      topic: "zigbee2mqtt/opple_1"
+    condition:
+      - condition: state
+        entity_id: sensor.bedroom_opple_action
+        state: 'button_1_single'
+    action:
+      - service: light.turn_off
+        entity_id: light.master_bedroom_main
+
+  - alias: Lighting · Master bedroom · Opple · Turn on lights on 2 click
+    trigger:
+      platform: mqtt
+      topic: "zigbee2mqtt/opple_1"
+    condition:
+      - condition: state
+        entity_id: sensor.bedroom_opple_action
+        state: 'button_2_single'
+    action:
+      - service: light.turn_on
+        data_template:
+          entity_id: light.master_bedroom_main
+          brightness_pct: >-
+
+            {% if not is_state('input_select.house_mode', 'day') %}
+              40
+            {% else %}
+              100
+            {% endif %}
+
+  - alias: Lighting · Master bedroom · Opple · Turn off all lights on 1 double
+    trigger:
+      platform: mqtt
+      topic: "zigbee2mqtt/opple_1"
+    condition:
+      - condition: state
+        entity_id: sensor.bedroom_opple_action
+        state: 'button_1_double'
+    action:
+      - service: light.turn_off
+        entity_id: light.master_bedroom
+
+  - alias: Lighting · Master bedroom · Opple · Turn on all lights on 2 double
+    trigger:
+      platform: mqtt
+      topic: "zigbee2mqtt/opple_1"
+    condition:
+      - condition: state
+        entity_id: sensor.bedroom_opple_action
+        state: 'button_2_double'
+    action:
+      - service: light.turn_on
+        data_template:
+          entity_id: light.master_bedroom
+          brightness_pct: >-
+
+            {% if not is_state('input_select.house_mode', 'day') %}
+              40
+            {% else %}
+              100
+            {% endif %}
+
+  - alias: Lighting · Master bedroom · Opple · Turn off all ambient lights on 1 triple
+    trigger:
+      platform: mqtt
+      topic: "zigbee2mqtt/opple_1"
+    condition:
+      - condition: state
+        entity_id: sensor.bedroom_opple_action
+        state: 'button_1_triple'
+    action:
+      - service: light.turn_off
+        entity_id:
+          - light.bedside
+          - light.bed_led
+
+  - alias: Lighting · Master bedroom · Opple · Turn on ambient lights on 2 triple
+    trigger:
+      platform: mqtt
+      topic: "zigbee2mqtt/opple_1"
+    condition:
+      - condition: state
+        entity_id: sensor.bedroom_opple_action
+        state: 'button_2_triple'
+    action:
+      - service: light.turn_on
+        data_template:
+          entity_id:
+            - light.bedside
+            - light.bed_led
+          brightness_pct: >-
+
+            {% if not is_state('input_select.house_mode', 'day') %}
+              40
+            {% else %}
+              100
+            {% endif %}
+
+
+  # Audio
+  - alias: Lighting · Master bedroom · Opple · Toggle music on 3 single
+    trigger:
+      platform: mqtt
+      topic: "zigbee2mqtt/opple_1"
+    condition:
+      - condition: state
+        entity_id: sensor.bedroom_opple_action
+        state: 'button_3_single'
+    action:
+      - service: media_player.media_play_pause
+        entity_id: media_player.master_bedroom
+
+  - alias: Lighting · Master bedroom · Opple · Bring tv on 3 double
+    trigger:
+      platform: mqtt
+      topic: "zigbee2mqtt/opple_1"
+    condition:
+      - condition: state
+        entity_id: sensor.bedroom_opple_action
+        state: 'button_3_double'
+    action:
+      - service: script.sonos_join_tv
+
+  - alias: Lighting · Master bedroom · Opple · Bring bedroom on 3 triple
+    trigger:
+      platform: mqtt
+      topic: "zigbee2mqtt/opple_1"
+    condition:
+      - condition: state
+        entity_id: sensor.bedroom_opple_action
+        state: 'button_3_triple'
+    action:
+      - service: script.sonos_join_bedroom
+
+  - alias: Lighting · Master bedroom · Opple · Next song on 3 release
+    trigger:
+      platform: mqtt
+      topic: "zigbee2mqtt/opple_1"
+    condition:
+      - condition: state
+        entity_id: sensor.bedroom_opple_action
+        state: 'button_3_release'
+    action:
+      - service: media_player.play_next
+        entity_id: media_player.master_bedroom
+
+  - alias: Lighting · Master bedroom · Opple · Play chill on 4 single
+    trigger:
+      platform: mqtt
+      topic: "zigbee2mqtt/opple_1"
+    condition:
+      - condition: state
+        entity_id: sensor.bedroom_opple_action
+        state: 'button_4_single'
+    action:
+      - service: script.music_play
+
+  - alias: Lighting · Master bedroom · Opple · Play Starred on 4 double
+    trigger:
+      platform: mqtt
+      topic: "zigbee2mqtt/opple_1"
+    condition:
+      - condition: state
+        entity_id: sensor.bedroom_opple_action
+        state: 'button_4_double'
+    action:
+      - service: script.music_play
+        data:
+          playlist: 'Starred'
+
+  - alias: Lighting · Master bedroom · Opple · Play Retro on 4 triple
+    trigger:
+      platform: mqtt
+      topic: "zigbee2mqtt/opple_1"
+    condition:
+      - condition: state
+        entity_id: sensor.bedroom_opple_action
+        state: 'button_4_double'
+    action:
+      - service: script.music_play
+        data:
+          playlist: 'Retro'
+
+  # Climate
+
+  - alias: Lighting · Master bedroom · Opple · Turn off purifier on 5 single
+    trigger:
+      platform: mqtt
+      topic: "zigbee2mqtt/opple_1"
+    condition:
+      - condition: state
+        entity_id: sensor.bedroom_opple_action
+        state: 'button_5_single'
+    action:
+      - service: fan.turn_off
+        entity_id: fan.philips_airpurifier
+
+  - alias: Lighting · Master bedroom · Opple · Turn on purifier on 6 single
+    trigger:
+      platform: mqtt
+      topic: "zigbee2mqtt/opple_1"
+    condition:
+      - condition: state
+        entity_id: sensor.bedroom_opple_action
+        state: 'button_6_single'
+    action:
+      - service: fan.turn_on
+        entity_id: fan.philips_airpurifier
