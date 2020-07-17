@@ -1,21 +1,21 @@
 sensor:
   - platform: mqtt
     name: "Bedroom Opple action"
-    state_topic: "zigbee2mqtt/opple_1"
-    availability_topic: "zigbee2mqtt/bridge/state"
+    state_topic: "z2m_deconz/opple_1"
+    availability_topic: "z2m_deconz/bridge/state"
     icon: "mdi:gesture-double-tap"
     value_template: "{{ value_json.action }}"
   - platform: mqtt
     name: "Bedroom Opple battery"
-    state_topic: "zigbee2mqtt/opple_1"
-    availability_topic: "zigbee2mqtt/bridge/state"
+    state_topic: "z2m_deconz/opple_1"
+    availability_topic: "z2m_deconz/bridge/state"
     unit_of_measurement: "%"
     device_class: "battery"
     value_template: "{{ value_json.battery }}"
   - platform: mqtt
     name: "Bedroom Opple LQI"
-    state_topic: "zigbee2mqtt/opple_1"
-    availability_topic: "zigbee2mqtt/bridge/state"
+    state_topic: "z2m_deconz/opple_1"
+    availability_topic: "z2m_deconz/bridge/state"
     icon: "mdi:signal"
     unit_of_measurement: "lqi"
     value_template: "{{ value_json.linkquality }}"
@@ -26,7 +26,7 @@ automation:
   - alias: Lighting · Master bedroom · Opple · Turn off lights on 1 click
     trigger:
       platform: mqtt
-      topic: "zigbee2mqtt/opple_1"
+      topic: "z2m_deconz/opple_1"
     condition:
       - condition: state
         entity_id: sensor.bedroom_opple_action
@@ -38,7 +38,7 @@ automation:
   - alias: Lighting · Master bedroom · Opple · Turn on lights on 2 click
     trigger:
       platform: mqtt
-      topic: "zigbee2mqtt/opple_1"
+      topic: "z2m_deconz/opple_1"
     condition:
       - condition: state
         entity_id: sensor.bedroom_opple_action
@@ -58,7 +58,7 @@ automation:
   - alias: Lighting · Master bedroom · Opple · Turn off all lights on 1 double
     trigger:
       platform: mqtt
-      topic: "zigbee2mqtt/opple_1"
+      topic: "z2m_deconz/opple_1"
     condition:
       - condition: state
         entity_id: sensor.bedroom_opple_action
@@ -70,7 +70,7 @@ automation:
   - alias: Lighting · Master bedroom · Opple · Turn on all lights on 2 double
     trigger:
       platform: mqtt
-      topic: "zigbee2mqtt/opple_1"
+      topic: "z2m_deconz/opple_1"
     condition:
       - condition: state
         entity_id: sensor.bedroom_opple_action
@@ -90,7 +90,7 @@ automation:
   - alias: Lighting · Master bedroom · Opple · Turn off all ambient lights on 1 triple
     trigger:
       platform: mqtt
-      topic: "zigbee2mqtt/opple_1"
+      topic: "z2m_deconz/opple_1"
     condition:
       - condition: state
         entity_id: sensor.bedroom_opple_action
@@ -104,7 +104,7 @@ automation:
   - alias: Lighting · Master bedroom · Opple · Turn on ambient lights on 2 triple
     trigger:
       platform: mqtt
-      topic: "zigbee2mqtt/opple_1"
+      topic: "z2m_deconz/opple_1"
     condition:
       - condition: state
         entity_id: sensor.bedroom_opple_action
@@ -128,7 +128,7 @@ automation:
   - alias: Lighting · Master bedroom · Opple · Toggle music on 3 single
     trigger:
       platform: mqtt
-      topic: "zigbee2mqtt/opple_1"
+      topic: "z2m_deconz/opple_1"
     condition:
       - condition: state
         entity_id: sensor.bedroom_opple_action
@@ -140,7 +140,7 @@ automation:
   - alias: Lighting · Master bedroom · Opple · Bring tv on 3 double
     trigger:
       platform: mqtt
-      topic: "zigbee2mqtt/opple_1"
+      topic: "z2m_deconz/opple_1"
     condition:
       - condition: state
         entity_id: sensor.bedroom_opple_action
@@ -151,7 +151,7 @@ automation:
   - alias: Lighting · Master bedroom · Opple · Bring bedroom on 3 triple
     trigger:
       platform: mqtt
-      topic: "zigbee2mqtt/opple_1"
+      topic: "z2m_deconz/opple_1"
     condition:
       - condition: state
         entity_id: sensor.bedroom_opple_action
@@ -162,7 +162,7 @@ automation:
   - alias: Lighting · Master bedroom · Opple · Next song on 3 release
     trigger:
       platform: mqtt
-      topic: "zigbee2mqtt/opple_1"
+      topic: "z2m_deconz/opple_1"
     condition:
       - condition: state
         entity_id: sensor.bedroom_opple_action
@@ -174,7 +174,7 @@ automation:
   - alias: Lighting · Master bedroom · Opple · Play chill on 4 single
     trigger:
       platform: mqtt
-      topic: "zigbee2mqtt/opple_1"
+      topic: "z2m_deconz/opple_1"
     condition:
       - condition: state
         entity_id: sensor.bedroom_opple_action
@@ -185,7 +185,7 @@ automation:
   - alias: Lighting · Master bedroom · Opple · Play Starred on 4 double
     trigger:
       platform: mqtt
-      topic: "zigbee2mqtt/opple_1"
+      topic: "z2m_deconz/opple_1"
     condition:
       - condition: state
         entity_id: sensor.bedroom_opple_action
@@ -198,11 +198,11 @@ automation:
   - alias: Lighting · Master bedroom · Opple · Play Retro on 4 triple
     trigger:
       platform: mqtt
-      topic: "zigbee2mqtt/opple_1"
+      topic: "z2m_deconz/opple_1"
     condition:
       - condition: state
         entity_id: sensor.bedroom_opple_action
-        state: 'button_4_double'
+        state: 'button_4_triple'
     action:
       - service: script.music_play
         data:
@@ -213,7 +213,7 @@ automation:
   - alias: Lighting · Master bedroom · Opple · Turn off purifier on 5 single
     trigger:
       platform: mqtt
-      topic: "zigbee2mqtt/opple_1"
+      topic: "z2m_deconz/opple_1"
     condition:
       - condition: state
         entity_id: sensor.bedroom_opple_action
@@ -225,7 +225,7 @@ automation:
   - alias: Lighting · Master bedroom · Opple · Turn on purifier on 6 single
     trigger:
       platform: mqtt
-      topic: "zigbee2mqtt/opple_1"
+      topic: "z2m_deconz/opple_1"
     condition:
       - condition: state
         entity_id: sensor.bedroom_opple_action

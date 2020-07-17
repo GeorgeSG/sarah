@@ -113,20 +113,20 @@ sensor:
   - platform: mqtt
     name: "Zigbee2MQTT Networkmap"
     # if you change base_topic of Zigbee2mqtt, change state_topic accordingly
-    state_topic: "zigbee2mqtt/bridge/networkmap/raw"
+    state_topic: "z2m_deconz/bridge/networkmap/raw"
     value_template: "{{ now().strftime('%Y-%m-%d %H:%M:%S') }}"
     # again, if you change base_topic of Zigbee2mqtt, change json_attributes_topic accordingly
-    json_attributes_topic: zigbee2mqtt/bridge/networkmap/raw
+    json_attributes_topic: z2m_deconz/bridge/networkmap/raw
   - platform: mqtt
     name: "Zigbee2MQTT Devices count"
-    availability_topic: "zigbee2mqtt/bridge/state"
-    state_topic: "zigbee2mqtt/bridge/config/devices"
+    availability_topic: "z2m_deconz/bridge/state"
+    state_topic: "z2m_deconz/bridge/config/devices"
     value_template: "{{ value_json | count }}"
     icon: "mdi:counter"
   - platform: mqtt
     name: "Router 1 LQI"
-    state_topic: "zigbee2mqtt/router_1"
-    availability_topic: "zigbee2mqtt/bridge/state"
+    state_topic: "z2m_deconz/router_1"
+    availability_topic: "z2m_deconz/bridge/state"
     icon: "mdi:signal"
     unit_of_measurement: "lqi"
     value_template: "{{ value_json.linkquality }}"
@@ -138,7 +138,7 @@ script:
     sequence:
       service: mqtt.publish
       data:
-        topic: "zigbee2mqtt/bridge/config/devices/get"
+        topic: "z2m_deconz/bridge/config/devices/get"
 
 homeassistant:
   customize:

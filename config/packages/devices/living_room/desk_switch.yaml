@@ -1,27 +1,27 @@
 sensor:
   - platform: mqtt
     name: "Desk switch click"
-    state_topic: "zigbee2mqtt/desk_switch"
-    availability_topic: "zigbee2mqtt/bridge/state"
+    state_topic: "z2m_deconz/desk_switch"
+    availability_topic: "z2m_deconz/bridge/state"
     icon: "mdi:toggle-switch"
     value_template: "{{ value_json.click }}"
   - platform: mqtt
     name: "Desk switch battery"
-    state_topic: "zigbee2mqtt/desk_switch"
-    availability_topic: "zigbee2mqtt/bridge/state"
+    state_topic: "z2m_deconz/desk_switch"
+    availability_topic: "z2m_deconz/bridge/state"
     unit_of_measurement: "%"
     device_class: "battery"
     value_template: "{{ value_json.battery }}"
   - platform: mqtt
     name: "Desk switch action"
-    state_topic: "zigbee2mqtt/desk_switch"
-    availability_topic: "zigbee2mqtt/bridge/state"
+    state_topic: "z2m_deconz/desk_switch"
+    availability_topic: "z2m_deconz/bridge/state"
     icon: "mdi:gesture-double-tap"
     value_template: "{{ value_json.action }}"
   - platform: mqtt
     name: "Desk switch LQI"
-    state_topic: "zigbee2mqtt/desk_switch"
-    availability_topic: "zigbee2mqtt/bridge/state"
+    state_topic: "z2m_deconz/desk_switch"
+    availability_topic: "z2m_deconz/bridge/state"
     icon: "mdi:signal"
     unit_of_measurement: "lqi"
     value_template: "{{ value_json.linkquality }}"
@@ -31,7 +31,7 @@ automation:
   - alias: Lighting · Living Room · Toggle ceiling lights on desk switch single click
     trigger:
       platform: mqtt
-      topic: "zigbee2mqtt/desk_switch"
+      topic: "z2m_deconz/desk_switch"
     condition:
       - condition: state
         entity_id: sensor.desk_switch_click
@@ -51,7 +51,7 @@ automation:
   - alias: Lighting · Living Room · Toggle ambient lights on desk switch double click
     trigger:
       platform: mqtt
-      topic: "zigbee2mqtt/desk_switch"
+      topic: "z2m_deconz/desk_switch"
     condition:
       - condition: state
         entity_id: sensor.desk_switch_click

@@ -1,20 +1,20 @@
 sensor:
   - platform: mqtt
     name: "Trust remote action"
-    state_topic: "zigbee2mqtt/trust_remote"
-    availability_topic: "zigbee2mqtt/bridge/state"
+    state_topic: "z2m_deconz/trust_remote"
+    availability_topic: "z2m_deconz/bridge/state"
     icon: "mdi:gesture-double-tap"
     value_template: "{{ value_json.action }}"
   - platform: mqtt
     name: "Trust remote group"
-    state_topic: "zigbee2mqtt/trust_remote"
-    availability_topic: "zigbee2mqtt/bridge/state"
+    state_topic: "z2m_deconz/trust_remote"
+    availability_topic: "z2m_deconz/bridge/state"
     icon: "mdi:lightbulb-group"
     value_template: "{{ value_json.action_group }}"
   - platform: mqtt
     name: "Trust remote LQI"
-    state_topic: "zigbee2mqtt/trust_remote"
-    availability_topic: "zigbee2mqtt/bridge/state"
+    state_topic: "z2m_deconz/trust_remote"
+    availability_topic: "z2m_deconz/bridge/state"
     icon: "mdi:signal"
     unit_of_measurement: "lqi"
     value_template: "{{ value_json.linkquality }}"
@@ -59,7 +59,7 @@ automation:
   - alias: Trust remote · Turn on
     trigger:
       - platform: mqtt
-        topic: zigbee2mqtt/trust_remote
+        topic: z2m_deconz/trust_remote
     condition:
       - condition: template
         value_template: >
@@ -87,7 +87,7 @@ automation:
   - alias: Trust remote · Turn off
     trigger:
       - platform: mqtt
-        topic: zigbee2mqtt/trust_remote
+        topic: z2m_deconz/trust_remote
     condition:
       - condition: template
         value_template: >-

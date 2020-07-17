@@ -16,8 +16,8 @@ group:
 binary_sensor:
   - platform: mqtt
     name: "Living room right window"
-    state_topic: "zigbee2mqtt/living_room_right_window"
-    availability_topic: "zigbee2mqtt/bridge/state"
+    state_topic: "z2m_deconz/living_room_right_window"
+    availability_topic: "z2m_deconz/bridge/state"
     payload_on: false
     payload_off: true
     value_template: "{{ value_json.contact }}"
@@ -25,8 +25,8 @@ binary_sensor:
 
   - platform: mqtt
     name: "Bedroom left window"
-    state_topic: "zigbee2mqtt/bedroom_left_window"
-    availability_topic: "zigbee2mqtt/bridge/state"
+    state_topic: "z2m_deconz/bedroom_left_window"
+    availability_topic: "z2m_deconz/bridge/state"
     payload_on: false
     payload_off: true
     value_template: "{{ value_json.contact }}"
@@ -34,8 +34,8 @@ binary_sensor:
 
   - platform: mqtt
     name: "Bedroom right window"
-    state_topic: "zigbee2mqtt/bedroom_right_window"
-    availability_topic: "zigbee2mqtt/bridge/state"
+    state_topic: "z2m_deconz/bedroom_right_window"
+    availability_topic: "z2m_deconz/bridge/state"
     payload_on: false
     payload_off: true
     value_template: "{{ value_json.contact }}"
@@ -43,8 +43,8 @@ binary_sensor:
 
   - platform: mqtt
     name: "Kitchen window"
-    state_topic: "zigbee2mqtt/kitchen_window"
-    availability_topic: "zigbee2mqtt/bridge/state"
+    state_topic: "z2m_deconz/kitchen_window"
+    availability_topic: "z2m_deconz/bridge/state"
     payload_on: false
     payload_off: true
     value_template: "{{ value_json.contact }}"
@@ -53,64 +53,64 @@ binary_sensor:
 sensor:
   - platform: mqtt
     name: "Living room right window battery"
-    state_topic: "zigbee2mqtt/living_room_right_window"
-    availability_topic: "zigbee2mqtt/bridge/state"
+    state_topic: "z2m_deconz/living_room_right_window"
+    availability_topic: "z2m_deconz/bridge/state"
     unit_of_measurement: "%"
     device_class: "battery"
     value_template: "{{ value_json.battery }}"
 
   - platform: mqtt
     name: "Living room right window LQI"
-    state_topic: "zigbee2mqtt/living_room_right_window"
-    availability_topic: "zigbee2mqtt/bridge/state"
+    state_topic: "z2m_deconz/living_room_right_window"
+    availability_topic: "z2m_deconz/bridge/state"
     icon: "mdi:signal"
     unit_of_measurement: "lqi"
     value_template: "{{ value_json.linkquality }}"
 
   - platform: mqtt
     name: "Bedroom left window battery"
-    state_topic: "zigbee2mqtt/bedroom_left_window"
-    availability_topic: "zigbee2mqtt/bridge/state"
+    state_topic: "z2m_deconz/bedroom_left_window"
+    availability_topic: "z2m_deconz/bridge/state"
     unit_of_measurement: "%"
     device_class: "battery"
     value_template: "{{ value_json.battery }}"
 
   - platform: mqtt
     name: "Bedroom left window LQI"
-    state_topic: "zigbee2mqtt/bedroom_left_window"
-    availability_topic: "zigbee2mqtt/bridge/state"
+    state_topic: "z2m_deconz/bedroom_left_window"
+    availability_topic: "z2m_deconz/bridge/state"
     icon: "mdi:signal"
     unit_of_measurement: "lqi"
     value_template: "{{ value_json.linkquality }}"
 
   - platform: mqtt
     name: "Bedroom right window battery"
-    state_topic: "zigbee2mqtt/bedroom_right_window"
-    availability_topic: "zigbee2mqtt/bridge/state"
+    state_topic: "z2m_deconz/bedroom_right_window"
+    availability_topic: "z2m_deconz/bridge/state"
     unit_of_measurement: "%"
     device_class: "battery"
     value_template: "{{ value_json.battery }}"
 
   - platform: mqtt
     name: "Bedroom right window LQI"
-    state_topic: "zigbee2mqtt/bedroom_right_window"
-    availability_topic: "zigbee2mqtt/bridge/state"
+    state_topic: "z2m_deconz/bedroom_right_window"
+    availability_topic: "z2m_deconz/bridge/state"
     icon: "mdi:signal"
     unit_of_measurement: "lqi"
     value_template: "{{ value_json.linkquality }}"
 
   - platform: mqtt
     name: "Kitchen window battery"
-    state_topic: "zigbee2mqtt/kitchen_window"
-    availability_topic: "zigbee2mqtt/bridge/state"
+    state_topic: "z2m_deconz/kitchen_window"
+    availability_topic: "z2m_deconz/bridge/state"
     unit_of_measurement: "%"
     device_class: "battery"
     value_template: "{{ value_json.battery }}"
 
   - platform: mqtt
     name: "Kitchen window LQI"
-    state_topic: "zigbee2mqtt/kitchen_window"
-    availability_topic: "zigbee2mqtt/bridge/state"
+    state_topic: "z2m_deconz/kitchen_window"
+    availability_topic: "z2m_deconz/bridge/state"
     icon: "mdi:signal"
     unit_of_measurement: "lqi"
     value_template: "{{ value_json.linkquality }}"

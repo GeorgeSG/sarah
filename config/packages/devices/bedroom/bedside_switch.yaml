@@ -1,27 +1,27 @@
 sensor:
   - platform: mqtt
     name: "Bedside switch click"
-    state_topic: "zigbee2mqtt/bedside_switch"
-    availability_topic: "zigbee2mqtt/bridge/state"
+    state_topic: "z2m_deconz/bedside_switch"
+    availability_topic: "z2m_deconz/bridge/state"
     icon: "mdi:toggle-switch"
     value_template: "{{ value_json.click }}"
   - platform: mqtt
     name: "Bedside switch battery"
-    state_topic: "zigbee2mqtt/bedside_switch"
-    availability_topic: "zigbee2mqtt/bridge/state"
+    state_topic: "z2m_deconz/bedside_switch"
+    availability_topic: "z2m_deconz/bridge/state"
     unit_of_measurement: "%"
     device_class: "battery"
     value_template: "{{ value_json.battery }}"
   - platform: mqtt
     name: "Bedside switch action"
-    state_topic: "zigbee2mqtt/bedside_switch"
-    availability_topic: "zigbee2mqtt/bridge/state"
+    state_topic: "z2m_deconz/bedside_switch"
+    availability_topic: "z2m_deconz/bridge/state"
     icon: "mdi:gesture-double-tap"
     value_template: "{{ value_json.action }}"
   - platform: mqtt
     name: "Bedside switch LQI"
-    state_topic: "zigbee2mqtt/bedside_switch"
-    availability_topic: "zigbee2mqtt/bridge/state"
+    state_topic: "z2m_deconz/bedside_switch"
+    availability_topic: "z2m_deconz/bridge/state"
     icon: "mdi:signal"
     unit_of_measurement: "lqi"
     value_template: "{{ value_json.linkquality }}"
@@ -30,7 +30,7 @@ automation:
   - alias: Lighting · Master bedroom · Toggle lights on bedside switch single click
     trigger:
       platform: mqtt
-      topic: "zigbee2mqtt/bedside_switch"
+      topic: "z2m_deconz/bedside_switch"
     condition:
       - condition: state
         entity_id: sensor.bedside_switch_click
@@ -58,7 +58,7 @@ automation:
   - alias: Lighting · Master bedroom · Toggle ambient lights on bedside switch double click
     trigger:
       platform: mqtt
-      topic: "zigbee2mqtt/bedside_switch"
+      topic: "z2m_deconz/bedside_switch"
     condition:
       - condition: state
         entity_id: sensor.bedside_switch_click

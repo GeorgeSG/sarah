@@ -1,32 +1,32 @@
 sensor:
   - platform: mqtt
     name: "Bedroom door battery"
-    state_topic: "zigbee2mqtt/bedroom_door"
-    availability_topic: "zigbee2mqtt/bridge/state"
+    state_topic: "z2m_deconz/bedroom_door"
+    availability_topic: "z2m_deconz/bridge/state"
     unit_of_measurement: "%"
     device_class: "battery"
     value_template: "{{ value_json.battery }}"
 
   - platform: mqtt
     name: "Bedroom door LQI"
-    state_topic: "zigbee2mqtt/bedroom_door"
-    availability_topic: "zigbee2mqtt/bridge/state"
+    state_topic: "z2m_deconz/bedroom_door"
+    availability_topic: "z2m_deconz/bridge/state"
     icon: "mdi:signal"
     unit_of_measurement: "lqi"
     value_template: "{{ value_json.linkquality }}"
 
   - platform: mqtt
     name: "Front door battery"
-    state_topic: "zigbee2mqtt/front_door"
-    availability_topic: "zigbee2mqtt/bridge/state"
+    state_topic: "z2m_deconz/front_door"
+    availability_topic: "z2m_deconz/bridge/state"
     unit_of_measurement: "%"
     device_class: "battery"
     value_template: "{{ value_json.battery }}"
 
   - platform: mqtt
     name: "Front door LQI"
-    state_topic: "zigbee2mqtt/front_door"
-    availability_topic: "zigbee2mqtt/bridge/state"
+    state_topic: "z2m_deconz/front_door"
+    availability_topic: "z2m_deconz/bridge/state"
     icon: "mdi:signal"
     unit_of_measurement: "lqi"
     value_template: "{{ value_json.linkquality }}"
@@ -34,16 +34,16 @@ sensor:
 binary_sensor:
   - platform: mqtt
     name: "Bedroom door"
-    state_topic: "zigbee2mqtt/bedroom_door"
-    availability_topic: "zigbee2mqtt/bridge/state"
+    state_topic: "z2m_deconz/bedroom_door"
+    availability_topic: "z2m_deconz/bridge/state"
     payload_on: false
     payload_off: true
     value_template: "{{ value_json.contact }}"
     device_class: "door"
   - platform: mqtt
     name: "Front door"
-    state_topic: "zigbee2mqtt/front_door"
-    availability_topic: "zigbee2mqtt/bridge/state"
+    state_topic: "z2m_deconz/front_door"
+    availability_topic: "z2m_deconz/bridge/state"
     payload_on: false
     payload_off: true
     value_template: "{{ value_json.contact }}"
