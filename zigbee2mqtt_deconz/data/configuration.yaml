@@ -9,7 +9,7 @@ serial:
   port: /dev/ttyACM2
 advanced:
   channel: 15
-  log_level: debug
+  log_level: info
   network_key:
     - 5
     - 7
@@ -37,3 +37,7 @@ devices:
     friendly_name: hallway_motion
   '0x00158d00041444bc':
     friendly_name: kitchen_motion
+  '0x00158d0002eb57bc':
+    friendly_name: '0x00158d0002eb57bc'
+  '0x00158d0002f249d2':
+    friendly_name: '0x00158d0002f249d2'
