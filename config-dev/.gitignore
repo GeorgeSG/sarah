@@ -5,3 +5,4 @@ home-assistant_v2.db
 secrets.yaml
 custom_components/
 themes/
+www/
