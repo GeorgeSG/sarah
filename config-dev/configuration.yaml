@@ -8,9 +8,25 @@ hacs:
   token: !secret hacs_dev_token
   appdaemon: true
   netdaemon: true
-  frontend_repo_url: !secret hacs_dev_url
 
 logger:
   default: info
   logs:
     hacs: debug
+
+lovelace:
+  mode: yaml
+  resources:
+    - type: module
+      url: /hacsfiles/button-card/button-card.js
+    - type: module
+      url: /hacsfiles/lovelace-state-switch/state-switch.js
+    - type: module
+      url: http://192.168.0.13:5000/time-picker-card.js
+  dashboards:
+    lovelace-home:
+      mode: yaml
+      title: Home
+      icon: mdi:home
+      show_in_sidebar: true
+      filename: ui-lovelace.yaml
