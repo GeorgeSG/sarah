@@ -82,46 +82,6 @@
                     entity: light.hallway_entrance
                     name: Entrance
 
-          - type: horizontal-stack
-            title: Manual controls
-            cards:
-              - type: custom:button-card
-                template:
-                  - default
-                  - with_state_indicator
-                entity: input_boolean.alarm_enabled
-                state_display: >-
-                  [[[
-                    const time = states['input_datetime.alarm_time'].state;
-                    return time.split(':').slice(0, -1).join(':');
-                  ]]]
-                show_state: true
-                show_name: false
-                styles:
-                  icon:
-                    - transform: translateY(-8px)  # adjusted for state indicator size
-                  state:
-                    - transform: translateY(-13px)  # adjusted for state indicator size
-                variables:
-                  state_indicator_id: automation.alarm_set_time
-              - type: custom:button-card
-                template: default
-                entity: input_boolean.speech_notifications
-                name: Speech
-              - type: custom:button-card
-                template: default
-                entity: binary_sensor.house_mode
-                tap_action:
-                  action: call-service
-                  service: input_select.select_next
-                  service_data:
-                    entity_id: input_select.house_mode
-              - type: custom:button-card
-                template: default
-                entity: input_boolean.guest_mode
-                tap_action:
-                  action: toggle
-
           - type: vertical-stack
             title: Devices
             cards:
@@ -212,6 +172,46 @@
       # Column 2
       - type: vertical-stack
         cards:
+          - type: horizontal-stack
+            title: Manual controls
+            cards:
+              - type: custom:button-card
+                template:
+                  - default
+                  - with_state_indicator
+                entity: input_boolean.alarm_enabled
+                state_display: >-
+                  [[[
+                    const time = states['input_datetime.alarm_time'].state;
+                    return time.split(':').slice(0, -1).join(':');
+                  ]]]
+                show_state: true
+                show_name: false
+                styles:
+                  icon:
+                    - transform: translateY(-8px)  # adjusted for state indicator size
+                  state:
+                    - transform: translateY(-13px)  # adjusted for state indicator size
+                variables:
+                  state_indicator_id: automation.alarm_set_time
+              - type: custom:button-card
+                template: default
+                entity: input_boolean.speech_notifications
+                name: Speech
+              - type: custom:button-card
+                template: default
+                entity: binary_sensor.house_mode
+                tap_action:
+                  action: call-service
+                  service: input_select.select_next
+                  service_data:
+                    entity_id: input_select.house_mode
+              - type: custom:button-card
+                template: default
+                entity: input_boolean.guest_mode
+                tap_action:
+                  action: toggle
+
           - type: vertical-stack
             cards:
               - type: vertical-stack
@@ -265,26 +265,18 @@
                     cards:
                       - type: custom:button-card
                         template: default
-                        entity: binary_sensor.front_door
-                      - type: custom:button-card
-                        template: default
-                        entity: binary_sensor.bedroom_door
-                  - type: horizontal-stack
-                    cards:
-                      - type: custom:button-card
-                        template: default
                         entity: binary_sensor.georgi_home
                         tap_action:
                           action: call-service
                           service: input_boolean.toggle
                           service_data:
                             entity_id: input_boolean.georgi_home
-                      - type: entity
-                        entity: device_tracker.mikrotik_carbon
-                        name: Wifi
-                      - type: entity
-                        entity: device_tracker.carbon
-                        name: GPS
+                      - type: custom:button-card
+                        template: default
+                        entity: binary_sensor.front_door
+                      - type: custom:button-card
+                        template: default
+                        entity: binary_sensor.bedroom_door
           - type: vertical-stack
             title: Climate
             cards:
