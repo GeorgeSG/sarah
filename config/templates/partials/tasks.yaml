@@ -1,11 +1,11 @@
 >-
 
-  {% set brita_filter = states('binary_sensor.brita_should_change_filter') %}
+  {% set brita_filter    = states('binary_sensor.brita_should_change_filter') %}
   {% set purifier_filter = states('binary_sensor.purifier_filter_needs_change') %}
-  {% set purifier_water = states('binary_sensor.purifier_out_of_water') %}
-  {% set has_reminders = brita_filter or purifier_filter or purifier_water %}
+  {% set purifier_water  = states('binary_sensor.purifier_out_of_water') %}
+  {% set has_tasks       = brita_filter or purifier_filter or purifier_water %}
 
-  {%- if has_reminders -%}  {{
+  {%- if has_tasks -%}  {{
     [
       "You have some tasks.",
       "Here are the tasks for today.",
