@@ -39,6 +39,7 @@ script:
           partials:
             - !include ../../templates/partials/greeting.yaml
             - !include ../../templates/partials/time.yaml
+            - !include ../../templates/partials/tasks.yaml
             - >-
 
               {{
