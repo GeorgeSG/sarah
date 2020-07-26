@@ -1,8 +1,10 @@
 >-
 
-  {%- if now().strftime('%H')|int < 12 and now().strftime('%H')|int > 6 -%}
+  {% let current_hour = now().strftime('%H')|int %}
+
+  {%- if current_hour < 12 and current_hour > 6 -%}
     Good morning!
-  {%- elif now().strftime('%H')|int >= 12 and now().strftime('%H')|int < 17 -%}
+  {%- elif current_hour >= 12 and current_hour < 17 -%}
     Good afternoon!
   {%- else -%}
     Good evening!
