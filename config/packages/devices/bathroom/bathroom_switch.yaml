@@ -1,3 +1,12 @@
+input_number:
+  bathroom_high_volume:
+    name: Bathroom high volume
+    mode: box
+    min: 0
+    max: 1
+    step: 0.05
+    icon: mdi:speaker
+
 sensor:
   - platform: mqtt
     name: "Bathroom switch click"
@@ -26,7 +35,6 @@ sensor:
     unit_of_measurement: "lqi"
     value_template: "{{ value_json.linkquality }}"
 
-
 automation:
   - alias: Media · Sonos · Volume up on bathroom switch click
     trigger:
@@ -42,10 +50,10 @@ automation:
         data_template:
           volume_level: >-
 
-            {% if state_attr('media_player.bathroom', 'volume_level')|float > 0.45 %}
+            {% if state_attr('media_player.bathroom', 'volume_level')|float > (states('input_number.bathroom_high_volume')|float - 0.05) %}
               0.25
             {% else %}
-              0.5
+              {{ states('input_number.bathroom_high_volume')|float }}
             {% endif %}
 
   - alias: Youtube · play latest pds on bathroom switch dobule click
@@ -59,6 +67,6 @@ automation:
     action:
       - service: media_player.volume_set
         entity_id: media_player.bathroom
-        data:
-          volume_level: 0.5
+        data_template:
+          volume_level: "{{ states('input_number.bathroom_high_volume')|float }}"
       - service: script.youtube_play_latest_pds

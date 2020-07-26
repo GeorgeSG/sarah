@@ -15,12 +15,17 @@
     min_columns: 2
     max_columns: 2
     cards:
-      - type: custom:decluttering-card
-        template: media_with_controls
-        variables:
-          - player: media_player.bathroom
-          - player_name: Bathroom
-          - title: Bathroom
+      - type: vertical-stack
+        cards:
+          - type: custom:decluttering-card
+            template: media_with_controls
+            variables:
+              - player: media_player.bathroom
+              - player_name: Bathroom
+              - title: Bathroom
+          - type: entities
+            entities:
+              - input_number.bathroom_high_volume
       - type: custom:decluttering-card
         template: climate_card
         variables:
