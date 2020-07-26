@@ -1,6 +1,6 @@
 >-
 
-  {% let current_hour = now().strftime('%H')|int %}
+  {% set current_hour = now().strftime('%H')|int %}
 
   {%- if current_hour < 12 and current_hour > 6 -%}
     Good morning!
