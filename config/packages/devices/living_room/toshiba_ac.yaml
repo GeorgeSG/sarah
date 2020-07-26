@@ -30,8 +30,15 @@ input_number:
   toshiba_cool_temp:
     name: AC cool temp
     unit_of_measurement: "ºC"
-    min: 18
+    min: 17
     max: 21
+    step: 1
+    icon: mdi:air-conditioner
+  toshiba_trigger_temp:
+    name: AC trigger temp
+    unit_of_measurement: "ºC"
+    min: 18
+    max: 25
     step: 1
     icon: mdi:air-conditioner
 
@@ -69,16 +76,15 @@ script:
       - service: logbook.log
         data:
           name: "💨 Climate Module · "
-          message: "AC · Switching on · Above 24 degrees, windows closed"
+          message: "AC · Switching on"
           domain: climate
 
   toshiba_ac_on_cool_if_hot:
     sequence:
       - condition: and
         conditions:
-          - condition: numeric_state
-            entity_id: sensor.trisensor_temperature
-            above: 23
+          - condition: template
+            value_template: "{{ states('sensor.trisensor_temperature')|float > states('input_number.toshiba_trigger_temp')|float }}"
           - condition: numeric_state
             entity_id: sensor.dark_sky_apparent_temperature
             above: 23
@@ -99,9 +105,8 @@ script:
 automation:
   - alias: Climate · AC · Turn on if hot
     trigger:
-      - platform: numeric_state
-        entity_id: sensor.trisensor_temperature
-        above: 23
+      - platform: template
+        value_template: "{{ states('sensor.trisensor_temperature')|float > states('input_number.toshiba_trigger_temp')|float }}"
       - platform: state
         entity_id:
           - binary_sensor.living_room_right_window

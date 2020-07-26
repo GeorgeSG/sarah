@@ -102,6 +102,7 @@
               - entity: climate.toshiba_ac
                 name: AC
               - entity: input_number.toshiba_cool_temp
+              - entity: input_number.toshiba_trigger_temp
 
           - type: vertical-stack
             cards:
