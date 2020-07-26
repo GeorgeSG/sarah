@@ -5,6 +5,8 @@
   {% set purifier_water  = states('binary_sensor.purifier_out_of_water') %}
   {% set has_tasks       = brita_filter or purifier_filter or purifier_water %}
 
+  # --- output
+
   {%- if has_tasks -%}  {{
     [
       "You have some tasks.",
@@ -12,7 +14,8 @@
       "You have stuff to do."
     ] | random
   }} {% endif %}
-  {%- if brita_filter -%} Brita needs filter change. {% endif %}
+
+  {%- if brita_filter -%}    Brita needs filter change. {% endif %}
   {%- if purifier_filter -%} Purifier needs filter change. {% endif %}
-  {%- if purifier_water -%} Purifier needs water. {%- endif -%}
+  {%- if purifier_water -%}  Purifier needs water. {%- endif -%}
 
