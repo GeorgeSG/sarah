@@ -30,3 +30,7 @@ lovelace:
       icon: mdi:home
       show_in_sidebar: true
       filename: ui-lovelace.yaml
+
+fan:
+  platform: philips_airpurifier
+  host: !secret philips_purifier_ip
