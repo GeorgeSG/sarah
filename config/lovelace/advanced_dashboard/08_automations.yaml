@@ -23,9 +23,17 @@ cards:
           title: Misc
           show_header_toggle: false
           entities:
+            - type: custom:dummy-entity-row
+              entity: sensor.automations_count
+              name: Reload Automations
+              icon: mdi:reload
+              tap_action:
+                action: call-service
+                service: automation.reload
             - entity: sensor.automations_count
               icon: mdi:pound
             - automation.titanium_turn_off_when_idle
+            - automation.titanium_notify_on_vibration_sensor_move
             - automation.speech_enable_when_meeting_is_over
             - automation.speech_disable_when_meeting_starts
 

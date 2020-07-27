@@ -251,3 +251,22 @@ automation:
         data:
           name: "🖥 Devices · "
           message: "Titanium · Turning off - idling for 3 hours"
+
+  - alias: Titanium · Notify on vibration sensor move
+    trigger:
+      platform: mqtt
+      topic: "z2m_deconz/vibration_sensor"
+    condition:
+      condition: not
+      conditions:
+        - condition: state
+          entity_id: binary_sensor.georgi_home
+          state: 'off'
+    action:
+      - service: notify.mobile_app_carbon
+        data:
+          title: "Titanium"
+          message: "Alert: Titanium sensor moved"
+          data:
+            push:
+              thread-id: "titanium"
