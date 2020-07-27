@@ -257,11 +257,9 @@ automation:
       platform: mqtt
       topic: "z2m_deconz/vibration_sensor"
     condition:
-      condition: not
-      conditions:
-        - condition: state
-          entity_id: binary_sensor.georgi_home
-          state: 'off'
+      condition: state
+      entity_id: binary_sensor.georgi_home
+      state: 'off'
     action:
       - service: notify.mobile_app_carbon
         data:
@@ -270,3 +268,7 @@ automation:
           data:
             push:
               thread-id: "titanium"
+      - service: logbook.log
+        data:
+          name: "🖥 Devices · "
+          message: "Titanium · Sensor moved alert"
