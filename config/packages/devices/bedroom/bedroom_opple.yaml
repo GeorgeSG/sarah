@@ -23,7 +23,7 @@ sensor:
 automation:
 
   # Lights
-  - alias: Lighting · Master bedroom · Opple · Turn off lights on 1 click
+  - alias: Lighting · Master bedroom · Opple · Turn off all lights on 1 click
     trigger:
       platform: mqtt
       topic: "z2m_deconz/opple_1"
@@ -33,9 +33,9 @@ automation:
         state: 'button_1_single'
     action:
       - service: light.turn_off
-        entity_id: light.master_bedroom_main
+        entity_id: light.master_bedroom
 
-  - alias: Lighting · Master bedroom · Opple · Turn on lights on 2 click
+  - alias: Lighting · Master bedroom · Opple · Turn on all lights on 2 click
     trigger:
       platform: mqtt
       topic: "z2m_deconz/opple_1"
@@ -46,7 +46,7 @@ automation:
     action:
       - service: light.turn_on
         data_template:
-          entity_id: light.master_bedroom_main
+          entity_id: light.master_bedroom
           brightness_pct: >-
 
             {% if not is_state('input_select.house_mode', 'day') %}
@@ -55,7 +55,7 @@ automation:
               100
             {% endif %}
 
-  - alias: Lighting · Master bedroom · Opple · Turn off all lights on 1 double
+  - alias: Lighting · Master bedroom · Opple · Turn off lights on 1 double
     trigger:
       platform: mqtt
       topic: "z2m_deconz/opple_1"
@@ -65,9 +65,9 @@ automation:
         state: 'button_1_double'
     action:
       - service: light.turn_off
-        entity_id: light.master_bedroom
+        entity_id: light.master_bedroom_main
 
-  - alias: Lighting · Master bedroom · Opple · Turn on all lights on 2 double
+  - alias: Lighting · Master bedroom · Opple · Turn on lights on 2 double
     trigger:
       platform: mqtt
       topic: "z2m_deconz/opple_1"
@@ -78,7 +78,7 @@ automation:
     action:
       - service: light.turn_on
         data_template:
-          entity_id: light.master_bedroom
+          entity_id: light.master_bedroom_main
           brightness_pct: >-
 
             {% if not is_state('input_select.house_mode', 'day') %}

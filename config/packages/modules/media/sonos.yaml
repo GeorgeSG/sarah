@@ -51,6 +51,10 @@ script:
         entity_id: group.all_sonos
         data:
           master: media_player.living_room
+      - service: media_player.select_source
+        entity_id: media_player.living_room
+        data:
+          source: TV
   sonos_bathroom_up:
     alias: Sonos · Bathroom up
     sequence:

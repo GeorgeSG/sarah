@@ -1,0 +1,14 @@
+script:
+  scene_living_room_ambient_neon:
+    icon: "mdi:weather-night"
+    sequence:
+      - service: light.turn_on
+        entity_id: light.light_avatar_small_1
+        data:
+          xy_color: [0.668, 0.284]
+          brightness_pct: 80
+      - service: light.turn_on
+        entity_id: light.living_room_ambient_main
+        data:
+          rgb_color: [0, 255, 190]
+          brightness_pct: 100

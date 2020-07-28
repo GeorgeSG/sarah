@@ -23,7 +23,7 @@ sensor:
 automation:
 
   # Lights
-  - alias: Lighting · Living room · Opple · Turn off lights on 1 click
+  - alias: Lighting · Living room · Opple · Turn off all lights on 1 click
     trigger:
       platform: mqtt
       topic: "z2m_deconz/opple_2"
@@ -33,9 +33,9 @@ automation:
         state: 'button_1_single'
     action:
       - service: light.turn_off
-        entity_id: light.living_room_main
+        entity_id: light.living_room
 
-  - alias: Lighting · Living room · Opple · Turn on lights on 2 click
+  - alias: Lighting · Living room · Opple · Turn on all lights on 2 click
     trigger:
       platform: mqtt
       topic: "z2m_deconz/opple_2"
@@ -45,9 +45,9 @@ automation:
         state: 'button_2_single'
     action:
       - service: light.turn_on
-        entity_id: light.living_room_main
+        entity_id: light.living_room
 
-  - alias: Lighting · Living room · Opple · Turn off all lights on 1 double
+  - alias: Lighting · Living room · Opple · Turn off lights on 1 double
     trigger:
       platform: mqtt
       topic: "z2m_deconz/opple_2"
@@ -57,9 +57,9 @@ automation:
         state: 'button_1_double'
     action:
       - service: light.turn_off
-        entity_id: light.living_room
+        entity_id: light.living_room_main
 
-  - alias: Lighting · Living room · Opple · Turn on all lights on 2 double
+  - alias: Lighting · Living room · Opple · Turn on lights on 2 double
     trigger:
       platform: mqtt
       topic: "z2m_deconz/opple_2"
@@ -69,7 +69,7 @@ automation:
         state: 'button_2_double'
     action:
       - service: light.turn_on
-        entity_id: light.living_room
+        entity_id: light.living_room_main
 
   - alias: Lighting · Living room · Opple · Turn off all ambient lights on 1 triple
     trigger:
@@ -94,6 +94,17 @@ automation:
     action:
       - service: light.turn_on
         entity_id: light.living_room_ambient
+
+  - alias: Lighting · Living room · Opple · Ambient lights neon on 2 release
+    trigger:
+      platform: mqtt
+      topic: "z2m_deconz/opple_2"
+    condition:
+      - condition: state
+        entity_id: sensor.living_room_opple_action
+        state: 'button_2_release'
+    action:
+      - service: script.scene_living_room_ambient_neon
 
 
   # Audio
@@ -242,5 +253,33 @@ automation:
         entity_id: sensor.living_room_opple_action
         state: 'button_6_triple'
     action:
+      - service: automation.turn_off
+        entity_id: automation.tv_sonos_join_tv_on_google_cast
+
       - service: script.tv_fireplace
+
+      - service: sonos.join
+        entity_id:
+          - media_player.kitchen
+          - media_player.bathroom
+        data:
+          master: media_player.master_bedroom
+
+      # Music play, without the join
+      - service: media_player.volume_set
+        entity_id: media_player.master_bedroom
+        data:
+          volume_level: 0.2
+      - service: media_player.shuffle_set
+        entity_id: media_player.master_bedroom
+        data:
+          shuffle: true
+      - service: media_player.select_source
+        entity_id: media_player.master_bedroom
+        data:
+          source: "Evening Chill"
+
+      - delay: 00:01:00
+      - service: automation.turn_on
+        entity_id: automation.tv_sonos_join_tv_on_google_cast
 

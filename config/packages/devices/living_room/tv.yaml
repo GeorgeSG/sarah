@@ -28,8 +28,8 @@ script:
     alias: TV · Fireplace
     sequence:
       - service: script.tv_prepare_for_playback
-        data:
-          volume_level: 0.08
+        data_template:
+          volume_level: "{{ volume_level | default(0.1) }}"
       - service: media_extractor.play_media
         entity_id: media_player.shield
         data:
@@ -92,10 +92,7 @@ automation:
       entity_id: input_select.house_mode
       state: "day"
     action:
-      - service: sonos.join
-        data:
-          master: media_player.master_bedroom
-          entity_id: media_player.living_room
+      - service: script.sonos_join_bedroom
       - service: logbook.log
         data:
           name: "📺 Media Module · "
@@ -115,7 +112,6 @@ automation:
           name: "📺 Media Module · "
           message: "Sync TV state · Turning Shield on - TV is on"
           domain: media_player
-
 
   - alias: TV · State · Sync on TV off
     trigger:
@@ -170,11 +166,17 @@ automation:
     trigger:
       platform: state
       entity_id: media_player.nvidia_shield
+      to: 'playing'
     condition:
       - condition: template
         value_template: "{{ state_attr('media_player.nvidia_shield', 'source') == 'Google Cast' }}"
     action:
       - service: script.sonos_join_tv
+      - service: logbook.log
+        data:
+          name: "📺 Media Module · "
+          message: "TV · Google Cast - Joining Sonoses"
+          domain: media_player
 
 homeassistant:
   customize:
