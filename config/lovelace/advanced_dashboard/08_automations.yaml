@@ -32,6 +32,8 @@ cards:
                 service: automation.reload
             - entity: sensor.automations_count
               icon: mdi:pound
+            - automation.living_room_opple
+            - automation.bedroom_opple
             - automation.titanium_turn_off_when_idle
             - automation.titanium_notify_on_vibration_sensor_move
             - automation.speech_enable_when_meeting_is_over
@@ -72,10 +74,8 @@ cards:
             - automation.lighting_kitchen_night_mode_motion_turn_lights_on
             - automation.lighting_kitchen_night_mode_motion_turn_lights_off
             - type: divider
-            - automation.lighting_hallway_day_mode_motion_turn_lights_on
-            - automation.lighting_hallway_day_mode_motion_turn_lights_off
-            - automation.lighting_hallway_night_mode_motion_turn_lights_on
-            - automation.lighting_hallway_night_mode_motion_turn_lights_off
+            - automation.lighting_hallway_motion_on
+            - automation.lighting_hallway_motion_off
             - type: divider
             - automation.lighting_sync_tasmota_states_on_start_up
             - type: divider
@@ -198,52 +198,6 @@ cards:
             - automation.wallmote_living_room_3_hold_toggle_ambient_lights
             - automation.wallmote_living_room_4_tap_toggle_ac
             - automation.wallmote_living_room_4_hold_toggle_titanium
-
-        - type: entities
-          title: Bedroom Opple (opple_1)
-          show_header_toggle: true
-          icon: mdi:light-switch
-          entities:
-            - automation.lighting_master_bedroom_opple_turn_off_all_lights_on_1_click
-            - automation.lighting_master_bedroom_opple_turn_on_all_lights_on_2_click
-            - automation.lighting_master_bedroom_opple_turn_off_lights_on_1_double
-            - automation.lighting_master_bedroom_opple_turn_on_lights_on_2_double
-            - automation.lighting_master_bedroom_opple_turn_off_all_ambient_lights_on_1_triple
-            - automation.lighting_master_bedroom_opple_turn_on_ambient_lights_on_2_triple
-            - automation.media_master_bedroom_opple_toggle_music_on_3_single
-            - automation.media_master_bedroom_opple_bring_tv_on_3_double
-            - automation.media_master_bedroom_opple_bring_bedroom_on_3_triple
-            - automation.media_master_bedroom_opple_next_song_on_3_release
-            - automation.media_master_bedroom_opple_play_chill_on_4_single
-            - automation.media_master_bedroom_opple_play_starred_on_4_double
-            - automation.media_master_bedroom_opple_play_retro_on_4_triple
-            - automation.climate_master_bedroom_opple_turn_off_purifier_on_5_single
-            - automation.climate_master_bedroom_opple_turn_on_purifier_on_6_single
-
-        - type: entities
-          title: Living room Opple (opple_2)
-          show_header_toggle: true
-          icon: mdi:light-switch
-          entities:
-            - automation.lighting_living_room_opple_turn_off_all_lights_on_1_click
-            - automation.lighting_living_room_opple_turn_on_all_lights_on_2_click
-            - automation.lighting_living_room_opple_turn_off_lights_on_1_double
-            - automation.lighting_living_room_opple_turn_on_lights_on_2_double
-            - automation.lighting_living_room_opple_turn_off_all_ambient_lights_on_1_triple
-            - automation.lighting_living_room_opple_turn_on_ambient_lights_on_2_triple
-            - automation.lighting_living_room_opple_ambient_lights_neon_on_2_release
-            - automation.media_living_room_opple_toggle_music_on_3_single
-            - automation.media_living_room_opple_bring_tv_on_3_double
-            - automation.media_living_room_opple_bring_bedroom_on_3_triple
-            - automation.media_living_room_opple_next_song_on_3_release
-            - automation.media_living_room_opple_play_chill_on_4_single
-            - automation.media_living_room_opple_play_starred_on_4_double
-            - automation.media_living_room_opple_play_retro_on_4_triple
-            - automation.climate_living_room_opple_turn_off_ac_on_5_single
-            - automation.climate_living_room_opple_ac_temp_down_on_5_double
-            - automation.climate_living_room_opple_turn_on_ac_on_6_single
-            - automation.climate_living_room_opple_ac_temp_up_on_6_double
-            - automation.media_living_room_opple_fireplace_on_6_triple_click
 
         - type: entities
           title: Magic Cube

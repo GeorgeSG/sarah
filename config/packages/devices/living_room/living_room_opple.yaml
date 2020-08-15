@@ -21,265 +21,189 @@ sensor:
     value_template: "{{ value_json.linkquality }}"
 
 automation:
-
-  # Lights
-  - alias: Lighting · Living room · Opple · Turn off all lights on 1 click
+  - alias: Living room · Opple
+    mode: queued
     trigger:
       platform: mqtt
       topic: "z2m_deconz/opple_2"
-    condition:
-      - condition: state
-        entity_id: sensor.living_room_opple_action
-        state: 'button_1_single'
     action:
-      - service: light.turn_off
-        entity_id: light.living_room
+      - choose:
+        - conditions:
+          - condition: state
+            entity_id: sensor.living_room_opple_action
+            state: 'button_1_single'
+          sequence:
+            - service: light.turn_off
+              entity_id: light.living_room
 
-  - alias: Lighting · Living room · Opple · Turn on all lights on 2 click
-    trigger:
-      platform: mqtt
-      topic: "z2m_deconz/opple_2"
-    condition:
-      - condition: state
-        entity_id: sensor.living_room_opple_action
-        state: 'button_2_single'
-    action:
-      - service: light.turn_on
-        entity_id: light.living_room
+        - conditions:
+          - condition: state
+            entity_id: sensor.living_room_opple_action
+            state: 'button_2_single'
+          sequence:
+            - service: light.turn_on
+              entity_id: light.living_room
 
-  - alias: Lighting · Living room · Opple · Turn off lights on 1 double
-    trigger:
-      platform: mqtt
-      topic: "z2m_deconz/opple_2"
-    condition:
-      - condition: state
-        entity_id: sensor.living_room_opple_action
-        state: 'button_1_double'
-    action:
-      - service: light.turn_off
-        entity_id: light.living_room_main
+        - conditions:
+          - condition: state
+            entity_id: sensor.living_room_opple_action
+            state: 'button_1_double'
+          sequence:
+            - service: light.turn_off
+              entity_id: light.living_room_main
 
-  - alias: Lighting · Living room · Opple · Turn on lights on 2 double
-    trigger:
-      platform: mqtt
-      topic: "z2m_deconz/opple_2"
-    condition:
-      - condition: state
-        entity_id: sensor.living_room_opple_action
-        state: 'button_2_double'
-    action:
-      - service: light.turn_on
-        entity_id: light.living_room_main
+        - conditions:
+          - condition: state
+            entity_id: sensor.living_room_opple_action
+            state: 'button_2_double'
+          sequence:
+            - service: light.turn_on
+              entity_id: light.living_room_main
 
-  - alias: Lighting · Living room · Opple · Turn off all ambient lights on 1 triple
-    trigger:
-      platform: mqtt
-      topic: "z2m_deconz/opple_2"
-    condition:
-      - condition: state
-        entity_id: sensor.living_room_opple_action
-        state: 'button_1_triple'
-    action:
-      - service: light.turn_off
-        entity_id: light.living_room_ambient
+        - conditions:
+          - condition: state
+            entity_id: sensor.living_room_opple_action
+            state: 'button_1_triple'
+          sequence:
+            - service: light.turn_off
+              entity_id: light.living_room_ambient
 
-  - alias: Lighting · Living room · Opple · Turn on ambient lights on 2 triple
-    trigger:
-      platform: mqtt
-      topic: "z2m_deconz/opple_2"
-    condition:
-      - condition: state
-        entity_id: sensor.living_room_opple_action
-        state: 'button_2_triple'
-    action:
-      - service: light.turn_on
-        entity_id: light.living_room_ambient
+        - conditions:
+          - condition: state
+            entity_id: sensor.living_room_opple_action
+            state: 'button_2_triple'
+          sequence:
+            - service: light.turn_on
+              entity_id: light.living_room_ambient
 
-  - alias: Lighting · Living room · Opple · Ambient lights neon on 2 release
-    trigger:
-      platform: mqtt
-      topic: "z2m_deconz/opple_2"
-    condition:
-      - condition: state
-        entity_id: sensor.living_room_opple_action
-        state: 'button_2_release'
-    action:
-      - service: script.scene_living_room_ambient_neon
+        - conditions:
+          - condition: state
+            entity_id: sensor.living_room_opple_action
+            state: 'button_2_release'
+          sequence:
+            - service: script.scene_living_room_ambient_neon
 
+        - conditions:
+          - condition: state
+            entity_id: sensor.living_room_opple_action
+            state: 'button_3_single'
+          sequence:
+            - service: media_player.media_play_pause
+              entity_id: media_player.living_room
 
-  # Audio
-  - alias: Media · Living room · Opple · Toggle music on 3 single
-    trigger:
-      platform: mqtt
-      topic: "z2m_deconz/opple_2"
-    condition:
-      - condition: state
-        entity_id: sensor.living_room_opple_action
-        state: 'button_3_single'
-    action:
-      - service: media_player.media_play_pause
-        entity_id: media_player.living_room
+        - conditions:
+          - condition: state
+            entity_id: sensor.living_room_opple_action
+            state: 'button_3_double'
+          sequence:
+            - service: script.sonos_join_tv
 
-  - alias: Media · Living room · Opple · Bring tv on 3 double
-    trigger:
-      platform: mqtt
-      topic: "z2m_deconz/opple_2"
-    condition:
-      - condition: state
-        entity_id: sensor.living_room_opple_action
-        state: 'button_3_double'
-    action:
-      - service: script.sonos_join_tv
+        - conditions:
+          - condition: state
+            entity_id: sensor.living_room_opple_action
+            state: 'button_3_triple'
+          sequence:
+            - service: script.sonos_join_bedroom
 
-  - alias: Media · Living room · Opple · Bring bedroom on 3 triple
-    trigger:
-      platform: mqtt
-      topic: "z2m_deconz/opple_2"
-    condition:
-      - condition: state
-        entity_id: sensor.living_room_opple_action
-        state: 'button_3_triple'
-    action:
-      - service: script.sonos_join_bedroom
+        - conditions:
+          - condition: state
+            entity_id: sensor.living_room_opple_action
+            state: 'button_3_release'
+          sequence:
+            - service: media_player.play_next
+              entity_id: media_player.living_room
 
-  - alias: Media · Living room · Opple · Next song on 3 release
-    trigger:
-      platform: mqtt
-      topic: "z2m_deconz/opple_2"
-    condition:
-      - condition: state
-        entity_id: sensor.living_room_opple_action
-        state: 'button_3_release'
-    action:
-      - service: media_player.play_next
-        entity_id: media_player.living_room
+        - conditions:
+          - condition: state
+            entity_id: sensor.living_room_opple_action
+            state: 'button_4_single'
+          sequence:
+            - service: script.music_play
 
-  - alias: Media · Living room · Opple · Play chill on 4 single
-    trigger:
-      platform: mqtt
-      topic: "z2m_deconz/opple_2"
-    condition:
-      - condition: state
-        entity_id: sensor.living_room_opple_action
-        state: 'button_4_single'
-    action:
-      - service: script.music_play
+        - conditions:
+          - condition: state
+            entity_id: sensor.living_room_opple_action
+            state: 'button_4_double'
+          sequence:
+            - service: script.music_play
+              data:
+                playlist: 'Starred'
 
-  - alias: Media · Living room · Opple · Play Starred on 4 double
-    trigger:
-      platform: mqtt
-      topic: "z2m_deconz/opple_2"
-    condition:
-      - condition: state
-        entity_id: sensor.living_room_opple_action
-        state: 'button_4_double'
-    action:
-      - service: script.music_play
-        data:
-          playlist: 'Starred'
+        - conditions:
+          - condition: state
+            entity_id: sensor.living_room_opple_action
+            state: 'button_4_triple'
+          sequence:
+            - service: script.music_play
+              data:
+                playlist: 'Retro'
 
-  - alias: Media · Living room · Opple · Play Retro on 4 triple
-    trigger:
-      platform: mqtt
-      topic: "z2m_deconz/opple_2"
-    condition:
-      - condition: state
-        entity_id: sensor.living_room_opple_action
-        state: 'button_4_triple'
-    action:
-      - service: script.music_play
-        data:
-          playlist: 'Retro'
+        - conditions:
+          - condition: state
+            entity_id: sensor.living_room_opple_action
+            state: 'button_5_single'
+          sequence:
+            - service: climate.turn_off
+              entity_id: climate.toshiba_ac
 
+        - conditions:
+          - condition: state
+            entity_id: sensor.living_room_opple_action
+            state: 'button_5_double'
+          sequence:
+            - service: climate.set_temperature
+              entity_id: climate.toshiba_ac
+              data_template:
+                temperature: "{{ state_attr('climate.toshiba_ac', 'temperature') | int -1}}"
 
-  # Climate
-  - alias: Climate · Living room · Opple · Turn off AC on 5 single
-    trigger:
-      platform: mqtt
-      topic: "z2m_deconz/opple_2"
-    condition:
-      - condition: state
-        entity_id: sensor.living_room_opple_action
-        state: 'button_5_single'
-    action:
-      - service: climate.turn_off
-        entity_id: climate.toshiba_ac
+        - conditions:
+          - condition: state
+            entity_id: sensor.living_room_opple_action
+            state: 'button_6_single'
+          sequence:
+            - service: script.toshiba_ac_on_cool
 
-  - alias: Climate · Living room · Opple · AC Temp down on 5 double
-    trigger:
-      platform: mqtt
-      topic: "z2m_deconz/opple_2"
-    condition:
-      - condition: state
-        entity_id: sensor.living_room_opple_action
-        state: 'button_5_double'
-    action:
-      - service: climate.set_temperature
-        entity_id: climate.toshiba_ac
-        data_template:
-          temperature: "{{ state_attr('climate.toshiba_ac', 'temperature') | int -1}}"
+        - conditions:
+          - condition: state
+            entity_id: sensor.living_room_opple_action
+            state: 'button_6_double'
+          sequence:
+            - service: climate.set_temperature
+              entity_id: climate.toshiba_ac
+              data_template:
+                temperature: "{{ state_attr('climate.toshiba_ac', 'temperature') | int +1}}"
 
-  - alias: Climate · Living room · Opple · Turn on AC on 6 single
-    trigger:
-      platform: mqtt
-      topic: "z2m_deconz/opple_2"
-    condition:
-      - condition: state
-        entity_id: sensor.living_room_opple_action
-        state: 'button_6_single'
-    action:
-      - service: script.toshiba_ac_on_cool
+        - conditions:
+          - condition: state
+            entity_id: sensor.living_room_opple_action
+            state: 'button_6_triple'
+          sequence:
+            - service: automation.turn_off
+              entity_id: automation.tv_sonos_join_tv_on_google_cast
 
-  - alias: Climate · Living room · Opple · AC Temp up on 6 double
-    trigger:
-      platform: mqtt
-      topic: "z2m_deconz/opple_2"
-    condition:
-      - condition: state
-        entity_id: sensor.living_room_opple_action
-        state: 'button_6_double'
-    action:
-      - service: climate.set_temperature
-        entity_id: climate.toshiba_ac
-        data_template:
-          temperature: "{{ state_attr('climate.toshiba_ac', 'temperature') | int +1}}"
+            - service: script.tv_fireplace
 
-  - alias: Media · Living room · Opple · Fireplace on 6 triple click
-    trigger:
-      platform: mqtt
-      topic: "z2m_deconz/opple_2"
-    condition:
-      - condition: state
-        entity_id: sensor.living_room_opple_action
-        state: 'button_6_triple'
-    action:
-      - service: automation.turn_off
-        entity_id: automation.tv_sonos_join_tv_on_google_cast
+            - service: sonos.join
+              entity_id:
+                - media_player.kitchen
+                - media_player.bathroom
+              data:
+                master: media_player.master_bedroom
 
-      - service: script.tv_fireplace
+            # Music play, without the join
+            - service: media_player.volume_set
+              entity_id: media_player.master_bedroom
+              data:
+                volume_level: 0.2
+            - service: media_player.shuffle_set
+              entity_id: media_player.master_bedroom
+              data:
+                shuffle: true
+            - service: media_player.select_source
+              entity_id: media_player.master_bedroom
+              data:
+                source: "Evening Chill"
 
-      - service: sonos.join
-        entity_id:
-          - media_player.kitchen
-          - media_player.bathroom
-        data:
-          master: media_player.master_bedroom
-
-      # Music play, without the join
-      - service: media_player.volume_set
-        entity_id: media_player.master_bedroom
-        data:
-          volume_level: 0.2
-      - service: media_player.shuffle_set
-        entity_id: media_player.master_bedroom
-        data:
-          shuffle: true
-      - service: media_player.select_source
-        entity_id: media_player.master_bedroom
-        data:
-          source: "Evening Chill"
-
-      - delay: 00:01:00
-      - service: automation.turn_on
-        entity_id: automation.tv_sonos_join_tv_on_google_cast
-
+            - delay: 00:01:00
+            - service: automation.turn_on
+              entity_id: automation.tv_sonos_join_tv_on_google_cast
