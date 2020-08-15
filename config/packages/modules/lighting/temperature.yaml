@@ -11,6 +11,7 @@ script:
 
 automation:
   - alias: Lighting · Temperature · Adjust on start
+    mode: parallel
     trigger:
       platform: state
       entity_id:
@@ -33,6 +34,7 @@ automation:
           color_temp: "{{ 400 if is_state('sun.sun', 'above_horizon') else 500 }}"
 
   - alias: Lighting · Temperature · Adjust based on time
+    mode: parallel
     # TODO: this trigger is not good. Figure out something else.
     trigger:
       platform: sun
