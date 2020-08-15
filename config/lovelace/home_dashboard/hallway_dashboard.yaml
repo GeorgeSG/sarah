@@ -49,7 +49,7 @@
                 entity: binary_sensor.hallway_motion_occupancy
                 name: Motion
                 variables:
-                  state_indicator_id: automation.lighting_hallway_day_mode_motion_turn_lights_on
+                  state_indicator_id: automation.lighting_hallway_motion_on
               - type: custom:button-card
                 template:
                   - small
