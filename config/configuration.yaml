@@ -148,7 +148,7 @@ panel_iframe:
     title: "Router"
     url: !secret router_url
     require_admin: true
-    icon: mdi:network-router
+    icon: mdi:router-network
   tautulli:
     title: "Tautulli"
     url: !secret tautulli_url
