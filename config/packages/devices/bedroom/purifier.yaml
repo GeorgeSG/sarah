@@ -111,12 +111,12 @@ sensor:
         friendly_name: Timer
         unit_of_measurement: "hrs"
         value_template: "{{ state_attr('fan.philips_airpurifier', 'timer') }}"
-        icon_template: mdi:timer
+        icon_template: mdi:timer-outline
       purifier_time_remaining:
         friendly_name: Time remaining
         unit_of_measurement: "minutes"
         value_template: "{{ state_attr('fan.philips_airpurifier', 'timer_remaining_minutes') }}"
-        icon_template: mdi:timer
+        icon_template: mdi:timer-outline
 
 binary_sensor:
   - platform: template
@@ -158,13 +158,6 @@ script:
             {% else %}
               {{ 'Purification' }}
             {% endif %}
-      - service: script.purifier_request_update
-
-  purifier_request_update:
-    alias: Purifier · Request update
-    sequence:
-      - service: homeassistant.update_entity
-        entity_id: fan.philips_airpurifier
 
 automation:
   - alias: Purifier · On start · Sync and update state
@@ -198,7 +191,6 @@ automation:
         entity_id: fan.philips_airpurifier
         data_template:
           speed: "{{ states('input_select.purifier_speed') }}"
-      - service: script.purifier_request_update
 
   - alias: Purifier · Sync speed
     trigger:
@@ -227,7 +219,6 @@ automation:
             {% else %}
               60
             {% endif %}
-      - service: script.purifier_request_update
 
   - alias: Purifier · Sync humidity
     trigger:
@@ -238,7 +229,6 @@ automation:
         entity_id: input_select.purifier_target_humidity
         data_template:
           option: "{{ states('sensor.purifier_target_humidity') }}"
-      - service: script.purifier_request_update
 
   - alias: Purifier · Turn on · Low humidity
     trigger:
@@ -264,7 +254,6 @@ automation:
         entity_id: fan.philips_airpurifier
         data:
           function: "Purification & Humidification"
-      - service: script.purifier_request_update
       - service: script.say
         data:
           message: "Hey, I'm turning on the purifier, because humidity is low and there is water in the tank"
@@ -306,7 +295,6 @@ automation:
         entity_id: fan.philips_airpurifier
         data:
           funcition: "Purification & Humidification"
-      - service: script.purifier_request_update
       - service: script.say
         data:
           message: "Also, switching to humidification, because there is water in the tank"
@@ -336,7 +324,6 @@ automation:
     action:
       - service: fan.turn_off
         entity_id: fan.philips_airpurifier
-      - service: script.purifier_request_update
       - service: script.say
         data:
           message: "Hey, I'm turning the purifier off, because humidity is okay"
