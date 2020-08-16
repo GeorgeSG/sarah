@@ -53,6 +53,7 @@ light:
 # Try to keep input_booleans consistent.
 automation:
   - alias: Lighting · Tuya · Update kitchen lights
+    mode: queued
     trigger:
       platform: state
       entity_id:
