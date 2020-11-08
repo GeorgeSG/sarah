@@ -3,16 +3,16 @@ binary_sensor:
     name: "Hallway motion occupancy"
     state_topic: "z2m_deconz/hallway_motion"
     availability_topic: "z2m_deconz/bridge/state"
-    payload_on: true
-    payload_off: false
+    payload_on: "true"
+    payload_off: "false"
     value_template: "{{ value_json.occupancy }}"
     device_class: "motion"
   - platform: mqtt
     name: "Kitchen motion occupancy"
     state_topic: "z2m_deconz/kitchen_motion"
     availability_topic: "z2m_deconz/bridge/state"
-    payload_on: true
-    payload_off: false
+    payload_on: "true"
+    payload_off: "false"
     value_template: "{{ value_json.occupancy }}"
     device_class: "motion"
 

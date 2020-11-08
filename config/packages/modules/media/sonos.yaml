@@ -14,7 +14,6 @@ binary_sensor:
     sensors:
       sonos_recoverable:
         friendly_name: Sonos recoverable
-        entity_id: media_player.master_bedroom
         value_template: >-
 
           {% set content_id = state_attr('media_player.master_bedroom', 'media_content_id') %}

@@ -36,15 +36,15 @@ binary_sensor:
     name: "Bedroom door"
     state_topic: "z2m_deconz/bedroom_door"
     availability_topic: "z2m_deconz/bridge/state"
-    payload_on: false
-    payload_off: true
+    payload_on: "false"
+    payload_off: "true"
     value_template: "{{ value_json.contact }}"
     device_class: "door"
   - platform: mqtt
     name: "Front door"
     state_topic: "z2m_deconz/front_door"
     availability_topic: "z2m_deconz/bridge/state"
-    payload_on: false
-    payload_off: true
+    payload_on: "false"
+    payload_off: "true"
     value_template: "{{ value_json.contact }}"
     device_class: "door"

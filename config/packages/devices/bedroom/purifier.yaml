@@ -1,8 +1,8 @@
 # Philips Purifier
 # https://github.com/xMrVizzy/Philips-AirPurifier
 fan:
-  platform: philips_airpurifier
-  host: !secret philips_purifier_ip
+  - platform: philips_airpurifier
+    host: !secret philips_purifier_ip
 
 input_select:
   purifier_speed:
