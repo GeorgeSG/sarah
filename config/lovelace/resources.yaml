@@ -3,11 +3,11 @@
 - type: module
   url: /hacsfiles/bar-card/bar-card.js
 - type: module
+  url: /hacsfiles/lovelace-battery-entity-row/battery-entity-row.js
+- type: module
   url: /hacsfiles/button-card/button-card.js
 - type: module
   url: /hacsfiles/config-template-card/config-template-card.js
-- type: module
-  url: /hacsfiles/custom-header/custom-header.js
 - type: module
   url: /hacsfiles/decluttering-card/decluttering-card.js
 - type: module
@@ -18,8 +18,6 @@
   url: /hacsfiles/light-entity-card/light-entity-card.js
 - type: module
   url: /hacsfiles/light-popup-card/light-popup-card.js
-- type: module
-  url: /hacsfiles/lovelace-battery-entity/battery-entity.js
 - type: module
   url: /hacsfiles/lovelace-card-mod/card-mod.js
 - type: module

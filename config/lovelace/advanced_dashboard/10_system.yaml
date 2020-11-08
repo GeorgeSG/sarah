@@ -21,65 +21,65 @@ cards:
       cards:
         - type: entities
           entities:
-            - type: custom:battery-entity
+            - type: custom:battery-entity-row
               entity: sensor.carbon_battery_level
         - type: entities
           title: Z-Wave Devices
           entities:
-            - type: custom:battery-entity
+            - type: custom:battery-entity-row
               entity: sensor.trisensor_battery_level
               name: Trisensor
-            - type: custom:battery-entity
+            - type: custom:battery-entity-row
               entity: sensor.multisensor_6_battery_level
               name: Multisensor
-            - type: custom:battery-entity
+            - type: custom:battery-entity-row
               entity: sensor.living_room_thermostat_battery_level
               name: Thermostat
-            - type: custom:battery-entity
+            - type: custom:battery-entity-row
               entity: sensor.aeon_labs_zw130_wallmote_quad_battery_level
               name: Wallmote
         - type: entities
           title: Aqara sensors
           entities:
-            - type: custom:battery-entity
+            - type: custom:battery-entity-row
               entity: sensor.front_door_battery
-            - type: custom:battery-entity
+            - type: custom:battery-entity-row
               entity: sensor.living_room_right_window_battery
             - type: divider
-            - type: custom:battery-entity
+            - type: custom:battery-entity-row
               entity: sensor.bedroom_door_battery
-            - type: custom:battery-entity
+            - type: custom:battery-entity-row
               entity: sensor.bedroom_left_window_battery
-            - type: custom:battery-entity
+            - type: custom:battery-entity-row
               entity: sensor.bedroom_right_window_battery
-            - type: custom:battery-entity
+            - type: custom:battery-entity-row
               entity: sensor.bedroom_weather_battery
             - type: divider
-            - type: custom:battery-entity
+            - type: custom:battery-entity-row
               entity: sensor.kitchen_window_battery
-            - type: custom:battery-entity
+            - type: custom:battery-entity-row
               entity: sensor.kitchen_weather_battery
-            - type: custom:battery-entity
+            - type: custom:battery-entity-row
               entity: sensor.kitchen_motion_battery
             - type: divider
-            - type: custom:battery-entity
+            - type: custom:battery-entity-row
               entity: sensor.bathroom_weather_battery
-            - type: custom:battery-entity
+            - type: custom:battery-entity-row
               entity: sensor.hallway_weather_battery
-            - type: custom:battery-entity
+            - type: custom:battery-entity-row
               entity: sensor.hallway_motion_battery
         - type: entities
           title: Aqara Devices
           entities:
-            - type: custom:battery-entity
+            - type: custom:battery-entity-row
               entity: sensor.desk_switch_battery
-            - type: custom:battery-entity
+            - type: custom:battery-entity-row
               entity: sensor.bedside_switch_battery
-            - type: custom:battery-entity
+            - type: custom:battery-entity-row
               entity: sensor.bedroom_wall_switch_battery
-            - type: custom:battery-entity
+            - type: custom:battery-entity-row
               entity: sensor.bathroom_switch_battery
-            # - type: custom:battery-entity
+            # - type: custom:battery-entity-row
             #   entity: sensor.cube_power
         - type: vertical-stack
           cards:
