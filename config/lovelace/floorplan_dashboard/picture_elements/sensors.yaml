@@ -56,6 +56,31 @@
         - left: 48%
         - icon: mdi:video
 
+    # Radiator
+    - type: custom:decluttering-card
+      template: floorplan_state_with_icon
+      variables:
+        - entity: climate.living_room_radiator_mode
+        - top: 86%
+        - left: 77.8%
+        - icon: mdi:radiator
+        - tap_action:
+            action: more-info
+
+    # Temperature
+    - type: state-label
+      entity: sensor.trisensor_temperature
+      style:
+        top: 76%
+        left: 75%
+        color: "#000"
+        border-radius: 6px
+        text-align: center
+        background-color: "rgba(255, 255, 255, 0.9)"
+        font-size: 13px
+        font-weight: bold
+        line-height: 8px
+
     # Master Bedroom ────────────────────────────────────────────────────────────────────────
 
     # Puifier
@@ -74,6 +99,17 @@
         - top: 44.5%
         - left: 66%
         - icon: mdi:speaker
+        - tap_action:
+            action: more-info
+
+    # Radiator
+    - type: custom:decluttering-card
+      template: floorplan_state_with_icon
+      variables:
+        - entity: climate.bedroom_radiator_mode
+        - top: 27%
+        - left: 81%
+        - icon: mdi:radiator
         - tap_action:
             action: more-info
 
@@ -114,6 +150,31 @@
         - tap_action:
             action: more-info
 
+    # Radiator
+    - type: custom:decluttering-card
+      template: floorplan_state_with_icon
+      variables:
+        - entity: climate.kitchen_radiator_mode
+        - top: 43%
+        - left: 12.9%
+        - icon: mdi:radiator
+        - tap_action:
+            action: more-info
+
+    # Temperature
+    - type: state-label
+      entity: sensor.kitchen_weather_temperature
+      style:
+        top: 43%
+        left: 22%
+        color: "#000"
+        border-radius: 6px
+        text-align: center
+        background-color: "rgba(255, 255, 255, 0.9)"
+        font-size: 13px
+        font-weight: bold
+        line-height: 8px
+
     # Bathroom ────────────────────────────────────────────────────────────────────────
 
     # Sonos
@@ -127,6 +188,20 @@
         - tap_action:
             action: more-info
 
+    # Temperature
+    - type: state-label
+      entity: sensor.bathroom_weather_temperature
+      style:
+        top: 17%
+        left: 35%
+        color: "#000"
+        border-radius: 6px
+        text-align: center
+        background-color: "rgba(255, 255, 255, 0.9)"
+        font-size: 13px
+        font-weight: bold
+        line-height: 8px
+
     # Hallway ────────────────────────────────────────────────────────────────────────
 
     # Motion
@@ -138,6 +213,20 @@
         - left: 54%
         - tap_action:
             action: more-info
+
+    # Temperature
+    - type: state-label
+      entity: sensor.hallway_weather_temperature
+      style:
+        top: 17%
+        left: 50%
+        color: "#000"
+        border-radius: 6px
+        text-align: center
+        background-color: "rgba(255, 255, 255, 0.9)"
+        font-size: 13px
+        font-weight: bold
+        line-height: 8px
 
 # Always visible ────────────────────────────────────────────────────────────────────────
 
