@@ -136,6 +136,23 @@
                 cards:
                   - type: custom:decluttering-card
                     template: ac_button_card
+                  - type: custom:decluttering-card
+                    template: radiator_button_card
+                    variables:
+                      - entity_id: climate.living_room_radiator_mode
+                      - name: "Living room"
+                  - type: custom:decluttering-card
+                    template: radiator_button_card
+                    variables:
+                      - entity_id: climate.bedroom_radiator_mode
+                      - name: "Bedroom"
+                  - type: custom:decluttering-card
+                    template: radiator_button_card
+                    variables:
+                      - entity_id: climate.kitchen_radiator_mode
+                      - name: "Kitchen"
+              - type: horizontal-stack
+                cards:
                   - type: custom:button-card
                     template: default
                     entity: switch.camera

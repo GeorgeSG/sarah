@@ -1,9 +1,11 @@
 radiator_button_card:
+  default:
+    - name: "Radiator"
   card:
     type: custom:button-card
     template: default
     entity: "[[entity_id]]"
-    name: Radiator
+    name: "[[name]]"
     icon: mdi:radiator
     state:
       - value: 'off'
