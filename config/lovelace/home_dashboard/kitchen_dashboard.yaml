@@ -92,9 +92,9 @@
               - player_name: Kitchen
 
       - type: vertical-stack
+        title: Sensors
         cards:
           - type: horizontal-stack
-            title: Sensors
             cards:
               - type: custom:button-card
                 template: default
