@@ -95,14 +95,14 @@
                 entity: binary_sensor.pi_hole_enabled
                 name: Pi-Hole
                 icon: mdi:pi-hole
-          - type: entities
-            entities:
-              - entity: climate.living_room_thermostat_mode
-                name: Radiator
-              - entity: climate.toshiba_ac
-                name: AC
-              - entity: input_number.toshiba_cool_temp
-              - entity: input_number.toshiba_trigger_temp
+          - type: horizontal-stack
+            cards:
+              - type: custom:decluttering-card
+                template: radiator_button_card
+                variables:
+                  - entity_id: climate.living_room_radiator_mode
+              - type: custom:decluttering-card
+                template: ac_button_card
 
           - type: vertical-stack
             cards:
@@ -188,7 +188,7 @@
                 template:
                   - small
                   - progress
-                entity: sensor.living_room_thermostat_temperature
+                entity: sensor.living_room_radiator_temperature
                 name: Radiator temperature
               - type: custom:button-card
                 template:

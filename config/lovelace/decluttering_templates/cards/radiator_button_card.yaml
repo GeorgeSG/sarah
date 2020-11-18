@@ -1,0 +1,21 @@
+radiator_button_card:
+  card:
+    type: custom:button-card
+    template: default
+    entity: "[[entity_id]]"
+    name: Radiator
+    icon: mdi:radiator
+    state:
+      - value: 'off'
+        operator: '!='
+        styles:
+          card:
+            - background-color: var(--primary-color)
+            - color: black
+          icon:
+            - color: black
+    tap_action:
+      action: call-service
+      service: script.toggle_radiator
+      service_data:
+        entity_id: "[[entity_id]]"

@@ -83,8 +83,12 @@
                       scene_color_1: rgb(254, 255, 209)
 
           - type: horizontal-stack
-            title: Purifier
+            title: Climate
             cards:
+              - type: custom:decluttering-card
+                template: radiator_button_card
+                variables:
+                  - entity_id: climate.bedroom_radiator_mode
               - type: custom:button-card
                 template:
                   - default

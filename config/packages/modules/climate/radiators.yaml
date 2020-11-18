@@ -1,0 +1,132 @@
+input_boolean:
+  heating_enabled:
+    name: Heating enabled centrally
+    icon: mdi:radiator
+
+input_number:
+  radiators_temperature:
+    name: Radiators target temperature
+    unit_of_measurement: "°C"
+    mode: box
+    min: 22
+    max: 27
+    step: 0.5
+    icon: mdi:temperature-celsius
+
+group:
+  all_radiators:
+    name: "All Radiators"
+    entities:
+      - climate.living_room_radiator_mode
+      - climate.bedroom_radiator_mode
+      - climate.kitchen_radiator_mode
+
+script:
+  maybe_turn_radiator_on:
+    alias: Climate · Heating · Maybe turn radiator on
+    sequence:
+      - condition: and
+        conditions:
+          - condition: state
+            entity_id: input_boolean.heating_enabled
+            state: "on"
+          - condition: state
+            entity_id: binary_sensor.georgi_home
+            state: "on"
+      - service: climate.turn_on
+        data_template:
+          entity_id: "{{ entity_id }}"
+      - service: climate.set_temperature
+        data_template:
+          entity_id: "{{ entity_id }}"
+          temperature: "{{ states('input_number.radiators_temperature') | int | default(25) }}"
+
+  toggle_radiator:
+    alias: Climate · Heating · Toggle radiator
+    sequence:
+      - choose:
+        - conditions:
+          - condition: template
+            value_template: "{{ is_state(entity_id, 'off') }}"
+          sequence:
+            - service: script.maybe_turn_radiator_on
+              data_template:
+                entity_id: "{{ entity_id }}"
+        default:
+          - service: climate.turn_off
+            data_template:
+              entity_id: "{{ entity_id }}"
+
+  turn_on_all_radiators:
+    alias: Climate · Heating · Turn on all radiators
+    sequence:
+      - condition: and
+        conditions:
+          - condition: state
+            entity_id: input_boolean.heating_enabled
+            state: "on"
+          - condition: state
+            entity_id: binary_sensor.georgi_home
+            state: "on"
+      - service: script.maybe_turn_radiator_on
+        data:
+          entity_id: climate.living_room_radiator_mode
+      - service: script.maybe_turn_radiator_on
+        data:
+          entity_id: climate.bedroom_radiator_mode
+      - service: script.maybe_turn_radiator_on
+        data:
+          entity_id: climate.kitchen_radiator_mode
+
+automation:
+  - alias: Climate · Heating · Turn on all radiators at 5 am
+    trigger:
+      platform: time
+      at: "05:00:00"
+    action:
+      - service: script.turn_on_all_radiators
+      - service: logbook.log
+        data:
+          name: "💨 Climate module · "
+          message: "Heating On · All rooms · 5 AM"
+          domain: climate
+
+  - alias: Climate · Heating · Link living room radiator to windows
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.living_room_right_window
+    action:
+      - choose:
+        - conditions:
+          - condition: state
+            entity_id: binary_sensor.living_room_right_window
+            state: "on"
+          - condition: not
+            conditions:
+              - condition: state
+                entity_id: climate.living_room_radiator_mode
+                state: "off"
+          sequence:
+            - service: climate.turn_off
+              entity_id: climate.living_room_radiator_mode
+            - service: logbook.log
+              data:
+                name: "💨 Climate module · "
+                message: "Heating Off · Living room · Window opened"
+                domain: climate
+        - conditions:
+          - condition: state
+            entity_id: binary_sensor.living_room_right_window
+            state: "off"
+          - condition: state
+            entity_id: climate.living_room_radiator_mode
+            state: "off"
+          sequence:
+            - service: script.maybe_turn_radiator_on
+              data:
+                entity_id: climate.living_room_radiator_mode
+            - service: logbook.log
+              data:
+                name: "💨 Climate module · "
+                message: "Heating On · Living room · Window closed"
+                domain: climate

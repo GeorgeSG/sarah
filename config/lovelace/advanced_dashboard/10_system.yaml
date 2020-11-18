@@ -33,8 +33,14 @@ cards:
               entity: sensor.multisensor_6_battery_level
               name: Multisensor
             - type: custom:battery-entity-row
-              entity: sensor.living_room_thermostat_battery_level
-              name: Thermostat
+              entity: sensor.living_room_radiator_battery_level
+              name: Living Room Radiator
+            - type: custom:battery-entity-row
+              entity: sensor.bedroom_radiator_battery_level
+              name: Bedroom Radiator
+            - type: custom:battery-entity-row
+              entity: sensor.kitchen_radiator_battery_level
+              name: Kitchen Room Radiator
             - type: custom:battery-entity-row
               entity: sensor.aeon_labs_zw130_wallmote_quad_battery_level
               name: Wallmote

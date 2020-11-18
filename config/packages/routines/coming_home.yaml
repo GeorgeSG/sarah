@@ -20,6 +20,8 @@ script:
       - service: script.toshiba_ac_on_cool_if_hot
       - service: script.sonos_join_bedroom
       - service: script.routine_coming_home_welcome_home
+      - service: script.turn_on_all_radiators
+
 
   routine_coming_home_after_sunset:
     alias: Routine · Coming home · After sunset
@@ -89,3 +91,4 @@ automation:
                 "Cool, I'll be ready!"
               ] | random
             }}
+      - service: script.turn_on_all_radiators

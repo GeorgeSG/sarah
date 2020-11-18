@@ -353,7 +353,7 @@ sensor.average_temperature:
             template:
               - small
               - progress
-            entity: sensor.living_room_thermostat_temperature
+            entity: sensor.living_room_radiator_temperature
             name: Radiator
             state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
           - type: custom:button-card

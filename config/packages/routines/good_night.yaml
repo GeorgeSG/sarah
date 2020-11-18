@@ -26,6 +26,7 @@ script:
           - media_player.nvidia_shield
           - media_player.living_room_tv
           - switch.titanium
+          - group.all_radiators
 
       - service: light.turn_on
         entity_id: light.browser_kitchen

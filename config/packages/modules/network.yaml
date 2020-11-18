@@ -50,14 +50,14 @@ homekit:
       - binary_sensor.trisensor_motion
       - binary_sensor.multisensor_motion
       - sensor.bedroom_weather_temperature
-      - sensor.living_room_thermostat_temperature
+      - sensor.living_room_radiator_temperature
       - sensor.trisensor_temperature
       - sensor.multisensor_6_temperature
       - sensor.hallway_motion_illuminance
       - sensor.kitchen_motion_illuminance
       - sensor.purifier_humidity
       - sensor.bedroom_weather_humidity
-      - climate.living_room_thermostat_mode
+      - climate.living_room_radiator_mode
       - climate.toshiba_ac
       - media_player.master_bedroom
       - switch.desk_outlet

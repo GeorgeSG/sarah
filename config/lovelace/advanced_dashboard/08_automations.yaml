@@ -163,6 +163,10 @@ cards:
           show_header_toggle: false
           icon: mdi:air-purifier
           entities:
+            - script.turn_on_all_radiators
+            - automation.climate_heating_turn_on_all_radiators_at_5_am
+            - automation.climate_heating_link_living_room_radiator_to_windows
+            - type: divider
             - automation.climate_ac_turn_on_if_hot
             - automation.climate_ac_turn_off
             - type: divider

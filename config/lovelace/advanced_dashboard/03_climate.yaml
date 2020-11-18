@@ -19,6 +19,20 @@ cards:
       layout: horizontal
       max_columns: 3
       cards:
+        - type: entities
+          title: Climate
+          icon: mdi:thermometer
+          show_header_toggle: false
+          entities:
+            - input_boolean.heating_enabled
+            - input_number.radiators_temperature
+            - climate.living_room_radiator_mode
+            - climate.bedroom_radiator_mode
+            - climate.kitchen_radiator_mode
+            - script.turn_on_all_radiators
+            - type: divider
+            - input_number.toshiba_cool_temp
+            - input_number.toshiba_trigger_temp
         - type: custom:decluttering-card
           template: climate_card
           variables:
