@@ -59,6 +59,10 @@ views:
 
               - type: custom:time-picker-card
                 entity: input_datetime.alarm_time
+              - type: custom:time-picker-card
+                entity: input_datetime.alarm_time
+                hide:
+                  seconds: false
 
               - type: horizontal-stack
                 cards:
