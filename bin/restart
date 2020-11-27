@@ -6,6 +6,6 @@ source "$(dirname $0)/utils.sh"
 log "[restart] Restarting Home Assistant..."
 
 ssh $REMOTE_HOST -p $REMOTE_PORT \
-    "docker-compose -f $REMOTE_REPO_PATH/docker/docker-compose.yaml restart"
+    "docker-compose -f $REMOTE_REPO_PATH/config/docker-compose.yaml restart"
 
 log "[restart] ${LIGHT_GREEN}done${NO_FORMAT}"
