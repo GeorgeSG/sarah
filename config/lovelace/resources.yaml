@@ -41,6 +41,8 @@
 - type: module
   url: /hacsfiles/lovelace-state-switch/state-switch.js
 - type: module
+  url: /hacsfiles/kb-better-graph-colors/kb-better-graph-colors.js
+- type: module
   url: /hacsfiles/travel-time-card/travel-time-card.js
 - type: module
   url: /hacsfiles/vertical-stack-in-card/vertical-stack-in-card.js
@@ -48,6 +50,7 @@
   url: /hacsfiles/weather-card/weather-card.js
 - type: module
   url: /hacsfiles/zigbee2mqtt-networkmap/zigbee2mqtt-networkmap.js
+
 
 
 - type: module
