@@ -43,9 +43,7 @@
               - type: horizontal-stack
                 cards:
                   - type: custom:button-card
-                    template:
-                      - default
-                      - with_state_indicator
+                    template: [default, with_state_indicator]
                     entity: input_boolean.alarm_enabled
                     state_display: >-
                       [[[
@@ -65,18 +63,14 @@
                     template: default
                     entity: binary_sensor.house_mode
                   - type: custom:button-card
-                    template:
-                      - default
-                      - scene
+                    template: [default, scene]
                     entity: script.scene_bedroom_neon
                     name: Neon
                     variables:
                       scene_color_1: rgb(255, 0, 190)
                       scene_color_2: rgb(0, 255, 190)
                   - type: custom:button-card
-                    template:
-                      - default
-                      - scene
+                    template: [default, scene]
                     entity: script.scene_bedroom_regular
                     name: Regular
                     variables:
@@ -90,9 +84,7 @@
                 variables:
                   - entity_id: climate.bedroom_radiator_mode
               - type: custom:button-card
-                template:
-                  - default
-                  - with_state_indicator
+                template: [default, with_state_indicator]
                 entity: fan.philips_airpurifier
                 variables:
                   state_indicator_id: binary_sensor.purifier_filter_needs_change

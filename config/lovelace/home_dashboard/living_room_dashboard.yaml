@@ -48,8 +48,6 @@
                     styles:
                       card:
                         - height: 46px
-
-
           - type: horizontal-stack
             title: Devices
             cards:
@@ -77,9 +75,7 @@
                   - value: 'idle'
                     styles: *on_styles
               - type: custom:button-card
-                template:
-                  - default
-                  - with_state_indicator
+                template: [default, with_state_indicator]
                 entity: switch.titanium
                 variables:
                   state_indicator_id: automation.titanium_turn_off_when_idle
@@ -103,6 +99,15 @@
                   - entity_id: climate.living_room_radiator_mode
               - type: custom:decluttering-card
                 template: ac_button_card
+              - type: custom:button-card
+                template: [small, progress]
+                entity: sensor.desk_outlet_power
+                name: Desk power
+                variables:
+                  min_value: 1
+                  max_value: 800
+                  normal_value: 100
+                  high_value: 300
 
           - type: vertical-stack
             cards:
@@ -111,6 +116,18 @@
                 variables:
                   - player: media_player.living_room
                   - player_name: Living room
+          - type: vertical-stack
+            title: Camera
+            cards:
+              - type: picture-glance
+                camera_image: camera.amcrest_camera
+                entities:
+                  - entity: camera.amcrest_camera
+                  - entity: switch.camera
+                    show_state: false
+                  - entity: binary_sensor.amcrest_camera_online
+                    show_state: false
+
 
       - type: vertical-stack
         title: Sensors
@@ -122,96 +139,31 @@
                 entity: binary_sensor.living_room_right_window
                 name: Window
               - type: custom:button-card
-                template:
-                  - default
-                  - with_state_indicator
+                template: default
+                entity: binary_sensor.trisensor_motion
+                name: Desk
+              - type: custom:button-card
+                template: default
+                entity: binary_sensor.multisensor_motion
+                name: Door
+              - type: custom:button-card
+                template: [default, with_state_indicator]
                 entity: binary_sensor.hallway_motion_occupancy
                 name: Hallway
                 variables:
                   state_indicator_id: automation.lighting_hallway_motion_on
-              - type: custom:button-card
-                template:
-                  - small
-                  - progress
-                entity: sensor.desk_outlet_power
-                name: Desk power
-                variables:
-                  min_value: 1
-                  max_value: 800
-                  normal_value: 100
-                  high_value: 300
 
-          - type: horizontal-stack
-            title: Tri Sensor
-            cards:
-              - type: custom:button-card
-                template:
-                  - small
-                  - progress
-                entity: sensor.trisensor_temperature
-                name: Temperature
-              - type: custom:button-card
-                template:
-                  - small
-                  - progress
-                entity: sensor.trisensor_luminance
-                name: Lux
-              - type: custom:button-card
-                template: default
-                entity: binary_sensor.trisensor_motion
-                name: Motion
+          - type: custom:decluttering-card
+            template: climate_card
+            variables:
+              - title: "Climate"
+              - main_entity: sensor.trisensor_temperature
+              - left_entity: sensor.multisensor_6_temperature
+              - left_name: Temperature (6)
+              - right_entity: sensor.multisensor_6_relative_humidity
+              - right_name: Humidity (6)
 
-          - type: horizontal-stack
-            title: Multi Sensor
-            cards:
-              - type: custom:button-card
-                template:
-                  - small
-                  - progress
-                entity: sensor.multisensor_6_temperature
-                name: Temperature
-              - type: custom:button-card
-                template:
-                  - small
-                  - progress
-                entity: sensor.multisensor_6_luminance
-                name: Lux
-              - type: custom:button-card
-                template: default
-                entity: binary_sensor.multisensor_motion
-                name: Motion
-
-          - type: horizontal-stack
-            title: More
-            cards:
-              - type: custom:button-card
-                template:
-                  - small
-                  - progress
-                entity: sensor.living_room_radiator_temperature
-                name: Radiator temperature
-              - type: custom:button-card
-                template:
-                  - small
-                  - progress
-                entity: sensor.multisensor_6_relative_humidity
-                name: Multi Humidity
-              - type: custom:button-card
-                template:
-                  - small
-                  - progress
-                entity: sensor.multisensor_6_ultraviolet
-                name: Multi UV
-
-
-      - type: vertical-stack
-        title: Camera
-        cards:
-          - type: picture-glance
-            camera_image: camera.amcrest_camera
-            entities:
-              - entity: camera.amcrest_camera
-              - entity: switch.camera
-                show_state: false
-              - entity: binary_sensor.amcrest_camera_online
-                show_state: false
+          - type: custom:button-card
+            template: [small, progress]
+            entity: sensor.living_room_radiator_temperature
+            name: Radiator temperature

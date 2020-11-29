@@ -39,9 +39,7 @@ media_with_controls:
               service_data:
                 playlist: "Retro"
           - type: custom:button-card
-            template:
-              - xs
-              - with_state_background
+            template: [xs, with_state_background]
             entity: binary_sensor.sonos_is_bedroom_master
             name: Bedroom
             icon: mdi:speaker-multiple
@@ -49,9 +47,7 @@ media_with_controls:
               action: call-service
               service: script.sonos_join_bedroom
           - type: custom:button-card
-            template:
-              - xs
-              - with_state_background
+            template: [xs, with_state_background]
             entity: binary_sensor.sonos_is_living_room_master
             name: TV
             icon: mdi:speaker-multiple

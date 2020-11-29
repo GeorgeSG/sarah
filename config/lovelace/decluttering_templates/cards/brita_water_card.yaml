@@ -1,9 +1,7 @@
 brita_water_card:
   card:
     type: custom:button-card
-    template:
-      - default
-      - with_state_indicator
+    template: [default, with_state_indicator]
     name: Brita water
     entity: script.brita_pour_water
     custom_fields:

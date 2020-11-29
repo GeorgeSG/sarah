@@ -5,9 +5,6 @@ cards:
     entities:
       - input_boolean.magic_cube_enabled
       - input_select.magic_cube_mode
-      - sensor.cube_analog_input
-      - sensor.cube_multistate_input
-      - sensor.cube_power
       - type: divider
       - sensor.carbon_activity
       - sensor.carbon_last_update_trigger

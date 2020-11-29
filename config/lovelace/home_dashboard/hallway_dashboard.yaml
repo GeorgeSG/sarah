@@ -43,17 +43,13 @@
                 entity: binary_sensor.front_door
                 name: Front door
               - type: custom:button-card
-                template:
-                  - default
-                  - with_state_indicator
+                template: [default, with_state_indicator]
                 entity: binary_sensor.hallway_motion_occupancy
                 name: Motion
                 variables:
                   state_indicator_id: automation.lighting_hallway_motion_on
               - type: custom:button-card
-                template:
-                  - small
-                  - progress
+                template: [small, progress]
                 entity: sensor.hallway_motion_illuminance
                 name: Lux
                 variables:
