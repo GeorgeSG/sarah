@@ -39,7 +39,7 @@ automation:
     action:
       - service: light.toggle
         data_template:
-          entity_id: light.living_room_ceiling
+          entity_id: light.living_room_main
           brightness_pct: >-
 
             {% if is_state('input_select.house_mode', 'night') %}
