@@ -1,0 +1,6 @@
+sensor:
+  - platform: waqi
+    token: !secret waqi_key
+    locations:
+      - "mladost"
+      - "druzhba"

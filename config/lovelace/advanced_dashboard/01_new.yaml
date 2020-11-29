@@ -3,8 +3,20 @@ path: new
 icon: "mdi:new-box"
 cards:
   - type: vertical-stack
-    title: Trisensor
     cards:
+      - type: "custom:mini-graph-card"
+        entities:
+          - sensor.air_visual_aqi
+          - sensor.waqi_mladost_sofia
+        cache: false
+        group_by: hour
+        hours_to_show: 72
+        line_width: 2
+        show:
+          average: true
+          extrema: true
+          fill: true
+
       - type: "custom:mini-graph-card"
         entities:
           - sensor.trisensor_temperature
@@ -30,7 +42,6 @@ cards:
           fill: true
 
   - type: vertical-stack
-    title: Multisensor
     cards:
       - type: "custom:mini-graph-card"
         entities:
@@ -81,11 +92,35 @@ cards:
           fill: true
 
   - type: vertical-stack
-    title: Thermostat
     cards:
       - type: "custom:mini-graph-card"
         entities:
           - sensor.living_room_radiator_temperature
+          - sensor.trisensor_temperature
+        cache: false
+        group_by: hour
+        hours_to_show: 72
+        line_width: 2
+        show:
+          average: true
+          extrema: true
+          fill: true
+      - type: "custom:mini-graph-card"
+        entities:
+          - sensor.bedroom_radiator_temperature
+          - sensor.bedroom_weather_temperature
+        cache: false
+        group_by: hour
+        hours_to_show: 72
+        line_width: 2
+        show:
+          average: true
+          extrema: true
+          fill: true
+      - type: "custom:mini-graph-card"
+        entities:
+          - sensor.kitchen_radiator_temperature
+          - sensor.kitchen_weather_temperature
         cache: false
         group_by: hour
         hours_to_show: 72

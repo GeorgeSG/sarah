@@ -20,8 +20,6 @@ cards:
       max_columns: 3
       cards:
         - type: entities
-          title: Climate
-          icon: mdi:thermometer
           show_header_toggle: false
           entities:
             - input_boolean.heating_enabled
