@@ -163,6 +163,10 @@ cards:
           show_header_toggle: false
           icon: mdi:air-purifier
           entities:
+            - automation.cliamate_air_quality_alert_when_opening_a_window
+            - automation.cliamate_air_quality_alert_when_aqi_drops
+            - automation.cliamate_air_quality_turn_on_purifier_in_bedroom_on_window_open
+            - type: divider
             - script.turn_on_all_radiators
             - automation.climate_heating_turn_on_all_radiators_at_5_am
             - automation.climate_heating_link_living_room_radiator_to_windows
@@ -178,6 +182,7 @@ cards:
             - automation.purifier_turn_on_low_humidity
             - automation.purifier_turn_on_low_air_quality
             - automation.purifier_turn_off_okay_humidity
+            - automation.purifier_turn_off_air_quality_returned_to_normal
 
         - type: entities
           title: System

@@ -62,6 +62,16 @@ binary_sensor:
 
 sensor:
   - platform: history_stats
+    name: At Desk
+    entity_id: binary_sensor.trisensor_sensor
+    state: "on"
+    type: ratio
+    duration:
+      minutes: 5
+    end: '{{ now() }}'
+
+
+  - platform: history_stats
     name: Quarantined percent
     entity_id: device_tracker.carbon
     state: "home"

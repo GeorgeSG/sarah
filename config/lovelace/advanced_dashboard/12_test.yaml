@@ -3,6 +3,8 @@ path: test
 cards:
   - type: entities
     entities:
+      - input_boolean.purifier_turned_on_for_bad_air
+      - binary_sensor.aqi_above_threshold
       - input_boolean.magic_cube_enabled
       - input_select.magic_cube_mode
       - type: divider

@@ -4,6 +4,10 @@ fan:
   - platform: philips_airpurifier
     host: !secret philips_purifier_ip
 
+input_boolean:
+  purifier_turned_on_for_bad_air:
+    name: Purifier enabled for bad air
+
 input_select:
   purifier_speed:
     name: Speed
@@ -280,6 +284,8 @@ automation:
     action:
       - service: fan.turn_on
         entity_id: fan.philips_airpurifier
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.purifier_turned_on_for_bad_air
       - service: script.say
         data:
           message: "Hey, I'm turning on the purifier, because air quality is low"
@@ -294,7 +300,7 @@ automation:
       - service: philips_airpurifier.set_function
         entity_id: fan.philips_airpurifier
         data:
-          funcition: "Purification & Humidification"
+          function: "Purification & Humidification"
       - service: script.say
         data:
           message: "Also, switching to humidification, because there is water in the tank"
@@ -331,6 +337,35 @@ automation:
         data:
           name: "💨 Climate Module · "
           message: "Purifier Off · Humidity is okay"
+          domain: fan
+
+  - alias: Purifier · Turn off · Air quality returned to normal
+    trigger:
+      platform: numeric_state
+      entity_id: sensor.purifier_air_quality
+      below: 20
+    condition:
+      condition: and
+      conditions:
+        - condition: state
+          entity_id: fan.philips_airpurifier
+          state: "on"
+        - condition: state
+          entity_id: input_boolean.purifier_turned_on_for_bad_air
+          state: "on"
+        - condition: state
+          entity_id: group.bedroom_windows
+          state: "off"
+
+    action:
+      - service: fan.turn_off
+        entity_id: fan.philips_airpurifier
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.purifier_turned_on_for_bad_air
+      - service: logbook.log
+        data:
+          name: "💨 Climate Module · "
+          message: "Purifier Off · Air quality returned to normal"
           domain: fan
 
 homeassistant:

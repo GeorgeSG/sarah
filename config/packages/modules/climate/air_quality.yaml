@@ -4,3 +4,80 @@ sensor:
     locations:
       - "mladost"
       - "druzhba"
+
+binary_sensor:
+  - platform: threshold
+    entity_id: sensor.waqi_mladost_sofia
+    upper: 35
+    name: aqi_above_threshold
+
+automation:
+  - alias: Cliamate · Air Quality · Alert when opening a window
+    trigger:
+      platform: state
+      entity_id:
+        - binary_sensor.kitchen_window
+        - binary_sensor.living_room_right_window
+        - binary_sensor.bedroom_left_window
+        - binary_sensor.bedroom_right_window
+      from: "off"
+      to: "on"
+    condition:
+      - condition: state
+        entity_id: binary_sensor.aqi_above_threshold
+        state: "on"
+    action:
+      - service: script.say
+        data:
+          message: "Hey, the air outside is pretty bad. I suggest closing the windows."
+
+  - alias: Cliamate · Air Quality · Alert when AQI drops
+    trigger:
+      platform: state
+      entity_id: binary_sensor.aqi_above_threshold
+      from: "off"
+      to: "on"
+    condition:
+      - condition: or
+        conditions:
+          - condition: state
+            entity_id:
+              - binary_sensor.kitchen_window
+              - binary_sensor.living_room_right_window
+              - binary_sensor.bedroom_left_window
+              - binary_sensor.bedroom_right_window
+            state: "on"
+    action:
+      - service: script.say
+        data:
+          message: "Hey, the air outside is getting worse, and you have some windows open. I suggest closing them."
+
+  - alias: Cliamate · Air Quality · Turn on purifier in bedroom on window open
+    trigger:
+      platform: state
+      entity_id: binary_sensor.aqi_above_threshold
+      from: "off"
+      to: "on"
+    condition:
+      - condition: state
+        entity_id: group.bedroom_windows
+        state: "on"
+
+    action:
+      - service: logbook.log
+        data:
+          name: "💨 Climate Module · "
+          message: "Purifier On · Air quality is bad outside and a window was opened"
+          domain: fan
+      - service: fan.turn_on
+        entity_id: fan.philips_airpurifier
+      - service: fan.turn_on
+        entity_id: fan.philips_airpurifier
+        data:
+          speed: "Speed 3"
+      - service: philips_airpurifier.set_function
+        data:
+          entity_id: fan.philips_airpurifier
+          function: "Purification"
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.purifier_turned_on_for_bad_air
