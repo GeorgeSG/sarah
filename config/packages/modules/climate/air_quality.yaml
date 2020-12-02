@@ -7,8 +7,8 @@ sensor:
 
 binary_sensor:
   - platform: threshold
-    entity_id: sensor.waqi_mladost_sofia
-    upper: 35
+    entity_id: sensor.air_visual_aqi
+    upper: 75
     name: aqi_above_threshold
 
 automation:
