@@ -96,6 +96,8 @@ cards:
         - type: vertical-stack
           cards:
             - type: entities
+              entities: [sensor.at_desk]
+            - type: entities
               title: Quarantine
               icon: mdi:biohazard
               entities:
