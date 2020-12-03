@@ -7,8 +7,8 @@ sensor:
 
 binary_sensor:
   - platform: threshold
-    entity_id: sensor.air_visual_aqi
-    upper: 75
+    entity_id: sensor.waqi_mladost_sofia
+    upper: 35
     name: aqi_above_threshold
 
 automation:
@@ -55,12 +55,12 @@ automation:
   - alias: Cliamate · Air Quality · Turn on purifier in bedroom on window open
     trigger:
       platform: state
-      entity_id: binary_sensor.aqi_above_threshold
+      entity_id: group.bedroom_windows
       from: "off"
       to: "on"
     condition:
       - condition: state
-        entity_id: group.bedroom_windows
+        entity_id: binary_sensor.aqi_above_threshold
         state: "on"
 
     action:
