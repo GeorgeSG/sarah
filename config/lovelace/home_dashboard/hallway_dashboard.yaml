@@ -12,7 +12,6 @@
   card:
     type: custom:layout-card
     layout: horizontal
-    min_columns: 2
     max_columns: 2
     cards:
       - type: vertical-stack
