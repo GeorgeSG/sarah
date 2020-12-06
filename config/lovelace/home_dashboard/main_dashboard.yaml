@@ -164,7 +164,10 @@
                       state_indicator_off_size: 0px
                       state_indicator_on_color: var(--color-red)
                       state_on_indicator_on_color: var(--color-red)
-
+                  - type: custom:button-card
+                    template: default
+                    entity: vacuum.vacuum
+                    name: Vacuum
                   - type: custom:decluttering-card
                     template: brita_water_card
 

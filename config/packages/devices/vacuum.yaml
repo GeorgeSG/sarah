@@ -1,0 +1,43 @@
+vacuum:
+  - platform: xiaomi_miio
+    host: !secret vacuum_host
+    token: !secret vacuum_token
+    name: vacuum
+
+camera:
+  - platform: xiaomi_cloud_map_extractor
+    host: !secret vacuum_host
+    token: !secret vacuum_token
+    username: !secret vacuum_username
+    password: !secret vacuum_password
+    draw: ['all']
+    attributes:
+      - calibration_points
+      - charger
+      - goto
+      - goto_path
+      - goto_predicted_path
+      - image
+      - is_empty
+      - map_name
+      - no_go_areas
+      - no_mopping_areas
+      - obstacles
+      - path
+      - room_numbers
+      - rooms
+      - vacuum_position
+      - vacuum_room
+      - walls
+      - zones
+    colors:
+      color_map_outside: [35, 35, 35]
+      color_map_wall: [255, 255, 255]
+      color_map_inside: [10, 10, 10]
+    room_colors:
+      1: [240, 178, 122]
+      2: [133, 193, 233]
+      3: [217, 136, 128]
+      4: [52, 152, 219]
+      5: [205, 97, 85]
+      6: [243, 156, 18]

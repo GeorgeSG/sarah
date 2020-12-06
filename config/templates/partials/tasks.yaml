@@ -1,9 +1,19 @@
 >-
 
   {% set brita_filter    = is_state('binary_sensor.brita_should_change_filter', 'on') %}
+
   {% set purifier_filter = is_state('binary_sensor.purifier_filter_needs_change', 'on') %}
   {% set purifier_water  = is_state('binary_sensor.purifier_out_of_water', 'on') %}
-  {% set has_tasks       = brita_filter or purifier_filter or purifier_water %}
+  {% set has_purifier_tasks = purifier_filter or purifier_water %}
+
+  {% set vacuum_entity = 'vacuum.vacuum' %}
+  {% set vacuum_main_brush = state_attr(vacuum_entity, 'main_brush_left') | int == 0 %}
+  {% set vacuum_side_brush = state_attr(vacuum_entity, 'side_brush_left') | int == 0 %}
+  {% set vacuum_filter     = state_attr(vacuum_entity, 'filter_left') | int == 0 %}
+  {% set vacuum_sensor     = state_attr(vacuum_entity, 'sensor_dirty_left') | int == 0 %}
+  {% set has_vacuum_tasks = vacuum_main_brush or vacuum_side_brush or vacuum_filter or vacuum_sensor %}
+
+  {% set has_tasks  = brita_filter or has_purifier_tasks or has_vacuum_tasks %}
 
   {%- if has_tasks -%}  {{
     [
@@ -13,6 +23,10 @@
     ] | random
   }} {% endif %}
 
-  {%- if brita_filter -%}    Brita needs filter change. {% endif %}
-  {%- if purifier_filter -%} Purifier needs filter change. {% endif %}
-  {%- if purifier_water -%}  Purifier needs water. {%- endif -%}
+  {%- if brita_filter -%}       Brita needs filter change. {% endif %}
+  {%- if purifier_filter -%}    Purifier needs filter change. {% endif %}
+  {%- if purifier_water -%}     Purifier needs water. {%- endif -%}
+  {%- if vacuum_main_brush -%}  Vacuum main brush needs changing. {%- endif -%}
+  {%- if vacuum_side_brush -%}  Vacuum side brush needs changing. {%- endif -%}
+  {%- if vacuum_filter -%}      Vacuum filter needs changing. {%- endif -%}
+  {%- if vacuum_sensor -%}      Vacuum sensor needs cleaning. {%- endif -%}

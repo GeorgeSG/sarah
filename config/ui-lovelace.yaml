@@ -34,3 +34,8 @@ views:
     icon: "mdi:door-closed"
     panel: true
     cards: !include lovelace/home_dashboard/hallway_dashboard.yaml
+  - title: Vacuum
+    path: vacuum
+    icon: "mdi:robot-vacuum"
+    panel: true
+    cards: !include lovelace/home_dashboard/vacuum_dashboard.yaml
