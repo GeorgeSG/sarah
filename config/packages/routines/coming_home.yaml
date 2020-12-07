@@ -18,6 +18,10 @@ script:
           brightness_pct: 100
       - service: script.security_camera_off
       - service: script.routine_coming_home_after_sunset
+      - service: input_select.select_option
+        entity_id: input_select.hallway_dashboard_mode
+        data:
+          option: "Coming Home"
       - service: script.toshiba_ac_on_cool_if_hot
       - service: script.sonos_join_bedroom
       - service: script.routine_coming_home_welcome_home

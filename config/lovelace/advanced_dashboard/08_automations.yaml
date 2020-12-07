@@ -38,6 +38,7 @@ cards:
             - automation.titanium_notify_on_vibration_sensor_move
             - automation.speech_enable_when_meeting_is_over
             - automation.speech_disable_when_meeting_starts
+            - automation.hallway_tablet_set_to_home_after_10_minutes
 
         - type: entities
           title: Presence
