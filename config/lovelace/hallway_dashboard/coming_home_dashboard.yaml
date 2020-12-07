@@ -159,8 +159,10 @@ cards:
           - type: custom:button-card
             template: [mobile, with_state_background]
             entity: vacuum.vacuum
-            name: Vacuum
+            name: Va
 
+      - type: markdown
+        content: !include ../../templates/partials/tasks.yaml
       - type: entities
         entities:
           - type: custom:decluttering-card
