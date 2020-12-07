@@ -2,5 +2,174 @@ type: custom:layout-card
 layout: horizontal
 max_columns: 2
 cards:
-  - type: custom:button-card
-    template: [hallway_dashboard_mode]
+  # Column 1
+  - type: vertical-stack
+    cards:
+      - type: custom:button-card
+        template: [hallway_dashboard_mode]
+      - type: horizontal-stack
+        cards:
+          - type: custom:button-card
+            template: half
+            icon: none
+            entity: light.all
+            name: All
+          - type: custom:button-card
+            template: half
+            icon: none
+            entity: light.ceiling
+            name: Ceiling
+      - type: horizontal-stack
+        cards:
+          - type: custom:button-card
+            template: [mobile, with_state_background]
+            entity: light.living_room
+            name: Living room
+          - type: custom:button-card
+            template: [mobile, with_state_background]
+            entity: light.living_room_main
+            name: Main
+          - type: custom:button-card
+            template: [mobile, with_state_background]
+            entity: light.light_avatar_small_2
+          - type: custom:button-card
+            template: [mobile, with_state_background]
+            entity: light.living_room_ambient
+            name: Ambient
+      - type: horizontal-stack
+        cards:
+          - type: custom:button-card
+            template: [mobile, with_state_background]
+            entity: light.master_bedroom
+            name: Bedroom
+          - type: custom:button-card
+            template: [mobile, with_state_background]
+            entity: light.master_bedroom_main
+            name: Main
+          - type: custom:button-card
+            template: [mobile, with_state_background]
+            entity: light.bed_led
+            name: Bed
+          - type: custom:button-card
+            template: [mobile, with_state_background]
+            entity: light.bedside
+            name: Bedside
+      - type: horizontal-stack
+        cards:
+          - type: custom:button-card
+            template: [mobile, with_state_background]
+            entity: light.tuya_kitchen
+            name: Kitchen
+          - type: custom:button-card
+            template: [mobile, with_state_background]
+            entity: light.tuya_hallway_main
+            name: Hallway
+          - type: custom:button-card
+            template: [mobile, with_state_background]
+            entity: light.hallway_entrance
+            name: Entrance
+
+      - type: custom:decluttering-card
+        template: media_with_controls
+        variables:
+          - player: media_player.master_bedroom
+          - player_name: Bedroom
+          - title: ""
+
+  # Column 2
+  - type: vertical-stack
+    cards:
+      - type: grid
+        columns: 4
+        square: false
+        cards:
+          - type: custom:button-card
+            template: [mobile, with_state_background]
+            entity: binary_sensor.georgi_home
+            name: Georgi home?
+            tap_action:
+              action: call-service
+              service: input_boolean.toggle
+              service_data:
+                entity_id: input_boolean.georgi_home
+          - type: custom:button-card
+            template: [mobile, with_state_background]
+            entity: input_boolean.speech_notifications
+            name: Speech
+          - type: custom:button-card
+            template: [mobile, with_state_background]
+            entity: input_boolean.guest_mode
+            tap_action:
+              action: toggle
+          - type: custom:button-card
+            template: mobile
+            entity: media_player.living_room_tv
+            name: TV
+            icon: mdi:television
+            tap_action:
+              action: toggle
+            state:
+              - value: 'playing'
+                styles: &on_styles
+                  card:
+                    - background-color: var(--primary-color)
+                    - color: black
+                  icon:
+                    - color: black
+              - value: 'standby'
+                styles: *on_styles
+              - value: 'on'
+                styles: *on_styles
+              - value: 'home'
+                styles: *on_styles
+              - value: 'idle'
+                styles: *on_styles
+          - type: custom:button-card
+            template: [mobile, with_state_background, with_state_indicator]
+            entity: switch.titanium
+            variables:
+              state_indicator_id: automation.titanium_turn_off_when_idle
+          - type: custom:button-card
+            template: [ac_button, mobile]
+          - type: custom:button-card
+            template: [radiator_button, mobile]
+            entity: climate.living_room_radiator_mode
+            name: "Living room"
+          - type: custom:button-card
+            template: [radiator_button, mobile]
+            entity: climate.bedroom_radiator_mode
+            name: "Bedroom"
+          - type: custom:button-card
+            template: [radiator_button, mobile]
+            entity: climate.kitchen_radiator_mode
+            name: "Kitchen"
+          - type: custom:button-card
+            template: [mobile, with_state_background]
+            entity: switch.camera
+            name: Camera
+          - type: custom:button-card
+            template: [mobile, with_state_indicator]
+            entity: fan.philips_airpurifier
+            variables:
+              state_indicator_id: binary_sensor.purifier_filter_needs_change
+              state_indicator_size: 5px
+              state_indicator_off_size: 0px
+              state_indicator_on_color: var(--color-red)
+              state_on_indicator_on_color: var(--color-red)
+          - type: custom:button-card
+            template: [mobile, with_state_background]
+            entity: vacuum.vacuum
+            name: Vacuum
+
+      - type: entities
+        entities:
+          - type: custom:decluttering-card
+            template: percentage_card
+            variables:
+              - name: Quarantine
+              - entity: sensor.quarantined_percent
+              - icon: mdi:percent
+              - orange: 100
+              - red: 100
+          - entity: sensor.quarantine_times_left
+            name: Times left

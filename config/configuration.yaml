@@ -47,6 +47,7 @@ lovelace:
       mode: yaml
       title: Hallway Dashboard
       icon: mdi:tablet-dashboard
+      show_in_sidebar: false
       filename: hallway-lovelace.yaml
 
 # https://www.home-assistant.io/components/map

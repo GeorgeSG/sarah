@@ -5,69 +5,69 @@ cards:
   # Column 1
   - type: vertical-stack
     cards:
-      - type: vertical-stack
+      - type: custom:button-card
+        template: [hallway_dashboard_mode]
+      - type: horizontal-stack
         cards:
-          - type: horizontal-stack
-            cards:
-              - type: custom:button-card
-                template: half
-                icon: none
-                entity: light.all
-                name: All
-              - type: custom:button-card
-                template: half
-                icon: none
-                entity: light.ceiling
-                name: Ceiling
-          - type: horizontal-stack
-            cards:
-              - type: custom:button-card
-                template: [mobile, with_state_background]
-                entity: light.living_room
-                name: Living room
-              - type: custom:button-card
-                template: [mobile, with_state_background]
-                entity: light.living_room_main
-                name: Main
-              - type: custom:button-card
-                template: [mobile, with_state_background]
-                entity: light.light_avatar_small_2
-              - type: custom:button-card
-                template: [mobile, with_state_background]
-                entity: light.living_room_ambient
-                name: Ambient
-          - type: horizontal-stack
-            cards:
-              - type: custom:button-card
-                template: [mobile, with_state_background]
-                entity: light.master_bedroom
-                name: Bedroom
-              - type: custom:button-card
-                template: [mobile, with_state_background]
-                entity: light.master_bedroom_main
-                name: Main
-              - type: custom:button-card
-                template: [mobile, with_state_background]
-                entity: light.bed_led
-                name: Bed
-              - type: custom:button-card
-                template: [mobile, with_state_background]
-                entity: light.bedside
-                name: Bedside
-          - type: horizontal-stack
-            cards:
-              - type: custom:button-card
-                template: [mobile, with_state_background]
-                entity: light.tuya_kitchen
-                name: Kitchen
-              - type: custom:button-card
-                template: [mobile, with_state_background]
-                entity: light.tuya_hallway_main
-                name: Hallway
-              - type: custom:button-card
-                template: [mobile, with_state_background]
-                entity: light.hallway_entrance
-                name: Entrance
+          - type: custom:button-card
+            template: half
+            icon: none
+            entity: light.all
+            name: All
+          - type: custom:button-card
+            template: half
+            icon: none
+            entity: light.ceiling
+            name: Ceiling
+      - type: horizontal-stack
+        cards:
+          - type: custom:button-card
+            template: [mobile, with_state_background]
+            entity: light.living_room
+            name: Living room
+          - type: custom:button-card
+            template: [mobile, with_state_background]
+            entity: light.living_room_main
+            name: Main
+          - type: custom:button-card
+            template: [mobile, with_state_background]
+            entity: light.light_avatar_small_2
+          - type: custom:button-card
+            template: [mobile, with_state_background]
+            entity: light.living_room_ambient
+            name: Ambient
+      - type: horizontal-stack
+        cards:
+          - type: custom:button-card
+            template: [mobile, with_state_background]
+            entity: light.master_bedroom
+            name: Bedroom
+          - type: custom:button-card
+            template: [mobile, with_state_background]
+            entity: light.master_bedroom_main
+            name: Main
+          - type: custom:button-card
+            template: [mobile, with_state_background]
+            entity: light.bed_led
+            name: Bed
+          - type: custom:button-card
+            template: [mobile, with_state_background]
+            entity: light.bedside
+            name: Bedside
+      - type: horizontal-stack
+        cards:
+          - type: custom:button-card
+            template: [mobile, with_state_background]
+            entity: light.tuya_kitchen
+            name: Kitchen
+          - type: custom:button-card
+            template: [mobile, with_state_background]
+            entity: light.tuya_hallway_main
+            name: Hallway
+          - type: custom:button-card
+            template: [mobile, with_state_background]
+            entity: light.hallway_entrance
+            name: Entrance
 
       - type: custom:decluttering-card
         template: media_with_controls
@@ -81,8 +81,6 @@ cards:
     cards:
       - type: horizontal-stack
         cards:
-          - type: custom:button-card
-            template: [hallway_dashboard_mode]
           - type: custom:button-card
             template: [mobile, with_state_background]
             entity: input_boolean.speech_notifications
