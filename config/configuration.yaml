@@ -43,6 +43,11 @@ lovelace:
       icon: mdi:flask
       show_in_sidebar: true
       filename: advanced-lovelace.yaml
+    lovelace-hallway:
+      mode: yaml
+      title: Hallway Dashboard
+      icon: mdi:tablet-dashboard
+      filename: hallway-lovelace.yaml
 
 # https://www.home-assistant.io/components/map
 # map:

@@ -1,0 +1,14 @@
+mobile:
+  size: 24px
+  hold_action:
+    action: more-info
+  styles:
+    card:
+      - height: 70px
+      - font-size: 14px
+    grid:
+      - height: 60px
+    img_cell:
+      - height: 40px
+    name:
+      - height: 24px

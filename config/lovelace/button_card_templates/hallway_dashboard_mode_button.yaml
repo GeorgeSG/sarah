@@ -1,0 +1,17 @@
+hallway_dashboard_mode:
+  template: [mobile]
+  entity: input_select.hallway_dashboard_mode
+  show_state: true
+  show_name: false
+  styles:
+    state:
+      - position: relative
+      - top: -6px
+    icon:
+      - position: relative
+      - top: -2px
+  tap_action:
+    action: call-service
+    service: input_select.select_next
+    service_data:
+      entity_id: input_select.hallway_dashboard_mode

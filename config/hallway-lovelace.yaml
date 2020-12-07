@@ -1,0 +1,17 @@
+decluttering_templates: !include_dir_merge_named lovelace/decluttering_templates
+button_card_templates: !include_dir_merge_named lovelace/button_card_templates
+popup_cards: !include lovelace/popup_cards.yaml
+
+title: Sarah
+views:
+  - title: Sarah
+    path: hallway_dashboard
+    icon: mdi:tablet-dashboard
+    panel: true
+    cards:
+      - type: custom:state-switch
+        entity: input_select.hallway_dashboard_mode
+        states:
+          Home: !include lovelace/hallway_dashboard/at_home_dashboard.yaml
+          Leaving: !include lovelace/hallway_dashboard/leaving_home_dashboard.yaml
+          "Coming Home": !include lovelace/hallway_dashboard/coming_home_dashboard.yaml

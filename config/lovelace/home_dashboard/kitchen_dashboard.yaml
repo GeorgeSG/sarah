@@ -48,12 +48,11 @@
           - type: horizontal-stack
             title: Devices
             cards:
-              - type: custom:decluttering-card
-                template: radiator_button_card
-                variables:
-                  - entity_id: climate.kitchen_radiator_mode
-              - type: custom:decluttering-card
-                template: brita_water_card
+              - type: custom:button-card
+                template: radiator_button
+                entity: climate.kitchen_radiator_mode
+              - type: custom:button-card
+                template: [brita_water, mobile]
               - type: custom:button-card
                 template: default
                 entity: media_player.nvidia_shield

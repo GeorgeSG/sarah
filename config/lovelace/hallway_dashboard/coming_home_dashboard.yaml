@@ -1,0 +1,6 @@
+type: custom:layout-card
+layout: horizontal
+max_columns: 2
+cards:
+  - type: custom:button-card
+    template: [hallway_dashboard_mode]

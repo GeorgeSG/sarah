@@ -79,10 +79,9 @@
           - type: horizontal-stack
             title: Climate
             cards:
-              - type: custom:decluttering-card
-                template: radiator_button_card
-                variables:
-                  - entity_id: climate.bedroom_radiator_mode
+              - type: custom:button-card
+                template: radiator_button
+                entity: climate.bedroom_radiator_mode
               - type: custom:button-card
                 template: [default, with_state_indicator]
                 entity: fan.philips_airpurifier

@@ -132,23 +132,20 @@
 
               - type: horizontal-stack
                 cards:
-                  - type: custom:decluttering-card
-                    template: ac_button_card
-                  - type: custom:decluttering-card
-                    template: radiator_button_card
-                    variables:
-                      - entity_id: climate.living_room_radiator_mode
-                      - name: "Living room"
-                  - type: custom:decluttering-card
-                    template: radiator_button_card
-                    variables:
-                      - entity_id: climate.bedroom_radiator_mode
-                      - name: "Bedroom"
-                  - type: custom:decluttering-card
-                    template: radiator_button_card
-                    variables:
-                      - entity_id: climate.kitchen_radiator_mode
-                      - name: "Kitchen"
+                  - type: custom:button-card
+                    template: ac_button
+                  - type: custom:button-card
+                    template: radiator_button
+                    entity: climate.living_room_radiator_mode
+                    name: "Living room"
+                  - type: custom:button-card
+                    template: radiator_button
+                    entity: climate.bedroom_radiator_mode
+                    name: "Bedroom"
+                  - type: custom:button-card
+                    template: radiator_button
+                    entity: climate.kitchen_radiator_mode
+                    name: "Kitchen"
               - type: horizontal-stack
                 cards:
                   - type: custom:button-card
@@ -168,8 +165,8 @@
                     template: default
                     entity: vacuum.vacuum
                     name: Vacuum
-                  - type: custom:decluttering-card
-                    template: brita_water_card
+                  - type: custom:button-card
+                    template: [brita_water, mobile]
 
       # Column 2
       - type: vertical-stack
@@ -232,7 +229,7 @@
                         entity: binary_sensor.kitchen_motion_occupancy
                         name: Kitchen
                         variables:
-                          state_indicator_id: automation.lighting_kitchen_day_mode_motion_turn_lights_on
+                          state_indicator_id: automation.lighting_kitchen_motion_on
                       - type: custom:button-card
                         template: [default, with_state_indicator]
                         entity: binary_sensor.hallway_motion_occupancy
@@ -304,7 +301,7 @@
                 template: media_with_controls
                 variables:
                   - player: media_player.master_bedroom
-                  - player_name: Bathroom
+                  - player_name: Bedroom
 
               - type: custom:decluttering-card
                 template: sonos_media_player_small

@@ -1,0 +1,9 @@
+input_select:
+  hallway_dashboard_mode:
+    name: Hallway dashboard mode
+    icon: mdi:tablet-dashboard
+    options:
+      - "Home"
+      - "Leaving"
+      - "Coming Home"
+

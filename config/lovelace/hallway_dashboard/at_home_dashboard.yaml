@@ -1,0 +1,246 @@
+type: custom:layout-card
+layout: horizontal
+max_columns: 2
+cards:
+  # Column 1
+  - type: vertical-stack
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                template: half
+                icon: none
+                entity: light.all
+                name: All
+              - type: custom:button-card
+                template: half
+                icon: none
+                entity: light.ceiling
+                name: Ceiling
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                template: [mobile, with_state_background]
+                entity: light.living_room
+                name: Living room
+              - type: custom:button-card
+                template: [mobile, with_state_background]
+                entity: light.living_room_main
+                name: Main
+              - type: custom:button-card
+                template: [mobile, with_state_background]
+                entity: light.light_avatar_small_2
+              - type: custom:button-card
+                template: [mobile, with_state_background]
+                entity: light.living_room_ambient
+                name: Ambient
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                template: [mobile, with_state_background]
+                entity: light.master_bedroom
+                name: Bedroom
+              - type: custom:button-card
+                template: [mobile, with_state_background]
+                entity: light.master_bedroom_main
+                name: Main
+              - type: custom:button-card
+                template: [mobile, with_state_background]
+                entity: light.bed_led
+                name: Bed
+              - type: custom:button-card
+                template: [mobile, with_state_background]
+                entity: light.bedside
+                name: Bedside
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                template: [mobile, with_state_background]
+                entity: light.tuya_kitchen
+                name: Kitchen
+              - type: custom:button-card
+                template: [mobile, with_state_background]
+                entity: light.tuya_hallway_main
+                name: Hallway
+              - type: custom:button-card
+                template: [mobile, with_state_background]
+                entity: light.hallway_entrance
+                name: Entrance
+
+      - type: custom:decluttering-card
+        template: media_with_controls
+        variables:
+          - player: media_player.master_bedroom
+          - player_name: Bedroom
+          - title: ""
+
+  # Column 2
+  - type: vertical-stack
+    cards:
+      - type: horizontal-stack
+        cards:
+          - type: custom:button-card
+            template: [hallway_dashboard_mode]
+          - type: custom:button-card
+            template: [mobile, with_state_background]
+            entity: input_boolean.speech_notifications
+            name: Speech
+          - type: custom:button-card
+            template: [mobile, with_state_background]
+            entity: binary_sensor.house_mode
+            tap_action:
+              action: call-service
+              service: input_select.select_next
+              service_data:
+                entity_id: input_select.house_mode
+          - type: custom:button-card
+            template: [mobile, with_state_background]
+            entity: input_boolean.guest_mode
+            tap_action:
+              action: toggle
+
+      - type: horizontal-stack
+        cards:
+          - type: custom:button-card
+            template: mobile
+            entity: media_player.living_room_tv
+            name: TV
+            icon: mdi:television
+            tap_action:
+              action: toggle
+            state:
+              - value: 'playing'
+                styles: &on_styles
+                  card:
+                    - background-color: var(--primary-color)
+                    - color: black
+                  icon:
+                    - color: black
+              - value: 'standby'
+                styles: *on_styles
+              - value: 'on'
+                styles: *on_styles
+              - value: 'home'
+                styles: *on_styles
+              - value: 'idle'
+                styles: *on_styles
+
+          - type: custom:button-card
+            template: [mobile, with_state_background, with_state_indicator]
+            entity: switch.titanium
+            variables:
+              state_indicator_id: automation.titanium_turn_off_when_idle
+
+          - type: custom:button-card
+            template: [mobile, with_state_background]
+            entity: sensor.synology_type_volume_1
+            name: Platinum
+            icon: mdi:nas
+            tap_action:
+              action: more-info
+          - type: custom:button-card
+            template: [mobile, with_state_background]
+            entity: binary_sensor.pi_hole_enabled
+            name: Pi-Hole
+            icon: mdi:pi-hole
+
+      - type: horizontal-stack
+        cards:
+          - type: custom:button-card
+            template: [ac_button, mobile]
+          - type: custom:button-card
+            template: [radiator_button, mobile]
+            entity: climate.living_room_radiator_mode
+            name: "Living room"
+          - type: custom:button-card
+            template: [radiator_button, mobile]
+            entity: climate.bedroom_radiator_mode
+            name: "Bedroom"
+          - type: custom:button-card
+            template: [radiator_button, mobile]
+            entity: climate.kitchen_radiator_mode
+            name: "Kitchen"
+      - type: horizontal-stack
+        cards:
+          - type: custom:button-card
+            template: [mobile, with_state_background]
+            entity: switch.camera
+            name: Camera
+          - type: custom:button-card
+            template: [mobile, with_state_indicator]
+            entity: fan.philips_airpurifier
+            variables:
+              state_indicator_id: binary_sensor.purifier_filter_needs_change
+              state_indicator_size: 5px
+              state_indicator_off_size: 0px
+              state_indicator_on_color: var(--color-red)
+              state_on_indicator_on_color: var(--color-red)
+          - type: custom:button-card
+            template: [mobile, with_state_background]
+            entity: vacuum.vacuum
+            name: Vacuum
+          - type: custom:button-card
+            template: [brita_water, mobile]
+
+
+      - type: horizontal-stack
+        cards:
+          - type: custom:button-card
+            template: [xs, progress]
+            entity: sensor.multisensor_6_temperature
+            name: Living room
+            state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
+          - type: custom:button-card
+            template: [xs, progress]
+            entity: sensor.bedroom_weather_temperature
+            name: Bedroom
+            state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
+          - type: custom:button-card
+            template: [xs, progress]
+            entity: sensor.kitchen_weather_temperature
+            name: Kitchen
+            state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
+          - type: custom:button-card
+            template: [xs, progress]
+            entity: sensor.bathroom_weather_temperature
+            name: Bathroom
+            state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
+          - type: custom:button-card
+            template: [xs, progress]
+            entity: sensor.hallway_weather_temperature
+            name: Hallway
+            state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
+          - type: custom:button-card
+            template: [xs, progress]
+            entity: sensor.guest_bedroom_weather_temperature
+            name: G. Bedroom
+            state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
+
+      - type: horizontal-stack
+        cards:
+          - type: custom:button-card
+            template: [humidity_button, xs]
+            entity: sensor.multisensor_6_relative_humidity
+            name: Living room
+          - type: custom:button-card
+            template: [humidity_button, xs]
+            entity: sensor.bedroom_weather_humidity
+            name: Bedroom
+          - type: custom:button-card
+            template: [humidity_button, xs]
+            entity: sensor.kitchen_weather_humidity
+            name: Kitchen
+          - type: custom:button-card
+            template: [humidity_button, xs]
+            entity: sensor.bathroom_weather_humidity
+            name: Bathroom
+          - type: custom:button-card
+            template: [humidity_button, xs]
+            entity: sensor.hallway_weather_humidity
+            name: Hallway
+          - type: custom:button-card
+            template: [humidity_button, xs]
+            entity: sensor.guest_bedroom_weather_humidity
+            name: G. Bedroom

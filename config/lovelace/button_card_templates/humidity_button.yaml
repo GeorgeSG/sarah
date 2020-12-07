@@ -1,0 +1,11 @@
+humidity_button:
+  type: custom:button-card
+  template: [small, progress]
+  state_display: "[[[ return Math.round(entity.state) + ' %' ]]]"
+  icon: mdi:water-percent
+  variables:
+    min_value: 25
+    max_value: 90
+    normal_value: 40
+    high_value: 65
+    low_color: "var(--color-red)"

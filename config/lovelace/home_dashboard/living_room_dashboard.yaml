@@ -93,12 +93,11 @@
                 icon: mdi:pi-hole
           - type: horizontal-stack
             cards:
-              - type: custom:decluttering-card
-                template: radiator_button_card
-                variables:
-                  - entity_id: climate.living_room_radiator_mode
-              - type: custom:decluttering-card
-                template: ac_button_card
+              - type: custom:button-card
+                template: radiator_button
+                entity: climate.living_room_radiator_mode
+              - type: custom:button-card
+                template: ac_button
               - type: custom:button-card
                 template: [small, progress]
                 entity: sensor.desk_outlet_power
