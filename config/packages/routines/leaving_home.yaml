@@ -13,10 +13,12 @@ script:
           - climate.toshiba_ac
           - group.all_radiators
           - fan.philips_airpurifier
+          - light.browser_kitchen
+          - light.browser_hallway
 
       - service: media_player.media_stop
         entity_id: group.all_sonos
-      - service: light.turn_on
-        entity_id: light.browser_kitchen
-        data:
-          brightness_pct: 1
+      # - service: light.turn_on
+      #   entity_id: light.browser_kitchen
+      #   data:
+      #     brightness_pct: 1

@@ -4,8 +4,13 @@ automation:
       platform: state
       entity_id: binary_sensor.hallway_motion_occupancy
       to: "on"
+    condition:
+      condition: state
+      entity_id: binary_sensor.georgi_home
+      state: "on"
     action:
       - choose:
+        # Day Mode
         - conditions:
             - condition: state
               entity_id: input_select.house_mode
@@ -14,13 +19,16 @@ automation:
             - service: light.turn_on
               entity_id: light.hallway
 
+        # Night Mode
         default:
           - service: light.turn_on
             entity_id: light.light_lohas_6
             data:
               brightness_pct: 30
           - service: light.turn_on
-            entity_id: light.light_le_8
+            entity_id:
+              - light.light_le_8
+              - light.browser_hallway
             data:
               brightness_pct: 13
 
@@ -51,3 +59,4 @@ automation:
             entity_id:
               - light.light_lohas_6
               - light.light_le_8
+              - light.browser_hallway

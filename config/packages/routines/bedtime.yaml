@@ -40,7 +40,9 @@ script:
           - media_player.living_room_tv
           - light.ceiling
           - switch.titanium
-      - service: light.turn_on
-        entity_id: light.browser_kitchen
-        data:
-          brightness_pct: 1
+          - light.browser_kitchen
+          - light.browser_hallway
+      # - service: light.turn_on
+      #   entity_id: light.browser_kitchen
+      #   data:
+      #     brightness_pct: 1

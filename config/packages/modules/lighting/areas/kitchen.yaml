@@ -1,37 +1,48 @@
 automation:
-  - alias: Lighting · Kitchen · Day mode · Motion · Turn lights on
+  - alias: Lighting · Kitchen · Motion on
     trigger:
       platform: state
       entity_id: binary_sensor.kitchen_motion_occupancy
       to: "on"
     condition:
-      condition: and
-      conditions:
-        - condition: state
-          entity_id: binary_sensor.georgi_home
-          state: "on"
-        - condition: state
-          entity_id: input_select.house_mode
-          state: "day"
+      condition: state
+      entity_id: binary_sensor.georgi_home
+      state: "on"
     action:
-      - service: light.turn_on
-        entity_id: light.browser_kitchen
-        data:
-          brightness_pct: 100
-      - condition: or
-        conditions:
-          - condition: sun
-            after: sunset
-            after_offset: "-01:00:00"
-          - condition: numeric_state
-            entity_id: sensor.dark_sky_cloud_coverage
-            above: 80
-      - service: light.turn_on
-        entity_id: light.tuya_kitchen
-        data:
-          brightness_pct: 100
+      - choose:
+        # Day Mode
+        - conditions:
+            - condition: state
+              entity_id: input_select.house_mode
+              state: 'day'
+          sequence:
+            - service: light.turn_on
+              entity_id: light.browser_kitchen
+              data:
+                brightness_pct: 100
+            - condition: or
+              conditions:
+                - condition: sun
+                  after: sunset
+                  after_offset: "-01:00:00"
+                - condition: numeric_state
+                  entity_id: sensor.dark_sky_cloud_coverage
+                  above: 80
+            - service: light.turn_on
+              entity_id: light.tuya_kitchen
+              data:
+                brightness_pct: 100
 
-  - alias: Lighting · Kitchen · Day mode · Motion · Turn lights off
+        # Night Mode
+        default:
+          - service: light.turn_on
+            entity_id:
+              - light.light_le_12
+              - light.browser_kitchen
+            data:
+              brightness_pct: 13  # this is the lowest LE will go ¯\_(ツ)_/¯
+
+  - alias: Lighting · Kitchen · Motion off
     trigger:
       platform: state
       entity_id: binary_sensor.kitchen_motion_occupancy
@@ -40,59 +51,36 @@ automation:
         minutes: 30
     condition:
       condition: state
-      entity_id: input_select.house_mode
-      state: "day"
+      entity_id: binary_sensor.georgi_home
+      state: "on"
     action:
-      - service: light.turn_off
-        entity_id: light.tuya_kitchen
-      - service: light.turn_on
-        entity_id: light.browser_kitchen
-        data:
-          brightness_pct: 5
+      - choose:
+        # Day Mode
+        - conditions:
+            - condition: state
+              entity_id: input_select.house_mode
+              state: 'day'
+          sequence:
+            - service: light.turn_off
+              entity_id:
+                - light.tuya_kitchen
+                - light.browser_kitchen
+            # - service: light.turn_on
+            #   entity_id: light.browser_kitchen
+            #   data:
+            #     brightness_pct: 5
 
-  - alias: Lighting · Kitchen · Night mode · Motion · Turn lights on
-    trigger:
-      platform: state
-      entity_id: binary_sensor.kitchen_motion_occupancy
-      to: "on"
-    condition:
-      - condition: not
-        conditions:
-          - condition: state
-            entity_id: input_select.house_mode
-            state: "day"
-      - condition: state
-        entity_id: input_boolean.georgi_home
-        state: "on"
-    action:
-      - service: light.turn_on
-        entity_id:
-          - light.light_le_12
-          - light.browser_kitchen
-        data:
-          brightness_pct: 13  # this is the lowest LE will go ¯\_(ツ)_/¯
-
-  - alias: Lighting · Kitchen · Night mode · Motion · Turn lights off
-    trigger:
-      platform: state
-      entity_id: binary_sensor.kitchen_motion_occupancy
-      to: "off"
-      for:
-        minutes: 5
-    condition:
-      condition: not
-      conditions:
-        - condition: state
-          entity_id: input_select.house_mode
-          state: 'day'
-    action:
-      - service: light.turn_on
-        entity_id: light.light_le_12
-        data:
-          brightness_pct: 100
-      - service: light.turn_off
-        entity_id: light.light_le_12
-      - service: light.turn_on
-        entity_id: light.browser_kitchen
-        data:
-          brightness_pct: 5
+        # Night Mode
+        default:
+          - service: light.turn_on
+            entity_id: light.light_le_12
+            data:
+              brightness_pct: 100
+          - service: light.turn_off
+            entity_id:
+              - light.light_le_12
+              - light.browser_kitchen
+          # - service: light.turn_on
+          #   entity_id: light.browser_kitchen
+          #   data:
+          #     brightness_pct: 5

@@ -13,6 +13,7 @@ script:
           - light.hallway_entrance
           - light.bed_led
           - light.browser_kitchen
+          - light.browser_hallway
         data:
           brightness_pct: 100
       - service: script.security_camera_off

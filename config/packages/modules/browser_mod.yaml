@@ -4,6 +4,8 @@ browser_mod:
   devices:
     40b846ed-78c5016a:
       name: browser_kitchen
+    9c6af9cc-98bd8a5f:
+      name: browser_hallway
 
 homeassistant:
   customize:
