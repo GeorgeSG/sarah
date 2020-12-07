@@ -166,7 +166,7 @@
                     entity: vacuum.vacuum
                     name: Vacuum
                   - type: custom:button-card
-                    template: [brita_water, mobile]
+                    template: brita_water
 
       # Column 2
       - type: vertical-stack

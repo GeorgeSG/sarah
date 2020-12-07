@@ -52,7 +52,7 @@
                 template: radiator_button
                 entity: climate.kitchen_radiator_mode
               - type: custom:button-card
-                template: [brita_water, mobile]
+                template: brita_water
               - type: custom:button-card
                 template: default
                 entity: media_player.nvidia_shield
@@ -102,7 +102,7 @@
                 entity: binary_sensor.kitchen_motion_occupancy
                 name: Motion
                 variables:
-                  state_indicator_id: automation.lighting_kitchen_day_mode_motion_turn_lights_on
+                  state_indicator_id: automation.lighting_kitchen_motion_on
               - type: custom:button-card
                 template: [small, progress]
                 entity: sensor.kitchen_motion_illuminance

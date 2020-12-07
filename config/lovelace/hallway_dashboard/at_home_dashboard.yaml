@@ -167,7 +167,7 @@ cards:
             entity: switch.camera
             name: Camera
           - type: custom:button-card
-            template: [mobile, with_state_indicator]
+            template: [mobile, with_state_background, with_state_indicator]
             entity: fan.philips_airpurifier
             variables:
               state_indicator_id: binary_sensor.purifier_filter_needs_change
