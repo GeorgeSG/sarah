@@ -7,6 +7,8 @@
 - type: module
   url: /hacsfiles/button-card/button-card.js
 - type: module
+  url: /hacsfiles/lovelace-card-tools/card-tools.js
+- type: module
   url: /hacsfiles/config-template-card/config-template-card.js
 - type: module
   url: /hacsfiles/decluttering-card/decluttering-card.js
