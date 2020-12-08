@@ -9,6 +9,7 @@ floorplan_state_icon:
     style:
       top: "[[top]]"
       left: "[[left]]"
+      right: "[[right]]"
       display: flex
       align-items: center
       justify-content: center

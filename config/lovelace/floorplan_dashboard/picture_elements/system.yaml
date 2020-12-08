@@ -5,7 +5,7 @@
   variables:
     - entity: input_boolean.floorplan_night_mode
     - top: 25px
-    - left: 25px
+    - right: 5px
     - icon: mdi:white-balance-sunny
 
 - type: custom:decluttering-card
@@ -13,7 +13,7 @@
   variables:
     - entity: input_boolean.floorplan_show_all
     - top: 70px
-    - left: 25px
+    - right: 5px
     - icon: mdi:arrow-expand-all
 
 - type: custom:decluttering-card
@@ -21,18 +21,18 @@
   variables:
     - entity: input_boolean.guest_mode
     - top: 115px
-    - left: 25px
+    - right: 5px
 
 - type: custom:decluttering-card
   template: floorplan_state_icon
   variables:
     - entity: input_boolean.speech_notifications
     - top: 160px
-    - left: 25px
+    - right: 5px
 
 - type: custom:decluttering-card
   template: floorplan_state_icon
   variables:
     - entity: input_boolean.georgi_home
     - top: 205px
-    - left: 25px
+    - right: 5px
