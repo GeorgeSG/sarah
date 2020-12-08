@@ -104,7 +104,7 @@
                 variables:
                   state_indicator_id: automation.lighting_kitchen_motion_on
               - type: custom:button-card
-                template: [small, progress]
+                template: [regular, progress]
                 entity: sensor.kitchen_motion_illuminance
                 name: Lux
                 variables:

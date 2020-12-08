@@ -1,14 +1,14 @@
 small:
-  size: 30px
+  size: 24px
   hold_action:
     action: more-info
   styles:
     card:
-      - height: 100px
+      - height: 70px
       - font-size: 14px
     grid:
-      - height: 90px
-    img_cell:
       - height: 60px
+    img_cell:
+      - height: 40px
     name:
-      - height: 30px
+      - height: 24px

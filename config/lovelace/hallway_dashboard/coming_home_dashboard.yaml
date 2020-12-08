@@ -22,50 +22,50 @@ cards:
       - type: horizontal-stack
         cards:
           - type: custom:button-card
-            template: [mobile, with_state_background]
+            template: [small, with_state_background]
             entity: light.living_room
             name: Living room
           - type: custom:button-card
-            template: [mobile, with_state_background]
+            template: [small, with_state_background]
             entity: light.living_room_main
             name: Main
           - type: custom:button-card
-            template: [mobile, with_state_background]
+            template: [small, with_state_background]
             entity: light.light_avatar_small_2
           - type: custom:button-card
-            template: [mobile, with_state_background]
+            template: [small, with_state_background]
             entity: light.living_room_ambient
             name: Ambient
       - type: horizontal-stack
         cards:
           - type: custom:button-card
-            template: [mobile, with_state_background]
+            template: [small, with_state_background]
             entity: light.master_bedroom
             name: Bedroom
           - type: custom:button-card
-            template: [mobile, with_state_background]
+            template: [small, with_state_background]
             entity: light.master_bedroom_main
             name: Main
           - type: custom:button-card
-            template: [mobile, with_state_background]
+            template: [small, with_state_background]
             entity: light.bed_led
             name: Bed
           - type: custom:button-card
-            template: [mobile, with_state_background]
+            template: [small, with_state_background]
             entity: light.bedside
             name: Bedside
       - type: horizontal-stack
         cards:
           - type: custom:button-card
-            template: [mobile, with_state_background]
+            template: [small, with_state_background]
             entity: light.tuya_kitchen
             name: Kitchen
           - type: custom:button-card
-            template: [mobile, with_state_background]
+            template: [small, with_state_background]
             entity: light.tuya_hallway_main
             name: Hallway
           - type: custom:button-card
-            template: [mobile, with_state_background]
+            template: [small, with_state_background]
             entity: light.hallway_entrance
             name: Entrance
 
@@ -84,7 +84,7 @@ cards:
         square: false
         cards:
           - type: custom:button-card
-            template: [mobile, with_state_background]
+            template: [small, with_state_background]
             entity: binary_sensor.georgi_home
             name: Georgi home?
             tap_action:
@@ -93,16 +93,16 @@ cards:
               service_data:
                 entity_id: input_boolean.georgi_home
           - type: custom:button-card
-            template: [mobile, with_state_background]
+            template: [small, with_state_background]
             entity: input_boolean.speech_notifications
             name: Speech
           - type: custom:button-card
-            template: [mobile, with_state_background]
+            template: [small, with_state_background]
             entity: input_boolean.guest_mode
             tap_action:
               action: toggle
           - type: custom:button-card
-            template: mobile
+            template: small
             entity: media_player.living_room_tv
             name: TV
             icon: mdi:television
@@ -125,30 +125,30 @@ cards:
               - value: 'idle'
                 styles: *on_styles
           - type: custom:button-card
-            template: [mobile, with_state_background, with_state_indicator]
+            template: [small, with_state_background, with_state_indicator]
             entity: switch.titanium
             variables:
               state_indicator_id: automation.titanium_turn_off_when_idle
           - type: custom:button-card
-            template: [ac_button, mobile]
+            template: [ac_button, small]
           - type: custom:button-card
-            template: [radiator_button, mobile]
+            template: [radiator_button, small]
             entity: climate.living_room_radiator_mode
             name: "Living room"
           - type: custom:button-card
-            template: [radiator_button, mobile]
+            template: [radiator_button, small]
             entity: climate.bedroom_radiator_mode
             name: "Bedroom"
           - type: custom:button-card
-            template: [radiator_button, mobile]
+            template: [radiator_button, small]
             entity: climate.kitchen_radiator_mode
             name: "Kitchen"
           - type: custom:button-card
-            template: [mobile, with_state_background]
+            template: [small, with_state_background]
             entity: switch.camera
             name: Camera
           - type: custom:button-card
-            template: [mobile, with_state_indicator]
+            template: [small, with_state_indicator]
             entity: fan.philips_airpurifier
             variables:
               state_indicator_id: binary_sensor.purifier_filter_needs_change
@@ -157,7 +157,7 @@ cards:
               state_indicator_on_color: var(--color-red)
               state_on_indicator_on_color: var(--color-red)
           - type: custom:button-card
-            template: [mobile, with_state_background]
+            template: [small, with_state_background]
             entity: vacuum.vacuum
             name: Va
 

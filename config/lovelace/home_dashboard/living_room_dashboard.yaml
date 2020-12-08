@@ -99,7 +99,7 @@
               - type: custom:button-card
                 template: ac_button
               - type: custom:button-card
-                template: [small, progress]
+                template: [regular, progress]
                 entity: sensor.desk_outlet_power
                 name: Desk power
                 variables:
@@ -163,6 +163,6 @@
               - right_name: Humidity (6)
 
           - type: custom:button-card
-            template: [small, progress]
+            template: [regular, progress]
             entity: sensor.living_room_radiator_temperature
             name: Radiator temperature

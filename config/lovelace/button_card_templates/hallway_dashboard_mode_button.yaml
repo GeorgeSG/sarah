@@ -1,5 +1,5 @@
 hallway_dashboard_mode:
-  template: [mobile]
+  template: [small]
   entity: input_select.hallway_dashboard_mode
   show_state: true
   show_name: false

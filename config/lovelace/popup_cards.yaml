@@ -336,44 +336,44 @@ sensor.average_temperature:
       - type: horizontal-stack
         cards:
           - type: custom:button-card
-            template: [small, progress]
+            template: [regular, progress]
             entity: sensor.multisensor_6_temperature
             name: Living room
             state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
           - type: custom:button-card
-            template: [small, progress]
+            template: [regular, progress]
             entity: sensor.trisensor_temperature
             name: Desk
             state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
           - type: custom:button-card
-            template: [small, progress]
+            template: [regular, progress]
             entity: sensor.living_room_radiator_temperature
             name: Radiator
             state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
           - type: custom:button-card
-            template: [small, progress]
+            template: [regular, progress]
             entity: sensor.bedroom_weather_temperature
             name: Bedroom
             state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
       - type: horizontal-stack
         cards:
           - type: custom:button-card
-            template: [small, progress]
+            template: [regular, progress]
             entity: sensor.kitchen_weather_temperature
             name: Kitchen
             state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
           - type: custom:button-card
-            template: [small, progress]
+            template: [regular, progress]
             entity: sensor.bathroom_weather_temperature
             name: Bathroom
             state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
           - type: custom:button-card
-            template: [small, progress]
+            template: [regular, progress]
             entity: sensor.hallway_weather_temperature
             name: Hallway
             state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
           - type: custom:button-card
-            template: [small, progress]
+            template: [regular, progress]
             entity: sensor.guest_bedroom_weather_temperature
             name: G. Bedroom
             state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
@@ -397,7 +397,7 @@ sensor.average_humidity:
       - type: horizontal-stack
         cards:
           - type: custom:button-card
-            template: [small, progress]
+            template: [regular, progress]
             entity: sensor.multisensor_6_relative_humidity
             state_display: "[[[ return Math.round(entity.state) + ' %' ]]]"
             name: Living room
@@ -408,7 +408,7 @@ sensor.average_humidity:
               high_value: 65
               low_color: "var(--color-red)"
           - type: custom:button-card
-            template: [small, progress]
+            template: [regular, progress]
             entity: sensor.bedroom_weather_humidity
             state_display: "[[[ return Math.round(entity.state) + ' %' ]]]"
             name: Bedroom
@@ -419,7 +419,7 @@ sensor.average_humidity:
               high_value: 65
               low_color: "var(--color-red)"
           - type: custom:button-card
-            template: [small, progress]
+            template: [regular, progress]
             entity: sensor.kitchen_weather_humidity
             state_display: "[[[ return Math.round(entity.state) + ' %' ]]]"
             name: Kitchen
@@ -432,7 +432,7 @@ sensor.average_humidity:
       - type: horizontal-stack
         cards:
           - type: custom:button-card
-            template: [small, progress]
+            template: [regular, progress]
             entity: sensor.bathroom_weather_humidity
             state_display: "[[[ return Math.round(entity.state) + ' %' ]]]"
             name: Bathroom
@@ -443,7 +443,7 @@ sensor.average_humidity:
               high_value: 65
               low_color: "var(--color-red)"
           - type: custom:button-card
-            template: [small, progress]
+            template: [regular, progress]
             entity: sensor.hallway_weather_humidity
             state_display: "[[[ return Math.round(entity.state) + ' %' ]]]"
             name: Hallway
@@ -454,7 +454,7 @@ sensor.average_humidity:
               high_value: 65
               low_color: "var(--color-red)"
           - type: custom:button-card
-            template: [small, progress]
+            template: [regular, progress]
             entity: sensor.guest_bedroom_weather_humidity
             state_display: "[[[ return Math.round(entity.state) + ' %' ]]]"
             name: G. Bedroom

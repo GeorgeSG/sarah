@@ -1,2 +1,2 @@
 default:
-  template: [small, with_state_background]
+  template: [regular, with_state_background]

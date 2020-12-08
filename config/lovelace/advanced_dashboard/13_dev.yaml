@@ -5,28 +5,28 @@ cards:
     cards:
       - type: custom:gui-sandbox
       - type: custom:button-card
-        template: small
+        template: regular
         icon: mdi:reload
         name: Theme
         tap_action:
           action: call-service
           service: frontend.reload_themes
       - type: custom:button-card
-        template: small
+        template: regular
         icon: mdi:reload
         name: Resources
         tap_action:
           action: call-service
           service: lovelace.reload_resources
       - type: custom:button-card
-        template: small
+        template: regular
         name: time picker
         icon: mdi:clock
         tap_action:
           action: navigate
           navigation_path: "#time_picker"
       - type: custom:button-card
-        template: small
+        template: regular
         icon: mdi:folder
         name: folder
         tap_action:

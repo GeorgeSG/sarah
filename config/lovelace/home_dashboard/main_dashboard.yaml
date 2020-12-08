@@ -88,7 +88,7 @@
               - type: horizontal-stack
                 cards:
                   - type: custom:button-card
-                    template: small
+                    template: regular
                     entity: media_player.living_room_tv
                     name: TV
                     icon: mdi:television
@@ -276,12 +276,12 @@
               - type: horizontal-stack
                 cards:
                   - type: custom:button-card
-                    template: [small, progress]
+                    template: [regular, progress]
                     entity: sensor.average_temperature
                     icon: mdi:thermometer
                     state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
                   - type: custom:button-card
-                    template: [small, progress]
+                    template: [regular, progress]
                     entity: sensor.average_humidity
                     icon: mdi:water-percent
                     state_display: "[[[ return Math.round(entity.state) + ' %' ]]]"

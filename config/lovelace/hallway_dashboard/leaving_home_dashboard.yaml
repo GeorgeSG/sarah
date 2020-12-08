@@ -18,26 +18,26 @@ cards:
         columns: 4
         cards:
           - type: custom:button-card
-            template: [mobile, with_state_background]
+            template: [small, with_state_background]
             entity: binary_sensor.living_room_right_window
             name: Living room
           - type: custom:button-card
-            template: [mobile, with_state_background]
+            template: [small, with_state_background]
             entity: binary_sensor.bedroom_left_window
             name: Bedroom left
           - type: custom:button-card
-            template: [mobile, with_state_background]
+            template: [small, with_state_background]
             entity: binary_sensor.bedroom_right_window
             name: Bedroom right
           - type: custom:button-card
-            template: [mobile, with_state_background]
+            template: [small, with_state_background]
             entity: binary_sensor.kitchen_window
             name: Kitchen
           - type: custom:button-card
-            template: [mobile, with_state_background]
+            template: [small, with_state_background]
             entity: binary_sensor.front_door
           - type: custom:button-card
-            template: [mobile, with_state_background]
+            template: [small, with_state_background]
             entity: binary_sensor.bedroom_door
 
       - type: custom:mini-graph-card

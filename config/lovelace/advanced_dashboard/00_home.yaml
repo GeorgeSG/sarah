@@ -25,21 +25,21 @@ cards:
             - type: horizontal-stack
               cards:
                 - type: custom:button-card
-                  template: small
+                  template: regular
                   name: Automations
                   icon: mdi:reload
                   tap_action:
                     action: call-service
                     service: automation.reload
                 - type: custom:button-card
-                  template: small
+                  template: regular
                   name: Scripts
                   icon: mdi:reload
                   tap_action:
                     action: call-service
                     service: script.reload
                 - type: custom:button-card
-                  template: small
+                  template: regular
                   name: Scenes
                   icon: mdi:reload
                   tap_action:
@@ -48,21 +48,21 @@ cards:
             - type: horizontal-stack
               cards:
                 - type: custom:button-card
-                  template: small
+                  template: regular
                   name: Groups
                   icon: mdi:reload
                   tap_action:
                     action: call-service
                     service: group.reload
                 - type: custom:button-card
-                  template: small
+                  template: regular
                   name: Theme
                   icon: mdi:reload
                   tap_action:
                     action: call-service
                     service: frontend.reload_themes
                 - type: custom:button-card
-                  template: small
+                  template: regular
                   name: Resources
                   icon: mdi:reload
                   tap_action:

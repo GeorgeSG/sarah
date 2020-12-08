@@ -1,7 +1,7 @@
 purifier_target_humidity:
   card:
     type: custom:button-card
-    template: [small, progress, with_state_indicator]
+    template: [regular, progress, with_state_indicator]
     entity: sensor.purifier_target_humidity
     tap_action:
       action: call-service
