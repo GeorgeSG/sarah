@@ -3,8 +3,8 @@ radiator_button:
   name: "Radiator"
   icon: mdi:radiator
   state:
-    - value: 'off'
-      operator: '!='
+    - value: "off"
+      operator: "!="
       styles:
         card:
           - background-color: var(--primary-color)
@@ -15,4 +15,4 @@ radiator_button:
     action: call-service
     service: script.toggle_radiator
     service_data:
-      entity_id: '[[[ return entity.id ]]]'
+      entity_id: "[[[ return entity.entity_id ]]]"
