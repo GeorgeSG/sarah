@@ -1,23 +1,11 @@
 sensor:
   - platform: mqtt
-    name: "Desk switch click"
-    state_topic: "z2m_deconz/desk_switch"
-    availability_topic: "z2m_deconz/bridge/state"
-    icon: "mdi:toggle-switch"
-    value_template: "{{ value_json.click }}"
-  - platform: mqtt
     name: "Desk switch battery"
     state_topic: "z2m_deconz/desk_switch"
     availability_topic: "z2m_deconz/bridge/state"
     unit_of_measurement: "%"
     device_class: "battery"
     value_template: "{{ value_json.battery }}"
-  - platform: mqtt
-    name: "Desk switch action"
-    state_topic: "z2m_deconz/desk_switch"
-    availability_topic: "z2m_deconz/bridge/state"
-    icon: "mdi:gesture-double-tap"
-    value_template: "{{ value_json.action }}"
   - platform: mqtt
     name: "Desk switch LQI"
     state_topic: "z2m_deconz/desk_switch"
@@ -28,51 +16,35 @@ sensor:
 
 
 automation:
-  - alias: Lighting · Living Room · Toggle ceiling lights on desk switch single click
-    trigger:
-      platform: mqtt
-      topic: "z2m_deconz/desk_switch"
-    condition:
-      - condition: state
-        entity_id: sensor.desk_switch_click
-        state: 'single'
-    action:
-      - service: light.toggle
-        data_template:
-          entity_id: light.living_room_main
-          brightness_pct: >-
+  - alias: Living room · Desk switch
+    use_blueprint:
+      path: aqara_switch.yaml
+      input:
+        z2m_topic: "z2m_deconz/desk_switch"
+        click:
+          - service: light.toggle
+            data_template:
+              entity_id: light.living_room_main
+              brightness_pct: >-
 
-            {% if is_state('input_select.house_mode', 'night') %}
-              40
-            {% else %}
-              100
-            {% endif %}
+                {% if is_state('input_select.house_mode', 'night') %}
+                  40
+                {% else %}
+                  100
+                {% endif %}
 
-  - alias: Lighting · Living Room · Toggle ambient lights on desk switch double click
-    trigger:
-      platform: mqtt
-      topic: "z2m_deconz/desk_switch"
-    condition:
-      - condition: state
-        entity_id: sensor.desk_switch_click
-        state: 'double'
-    action:
-      - service: light.toggle
-        data_template:
-          entity_id: light.living_room_ambient
-          brightness_pct: >-
+        double_click:
+          - service: light.toggle
+            data_template:
+              entity_id: light.living_room_ambient
+              brightness_pct: >-
 
-            {% if is_state('input_select.house_mode', 'night') %}
-              40
-            {% else %}
-              100
-            {% endif %}
+                {% if is_state('input_select.house_mode', 'night') %}
+                  40
+                {% else %}
+                  100
+                {% endif %}
 
-  - alias: Music · Living Room · Play pause on desk switch hold
-    trigger:
-      platform: state
-      entity_id: sensor.desk_switch_action
-      to: 'hold'
-    action:
-      - service: media_player.media_play_pause
-        entity_id: media_player.living_room
+        hold:
+          - service: media_player.media_play_pause
+            entity_id: media_player.living_room

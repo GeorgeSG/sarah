@@ -1,0 +1,204 @@
+blueprint:
+  name: Oppo 6 button switch controls
+  domain: automation
+  input:
+    opple_z2m_name:
+    action_sensor:
+    button_1_single:
+      default: []
+    button_1_double:
+      default: []
+    button_1_triple:
+      default: []
+    button_1_release:
+      default: []
+    button_2_single:
+      default: []
+    button_2_double:
+      default: []
+    button_2_triple:
+      default: []
+    button_2_release:
+      default: []
+    button_3_single:
+      default: []
+    button_3_double:
+      default: []
+    button_3_triple:
+      default: []
+    button_3_release:
+      default: []
+    button_4_single:
+      default: []
+    button_4_double:
+      default: []
+    button_4_triple:
+      default: []
+    button_4_release:
+      default: []
+    button_5_single:
+      default: []
+    button_5_double:
+      default: []
+    button_5_triple:
+      default: []
+    button_5_release:
+      default: []
+    button_6_single:
+      default: []
+    button_6_double:
+      default: []
+    button_6_triple:
+      default: []
+    button_6_release:
+      default: []
+
+mode: queued
+trigger:
+  platform: mqtt
+  topic: !input opple_z2m_name
+action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: !input action_sensor
+        state: 'button_1_single'
+      sequence: !input button_1_single
+
+    - conditions:
+      - condition: state
+        entity_id: !input action_sensor
+        state: 'button_1_double'
+      sequence: !input button_1_double
+
+    - conditions:
+      - condition: state
+        entity_id: !input action_sensor
+        state: 'button_1_triple'
+      sequence: !input button_1_triple
+
+    - conditions:
+      - condition: state
+        entity_id: !input action_sensor
+        state: 'button_1_release'
+      sequence: !input button_1_release
+
+    - conditions:
+      - condition: state
+        entity_id: !input action_sensor
+        state: 'button_2_single'
+      sequence: !input button_2_single
+
+    - conditions:
+      - condition: state
+        entity_id: !input action_sensor
+        state: 'button_2_double'
+      sequence: !input button_2_double
+
+    - conditions:
+      - condition: state
+        entity_id: !input action_sensor
+        state: 'button_2_triple'
+      sequence: !input button_2_triple
+
+    - conditions:
+      - condition: state
+        entity_id: !input action_sensor
+        state: 'button_2_release'
+      sequence: !input button_2_release
+
+    - conditions:
+      - condition: state
+        entity_id: !input action_sensor
+        state: 'button_3_single'
+      sequence: !input button_3_single
+
+    - conditions:
+      - condition: state
+        entity_id: !input action_sensor
+        state: 'button_3_double'
+      sequence: !input button_3_double
+
+    - conditions:
+      - condition: state
+        entity_id: !input action_sensor
+        state: 'button_3_triple'
+      sequence: !input button_3_triple
+
+    - conditions:
+      - condition: state
+        entity_id: !input action_sensor
+        state: 'button_3_release'
+      sequence: !input button_3_release
+
+    - conditions:
+      - condition: state
+        entity_id: !input action_sensor
+        state: 'button_4_single'
+      sequence: !input button_4_single
+
+    - conditions:
+      - condition: state
+        entity_id: !input action_sensor
+        state: 'button_4_double'
+      sequence: !input button_4_double
+
+    - conditions:
+      - condition: state
+        entity_id: !input action_sensor
+        state: 'button_4_triple'
+      sequence: !input button_4_triple
+
+    - conditions:
+      - condition: state
+        entity_id: !input action_sensor
+        state: 'button_4_release'
+      sequence: !input button_4_release
+
+    - conditions:
+      - condition: state
+        entity_id: !input action_sensor
+        state: 'button_5_single'
+      sequence: !input button_5_single
+
+    - conditions:
+      - condition: state
+        entity_id: !input action_sensor
+        state: 'button_5_double'
+      sequence: !input button_5_double
+
+    - conditions:
+      - condition: state
+        entity_id: !input action_sensor
+        state: 'button_5_triple'
+      sequence: !input button_5_triple
+
+    - conditions:
+      - condition: state
+        entity_id: !input action_sensor
+        state: 'button_5_release'
+      sequence: !input button_5_release
+
+    - conditions:
+      - condition: state
+        entity_id: !input action_sensor
+        state: 'button_6_single'
+      sequence: !input button_6_single
+
+    - conditions:
+      - condition: state
+        entity_id: !input action_sensor
+        state: 'button_6_double'
+      sequence: !input button_6_double
+
+    - conditions:
+      - condition: state
+        entity_id: !input action_sensor
+        state: 'button_6_triple'
+      sequence: !input button_6_triple
+
+    - conditions:
+      - condition: state
+        entity_id: !input action_sensor
+        state: 'button_6_release'
+      sequence: !input button_6_release

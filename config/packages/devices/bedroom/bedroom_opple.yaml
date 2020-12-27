@@ -22,155 +22,95 @@ sensor:
 
 automation:
   - alias: Bedroom · Opple
-    mode: queued
-    trigger:
-      platform: mqtt
-      topic: "z2m_deconz/opple_1"
-    action:
-      - choose:
-        - conditions:
-          - condition: state
-            entity_id: sensor.bedroom_opple_action
-            state: 'button_1_single'
-          sequence:
-            - service: light.turn_off
+    use_blueprint:
+      path: oppo_6_btn_switch.yaml
+      input:
+        opple_z2m_name: "z2m_deconz/opple_1"
+        action_sensor: sensor.bedroom_opple_action
+
+        button_1_single:
+          - service: light.turn_off
+            entity_id: light.master_bedroom
+
+        button_2_single:
+          - service: light.turn_on
+            data_template:
               entity_id: light.master_bedroom
+              brightness_pct: >-
 
-        - conditions:
-          - condition: state
-            entity_id: sensor.bedroom_opple_action
-            state: 'button_2_single'
-          sequence:
-            - service: light.turn_on
-              data_template:
-                entity_id: light.master_bedroom
-                brightness_pct: >-
+                {% if not is_state('input_select.house_mode', 'day') %}
+                  40
+                {% else %}
+                  100
+                {% endif %}
 
-                  {% if not is_state('input_select.house_mode', 'day') %}
-                    40
-                  {% else %}
-                    100
-                  {% endif %}
+        button_1_double:
+          - service: light.turn_off
+            entity_id: light.master_bedroom_main
 
-        - conditions:
-          - condition: state
-            entity_id: sensor.bedroom_opple_action
-            state: 'button_1_double'
-          sequence:
-            - service: light.turn_off
+        button_2_double:
+          - service: light.turn_on
+            data_template:
               entity_id: light.master_bedroom_main
+              brightness_pct: >-
 
-        - conditions:
-          - condition: state
-            entity_id: sensor.bedroom_opple_action
-            state: 'button_2_double'
-          sequence:
-            - service: light.turn_on
-              data_template:
-                entity_id: light.master_bedroom_main
-                brightness_pct: >-
+                {% if not is_state('input_select.house_mode', 'day') %}
+                  40
+                {% else %}
+                  100
+                {% endif %}
 
-                  {% if not is_state('input_select.house_mode', 'day') %}
-                    40
-                  {% else %}
-                    100
-                  {% endif %}
+        button_1_triple:
+          - service: light.turn_off
+            entity_id:
+              - light.bedside
+              - light.bed_led
 
-        - conditions:
-          - condition: state
-            entity_id: sensor.bedroom_opple_action
-            state: 'button_1_triple'
-          sequence:
-            - service: light.turn_off
+        button_2_triple:
+          - service: light.turn_on
+            data_template:
               entity_id:
                 - light.bedside
                 - light.bed_led
+              brightness_pct: >-
 
-        - conditions:
-          - condition: state
-            entity_id: sensor.bedroom_opple_action
-            state: 'button_2_triple'
-          sequence:
-            - service: light.turn_on
-              data_template:
-                entity_id:
-                  - light.bedside
-                  - light.bed_led
-                brightness_pct: >-
+                {% if not is_state('input_select.house_mode', 'day') %}
+                  40
+                {% else %}
+                  100
+                {% endif %}
 
-                  {% if not is_state('input_select.house_mode', 'day') %}
-                    40
-                  {% else %}
-                    100
-                  {% endif %}
+        button_3_single:
+          - service: media_player.media_play_pause
+            entity_id: media_player.master_bedroom
 
-        - conditions:
-          - condition: state
-            entity_id: sensor.bedroom_opple_action
-            state: 'button_3_single'
-          sequence:
-            - service: media_player.media_play_pause
-              entity_id: media_player.master_bedroom
+        button_3_double:
+          - service: script.sonos_join_tv
 
-        - conditions:
-          - condition: state
-            entity_id: sensor.bedroom_opple_action
-            state: 'button_3_double'
-          sequence:
-            - service: script.sonos_join_tv
+        button_3_triple:
+          - service: script.sonos_join_bedroom
 
-        - conditions:
-          - condition: state
-            entity_id: sensor.bedroom_opple_action
-            state: 'button_3_triple'
-          sequence:
-            - service: script.sonos_join_bedroom
+        button_3_release:
+          - service: media_player.play_next
+            entity_id: media_player.master_bedroom
 
-        - conditions:
-          - condition: state
-            entity_id: sensor.bedroom_opple_action
-            state: 'button_3_release'
-          sequence:
-            - service: media_player.play_next
-              entity_id: media_player.master_bedroom
+        button_4_single:
+          - service: script.music_play
 
-        - conditions:
-          - condition: state
-            entity_id: sensor.bedroom_opple_action
-            state: 'button_4_single'
-          sequence:
-            - service: script.music_play
+        button_4_double:
+          - service: script.music_play
+            data:
+              playlist: 'Starred'
 
-        - conditions:
-          - condition: state
-            entity_id: sensor.bedroom_opple_action
-            state: 'button_4_double'
-          sequence:
-            - service: script.music_play
-              data:
-                playlist: 'Starred'
+        button_4_triple:
+          - service: script.music_play
+            data:
+              playlist: 'Retro'
 
-        - conditions:
-          - condition: state
-            entity_id: sensor.bedroom_opple_action
-            state: 'button_4_triple'
-          sequence:
-            - service: script.music_play
-              data:
-                playlist: 'Retro'
+        button_5_single:
+          - service: fan.turn_off
+            entity_id: fan.philips_airpurifier
 
-        - conditions:
-          - condition: state
-            entity_id: sensor.bedroom_opple_action
-            state: 'button_5_single'
-          sequence:
-            - service: fan.turn_off
-              entity_id: fan.philips_airpurifier
-
-        - conditions:
-          - condition: state
-            entity_id: sensor.bedroom_opple_action
-            state: 'button_6_single'
-          sequence:
-            - service: fan.turn_on
-              entity_id: fan.philips_airpurifier
+        button_6_single:
+          - service: fan.turn_on
+            entity_id: fan.philips_airpurifier

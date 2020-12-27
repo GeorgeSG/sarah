@@ -1,23 +1,11 @@
 sensor:
   - platform: mqtt
-    name: "Bedside switch click"
-    state_topic: "z2m_deconz/bedside_switch"
-    availability_topic: "z2m_deconz/bridge/state"
-    icon: "mdi:toggle-switch"
-    value_template: "{{ value_json.click }}"
-  - platform: mqtt
     name: "Bedside switch battery"
     state_topic: "z2m_deconz/bedside_switch"
     availability_topic: "z2m_deconz/bridge/state"
     unit_of_measurement: "%"
     device_class: "battery"
     value_template: "{{ value_json.battery }}"
-  - platform: mqtt
-    name: "Bedside switch action"
-    state_topic: "z2m_deconz/bedside_switch"
-    availability_topic: "z2m_deconz/bridge/state"
-    icon: "mdi:gesture-double-tap"
-    value_template: "{{ value_json.action }}"
   - platform: mqtt
     name: "Bedside switch LQI"
     state_topic: "z2m_deconz/bedside_switch"
@@ -27,55 +15,39 @@ sensor:
     value_template: "{{ value_json.linkquality }}"
 
 automation:
-  - alias: Lighting · Master bedroom · Toggle lights on bedside switch single click
-    trigger:
-      platform: mqtt
-      topic: "z2m_deconz/bedside_switch"
-    condition:
-      - condition: state
-        entity_id: sensor.bedside_switch_click
-        state: 'single'
-    action:
-      - service: light.toggle
-        data_template:
-          entity_id: >-
+  - alias: Bedroom · Bedside Switch
+    use_blueprint:
+      path: aqara_switch.yaml
+      input:
+        z2m_topic: "z2m_deconz/bedside_switch"
+        click:
+          - service: light.toggle
+            data_template:
+              entity_id: >-
 
-            {% if is_state('input_select.house_mode', 'day') %}
-              light.master_bedroom_main
-            {% elif is_state('input_select.house_mode', 'bed') %}
-              light.bedside, light.bed_led
-            {% elif is_state('input_select.house_mode', 'night') %}
-              light.bed_led
-            {% endif %}
-          brightness_pct: >-
+                {% if is_state('input_select.house_mode', 'day') %}
+                  light.master_bedroom_main
+                {% elif is_state('input_select.house_mode', 'bed') %}
+                  light.bedside, light.bed_led
+                {% elif is_state('input_select.house_mode', 'night') %}
+                  light.bed_led
+                {% endif %}
+              brightness_pct: >-
 
-            {% if is_state('input_select.house_mode', 'night') %}
-              40
-            {% else %}
-              100
-            {% endif %}
+                {% if is_state('input_select.house_mode', 'night') %}
+                  40
+                {% else %}
+                  100
+                {% endif %}
 
-  - alias: Lighting · Master bedroom · Toggle ambient lights on bedside switch double click
-    trigger:
-      platform: mqtt
-      topic: "z2m_deconz/bedside_switch"
-    condition:
-      - condition: state
-        entity_id: sensor.bedside_switch_click
-        state: 'double'
-    action:
-      - service: light.toggle
-        data_template:
-          entity_id:
-            - light.bedside
-            - light.bed_led
-          brightness_pct: 100
+        double_click:
+          - service: light.toggle
+            data_template:
+              entity_id:
+                - light.bedside
+                - light.bed_led
+              brightness_pct: 100
 
-  - alias: House mode · Toggle on bedside switch hold
-    trigger:
-      platform: state
-      entity_id: sensor.bedside_switch_action
-      to: 'hold'
-    action:
-      - service: input_select.select_next
-        entity_id: input_select.house_mode
+        hold:
+          - service: input_select.select_next
+            entity_id: input_select.house_mode

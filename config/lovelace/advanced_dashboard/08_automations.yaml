@@ -32,8 +32,6 @@ cards:
                 service: automation.reload
             - entity: sensor.automations_count
               icon: mdi:pound
-            - automation.living_room_opple
-            - automation.bedroom_opple
             - automation.titanium_turn_off_when_idle
             - automation.titanium_notify_on_vibration_sensor_move
             - automation.speech_enable_when_meeting_is_over
@@ -52,6 +50,17 @@ cards:
             - automation.presence_leaving_work
 
         - type: entities
+          title: Switches
+          show_header_toggle: false
+          icon: mdi:switch
+          entities:
+            - automation.living_room_opple
+            - automation.living_room_desk_switch
+            - automation.bedroom_opple
+            - automation.bedroom_bedside_switch
+            - automation.bathroom_switch
+
+        - type: entities
           title: Lighting
           show_header_toggle: false
           icon: mdi:lightbulb
@@ -62,13 +71,8 @@ cards:
             - automation.lighting_temperature_adjust_on_start
             - automation.lighting_temperature_adjust_based_on_time
             - type: divider
-            - automation.lighting_living_room_toggle_ceiling_lights_on_desk_switch_single_click
-            - automation.lighting_living_room_toggle_ambient_lights_on_desk_switch_double_click
-            - type: divider
             - automation.lighting_master_bedroom_toggle_lights_on_switch_single_click
             - automation.lighting_master_bedroom_toggle_ambient_lights_on_switch_double_click
-            - automation.lighting_master_bedroom_toggle_lights_on_bedside_switch_single_click
-            - automation.lighting_master_bedroom_toggle_ambient_lights_on_bedside_switch_double_click
             - type: divider
             - automation.lighting_kitchen_motion_on
             - automation.lighting_kitchen_motion_off
@@ -97,12 +101,9 @@ cards:
             - automation.tv_plex_setup_house_for_plex
             - automation.tv_plex_restore_house_after_plex
             - automation.youtube_download_latest_pds
-            - automation.youtube_play_latest_pds_on_bathroom_switch_dobule_click
             - automation.media_sonos_put_beam_in_night_mode
             - automation.media_sonos_put_beam_in_day_mode
-            - automation.media_sonos_volume_up_on_bathroom_switch_click
             - type: divider
-            - automation.music_living_room_play_pause_on_desk_switch_hold
             - automation.music_master_bedroom_play_pause_on_switch_hold
 
         - type: entities
@@ -120,7 +121,6 @@ cards:
             - automation.house_mode_set_to_day
             - automation.house_mode_set_to_bed
             - automation.house_mode_set_to_night
-            - automation.house_mode_toggle_on_bedside_switch_hold
             - automation.house_mode_set_to_day_if_bedroom_door_was_opened
 
         - type: entities

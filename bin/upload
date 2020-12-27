@@ -6,14 +6,14 @@ source "$(dirname $0)/utils.sh"
 log "[upload] deleting old folders..."
 
 ssh $REMOTE_HOST -p $REMOTE_PORT \
-    "rm -rf $REMOTE_REPO_PATH/config/{custom_scripts,lovelace,packages,templates}"
+    "rm -rf $REMOTE_REPO_PATH/config/{blueprints,custom_scripts,lovelace,packages,templates}"
 
 log "[upload] ${LIGHT_GREEN}delete done${NO_FORMAT}"
 echo
 
 log "[upload] reuploading..."
 scp -P $REMOTE_PORT \
-    -r config/{custom_scripts,lovelace,packages,templates,themes,*.yaml} \
+    -r config/{blueprints,custom_scripts,lovelace,packages,templates,themes,*.yaml} \
     "${REMOTE_HOST}:${REMOTE_REPO_PATH}/config" > /dev/null
 
 log "[upload] ${LIGHT_GREEN}reupload done${NO_FORMAT}"
