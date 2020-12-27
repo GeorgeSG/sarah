@@ -11,11 +11,11 @@ script:
       - service: light.turn_on
         entity_id:
           - light.hallway_entrance
-          - light.bed_led
           - light.browser_kitchen
           - light.browser_hallway
         data:
           brightness_pct: 100
+      - service: script.bed_led_on
       - service: script.security_camera_off
       - service: script.routine_coming_home_after_sunset
       - service: input_select.select_option

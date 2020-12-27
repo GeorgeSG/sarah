@@ -50,6 +50,9 @@ cards:
             template: [small, with_state_background]
             entity: light.bed_led
             name: Bed
+            tap_action:
+              action: call-service
+              service: script.bed_led_toggle
           - type: custom:button-card
             template: [small, with_state_background]
             entity: light.bedside

@@ -58,11 +58,10 @@ automation:
         state: 'double'
     action:
       - service: light.toggle
-        data_template:
-          entity_id:
-            - light.bedside
-            - light.bed_led
+        entity_id: light.bedside
+        data:
           brightness_pct: 100
+      - service: script.bed_led_toggle
 
   - alias: Music · Master bedroom · Play pause on switch hold
     trigger:

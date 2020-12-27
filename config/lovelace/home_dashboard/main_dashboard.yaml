@@ -63,6 +63,9 @@
                     template: default
                     entity: light.bed_led
                     name: Bed
+                    tap_action:
+                      action: call-service
+                      service: script.bed_led_toggle
                   - type: custom:button-card
                     template: default
                     entity: light.bedside
