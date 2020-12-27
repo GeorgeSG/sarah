@@ -53,7 +53,8 @@ automation:
             entity_id: light.living_room_ambient
 
         button_2_release:
-          - service: script.scene_living_room_ambient_neon
+          - service: scene.turn_on
+            entity_id: scene.living_room_ambient_neon
 
         button_3_single:
           - service: media_player.media_play_pause

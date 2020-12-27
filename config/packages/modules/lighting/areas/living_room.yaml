@@ -1,14 +1,23 @@
-script:
-  scene_living_room_ambient_neon:
+scene:
+  - name: Living Room Ambient Neon
     icon: "mdi:weather-night"
-    sequence:
-      - service: light.turn_on
-        entity_id: light.light_avatar_small_1
-        data:
-          xy_color: [0.668, 0.284]
-          brightness_pct: 80
-      - service: light.turn_on
-        entity_id: light.living_room_ambient_main
-        data:
-          rgb_color: [0, 255, 190]
-          brightness_pct: 100
+    entities:
+      light.light_avatar_small_1:
+        state: "on"
+        xy_color: [0.668, 0.284]
+        brightness_pct: 80
+      light.living_room_ambient_main:
+        state: "on"
+        rgb_color: [0, 255, 190]
+        brightness_pct: 100
+  - name: Living Room Ambient Default
+    icon: "mdi:weather-sunny"
+    entities:
+      light.light_avatar_small_1:
+        state: "on"
+        white_value: 255
+        brightness_pct: 100
+      light.living_room_ambient_main:
+        state: "on"
+        color_temp: 284
+        brightness_pct: 80

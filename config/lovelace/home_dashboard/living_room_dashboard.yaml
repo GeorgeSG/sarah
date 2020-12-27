@@ -49,6 +49,21 @@
                       card:
                         - height: 46px
           - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                template: [small, scene]
+                entity: scene.living_room_ambient_neon
+                name: Neon
+                variables:
+                  scene_color_1: rgb(255, 0, 190)
+                  scene_color_2: rgb(0, 255, 190)
+              - type: custom:button-card
+                template: [small, scene]
+                entity: scene.living_room_ambient_default
+                name: Regular
+                variables:
+                  scene_color_1: rgb(254, 255, 209)
+          - type: horizontal-stack
             title: Devices
             cards:
               - type: custom:button-card

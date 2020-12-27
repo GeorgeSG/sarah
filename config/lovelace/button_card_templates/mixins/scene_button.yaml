@@ -4,7 +4,10 @@ scene:
     scene_color_2:
     degrees: 315
   tap_action:
-    action: toggle
+    action: call-service
+    service: scene.turn_on
+    service_data:
+      entity_id: "[[[ return entity.entity_id ]]]"
   styles:
     card:
       - background: >

@@ -38,7 +38,40 @@
                 template: default
                 entity: light.bedside
                 name: Bedside
-
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                template: [small, scene]
+                entity: scene.bedroom_ambient_neon
+                name: Neon
+                variables:
+                  scene_color_1: rgb(255, 0, 190)
+                  scene_color_2: rgb(0, 255, 190)
+                tap_action:
+                  action: call-service
+                  service: script.apply_bedroom_neon
+              - type: custom:button-card
+                template: [small, scene]
+                entity: scene.bedroom_ambient_neon
+                name: Ambient neon
+                variables:
+                  scene_color_1: rgb(255, 0, 190)
+                  scene_color_2: rgb(0, 255, 190)
+                tap_action:
+                  action: call-service
+                  service: script.apply_bedroom_ambient_neon
+              - type: custom:button-card
+                template: [small, scene]
+                entity: scene.bedroom_default
+                name: Regular
+                variables:
+                  scene_color_1: rgb(254, 255, 209)
+              - type: custom:button-card
+                template: [small, scene]
+                entity: scene.bedroom_ambient_default
+                name: Ambient regular
+                variables:
+                  scene_color_1: rgb(254, 255, 209)
 
           - type: vertical-stack
             title: Controls
@@ -65,19 +98,6 @@
                   - type: custom:button-card
                     template: default
                     entity: binary_sensor.house_mode
-                  - type: custom:button-card
-                    template: [default, scene]
-                    entity: script.scene_bedroom_neon
-                    name: Neon
-                    variables:
-                      scene_color_1: rgb(255, 0, 190)
-                      scene_color_2: rgb(0, 255, 190)
-                  - type: custom:button-card
-                    template: [default, scene]
-                    entity: script.scene_bedroom_regular
-                    name: Regular
-                    variables:
-                      scene_color_1: rgb(254, 255, 209)
 
           - type: horizontal-stack
             title: Climate

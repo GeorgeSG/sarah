@@ -1,43 +1,72 @@
 script:
-  scene_bedroom_neon:
+  apply_bedroom_ambient_neon:
+    sequence:
+      - service: light.turn_off
+        entity_id: light.bed_led
+      - delay: "00:00:03"
+      - service: scene.turn_on
+        entity_id: scene.bedroom_ambient_neon
+  apply_bedroom_neon:
+    sequence:
+      - service: light.turn_off
+        entity_id: light.bed_led
+      - delay: "00:00:03"
+      - service: scene.turn_on
+        entity_id: scene.bedroom_neon
+
+scene:
+  - name: Bedroom Ambient Neon
     icon: "mdi:weather-night"
-    sequence:
-      - service: light.turn_on
-        entity_id: light.master_bedroom_main
-        data:
-          rgb_color: [255, 0, 190]
-          brightness_pct: 40
-      - service: light.turn_on
-        entity_id: light.bedside
-        data:
-          xy_color: [0.384, 0.159]
-          brightness_pct: 1
-      - service: light.turn_on
-        entity_id: light.bed_led
-        data:
-          rgb_color: [0, 255, 190]
-          brightness_pct: 100
-      - service: light.turn_on
-        entity_id: light.bed_led
-        data:
-          rgb_color: [0, 255, 190]
-      - delay: 00:00:05
-      - service: light.turn_on
-        entity_id: light.bed_led
+    entities:
+      light.bedside:
+        state: "on"
+        rgb_color: [0, 255, 190]
+        brightness: 230
+      light.bed_led:
+        state: "on"
+        xy_color: [0.66, 0.28]
+        brightness: 254
 
+  - name: Bedroom Neon
+    icon: "mdi:weather-night"
+    entities:
+      light.master_bedroom_main:
+        state: "on"
+        brightness: 153
+        hs_color: [345, 100]
+      light.bedside:
+        state: "on"
+        rgb_color: [0, 255, 190]
+        brightness: 230
+      light.bed_led:
+        state: "on"
+        xy_color: [0.66, 0.28]
+        brightness: 254
 
-  scene_bedroom_regular:
+  - name: Bedroom Ambient Default
     icon: "mdi:weather-sunny"
-    sequence:
-      - service: light.turn_on
-        entity_id:
-          - light.master_bedroom_main
-          - light.bed_led
-        data:
-          color_temp: 500
-          brightness_pct: 100
-      - service: light.turn_on
-        entity_id: light.bedside
-        data:
-          color_temp: 500
-          brightness_pct: 20
+    entities:
+      light.bedside:
+        state: "on"
+        color_temp: 359
+        brightness: 255
+      light.bed_led:
+        state: "on"
+        color_temp: 500
+        brightness: 255
+
+  - name: Bedroom Default
+    icon: "mdi:weather-sunny"
+    entities:
+      light.master_bedroom_main:
+        state: "on"
+        brightness: 255
+        color_temp: 500
+      light.bedside:
+        state: "on"
+        color_temp: 359
+        brightness: 255
+      light.bed_led:
+        state: "on"
+        color_temp: 500
+        brightness: 255
