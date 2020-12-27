@@ -10,30 +10,22 @@ script:
     sequence:
       - service: light.turn_off
         entity_id: light.bed_led
+      - service: light.turn_on
+        entity_id: light.master_bedroom_main
+      - delay: "00:00:01"
+      - service: light.turn_on
+        entity_id: light.master_bedroom_main
+        data:
+          rgb_color: [255, 0, 63]
+          brightness: 153
       - delay: "00:00:03"
       - service: scene.turn_on
-        entity_id: scene.bedroom_neon
+        entity_id: scene.bedroom_ambient_neon
 
 scene:
   - name: Bedroom Ambient Neon
     icon: "mdi:weather-night"
     entities:
-      light.bedside:
-        state: "on"
-        rgb_color: [0, 255, 190]
-        brightness: 230
-      light.bed_led:
-        state: "on"
-        xy_color: [0.66, 0.28]
-        brightness: 254
-
-  - name: Bedroom Neon
-    icon: "mdi:weather-night"
-    entities:
-      light.master_bedroom_main:
-        state: "on"
-        brightness: 153
-        hs_color: [345, 100]
       light.bedside:
         state: "on"
         rgb_color: [0, 255, 190]
