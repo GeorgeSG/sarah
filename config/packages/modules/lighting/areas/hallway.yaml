@@ -17,8 +17,11 @@ automation:
               state: 'day'
           sequence:
             - service: light.turn_on
-              entity_id: light.hallway
-
+              entity_id:
+                - light.hallway
+                - light.browser_hallway
+              data:
+                brightness_pct: 100
         # Night Mode
         default:
           - service: light.turn_on
@@ -41,6 +44,7 @@ automation:
         minutes: 5
     action:
       - choose:
+        # Day Mode
         - conditions:
             condition: state
             entity_id: input_select.house_mode
@@ -48,6 +52,11 @@ automation:
           sequence:
             - service: light.turn_off
               entity_id: light.hallway
+            - service: light.turn_on
+              entity_id: light.browser_hallway
+              data:
+                brightness_pct: 1
+        # Night Mode
         default:
           - service: light.turn_on
             entity_id:
@@ -57,6 +66,9 @@ automation:
               brightness_pct: 100
           - service: light.turn_off
             entity_id:
-              - light.light_lohas_6
               - light.light_le_8
-              - light.browser_hallway
+              - light.light_lohas_6
+          - service: light.turn_on
+            entity_id: light.browser_hallway
+            data:
+              brightness_pct: 1

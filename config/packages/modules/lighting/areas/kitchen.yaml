@@ -32,7 +32,6 @@ automation:
               entity_id: light.tuya_kitchen
               data:
                 brightness_pct: 100
-
         # Night Mode
         default:
           - service: light.turn_on
@@ -49,10 +48,6 @@ automation:
       to: "off"
       for:
         minutes: 30
-    condition:
-      condition: state
-      entity_id: binary_sensor.georgi_home
-      state: "on"
     action:
       - choose:
         # Day Mode
@@ -62,14 +57,11 @@ automation:
               state: 'day'
           sequence:
             - service: light.turn_off
-              entity_id:
-                - light.tuya_kitchen
-                - light.browser_kitchen
-            # - service: light.turn_on
-            #   entity_id: light.browser_kitchen
-            #   data:
-            #     brightness_pct: 5
-
+              entity_id: light.tuya_kitchen
+            - service: light.turn_on
+              entity_id: light.browser_kitchen
+              data:
+                brightness_pct: 1
         # Night Mode
         default:
           - service: light.turn_on
@@ -77,10 +69,8 @@ automation:
             data:
               brightness_pct: 100
           - service: light.turn_off
-            entity_id:
-              - light.light_le_12
-              - light.browser_kitchen
-          # - service: light.turn_on
-          #   entity_id: light.browser_kitchen
-          #   data:
-          #     brightness_pct: 5
+            entity_id: light.light_le_12
+          - service: light.turn_on
+            entity_id: light.browser_kitchen
+            data:
+              brightness_pct: 1

@@ -1,0 +1,10 @@
+script:
+  dashboards_light_down:
+    alias: "Dashboards · Light down"
+    sequence:
+      - service: light.turn_on
+        entity_id:
+          - light.browser_kitchen
+          - light.browser_hallway
+        data:
+          brightness_pct: 1

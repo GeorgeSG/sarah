@@ -7,8 +7,6 @@ input_select:
       - "Leaving"
       - "Coming Home"
 
-
-
 automation:
   - alias: "Hallway tablet · Set to home after 10 minutes"
     trigger:
