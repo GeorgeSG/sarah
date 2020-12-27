@@ -14,15 +14,12 @@ light:
     brightness_state_topic: "tele/light_hama_1/STATE"
     brightness_scale: 100
     brightness_value_template: "{{ value_json.Dimmer }}"
-    hs_command_topic: "cmnd/light_hama_1/HSBColor"
-    hs_state_topic: "tele/light_hama_1/STATE"
-    hs_value_template: "{{ value_json.HSBColor.split(',')[0:2]|join(',') }}"
     color_temp_command_topic: "cmnd/light_hama_1/CT"
     color_temp_state_topic: "tele/light_hama_1/STATE"
     color_temp_value_template: "{{ value_json.CT }}"
-    rgb_command_topic: "cmnd/light_hama_1/Color"
-    rgb_state_topic: "tele/light_hama_1/STATE"
-    rgb_value_template: "{{ value_json.Color.split(',')[0:3]|join(',') }}"
+    # rgb_command_topic: "cmnd/light_hama_1/Color"
+    # rgb_state_topic: "tele/light_hama_1/STATE"
+    # rgb_value_template: "{{ value_json.Color[0] }},{{ value_json.Color[1] }},{{value_json.Color[2]}}"
     qos: 1
     retain: false
 
