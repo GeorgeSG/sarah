@@ -162,7 +162,7 @@ automation:
           message: "Sync TV state · Turning TV off - Shield is off"
           domain: media_player
 
-  - alias: TV · Sonos join TV on Google Cast
+  - alias: TV · Prepare for casting
     trigger:
       platform: state
       entity_id: media_player.nvidia_shield
@@ -177,6 +177,11 @@ automation:
           name: "📺 Media Module · "
           message: "TV · Google Cast - Joining Sonoses"
           domain: media_player
+      - delay: "00:00:10"
+      - service: media_player.select_source
+        entity_id: media_player.living_room_tv
+        data:
+          source: Shield
 
 homeassistant:
   customize:
