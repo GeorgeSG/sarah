@@ -17,9 +17,9 @@ light:
     color_temp_command_topic: "cmnd/light_hama_1/CT"
     color_temp_state_topic: "tele/light_hama_1/STATE"
     color_temp_value_template: "{{ value_json.CT }}"
-    # rgb_command_topic: "cmnd/light_hama_1/Color"
-    # rgb_state_topic: "tele/light_hama_1/STATE"
-    # rgb_value_template: "{{ value_json.Color[0] }},{{ value_json.Color[1] }},{{value_json.Color[2]}}"
+    rgb_command_topic: "cmnd/light_hama_1/Color"
+    rgb_state_topic: "tele/light_hama_1/STATE"
+    rgb_value_template: "{{ value_json.Color[0] }},{{ value_json.Color[1] }},{{value_json.Color[2]}}"
     qos: 1
     retain: false
 
@@ -129,8 +129,9 @@ light:
     color_temp_state_topic: "tele/light_lohas_1/STATE"
     color_temp_value_template: "{{ value_json.CT }}"
     rgb_command_topic: "cmnd/light_lohas_1/Color"
-    rgb_state_topic: "tele/light_hama_1/STATE"
-    rgb_value_template: "{{ value_json.Color.split(',')[0:3]|join(',') }}"
+    rgb_state_topic: "tele/light_lohas_1/STATE"
+    rgb_command_template: "{{ '%02X%02X%02X=' | format(red, green, blue)}}"
+    rgb_value_template: "{{ (value_json.Color[0:2]|int(base=16),value_json.Color[2:4]|int(base=16),value_json.Color[4:6]|int(base=16)) | join(',')}}"
     qos: 1
     retain: false
 
@@ -156,8 +157,9 @@ light:
     color_temp_state_topic: "tele/light_lohas_2/STATE"
     color_temp_value_template: "{{ value_json.CT }}"
     rgb_command_topic: "cmnd/light_lohas_2/Color"
-    rgb_state_topic: "tele/light_hama_1/STATE"
-    rgb_value_template: "{{ value_json.Color.split(',')[0:3]|join(',') }}"
+    rgb_state_topic: "tele/light_lohas_2/STATE"
+    rgb_command_template: "{{ '%02X%02X%02X=' | format(red, green, blue)}}"
+    rgb_value_template: "{{ (value_json.Color[0:2]|int(base=16),value_json.Color[2:4]|int(base=16),value_json.Color[4:6]|int(base=16)) | join(',')}}"
     qos: 1
     retain: false
 
@@ -183,8 +185,9 @@ light:
     color_temp_state_topic: "tele/light_lohas_3/STATE"
     color_temp_value_template: "{{ value_json.CT }}"
     rgb_command_topic: "cmnd/light_lohas_3/Color"
-    rgb_state_topic: "tele/light_hama_1/STATE"
-    rgb_value_template: "{{ value_json.Color.split(',')[0:3]|join(',') }}"
+    rgb_state_topic: "tele/light_lohas_3/STATE"
+    rgb_command_template: "{{ '%02X%02X%02X=' | format(red, green, blue)}}"
+    rgb_value_template: "{{ (value_json.Color[0:2]|int(base=16),value_json.Color[2:4]|int(base=16),value_json.Color[4:6]|int(base=16)) | join(',')}}"
     qos: 1
     retain: false
 
@@ -210,8 +213,9 @@ light:
     color_temp_state_topic: "tele/light_lohas_4/STATE"
     color_temp_value_template: "{{ value_json.CT }}"
     rgb_command_topic: "cmnd/light_lohas_4/Color"
-    rgb_state_topic: "tele/light_hama_1/STATE"
-    rgb_value_template: "{{ value_json.Color.split(',')[0:3]|join(',') }}"
+    rgb_state_topic: "tele/light_lohas_4/STATE"
+    rgb_command_template: "{{ '%02X%02X%02X=' | format(red, green, blue)}}"
+    rgb_value_template: "{{ (value_json.Color[0:2]|int(base=16),value_json.Color[2:4]|int(base=16),value_json.Color[4:6]|int(base=16)) | join(',')}}"
     qos: 1
     retain: false
 
@@ -237,7 +241,7 @@ light:
   #   color_temp_state_topic: "tele/light_lohas_5/STATE"
   #   color_temp_value_template: "{{ value_json.CT }}"
   #   rgb_command_topic: "cmnd/light_lohas_5/Color"
-  #   rgb_state_topic: "tele/light_hama_1/STATE"
+  #   rgb_state_topic: "tele/light_lohas_5/STATE"
   #   rgb_value_template: "{{ value_json.Color.split(',')[0:3]|join(',') }}"
   #   qos: 1
   #   retain: false
@@ -264,8 +268,9 @@ light:
     color_temp_state_topic: "tele/light_lohas_6/STATE"
     color_temp_value_template: "{{ value_json.CT }}"
     rgb_command_topic: "cmnd/light_lohas_6/Color"
-    rgb_state_topic: "tele/light_hama_1/STATE"
-    rgb_value_template: "{{ value_json.Color.split(',')[0:3]|join(',') }}"
+    rgb_state_topic: "tele/light_lohas_6/STATE"
+    rgb_command_template: "{{ '%02X%02X%02X=' | format(red, green, blue)}}"
+    rgb_value_template: "{{ (value_json.Color[0:2]|int(base=16),value_json.Color[2:4]|int(base=16),value_json.Color[4:6]|int(base=16)) | join(',')}}"
     qos: 1
     retain: false
 
