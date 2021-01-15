@@ -19,6 +19,7 @@ config:
 
 # https://home-assistant.io/components/http
 http:
+  ip_ban_enabled: true
   login_attempts_threshold: 20
 
 lovelace:
