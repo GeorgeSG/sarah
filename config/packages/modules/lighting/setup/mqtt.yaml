@@ -19,7 +19,8 @@ light:
     color_temp_value_template: "{{ value_json.CT }}"
     rgb_command_topic: "cmnd/light_hama_1/Color"
     rgb_state_topic: "tele/light_hama_1/STATE"
-    rgb_value_template: "{{ value_json.Color[0] }},{{ value_json.Color[1] }},{{value_json.Color[2]}}"
+    rgb_command_template: "{{ '%02X%02X%02X=' | format(red, green, blue)}}"
+    rgb_value_template: "{{ (value_json.Color[0]|int(base=16),value_json.Color[1]|int(base=16),value_json.Color[2]|int(base=16)) | join(',')}}"
     qos: 1
     retain: false
 
