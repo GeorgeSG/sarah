@@ -162,7 +162,7 @@ cards:
           - type: custom:button-card
             template: [small, with_state_background]
             entity: vacuum.vacuum
-            name: Va
+            name: Vacuum
 
       - type: markdown
         content: !include ../../templates/partials/tasks.yaml

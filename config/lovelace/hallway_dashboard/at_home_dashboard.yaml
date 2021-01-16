@@ -185,63 +185,24 @@ cards:
           - type: custom:button-card
             template: [brita_water, small]
 
-
       - type: horizontal-stack
         cards:
-          - type: custom:button-card
-            template: [xs, progress]
-            entity: sensor.multisensor_6_temperature
-            name: Living room
-            state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
-          - type: custom:button-card
-            template: [xs, progress]
-            entity: sensor.bedroom_weather_temperature
-            name: Bedroom
-            state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
-          - type: custom:button-card
-            template: [xs, progress]
-            entity: sensor.kitchen_weather_temperature
-            name: Kitchen
-            state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
-          - type: custom:button-card
-            template: [xs, progress]
-            entity: sensor.bathroom_weather_temperature
-            name: Bathroom
-            state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
-          - type: custom:button-card
-            template: [xs, progress]
-            entity: sensor.hallway_weather_temperature
-            name: Hallway
-            state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
-          - type: custom:button-card
-            template: [xs, progress]
-            entity: sensor.guest_bedroom_weather_temperature
-            name: G. Bedroom
-            state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
+          - type: "custom:mini-graph-card"
+            name: Temperature
+            icon: mdi:thermometer
+            entities:
+              - sensor.average_temperature
+            cache: false
+            group_by: hour
+            hours_to_show: 72
+            line_width: 2
+          - type: "custom:mini-graph-card"
+            name: Humidity
+            icon: mdi:water-percent
+            entities:
+              - sensor.average_humidity
+            cache: false
+            group_by: hour
+            hours_to_show: 72
+            line_width: 2
 
-      - type: horizontal-stack
-        cards:
-          - type: custom:button-card
-            template: [humidity_button, xs]
-            entity: sensor.multisensor_6_relative_humidity
-            name: Living room
-          - type: custom:button-card
-            template: [humidity_button, xs]
-            entity: sensor.bedroom_weather_humidity
-            name: Bedroom
-          - type: custom:button-card
-            template: [humidity_button, xs]
-            entity: sensor.kitchen_weather_humidity
-            name: Kitchen
-          - type: custom:button-card
-            template: [humidity_button, xs]
-            entity: sensor.bathroom_weather_humidity
-            name: Bathroom
-          - type: custom:button-card
-            template: [humidity_button, xs]
-            entity: sensor.hallway_weather_humidity
-            name: Hallway
-          - type: custom:button-card
-            template: [humidity_button, xs]
-            entity: sensor.guest_bedroom_weather_humidity
-            name: G. Bedroom
