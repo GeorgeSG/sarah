@@ -81,7 +81,7 @@ script:
       - service: media_player.volume_set
         entity_id: media_player.living_room
         data:
-          volume_level: 0.2
+          volume_level: 0.15
   sonos_volume_20:
     alias: Sonos · Volume 20
     sequence:
@@ -95,7 +95,7 @@ script:
       - service: media_player.volume_set
         entity_id: media_player.living_room
         data:
-          volume_level: 0.3
+          volume_level: 0.25
 
 automation:
   - alias: Media · Sonos · Put Beam in night mode
