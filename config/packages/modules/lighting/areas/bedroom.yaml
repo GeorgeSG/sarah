@@ -18,9 +18,24 @@ script:
         data:
           rgb_color: [255, 0, 63]
           brightness: 153
-      - delay: "00:00:03"
+      - delay: "00:00:02"
       - service: scene.turn_on
         entity_id: scene.bedroom_ambient_neon
+  apply_bedroom_pink:
+    sequence:
+      - service: light.turn_off
+        entity_id: light.bed_led
+      - service: light.turn_on
+        entity_id: light.master_bedroom_main
+      - delay: "00:00:01"
+      - service: light.turn_on
+        entity_id: light.master_bedroom_main
+        data:
+          rgb_color: [255, 92, 38]
+          brightness: 120
+      - delay: "00:00:02"
+      - service: scene.turn_on
+        entity_id: scene.bedroom_ambient_pink
 
 scene:
   - name: Bedroom Ambient Neon
@@ -29,6 +44,18 @@ scene:
       light.bedside:
         state: "on"
         rgb_color: [0, 255, 190]
+        brightness: 230
+      light.bed_led:
+        state: "on"
+        xy_color: [0.66, 0.28]
+        brightness: 254
+
+  - name: Bedroom Ambient Pink
+    icon: "mdi:weather-night"
+    entities:
+      light.bedside:
+        state: "on"
+        rgb_color: [255, 36, 145]
         brightness: 230
       light.bed_led:
         state: "on"

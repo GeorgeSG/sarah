@@ -72,40 +72,30 @@ script:
     alias: Sonos · Volume 10
     sequence:
       - service: media_player.volume_set
-        entity_id: media_player.master_bedroom
+        entity_id:
+          - media_player.master_bedroom
+          - media_player.bathroom
+          - media_player.kitchen
         data:
           volume_level: 0.1
       - service: media_player.volume_set
         entity_id: media_player.living_room
         data:
           volume_level: 0.2
-      - service: media_player.volume_set
-        entity_id: media_player.bathroom
-        data:
-          volume_level: 0.1
-      - service: media_player.volume_set
-        entity_id: media_player.kitchen
-        data:
-          volume_level: 0.1
   sonos_volume_20:
     alias: Sonos · Volume 20
     sequence:
       - service: media_player.volume_set
-        entity_id: media_player.master_bedroom
+        entity_id:
+          - media_player.master_bedroom
+          - media_player.bathroom
+          - media_player.kitchen
         data:
           volume_level: 0.2
       - service: media_player.volume_set
         entity_id: media_player.living_room
         data:
           volume_level: 0.3
-      - service: media_player.volume_set
-        entity_id: media_player.bathroom
-        data:
-          volume_level: 0.2
-      - service: media_player.volume_set
-        entity_id: media_player.kitchen
-        data:
-          volume_level: 0.2
 
 automation:
   - alias: Media · Sonos · Put Beam in night mode

@@ -58,6 +58,7 @@ cards:
             - automation.living_room_desk_switch
             - automation.bedroom_opple
             - automation.bedroom_bedside_switch
+            - automation.bedroom_aqara_switch
             - automation.bathroom_switch
 
         - type: entities
@@ -70,9 +71,6 @@ cards:
             - type: divider
             - automation.lighting_temperature_adjust_on_start
             - automation.lighting_temperature_adjust_based_on_time
-            - type: divider
-            - automation.lighting_master_bedroom_toggle_lights_on_switch_single_click
-            - automation.lighting_master_bedroom_toggle_ambient_lights_on_switch_double_click
             - type: divider
             - automation.lighting_kitchen_motion_on
             - automation.lighting_kitchen_motion_off
@@ -103,8 +101,6 @@ cards:
             - automation.youtube_download_latest_pds
             - automation.media_sonos_put_beam_in_night_mode
             - automation.media_sonos_put_beam_in_day_mode
-            - type: divider
-            - automation.music_master_bedroom_play_pause_on_switch_hold
 
         - type: entities
           title: Notifications

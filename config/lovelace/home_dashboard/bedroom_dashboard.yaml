@@ -72,6 +72,16 @@
                 name: Ambient regular
                 variables:
                   scene_color_1: rgb(254, 255, 209)
+              - type: custom:button-card
+                template: [small, scene]
+                entity: scene.bedroom_ambient_pink
+                name: Ambient pink
+                tap_action:
+                  action: call-service
+                  service: script.apply_bedroom_pink
+                variables:
+                  scene_color_1: rgb(255, 92, 38)
+                  scene_color_2: rgb(255, 0, 190)
 
           - type: vertical-stack
             title: Controls
