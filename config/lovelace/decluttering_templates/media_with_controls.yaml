@@ -48,6 +48,7 @@ media_with_controls:
               service_data:
                 playlist: "Songs for a Romantic Evening"
                 shuffle: true
+                volume_level: 0.1
           - type: custom:button-card
             template: xs
             entity: script.music_play
