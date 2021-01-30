@@ -143,7 +143,6 @@ cards:
           icon: mdi:shield-home
           entities:
             - automation.security_door_opened_while_away
-            - automation.camera_startup
 
         - type: entities
           title: Clock
@@ -214,3 +213,16 @@ cards:
             - automation.magic_cube_music_play_pause_on_knock
             - automation.magic_cube_music_volume_down_on_rotate_left
             - automation.magic_cube_music_volume_up_on_rotate_right
+
+        - type: entities
+          title: Simulation
+          icon: mdi:robot
+          show_header_toggle: false
+          entities:
+            - automation.simulation_mode_enable
+            - automation.simulation_mode_disable
+            - automation.simulation_mode_0300
+            - automation.simulation_mode_1100
+            - automation.simulation_mode_1400
+            - automation.simulation_mode_1700
+            - automation.simulation_mode_2200

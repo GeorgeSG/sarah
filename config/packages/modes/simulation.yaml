@@ -1,0 +1,82 @@
+input_boolean:
+  simulation_mode:
+    name: Simulation mode
+    icon: mdi:robot
+
+group:
+  simulation_automations:
+    name: Simulation automation
+    entities:
+      - automation.simulation_mode_0300
+      - automation.simulation_mode_1100
+      - automation.simulation_mode_1400
+      - automation.simulation_mode_1700
+      - automation.simulation_mode_2200
+
+automation:
+  - alias: Simulation mode · Enable
+    trigger:
+      platform: state
+      entity_id: input_boolean.simulation_mode
+      to: "on"
+    action:
+      - service: script.say
+        data:
+          message: "Simulation mode - on"
+      - service: homeassistant.turn_on
+        entity_id: group.simulation_automations
+
+
+  - alias: Simulation mode · Disable
+    trigger:
+      platform: state
+      entity_id: input_boolean.simulation_mode
+      to: "off"
+    action:
+      - service: script.say
+        data:
+          message: "Simulation mode - off"
+      - service: homeassistant.turn_off
+        entity_id: group.simulation_automations
+
+
+
+  - alias: Simulation mode · 0300
+    trigger:
+      platform: time
+      at: "03:00:00"
+    action:
+      - service: light.turn_off
+        entity_id: light.all
+
+  - alias: Simulation mode · 1100
+    trigger:
+      platform: time
+      at: "11:00:00"
+    action:
+      - service: script.music_play
+
+  - alias: Simulation mode · 1400
+    trigger:
+      platform: time
+      at: "14:00:00"
+    action:
+      - service: media_player.stop
+        entity_id: group.all_sonos
+
+  - alias: Simulation mode · 1700
+    trigger:
+      platform: time
+      at: "17:00:00"
+    action:
+      - service: light.turn_on
+        entity_id: light.all
+      - service: script.music_play
+
+  - alias: Simulation mode · 2200
+    trigger:
+      platform: time
+      at: "22:00:00"
+    action:
+      - service: media_player.stop
+        entity_id: group.all_sonos

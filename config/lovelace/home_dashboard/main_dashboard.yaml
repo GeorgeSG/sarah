@@ -171,7 +171,7 @@
             title: Manual controls
             cards:
               - type: custom:button-card
-                template: [default, with_state_indicator]
+                template: [small, with_state_indicator, with_state_background]
                 entity: input_boolean.alarm_enabled
                 state_display: >-
                   [[[
@@ -182,30 +182,34 @@
                 show_name: false
                 styles:
                   icon:
-                    - transform: translateY(-8px)  # adjusted for state indicator size
+                    - transform: translateY(0)  # adjusted for state indicator size
                   state:
-                    - transform: translateY(-13px)  # adjusted for state indicator size
+                    - transform: translateY(-4px)  # adjusted for state indicator size
                 variables:
                   state_indicator_id: automation.alarm_set_time
               - type: custom:button-card
-                template: default
+                template: [small, with_state_background]
                 entity: input_boolean.speech_notifications
                 name: Speech
               - type: custom:button-card
-                template: default
+                template: [small, with_state_background]
                 entity: binary_sensor.house_mode
+                name: House
                 tap_action:
                   action: call-service
                   service: input_select.select_next
                   service_data:
                     entity_id: input_select.house_mode
               - type: custom:button-card
-                template: default
+                template: [small, with_state_background]
+                name: Guests
                 entity: input_boolean.guest_mode
-                tap_action:
-                  action: toggle
               - type: custom:button-card
-                template: default
+                template: [small, with_state_background]
+                entity: input_boolean.simulation_mode
+                name: Simulation
+              - type: custom:button-card
+                template: [small, with_state_background]
                 entity: switch.mercury_home_mode
                 name: Mercury
 
