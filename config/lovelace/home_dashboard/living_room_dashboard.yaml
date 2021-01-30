@@ -96,13 +96,6 @@
                   state_indicator_id: automation.titanium_turn_off_when_idle
               - type: custom:button-card
                 template: default
-                entity: sensor.synology_type_volume_1
-                name: Platinum
-                icon: mdi:nas
-                tap_action:
-                  action: more-info
-              - type: custom:button-card
-                template: default
                 entity: binary_sensor.pi_hole_enabled
                 name: Pi-Hole
                 icon: mdi:pi-hole
@@ -134,13 +127,9 @@
             title: Camera
             cards:
               - type: picture-glance
-                camera_image: camera.amcrest_camera
+                camera_image: camera.mercury_amcrest_1
                 entities:
-                  - entity: camera.amcrest_camera
-                  - entity: switch.camera
-                    show_state: false
-                  - entity: binary_sensor.amcrest_camera_online
-                    show_state: false
+                  - entity: camera.mercury_amcrest_1
 
 
       - type: vertical-stack

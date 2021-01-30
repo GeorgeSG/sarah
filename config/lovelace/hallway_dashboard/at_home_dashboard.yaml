@@ -101,6 +101,10 @@ cards:
             entity: input_boolean.guest_mode
             tap_action:
               action: toggle
+          - type: custom:button-card
+            template: [small, with_state_background]
+            entity: switch.mercury_home_mode
+            name: Mercury Home
 
       - type: horizontal-stack
         cards:
@@ -136,13 +140,6 @@ cards:
 
           - type: custom:button-card
             template: [small, with_state_background]
-            entity: sensor.synology_type_volume_1
-            name: Platinum
-            icon: mdi:nas
-            tap_action:
-              action: more-info
-          - type: custom:button-card
-            template: [small, with_state_background]
             entity: binary_sensor.pi_hole_enabled
             name: Pi-Hole
             icon: mdi:pi-hole
@@ -165,10 +162,6 @@ cards:
             name: "Kitchen"
       - type: horizontal-stack
         cards:
-          - type: custom:button-card
-            template: [small, with_state_background]
-            entity: switch.camera
-            name: Camera
           - type: custom:button-card
             template: [small, with_state_background, with_state_indicator]
             entity: fan.philips_airpurifier

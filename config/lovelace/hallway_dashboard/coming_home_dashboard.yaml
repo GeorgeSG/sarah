@@ -105,6 +105,10 @@ cards:
             tap_action:
               action: toggle
           - type: custom:button-card
+            template: [small, with_state_background]
+            entity: switch.mercury_home_mode
+            name: Mercury Home
+          - type: custom:button-card
             template: small
             entity: media_player.living_room_tv
             name: TV
@@ -146,10 +150,6 @@ cards:
             template: [radiator_button, small]
             entity: climate.kitchen_radiator_mode
             name: "Kitchen"
-          - type: custom:button-card
-            template: [small, with_state_background]
-            entity: switch.camera
-            name: Camera
           - type: custom:button-card
             template: [small, with_state_indicator]
             entity: fan.philips_airpurifier

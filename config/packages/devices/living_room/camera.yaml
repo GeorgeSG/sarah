@@ -1,11 +1,11 @@
 # https://www.home-assistant.io/integrations/amcrest
-amcrest:
-  - host: !secret amcrest_ip
-    username: !secret amcrest_username
-    password: !secret amcrest_password
-    resolution: low
-    binary_sensors:
-      - online
+# amcrest:
+#   - host: !secret amcrest_ip
+#     username: !secret amcrest_username
+#     password: !secret amcrest_password
+#     resolution: low
+#     binary_sensors:
+#       - online
 
 binary_sensor:
   - platform: template
@@ -14,59 +14,10 @@ binary_sensor:
         friendly_name: Security camera
         device_class: safety
         value_template: >-
-          {{ is_state('camera.amcrest_camera', 'streaming') or is_state('camera.amcrest_camera', 'recording') }}
-
-switch:
-  - platform: template
-    switches:
-      camera:
-        friendly_name: Security camera
-        value_template: "{{ is_state('binary_sensor.camera_state', 'on') }}"
-        icon_template: >
-          {% if is_state('binary_sensor.camera_state', 'on') %} mdi:shield-home
-          {% else %} mdi:shield-off
+          {{ is_state('camera.mercury_amcrest_1', 'streaming') or is_state('camera.mercury_amcrest_1', 'recording') }}
+        icon_template: >-
+          {% if is_state('camera.mercury_amcrest_1', 'streaming') or is_state('camera.mercury_amcrest_1', 'recording') %}
+            mdi:video
+          {% else %}
+            mdi:video-off
           {% endif %}
-        turn_on:
-          service: script.security_camera_on
-        turn_off:
-          service: script.security_camera_off
-
-script:
-  security_camera_on:
-    alias: Security camera · Turn on
-    sequence:
-      - service: camera.turn_on
-        entity_id: camera.amcrest_camera
-      - service: amcrest.goto_preset
-        entity_id: camera.amcrest_camera
-        data:
-          preset: 1
-      - service: amcrest.enable_recording
-        entity_id: camera.amcrest_camera
-      - service: amcrest.enable_audio
-        entity_id: camera.amcrest_camera
-
-  security_camera_off:
-    alias: Security camera · Turn off
-    sequence:
-      - service: amcrest.goto_preset
-        entity_id: camera.amcrest_camera
-        data:
-          preset: 2
-      - service: amcrest.disable_recording
-        entity_id: camera.amcrest_camera
-      - service: amcrest.disable_audio
-        entity_id: camera.amcrest_camera
-      - service: camera.turn_off
-        entity_id: camera.amcrest_camera
-
-automation:
-  # Hack - the switch.camera initial state is wrong (ON) when the server starts.
-  - alias: Camera · Startup
-    trigger:
-      - platform: homeassistant
-        event: start
-    action:
-      - delay: 00:00:10
-      - service: switch.turn_off
-        entity_id: switch.camera

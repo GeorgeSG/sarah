@@ -122,13 +122,6 @@
 
                   - type: custom:button-card
                     template: default
-                    entity: sensor.synology_type_volume_1
-                    name: Platinum
-                    icon: mdi:nas
-                    tap_action:
-                      action: more-info
-                  - type: custom:button-card
-                    template: default
                     entity: binary_sensor.pi_hole_enabled
                     name: Pi-Hole
                     icon: mdi:pi-hole
@@ -153,7 +146,7 @@
                 cards:
                   - type: custom:button-card
                     template: default
-                    entity: switch.camera
+                    entity: binary_sensor.camera_state
                     name: Camera
                   - type: custom:button-card
                     template: [default, with_state_indicator]
@@ -211,6 +204,10 @@
                 entity: input_boolean.guest_mode
                 tap_action:
                   action: toggle
+              - type: custom:button-card
+                template: default
+                entity: switch.mercury_home_mode
+                name: Mercury
 
           - type: vertical-stack
             cards:

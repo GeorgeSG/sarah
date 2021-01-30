@@ -71,7 +71,7 @@ sensor.synology_type_volume_1:
     type: custom:decluttering-card
     template: platinum_card
 
-switch.camera:
+binary_sensor.camera_state:
   title: Security camera
   style: *popup_style
   auto_close: true
@@ -80,16 +80,9 @@ switch.camera:
     cards:
       - type: picture-entity
         aspect_ratio: 50%
-        entity: camera.amcrest_camera
+        entity: camera.mercury_amcrest_1
         show_name: true
         show_state: true
-
-      - type: entities
-        title: Camera Controls
-        show_header_toggle: false
-        entities:
-          - switch.camera
-          - binary_sensor.amcrest_camera_online
 
 media_player.kitchen:
   title: Kitchen Sonos
