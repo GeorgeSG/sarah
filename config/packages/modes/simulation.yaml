@@ -26,7 +26,6 @@ automation:
       - service: homeassistant.turn_on
         entity_id: group.simulation_automations
 
-
   - alias: Simulation mode · Disable
     trigger:
       platform: state
@@ -38,8 +37,6 @@ automation:
           message: "Simulation mode - off"
       - service: homeassistant.turn_off
         entity_id: group.simulation_automations
-
-
 
   - alias: Simulation mode · 0300
     trigger:
