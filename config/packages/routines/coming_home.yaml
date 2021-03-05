@@ -13,6 +13,7 @@ script:
           - light.hallway_entrance
           - light.browser_kitchen
           - light.browser_hallway
+          - light.living_room_ambient
         data:
           brightness_pct: 100
       - service: script.bed_led_on

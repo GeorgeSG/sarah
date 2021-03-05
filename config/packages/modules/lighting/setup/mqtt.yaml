@@ -1,7 +1,7 @@
 light:
   - platform: mqtt
     name: "light_hama_1"
-    state_topic: "tele/light_hama_1/STATE"
+    state_topic: "stat/light_hama_1/RESULT"
     state_value_template: "{{ value_json.POWER }}"
     command_topic: "cmnd/light_hama_1/POWER"
     payload_on: "ON"
