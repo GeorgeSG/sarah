@@ -38,7 +38,7 @@ automation:
             {% elif groupId == 0 %}
               {% set entityId = 'light.living_room_main' %}
             {% elif groupId == 1 %}
-              {% set entityId = 'light.light_avatar_small_2' %}
+              {% set entityId = 'light.light_le_8' %}
             {% elif groupId == 2 %}
               {% set entityId = 'light.living_room_ambient' %}
             {% elif groupId == 3 %}
@@ -74,7 +74,7 @@ automation:
             {% elif groupId == 0 %}
               light.living_room_main
             {% elif groupId == 1 %}
-              light.light_avatar_small_2
+              light.light_le_8
             {% elif groupId == 2 %}
               light.living_room_ambient
             {% elif groupId == 3 %}
@@ -102,7 +102,7 @@ automation:
             {% elif groupId == 0 %}
               {% set entityId = 'light.living_room_main' %}
             {% elif groupId == 1 %}
-              {% set entityId = 'light.light_avatar_small_2' %}
+              {% set entityId = 'light.light_le_8' %}
             {% elif groupId == 2 %}
               {% set entityId = 'light.living_room_ambient' %}
             {% elif groupId == 3 %}

@@ -1,7 +1,7 @@
 - type: custom:decluttering-card
   template: floorplan_state_icon
   variables:
-    - entity: light.light_avatar_small_2
+    - entity: light.light_le_8
     - top: 69.8%
     - left: 77.8%
 
@@ -36,14 +36,14 @@
 - type: custom:decluttering-card
   template: floorplan_state_icon
   variables:
-    - entity: light.tuya_kitchen_secondary
+    - entity: light.kitchen_secondary
     - top: 29%
     - left: 12.9%
 
 - type: custom:decluttering-card
   template: floorplan_state_icon
   variables:
-    - entity: light.tuya_kitchen_main
+    - entity: light.kitchen_main
     - top: 29%
     - left: 20.3%
 
@@ -57,6 +57,6 @@
 - type: custom:decluttering-card
   template: floorplan_state_icon
   variables:
-    - entity: light.tuya_hallway_main
+    - entity: light.hallway_main
     - top: 41%
     - left: 34.8%

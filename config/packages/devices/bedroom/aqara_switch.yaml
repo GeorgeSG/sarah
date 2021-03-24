@@ -31,8 +31,8 @@ automation:
           - service: script.sonos_volume_10
 
         double_click:
-          - service: scene.turn_on
-            entity_id: scene.bedroom_default
+          - service: input_select.select_next
+            entity_id: input_select.light_color_mode
 
         hold:
           - service: media_player.media_play_pause

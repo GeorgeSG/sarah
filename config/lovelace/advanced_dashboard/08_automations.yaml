@@ -187,6 +187,8 @@ cards:
             - automation.system_telegram_announce_status
             - automation.speech_telegram_action_do_nothing
             - automation.ifttt_call_service
+            - automation.lighting_tuya_update_states_on_start
+            - automation.lighting_sync_osram_states_on_start_up
 
         - type: entities
           title: Wallmote

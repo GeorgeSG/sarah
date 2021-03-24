@@ -31,7 +31,7 @@ cards:
             name: Main
           - type: custom:button-card
             template: [small, with_state_background]
-            entity: light.light_avatar_small_2
+            entity: light.light_le_8
           - type: custom:button-card
             template: [small, with_state_background]
             entity: light.living_room_ambient
@@ -61,11 +61,11 @@ cards:
         cards:
           - type: custom:button-card
             template: [small, with_state_background]
-            entity: light.tuya_kitchen
+            entity: light.kitchen
             name: Kitchen
           - type: custom:button-card
             template: [small, with_state_background]
-            entity: light.tuya_hallway_main
+            entity: light.hallway_main
             name: Hallway
           - type: custom:button-card
             template: [small, with_state_background]

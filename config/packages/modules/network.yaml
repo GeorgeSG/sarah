@@ -36,7 +36,7 @@ homekit:
   filter:
     include_entities:
       - light.living_room_main
-      - light.light_avatar_small_2
+      - light.light_le_8
       - light.living_room_ambient
       - light.master_bedroom_main
       - light.bedside
@@ -63,7 +63,7 @@ homekit:
       - switch.titanium
       - fan.philips_airpurifier
   entity_config:
-    light.light_avatar_small_2:
+    light.light_le_8:
       name: PC
     binary_sensor.kitchen_motion_occupancy:
       linked_battery_sensor: sensor.kitchen_motion_battery

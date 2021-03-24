@@ -29,7 +29,7 @@
                 name: Main
               - type: custom:button-card
                 template: default
-                entity: light.light_avatar_small_2
+                entity: light.light_le_8
                 name: PC
               - type: custom:button-card
                 template: default

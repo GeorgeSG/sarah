@@ -11,7 +11,7 @@ light:
     name: Living room ceiling
     entities:
       - light.living_room_main
-      - light.light_avatar_small_2
+      - light.light_le_8
 
   - platform: group
     name: Living room ambient
@@ -43,8 +43,8 @@ light:
   - platform: group
     name: Kitchen main
     entities:
-      - light.light_le_11
-      - light.light_le_12
+      - light.osram_2
+      - light.osram_3
       - light.light_orbecco_1
 
   - platform: group
@@ -56,6 +56,12 @@ light:
       - light.light_le_10
 
   - platform: group
+    name: Kitchen
+    entities:
+      - light.kitchen_main
+      - light.kitchen_secondary
+
+  - platform: group
     name: Tuya Kitchen
     entities:
       - light.tuya_kitchen_main
@@ -64,21 +70,20 @@ light:
   - platform: group
     name: Hallway entrance
     entities:
-      # - light.light_lohas_5
-      - light.light_hama_1
+      - light.osram_5
       - light.light_lohas_6
 
   - platform: group
     name: Hallway main
     entities:
-      - light.light_le_7
-      - light.light_le_8
+      - light.osram_1
+      - light.osram_4
 
   - platform: group
     name: Hallway
     entities:
       - light.hallway_entrance
-      - light.tuya_hallway_main
+      - light.hallway_main
 
   - platform: group
     name: On after dark
@@ -91,9 +96,9 @@ light:
     name: Ceiling
     entities:
       - light.living_room_main
-      - light.light_avatar_small_2
+      - light.light_le_8
       - light.master_bedroom_main
-      - light.tuya_kitchen
+      - light.kitchen
       - light.hallway
 
   - platform: group
@@ -101,7 +106,7 @@ light:
     entities:
       - light.living_room
       - light.master_bedroom
-      - light.tuya_kitchen
+      - light.kitchen
       - light.hallway
 
 homeassistant:
@@ -127,7 +132,7 @@ homeassistant:
     light.light_le_4:
       friendly_name: Living room 4
 
-    light.light_avatar_small_2:
+    light.light_le_8:
       friendly_name: PC
       icon: bha:outdoor-lamp-variant
 
@@ -177,14 +182,20 @@ homeassistant:
       icon: bha:ceiling-lamp-plafond
     # light.light_lohas_5:
     #   friendly_name: Entrance 1
-    light.light_hama_1:
+    light.osram_5:
       friendly_name: Entrance 1
     light.light_lohas_6:
       friendly_name: Entrance 2
 
     light.hallway_main:
       icon: bha:ceiling-lamp-plafond
-    light.light_le_7:
+
+    light.osram_1:
       friendly_name: Hallway 1
-    light.light_le_8:
+    light.osram_4:
       friendly_name: Hallway 2
+
+    # light.light_le_7:
+    #   friendly_name: Hallway 1
+    # light.light_le_8:
+    #   friendly_name: Hallway 2

@@ -300,31 +300,6 @@ light:
     qos: 1
     retain: false
 
-  - platform: mqtt
-    name: "light_avatar_small_2"
-    availability_topic: "tele/light_avatar_small_2/LWT"
-    command_topic: "cmnd/light_avatar_small_2/POWER"
-    state_topic: "tele/light_avatar_small_2/STATE"
-    state_value_template: "{{ value_json.POWER }}"
-    brightness_command_topic: "cmnd/light_avatar_small_2/Dimmer"
-    brightness_scale: 100
-    brightness_state_topic: "tele/light_avatar_small_2/STATE"
-    brightness_value_template: "{{ value_json.Dimmer }}"
-    on_command_type: "brightness"
-    white_value_command_topic: "cmnd/light_avatar_small_2/WHITE"
-    white_value_scale: 100
-    white_value_state_topic: "tele/light_avatar_small_2/STATE"
-    white_value_template: "{{ value_json.White }}"
-    rgb_command_topic: "cmnd/light_avatar_small_2/Color"
-    rgb_state_topic: "tele/light_avatar_small_2/STATE"
-    rgb_value_template: "{{ value_json.Color.split(',')[0:3]|join(',') }}"
-    payload_on: "ON"
-    payload_off: "OFF"
-    payload_available: "Online"
-    payload_not_available: "Offline"
-    qos: 1
-    retain: false
-
 sensor:
   - platform: mqtt
     name: "light_hama_1_wifi"
@@ -416,16 +391,6 @@ sensor:
     unit_of_measurement: "%"
     value_template: "{{ value_json.Wifi.RSSI }}"
 
-  # - platform: mqtt
-  #   name: "light_lohas_5_wifi"
-  #   availability_topic: "tele/light_lohas_5/LWT"
-  #   device_class: signal_strength
-  #   payload_available: "Online"
-  #   payload_not_available: "Offline"
-  #   state_topic: "tele/light_lohas_5/STATE"
-  #   unit_of_measurement: "%"
-  #   value_template: "{{ value_json.Wifi.RSSI }}"
-
   - platform: mqtt
     name: "light_lohas_6_wifi"
     availability_topic: "tele/light_lohas_6/LWT"
@@ -443,16 +408,6 @@ sensor:
     payload_available: "Online"
     payload_not_available: "Offline"
     state_topic: "tele/light_avatar_small_1/STATE"
-    unit_of_measurement: "%"
-    value_template: "{{ value_json.Wifi.RSSI }}"
-
-  - platform: mqtt
-    name: "light_avatar_small_2_wifi"
-    availability_topic: "tele/light_avatar_small_2/LWT"
-    device_class: signal_strength
-    payload_available: "Online"
-    payload_not_available: "Offline"
-    state_topic: "tele/light_avatar_small_2/STATE"
     unit_of_measurement: "%"
     value_template: "{{ value_json.Wifi.RSSI }}"
 
@@ -556,17 +511,6 @@ switch:
     state_topic: "stat/light_lohas_4/RESULT"
     value_template: "{{ value_json.Fade }}"
 
-  # - platform: mqtt
-  #   name: "light_lohas_5_fade"
-  #   availability_topic: "tele/light_lohas_5/LWT"
-  #   command_topic: "cmnd/light_lohas_5/FADE"
-  #   icon: mdi:gradient
-  #   payload_available: "Online"
-  #   payload_not_available: "Offline"
-  #   qos: 1
-  #   state_topic: "stat/light_lohas_5/RESULT"
-  #   value_template: "{{ value_json.Fade }}"
-
   - platform: mqtt
     name: "light_lohas_6_fade"
     availability_topic: "tele/light_lohas_6/LWT"
@@ -589,18 +533,6 @@ switch:
     state_topic: "stat/light_avatar_small_1/RESULT"
     value_template: "{{ value_json.Fade }}"
 
-  - platform: mqtt
-    name: "light_avatar_small_2_fade"
-    availability_topic: "tele/light_avatar_small_2/LWT"
-    command_topic: "cmnd/light_avatar_small_2/FADE"
-    icon: mdi:gradient
-    payload_available: "Online"
-    payload_not_available: "Offline"
-    qos: 1
-    state_topic: "stat/light_avatar_small_2/RESULT"
-    value_template: "{{ value_json.Fade }}"
-
-
 automation:
   - alias: Lighting · Sync Tasmota states on start-up
     initial_state: true
@@ -611,4 +543,27 @@ automation:
       - service: mqtt.publish
         data:
           topic: "cmnd/tasmotas/STATE"
+          payload: ""
+
+  - alias: Lighting · Sync Osram states on start-up
+    initial_state: true
+    trigger:
+      platform: homeassistant
+      event: start
+    action:
+      - service: mqtt.publish
+        data:
+          topic: "z2m_deconz/osram_1/get"
+          payload: ""
+      - service: mqtt.publish
+        data:
+          topic: "z2m_deconz/osram_2/get"
+          payload: ""
+      - service: mqtt.publish
+        data:
+          topic: "z2m_deconz/osram_3/get"
+          payload: ""
+      - service: mqtt.publish
+        data:
+          topic: "z2m_deconz/osram_4/get"
           payload: ""

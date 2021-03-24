@@ -29,14 +29,14 @@ automation:
                   entity_id: sensor.dark_sky_cloud_coverage
                   above: 80
             - service: light.turn_on
-              entity_id: light.tuya_kitchen
+              entity_id: light.kitchen
               data:
                 brightness_pct: 100
         # Night Mode
         default:
           - service: light.turn_on
             entity_id:
-              - light.light_le_12
+              - light.osram_2
               - light.browser_kitchen
             data:
               brightness_pct: 13  # this is the lowest LE will go ¯\_(ツ)_/¯
@@ -57,7 +57,7 @@ automation:
               state: 'day'
           sequence:
             - service: light.turn_off
-              entity_id: light.tuya_kitchen
+              entity_id: light.kitchen
             - service: light.turn_on
               entity_id: light.browser_kitchen
               data:
@@ -65,11 +65,11 @@ automation:
         # Night Mode
         default:
           - service: light.turn_on
-            entity_id: light.light_le_12
+            entity_id: light.osram_2
             data:
               brightness_pct: 100
           - service: light.turn_off
-            entity_id: light.light_le_12
+            entity_id: light.osram_2
           - service: light.turn_on
             entity_id: light.browser_kitchen
             data:

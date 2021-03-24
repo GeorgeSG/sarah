@@ -71,20 +71,7 @@ cards:
                     - light: light.light_le_4
                     - fade: switch.light_le_4_fade
                     - wifi: sensor.light_le_4_wifi
-            - type: custom:fold-entity-row
-              head:
-                type: custom:decluttering-card
-                template: light_with_fade_and_switch
-                variables:
-                  - light: light.light_avatar_small_2
-                  - fade: switch.light_avatar_small_2_fade
-                  - wifi: sensor.light_avatar_small_2_wifi
-              entities:
-                - type: custom:slider-entity-row
-                  entity: light.light_avatar_small_2
-                  name: Brightness
-                  hide_state: true
-                  step: 5
+            - light.light_le_8
             - light.living_room_ambient
             - light.living_room_ambient_main
             - type: custom:fold-entity-row
@@ -162,18 +149,18 @@ cards:
           icon: mdi:chef-hat
           show_header_toggle: false
           entities:
-            - light.tuya_kitchen
+            - light.kitchen
             - type: divider
-            - light.tuya_kitchen_main
+            - light.kitchen_main
             - type: custom:fold-entity-row
               entity: light.kitchen_main
               name: Main lights
               entities:
-                - light.light_le_11
-                - light.light_le_12
+                - light.osram_2
+                - light.osram_3
                 - light.light_orbecco_1
             - type: divider
-            - light.tuya_kitchen_secondary
+            - light.kitchen_secondary
             - type: custom:fold-entity-row
               entity: light.kitchen_secondary
               name: Secondary lights
@@ -207,12 +194,7 @@ cards:
                   min: 153
                   max: 500
                   step: 5
-                - type: custom:decluttering-card
-                  template: light_with_fade_and_switch
-                  variables:
-                    - light: light.light_hama_1
-                    - fade: switch.light_hama_1_fade
-                    - wifi: sensor.light_hama_1_wifi
+                - light.osram_5
                 - type: custom:decluttering-card
                   template: light_with_fade_and_switch
                   variables:
@@ -220,10 +202,10 @@ cards:
                     - fade: switch.light_lohas_6_fade
                     - wifi: sensor.light_lohas_6_wifi
             - type: divider
-            - light.tuya_hallway_main
+            - light.hallway_main
             - type: custom:fold-entity-row
               entity: light.hallway_main
               name: Main lights
               entities:
-                - light.light_le_7
-                - light.light_le_8
+                - light.osram_1
+                - light.osram_4

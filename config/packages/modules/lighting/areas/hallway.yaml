@@ -30,7 +30,7 @@ automation:
               brightness_pct: 30
           - service: light.turn_on
             entity_id:
-              - light.light_le_8
+              - light.osram_1
               - light.browser_hallway
             data:
               brightness_pct: 13
@@ -60,13 +60,13 @@ automation:
         default:
           - service: light.turn_on
             entity_id:
-              - light.light_le_8
+              - light.light_osram_1
               - light.light_lohas_6
             data:
               brightness_pct: 100
           - service: light.turn_off
             entity_id:
-              - light.light_le_8
+              - light.light_osram_1
               - light.light_lohas_6
           - service: light.turn_on
             entity_id: light.browser_hallway
