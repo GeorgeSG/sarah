@@ -97,3 +97,18 @@ devices:
     friendly_name: opple_2
   '0x00158d0002a721fd':
     friendly_name: '0x00158d0002a721fd'
+  '0x7cb03eaa00ae0faf':
+    friendly_name: osram_1
+    transition: 0.5
+  '0x7cb03eaa00ae0ecc':
+    friendly_name: osram_2
+    transition: 0.5
+  '0x7cb03eaa00ae2ae2':
+    friendly_name: osram_3
+    transition: 0.5
+  '0x7cb03eaa00ae145d':
+    friendly_name: osram_4
+    transition: 0.5
+  '0x7cb03eaa00ae29ca':
+    friendly_name: osram_5
+    transition: 0.5
