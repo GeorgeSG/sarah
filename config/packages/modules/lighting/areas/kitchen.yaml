@@ -39,7 +39,7 @@ automation:
               - light.osram_2
               - light.browser_kitchen
             data:
-              brightness_pct: 13  # this is the lowest LE will go ¯\_(ツ)_/¯
+              brightness_pct: 1
 
   - alias: Lighting · Kitchen · Motion off
     trigger:
