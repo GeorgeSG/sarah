@@ -43,7 +43,7 @@
                 name: Front door
               - type: custom:button-card
                 template: [default, with_state_indicator]
-                entity: binary_sensor.hallway_motion_occupancy
+                entity: group.hallway_motion
                 name: Motion
                 variables:
                   state_indicator_id: automation.lighting_hallway_motion_on

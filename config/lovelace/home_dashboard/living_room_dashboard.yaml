@@ -124,7 +124,7 @@
                   - player: media_player.living_room
                   - player_name: Living room
           - type: vertical-stack
-            title: Camera
+          title: Camera
             cards:
               - type: picture-glance
                 camera_image: camera.mercury_amcrest_1
@@ -143,15 +143,11 @@
                 name: Window
               - type: custom:button-card
                 template: default
-                entity: binary_sensor.trisensor_motion
-                name: Desk
-              - type: custom:button-card
-                template: default
                 entity: binary_sensor.multisensor_motion
                 name: Door
               - type: custom:button-card
                 template: [default, with_state_indicator]
-                entity: binary_sensor.hallway_motion_occupancy
+                entity: group.hallway_motion
                 name: Hallway
                 variables:
                   state_indicator_id: automation.lighting_hallway_motion_on
@@ -160,11 +156,11 @@
             template: climate_card
             variables:
               - title: "Climate"
-              - main_entity: sensor.trisensor_temperature
-              - left_entity: sensor.multisensor_6_temperature
-              - left_name: Temperature (6)
-              - right_entity: sensor.multisensor_6_relative_humidity
-              - right_name: Humidity (6)
+              - main_entity: sensor.multisensor_6_temperature
+              - left_entity: sensor.multisensor_6_relative_humidity
+              - left_name: Humidity (6)
+              - right_entity: sensor.multisensor_6_luminance
+              - right_name: Luminance (6)
 
           - type: custom:button-card
             template: [regular, progress]

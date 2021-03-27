@@ -225,10 +225,6 @@
                         entity: binary_sensor.multisensor_motion
                         name: Living room
                       - type: custom:button-card
-                        template: default
-                        entity: binary_sensor.trisensor_motion
-                        name: Desk
-                      - type: custom:button-card
                         template: [default, with_state_indicator]
                         entity: binary_sensor.kitchen_motion_occupancy
                         name: Kitchen
@@ -236,7 +232,7 @@
                           state_indicator_id: automation.lighting_kitchen_motion_on
                       - type: custom:button-card
                         template: [default, with_state_indicator]
-                        entity: binary_sensor.hallway_motion_occupancy
+                        entity: group.hallway_motion
                         name: Hallway
                         variables:
                           state_indicator_id: automation.lighting_hallway_motion_on

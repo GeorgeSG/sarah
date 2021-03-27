@@ -113,7 +113,7 @@
                   normal_value: 1000
               - type: custom:button-card
                 template: [default, with_state_indicator]
-                entity: binary_sensor.hallway_motion_occupancy
+                entity: group.hallway_motion
                 name: Hallway
                 variables:
                   state_indicator_id: automation.lighting_hallway_motion_on

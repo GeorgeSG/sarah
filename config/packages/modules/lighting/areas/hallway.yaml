@@ -2,7 +2,7 @@ automation:
   - alias: Lighting · Hallway · Motion On
     trigger:
       platform: state
-      entity_id: binary_sensor.hallway_motion_occupancy
+      entity_id: group.hallway_motion
       to: "on"
     condition:
       condition: state
@@ -33,15 +33,13 @@ automation:
               - light.osram_1
               - light.browser_hallway
             data:
-              brightness_pct: 13
+              brightness_pct: 1
 
   - alias: Lighting · Hallway · Motion Off
     trigger:
       platform: state
-      entity_id: binary_sensor.hallway_motion_occupancy
+      entity_id: group.hallway_motion
       to: "off"
-      for:
-        minutes: 5
     action:
       - choose:
         # Day Mode
