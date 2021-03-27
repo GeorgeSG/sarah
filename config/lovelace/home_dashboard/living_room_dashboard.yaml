@@ -124,7 +124,7 @@
                   - player: media_player.living_room
                   - player_name: Living room
           - type: vertical-stack
-          title: Camera
+            title: Camera
             cards:
               - type: picture-glance
                 camera_image: camera.mercury_amcrest_1
