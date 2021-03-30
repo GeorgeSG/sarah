@@ -112,3 +112,23 @@ devices:
   '0x7cb03eaa00ae29ca':
     friendly_name: osram_5
     transition: 0.5
+  '0x7cb03eaa00a96a93':
+    friendly_name: osram_6
+    transition: 0.5
+  '0x7cb03eaa00a97656':
+    friendly_name: osram_7
+    transition: 0.5
+  '0x7cb03eaa00a961ea':
+    friendly_name: osram_8
+    transition: 0.5
+  '0x7cb03eaa00a96337':
+    friendly_name: osram_9
+    transition: 0.5
+  '0x00158d00024f54bb':
+    friendly_name: neo_1
+    transition: 0.5
+  '0x00158d00024f5642':
+    friendly_name: neo_2
+    transition: 0.5
+  '0xf0d1b800001a2a8f':
+    friendly_name: ledvance_1 # unsupported?
