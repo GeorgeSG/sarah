@@ -1,5 +1,38 @@
 title: Home
 views:
+  - title: Grid
+    path: grid
+    cards:
+      - type: grid
+        cards:
+          - type: custom:gui-sandbox
+          - type: custom:button-card
+            icon: mdi:reload
+            name: Theme
+            tap_action:
+              action: call-service
+              service: frontend.reload_themes
+          - type: custom:time-picker-card
+            entity: input_datetime.alarm_time
+            link_values: true
+            hour_mode: 12
+            hour_step: 2
+            minute_step: 3
+            layout:
+              hour_mode: single
+              name: inside
+            hide:
+              name: false
+          - type: entities
+            entities:
+              - input_datetime.alarm_time
+              - input_datetime.alarm_time
+              - input_datetime.alarm_time
+              - input_datetime.alarm_time
+              - input_datetime.alarm_time
+              - input_datetime.alarm_time
+
+
   - title: dev
     path: dev
     cards:
