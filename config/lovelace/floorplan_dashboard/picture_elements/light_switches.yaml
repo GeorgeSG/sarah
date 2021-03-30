@@ -1,7 +1,7 @@
 - type: custom:decluttering-card
   template: floorplan_state_icon
   variables:
-    - entity: light.light_le_8
+    - entity: light.pc
     - top: 69.8%
     - left: 77.8%
 

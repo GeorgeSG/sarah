@@ -18,33 +18,22 @@ automation:
           - scene.living_room_ambient_neon
           - scene.bedroom_ambient_neon
       - service: light.turn_on
-        entity_id: light.light_orbecco_1
-        data:
-          brightness_pct: 100
-          rgb_color: [255, 182, 109]
-
-      - service: light.turn_on
         entity_id:
+          - light.living_room_main
+          - light.pc
           - light.master_bedroom_main
-          - light.light_lohas_6
-          - light.kitchen_secondary
-          - light.osram_2
-          - light.osram_3
+          - light.hallway
+          - light.kitchen
         data:
           brightness_pct: 100
           color_temp: 500
-      - service: light.turn_on
-        entity_id:
-          - light.living_room_main
-          - light.hallway_main
-          - light.tuya_kitchen
+
       - service: automation.turn_on
         entity_id:
           - automation.lighting_hallway_motion_on
           - automation.lighting_hallway_motion_off
           - automation.lighting_kitchen_motion_on
           - automation.lighting_kitchen_motion_off
-
 
 
   - alias: Light · Color · Blue
@@ -62,13 +51,9 @@ automation:
       - service: light.turn_off
         entity_id:
           - light.living_room_main
-          - light.hallway_main
-          # kitchen....
-          - light.tuya_kitchen_main
-          - light.tuya_kitchen_secondary
-          - light.kitchen_secondary
-          - light.osram_2
-          - light.osram_3
+          - light.hallway
+          - light.kitchen
+
       - service: light.turn_on
         entity_id:
           - light.living_room_ambient_main
@@ -82,14 +67,8 @@ automation:
         entity_id:
           - light.light_avatar_small_1 # living room ambient Secondary
           - light.light_lohas_6 # entrance 1
-          - light.light_orbecco_1
+          - light.neo_1 # Kitchen
+          - light.pc
         data:
           rgb_color: [0, 0, 255]
           brightness_pct: 100
-
-
-      - service: light.turn_off
-        entity_id:
-          - light.kitchen_secondary
-          - light.osram_2
-          - light.osram_3

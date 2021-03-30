@@ -31,7 +31,7 @@ cards:
             name: Main
           - type: custom:button-card
             template: [small, with_state_background]
-            entity: light.light_le_8
+            entity: light.pc
           - type: custom:button-card
             template: [small, with_state_background]
             entity: light.living_room_ambient

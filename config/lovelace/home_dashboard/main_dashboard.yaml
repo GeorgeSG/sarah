@@ -44,7 +44,7 @@
                     name: Main
                   - type: custom:button-card
                     template: default
-                    entity: light.light_le_8
+                    entity: light.pc
                   - type: custom:button-card
                     template: default
                     entity: light.living_room_ambient

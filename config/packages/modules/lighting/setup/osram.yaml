@@ -69,6 +69,62 @@ light:
     max_mireds: 500
     min_mireds: 150
 
+  - platform: "mqtt"
+    name: "osram_6"
+    state_topic: "z2m_deconz/osram_6"
+    availability_topic: "z2m_deconz/bridge/state"
+    brightness: true
+    color_temp: true
+    xy: false
+    hs: false
+    schema: "json"
+    command_topic: "z2m_deconz/osram_6/set"
+    brightness_scale: 254
+    max_mireds: 500
+    min_mireds: 150
+
+  - platform: "mqtt"
+    name: "osram_7"
+    state_topic: "z2m_deconz/osram_7"
+    availability_topic: "z2m_deconz/bridge/state"
+    brightness: true
+    color_temp: true
+    xy: false
+    hs: false
+    schema: "json"
+    command_topic: "z2m_deconz/osram_7/set"
+    brightness_scale: 254
+    max_mireds: 500
+    min_mireds: 150
+
+  - platform: "mqtt"
+    name: "osram_8"
+    state_topic: "z2m_deconz/osram_8"
+    availability_topic: "z2m_deconz/bridge/state"
+    brightness: true
+    color_temp: true
+    xy: false
+    hs: false
+    schema: "json"
+    command_topic: "z2m_deconz/osram_8/set"
+    brightness_scale: 254
+    max_mireds: 500
+    min_mireds: 150
+
+  - platform: "mqtt"
+    name: "osram_9"
+    state_topic: "z2m_deconz/osram_9"
+    availability_topic: "z2m_deconz/bridge/state"
+    brightness: true
+    color_temp: true
+    xy: false
+    hs: false
+    schema: "json"
+    command_topic: "z2m_deconz/osram_9/set"
+    brightness_scale: 254
+    max_mireds: 500
+    min_mireds: 150
+
 sensor:
   - platform: "mqtt"
     name: "osram_1_lqi"
@@ -101,6 +157,34 @@ sensor:
   - platform: "mqtt"
     name: "osram_5_lqi"
     state_topic: "z2m_deconz/osram_5"
+    availability_topic: "z2m_deconz/bridge/state"
+    value_template: "{{ value_json.linkquality }}"
+    unit_of_measurement: "lqi"
+    icon: "mdi:signal"
+  - platform: "mqtt"
+    name: "osram_6_lqi"
+    state_topic: "z2m_deconz/osram_6"
+    availability_topic: "z2m_deconz/bridge/state"
+    value_template: "{{ value_json.linkquality }}"
+    unit_of_measurement: "lqi"
+    icon: "mdi:signal"
+  - platform: "mqtt"
+    name: "osram_7_lqi"
+    state_topic: "z2m_deconz/osram_7"
+    availability_topic: "z2m_deconz/bridge/state"
+    value_template: "{{ value_json.linkquality }}"
+    unit_of_measurement: "lqi"
+    icon: "mdi:signal"
+  - platform: "mqtt"
+    name: "osram_8_lqi"
+    state_topic: "z2m_deconz/osram_8"
+    availability_topic: "z2m_deconz/bridge/state"
+    value_template: "{{ value_json.linkquality }}"
+    unit_of_measurement: "lqi"
+    icon: "mdi:signal"
+  - platform: "mqtt"
+    name: "osram_9_lqi"
+    state_topic: "z2m_deconz/osram_9"
     availability_topic: "z2m_deconz/bridge/state"
     value_template: "{{ value_json.linkquality }}"
     unit_of_measurement: "lqi"

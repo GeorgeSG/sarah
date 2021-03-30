@@ -11,7 +11,7 @@ light:
     name: Living room ceiling
     entities:
       - light.living_room_main
-      - light.light_le_8
+      - light.pc
 
   - platform: group
     name: Living room ambient
@@ -45,15 +45,15 @@ light:
     entities:
       - light.osram_2
       - light.osram_3
-      - light.light_orbecco_1
+      - light.neo_1
 
   - platform: group
     name: Kitchen secondary
     entities:
-      - light.light_le_5
-      - light.light_le_6
-      - light.light_le_9
-      - light.light_le_10
+      - light.osram_6
+      - light.osram_7
+      - light.osram_8
+      - light.osram_9
 
   - platform: group
     name: Kitchen
@@ -61,11 +61,11 @@ light:
       - light.kitchen_main
       - light.kitchen_secondary
 
-  - platform: group
-    name: Tuya Kitchen
-    entities:
-      - light.tuya_kitchen_main
-      - light.tuya_kitchen_secondary
+  # - platform: group
+  #   name: Tuya Kitchen
+  #   entities:
+  #     - light.tuya_kitchen_main
+  #     - light.tuya_kitchen_secondary
 
   - platform: group
     name: Hallway entrance
@@ -89,14 +89,14 @@ light:
     name: On after dark
     entities:
       - light.living_room
-      - light.master_bedroom_main
+      - light.master_bedroom
       - light.hallway
 
   - platform: group
     name: Ceiling
     entities:
       - light.living_room_main
-      - light.light_le_8
+      - light.pc
       - light.master_bedroom_main
       - light.kitchen
       - light.hallway
@@ -113,7 +113,6 @@ homeassistant:
   customize:
     light.ceiling:
       icon: mdi:ceiling-light
-
 
     # Living room
     light.living_room:
@@ -132,7 +131,7 @@ homeassistant:
     light.light_le_4:
       friendly_name: Living room 4
 
-    light.light_le_8:
+    light.pc:
       friendly_name: PC
       icon: bha:outdoor-lamp-variant
 
@@ -140,10 +139,6 @@ homeassistant:
       icon: mdi:floor-lamp-dual
     light.light_avatar_small_1:
       friendly_name: Living room ambient secondary
-
-    # Out of comission
-    # light.pc:
-    #   icon: bha:outdoor-lamp-variant
 
     # Master bedroom
     light.master_bedroom:
@@ -167,8 +162,8 @@ homeassistant:
       icon: mdi:desk-lamp
 
     # Kitchen
-    light.tuya_kitchen:
-      icon: mdi:lightbulb-group
+    # light.tuya_kitchen:
+    #   icon: mdi:lightbulb-group
     light.kitchen_main:
       icon: bha:ceiling-lamp-plafond
     light.kitchen_secondary:
@@ -194,8 +189,3 @@ homeassistant:
       friendly_name: Hallway 1
     light.osram_4:
       friendly_name: Hallway 2
-
-    # light.light_le_7:
-    #   friendly_name: Hallway 1
-    # light.light_le_8:
-    #   friendly_name: Hallway 2

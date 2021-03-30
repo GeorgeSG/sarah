@@ -24,7 +24,7 @@
   conditions:
     - entity: binary_sensor.floorplan_night_mode
       state: "on"
-    - entity: light.light_le_8
+    - entity: light.pc
       state: "on"
     - entity: light.living_room_main
       state: "off"
@@ -42,7 +42,7 @@
   conditions:
     - entity: binary_sensor.floorplan_night_mode
       state: "on"
-    - entity: light.light_le_8
+    - entity: light.pc
       state: "off"
     - entity: light.living_room_main
       state: "on"
@@ -60,7 +60,7 @@
   conditions:
     - entity: binary_sensor.floorplan_night_mode
       state: "on"
-    - entity: light.light_le_8
+    - entity: light.pc
       state: "on"
     - entity: light.living_room_main
       state: "on"

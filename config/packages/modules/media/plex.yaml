@@ -23,7 +23,7 @@ automation:
           scene_id: plex_before_start
           snapshot_entities:
             - light.living_room_main
-            - light.light_le_8
+            - light.pc
             - light.living_room_ambient_main
             - light.light_avatar_small_1
             - light.master_bedroom_main
@@ -34,7 +34,7 @@ automation:
       - service: light.turn_off
         entity_id:
           - light.living_room_main
-          - light.light_le_8
+          - light.pc
           - light.living_room_ambient_main
           - light.light_avatar_small_1
           - light.master_bedroom_main

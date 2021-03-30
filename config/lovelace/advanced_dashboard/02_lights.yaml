@@ -71,7 +71,7 @@ cards:
                     - light: light.light_le_4
                     - fade: switch.light_le_4_fade
                     - wifi: sensor.light_le_4_wifi
-            - light.light_le_8
+            - light.pc
             - light.living_room_ambient
             - light.living_room_ambient_main
             - type: custom:fold-entity-row
@@ -158,17 +158,17 @@ cards:
               entities:
                 - light.osram_2
                 - light.osram_3
-                - light.light_orbecco_1
+                - light.neo_1
             - type: divider
             - light.kitchen_secondary
             - type: custom:fold-entity-row
               entity: light.kitchen_secondary
               name: Secondary lights
               entities:
-                - light.light_le_5
-                - light.light_le_6
-                - light.light_le_9
-                - light.light_le_10
+                - light.osram_6
+                - light.osram_7
+                - light.osram_8
+                - light.osram_9
 
         - type: entities
           title: Hallway

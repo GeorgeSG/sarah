@@ -9,78 +9,78 @@
 # 4. Automate ON/OFF when an input_boolean is toggled.
 
 # Light groups in Tuya. Name: "tuya_{{scene_name}}_lights_state"
-input_boolean:
-  tuya_kitchen_main_lights_state:
-  tuya_kitchen_secondary_lights_state:
-  tuya_hallway_main_lights_state:
+# input_boolean:
+#   tuya_kitchen_main_lights_state:
+#   tuya_kitchen_secondary_lights_state:
+#   tuya_hallway_main_lights_state:
 
-light:
-  - platform: template
-    lights:
-      tuya_kitchen_main:
-        friendly_name: Kitchen main lights (scene)
-        value_template: "{{ is_state('input_boolean.tuya_kitchen_main_lights_state', 'on') }}"
-        icon_template: bha:ceiling-lamp-plafond
-        turn_on:
-          service: input_boolean.turn_on
-          entity_id: input_boolean.tuya_kitchen_main_lights_state
-        turn_off:
-          service: input_boolean.turn_off
-          entity_id: input_boolean.tuya_kitchen_main_lights_state
+# light:
+#   - platform: template
+#     lights:
+#       tuya_kitchen_main:
+#         friendly_name: Kitchen main lights (scene)
+#         value_template: "{{ is_state('input_boolean.tuya_kitchen_main_lights_state', 'on') }}"
+#         icon_template: bha:ceiling-lamp-plafond
+#         turn_on:
+#           service: input_boolean.turn_on
+#           entity_id: input_boolean.tuya_kitchen_main_lights_state
+#         turn_off:
+#           service: input_boolean.turn_off
+#           entity_id: input_boolean.tuya_kitchen_main_lights_state
 
-      tuya_kitchen_secondary:
-        friendly_name: Kitchen secondary lights (scene)
-        value_template: "{{ is_state('input_boolean.tuya_kitchen_secondary_lights_state', 'on') }}"
-        icon_template: bha:ceiling-lamp-plafond
-        turn_on:
-          service: input_boolean.turn_on
-          entity_id: input_boolean.tuya_kitchen_secondary_lights_state
-        turn_off:
-          service: input_boolean.turn_off
-          entity_id: input_boolean.tuya_kitchen_secondary_lights_state
+#       tuya_kitchen_secondary:
+#         friendly_name: Kitchen secondary lights (scene)
+#         value_template: "{{ is_state('input_boolean.tuya_kitchen_secondary_lights_state', 'on') }}"
+#         icon_template: bha:ceiling-lamp-plafond
+#         turn_on:
+#           service: input_boolean.turn_on
+#           entity_id: input_boolean.tuya_kitchen_secondary_lights_state
+#         turn_off:
+#           service: input_boolean.turn_off
+#           entity_id: input_boolean.tuya_kitchen_secondary_lights_state
 
-      tuya_hallway_main:
-        friendly_name: Hallway main lights (scene)
-        value_template: "{{ is_state('input_boolean.tuya_hallway_main_lights_state', 'on') }}"
-        icon_template: bha:ceiling-lamp-plafond
-        turn_on:
-          service: input_boolean.turn_on
-          entity_id: input_boolean.tuya_hallway_main_lights_state
-        turn_off:
-          service: input_boolean.turn_off
-          entity_id: input_boolean.tuya_hallway_main_lights_state
+#       tuya_hallway_main:
+#         friendly_name: Hallway main lights (scene)
+#         value_template: "{{ is_state('input_boolean.tuya_hallway_main_lights_state', 'on') }}"
+#         icon_template: bha:ceiling-lamp-plafond
+#         turn_on:
+#           service: input_boolean.turn_on
+#           entity_id: input_boolean.tuya_hallway_main_lights_state
+#         turn_off:
+#           service: input_boolean.turn_off
+#           entity_id: input_boolean.tuya_hallway_main_lights_state
 
-# Try to keep input_booleans consistent.
-automation:
-  - alias: Lighting · Tuya · Update kitchen lights
-    mode: queued
-    trigger:
-      platform: state
-      entity_id:
-        - input_boolean.tuya_kitchen_main_lights_state
-        - input_boolean.tuya_kitchen_secondary_lights_state
-        - input_boolean.tuya_hallway_main_lights_state
-    action:
-      - service: scene.turn_on
-        data_template:
-          entity_id: >
+# # Try to keep input_booleans consistent.
+# automation:
+#   - alias: Lighting · Tuya · Update kitchen lights
+#     mode: queued
+#     trigger:
+#       platform: state
+#       entity_id:
+#         - input_boolean.tuya_kitchen_main_lights_state
+#         - input_boolean.tuya_kitchen_secondary_lights_state
+#         - input_boolean.tuya_hallway_main_lights_state
+#     action:
+#       - service: scene.turn_on
+#         data_template:
+#           entity_id: >
 
-            {% set scene_name = trigger.entity_id.split('tuya_')[1].split('_lights')[0] %}
-            {% set state = states(trigger.entity_id) %}
-            scene.tuya_{{ scene_name }}_{{ state }}
+#             {% set scene_name = trigger.entity_id.split('tuya_')[1].split('_lights')[0] %}
+#             {% set state = states(trigger.entity_id) %}
+#             scene.tuya_{{ scene_name }}_{{ state }}
 
-  - alias: Lighting · Tuya · Update states on start
-    trigger:
-      platform: homeassistant
-      event: start
-    action:
-      - delay: 00:00:03
+#   - alias: Lighting · Tuya · Update states on start
+#     trigger:
+#       platform: homeassistant
+#       event: start
+#     action:
+#       - delay: 00:00:03
 
-      - service_template: "input_boolean.turn_{{ states('light.kitchen_main') }}"
-        entity_id: input_boolean.tuya_kitchen_main_lights_state
+#       - service_template: "input_boolean.turn_{{ states('light.kitchen_main') }}"
+#         entity_id: input_boolean.tuya_kitchen_main_lights_state
 
-      - service_template: "input_boolean.turn_{{ states('light.kitchen_secondary') }}"
-        entity_id: input_boolean.tuya_kitchen_secondary_lights_state
+#       - service_template: "input_boolean.turn_{{ states('light.kitchen_secondary') }}"
+#         entity_id: input_boolean.tuya_kitchen_secondary_lights_state
 
-      - service_template: "input_boolean.turn_{{ states('light.hallway_main') }}"
-        entity_id: input_boolean.tuya_hallway_main_lights_state
+#       - service_template: "input_boolean.turn_{{ states('light.hallway_main') }}"
+#         entity_id: input_boolean.tuya_hallway_main_lights_state

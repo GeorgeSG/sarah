@@ -1,0 +1,46 @@
+automation:
+  - alias: iOS · Alarm off
+    trigger:
+      platform: event
+      event_type: ios.action_fired
+    action:
+      choose:
+        - conditions:
+            - condition: template
+              value_template: "{{ trigger.event.data.actionName == 'alarm_off' }}"
+          sequence:
+            - service: notify.telegram
+              data:
+                title: "📱 *iOS Module*"
+                message: "iOS alarm is off. Switching to Day Mode!"
+            - service: input_select.select_option
+              entity_id: input_select.house_mode
+              data:
+                option: "day"
+
+        - conditions:
+            - condition: template
+              value_template: "{{ trigger.event.data.actionName == 'wind_down' }}"
+          sequence:
+            - service: notify.telegram
+              data:
+                title: "📱 *iOS Module*"
+                message: "iOS wind_down is on. Switching to Bed Mode!"
+            - service: input_select.select_option
+              entity_id: input_select.house_mode
+              data:
+                option: "bed"
+
+        - conditions:
+            - condition: template
+              value_template: "{{ trigger.event.data.actionName == 'bedtime' }}"
+          sequence:
+            - service: notify.telegram
+              data:
+                title: "📱 *iOS Module*"
+                message: "iOS bedtime is on. Switching to Night Mode!"
+            - service: input_select.select_option
+              entity_id: input_select.house_mode
+              data:
+                option: "night"
+

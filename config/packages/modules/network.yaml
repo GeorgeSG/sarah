@@ -35,56 +35,170 @@ pi_hole:
 homekit:
   filter:
     include_entities:
+      # Living Room
       - light.living_room_main
-      - light.light_le_8
       - light.living_room_ambient
+      - light.pc
+      - binary_sensor.living_room_right_window
+      - sensor.multisensor_6_temperature
+      - sensor.multisensor_6_relative_humidity
+      - climate.toshiba_ac
+      - switch.desk_outlet
+      - switch.titanium
+      - sensor.living_room_radiator_temperature
+      - media_player.living_room_tv
+      - media_player.nvidia_shield
+
+      # Bedroom
       - light.master_bedroom_main
       - light.bedside
       - light.bed_led
+      - sensor.bedroom_weather_temperature
+      - sensor.bedroom_weather_humidity
+      - fan.philips_airpurifier
+      - sensor.purifier_air_quality
+      - sensor.purifier_allergens
+      - binary_sensor.bedroom_door
+      - binary_sensor.bedroom_left_window
+      - binary_sensor.bedroom_right_window
+      - media_player.master_bedroom
+
+      # Kitchen
+      - light.kitchen_main
+      - light.kitchen_secondary
+      - binary_sensor.kitchen_motion_occupancy
+      - climate.kitchen_radiator_mode
+      - sensor.kitchen_weather_temperature
+      - sensor.kitchen_weather_humidity
+      - vacuum.vacuum
+
+      # Bathroom
+      - sensor.bathroom_weather_temperature
+      - sensor.bathroom_weather_humidity
+
+      # Hallway
       - light.hallway_entrance
       - light.hallway_main
-      - light.tuya_kitchen
-      - binary_sensor.kitchen_motion_occupancy
-      - binary_sensor.hallway_motion_occupany
-      - binary_sensor.trisensor_motion
-      - binary_sensor.multisensor_motion
-      - sensor.bedroom_weather_temperature
-      - sensor.living_room_radiator_temperature
-      - sensor.trisensor_temperature
-      - sensor.multisensor_6_temperature
-      - sensor.hallway_motion_illuminance
-      - sensor.kitchen_motion_illuminance
-      - sensor.purifier_humidity
-      - sensor.bedroom_weather_humidity
-      - climate.living_room_radiator_mode
-      - climate.toshiba_ac
-      - media_player.master_bedroom
-      - switch.desk_outlet
-      - switch.titanium
-      - fan.philips_airpurifier
+      - group.hallway_motion
+      - sensor.hallway_weather_temperature
+      - sensor.hallway_weather_humidity
+
   entity_config:
-    light.light_le_8:
-      name: PC
-    binary_sensor.kitchen_motion_occupancy:
-      linked_battery_sensor: sensor.kitchen_motion_battery
+    light.living_room_main:
+      name: Living Room Main
+    light.living_room_ambient:
+      name: Living Room Ambient
+    light.pc:
+      name: PC Light
+    binary_sensor.living_room_right_window:
+      linked_battery_sensor: sensor.living_room_right_window_battery
       low_battery_threshold: 20
-      name: Kitchen Motion
-    binary_sensor.hallway_motion_occupany:
-      linked_battery_sensor: sensor.hallway_motion_battery
-      name: Hallway Motion
-    binary_sensor.trisensor_motion:
-      linked_battery_sensor: sensor.trisensor_battery_level
-      name: Desk Motion
-    binary_sensor.multisensor_motion:
+      name: Living Room Window
+    sensor.multisensor_6_temperature:
       linked_battery_sensor: sensor.multisensor_6_battery_level
-      name: Living room Motion
+      low_battery_threshold: 20
+      name: Living Room Temperature
+    sensor.multisensor_6_relative_humidity:
+      linked_battery_sensor: sensor.multisensor_6_battery_level
+      low_battery_threshold: 20
+      name: Living Room Humidity
+    climate.living_room_radiator_mode:
+      linked_battery_sensor: sensor.living_room_radiator_battery_level
+      low_battery_threshold: 20
+      name: Living Room Radiator
+    switch.desk_outlet:
+      type: outlet
+
+    # Bedroom
+    light.master_bedroom_main:
+      name: Bedroom Main
+    light.bedside:
+      name: Bedside Lamp
+    light.bed_led:
+      name: Bed LED
+    sensor.bedroom_weather_temperature:
+      linked_battery_sensor: sensor.bedroom_weather_battery
+      low_battery_threshold: 20
+      name: Bedroom Temperature
+    sensor.bedroom_weather_humidity:
+      linked_battery_sensor: sensor.bedroom_weather_battery
+      low_battery_threshold: 20
+      name: Bedroom Humidity
+    fan.philips_airpurifier:
+      name: Purifier
+    sensor.purifier_air_quality:
+      name: Bedroom Air Quality
+    sensor.purifier_allergens:
+      name: Bedroom Allergens
+    binary_sensor.bedroom_door:
+      linked_battery_sensor: sensor.bedroom_door_battery
+      low_battery_threshold: 20
+      name: Bedroom Door
+    binary_sensor.bedroom_left_window:
+      linked_battery_sensor: sensor.bedroom_left_window_battery
+      low_battery_threshold: 20
+      name: Bedroom Left Window
+    binary_sensor.bedroom_right_window:
+      linked_battery_sensor: sensor.bedroom_right_window_battery
+      low_battery_threshold: 20
+      name: Bedroom Right Window
+    climate.bedroom_radiator_mode:
+      linked_battery_sensor: sensor.bedroom_radiator_battery_level
+      low_battery_threshold: 20
+      name: Bedroom Radiator
     media_player.master_bedroom:
       feature_list:
         - feature: play_pause
         - feature: play_stop
         - feature: toggle_mute
-    switch.desk_outlet:
-      type: outlet
+
+    # Kitchen
+    light.kitchen_main:
+      name: Kitchen Main
+    light.kitchen_secondary:
+      name: Kitchen Secondary
+    binary_sensor.kitchen_motion_occupancy:
+      linked_battery_sensor: sensor.kitchen_motion_battery
+      low_battery_threshold: 20
+      name: Kitchen Motion
+    sensor.kitchen_weather_temperature:
+      linked_battery_sensor: sensor.kitchen_weather_battery
+      low_battery_threshold: 20
+      name: Kitchen Temperature
+    sensor.kitchen_weather_humidity:
+      linked_battery_sensor: sensor.kitchen_weather_battery
+      low_battery_threshold: 20
+      name: Kitchen Humidity
+    climate.kitchen_radiator_mode:
+      name: Kitchen Radiator
+
+    # Bathroom
+    sensor.bathroom_weather_temperature:
+      linked_battery_sensor: sensor.bathroom_weather_battery
+      low_battery_threshold: 20
+      name: Bathroom Temperature
+    sensor.bathroom_weather_humidity:
+      linked_battery_sensor: sensor.bathroom_weather_battery
+      low_battery_threshold: 20
+      name: Bathroom Humidity
+
+    # Hallway
+    light.hallway_entrance:
+      name: Hallway Entrance
+    light.hallway_main:
+      name: Hallway Main
+    group.hallway_motion:
+      name: Hallway Motion
+    sensor.hallway_weather_temperature:
+      linked_battery_sensor: sensor.hallway_weather_battery
+      low_battery_threshold: 20
+      name: Hallway Temperature
+    sensor.hallway_weather_humidity:
+      linked_battery_sensor: sensor.hallway_weather_battery
+      low_battery_threshold: 20
+      name: Hallway Humidity
+
+
 
 #
 # ─── ENTITIES ───────────────────────────────────────────────────────────────────
