@@ -39,3 +39,8 @@ views:
     icon: "mdi:robot-vacuum"
     panel: true
     cards: !include lovelace/home_dashboard/vacuum_dashboard.yaml
+  - title: Cameras
+    path: cameras
+    icon: "mdi:webcam"
+    panel: true
+    cards: !include lovelace/home_dashboard/cameras_dashboard.yaml

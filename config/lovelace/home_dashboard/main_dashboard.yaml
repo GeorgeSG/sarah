@@ -146,8 +146,12 @@
                 cards:
                   - type: custom:button-card
                     template: default
-                    entity: binary_sensor.camera_state
-                    name: Camera
+                    entity: camera.mercury_amcrest_1
+                    name: Living Room
+                  - type: custom:button-card
+                    template: default
+                    entity: camera.mercury_bedroom
+                    name: Bedroom
                   - type: custom:button-card
                     template: [default, with_state_indicator]
                     entity: fan.philips_airpurifier

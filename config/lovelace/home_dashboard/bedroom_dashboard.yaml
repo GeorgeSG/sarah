@@ -147,6 +147,14 @@
               - player: media_player.master_bedroom
               - player_name: Bedroom
 
+          - type: vertical-stack
+            title: Camera
+            cards:
+              - type: picture-glance
+                camera_image: camera.mercury_bedroom
+                entities: []
+
+
       - type: vertical-stack
         title: Sensors
         cards:

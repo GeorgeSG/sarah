@@ -128,8 +128,7 @@
             cards:
               - type: picture-glance
                 camera_image: camera.mercury_amcrest_1
-                entities:
-                  - entity: camera.mercury_amcrest_1
+                entities: []
 
 
       - type: vertical-stack
