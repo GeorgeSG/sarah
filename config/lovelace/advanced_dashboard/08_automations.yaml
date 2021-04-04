@@ -169,6 +169,8 @@ cards:
             - automation.climate_ac_turn_off
             - type: divider
             - automation.purifier_on_start_sync_and_update_state
+            - automation.purifier_change_preset_mode
+            - automation.purifier_sync_preset_mode
             - automation.purifier_change_speed
             - automation.purifier_sync_speed
             - automation.purifier_change_humidity
@@ -187,7 +189,6 @@ cards:
             - automation.system_telegram_announce_status
             - automation.speech_telegram_action_do_nothing
             - automation.ifttt_call_service
-            - automation.lighting_tuya_update_states_on_start
             - automation.lighting_sync_osram_states_on_start_up
 
         - type: entities
