@@ -3,28 +3,6 @@ layout: horizontal
 max_columns: 2
 cards:
   # Column 1
-  - type: horizontal-stack
-    cards:
-      - type: custom:button-card
-        entity: input_select.light_color_mode
-        name: PRESS ME
-        tap_action:
-          action: call-service
-          service: input_select.select_option
-          service_data:
-            entity_id: input_select.light_color_mode
-            option: "blue"
-      - type: custom:button-card
-        name: back to normal pls
-        entity: input_select.light_color_mode
-        tap_action:
-          action: call-service
-          service: input_select.select_option
-          service_data:
-            entity_id: input_select.light_color_mode
-            option: "normal"
-
-
   - type: vertical-stack
     cards:
       - type: custom:button-card

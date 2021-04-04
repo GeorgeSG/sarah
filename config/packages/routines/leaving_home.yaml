@@ -22,3 +22,8 @@ script:
         entity_id: input_select.hallway_dashboard_mode
         data:
           option: "Coming Home"
+
+      - service: notify.telegram
+        data:
+          title: "🏠 *Presence Module · Leaving Home*"
+          message: "I see you're leaving. Goodbye!"

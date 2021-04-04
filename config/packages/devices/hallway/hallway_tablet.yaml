@@ -20,3 +20,25 @@ automation:
         entity_id: input_select.hallway_dashboard_mode
         data:
           option: "Home"
+
+  - alias: Hallway tablet · Leaving · Goodbye after door opened
+    trigger:
+      platform: state
+      entity_id: input_select.hallway_dashboard_mode
+      to: "Leaving"
+    action:
+      - service: script.say
+        data:
+          message: "Waiting for front door to open. Have a great time!"
+      - wait_for_trigger:
+          - platform: state
+            entity_id: binary_sensor.front_door
+            to: "on"
+        timeout:
+          minutes: 5
+        continue_on_timeout: false
+      - service: script.say
+        data:
+          message: "Goodbye!"
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.georgi_home

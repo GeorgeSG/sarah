@@ -92,9 +92,9 @@ automation:
   # When my state changes to "home", wait for 15 minutes for the door to be opened, and then mark me as home
   - alias: Presence · Arrival detection
     trigger:
-      platform: state
-      entity_id: person.georgi
-      to: "home"
+      - platform: state
+        entity_id: person.georgi
+        to: "home"
     condition:
       condition: state
       entity_id: input_boolean.georgi_home
@@ -116,16 +116,15 @@ automation:
 
   - alias: Presence · Leaving home
     trigger:
-      platform: state
-      entity_id: person.georgi
-      from: "home"
-      to: "not_home"
+      - platform: state
+        entity_id: person.georgi
+        from: "home"
+        to: "not_home"
+      - platform: state
+        entity_id: input_boolean.georgi_home
+        to: "off"
     action:
       - service: script.routine_leaving_home
-      - service: notify.telegram
-        data:
-          title: "🏠 *Presence Module · Leaving Home*"
-          message: "I see you're leaving. Goodbye!"
 
   - alias: Presence · Coming home
     trigger:
