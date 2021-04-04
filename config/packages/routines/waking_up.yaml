@@ -16,9 +16,7 @@ script:
       - delay: 00:00:01
 
       - service: light.turn_on
-        entity_id:
-          - light.hallway
-          - light.entrance
+        entity_id: light.hallway
         data:
           brightness_pct: 100
 

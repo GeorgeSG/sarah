@@ -56,12 +56,6 @@ automation:
                 brightness_pct: 1
         # Night Mode
         default:
-          - service: light.turn_on
-            entity_id:
-              - light.osram_1
-              - light.light_lohas_6
-            data:
-              brightness_pct: 100
           - service: light.turn_off
             entity_id:
               - light.osram_1
