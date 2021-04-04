@@ -9,17 +9,24 @@ input_boolean:
     name: Purifier enabled for bad air
 
 input_select:
-  purifier_speed:
-    name: Speed
+  purifier_preset_mode:
+    name: mode
     icon: mdi:speedometer
     options:
-      - Auto Mode
-      - Allergen Mode
-      - Sleep Mode
-      - Speed 1
-      - Speed 2
-      - Speed 3
-      - Turbo
+      - auto
+      - sleep
+      - allergen
+
+  purifier_speed:
+    name: speed
+    icon: mdi:speedometer
+    options:
+      - 0
+      - 20
+      - 40
+      - 60
+      - 80
+      - 100
 
   purifier_target_humidity:
     name: Target humidity
@@ -48,26 +55,23 @@ sensor:
         device_class: temperature
         value_template: "{{ state_attr('fan.philips_airpurifier', 'temperature') }}"
         icon_template: mdi:thermometer
-      purifier_speed:
-        friendly_name: Speed
-        value_template: "{{ state_attr('fan.philips_airpurifier', 'speed') }}"
+      purifier_preset_mode:
+        friendly_name: Preset Mode
+        value_template: "{{ state_attr('fan.philips_airpurifier', 'preset_mode') }}"
         icon_template: >-
-          {% set value = state_attr('fan.philips_airpurifier', 'speed') %}
-          {% if value == 'Auto Mode' %}
+          {% set value = state_attr('fan.philips_airpurifier', 'preset_mode') %}
+          {% if value == 'auto' %}
             {{ 'mdi:brightness-auto' }}
-          {% elif value == 'Speed 1' %}
-            {{ 'mdi:speedometer-slow' }}
-          {% elif value == 'Speed 2' %}
+          {% elif value == 'manual' %}
             {{ 'mdi:speedometer-medium' }}
-          {% elif value == 'Speed 3' %}
-            {{ 'mdi:speedometer' }}
-          {% elif value == 'Turbo' %}
-            {{ 'mdi:car-turbocharger' }}
-          {% elif value == 'Sleep Mode' %}
+          {% elif value == 'sleep' %}
             {{ 'mdi:power-sleep' }}
-          {% elif value == 'Allergen Mode' %}
+          {% elif value == 'allergen' %}
             {{ 'mdi:allergy' }}
           {% endif %}
+      purifier_speed:
+        friendly_name: Speed
+        value_template: "{{ state_attr('fan.philips_airpurifier', 'percentage') }}"
       purifier_allergens:
         friendly_name: Allergen index
         value_template: "{{ state_attr('fan.philips_airpurifier', 'allergen_index') }}"
@@ -186,15 +190,35 @@ automation:
         data:
           function: 'Purification'
 
+  - alias: Purifier · Change preset mode
+    trigger:
+      platform: state
+      entity_id: input_select.purifier_preset_mode
+    action:
+      - service: fan.set_preset_mode
+        entity_id: fan.philips_airpurifier
+        data_template:
+          preset_mode: "{{ states('input_select.purifier_preset_mode') }}"
+
+  - alias: Purifier · Sync preset mode
+    trigger:
+      platform: state
+      entity_id: sensor.purifier_preset_mode
+    action:
+      - service: input_select.select_option
+        entity_id: input_select.purifier_preset_mode
+        data_template:
+          option: "{{ states('sensor.purifier_preset_mode') }}"
+
   - alias: Purifier · Change speed
     trigger:
       platform: state
       entity_id: input_select.purifier_speed
     action:
-      - service: fan.set_speed
+      - service: fan.set_percentage
         entity_id: fan.philips_airpurifier
         data_template:
-          speed: "{{ states('input_select.purifier_speed') }}"
+          percentage: "{{ states('input_select.purifier_speed') }}"
 
   - alias: Purifier · Sync speed
     trigger:

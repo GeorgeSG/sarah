@@ -17,6 +17,14 @@ philips_airpurifier_card:
                 entity_id: input_select.purifier_speed
           - type: custom:button-card
             template: default
+            entity: sensor.purifier_preset_mode
+            tap_action:
+              action: call-service
+              service: input_select.select_next
+              service_data:
+                entity_id: input_select.purifier_preset_mode
+          - type: custom:button-card
+            template: default
             entity: sensor.purifier_function
             tap_action:
               action: call-service
@@ -44,10 +52,11 @@ philips_airpurifier_card:
             head:
               type: custom:dummy-entity-row
               entity: sensor.purifier_speed
-              name: Mode
+              name: Attributes
             open: true
             entities:
               - sensor.purifier_speed
+              - sensor.purifier_preset_mode
               - sensor.purifier_function
               - sensor.purifier_target_humidity
               - sensor.purifier_brightness
