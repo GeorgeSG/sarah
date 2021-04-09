@@ -12,3 +12,17 @@ light_with_fade_and_switch:
       - entity: "[[light]]"
         name: Switch
         toggle: true
+
+light_with_update_and_lqi:
+  card:
+    type: custom:multiple-entity-row
+    entity: "[[light]]"
+    show_state: false
+    entities:
+      - entity: "[[update]]"
+        name: Update
+      - entity: "[[lqi]]"
+        name: LQI
+      - entity: "[[light]]"
+        name: Switch
+        toggle: true

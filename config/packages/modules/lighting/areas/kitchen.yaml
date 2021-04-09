@@ -36,7 +36,8 @@ automation:
         default:
           - service: light.turn_on
             entity_id:
-              - light.osram_2
+              - light.ledvance_1
+              - light.hue_1
               - light.browser_kitchen
             data:
               brightness_pct: 1
@@ -65,11 +66,15 @@ automation:
         # Night Mode
         default:
           - service: light.turn_on
-            entity_id: light.osram_2
+            entity_id:
+              - light.ledvance_1
+              - light.hue_1
             data:
               brightness_pct: 100
           - service: light.turn_off
-            entity_id: light.osram_2
+            entity_id:
+              - light.ledvance_1
+              - light.hue_1
           - service: light.turn_on
             entity_id: light.browser_kitchen
             data:
