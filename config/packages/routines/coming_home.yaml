@@ -34,9 +34,13 @@ script:
   routine_coming_home_after_sunset:
     alias: Routine · Coming home · After sunset
     sequence:
-      - condition: sun
-        after: sunset
-        after_offset: "-01:00:00"
+      - condition: or
+        conditions:
+          - condition: sun
+            after: sunset
+            after_offset: "-01:00:00"
+          - condition: sun
+            before: sunrise
       - service: light.turn_on
         entity_id: light.on_after_dark
         data:
