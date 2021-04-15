@@ -118,11 +118,6 @@ sensor:
   - platform: template
     sensors:
       open_window_count:
-        entity_id:
-          - binary_sensor.living_room_right_window
-          - binary_sensor.bedroom_left_window
-          - binary_sensor.bedroom_right_window
-          - binary_sensor.kitchen_window
         friendly_name: Open window count
         value_template: >-
           {% set entityStates = states | selectattr('entity_id', 'in', state_attr('group.all_windows', 'entity_id')) %}
