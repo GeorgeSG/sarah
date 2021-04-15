@@ -46,7 +46,6 @@ homekit:
       - switch.desk_outlet
       - switch.titanium
       - sensor.living_room_radiator_temperature
-      - media_player.living_room_tv
       - media_player.nvidia_shield
 
       # Bedroom
