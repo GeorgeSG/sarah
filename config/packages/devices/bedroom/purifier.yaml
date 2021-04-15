@@ -1,7 +1,5 @@
-# Philips Purifier
-# https://github.com/xMrVizzy/Philips-AirPurifier
 fan:
-  - platform: philips_airpurifier
+  - platform: philips_airpurifier_http
     host: !secret philips_purifier_ip
 
 input_boolean:
@@ -158,7 +156,7 @@ script:
       - condition: state
         entity_id: binary_sensor.purifier_out_of_water
         state: 'off'
-      - service: philips_airpurifier.set_function
+      - service: philips_airpurifier_http.set_function
         entity_id: fan.philips_airpurifier
         data_template:
           function: >-
@@ -186,7 +184,7 @@ automation:
       - condition: state
         entity_id: binary_sensor.purifier_out_of_water
         state: "on"
-      - service: philips_airpurifier.set_function
+      - service: philips_airpurifier_http.set_function
         entity_id: fan.philips_airpurifier
         data:
           function: 'Purification'
@@ -236,7 +234,7 @@ automation:
       platform: state
       entity_id: input_select.purifier_target_humidity
     action:
-      - service: philips_airpurifier.set_target_humidity
+      - service: philips_airpurifier_http.set_target_humidity
         entity_id: fan.philips_airpurifier
         data_template:
           humidity: >-
@@ -279,7 +277,7 @@ automation:
     action:
       - service: fan.turn_on
         entity_id: fan.philips_airpurifier
-      - service: philips_airpurifier.set_function
+      - service: philips_airpurifier_http.set_function
         entity_id: fan.philips_airpurifier
         data:
           function: "Purification & Humidification"
@@ -322,7 +320,7 @@ automation:
       - condition: state
         entity_id: binary_sensor.purifier_out_of_water
         state: "off"
-      - service: philips_airpurifier.set_function
+      - service: philips_airpurifier_http.set_function
         entity_id: fan.philips_airpurifier
         data:
           function: "Purification & Humidification"

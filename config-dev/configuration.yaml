@@ -34,5 +34,5 @@ lovelace:
       filename: ui-lovelace.yaml
 
 fan:
-  platform: philips_airpurifier
+  platform: philips_airpurifier_http
   host: !secret philips_purifier_ip

@@ -75,7 +75,7 @@ automation:
         entity_id: fan.philips_airpurifier
         data:
           speed: "Speed 3"
-      - service: philips_airpurifier.set_function
+      - service: philips_airpurifier_http.set_function
         data:
           entity_id: fan.philips_airpurifier
           function: "Purification"
