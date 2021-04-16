@@ -71,7 +71,12 @@ cards:
                     - light: light.light_le_4
                     - fade: switch.light_le_4_fade
                     - wifi: sensor.light_le_4_wifi
-            - light.pc
+            - type: custom:decluttering-card
+              template: light_with_fade_and_switch
+              variables:
+                - light: light.pc
+                - fade: switch.pc_fade
+                - wifi: sensor.pc_wifi
             - light.living_room_ambient
             - light.living_room_ambient_main
             - type: custom:fold-entity-row
@@ -118,29 +123,29 @@ cards:
                   max: 500
                   step: 5
                 - type: custom:decluttering-card
-                  template: light_with_fade_and_switch
+                  template: light_with_update_and_lqi
                   variables:
-                    - light: light.light_lohas_1
-                    - fade: switch.light_lohas_1_fade
-                    - wifi: sensor.light_lohas_1_wifi
+                    - light: light.hue_2
+                    - lqi: sensor.hue_2_lqi
+                    - update: binary_sensor.hue_2_update_available
                 - type: custom:decluttering-card
-                  template: light_with_fade_and_switch
+                  template: light_with_update_and_lqi
                   variables:
-                    - light: light.light_lohas_2
-                    - fade: switch.light_lohas_2_fade
-                    - wifi: sensor.light_lohas_2_wifi
+                    - light: light.hue_3
+                    - lqi: sensor.hue_3_lqi
+                    - update: binary_sensor.hue_3_update_available
                 - type: custom:decluttering-card
-                  template: light_with_fade_and_switch
+                  template: light_with_update_and_lqi
                   variables:
-                    - light: light.light_lohas_3
-                    - fade: switch.light_lohas_3_fade
-                    - wifi: sensor.light_lohas_3_wifi
+                    - light: light.hue_4
+                    - lqi: sensor.hue_4_lqi
+                    - update: binary_sensor.hue_4_update_available
                 - type: custom:decluttering-card
-                  template: light_with_fade_and_switch
+                  template: light_with_update_and_lqi
                   variables:
-                    - light: light.light_lohas_6
-                    - fade: switch.light_lohas_6_fade
-                    - wifi: sensor.light_lohas_6_wifi
+                    - light: light.hue_5
+                    - lqi: sensor.hue_5_lqi
+                    - update: binary_sensor.hue_5_update_available
             - light.bedside
             - light.bed_led
 
@@ -156,19 +161,39 @@ cards:
               entity: light.kitchen_main
               name: Main lights
               entities:
-                - light.ledvance_1 # light.osram_2
-                - light.osram_3
+                - light.ledvance_1
                 - light.neo_1
+                - light.neo_2
             - type: divider
             - light.kitchen_secondary
             - type: custom:fold-entity-row
               entity: light.kitchen_secondary
               name: Secondary lights
               entities:
-                - light.hue_1 # light.osram_6
-                - light.osram_7
-                - light.osram_8
-                - light.osram_9
+                - type: custom:decluttering-card
+                  template: light_with_update_and_lqi
+                  variables:
+                    - light: light.hue_ambiance_1
+                    - lqi: sensor.hue_ambiance_1_lqi
+                    - update: binary_sensor.hue_ambiance_1_update_available
+                - type: custom:decluttering-card
+                  template: light_with_update_and_lqi
+                  variables:
+                    - light: light.hue_ambiance_2
+                    - lqi: sensor.hue_ambiance_2_lqi
+                    - update: binary_sensor.hue_ambiance_2_update_available
+                - type: custom:decluttering-card
+                  template: light_with_update_and_lqi
+                  variables:
+                    - light: light.hue_ambiance_3
+                    - lqi: sensor.hue_ambiance_3_lqi
+                    - update: binary_sensor.hue_ambiance_3_update_available
+                - type: custom:decluttering-card
+                  template: light_with_update_and_lqi
+                  variables:
+                    - light: light.hue_ambiance_4
+                    - lqi: sensor.hue_ambiance_4_lqi
+                    - update: binary_sensor.hue_ambiance_4_update_available
 
         - type: entities
           title: Hallway
@@ -205,5 +230,15 @@ cards:
               entity: light.hallway_main
               name: Main lights
               entities:
-                - light.osram_4
-                - light.osram_1
+                - type: custom:decluttering-card
+                  template: light_with_update_and_lqi
+                  variables:
+                    - light: light.hue_white_3
+                    - lqi: sensor.hue_white_3_lqi
+                    - update: binary_sensor.hue_white_3_update_available
+                - type: custom:decluttering-card
+                  template: light_with_update_and_lqi
+                  variables:
+                    - light: light.hue_1
+                    - lqi: sensor.hue_1_lqi
+                    - update: binary_sensor.hue_1_update_available

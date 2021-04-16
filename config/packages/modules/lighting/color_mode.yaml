@@ -58,16 +58,17 @@ automation:
         entity_id:
           - light.living_room_ambient_main
           - light.bedside
-          - light.bed_led
           - light.master_bedroom_main
         data:
           rgb_color: [0, 0, 255]
           brightness_pct: 40
       - service: light.turn_on
         entity_id:
+          - light.bed_led
           - light.light_avatar_small_1 # living room ambient Secondary
-          - light.light_lohas_6 # entrance 1
+          - light.hue_1 # Hallway
           - light.neo_1 # Kitchen
+          - light.neo_2 # Kitchen
           - light.pc
         data:
           rgb_color: [0, 0, 255]

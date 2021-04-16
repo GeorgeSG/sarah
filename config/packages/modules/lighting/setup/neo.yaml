@@ -13,7 +13,7 @@ light:
     max_mireds: 500
     min_mireds: 150
   - platform: "mqtt"
-    name: "pc"
+    name: "neo_2"
     state_topic: "z2m_deconz/neo_2"
     availability_topic: "z2m_deconz/bridge/state"
     brightness: true

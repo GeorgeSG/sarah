@@ -80,7 +80,7 @@ scene:
       light.master_bedroom_main:
         state: "on"
         brightness: 255
-        color_temp: 500
+        color_temp: 350
       light.bedside:
         state: "on"
         color_temp: 359

@@ -28,10 +28,10 @@ light:
   - platform: group
     name: Master bedroom main
     entities:
-      - light.light_lohas_1
-      - light.light_lohas_2
-      - light.light_lohas_3
-      - light.light_lohas_6
+      - light.hue_2
+      - light.hue_3
+      - light.hue_4
+      - light.hue_5
 
   - platform: group
     name: Master bedroom
@@ -43,29 +43,23 @@ light:
   - platform: group
     name: Kitchen main
     entities:
-      - light.ledvance_1 # osram_2
-      - light.osram_3
+      - light.ledvance_1
+      - light.neo_2
       - light.neo_1
 
   - platform: group
     name: Kitchen secondary
     entities:
-      - light.hue_1 # osram_6
-      - light.osram_7
-      - light.osram_8
-      - light.osram_9
+      - light.hue_ambiance_1
+      - light.hue_ambiance_2
+      - light.hue_ambiance_3
+      - light.hue_ambiance_4
 
   - platform: group
     name: Kitchen
     entities:
       - light.kitchen_main
       - light.kitchen_secondary
-
-  # - platform: group
-  #   name: Tuya Kitchen
-  #   entities:
-  #     - light.tuya_kitchen_main
-  #     - light.tuya_kitchen_secondary
 
   - platform: group
     name: Hallway entrance
@@ -76,8 +70,8 @@ light:
   - platform: group
     name: Hallway main
     entities:
-      - light.osram_1
-      - light.osram_4
+      - light.hue_white_3
+      - light.hue_1
 
   - platform: group
     name: Hallway

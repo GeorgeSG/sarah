@@ -109,7 +109,7 @@ light:
     retain: false
 
   - platform: mqtt
-    name: "light_lohas_1"
+    name: "pc"
     state_topic: "tele/light_lohas_1/STATE"
     state_value_template: "{{ value_json.POWER }}"
     command_topic: "cmnd/light_lohas_1/POWER"
@@ -366,7 +366,7 @@ sensor:
     value_template: "{{ value_json.Wifi.RSSI }}"
 
   - platform: mqtt
-    name: "light_lohas_1_wifi"
+    name: "pc_wifi"
     availability_topic: "tele/light_lohas_1/LWT"
     device_class: signal_strength
     payload_available: "Online"
@@ -492,7 +492,7 @@ switch:
     value_template: "{{ value_json.Fade }}"
 
   - platform: mqtt
-    name: "light_lohas_1_fade"
+    name: "pc_fade"
     availability_topic: "tele/light_lohas_1/LWT"
     command_topic: "cmnd/light_lohas_1/FADE"
     icon: mdi:gradient
