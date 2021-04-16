@@ -135,10 +135,40 @@ devices:
     transition: 0.5
   '0x0017880109966274':
     friendly_name: hue_white_1
-    transition: 0.5
+    transition: 0.2
   '0x00178801099664bf':
     friendly_name: hue_white_2
-    transition: 0.5
+    transition: 0.2
+  '0x0017880109964b5f':
+    friendly_name: hue_white_3
+    transition: 0.2
+  '0x0017880109964b77':
+    friendly_name: hue_white_4
+    transition: 0.2
   '0x0017880108e9dbd2':
     friendly_name: hue_1
-    transition: 0.5
+    transition: 0.2
+  '0x001788010961eb9f':
+    friendly_name: hue_2
+    transition: 0.2
+  '0x001788010961eb33':
+    friendly_name: hue_3
+    transition: 0.2
+  '0x001788010963aff3':
+    friendly_name: hue_4
+    transition: 0.2
+  '0x001788010961ea97':
+    friendly_name: hue_5
+    transition: 0.2
+  '0x00178801090c52a7':
+    friendly_name: hue_ambiance_1
+    transition: 0.2
+  '0x00178801090f0bd4':
+    friendly_name: hue_ambiance_2
+    transition: 0.2
+  '0x00178801090c4820':
+    friendly_name: hue_ambiance_3
+    transition: 0.2
+  '0x00178801090c4797':
+    friendly_name: hue_ambiance_4
+    transition: 0.2
