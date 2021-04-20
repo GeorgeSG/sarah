@@ -37,7 +37,7 @@ automation:
           - service: light.turn_on
             entity_id:
               - light.ledvance_1
-              - light.hue_1
+              - light.hue_ambiance_1
               - light.browser_kitchen
             data:
               brightness_pct: 1
@@ -68,13 +68,13 @@ automation:
           - service: light.turn_on
             entity_id:
               - light.ledvance_1
-              - light.hue_1
+              - light.hue_ambiance_1
             data:
               brightness_pct: 100
           - service: light.turn_off
             entity_id:
               - light.ledvance_1
-              - light.hue_1
+              - light.hue_ambiance_1
           - service: light.turn_on
             entity_id: light.browser_kitchen
             data:

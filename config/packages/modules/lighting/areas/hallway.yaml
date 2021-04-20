@@ -25,12 +25,9 @@ automation:
         # Night Mode
         default:
           - service: light.turn_on
-            entity_id: light.osram_4
-            data:
-              brightness_pct: 30
-          - service: light.turn_on
             entity_id:
               - light.hue_white_1
+              - light.hue_1
               - light.browser_hallway
             data:
               brightness_pct: 1
@@ -59,7 +56,7 @@ automation:
           - service: light.turn_off
             entity_id:
               - light.hue_white_1
-              - light.osram_4
+              - light.hue_1
           - service: light.turn_on
             entity_id: light.browser_hallway
             data:
