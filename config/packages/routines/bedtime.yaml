@@ -9,9 +9,9 @@ script:
         entity_id: light.bedside
       - service: script.bed_led_on
       - service: input_select.select_option
-        entity_id: input_select.purifier_speed
+        entity_id: input_select.purifier_preset_mode
         data:
-          option: "Sleep Mode"
+          option: "sleep"
 
       - service: light.turn_off
         entity_id: light.master_bedroom_main

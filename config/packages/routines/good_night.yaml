@@ -20,9 +20,9 @@ script:
       - service: fan.turn_on
         entity_id: fan.philips_airpurifier
       - service: input_select.select_option
-        entity_id: input_select.purifier_speed
+        entity_id: input_select.purifier_preset_mode
         data:
-          option: "Sleep Mode"
+          option: "sleep"
       - service: homeassistant.turn_off
         entity_id:
           - light.all
