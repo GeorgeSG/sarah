@@ -36,5 +36,8 @@ script:
           - media_player.nvidia_shield
           - media_player.living_room_tv
           - light.ceiling
+          - light.kitchen
+          - light.hallway_main
+          - light.hallway_entrance
           - switch.titanium
       - service: script.dashboards_light_down

@@ -108,6 +108,12 @@
                   - type: custom:button-card
                     template: default
                     entity: binary_sensor.house_mode
+                    name: House
+                    tap_action:
+                      action: call-service
+                      service: input_select.select_next
+                      service_data:
+                        entity_id: input_select.house_mode
 
           - type: horizontal-stack
             title: Climate

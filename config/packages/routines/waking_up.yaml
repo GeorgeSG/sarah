@@ -20,6 +20,12 @@ script:
         data:
           brightness_pct: 100
 
+      - service: light.turn_on
+        entity_id:
+          - light.living_room_ambient
+          - light.bed_led
+          - light.bedside
+
       - condition: state
         entity_id: input_boolean.guest_mode
         state: "off"
