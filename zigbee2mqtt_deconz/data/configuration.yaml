@@ -126,13 +126,13 @@ devices:
     transition: 0.5
   '0x00158d00024f54bb':
     friendly_name: neo_1
-    transition: 0.5
+    transition: 0.2
   '0x00158d00024f5642':
     friendly_name: neo_2
-    transition: 0.5
+    transition: 0.2
   '0xf0d1b800001a2a8f':
     friendly_name: ledvance_1
-    transition: 0.5
+    transition: 0.2
   '0x0017880109966274':
     friendly_name: hue_white_1
     transition: 0.2
@@ -172,3 +172,32 @@ devices:
   '0x00178801090c4797':
     friendly_name: hue_ambiance_4
     transition: 0.2
+
+groups:
+  '1':
+    friendly_name: light_kitchen_secondary
+    transition: 0.2
+    devices:
+      - '0x00178801090c52a7'
+      - '0x00178801090f0bd4'
+      - '0x00178801090c4820'
+      - '0x00178801090c4797'
+  '2':
+    friendly_name: light_kitchen_main
+    transition: 0.2
+    devices:
+      - '0x00158d00024f54bb'
+      - '0x00158d00024f5642'
+      - '0xf0d1b800001a2a8f'
+  '3':
+    friendly_name: light_hallway_main
+    transition: 0.2
+    devices:
+      - '0x0017880109964b5f'
+      - '0x0017880108e9dbd2'
+  '4':
+    friendly_name: light_hallway_entrance
+    transition: 0.2
+    devices:
+      - '0x0017880109966274'
+      - '0x00178801099664bf'
