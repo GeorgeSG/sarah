@@ -4,11 +4,9 @@ automation:
     trigger:
       platform: state
       entity_id:
-        # If the lights are listed by groups, turning on 1 light always turns on the others in the group.
-        - light.light_le_1
-        - light.light_le_2
-        - light.light_le_3
-        - light.light_le_4
+        - light.kitchen_secondary
+        - light.master_bedroom_main
+        - light.living_room_main
       to: "on"
     action:
       - service: light.turn_on
@@ -26,8 +24,7 @@ automation:
           entity_id:
             - light.master_bedroom_main
             - light.living_room_main
-            - light.kitchen
-            - light.hallway
+            - light.kitchen_secondary
           color_temp: "{{ 400 if is_state('sun.sun', 'above_horizon') else 500 }}"
       - service: logbook.log
         data_template:

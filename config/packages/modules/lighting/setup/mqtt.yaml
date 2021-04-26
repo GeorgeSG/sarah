@@ -577,42 +577,6 @@ automation:
     action:
       - service: mqtt.publish
         data:
-          topic: "z2m_deconz/osram_1/get"
-          payload: ""
-      - service: mqtt.publish
-        data:
-          topic: "z2m_deconz/osram_2/get"
-          payload: ""
-      - service: mqtt.publish
-        data:
-          topic: "z2m_deconz/osram_3/get"
-          payload: ""
-      - service: mqtt.publish
-        data:
-          topic: "z2m_deconz/osram_4/get"
-          payload: ""
-      - service: mqtt.publish
-        data:
-          topic: "z2m_deconz/osram_5/get"
-          payload: ""
-      - service: mqtt.publish
-        data:
-          topic: "z2m_deconz/osram_6/get"
-          payload: ""
-      - service: mqtt.publish
-        data:
-          topic: "z2m_deconz/osram_7/get"
-          payload: ""
-      - service: mqtt.publish
-        data:
-          topic: "z2m_deconz/osram_8/get"
-          payload: ""
-      - service: mqtt.publish
-        data:
-          topic: "z2m_deconz/osram_9/get"
-          payload: ""
-      - service: mqtt.publish
-        data:
           topic: "z2m_deconz/hue_white_1/get"
           payload: ""
       - service: mqtt.publish
@@ -621,9 +585,73 @@ automation:
           payload: ""
       - service: mqtt.publish
         data:
+          topic: "z2m_deconz/hue_white_3/get"
+          payload: ""
+      - service: mqtt.publish
+        data:
+          topic: "z2m_deconz/hue_white_4/get"
+          payload: ""
+      - service: mqtt.publish
+        data:
+          topic: "z2m_deconz/hue_ambiance_1/get"
+          payload: ""
+      - service: mqtt.publish
+        data:
+          topic: "z2m_deconz/hue_ambiance_2/get"
+          payload: ""
+      - service: mqtt.publish
+        data:
+          topic: "z2m_deconz/hue_ambiance_3/get"
+          payload: ""
+      - service: mqtt.publish
+        data:
+          topic: "z2m_deconz/hue_ambiance_4/get"
+          payload: ""
+      - service: mqtt.publish
+        data:
           topic: "z2m_deconz/hue_1/get"
           payload: ""
       - service: mqtt.publish
         data:
+          topic: "z2m_deconz/hue_2/get"
+          payload: ""
+      - service: mqtt.publish
+        data:
+          topic: "z2m_deconz/hue_3/get"
+          payload: ""
+      - service: mqtt.publish
+        data:
+          topic: "z2m_deconz/hue_4/get"
+          payload: ""
+      - service: mqtt.publish
+        data:
+          topic: "z2m_deconz/hue_5/get"
+          payload: ""
+      - service: mqtt.publish
+        data:
           topic: "z2m_deconz/ledvance_1/get"
+          payload: ""
+      - service: mqtt.publish
+        data:
+          topic: "z2m_deconz/neo_1/get"
+          payload: ""
+      - service: mqtt.publish
+        data:
+          topic: "z2m_deconz/neo_2/get"
+          payload: ""
+      - service: mqtt.publish
+        data:
+          topic: "z2m_deconz/light_hallway_main/get"
+          payload: ""
+      - service: mqtt.publish
+        data:
+          topic: "z2m_deconz/light_hallway_entrance/get"
+          payload: ""
+      - service: mqtt.publish
+        data:
+          topic: "z2m_deconz/light_kitchen_main/get"
+          payload: ""
+      - service: mqtt.publish
+        data:
+          topic: "z2m_deconz/light_kitchen_secondary/get"
           payload: ""

@@ -1,4 +1,70 @@
 light:
+  - platform: "mqtt"
+    name: "Hallway main"
+    state_topic: "z2m_deconz/light_hallway_main"
+    availability_topic: "z2m_deconz/bridge/state"
+    brightness: true
+    color_temp: false
+    xy: false
+    hs: false
+    schema: "json"
+    command_topic: "z2m_deconz/light_hallway_main/set"
+    brightness_scale: 254
+
+  - platform: "mqtt"
+    name: "Hallway entrance"
+    state_topic: "z2m_deconz/light_hallway_entrance"
+    availability_topic: "z2m_deconz/bridge/state"
+    brightness: true
+    color_temp: false
+    xy: false
+    hs: false
+    schema: "json"
+    command_topic: "z2m_deconz/light_hallway_entrance/set"
+    brightness_scale: 254
+
+  - platform: "mqtt"
+    name: "Kitchen main"
+    state_topic: "z2m_deconz/light_kitchen_main"
+    availability_topic: "z2m_deconz/bridge/state"
+    brightness: true
+    color_temp: true
+    xy: false
+    hs: false
+    schema: "json"
+    command_topic: "z2m_deconz/light_kitchen_main/set"
+    brightness_scale: 254
+    max_mireds: 500
+    min_mireds: 150
+    effect: true
+    effect_list:
+      - "blink"
+      - "breathe"
+      - "okay"
+      - "channel_change"
+      - "finish_effect"
+
+  - platform: "mqtt"
+    name: "Kitchen secondary"
+    state_topic: "z2m_deconz/light_kitchen_secondary"
+    availability_topic: "z2m_deconz/bridge/state"
+    brightness: true
+    color_temp: true
+    xy: false
+    hs: false
+    schema: "json"
+    command_topic: "z2m_deconz/light_kitchen_secondary/set"
+    brightness_scale: 254
+    max_mireds: 500
+    min_mireds: 150
+    effect: true
+    effect_list:
+      - "blink"
+      - "breathe"
+      - "okay"
+      - "channel_change"
+      - "finish_effect"
+
   - platform: group
     name: Living room main
     entities:
@@ -40,20 +106,20 @@ light:
       - light.bedside
       - light.bed_led
 
-  - platform: group
-    name: Kitchen main
-    entities:
-      - light.ledvance_1
-      - light.neo_2
-      - light.neo_1
+  # - platform: group
+  #   name: Kitchen main
+  #   entities:
+  #     - light.ledvance_1
+  #     - light.neo_2
+  #     - light.neo_1
 
-  - platform: group
-    name: Kitchen secondary
-    entities:
-      - light.hue_ambiance_1
-      - light.hue_ambiance_2
-      - light.hue_ambiance_3
-      - light.hue_ambiance_4
+  # - platform: group
+  #   name: Kitchen secondary
+  #   entities:
+  #     - light.hue_ambiance_1
+  #     - light.hue_ambiance_2
+  #     - light.hue_ambiance_3
+  #     - light.hue_ambiance_4
 
   - platform: group
     name: Kitchen
@@ -61,17 +127,17 @@ light:
       - light.kitchen_main
       - light.kitchen_secondary
 
-  - platform: group
-    name: Hallway entrance
-    entities:
-      - light.hue_white_1
-      - light.hue_white_2
+  # - platform: group
+  #   name: Hallway entrance
+  #   entities:
+  #     - light.hue_white_1
+  #     - light.hue_white_2
 
-  - platform: group
-    name: Hallway main
-    entities:
-      - light.hue_white_3
-      - light.hue_1
+  # - platform: group
+  #   name: Hallway main
+  #   entities:
+  #     - light.hue_white_3
+  #     - light.hue_1
 
   - platform: group
     name: Hallway
@@ -102,6 +168,80 @@ light:
       - light.master_bedroom
       - light.kitchen
       - light.hallway
+
+automation:
+  - alias: Lighting · Sync Kitchen Main states
+    trigger:
+      platform: state
+      entity_id: light.kitchen_main
+    action:
+      - delay: "00:00:03"
+      - service: mqtt.publish
+        data:
+          topic: "z2m_deconz/neo_1/get"
+          payload: ""
+      - service: mqtt.publish
+        data:
+          topic: "z2m_deconz/neo_2/get"
+          payload: ""
+      - service: mqtt.publish
+        data:
+          topic: "z2m_deconz/ledvance_1/get"
+          payload: ""
+
+  - alias: Lighting · Sync Kitchen Secondary states
+    trigger:
+      platform: state
+      entity_id: light.kitchen_secondary
+    action:
+      - delay: "00:00:03"
+      - service: mqtt.publish
+        data:
+          topic: "z2m_deconz/hue_ambiance_1/get"
+          payload: ""
+      - service: mqtt.publish
+        data:
+          topic: "z2m_deconz/hue_ambiance_2/get"
+          payload: ""
+      - service: mqtt.publish
+        data:
+          topic: "z2m_deconz/hue_ambiance_3/get"
+          payload: ""
+      - service: mqtt.publish
+        data:
+          topic: "z2m_deconz/hue_ambiance_4/get"
+          payload: ""
+
+  - alias: Lighting · Sync Hallway Main states
+    trigger:
+      platform: state
+      entity_id: light.hallway_main
+    action:
+      - delay: "00:00:03"
+      - service: mqtt.publish
+        data:
+          topic: "z2m_deconz/hue_white_3/get"
+          payload: ""
+      - service: mqtt.publish
+        data:
+          topic: "z2m_deconz/hue_1/get"
+          payload: ""
+
+  - alias: Lighting · Sync Hallway Entrance states
+    trigger:
+      platform: state
+      entity_id: light.hallway_main
+    action:
+      - delay: "00:00:03"
+      - service: mqtt.publish
+        data:
+          topic: "z2m_deconz/hue_white_1/get"
+          payload: ""
+      - service: mqtt.publish
+        data:
+          topic: "z2m_deconz/hue_white_2/get"
+          payload: ""
+
 
 homeassistant:
   customize:
