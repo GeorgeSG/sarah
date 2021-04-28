@@ -3,9 +3,7 @@ version: "3.4"
 services:
   zigbee2mqtt_deconz:
     container_name: zigbee2mqtt_deconz
-    build:
-      context: .
-      network: host
+    image: koenkk/zigbee2mqtt:latest
     volumes:
       - ./data:/app/data
       - /run/udev:/run/udev:ro
