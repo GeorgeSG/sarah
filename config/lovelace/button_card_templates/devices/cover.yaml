@@ -1,0 +1,6 @@
+cover:
+  template: default
+  icon: >
+    [[[
+      return entity.state === "open" ? "mdi:window-shutter-open" : "mdi:window-shutter";
+    ]]]

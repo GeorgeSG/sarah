@@ -225,7 +225,7 @@
                   - type: horizontal-stack
                     cards:
                       - type: custom:button-card
-                        template: default
+                        template: [default, cover]
                         entity: cover.living_room
                         name: LR Cover
                         tap_action:

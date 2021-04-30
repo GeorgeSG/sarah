@@ -18,7 +18,7 @@ cards:
         columns: 4
         cards:
           - type: custom:button-card
-            template: [small, with_state_background]
+            template: [small, with_state_background, cover]
             entity: cover.living_room
             name: LR Cover
             tap_action:
