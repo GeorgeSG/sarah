@@ -84,7 +84,7 @@ script:
       - condition: and
         conditions:
           - condition: template
-            value_template: "{{ states('sensor.trisensor_temperature')|float > states('input_number.toshiba_trigger_temp')|float }}"
+            value_template: "{{ states('sensor.multisensor_6_temperature')|float > states('input_number.toshiba_trigger_temp')|float }}"
           - condition: numeric_state
             entity_id: sensor.dark_sky_apparent_temperature
             above: 23
@@ -106,7 +106,7 @@ automation:
   - alias: Climate · AC · Turn on if hot
     trigger:
       - platform: template
-        value_template: "{{ states('sensor.trisensor_temperature')|float > states('input_number.toshiba_trigger_temp')|float }}"
+        value_template: "{{ states('sensor.multisensor_6_temperature')|float > states('input_number.toshiba_trigger_temp')|float }}"
       - platform: state
         entity_id:
           - binary_sensor.living_room_right_window
@@ -123,7 +123,7 @@ automation:
 
       # TODO: this below trigger works only for summer :)
       - platform: numeric_state
-        entity_id: sensor.trisensor_temperature
+        entity_id: sensor.multisensor_6_temperature
         below: 20
 
       - platform: state
