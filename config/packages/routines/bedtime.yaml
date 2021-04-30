@@ -35,8 +35,10 @@ script:
         entity_id:
           - media_player.nvidia_shield
           - media_player.living_room_tv
-          - light.ceiling
-          - light.kitchen
+          - light.master_bedroom_main
+          - light.living_room_ceiling
+          - light.kitchen_main
+          - light.kitchen_secondary
           - light.hallway_main
           - light.hallway_entrance
           - switch.titanium

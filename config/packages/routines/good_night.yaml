@@ -25,10 +25,10 @@ script:
           option: "sleep"
       - service: homeassistant.turn_off
         entity_id:
-          - light.all
+          - light.living_room
+          - light.master_bedroom
           - light.kitchen
-          - light.hallway_main
-          - light.hallway_entrance
+          - light.hallway
           - media_player.nvidia_shield
           - media_player.living_room_tv
           - switch.titanium
