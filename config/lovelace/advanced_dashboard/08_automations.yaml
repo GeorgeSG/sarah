@@ -229,3 +229,11 @@ cards:
             - automation.simulation_mode_1400
             - automation.simulation_mode_1700
             - automation.simulation_mode_2200
+
+        - type: entities
+          title: Covers
+          icon: mdi:blinds
+          show_header_toggle: false
+          entities:
+            - automation.cover_living_room_open_at_morning
+            - automation.cover_living_room_close_after_sunset

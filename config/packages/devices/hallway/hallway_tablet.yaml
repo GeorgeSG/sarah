@@ -11,8 +11,8 @@ automation:
   - alias: "Hallway tablet · Set to home after 10 minutes"
     trigger:
       platform: state
-      entity_id: input_select.hallway_dashboard_mode
-      to: "Coming Home"
+      entity_id: binary_sensor.georgi_home
+      to: "on"
       for:
         minutes: 10
     action:

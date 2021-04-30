@@ -226,6 +226,13 @@
                     cards:
                       - type: custom:button-card
                         template: default
+                        entity: cover.living_room
+                        name: LR Cover
+                        tap_action:
+                          action: call-service
+                          service: script.toggle_living_room_cover
+                      - type: custom:button-card
+                        template: default
                         entity: binary_sensor.multisensor_motion
                         name: Living room
                       - type: custom:button-card

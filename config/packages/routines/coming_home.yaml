@@ -20,6 +20,7 @@ script:
       - service: script.bed_led_on
       - service: switch.turn_on
         entity_id: switch.mercury_home_mode
+      - service: script.routine_coming_home_during_daytime
       - service: script.routine_coming_home_after_sunset
       - service: input_select.select_option
         entity_id: input_select.hallway_dashboard_mode
@@ -29,6 +30,23 @@ script:
       - service: script.sonos_join_bedroom
       - service: script.routine_coming_home_welcome_home
       - service: script.turn_on_all_radiators
+
+
+
+
+  routine_coming_home_during_daytime:
+    alias: Routine · Coming home · During daytime
+    sequence:
+      - condition: and
+        conditions:
+          - condition: sun
+            after: sunrise
+          - condition: sun
+            before: sunset
+      - service: cover.set_cover_position
+        entity_id: cover.living_room
+        data:
+          poisition: 80
 
 
   routine_coming_home_after_sunset:

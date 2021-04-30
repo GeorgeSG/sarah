@@ -21,3 +21,10 @@ with_state_background:
           - color: black
         icon:
           - color: black
+    - value: 'open'
+      styles:
+        card:
+          - background-color: var(--primary-color)
+          - color: black
+        icon:
+          - color: black

@@ -19,6 +19,13 @@ cards:
         cards:
           - type: custom:button-card
             template: [small, with_state_background]
+            entity: cover.living_room
+            name: LR Cover
+            tap_action:
+              action: call-service
+              service: script.toggle_living_room_cover
+          - type: custom:button-card
+            template: [small, with_state_background]
             entity: binary_sensor.living_room_right_window
             name: Living room
           - type: custom:button-card

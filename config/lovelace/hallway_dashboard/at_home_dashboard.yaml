@@ -82,7 +82,9 @@ cards:
   # Column 2
   - type: vertical-stack
     cards:
-      - type: horizontal-stack
+      - type: grid
+        columns: 4
+        square: false
         cards:
           - type: custom:button-card
             template: [small, with_state_background]
@@ -106,8 +108,7 @@ cards:
             entity: switch.mercury_home_mode
             name: Mercury Home
 
-      - type: horizontal-stack
-        cards:
+
           - type: custom:button-card
             template: small
             entity: media_player.living_room_tv
@@ -138,14 +139,7 @@ cards:
             variables:
               state_indicator_id: automation.titanium_turn_off_when_idle
 
-          - type: custom:button-card
-            template: [small, with_state_background]
-            entity: binary_sensor.pi_hole_enabled
-            name: Pi-Hole
-            icon: mdi:pi-hole
 
-      - type: horizontal-stack
-        cards:
           - type: custom:button-card
             template: [ac_button, small]
           - type: custom:button-card
@@ -160,8 +154,14 @@ cards:
             template: [radiator_button, small]
             entity: climate.kitchen_radiator_mode
             name: "Kitchen"
-      - type: horizontal-stack
-        cards:
+
+          - type: custom:button-card
+            template: [small, with_state_background]
+            entity: cover.living_room
+            name: LR Cover
+            tap_action:
+              action: call-service
+              service: script.toggle_living_room_cover
           - type: custom:button-card
             template: [small, with_state_background, with_state_indicator]
             entity: fan.philips_airpurifier

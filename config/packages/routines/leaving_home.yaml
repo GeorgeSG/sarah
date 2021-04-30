@@ -23,6 +23,9 @@ script:
         data:
           option: "Coming Home"
 
+      - service: cover.close_cover
+        entity_id: cover.living_room
+
       - service: notify.telegram
         data:
           title: "🏠 *Presence Module · Leaving Home*"

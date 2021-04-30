@@ -151,7 +151,14 @@ cards:
             entity: climate.kitchen_radiator_mode
             name: "Kitchen"
           - type: custom:button-card
-            template: [small, with_state_indicator]
+            template: [small, with_state_background]
+            entity: cover.living_room
+            name: LR Cover
+            tap_action:
+              action: call-service
+              service: script.toggle_living_room_cover
+          - type: custom:button-card
+            template: [small, with_state_background, with_state_indicator]
             entity: fan.philips_airpurifier
             variables:
               state_indicator_id: binary_sensor.purifier_filter_needs_change

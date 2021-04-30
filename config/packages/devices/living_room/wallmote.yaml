@@ -1,11 +1,3 @@
-# "event_type": "zwave.scene_activated",
-# "data": {
-#     "entity_id": "zwave.aeon_labs_zw130_wallmote_quad",
-#     "node_id": 5,
-#     "scene_id": 2,
-#     "scene_data": 1
-# },
-
 automation:
   - alias: Wallmote · Living room · 1 · Tap · Toggle lights
     trigger:
@@ -106,7 +98,7 @@ automation:
     action:
       - service: script.toshiba_ac_toggle_cool
 
-  - alias: Wallmote · Living room · 4 · Hold · Toggle Titanium
+  - alias: Wallmote · Living room · 4 · Hold · Toggle Cover
     trigger:
       platform: event
       event_type: zwave.scene_activated
@@ -116,5 +108,4 @@ automation:
         scene_id: 4
         scene_data: 1
     action:
-      - service: switch.toggle
-        entity_id: switch.titanium
+      - service: script.toggle_living_room_cover
