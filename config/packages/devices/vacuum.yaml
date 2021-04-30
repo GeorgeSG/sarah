@@ -35,3 +35,8 @@ camera:
       4: [52, 152, 219]
       5: [205, 97, 85]
       6: [243, 156, 18]
+
+homeassistant:
+  customize:
+    vacuum.vacuum:
+      icon: bha:roborock
