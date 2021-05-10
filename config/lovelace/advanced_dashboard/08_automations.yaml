@@ -189,7 +189,6 @@ cards:
             - automation.system_telegram_announce_status
             - automation.speech_telegram_action_do_nothing
             - automation.ifttt_call_service
-            - automation.lighting_sync_osram_states_on_start_up
 
         - type: entities
           title: Wallmote
@@ -203,7 +202,7 @@ cards:
             - automation.wallmote_living_room_3_tap_toggle_main_lights
             - automation.wallmote_living_room_3_hold_toggle_ambient_lights
             - automation.wallmote_living_room_4_tap_toggle_ac
-            - automation.wallmote_living_room_4_hold_toggle_titanium
+            - automation.wallmote_living_room_4_hold_toggle_cover
 
         - type: entities
           title: Magic Cube
