@@ -17,17 +17,3 @@ services:
       - "1883:1883"
       - "9001:9001"
     restart: always
-
-#  zigbee2mqtt:
-#    container_name: zigbee2mqtt
-#    image: koenkk/zigbee2mqtt:latest-dev
-#    volumes:
-#      - ../../zigbee2mqtt:/app/data
-#      - /run/udev:/run/udev:ro
-#    devices:
-#      - /dev/ttyACM0:/dev/ttyACM0
-#    restart: always
-#    network_mode: host
-#    privileged: true
-#    environment:
-#      - TZ=Europe/Sofia
