@@ -93,6 +93,6 @@ automation:
       event_data:
         action: "call-service"
     action:
-      - service_template: "{{ trigger.event.data.service }}"
+      - service: "{{ trigger.event.data.service }}"
         data_template:
           entity_id: "{{ trigger.event.data.entity_id }}"

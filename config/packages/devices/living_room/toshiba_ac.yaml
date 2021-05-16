@@ -45,7 +45,7 @@ input_number:
 script:
   toshiba_ac_toggle_cool:
     sequence:
-      - service_template: >-
+      - service: >-
           {% if is_state('climate.toshiba_ac', 'off') %}
             script.toshiba_ac_on_cool
           {% else %}

@@ -76,11 +76,11 @@
 #     action:
 #       - delay: 00:00:03
 
-#       - service_template: "input_boolean.turn_{{ states('light.kitchen_main') }}"
+#       - service: "input_boolean.turn_{{ states('light.kitchen_main') }}"
 #         entity_id: input_boolean.tuya_kitchen_main_lights_state
 
-#       - service_template: "input_boolean.turn_{{ states('light.kitchen_secondary') }}"
+#       - service: "input_boolean.turn_{{ states('light.kitchen_secondary') }}"
 #         entity_id: input_boolean.tuya_kitchen_secondary_lights_state
 
-#       - service_template: "input_boolean.turn_{{ states('light.hallway_main') }}"
+#       - service: "input_boolean.turn_{{ states('light.hallway_main') }}"
 #         entity_id: input_boolean.tuya_hallway_main_lights_state

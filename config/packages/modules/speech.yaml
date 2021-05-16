@@ -52,7 +52,7 @@ script:
     alias: Speech · Say discretely
     sequence:
       # Figure out whether to talk or send a text.
-      - service_template: >
+      - service: >
           {% if (is_state('media_player.master_bedroom', 'playing')
               and is_state('binary_sensor.sonos_recoverable', 'off'))
               or is_state('input_boolean.speech_notifications', 'off')
