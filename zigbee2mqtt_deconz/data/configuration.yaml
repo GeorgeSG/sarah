@@ -172,7 +172,8 @@ devices:
   '0x00178801090c4797':
     friendly_name: hue_ambiance_4
     transition: 0.2
-
+  '0x086bd7fffe075b7d':
+    friendly_name: '0x086bd7fffe075b7d'
 groups:
   '1':
     friendly_name: light_kitchen_secondary
