@@ -11,6 +11,8 @@
 - type: module
   url: /hacsfiles/config-template-card/config-template-card.js
 - type: module
+  url: /hacsfiles/custom-brand-icons/custom-brand-icons.js
+- type: module
   url: /hacsfiles/decluttering-card/decluttering-card.js
 - type: module
   url: /hacsfiles/lovelace-gui-sandbox/gui-sandbox.js
