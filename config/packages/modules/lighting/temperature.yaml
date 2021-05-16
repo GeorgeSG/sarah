@@ -4,10 +4,15 @@ automation:
     trigger:
       platform: state
       entity_id:
+        - light.kitchen_main
         - light.kitchen_secondary
         - light.master_bedroom_main
         - light.living_room_main
       to: "on"
+    condition:
+      - condition: state
+        entity_id: input_select.house_mode
+        state: 'day'
     action:
       - service: light.turn_on
         data_template:
