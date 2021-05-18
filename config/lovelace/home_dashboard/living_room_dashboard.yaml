@@ -67,6 +67,20 @@
             title: Devices
             cards:
               - type: custom:button-card
+                template: [default, cover]
+                entity: cover.living_room
+                name: Cover
+                tap_action:
+                  action: call-service
+                  service: script.toggle_living_room_cover
+              - type: custom:button-card
+                template: radiator_button
+                entity: climate.living_room_radiator_mode
+              - type: custom:button-card
+                template: ac_button
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
                 template: default
                 entity: media_player.living_room_tv
                 name: TV
@@ -99,13 +113,6 @@
                 entity: binary_sensor.pi_hole_enabled
                 name: Pi-Hole
                 icon: mdi:pi-hole
-          - type: horizontal-stack
-            cards:
-              - type: custom:button-card
-                template: radiator_button
-                entity: climate.living_room_radiator_mode
-              - type: custom:button-card
-                template: ac_button
               - type: custom:button-card
                 template: [regular, progress]
                 entity: sensor.desk_outlet_power
@@ -136,13 +143,6 @@
         cards:
           - type: horizontal-stack
             cards:
-              - type: custom:button-card
-                template: [default, cover]
-                entity: cover.living_room
-                name: Cover
-                tap_action:
-                  action: call-service
-                  service: script.toggle_living_room_cover
               - type: custom:button-card
                 template: default
                 entity: binary_sensor.living_room_right_window

@@ -89,3 +89,38 @@ scene:
         state: "on"
         color_temp: 500
         brightness: 255
+
+automation:
+  - alias: Lighting · Bedroom · Door open
+    trigger:
+      platform: state
+      entity_id: binary_sensor.bedroom_door
+      to: "on"
+    condition:
+      condition: sun
+      after: sunset
+      after_offset: "-02:00:00"
+    action:
+      - service: light.turn_on
+        entity_id: light.master_bedroom_main
+
+  - alias: Lighting · Bedroom · Temperature · Adjust on start
+    use_blueprint:
+      path: light_on_set_temperature.yaml
+      input:
+        light: light.master_bedroom_main
+
+  - alias: Lighting · Bedroom · Temperature · Sunset
+    use_blueprint:
+      path: light_sun_set_temperature.yaml
+      input:
+        light: light.master_bedroom_main
+        temp: 400
+
+  - alias: Lighting · Bedroom · Temperature · Night
+    use_blueprint:
+      path: light_sun_set_temperature.yaml
+      input:
+        light: light.master_bedroom_main
+        temp: 500
+        after_offset: "+03:00:00"

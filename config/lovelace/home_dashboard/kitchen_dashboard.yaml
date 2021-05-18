@@ -55,7 +55,11 @@
                 template: brita_water
               - type: custom:button-card
                 template: default
-                entity: media_player.nvidia_shield
+                entity: vacuum.vacuum
+                name: Vacuum
+              - type: custom:button-card
+                template: default
+                entity: media_player.living_room_tv
                 name: TV
                 icon: mdi:television
                 tap_action:
@@ -76,12 +80,6 @@
                     styles: *on_styles
                   - value: 'idle'
                     styles: *on_styles
-              - type: custom:button-card
-                template: [default, with_state_indicator]
-                entity: switch.titanium
-                variables:
-                  state_indicator_id: automation.titanium_turn_off_when_idle
-
           - type: custom:decluttering-card
             template: media_with_controls
             variables:

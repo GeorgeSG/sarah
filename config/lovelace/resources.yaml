@@ -58,6 +58,9 @@
   url: /hacsfiles/lovelace-xiaomi-vacuum-map-card/xiaomi-vacuum-map-card.js
 - type: module
   url: /hacsfiles/zigbee2mqtt-networkmap/zigbee2mqtt-networkmap.js
+- type: module
+  url: /hacsfiles/home-assistant-sun-card/home-assistant-sun-card.js
+
 
 
 - type: module

@@ -65,11 +65,12 @@ updater:
 logger:
   default: warning
   logs:
-    homeassistant.components.scrape.sensor: fatal
-    homeassistant.components.waze_travel_time.sensor: error
-    homeassistant.components.shell_command: error
     homeassistant.components.amcrest: error
+    homeassistant.components.camera: error
+    homeassistant.components.scrape.sensor: fatal
+    homeassistant.components.shell_command: error
     homeassistant.components.switch.pihole_temp_disable: error
+    homeassistant.components.waze_travel_time.sensor: error
     homeassistant.loader: error
     zigpy.util: error
 

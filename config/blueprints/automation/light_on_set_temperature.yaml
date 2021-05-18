@@ -1,0 +1,58 @@
+blueprint:
+  name: Light on set temperature
+  domain: automation
+  input:
+    light:
+    day_temp:
+      default: 300
+    evening_temp:
+      default: 400
+    night_temp:
+      default: 500
+
+trigger:
+  platform: state
+  entity_id: !input light
+  to: "on"
+
+condition:
+  condition: state
+  entity_id: input_select.house_mode
+  state: "day"
+
+action:
+  - choose:
+    - conditions:
+      - condition: sun
+        before: sunset
+      sequence:
+        - service: light.turn_on
+          entity_id: !input light
+          data:
+            color_temp: !input day_temp
+
+    - conditions:
+        condition: and
+        conditions:
+          - condition: sun
+            after: sunset
+          - condition: not
+            conditions:
+              - condition: sun
+                after: sunset
+                after_offset: "+03:00:00"
+      sequence:
+        - service: light.turn_on
+          entity_id: !input light
+          data:
+            color_temp: !input evening_temp
+
+    - conditions:
+      - condition: sun
+        after: sunset
+        after_offset: "+03:00:00"
+      sequence:
+        - service: light.turn_on
+          entity_id: !input light
+          data:
+            color_temp: !input night_temp

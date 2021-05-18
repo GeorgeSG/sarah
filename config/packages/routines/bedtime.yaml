@@ -2,16 +2,21 @@ script:
   routine_bedtime:
     alias: Routine · Bedtime
     sequence:
+      - service: script.say_discretely
+        data:
+          message: "Entering bed time."
+
       # Set master bedroom state
       - service: fan.turn_on
         entity_id: fan.philips_airpurifier
-      - service: light.turn_on
-        entity_id: light.bedside
-      - service: script.bed_led_on
       - service: input_select.select_option
         entity_id: input_select.purifier_preset_mode
         data:
           option: "sleep"
+
+      - service: light.turn_on
+        entity_id: light.bedside
+      - service: script.bed_led_on
 
       - service: light.turn_off
         entity_id: light.master_bedroom_main
@@ -41,5 +46,6 @@ script:
           - light.kitchen_secondary
           - light.hallway_main
           - light.hallway_entrance
+          - light.browser_kitchen
+          - light.browser_hallway
           - switch.titanium
-      - service: script.dashboards_light_down

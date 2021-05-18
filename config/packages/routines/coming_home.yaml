@@ -8,9 +8,16 @@ script:
   routine_coming_home:
     alias: Routine · Coming home
     sequence:
+      - service: input_select.select_option
+        entity_id: input_select.hallway_dashboard_mode
+        data:
+          option: "Coming Home"
+
+      # Lights
       - service: light.turn_on
         entity_id:
           - light.hallway_entrance
+          - light.hallway_main
           - light.browser_kitchen
           - light.browser_hallway
           - light.living_room_ambient
@@ -18,21 +25,18 @@ script:
         data:
           brightness_pct: 100
       - service: script.bed_led_on
+
+      # Cameras
       - service: switch.turn_on
         entity_id: switch.mercury_home_mode
+
       - service: script.routine_coming_home_during_daytime
       - service: script.routine_coming_home_after_sunset
-      - service: input_select.select_option
-        entity_id: input_select.hallway_dashboard_mode
-        data:
-          option: "Coming Home"
+
       - service: script.toshiba_ac_on_cool_if_hot
       - service: script.sonos_join_bedroom
       - service: script.routine_coming_home_welcome_home
       - service: script.turn_on_all_radiators
-
-
-
 
   routine_coming_home_during_daytime:
     alias: Routine · Coming home · During daytime
@@ -59,6 +63,10 @@ script:
             after_offset: "-01:00:00"
           - condition: sun
             before: sunrise
+      - service: notify.telegram
+        data:
+          title: "🏠 *Presence Module · Coming Home*"
+          message: "You're coming home after sunset! (this is for debug ;))"
       - service: light.turn_on
         entity_id: light.on_after_dark
         data:
@@ -129,3 +137,4 @@ automation:
               ] | random
             }}
       - service: script.turn_on_all_radiators
+      - service: script.toshiba_ac_on_cool_if_hot

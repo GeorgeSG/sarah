@@ -10,27 +10,30 @@ script:
         data:
           message: "Entering night mode. Good night!"
 
+      # Prepare Bed LED brightness to be turned on during night time
       - service: script.bed_led_on
         data:
           brightness_pct: 40
-      - service: light.turn_on
-        entity_id: light.bed_led
-        data:
-          brightness_pct: 40
+
       - service: fan.turn_on
         entity_id: fan.philips_airpurifier
       - service: input_select.select_option
         entity_id: input_select.purifier_preset_mode
         data:
           option: "sleep"
+
+      # Turn off everything else
       - service: homeassistant.turn_off
         entity_id:
           - light.living_room
           - light.master_bedroom
-          - light.kitchen
-          - light.hallway
+          - light.kitchen_main
+          - light.kitchen_secondary
+          - light.hallway_main
+          - light.hallway_entrance
+          - light.browser_kitchen
+          - light.browser_hallway
           - media_player.nvidia_shield
           - media_player.living_room_tv
           - switch.titanium
           - group.all_radiators
-      - service: script.dashboards_light_down

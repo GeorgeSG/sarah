@@ -10,7 +10,7 @@ automation:
       state: "on"
     action:
       - choose:
-        # Day Mode
+        # Turn on in Day Mode
         - conditions:
             - condition: state
               entity_id: input_select.house_mode
@@ -32,7 +32,7 @@ automation:
               entity_id: light.kitchen
               data:
                 brightness_pct: 100
-        # Night Mode
+        # Turn on in Night Mode
         default:
           - service: light.turn_on
             entity_id:
@@ -42,40 +42,93 @@ automation:
             data:
               brightness_pct: 1
 
-  - alias: Lighting · Kitchen · Motion off
+  - alias: Lighting · Kitchen · Night · Motion off
     trigger:
       platform: state
       entity_id: binary_sensor.kitchen_motion_occupancy
       to: "off"
       for:
-        minutes: 30
+        minutes: 5
+    condition:
+      condition: not
+      conditions:
+        - condition: state
+          entity_id: input_select.house_mode
+          state: 'day'
     action:
-      - choose:
-        # Day Mode
-        - conditions:
-            - condition: state
-              entity_id: input_select.house_mode
-              state: 'day'
-          sequence:
-            - service: light.turn_off
-              entity_id: light.kitchen
-            - service: light.turn_on
-              entity_id: light.browser_kitchen
-              data:
-                brightness_pct: 1
-        # Night Mode
-        default:
-          - service: light.turn_on
-            entity_id:
-              - light.ledvance_1
-              - light.hue_ambiance_1
-            data:
-              brightness_pct: 100
-          - service: light.turn_off
-            entity_id:
-              - light.ledvance_1
-              - light.hue_ambiance_1
-          - service: light.turn_on
-            entity_id: light.browser_kitchen
-            data:
-              brightness_pct: 1
+      # Turn off in Night Mode
+      - service: light.turn_on
+        entity_id:
+          - light.ledvance_1
+          - light.hue_ambiance_1
+        data:
+          brightness_pct: 100
+      - service: light.turn_off
+        entity_id:
+          - light.ledvance_1
+          - light.hue_ambiance_1
+      - service: light.turn_on
+        entity_id: light.browser_kitchen
+        data:
+          brightness_pct: 1
+
+  - alias: Lighting · Kitchen · Day · Motion off
+    trigger:
+      platform: state
+      entity_id: binary_sensor.kitchen_motion_occupancy
+      to: "off"
+      for:
+        minutes: 15
+    condition:
+      condition: state
+      entity_id: input_select.house_mode
+      state: 'day'
+    action:
+      # Turn off in Day Mode
+      - service: light.turn_off
+        entity_id: light.kitchen
+      - service: light.turn_on
+        entity_id: light.browser_kitchen
+        data:
+          brightness_pct: 1
+
+  - alias: Lighting · Kitchen · Temperature · Main · Adjust on start
+    use_blueprint:
+      path: light_on_set_temperature.yaml
+      input:
+        light: light.kitchen_main
+
+  - alias: Lighting · Kitchen · Temperature · Secondary · Adjust on start
+    use_blueprint:
+      path: light_on_set_temperature.yaml
+      input:
+        light: light.kitchen_secondary
+
+  - alias: Lighting · Kitchen · Temperature · Main · Sunset
+    use_blueprint:
+      path: light_sun_set_temperature.yaml
+      input:
+        light: light.kitchen_main
+        temp: 400
+
+  - alias: Lighting · Kitchen · Temperature · Secondary · Sunset
+    use_blueprint:
+      path: light_sun_set_temperature.yaml
+      input:
+        light: light.kitchen_secondary
+        temp: 400
+
+  - alias: Lighting · Kitchen · Temperature · Main · Night
+    use_blueprint:
+      path: light_sun_set_temperature.yaml
+      input:
+        light: light.kitchen_main
+        temp: 500
+        after_offset: "+03:00:00"
+
+  - alias: Lighting · Kitchen · Temperature · Secondary · Night
+    use_blueprint:
+      path: light_sun_set_temperature.yaml
+      input:
+        light: light.kitchen_secondary
+        temp: 500

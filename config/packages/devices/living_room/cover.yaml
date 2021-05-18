@@ -34,7 +34,6 @@ automation:
     trigger:
       platform: sun
       event: sunset
-      offset: "+01:00:00"
     action:
       - service: cover.close_cover
         entity_id: cover.living_room
