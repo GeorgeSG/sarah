@@ -14,4 +14,4 @@ script:
       - service: media_player.select_source
         entity_id: media_player.master_bedroom
         data_template:
-          source: "{{ playlist | default('Evening Chill') }}"
+          source: "{{ playlist | default('Wake Up and Smell the Coffee') }}"
