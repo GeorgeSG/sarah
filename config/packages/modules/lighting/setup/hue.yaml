@@ -36,7 +36,7 @@ light:
     brightness_scale: 254
 
   - platform: "mqtt"
-    name: "hue_white_4"
+    name: "pc"
     state_topic: "z2m_deconz/hue_white_4"
     availability_topic: "z2m_deconz/bridge/state"
     brightness: true
@@ -286,14 +286,14 @@ sensor:
     value_template: "{{ value_json['update']['state'] }}"
 
   - platform: "mqtt"
-    name: "hue_white_4_lqi"
+    name: "pc_lqi"
     state_topic: "z2m_deconz/hue_white_4"
     availability_topic: "z2m_deconz/bridge/state"
     value_template: "{{ value_json.linkquality }}"
     unit_of_measurement: "lqi"
     icon: "mdi:signal"
   - platform: "mqtt"
-    name: "hue_white_4_update_state"
+    name: "pc_update_state"
     state_topic: "z2m_deconz/hue_white_4"
     availability_topic: "z2m_deconz/bridge/state"
     icon: "mdi:update"
@@ -428,7 +428,7 @@ sensor:
 
 binary_sensor:
   - platform: "mqtt"
-    name: "hue_white_1_update_available"
+    name: "pc_update_available"
     state_topic: "z2m_deconz/hue_white_1"
     availability_topic: "z2m_deconz/bridge/state"
     payload_on: true

@@ -72,11 +72,11 @@ cards:
                     - fade: switch.light_le_4_fade
                     - wifi: sensor.light_le_4_wifi
             - type: custom:decluttering-card
-              template: light_with_fade_and_switch
+              template: light_with_update_and_lqi
               variables:
                 - light: light.pc
-                - fade: switch.pc_fade
-                - wifi: sensor.pc_wifi
+                - lqi: sensor.pc_lqi
+                - update: binary_sensor.pc_update_available
             - light.living_room_ambient
             - light.living_room_ambient_main
             - type: custom:fold-entity-row
