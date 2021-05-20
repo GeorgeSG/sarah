@@ -4,7 +4,7 @@ blueprint:
   input:
     light:
     day_temp:
-      default: 300
+      default: 350
     evening_temp:
       default: 400
     night_temp:
@@ -51,6 +51,8 @@ action:
       - condition: sun
         after: sunset
         after_offset: "+03:00:00"
+      - condition: sun
+        before: sunrise
       sequence:
         - service: light.turn_on
           entity_id: !input light
