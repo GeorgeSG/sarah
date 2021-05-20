@@ -31,9 +31,14 @@ script:
           - light.kitchen_secondary
           - light.hallway_main
           - light.hallway_entrance
-          - light.browser_kitchen
-          - light.browser_hallway
           - media_player.nvidia_shield
           - media_player.living_room_tv
           - switch.titanium
           - group.all_radiators
+
+      - service: light.turn_on
+        entity_id:
+          - light.browser_kitchen
+          - light.browser_hallway
+        data:
+          brightness_pct: 1

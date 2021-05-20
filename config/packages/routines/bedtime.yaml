@@ -46,6 +46,10 @@ script:
           - light.kitchen_secondary
           - light.hallway_main
           - light.hallway_entrance
+          - switch.titanium
+      - service: light.turn_on
+        entity_id:
           - light.browser_kitchen
           - light.browser_hallway
-          - switch.titanium
+        data:
+          brightness_pct: 1

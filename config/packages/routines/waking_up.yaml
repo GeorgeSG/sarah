@@ -26,6 +26,11 @@ script:
           - light.bed_led
           - light.bedside
 
+      - service: cover.set_cover_position
+        entity_id: cover.living_room
+        data:
+          position: 80
+
       - condition: state
         entity_id: input_boolean.guest_mode
         state: "off"
