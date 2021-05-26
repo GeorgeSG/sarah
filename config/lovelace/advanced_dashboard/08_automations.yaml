@@ -212,7 +212,7 @@ cards:
           icon: mdi:light-switch
           entities:
             - automation.wallmote_living_room_1_tap_toggle_lights
-            - automation.wallmote_living_room_1_hold_dim_lights
+            - automation.wallmote_living_room_1_toggle_pc_light
             - automation.wallmote_living_room_2_tap_toggle_music
             - automation.wallmote_living_room_2_hold_play_music
             - automation.wallmote_living_room_3_tap_toggle_main_lights

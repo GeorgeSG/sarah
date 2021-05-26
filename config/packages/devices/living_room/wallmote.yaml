@@ -12,7 +12,7 @@ automation:
       - service: light.toggle
         entity_id: light.living_room
 
-  - alias: Wallmote · Living room · 1 · Hold · Dim lights
+  - alias: Wallmote · Living room · 1 · Toggle · PC Light
     trigger:
       platform: event
       event_type: zwave.scene_activated
@@ -22,16 +22,8 @@ automation:
         scene_id: 1
         scene_data: 1
     action:
-      - service: light.turn_on
-        entity_id: light.living_room
-        data_template:
-          brightness: >
-
-              {% if state_attr('light.living_room_main', 'brightness') < 255 %}
-                255
-              {% else %}
-                120
-              {% endif %}
+      - service: light.toggle
+        entity_id: light.pc
 
   - alias: Wallmote · Living room · 2 · Tap · Toggle Music
     trigger:
