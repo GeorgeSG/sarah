@@ -157,9 +157,9 @@
             title: Camera
             cards:
               - type: picture-glance
-                camera_image: camera.mercury_bedroom
-                entities: []
-
+                camera_image: camera.bedroom_hd
+                entities:
+                  - switch.tapo_bedroom
 
       - type: vertical-stack
         title: Sensors

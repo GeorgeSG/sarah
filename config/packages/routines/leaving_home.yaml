@@ -4,6 +4,8 @@ script:
     sequence:
       - service: switch.turn_off
         entity_id: switch.mercury_home_mode
+      - service: switch.turn_on
+        entity_id: switch.tapo_bedroom
 
       - service: homeassistant.turn_off
         entity_id:

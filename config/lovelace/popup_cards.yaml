@@ -480,3 +480,11 @@ vacuum.vacuum:
         entity: vacuum.vacuum
         camera_calibration: true
         map_camera: camera.xiaomi_cloud_map_extractor
+
+switch.tapo_bedroom:
+  title: "Bedroom Camera"
+  card:
+    type: picture-glance
+    camera_image: camera.bedroom_hd
+    entities:
+      - switch.tapo_bedroom

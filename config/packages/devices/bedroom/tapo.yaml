@@ -1,0 +1,51 @@
+switch:
+  - platform: template
+    switches:
+      tapo_bedroom:
+        friendly_name: "Bedroom Camera"
+        value_template: "{{ state_attr('camera.bedroom_hd', 'privacy_mode') == 'off' }}"
+        turn_on:
+          service: script.tapo_bedroom_on
+        turn_off:
+          service: script.tapo_bedroom_off
+        icon_template: >
+          {%if state_attr('camera.bedroom_hd', 'privacy_mode') %}
+            mdi:video
+          {% else %}
+            mdi:video-off
+          {% endif %}
+
+script:
+  tapo_bedroom_toggle:
+    sequence:
+      - choose:
+        - conditions:
+          - condition: template
+            value_template: "{{ state_attr('camera.bedroom_hd', 'privacy_mode') == 'off' }}"
+          sequence:
+            - service: script.tapo_bedroom_off
+
+        default:
+          - service: script.tapo_bedroom_on
+
+  tapo_bedroom_on:
+    sequence:
+      - service: tapo_control.set_privacy_mode
+        entity_id: camera.bedroom_hd
+        data:
+          privacy_mode: "off"
+      - service: tapo_control.ptz
+        entity_id: camera.bedroom_hd
+        data:
+          preset: "live"
+
+  tapo_bedroom_off:
+    sequence:
+      - service: tapo_control.ptz
+        entity_id: camera.bedroom_hd
+        data:
+          preset: "off"
+      - service: tapo_control.set_privacy_mode
+        entity_id: camera.bedroom_hd
+        data:
+          privacy_mode: "on"

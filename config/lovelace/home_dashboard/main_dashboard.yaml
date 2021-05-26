@@ -157,7 +157,7 @@
                     name: Living Room
                   - type: custom:button-card
                     template: default
-                    entity: camera.mercury_bedroom
+                    entity: switch.tapo_bedroom
                     name: Bedroom
                   - type: custom:button-card
                     template: [default, with_state_indicator]

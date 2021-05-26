@@ -29,6 +29,8 @@ script:
       # Cameras
       - service: switch.turn_on
         entity_id: switch.mercury_home_mode
+      - service: switch.turn_off
+        entity_id: switch.tapo_bedroom
 
       - service: script.routine_coming_home_during_daytime
       - service: script.routine_coming_home_after_sunset
