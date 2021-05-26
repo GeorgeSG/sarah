@@ -31,6 +31,8 @@ script:
         data:
           position: 80
 
+      - service: script.shield_screensaver
+
       - condition: state
         entity_id: input_boolean.guest_mode
         state: "off"

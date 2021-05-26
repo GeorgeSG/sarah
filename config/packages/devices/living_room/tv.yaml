@@ -81,6 +81,15 @@ script:
         data:
           source: Shield
 
+  shield_screensaver:
+    sequence:
+      - service: media_player.turn_on
+        entity_id: media_player.nvidia_shield
+      - service: androidtv.adb_command
+        entity_id: media_player.nvidia_shield
+        data:
+          command: "adb shell am start -n \"com.android.systemui/.Somnambulator\""
+
 automation:
   - alias: TV · Join Beam to Sonos group when off
     trigger:
