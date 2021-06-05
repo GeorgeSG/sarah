@@ -54,6 +54,11 @@ lovelace:
       icon: mdi:tablet-dashboard
       show_in_sidebar: false
       filename: hallway-lovelace.yaml
+    lovelace-kitchen:
+      mode: yaml
+      title: Kitchen Dashboard
+      show_in_sidebar: false
+      filename: kitchen-lovelace.yaml
 
 # https://www.home-assistant.io/components/system_health
 system_health:
