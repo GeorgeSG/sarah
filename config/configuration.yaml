@@ -55,15 +55,11 @@ lovelace:
       show_in_sidebar: false
       filename: hallway-lovelace.yaml
 
-# https://www.home-assistant.io/components/map
-# map:
-
 # https://www.home-assistant.io/components/system_health
 system_health:
 
 # https://www.home-assistant.io/components/updater
 updater:
-  reporting: false
 
 # https://www.home-assistant.io/components/logger
 logger:
@@ -150,29 +146,6 @@ media_extractor:
 
 # https://www.home-assistant.io/integrations/mobile_app
 mobile_app:
-
-# https://www.home-assistant.io/integrations/panel_iframe
-panel_iframe:
-  router:
-    title: "Router"
-    url: !secret router_url
-    require_admin: true
-    icon: mdi:router-network
-  tautulli:
-    title: "Tautulli"
-    url: !secret tautulli_url
-    require_admin: true
-    icon: mdi:plex
-  portainer:
-    title: "Portainer"
-    url: !secret portainer_url
-    require_admin: true
-    icon: mdi:docker
-  tasmo_admin:
-    title: "TasmoAdmin"
-    url: !secret tasmo_admin_url
-    require_admin: true
-    icon: mdi:lightbulb-multiple
 
 # https://www.home-assistant.io/docs/z-wave/installation/
 zwave:
