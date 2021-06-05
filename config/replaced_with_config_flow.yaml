@@ -46,3 +46,13 @@
 #     host: !secret vacuum_host
 #     token: !secret vacuum_token
 #     name: vacuum
+
+# https://www.home-assistant.io/integrations/speedtestdotnet
+# speedtestdotnet:
+#   scan_interval:
+#     minutes: 60
+
+# https://www.home-assistant.io/integrations/pi_hole
+# pi_hoyle:
+#   - host: !secret pihole_host
+#     api_key: !secret pihole_api_key

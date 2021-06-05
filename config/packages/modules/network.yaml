@@ -12,11 +12,6 @@ fastdotcom:
   scan_interval:
     minutes: 90
 
-# https://www.home-assistant.io/integrations/speedtestdotnet
-speedtestdotnet:
-  scan_interval:
-    minutes: 60
-
 # https://www.home-assistant.io/integrations/wake_on_lan
 wake_on_lan:
 
@@ -26,11 +21,6 @@ mqtt:
   client_id: homeassistant
   username: !secret mqtt_username
   password: !secret mqtt_password
-
-# https://www.home-assistant.io/integrations/pi_hole
-pi_hole:
-  - host: !secret pihole_host
-    api_key: !secret pihole_api_key
 
 homekit:
   filter:
