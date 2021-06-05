@@ -55,7 +55,7 @@ script:
       - service: cover.set_cover_position
         entity_id: cover.living_room
         data:
-          poisition: 80
+          position: 80
 
 
   routine_coming_home_after_sunset:
