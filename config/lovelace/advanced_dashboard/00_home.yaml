@@ -20,56 +20,6 @@ cards:
       max_columns: 2
       cards:
         - type: vertical-stack
-          title: Reload
-          cards:
-            - type: horizontal-stack
-              cards:
-                - type: custom:button-card
-                  template: regular
-                  name: Automations
-                  icon: mdi:reload
-                  tap_action:
-                    action: call-service
-                    service: automation.reload
-                - type: custom:button-card
-                  template: regular
-                  name: Scripts
-                  icon: mdi:reload
-                  tap_action:
-                    action: call-service
-                    service: script.reload
-                - type: custom:button-card
-                  template: regular
-                  name: Scenes
-                  icon: mdi:reload
-                  tap_action:
-                    action: call-service
-                    service: scene.reload
-            - type: horizontal-stack
-              cards:
-                - type: custom:button-card
-                  template: regular
-                  name: Groups
-                  icon: mdi:reload
-                  tap_action:
-                    action: call-service
-                    service: group.reload
-                - type: custom:button-card
-                  template: regular
-                  name: Theme
-                  icon: mdi:reload
-                  tap_action:
-                    action: call-service
-                    service: frontend.reload_themes
-                - type: custom:button-card
-                  template: regular
-                  name: Resources
-                  icon: mdi:reload
-                  tap_action:
-                    action: call-service
-                    service: lovelace.reload_resources
-
-        - type: vertical-stack
           title: Github
           cards:
             - type: entities
@@ -97,10 +47,9 @@ cards:
               forecast: true
 
         - type: vertical-stack
+          title: Quarantine
           cards:
             - type: entities
-              title: Quarantine
-              icon: mdi:biohazard
               entities:
                 - type: custom:decluttering-card
                   template: percentage_card

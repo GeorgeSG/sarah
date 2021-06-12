@@ -16,7 +16,9 @@ cards:
             }
     card:
       type: custom:layout-card
-      layout: horizontal
+      layout_type: custom:horizontal-layout
+      layout:
+        max_cols: 3
       cards:
         - type: vertical-stack
           cards:
