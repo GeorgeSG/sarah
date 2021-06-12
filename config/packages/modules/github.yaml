@@ -38,3 +38,13 @@ sensor:
       hours: 1
     headers:
       Authorization: !secret github_access_token
+
+  - platform: rest
+    resource: "https://api.github.com/repos/GeorgeSG/ha-slack-user"
+    name: Slack User stars
+    value_template: '{{ value_json.stargazers_count }}'
+    unit_of_measurement: 'stars'
+    scan_interval:
+      hours: 1
+    headers:
+      Authorization: !secret github_access_token
