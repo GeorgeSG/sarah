@@ -52,11 +52,7 @@ script:
             after: sunrise
           - condition: sun
             before: sunset
-      - service: cover.set_cover_position
-        entity_id: cover.living_room
-        data:
-          position: 80
-
+      - service: script.open_living_room_cover
 
   routine_coming_home_after_sunset:
     alias: Routine · Coming home · After sunset

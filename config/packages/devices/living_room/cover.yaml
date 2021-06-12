@@ -1,14 +1,18 @@
 script:
+  open_living_room_cover:
+    sequence:
+      - service: cover.set_cover_position
+        entity_id: cover.living_room
+        data:
+          position: "{{ position | default(80) }}"
+
   toggle_living_room_cover:
     sequence:
       - choose:
         - conditions: >
             {{ state_attr('cover.living_room', 'current_position') == 0 }}
           sequence:
-            - service: cover.set_cover_position
-              entity_id: cover.living_room
-              data:
-                position: 80
+            - service: script.open_living_room_cover
         - conditions: >
            {{ state_attr('cover.living_room', 'current_position') >= 80 }}
           sequence:
@@ -25,10 +29,7 @@ automation:
       platform: time
       at: "10:00:00"
     action:
-      - service: cover.set_cover_position
-        entity_id: cover.living_room
-        data:
-          position: 80
+      - service: script.open_living_room_cover
 
   - alias: Cover · Living Room · Close after sunset
     trigger:

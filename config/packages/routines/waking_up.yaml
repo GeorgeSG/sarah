@@ -26,11 +26,7 @@ script:
           - light.bed_led
           - light.bedside
 
-      - service: cover.set_cover_position
-        entity_id: cover.living_room
-        data:
-          position: 80
-
+      - service: script.open_living_room_cover
       - service: script.shield_screensaver
 
       - condition: state
