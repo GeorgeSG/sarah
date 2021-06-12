@@ -133,23 +133,3 @@ automation:
         data_template:
           message_id: "{{ trigger.event.data.message.message_id}}"
           chat_id: "{{ trigger.event.data.chat_id }}"
-
-  - alias: Speech · Disable when meeting starts
-    trigger:
-      platform: state
-      entity_id: binary_sensor.in_a_meeting
-      from: "off"
-      to: "on"
-    action:
-      - service: input_boolean.turn_off
-        entity_id: input_boolean.speech_notifications
-
-  - alias: Speech · Enable when meeting is over
-    trigger:
-      platform: state
-      entity_id: binary_sensor.in_a_meeting
-      from: "on"
-      to: "off"
-    action:
-      - service: input_boolean.turn_on
-        entity_id: input_boolean.speech_notifications
