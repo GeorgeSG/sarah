@@ -10,7 +10,7 @@ hacs:
   netdaemon: true
 
 logger:
-  default: info
+  default: warning
   logs:
     hacs: debug
 
