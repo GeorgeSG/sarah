@@ -30,8 +30,8 @@ automation:
     trigger:
       platform: state
       entity_id: binary_sensor.in_a_meeting
-      from: "off"
-      to: "on"
+      from: "on"
+      to: "off"
     action:
       - service: script.open_living_room_cover
       - service: input_boolean.turn_on
