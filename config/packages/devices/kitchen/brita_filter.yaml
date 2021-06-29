@@ -38,7 +38,7 @@ script:
       - service: input_number.set_value
         entity_id: input_number.brita_remaining_liters
         data_template:
-          value: "{{ states('input_number.brita_remaining_liters') | float - 1.5 }}"
+          value: "{{ states('input_number.brita_remaining_liters') | float - 1 }}"
 
   brita_new_filter:
     alias: Brita · New filter
@@ -51,4 +51,4 @@ script:
       - service: input_datetime.set_datetime
         entity_id: input_datetime.brita_next_change
         data_template:
-          date: "{{ (as_timestamp(now()) + 3600*24*90) | timestamp_custom('%Y-%m-%d') }}"
+          date: "{{ (as_timestamp(now()) + 3600*24*60) | timestamp_custom('%Y-%m-%d') }}"
