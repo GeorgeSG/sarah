@@ -22,9 +22,13 @@ automation:
                 brightness_pct: 100
             - condition: or
               conditions:
-                - condition: sun
-                  after: sunset
-                  after_offset: "-01:00:00"
+                - condition: or
+                  conditions:
+                    - condition: sun
+                      after: sunset
+                      after_offset: "-01:00:00"
+                    - condition: sun
+                      before: sunrise
                 - condition: numeric_state
                   entity_id: sensor.dark_sky_cloud_coverage
                   above: 80
