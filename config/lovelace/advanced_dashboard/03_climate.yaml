@@ -30,6 +30,8 @@ cards:
             - climate.kitchen_radiator_mode
             - script.turn_on_all_radiators
             - type: divider
+            - input_boolean.ac_heating
+            - input_number.toshiba_heat_temp
             - input_number.toshiba_cool_temp
             - input_number.toshiba_trigger_temp
         - type: custom:decluttering-card

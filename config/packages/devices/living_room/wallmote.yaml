@@ -88,7 +88,7 @@ automation:
         scene_id: 4
         scene_data: 0
     action:
-      - service: script.toshiba_ac_toggle_cool
+      - service: script.toshiba_ac_toggle
 
   - alias: Wallmote · Living room · 4 · Hold · Toggle Cover
     trigger:

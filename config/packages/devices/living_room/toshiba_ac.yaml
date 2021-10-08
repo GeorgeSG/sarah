@@ -1,3 +1,8 @@
+input_boolean:
+  ac_heating:
+    name: AC Heating enabled
+    icon: mdi:air-conditioner
+
 # https://github.com/hristo-atanasov/Tasmota-IRHVAC/
 climate:
   - platform: tasmota_irhvac
@@ -9,7 +14,7 @@ climate:
     max_temp: 30  # optional - default 32 int value
     min_temp: 17
     target_temp: 22  # optional - default 26 int value
-    away_temp: 18  # ptional - default 24 int value
+    away_temp: 18  # optional - default 24 int value
     supported_modes:
       - "heat"
       - "cool"
@@ -27,6 +32,13 @@ climate:
       - "off"
 
 input_number:
+  toshiba_heat_temp:
+    name: AC heat temp
+    unit_of_measurement: "ºC"
+    min: 24
+    max: 30
+    step: 1
+    icon: mdi:air-conditioner
   toshiba_cool_temp:
     name: AC cool temp
     unit_of_measurement: "ºC"
@@ -43,11 +55,13 @@ input_number:
     icon: mdi:air-conditioner
 
 script:
-  toshiba_ac_toggle_cool:
+  toshiba_ac_toggle:
     sequence:
       - service: >-
-          {% if is_state('climate.toshiba_ac', 'off') %}
+          {% if is_state('climate.toshiba_ac', 'off') and is_state('input_boolean.ac_heating', 'off') %}
             script.toshiba_ac_on_cool
+          {% elif is_state('climate.toshiba_ac', 'off') and is_state('input_boolean.ac_heating', 'on') %}
+            script.toshiba_ac_on_heat
           {% else %}
             climate.turn_off
           {% endif %}
@@ -76,7 +90,32 @@ script:
       - service: logbook.log
         data:
           name: "💨 Climate Module · "
-          message: "AC · Switching on"
+          message: "AC · Switching on · Cool"
+          domain: climate
+
+  toshiba_ac_on_heat:
+    sequence:
+      - service: climate.turn_on
+        entity_id: climate.toshiba_ac
+      - delay: "00:00:01"
+      - service: climate.set_hvac_mode
+        entity_id: climate.toshiba_ac
+        data:
+          hvac_mode: "heat"
+      - delay: "00:00:01"
+      - service: climate.set_fan_mode
+        entity_id: climate.toshiba_ac
+        data:
+          fan_mode: "auto"
+      - delay: "00:00:01"
+      - service: climate.set_temperature
+        entity_id: climate.toshiba_ac
+        data_template:
+          temperature: "{{ states('input_number.toshiba_heat_temp') | default(26) }}"
+      - service: logbook.log
+        data:
+          name: "💨 Climate Module · "
+          message: "AC · Switching on · Heat"
           domain: climate
 
   toshiba_ac_on_cool_if_hot:

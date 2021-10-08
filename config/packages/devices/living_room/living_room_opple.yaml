@@ -94,7 +94,7 @@ automation:
               temperature: "{{ state_attr('climate.toshiba_ac', 'temperature') | int -1}}"
 
         button_6_single:
-          - service: script.toshiba_ac_on_cool
+          - service: script.toshiba_ac_toggle
 
         button_6_double:
           - service: climate.set_temperature

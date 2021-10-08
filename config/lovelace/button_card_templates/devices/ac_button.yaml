@@ -13,4 +13,4 @@ ac_button:
           - color: black
   tap_action:
     action: call-service
-    service: script.toshiba_ac_toggle_cool
+    service: script.toshiba_ac_toggle
