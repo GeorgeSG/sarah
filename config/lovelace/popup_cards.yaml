@@ -191,11 +191,18 @@ light.living_room_main:
           name: Toggle
 
 sensor.bedroom_weather_temperature:
-  title: Bedroom temperature
+  title: Bedroom climate
   style: *broad_popup_style
   card:
     type: custom:decluttering-card
-    template: bedroom_temperature_card
+    template: bedroom_climate_card
+
+sensor.multisensor_6_temperature:
+  title: Living room climate
+  style: *broad_popup_style
+  card:
+    type: custom:decluttering-card
+    template: living_room_climate_card
 
 sensor.bedroom_weather_humidity:
   title: Bedroom humidity

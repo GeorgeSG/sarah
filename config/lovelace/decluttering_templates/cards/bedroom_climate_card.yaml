@@ -1,0 +1,30 @@
+bedroom_climate_card:
+  card:
+    type: vertical-stack
+    cards:
+      - type: custom:decluttering-card
+        template: climate_card
+        variables:
+          - title: "Bedroom Climate"
+          - main_entity: sensor.bedroom_weather_temperature
+          - left_entity: sensor.bedroom_weather_humidity
+          - right_entity: sensor.bedroom_weather_pressure
+
+      - type: horizontal-stack
+        cards:
+          - type: "custom:mini-graph-card"
+            name: Air Quality
+            entities:
+              - sensor.purifier_air_quality
+            font_size: 75
+            line_color: "var(--color-blue)"
+            line_width: 6
+            hours_to_show: 72
+          - type: "custom:mini-graph-card"
+            name: Allergens
+            entities:
+              - sensor.purifier_allergens
+            font_size: 75
+            line_color: "var(--color-blue)"
+            line_width: 6
+            hours_to_show: 72

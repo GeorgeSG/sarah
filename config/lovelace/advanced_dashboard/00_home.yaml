@@ -62,12 +62,3 @@ cards:
                     - red: 100
                 - entity: sensor.quarantine_times_left
                   name: Times left
-            - type: "custom:travel-time-card"
-              title: Travel time
-              columns:
-                - name
-                - duration
-                - distance
-              entities:
-                - sensor.home_to_work
-                - sensor.work_to_home

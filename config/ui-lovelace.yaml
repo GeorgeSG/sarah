@@ -34,6 +34,11 @@ views:
     icon: "mdi:door-closed"
     panel: true
     cards: !include lovelace/home_dashboard/hallway_dashboard.yaml
+  - title: Preferences
+    path: preferences
+    icon: "mdi:cogs"
+    panel: true
+    cards: !include lovelace/home_dashboard/preferences_dashboard.yaml
   - title: Cameras
     path: cameras
     icon: "mdi:webcam"

@@ -79,6 +79,10 @@
                 entity: climate.living_room_radiator_mode
               - type: custom:button-card
                 template: ac_button
+              - type: custom:button-card
+                template: default
+                entity: binary_sensor.living_room_right_window
+                name: Window
           - type: horizontal-stack
             cards:
               - type: custom:button-card
@@ -109,11 +113,7 @@
                 entity: switch.titanium
                 variables:
                   state_indicator_id: automation.titanium_turn_off_when_idle
-              - type: custom:button-card
-                template: default
-                entity: binary_sensor.pi_hole_enabled
-                name: Pi-Hole
-                icon: mdi:pi-hole
+
               - type: custom:button-card
                 template: [regular, progress]
                 entity: sensor.desk_outlet_power
@@ -124,41 +124,8 @@
                   normal_value: 100
                   high_value: 300
 
-          - type: vertical-stack
-            cards:
-              - type: custom:decluttering-card
-                template: media_with_controls
-                variables:
-                  - player: media_player.living_room
-                  - player_name: Living room
-          - type: vertical-stack
-            title: Camera
-            cards:
-              - type: picture-glance
-                camera_image: camera.mercury_amcrest_1
-                entities: []
-
-
       - type: vertical-stack
-        title: Sensors
         cards:
-          - type: horizontal-stack
-            cards:
-              - type: custom:button-card
-                template: default
-                entity: binary_sensor.living_room_right_window
-                name: Window
-              - type: custom:button-card
-                template: default
-                entity: binary_sensor.multisensor_motion
-                name: Door
-              - type: custom:button-card
-                template: [default, with_state_indicator]
-                entity: group.hallway_motion
-                name: Hallway
-                variables:
-                  state_indicator_id: automation.lighting_hallway_motion_on
-
           - type: custom:decluttering-card
             template: climate_card
             variables:
@@ -169,7 +136,17 @@
               - right_entity: sensor.multisensor_6_luminance
               - right_name: Luminance (6)
 
-          - type: custom:button-card
-            template: [regular, progress]
-            entity: sensor.living_room_radiator_temperature
-            name: Radiator temperature
+
+      - type: vertical-stack
+        cards:
+          - type: custom:decluttering-card
+            template: media_with_controls
+            variables:
+              - player: media_player.living_room
+              - player_name: Living room
+          - type: vertical-stack
+            title: Camera
+            cards:
+              - type: picture-glance
+                camera_image: camera.mercury_amcrest_1
+                entities: []

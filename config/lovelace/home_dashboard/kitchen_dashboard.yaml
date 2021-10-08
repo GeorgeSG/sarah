@@ -50,37 +50,19 @@
             title: Devices
             cards:
               - type: custom:button-card
+                template: brita_water
+              - type: custom:button-card
                 template: radiator_button
                 entity: climate.kitchen_radiator_mode
-              - type: custom:button-card
-                template: brita_water
               - type: custom:button-card
                 template: default
                 entity: vacuum.vacuum
                 name: Vacuum
               - type: custom:button-card
                 template: default
-                entity: media_player.living_room_tv
-                name: TV
-                icon: mdi:television
-                tap_action:
-                  action: toggle
-                state:
-                  - value: 'playing'
-                    styles: &on_styles
-                      card:
-                        - background-color: var(--primary-color)
-                        - color: black
-                      icon:
-                        - color: black
-                  - value: 'standby'
-                    styles: *on_styles
-                  - value: 'on'
-                    styles: *on_styles
-                  - value: 'home'
-                    styles: *on_styles
-                  - value: 'idle'
-                    styles: *on_styles
+                entity: binary_sensor.kitchen_window
+                name: Window
+
           - type: custom:decluttering-card
             template: media_with_controls
             variables:
@@ -88,35 +70,7 @@
               - player_name: Kitchen
 
       - type: vertical-stack
-        title: Sensors
         cards:
-          - type: horizontal-stack
-            cards:
-              - type: custom:button-card
-                template: default
-                entity: binary_sensor.kitchen_window
-                name: Window
-              - type: custom:button-card
-                template: [default, with_state_indicator]
-                entity: binary_sensor.kitchen_motion_occupancy
-                name: Motion
-                variables:
-                  state_indicator_id: automation.lighting_kitchen_motion_on
-              - type: custom:button-card
-                template: [regular, progress]
-                entity: sensor.kitchen_motion_illuminance
-                name: Lux
-                variables:
-                  min_value: 0
-                  max_value: 1000
-                  normal_value: 1000
-              - type: custom:button-card
-                template: [default, with_state_indicator]
-                entity: group.hallway_motion
-                name: Hallway
-                variables:
-                  state_indicator_id: automation.lighting_hallway_motion_on
-
           - type: custom:decluttering-card
             template: climate_card
             variables:

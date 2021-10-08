@@ -13,7 +13,7 @@
     type: custom:layout-card
     layout_type: custom:horizontal-layout
     layout:
-      max_cols: 2
+      max_cols: 3
     cards:
       - type: vertical-stack
         title: Bedroom
@@ -84,38 +84,6 @@
                   scene_color_1: rgb(255, 92, 38)
                   scene_color_2: rgb(255, 0, 190)
 
-          - type: vertical-stack
-            title: Controls
-            cards:
-              - type: horizontal-stack
-                cards:
-                  - type: custom:button-card
-                    template: [default, with_state_indicator]
-                    entity: input_boolean.alarm_enabled
-                    state_display: >-
-                      [[[
-                        const time = states['input_datetime.alarm_time'].state;
-                        return time.split(':').slice(0, -1).join(':');
-                      ]]]
-                    show_state: true
-                    show_name: false
-                    styles:
-                      icon:
-                        - transform: translateY(-8px)  # adjusted for state indicator size
-                      state:
-                        - transform: translateY(-13px)  # adjusted for state indicator size
-                    variables:
-                      state_indicator_id: automation.alarm_set_time
-                  - type: custom:button-card
-                    template: default
-                    entity: binary_sensor.house_mode
-                    name: House
-                    tap_action:
-                      action: call-service
-                      service: input_select.select_next
-                      service_data:
-                        entity_id: input_select.house_mode
-
           - type: horizontal-stack
             title: Climate
             cards:
@@ -148,23 +116,6 @@
               - type: custom:decluttering-card
                 template: purifier_target_humidity
 
-          - type: custom:decluttering-card
-            template: media_with_controls
-            variables:
-              - player: media_player.master_bedroom
-              - player_name: Bedroom
-
-          - type: vertical-stack
-            title: Camera
-            cards:
-              - type: picture-glance
-                camera_image: camera.bedroom_hd
-                entities:
-                  - switch.tapo_bedroom
-
-      - type: vertical-stack
-        title: Sensors
-        cards:
           - type: horizontal-stack
             cards:
               - type: custom:button-card
@@ -180,6 +131,8 @@
                 entity: binary_sensor.bedroom_right_window
                 name: Right window
 
+      - type: vertical-stack
+        cards:
           - type: custom:decluttering-card
             template: climate_card
             variables:
@@ -188,21 +141,17 @@
               - left_entity: sensor.bedroom_weather_humidity
               - right_entity: sensor.bedroom_weather_pressure
 
-          - type: horizontal-stack
+      - type: vertical-stack
+        cards:
+          - type: custom:decluttering-card
+            template: media_with_controls
+            variables:
+              - player: media_player.master_bedroom
+              - player_name: Bedroom
+          - type: vertical-stack
+            title: Camera
             cards:
-              - type: "custom:mini-graph-card"
-                name: Air Quality
+              - type: picture-glance
+                camera_image: camera.bedroom_hd
                 entities:
-                  - sensor.purifier_air_quality
-                font_size: 75
-                line_color: "var(--color-blue)"
-                line_width: 6
-                hours_to_show: 72
-              - type: "custom:mini-graph-card"
-                name: Allergens
-                entities:
-                  - sensor.purifier_allergens
-                font_size: 75
-                line_color: "var(--color-blue)"
-                line_width: 6
-                hours_to_show: 72
+                  - switch.tapo_bedroom
