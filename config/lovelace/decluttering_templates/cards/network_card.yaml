@@ -9,15 +9,13 @@ network_card:
         title: "[[title]]"
         icon: "[[icon]]"
         entities:
-          - type: custom:dummy-entity-row
-            entity: sensor.fast_com_download
+          - type: custom:template-entity-row
             name: Open network tab
             icon: mdi:server-network
             tap_action:
               action: navigate
               navigation_path: /lovelace-main/network
-          - type: custom:dummy-entity-row
-            entity: sensor.fast_com_download
+          - type: custom:template-entity-row
             name: Open admin UI
             icon: mdi:firefox
             tap_action:

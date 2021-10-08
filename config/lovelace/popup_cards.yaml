@@ -350,7 +350,7 @@ sensor.average_temperature:
             state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
       - type: entities
         entities:
-          - type: custom:dummy-entity-row
+          - type: custom:template-entity-row
             entity: sensor.average_temperature
             name: Open temperature dashboard
             icon: mdi:thermometer
@@ -436,7 +436,7 @@ sensor.average_humidity:
               low_color: "var(--color-red)"
       - type: entities
         entities:
-          - type: custom:dummy-entity-row
+          - type: custom:template-entity-row
             entity: sensor.average_temperature
             name: Open temperature dashboard
             icon: mdi:thermometer

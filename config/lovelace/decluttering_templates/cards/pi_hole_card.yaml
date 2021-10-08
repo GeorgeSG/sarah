@@ -13,8 +13,7 @@ pi_hole_card:
             name: Status
           - entity: switch.pihole_temp_disable
             name: Pause for 5 mins
-          - type: custom:dummy-entity-row
-            entity: sun.sun
+          - type: custom:template-entity-row
             name: Open admin UI
             icon: mdi:firefox
             tap_action:

@@ -24,8 +24,7 @@ cards:
           title: Misc
           show_header_toggle: false
           entities:
-            - type: custom:dummy-entity-row
-              entity: sensor.automations_count
+            - type: custom:template-entity-row
               name: Reload Automations
               icon: mdi:reload
               tap_action:

@@ -37,8 +37,7 @@ philips_airpurifier_card:
         entities:
           - type: custom:fold-entity-row
             head:
-              type: custom:dummy-entity-row
-              entity: sensor.purifier_air_quality
+              type: custom:template-entity-row
               name: Sensors
               icon: mdi:air-purifier
             open: true
@@ -50,8 +49,7 @@ philips_airpurifier_card:
               - binary_sensor.purifier_out_of_water
           - type: custom:fold-entity-row
             head:
-              type: custom:dummy-entity-row
-              entity: sensor.purifier_speed
+              type: custom:template-entity-row
               name: Attributes
             open: true
             entities:
@@ -66,8 +64,7 @@ philips_airpurifier_card:
               - binary_sensor.purifier_display_light
           - type: custom:fold-entity-row
             head:
-              type: custom:dummy-entity-row
-              entity: sensor.purifier_pre_filter
+              type: custom:template-entity-row
               name: Filters
             entities:
               - sensor.purifier_pre_filter

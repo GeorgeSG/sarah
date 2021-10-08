@@ -11,8 +11,7 @@ platinum_card:
     title: "[[title]]"
     icon: "[[icon]]"
     entities:
-      - type: custom:dummy-entity-row
-        entity: sensor.synology_cpu_load_total
+      - type: custom:template-entity-row
         name: Open admin UI
         icon: mdi:firefox
         tap_action:
