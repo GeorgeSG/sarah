@@ -26,22 +26,28 @@ automation:
             - light.pc
             - light.living_room_ambient_main
             - light.light_avatar_small_1
-            - light.master_bedroom_main
-            - light.kitchen_main
-            - light.kitchen_secondary
             - light.hallway_entrance
             - light.hallway_main
+            - light.master_bedroom_main
+            - light.bed_led
+            - light.kitchen_main
+            - light.kitchen_secondary
       - service: light.turn_off
         entity_id:
+          - light.hallway_entrance
           - light.living_room_main
+      - service: light.turn_off
+        entity_id:
           - light.pc
           - light.living_room_ambient_main
           - light.light_avatar_small_1
+          - light.hallway_main
+      - service: light.turn_off
+        entity_id:
           - light.master_bedroom_main
+          - light.bed_led
           - light.kitchen_main
           - light.kitchen_secondary
-          - light.hallway_entrance
-          - light.hallway_main
 
   - alias: TV · Plex · Restore house after Plex
     trigger:
