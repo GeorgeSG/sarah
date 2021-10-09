@@ -9,6 +9,8 @@ person:
     user_id: !secret georgi_user_id
     device_trackers:
       - device_tracker.carbon
+  - name: Player 2
+    id: !secret player_2_user_id
 
 # https://www.home-assistant.io/integrations/device_tracker
 device_tracker:
@@ -37,6 +39,9 @@ input_boolean:
   georgi_home:
     name: Georgi home
     icon: mdi:account
+  player_2_home:
+    name: Player 2 home
+    icon: mdi:account
 
 binary_sensor:
   - platform: template
@@ -50,6 +55,25 @@ binary_sensor:
           {% else %} mdi:account-off-outline
           {% endif %}
 
+      player_2_home:
+        friendly_name: Player 2
+        device_class: presence
+        value_template: "{{ is_state('input_boolean.player_2_home', 'on') }}"
+        icon_template: >
+          {% if is_state('input_boolean.georgi_home', 'on') %} mdi:account
+          {% else %} mdi:account-off-outline
+          {% endif %}
+
+      someone_home:
+        friendly_name: Someone home
+        device_class: presence
+        value_template: >
+          {{ is_state('input_boolean.georgi_home', 'on') or is_state('input_boolean.player_2_home', 'on') }}
+        icon_template: >
+          {% if is_state('input_boolean.georgi_home', 'on') or is_state('input_boolean.player_2_home', 'on') %} mdi:account
+          {% else %} mdi:account-off-outline
+          {% endif %}
+
       trisensor_motion:
         friendly_name: TriSensor motion
         device_class: motion
@@ -59,7 +83,6 @@ binary_sensor:
         friendly_name: MultiSensor motion
         device_class: motion
         value_template: "{{ is_state('sensor.multisensor_6_burglar', '8') }}"
-
 
 group:
   hallway_motion:
@@ -89,39 +112,24 @@ sensor:
 
 
 automation:
-  # When my state changes to "home", wait for 15 minutes for the door to be opened, and then mark me as home
-  - alias: Presence · Arrival detection
-    trigger:
-      - platform: state
-        entity_id: person.georgi
-        to: "home"
-    condition:
-      condition: state
-      entity_id: input_boolean.georgi_home
-      state: "off"
-    action:
-      - service: notify.telegram
-        data:
-          title: "🏠 *Presence Module · Arrival Detection*"
-          message: "Device marked as home. Waiting for door to open!"
-      - wait_template: "{{ is_state('binary_sensor.front_door', 'on') }}"
-        continue_on_timeout: false
-        timeout: 00:15:00
-      - service: input_boolean.turn_on
-        entity_id: input_boolean.georgi_home
-      - service: notify.telegram
-        data:
-          title: "🏠 *Presence Module · Arrival Detection*"
-          message: "✅ Hey, I've marked you as home now!"
+  - alias: Presence · Georgi Arrival detection
+    use_blueprint:
+      path: arrival_detection.yaml
+      input:
+        person: person.georgi
+        input_boolean: input_boolean.georgi_home
+
+  - alias: Presence · Player 2 Arrival detection
+    use_blueprint:
+      path: arrival_detection.yaml
+      input:
+        person: person.player_2
+        input_boolean: input_boolean.player_2
 
   - alias: Presence · Leaving home
     trigger:
       - platform: state
-        entity_id: person.georgi
-        from: "home"
-        to: "not_home"
-      - platform: state
-        entity_id: input_boolean.georgi_home
+        entity_id: binary_sensor.someone_home
         to: "off"
     action:
       - service: script.routine_leaving_home
@@ -129,7 +137,7 @@ automation:
   - alias: Presence · Coming home
     trigger:
       platform: state
-      entity_id: binary_sensor.georgi_home
+      entity_id: binary_sensor.someone_home
       to: "on"
     action:
       - service: script.routine_coming_home
@@ -157,23 +165,6 @@ homeassistant:
   customize:
     device_tracker.carbon:
       icon: mdi:cellphone-iphone
-
-    device_tracker.tile_p_6e3c33752f24f417254c039040a984bd:
-      friendly_name: Georgi's iPhone Tile
-      icon: mdi:cellphone-iphone
-
-    device_tracker.tile_1bcb2b3021b9f96b:
-      friendly_name: Keys Tile
-      icon: mdi:key-variant
-
-    automation.presence_coming_home:
-      icon: mdi:home-account
-
-    automation.presence_leaving_home:
-      icon: mdi:home
-
-    automation.presence_arrival_detecion:
-      icon: mdi:account-plus-outline
 
     group.hallway_motion:
       icon: mdi:motion-sensor
