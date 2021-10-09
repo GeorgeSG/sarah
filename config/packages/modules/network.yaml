@@ -55,8 +55,9 @@ homekit:
       # Kitchen
       - light.kitchen_main
       - light.kitchen_secondary
-      - binary_sensor.kitchen_motion_occupancy
       - climate.kitchen_radiator_mode
+      - binary_sensor.kitchen_motion_occupancy
+      - binary_sensor.kitchen_window
       - sensor.kitchen_weather_temperature
       - sensor.kitchen_weather_humidity
       - vacuum.vacuum
@@ -150,6 +151,10 @@ homekit:
       linked_battery_sensor: sensor.kitchen_motion_battery
       low_battery_threshold: 20
       name: Kitchen Motion
+    binary_sensor.kitchen_window:
+      linked_battery_sensor: sensor.kitchen_window_battery
+      low_battery_threshold: 20
+      name: Kitchen Window
     sensor.kitchen_weather_temperature:
       linked_battery_sensor: sensor.kitchen_weather_battery
       low_battery_threshold: 20
