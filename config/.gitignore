@@ -4,6 +4,7 @@ custom_components/
 .pip_progress
 .storage/
 google_calendars.yaml
+home-assistant.log*
 known_devices.yaml
 neighbours/
 secrets.yaml
