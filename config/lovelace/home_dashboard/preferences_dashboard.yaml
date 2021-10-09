@@ -29,6 +29,9 @@
               - input_number.toshiba_heat_temp
               - input_number.toshiba_cool_temp
               - input_number.toshiba_trigger_temp
+          - type: entities
+            entities:
+              - input_number.bathroom_high_volume
 
       - type: vertical-stack
         title: Controls
