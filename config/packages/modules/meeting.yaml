@@ -32,6 +32,8 @@ automation:
       entity_id: binary_sensor.in_a_meeting
       from: "on"
       to: "off"
+      for: "00:03:00"
+
     action:
       - service: script.open_living_room_cover
       - service: input_boolean.turn_on
