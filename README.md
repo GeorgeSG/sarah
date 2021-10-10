@@ -64,17 +64,9 @@ The `speech` module uses [partial templates](https://github.com/GeorgeSG/sarah/t
 
 ## Screenshots (v3)
 
-### Living Room
-
 ![Living Room](assets/screenshot-v3-living-room.png?raw=true)
 ![Living Room 2](assets/screenshot-v3-living-room-2.png?raw=true)
-
-### Bedroom
-
 ![Bedroom](assets/screenshot-v3-bedroom.png?raw=true)
-
-### Kitchen
-
 ![Kitchen](assets/screenshot-v3-kitchen.png?raw=true)
 
 ## Screenshots (Legacy UI - v2)
