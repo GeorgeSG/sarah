@@ -62,7 +62,22 @@ The `speech` module uses [partial templates](https://github.com/GeorgeSG/sarah/t
 - [FrankEver IR Remote Controller](https://www.amazon.com/Controller-Universal-Infrared-Repeater-Compatible/dp/B07ZP5NQWF) (wifi - Tasmota / MQTT)
 - Amcrest Security Camera
 
-## Screenshots
+## Screenshots (v3)
+
+### Living Room
+
+![Living Room](assets/screenshot-v3-living-room.png?raw=true)
+![Living Room 2](assets/screenshot-v3-living-room-2.png?raw=true)
+
+### Bedroom
+
+![Bedroom](assets/screenshot-v3-bedroom.png?raw=true)
+
+### Kitchen
+
+![Kitchen](assets/screenshot-v3-kitchen.png?raw=true)
+
+## Screenshots (Legacy UI - v2)
 
 ### Home
 
