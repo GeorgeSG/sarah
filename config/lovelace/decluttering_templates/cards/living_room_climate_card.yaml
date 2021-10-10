@@ -3,7 +3,6 @@ living_room_climate_card:
     type: custom:decluttering-card
     template: climate_card
     variables:
-      - title: "Climate"
       - main_entity: sensor.multisensor_6_temperature
       - left_entity: sensor.multisensor_6_relative_humidity
       - left_name: Humidity (6)

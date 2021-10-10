@@ -53,7 +53,9 @@ cards:
       - type: horizontal-stack
         cards:
           - type: custom:button-card
-            template: v3_button_brita_water
+            template: v3_button
+            entity: media_player.kitchen
+            name: Sonos
           - type: custom:button-card
             template: v3_button_radiator
             entity: climate.kitchen_radiator_mode
@@ -65,6 +67,4 @@ cards:
       - type: horizontal-stack
         cards:
           - type: custom:button-card
-            template: v3_button
-            entity: media_player.kitchen
-            name: Sonos
+            template: v3_button_brita_water

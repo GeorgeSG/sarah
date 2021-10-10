@@ -1,15 +1,5 @@
 binary_sensor.house_mode:
   title: House mode
-  style: &popup_style |
-    ha-dialog {
-      --mdc-dialog-min-width: 400px !important;
-      --mdc-dialog-max-width: 500px !important;
-    }
-
-    .content {
-      width: auto !important;
-    }
-
   card:
     type: entities
     entities:
@@ -17,12 +7,6 @@ binary_sensor.house_mode:
 
 binary_sensor.kitchen_motion_occupancy:
   title: Kitchen motion
-  style: &broad_popup_style
-    "--ha-card-border-radius": 0 0 0.8em 0.8em
-    border-radius: 0.8em
-    opacity: 0.95
-    margin-bottom: 200px
-    width: 40%
   card:
     type: vertical-stack
     cards:
@@ -44,7 +28,6 @@ binary_sensor.kitchen_motion_occupancy:
 
 binary_sensor.hallway_motion_occupancy:
   title: Hallway motion
-  style: *broad_popup_style
   card:
     type: vertical-stack
     cards:
@@ -67,22 +50,9 @@ binary_sensor.hallway_motion_occupancy:
 
 sensor.synology_type_volume_1:
   title: Platinum
-  style: *popup_style
   card:
     type: custom:decluttering-card
     template: platinum_card
-
-binary_sensor.camera_state:
-  title: Security camera
-  style: *popup_style
-  card:
-    type: vertical-stack
-    cards:
-      - type: picture-entity
-        aspect_ratio: 50%
-        entity: camera.mercury_amcrest_1
-        show_name: true
-        show_state: true
 
 media_player.living_room:
   title: Living room Sonos
@@ -126,7 +96,6 @@ media_player.master_bedroom:
 
 media_player.nvidia_shield: &nvidia_shield
   title: TV
-  style: *popup_style
   card:
     type: vertical-stack
     cards:
@@ -227,7 +196,6 @@ sensor.active_motion_sensors:
             variables:
               background_color: rgba(60, 60, 60, 1)
 
-
 sensor.open_door_count:
   title: Open doors
   card:
@@ -293,71 +261,128 @@ sensor.open_window_count:
               background_color: rgba(60, 60, 60, 1)
 
 sensor.bedroom_weather_temperature:
-  title: Bedroom climate
-  style: *broad_popup_style
+  title: Bedroom Climate
   card:
     type: custom:decluttering-card
     template: bedroom_climate_card
 
 sensor.multisensor_6_temperature:
-  title: Living room climate
-  style: *broad_popup_style
+  title: Living Room Climate
   card:
     type: custom:decluttering-card
     template: living_room_climate_card
 
 sensor.bedroom_weather_humidity:
-  title: Bedroom humidity
-  style: *broad_popup_style
+  title: Bedroom Humidity
   card:
     type: custom:decluttering-card
     template: bedroom_humidity_card
 
+sensor.kitchen_weather_temperature:
+  title: Kitchen Temperature
+  card:
+    type: custom:decluttering-card
+    template: climate_card
+    variables:
+      - main_entity: sensor.kitchen_weather_temperature
+      - left_entity: sensor.kitchen_weather_humidity
+      - right_entity: sensor.kitchen_weather_pressure
+
+sensor.kitchen_weather_humidity:
+  title: Kitchen Humidity
+  card:
+    type: custom:decluttering-card
+    template: climate_card
+    variables:
+      - main_entity: sensor.kitchen_weather_humidity
+      - main_name: Humidity
+      - left_entity: sensor.kitchen_weather_temperature
+      - left_name: Temperature
+      - right_entity: sensor.kitchen_weather_pressure
+
+sensor.bathroom_weather_temperature:
+  title: Bathroom Temperature
+  card:
+    type: custom:decluttering-card
+    template: climate_card
+    variables:
+      - main_entity: sensor.bathroom_weather_temperature
+      - left_entity: sensor.bathroom_weather_humidity
+      - right_entity: sensor.bathroom_weather_pressure
+
+sensor.bathroom_weather_humidity:
+  title: Bathroom Humidity
+  card:
+    type: custom:decluttering-card
+    template: climate_card
+    variables:
+      - main_entity: sensor.bathroom_weather_humidity
+      - main_name: Humidity
+      - left_entity: sensor.bathroom_weather_temperature
+      - left_name: Temperature
+      - right_entity: sensor.bathroom_weather_pressure
+
+
+sensor.hallway_weather_temperature:
+  title: Hallway Temperature
+  card:
+    type: custom:decluttering-card
+    template: climate_card
+    variables:
+      - main_entity: sensor.hallway_weather_temperature
+      - left_entity: sensor.hallway_weather_humidity
+      - right_entity: sensor.hallway_weather_pressure
+
+sensor.hallway_weather_humidity:
+  title: Hallway Humidity
+  card:
+    type: custom:decluttering-card
+    template: climate_card
+    variables:
+      - main_entity: sensor.hallway_weather_humidity
+      - main_name: Humidity
+      - left_entity: sensor.hallway_weather_temperature
+      - left_name: Temperature
+      - right_entity: sensor.hallway_weather_pressure
+
 sensor.purifier_air_quality:
   title: Bedroom air quality
-  style: *broad_popup_style
   card:
     type: custom:decluttering-card
     template: bedroom_air_quality_card
 
 sensor.purifier_allergens:
   title: Bedroom allergen index
-  style: *broad_popup_style
   card:
     type: custom:decluttering-card
     template: bedroom_allergen_index_card
 
 fan.philips_airpurifier:
   title: Air purifier
-  style: *popup_style
   card:
     type: custom:decluttering-card
     template: philips_airpurifier_card
 
 switch.titanium:
   title: Titanium
-  style: *popup_style
   card:
     type: custom:decluttering-card
     template: titanium_card
 
 sensor.fast_com_download:
   title: Network Speed
-  style: *broad_popup_style
   card:
     type: custom:decluttering-card
     template: network_card
 
 binary_sensor.pi_hole_enabled:
   title: Pi-Hole
-  style: *broad_popup_style
   card:
     type: custom:decluttering-card
     template: pi_hole_card
 
 input_boolean.alarm_enabled:
   title: Alarm
-  style: *popup_style
   card:
     type: vertical-stack
     cards:
@@ -377,14 +402,12 @@ input_boolean.alarm_enabled:
 
 script.brita_pour_water:
   title: Brita
-  style: *popup_style
   card:
     type: custom:decluttering-card
     template: brita_card
 
 sensor.desk_outlet_power:
   title: Desk power
-  style: *popup_style
   card:
     type: entities
     entities:
@@ -409,7 +432,6 @@ sensor.desk_outlet_power:
 
 sensor.average_temperature:
   title: Temperatures
-  style: *popup_style
   card:
     type: vertical-stack
     cards:
@@ -469,7 +491,6 @@ sensor.average_temperature:
 
 sensor.average_humidity:
   title: Humidities
-  style: *popup_style
   card:
     type: vertical-stack
     cards:
@@ -556,7 +577,6 @@ sensor.average_humidity:
 
 vacuum.vacuum:
   title: Vacuum
-  style: *broad_popup_style
   card:
     type: custom:layout-card
     layout_type: custom:horizontal-layout

@@ -5,9 +5,10 @@ bedroom_climate_card:
       - type: custom:decluttering-card
         template: climate_card
         variables:
-          - title: "Bedroom Climate"
           - main_entity: sensor.bedroom_weather_temperature
+          - main_name: Humidity
           - left_entity: sensor.bedroom_weather_humidity
+          - left-name: Temperature
           - right_entity: sensor.bedroom_weather_pressure
 
       - type: horizontal-stack

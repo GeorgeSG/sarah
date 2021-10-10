@@ -2,48 +2,28 @@ bedroom_humidity_card:
   card:
     type: vertical-stack
     cards:
-      - type: "custom:mini-graph-card"
-        entities:
-          - sensor.bedroom_weather_humidity
-        cache: false
-        group_by: hour
-        hours_to_show: 72
-        line_width: 2
-        show:
-          average: true
-          extrema: true
-        color_thresholds:
-          - value: 36
-            color: "var(--color-red)"
-          - value: 40
-            color: "var(--color-blue)"
-          - value: 45
-            color: "var(--color-blue)"
-          - value: 48
-            color: "var(--color-green)"
+      - type: custom:decluttering-card
+        template: climate_card
+        variables:
+          - main_entity: sensor.bedroom_weather_humidity
+          - left_entity: sensor.bedroom_weather_temperature
+          - right_entity: sensor.bedroom_weather_pressure
 
       - type: horizontal-stack
         cards:
           - type: "custom:mini-graph-card"
-            font_size: 75
-            icon: "mdi:thermometer"
-            line_color: var(--accent-color)
-            line_width: 8
-            entities:
-              - sensor.bedroom_weather_temperature
-
-          - type: "custom:mini-graph-card"
-            entities:
-              - sensor.bedroom_weather_pressure
-            font_size: 75
-            line_color: var(--accent-color)
-            line_width: 8
-
-          - type: "custom:mini-graph-card"
             name: Air Quality
-            font_size: 75
-            icon: "mdi:weather-windy"
-            line_color: var(--accent-color)
-            line_width: 8
             entities:
               - sensor.purifier_air_quality
+            font_size: 75
+            line_color: "var(--color-blue)"
+            line_width: 6
+            hours_to_show: 72
+          - type: "custom:mini-graph-card"
+            name: Allergens
+            entities:
+              - sensor.purifier_allergens
+            font_size: 75
+            line_color: "var(--color-blue)"
+            line_width: 6
+            hours_to_show: 72

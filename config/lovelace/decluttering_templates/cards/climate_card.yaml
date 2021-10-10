@@ -5,7 +5,6 @@ climate_card:
     - right_name: "Pressure"
   card:
     type: vertical-stack
-    title: "[[title]]"
     cards:
       - type: "custom:mini-graph-card"
         name: "[[main_name]]"
