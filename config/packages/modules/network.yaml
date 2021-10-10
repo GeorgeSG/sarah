@@ -26,40 +26,52 @@ homekit:
   filter:
     include_entities:
       # Living Room
+      - light.living_room
       - light.living_room_main
       - light.living_room_ambient
       - light.pc
       - binary_sensor.living_room_right_window
-      - sensor.multisensor_6_temperature
-      - sensor.multisensor_6_relative_humidity
+      - camera.mercury_amcrest_1
+      - climate.living_room_radiator_mode
       - climate.toshiba_ac
-      - switch.desk_outlet
-      - switch.titanium
-      - sensor.living_room_radiator_temperature
+      - cover.living_room
+      - media_player.living_room
+      - media_player.living_room_tv
       - media_player.nvidia_shield
+      - scene.living_room_ambient_neon
+      - sensor.living_room_radiator_temperature
+      - sensor.multisensor_6_relative_humidity
+      - sensor.multisensor_6_temperature
+      - switch.desk_outlet
 
       # Bedroom
+      - light.master_bedroom
       - light.master_bedroom_main
       - light.bedside
       - light.bed_led
-      - sensor.bedroom_weather_temperature
-      - sensor.bedroom_weather_humidity
-      - fan.philips_airpurifier
-      - sensor.purifier_air_quality
-      - sensor.purifier_allergens
       - binary_sensor.bedroom_door
       - binary_sensor.bedroom_left_window
       - binary_sensor.bedroom_right_window
+      - camera.bedroom_hd
+      - climate.bedroom_radiator_mode
+      - fan.philips_airpurifier
       - media_player.master_bedroom
+      - sensor.bedroom_weather_humidity
+      - sensor.bedroom_weather_temperature
+      - sensor.purifier_air_quality
+      - sensor.purifier_allergens
 
       # Kitchen
+      - light.kitchen
       - light.kitchen_main
       - light.kitchen_secondary
       - climate.kitchen_radiator_mode
       - binary_sensor.kitchen_motion_occupancy
       - binary_sensor.kitchen_window
-      - sensor.kitchen_weather_temperature
+      - input_number.brita_remaining_liters
+      - script.brita_pour_water
       - sensor.kitchen_weather_humidity
+      - sensor.kitchen_weather_temperature
       - vacuum.vacuum
 
       # Bathroom
@@ -67,6 +79,7 @@ homekit:
       - sensor.bathroom_weather_humidity
 
       # Hallway
+      - light.hallway
       - light.hallway_entrance
       - light.hallway_main
       - group.hallway_motion

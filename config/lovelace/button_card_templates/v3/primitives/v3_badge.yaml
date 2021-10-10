@@ -1,0 +1,22 @@
+v3_badge:
+  variables:
+    state_size: 15px
+  show_name: false
+  show_icon: false
+  show_state: true
+  hold_action:
+    action: more-info
+  styles:
+    card:
+      - width: 60px
+      - height: 60px
+      - font-size: 15px
+      - border-radius: 60px
+      - box-shadow: none
+      - --ha-card-background: transparent
+      - border: 2px solid rgba(255, 255, 255, 0.5)
+    state:
+      - text-overflow: initial
+      - width: 80%
+      - font-weight: bold
+      - font-size: "[[[ return variables.state_size ]]]"

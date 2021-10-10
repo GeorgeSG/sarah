@@ -38,12 +38,44 @@ script:
         entity_id: scene.bedroom_ambient_pink
 
 scene:
+  - name: Bedroom Neon
+    icon: "mdi:weather-night"
+    entities:
+      light.master_bedroom_main:
+        state: 'on'
+        xy_color: [0.66, 0.28]
+        brightness: 254
+      light.bedside:
+        state: "on"
+        rgb_color: [0, 255, 190]
+        brightness: 230
+      light.bed_led:
+        state: "on"
+        xy_color: [0.66, 0.28]
+        brightness: 254
+
   - name: Bedroom Ambient Neon
     icon: "mdi:weather-night"
     entities:
       light.bedside:
         state: "on"
         rgb_color: [0, 255, 190]
+        brightness: 230
+      light.bed_led:
+        state: "on"
+        xy_color: [0.66, 0.28]
+        brightness: 254
+
+  - name: Bedroom Pink
+    icon: "mdi:weather-night"
+    entities:
+      light.master_bedroom_main:
+        state: "on"
+        rgb_color: [255, 36, 145]
+        brightness: 114
+      light.bedside:
+        state: "on"
+        rgb_color: [255, 36, 145]
         brightness: 230
       light.bed_led:
         state: "on"

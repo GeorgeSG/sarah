@@ -14,8 +14,6 @@
   type: module
 - url: /hacsfiles/decluttering-card/decluttering-card.js
   type: module
-- url: /hacsfiles/lovelace-gui-sandbox/gui-sandbox.js
-  type: module
 - url: /hacsfiles/hass-bha-icons/hass-bha-icons.js
   type: module
 - url: /hacsfiles/kiosk-mode/kiosk-mode.js
@@ -45,6 +43,8 @@
 - url: /hacsfiles/lovelace-state-switch/state-switch.js
   type: module
 - url: /hacsfiles/kb-better-graph-colors/kb-better-graph-colors.js
+  type: module
+- url: /hacsfiles/lovelace-swipe-navigation/swipe-navigation.js
   type: module
 - url: /hacsfiles/lovelace-template-entity-row/template-entity-row.js
   type: module

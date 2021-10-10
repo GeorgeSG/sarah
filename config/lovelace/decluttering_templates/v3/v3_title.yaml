@@ -1,0 +1,17 @@
+v3_title:
+  card:
+    type: markdown
+    content: >
+      ## [[title]]
+    card_mod:
+      style: |
+        ha-card {
+          box-shadow: none;
+          background: transparent;
+        }
+
+        ha-card > ha-markdown {
+          font-size: 22px;
+          padding: 20px 20px 20px 0;
+          letter-spacing: -1px;
+        }

@@ -47,7 +47,7 @@ script:
       - service: input_number.set_value
         entity_id: input_number.brita_remaining_liters
         data:
-          value: 150
+          value: 100
       - service: input_datetime.set_datetime
         entity_id: input_datetime.brita_next_change
         data_template:

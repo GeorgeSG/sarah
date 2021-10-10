@@ -1,6 +1,11 @@
 - type: custom:mod-card
   style:
     layout-card:
+      .: |
+        * {
+          --primary-color: #58892D
+        }
+
       $:
         horizontal-layout:
           $:
@@ -9,72 +14,4 @@
                 margin: 0 20px;
                 grid-gap: 20px;
               }
-  card:
-    type: custom:layout-card
-    layout_type: custom:horizontal-layout
-    layout:
-      max_cols: 2
-    cards:
-      - type: vertical-stack
-        title: Kitchen
-        cards:
-          - type: horizontal-stack
-            cards:
-              - type: custom:button-card
-                template: default
-                entity: light.kitchen
-                name: Kitchen
-              - type: custom:button-card
-                template: default
-                entity: light.kitchen_main
-                name: Main
-              - type: custom:button-card
-                template: default
-                entity: light.kitchen_secondary
-                name: Secondary
-              - type: vertical-stack
-                cards:
-                  - type: custom:button-card
-                    template: half
-                    entity: light.hallway_entrance
-                    name: Entrance
-                  - type: custom:button-card
-                    template: half
-                    entity: light.hallway_main
-                    name: Hallway
-                    styles:
-                      card:
-                        - height: 46px
-
-          - type: horizontal-stack
-            title: Devices
-            cards:
-              - type: custom:button-card
-                template: brita_water
-              - type: custom:button-card
-                template: radiator_button
-                entity: climate.kitchen_radiator_mode
-              - type: custom:button-card
-                template: default
-                entity: vacuum.vacuum
-                name: Vacuum
-              - type: custom:button-card
-                template: default
-                entity: binary_sensor.kitchen_window
-                name: Window
-
-          - type: custom:decluttering-card
-            template: media_with_controls
-            variables:
-              - player: media_player.kitchen
-              - player_name: Kitchen
-
-      - type: vertical-stack
-        cards:
-          - type: custom:decluttering-card
-            template: climate_card
-            variables:
-              - title: "Climate"
-              - main_entity: sensor.kitchen_weather_temperature
-              - left_entity: sensor.kitchen_weather_humidity
-              - right_entity: sensor.kitchen_weather_pressure
+  card: !include kitchen_dashboard_card.yaml

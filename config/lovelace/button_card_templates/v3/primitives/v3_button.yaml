@@ -1,0 +1,64 @@
+v3_button:
+  variables:
+    value_has_error: false
+    background_color: 'var(--v3-background)'
+
+  show_state: true
+  show_icon: true
+  show_name: true
+  size: 120px
+  card_size: 2
+  hold_action:
+    action: more-info
+  styles:
+    card:
+      - width: 120px
+      - height: 120px
+      - box-shadow: none
+      - --ha-card-background: "[[[ return variables.background_color ]]]"
+    icon:
+      - position: absolute
+      - top: 8px
+      - left: 16px
+      - width: 30px
+      - height: 30px
+      - --mdc-icon-size: 30px
+      - color: white
+    state:
+      - position: absolute
+      - bottom: 10px
+      - left: 16px
+      - font-weight: bold
+      - font-size: 13px
+      - color: "[[[ return variables.value_has_error ? 'red' : 'white' ]]]"
+    name:
+      - position: absolute
+      - left: 16px
+      - bottom: 28px
+      - white-space: normal
+      - word-wrap: break-word
+      - word-break: break-word
+      - width: 90px
+      - text-align: left
+      - font-weight: bold
+      - font-size: 15px
+  state:
+    - value: 'on'
+      styles: &on_styles
+        card:
+          - background-color: white
+          - color: black
+        icon:
+          - color: var(--primary-color)
+        state:
+          - color: "[[[ return variables.value_has_error ? 'red' : 'black' ]]]"
+    - value: 'home'
+      styles: *on_styles
+    - value: 'recording'
+      styles: *on_styles
+    - value: 'open'
+      styles: *on_styles
+    - value: 'playing'
+      styles: *on_styles
+    - value: 'heat'
+      styles: *on_styles

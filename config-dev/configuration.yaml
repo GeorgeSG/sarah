@@ -23,8 +23,6 @@ lovelace:
       url: /hacsfiles/lovelace-state-switch/state-switch.js
     - type: module
       url: http://192.168.0.13:5000/time-picker-card.js
-    - type: module
-      url: /hacsfiles/lovelace-gui-sandbox/gui-sandbox.js
   dashboards:
     lovelace-home:
       mode: yaml

@@ -1,6 +1,11 @@
 - type: custom:mod-card
   style:
     layout-card:
+      .: |
+        * {
+          --primary-color: #871CAB
+        }
+
       $:
         horizontal-layout:
           $:
@@ -16,141 +21,140 @@
       max_cols: 3
     cards:
       - type: vertical-stack
-        title: Bedroom
         cards:
+          - type: custom:decluttering-card
+            template: v3_title
+            variables:
+              - title: Bedroom
           - type: horizontal-stack
             cards:
               - type: custom:button-card
-                template: default
-                entity: light.master_bedroom
-                name: Bedroom
+                template: v3_badge_temp
+                entity: sensor.bedroom_weather_temperature
+                state_display: "[[[return entity.state.split(' ')[0] + '°']]]"
               - type: custom:button-card
-                template: default
+                template: v3_badge_humidity
+                entity: sensor.bedroom_weather_humidity
+              - type: custom:button-card
+                template: v3_badge
+                entity: sensor.purifier_air_quality
+                state_display: "[[[return entity.state.split(' ')[0] + ' pm2.5']]]"
+                variables:
+                  state_size: "11px"
+              - type: custom:button-card
+                template: v3_badge_icon
+                entity: binary_sensor.bedroom_left_window
+              - type: custom:button-card
+                template: v3_badge_icon
+                entity: binary_sensor.bedroom_right_window
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                template: v3_badge_icon
+                entity: binary_sensor.bedroom_door
+
+          - type: custom:decluttering-card
+            template: v3_section_title
+            variables:
+              - title: Scenes
+          - type: custom:decluttering-card
+            template: v3_horizontal_stack_card
+            variables:
+              - cards:
+                - type: custom:button-card
+                  template: v3_scene
+                  entity: scene.bedroom_neon
+                  name: Neon
+                  variables:
+                    scene_color_1: rgb(255, 0, 190)
+                    scene_color_2: rgb(0, 255, 190)
+                - type: custom:button-card
+                  template: v3_scene
+                  entity: scene.bedroom_ambient_neon
+                  name: Ambient neon
+                  variables:
+                    scene_color_1: rgb(255, 0, 190)
+                    scene_color_2: rgb(0, 255, 190)
+                - type: custom:button-card
+                  template: v3_scene
+                  entity: scene.bedroom_default
+                  name: Regular
+                  variables:
+                    scene_color_1: rgb(254, 255, 209)
+                - type: custom:button-card
+                  template: v3_scene
+                  entity: scene.bedroom_ambient_default
+                  name: Ambient regular
+                  variables:
+                    scene_color_1: rgb(254, 255, 209)
+                - type: custom:button-card
+                  template: v3_scene
+                  entity: scene.bedroom_pink
+                  name: Pink
+                  variables:
+                    scene_color_1: rgb(255, 92, 38)
+                    scene_color_2: rgb(255, 0, 190)
+                - type: custom:button-card
+                  template: v3_scene
+                  entity: scene.bedroom_ambient_pink
+                  name: Ambient pink
+                  variables:
+                    scene_color_1: rgb(255, 92, 38)
+                    scene_color_2: rgb(255, 0, 190)
+
+          - type: custom:decluttering-card
+            template: v3_section_title
+            variables:
+              - title: Lights
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                template: v3_button_light
+                entity: light.master_bedroom
+                name: All
+              - type: custom:button-card
+                template: v3_button_light
                 entity: light.master_bedroom_main
                 name: Main
               - type: custom:button-card
-                template: default
-                entity: light.bed_led
-                name: Bed
-                tap_action:
-                  action: call-service
-                  service: script.bed_led_toggle
-              - type: custom:button-card
-                template: default
+                template: v3_button_light
                 entity: light.bedside
                 name: Bedside
           - type: horizontal-stack
             cards:
               - type: custom:button-card
-                template: [small, scene]
-                entity: scene.bedroom_ambient_neon
-                name: Neon
-                variables:
-                  scene_color_1: rgb(255, 0, 190)
-                  scene_color_2: rgb(0, 255, 190)
-                tap_action:
-                  action: call-service
-                  service: script.apply_bedroom_neon
-              - type: custom:button-card
-                template: [small, scene]
-                entity: scene.bedroom_ambient_neon
-                name: Ambient neon
-                variables:
-                  scene_color_1: rgb(255, 0, 190)
-                  scene_color_2: rgb(0, 255, 190)
-                tap_action:
-                  action: call-service
-                  service: script.apply_bedroom_ambient_neon
-              - type: custom:button-card
-                template: [small, scene]
-                entity: scene.bedroom_default
-                name: Regular
-                variables:
-                  scene_color_1: rgb(254, 255, 209)
-              - type: custom:button-card
-                template: [small, scene]
-                entity: scene.bedroom_ambient_default
-                name: Ambient regular
-                variables:
-                  scene_color_1: rgb(254, 255, 209)
-              - type: custom:button-card
-                template: [small, scene]
-                entity: scene.bedroom_ambient_pink
-                name: Ambient pink
-                tap_action:
-                  action: call-service
-                  service: script.apply_bedroom_pink
-                variables:
-                  scene_color_1: rgb(255, 92, 38)
-                  scene_color_2: rgb(255, 0, 190)
+                template: v3_button_light
+                entity: light.bed_led
+                name: Bed
 
+
+      - type: vertical-stack
+        cards:
+          - type: custom:decluttering-card
+            template: v3_section_title
+            variables:
+              - title: Devices
           - type: horizontal-stack
-            title: Climate
             cards:
               - type: custom:button-card
-                template: radiator_button
-                entity: climate.bedroom_radiator_mode
+                template: v3_button
+                entity: media_player.master_bedroom
+                name: Sonos
               - type: custom:button-card
-                template: [default, with_state_indicator]
+                template: v3_button_purifier
                 entity: fan.philips_airpurifier
-                variables:
-                  state_indicator_id: binary_sensor.purifier_filter_needs_change
-                  state_indicator_size: 5px
-                  state_indicator_off_size: 0px
-                  state_indicator_on_color: var(--color-red)
-                  state_on_indicator_on_color: var(--color-red)
+                name: Air Purifier
               - type: custom:button-card
-                template: default
-                entity: sensor.purifier_speed
-                tap_action:
-                  action: call-service
-                  service: input_select.select_next
-                  service_data:
-                    entity_id: input_select.purifier_speed
-              - type: custom:button-card
-                template: default
-                entity: sensor.purifier_function
-                tap_action:
-                  action: call-service
-                  service: script.purifier_toggle_function
-              - type: custom:decluttering-card
-                template: purifier_target_humidity
+                template: v3_button_radiator
+                entity: climate.bedroom_radiator_mode
+                name: Radiator
 
-          - type: horizontal-stack
-            cards:
-              - type: custom:button-card
-                template: default
-                entity: binary_sensor.bedroom_door
-                name: Door
-              - type: custom:button-card
-                template: default
-                entity: binary_sensor.bedroom_left_window
-                name: Left window
-              - type: custom:button-card
-                template: default
-                entity: binary_sensor.bedroom_right_window
-                name: Right window
-
-      - type: vertical-stack
-        cards:
-          - type: custom:decluttering-card
-            template: climate_card
-            variables:
-              - title: "Climate"
-              - main_entity: sensor.bedroom_weather_temperature
-              - left_entity: sensor.bedroom_weather_humidity
-              - right_entity: sensor.bedroom_weather_pressure
-
-      - type: vertical-stack
-        cards:
-          - type: custom:decluttering-card
-            template: media_with_controls
-            variables:
-              - player: media_player.master_bedroom
-              - player_name: Bedroom
           - type: vertical-stack
-            title: Camera
             cards:
+              - type: custom:decluttering-card
+                template: v3_section_title
+                variables:
+                  - title: Camera
               - type: picture-glance
                 camera_image: camera.bedroom_hd
                 entities:

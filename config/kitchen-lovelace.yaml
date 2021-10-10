@@ -3,7 +3,8 @@ button_card_templates: !include_dir_merge_named lovelace/button_card_templates
 popup_cards: !include lovelace/popup_cards.yaml
 
 kiosk_mode:
-  kiosk: true
+  kiosk: false
+  hide_overflow: true
 
 title: Sarah
 views:
@@ -11,4 +12,18 @@ views:
     path: kitchen
     icon: "mdi:chef-hat"
     panel: true
-    cards: !include lovelace/home_dashboard/kitchen_dashboard.yaml
+    background: "#333"
+    cards:
+      - type: custom:mod-card
+        style:
+          layout-card:
+            $:
+              horizontal-layout:
+                $:
+                  .: |
+                    #columns {
+                      padding: 0 10px;
+                      margin: 0 20px;
+                      grid-gap: 20px;
+                    }
+        card: !include lovelace/home_dashboard/kitchen_dashboard_card.yaml

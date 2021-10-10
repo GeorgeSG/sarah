@@ -1,0 +1,70 @@
+type: custom:layout-card
+layout_type: custom:horizontal-layout
+layout:
+  max_cols: 3
+cards:
+  - type: vertical-stack
+    cards:
+      - type: custom:decluttering-card
+        template: v3_title
+        variables:
+          - title: Kitchen
+      - type: horizontal-stack
+        cards:
+          - type: custom:button-card
+            template: v3_badge_temp
+            entity: sensor.kitchen_weather_temperature
+          - type: custom:button-card
+            template: v3_badge_humidity
+            entity: sensor.kitchen_weather_humidity
+          - type: custom:button-card
+            template: v3_badge_icon
+            entity: binary_sensor.kitchen_motion_occupancy
+          - type: custom:button-card
+            template: v3_badge_icon
+            entity: binary_sensor.kitchen_window
+
+
+      - type: custom:decluttering-card
+        template: v3_section_title
+        variables:
+          - title: Lights
+      - type: horizontal-stack
+        cards:
+          - type: custom:button-card
+            template: v3_button_light
+            entity: light.kitchen
+            name: All
+          - type: custom:button-card
+            template: v3_button_light
+            entity: light.kitchen_main
+            name: Main
+          - type: custom:button-card
+            template: v3_button_light
+            entity: light.kitchen_secondary
+            name: Secondary
+
+  - type: vertical-stack
+    cards:
+      - type: custom:decluttering-card
+        template: v3_section_title
+        variables:
+          - title: Devices
+      - type: horizontal-stack
+        cards:
+          - type: custom:button-card
+            template: v3_button_brita_water
+          - type: custom:button-card
+            template: v3_button_radiator
+            entity: climate.kitchen_radiator_mode
+            name: Radiator
+          - type: custom:button-card
+            template: v3_button
+            entity: vacuum.vacuum
+            name: Vacuum
+      - type: horizontal-stack
+        cards:
+          - type: custom:button-card
+            template: v3_button
+            entity: media_player.kitchen
+            name: Sonos

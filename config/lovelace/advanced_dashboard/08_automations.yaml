@@ -37,6 +37,7 @@ cards:
             - automation.slack_meeting_starts
             - automation.slack_meeting_ends
             - automation.hallway_tablet_set_to_home_after_10_minutes
+            - automation.hallway_tablet_leaving_goodbye_after_door_opened
 
         - type: entities
           title: Presence

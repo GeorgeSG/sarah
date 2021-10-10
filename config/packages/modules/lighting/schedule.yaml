@@ -6,7 +6,7 @@ automation:
       offset: "-00:30:00"
     condition:
       - condition: state
-        entity_id: binary_sensor.georgi_home
+        entity_id: binary_sensor.someone_home
         state: "on"
     action:
       - service: light.turn_on

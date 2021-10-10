@@ -1,3 +1,10 @@
+group:
+  all_doors:
+    name: All doors
+    entities:
+      - binary_sensor.front_door
+      - binary_sensor.bedroom_door
+
 sensor:
   - platform: mqtt
     name: "Bedroom door battery"
@@ -30,6 +37,15 @@ sensor:
     icon: "mdi:signal"
     unit_of_measurement: "lqi"
     value_template: "{{ value_json.linkquality }}"
+
+  - platform: template
+    sensors:
+      open_door_count:
+        friendly_name: Open door count
+        value_template: >-
+          {% set entityStates = states | selectattr('entity_id', 'in', state_attr('group.all_doors', 'entity_id')) %}
+          {{ entityStates | selectattr('state', 'eq', 'on') | list | count | int }}
+
 
 binary_sensor:
   - platform: mqtt

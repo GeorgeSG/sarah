@@ -1,6 +1,11 @@
 - type: custom:mod-card
   style:
     layout-card:
+      .: |
+        * {
+          --primary-color: #0040A0
+        }
+
       $:
         horizontal-layout:
           $:
@@ -16,137 +21,127 @@
       max_cols: 3
     cards:
       - type: vertical-stack
-        title: Living room
         cards:
+          - type: custom:decluttering-card
+            template: v3_title
+            variables:
+              - title: Living room
           - type: horizontal-stack
             cards:
               - type: custom:button-card
-                template: default
-                entity: light.living_room
-                name: Living room
+                template: v3_badge_temp
+                entity: sensor.multisensor_6_temperature
               - type: custom:button-card
-                template: default
-                entity: light.living_room_main
-                name: Main
+                template: v3_badge_humidity
+                entity: sensor.multisensor_6_relative_humidity
               - type: custom:button-card
-                template: default
-                entity: light.pc
-                name: PC
-              - type: custom:button-card
-                template: default
-                entity: light.living_room_ambient
-                name: Ambient
-              - type: vertical-stack
-                cards:
-                  - type: custom:button-card
-                    template: half
-                    entity: light.living_room_ambient_main
-                    name: Main
-                  - type: custom:button-card
-                    template: half
-                    entity: light.light_avatar_small_1
-                    name: Secondary
-                    styles:
-                      card:
-                        - height: 46px
-          - type: horizontal-stack
+                template: v3_badge_icon
+                entity: binary_sensor.living_room_right_window
+
+          - type: custom:decluttering-card
+            template: v3_section_title
+            variables:
+              - title: Scenes
+          - type: vertical-stack
             cards:
               - type: custom:button-card
-                template: [small, scene]
+                template: v3_scene
                 entity: scene.living_room_ambient_neon
                 name: Neon
                 variables:
-                  scene_color_1: rgb(255, 0, 190)
-                  scene_color_2: rgb(0, 255, 190)
+                  scene_color_1: rgba(255, 0, 190, 0.7)
+                  scene_color_2: rgba(0, 255, 190, 0.7)
               - type: custom:button-card
-                template: [small, scene]
+                template: v3_scene
                 entity: scene.living_room_ambient_default
-                name: Regular
+                name: Warm
                 variables:
-                  scene_color_1: rgb(254, 255, 209)
+                  scene_color_1: rgba(240, 240, 190, 0.7)
+                  scene_color_2: rgba(255, 210, 170, 0.7)
+          - type: custom:decluttering-card
+            template: v3_section_title
+            variables:
+              - title: Lights
           - type: horizontal-stack
-            title: Devices
             cards:
               - type: custom:button-card
-                template: [default, cover]
+                template: v3_button_light
+                entity: light.living_room
+                name: All
+              - type: custom:button-card
+                template: v3_button_light
+                entity: light.living_room_main
+                name: Main
+              - type: custom:button-card
+                template: v3_button_light
+                entity: light.pc
+                name: PC
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                template: v3_button_light
+                entity: light.living_room_ambient
+                name: Ambient
+              - type: custom:button-card
+                template: v3_button_light
+                entity: light.living_room_ambient_main
+                name: Ambient Main
+              - type: custom:button-card
+                template: v3_button
+                entity: light.light_avatar_small_1
+                name: Ambient 2nd
+
+      - type: vertical-stack
+        cards:
+          - type: custom:decluttering-card
+            template: v3_section_title
+            variables:
+              - title: "Devices"
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                template: v3_button
+                entity: media_player.living_room
+                name: Sonos
+              - type: custom:button-card
+                template: v3_button_tv
+                entity: media_player.living_room_tv
+                name: TV
+              - type: custom:button-card
+                template: v3_button_cover
                 entity: cover.living_room
-                name: Cover
+                name: Blinds
                 tap_action:
                   action: call-service
                   service: script.toggle_living_room_cover
-              - type: custom:button-card
-                template: radiator_button
-                entity: climate.living_room_radiator_mode
-              - type: custom:button-card
-                template: ac_button
-              - type: custom:button-card
-                template: default
-                entity: binary_sensor.living_room_right_window
-                name: Window
+
           - type: horizontal-stack
             cards:
               - type: custom:button-card
-                template: default
-                entity: media_player.living_room_tv
-                name: TV
-                icon: mdi:television
+                template: v3_button_radiator
+                entity: climate.living_room_radiator_mode
+                name: Radiator
+              - type: custom:button-card
+                template: v3_button_ac
+                entity: climate.toshiba_ac
+                name: AC
                 tap_action:
-                  action: toggle
-                state:
-                  - value: 'playing'
-                    styles: &on_styles
-                      card:
-                        - background-color: var(--primary-color)
-                        - color: black
-                      icon:
-                        - color: black
-                  - value: 'standby'
-                    styles: *on_styles
-                  - value: 'on'
-                    styles: *on_styles
-                  - value: 'home'
-                    styles: *on_styles
-                  - value: 'idle'
-                    styles: *on_styles
-              - type: custom:button-card
-                template: [default, with_state_indicator]
-                entity: switch.titanium
-                variables:
-                  state_indicator_id: automation.titanium_turn_off_when_idle
+                  action: call-service
+                  service: script.toshiba_ac_toggle
 
               - type: custom:button-card
-                template: [regular, progress]
-                entity: sensor.desk_outlet_power
-                name: Desk power
+                template: v3_button_power
+                entity: switch.desk_outlet
+                name: Desk Outlet
                 variables:
-                  min_value: 1
-                  max_value: 800
-                  normal_value: 100
-                  high_value: 300
+                  power_sensor: sensor.desk_outlet_power
 
-      - type: vertical-stack
-        cards:
-          - type: custom:decluttering-card
-            template: climate_card
-            variables:
-              - title: "Climate"
-              - main_entity: sensor.multisensor_6_temperature
-              - left_entity: sensor.multisensor_6_relative_humidity
-              - left_name: Humidity (6)
-              - right_entity: sensor.multisensor_6_luminance
-              - right_name: Luminance (6)
-
-
-      - type: vertical-stack
-        cards:
-          - type: custom:decluttering-card
-            template: media_with_controls
-            variables:
-              - player: media_player.living_room
-              - player_name: Living room
           - type: vertical-stack
-            title: Camera
             cards:
+              - type: custom:decluttering-card
+                template: v3_section_title
+                variables:
+                  - title: Camera
               - type: picture-glance
                 camera_image: camera.mercury_amcrest_1
                 entities: []

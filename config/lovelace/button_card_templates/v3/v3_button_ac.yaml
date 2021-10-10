@@ -1,0 +1,27 @@
+v3_button_ac:
+  template: v3_button
+  icon: mdi:air-conditioner
+  state_display: |
+    [[[
+      if (!entity) {
+        return "Unavailable";
+      }
+
+      if (entity.state === "off") {
+        return "Off";
+      }
+      return entity.attributes.hvac_action.charAt(0).toUpperCase() +
+        entity.attributes.hvac_action.slice(1) + ' to ' +
+        entity.attributes.temperature + '°';
+    ]]]
+  state:
+    - value: 'off'
+      operator: '!='
+      styles:
+        card:
+          - background-color: white
+          - color: black
+        icon:
+          - color: var(--primary-color)
+        state:
+          - color: black

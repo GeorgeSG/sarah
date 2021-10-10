@@ -1,3 +1,18 @@
+group:
+  all_motion_sensors:
+    name: All motion_sensors
+    entities:
+      - binary_sensor.hallway_motion_occupancy
+      - binary_sensor.kitchen_motion_occupancy
+      - binary_sensor.multisensor_motion
+      - binary_sensor.trisensor_motion
+
+  hallway_motion:
+    name: Hallway Motion
+    entities:
+      - binary_sensor.hallway_motion_occupancy
+      - binary_sensor.trisensor_motion
+
 binary_sensor:
   - platform: mqtt
     name: "Hallway motion occupancy"
@@ -60,3 +75,11 @@ sensor:
     icon: "mdi:signal"
     unit_of_measurement: "lqi"
     value_template: "{{ value_json.linkquality }}"
+
+  - platform: template
+    sensors:
+      active_motion_sensors:
+        friendly_name: Active motion sensor count
+        value_template: >-
+          {% set entityStates = states | selectattr('entity_id', 'in', state_attr('group.all_motion_sensors', 'entity_id')) %}
+          {{ entityStates | selectattr('state', 'eq', 'on') | list | count | int }}

@@ -272,7 +272,7 @@ automation:
           entity_id: fan.philips_airpurifier
           state: "off"
         - condition: state
-          entity_id: input_boolean.georgi_home
+          entity_id: input_boolean.someone_home
           state: "on"
     action:
       - service: fan.turn_on
@@ -299,7 +299,7 @@ automation:
       condition: and
       conditions:
         - condition: state
-          entity_id: input_boolean.georgi_home
+          entity_id: input_boolean.someone_home
           state: "on"
         - condition: state
           entity_id: fan.philips_airpurifier

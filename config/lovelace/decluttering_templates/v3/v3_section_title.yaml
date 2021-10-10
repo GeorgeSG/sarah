@@ -1,0 +1,18 @@
+v3_section_title:
+  default:
+    margin_left: '0'
+  card:
+    type: markdown
+    content: >
+      ### [[title]]
+    card_mod:
+      style: |
+        ha-card {
+          box-shadow: none;
+          background: transparent;
+        }
+
+        ha-card > ha-markdown {
+          font-size: 18px;
+          padding: 16px 6px 6px [[margin_left]];
+        }

@@ -1,0 +1,29 @@
+v3_pill:
+  show_name: true
+  show_icon: true
+  show_state: false
+  card_size: 5
+  hold_action:
+    action: more-info
+  styles:
+    card:
+      - width: 380px
+      - margin-left: 16px
+      - height: 60px
+      - font-size: 15px
+      - border-radius: 8px
+      - background-color: 'rgba(70, 70, 70, 1)'
+    icon:
+      - position: absolute
+      - left: 16px
+      - width: 30px
+      - --mdc-icon-size: 30px
+      - display: flex
+      - align-items: center
+    name:
+      - position: absolute
+      - top: 22px
+      - left: 60px
+      - width: 180px
+      - font-weight: bold
+      - text-align: left

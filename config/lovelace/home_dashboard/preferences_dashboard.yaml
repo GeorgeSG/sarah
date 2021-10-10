@@ -1,6 +1,11 @@
 - type: custom:mod-card
   style:
     layout-card:
+      .: |
+        * {
+          --primary-color: #6A737A
+        }
+
       $:
         horizontal-layout:
           $:
@@ -13,78 +18,99 @@
     type: custom:layout-card
     layout_type: custom:horizontal-layout
     layout:
-      max_cols: 2
+      max_cols: 3
     cards:
       - type: vertical-stack
-        title: Temperature
         cards:
-          - type: entities
-            show_header_toggle: false
-            entities:
-              - input_boolean.heating_enabled
-              - input_number.radiators_temperature
-              - script.turn_on_all_radiators
-              - type: divider
-              - input_boolean.ac_heating
-              - input_number.toshiba_heat_temp
-              - input_number.toshiba_cool_temp
-              - input_number.toshiba_trigger_temp
-          - type: entities
-            entities:
-              - input_number.bathroom_high_volume
+          - type: custom:decluttering-card
+            template: v3_title
+            variables:
+              - title: Preferences
 
-      - type: vertical-stack
-        title: Controls
-        cards:
           - type: horizontal-stack
             cards:
               - type: custom:button-card
-                template: [default, with_state_indicator, with_state_background]
+                template: [v3_button, with_state_indicator]
                 entity: input_boolean.alarm_enabled
                 state_display: >-
                   [[[
+                    if (entity.state === 'off') { return 'Off'; }
                     const time = states['input_datetime.alarm_time'].state;
                     return time.split(':').slice(0, -1).join(':');
                   ]]]
-                show_state: true
-                show_name: false
-                styles:
-                  icon:
-                    - transform: translateY(0)  # adjusted for state indicator size
-                  state:
-                    - transform: translateY(-8px)  # adjusted for state indicator size
+                name: Alarm
                 variables:
                   state_indicator_id: automation.alarm_set_time
               - type: custom:button-card
-                template: default
+                template: v3_button
                 entity: input_boolean.speech_notifications
                 name: Speech
               - type: custom:button-card
-                template: default
-                entity: binary_sensor.house_mode
+                template: v3_button
+                entity: input_select.house_mode
                 name: House
                 tap_action:
                   action: call-service
                   service: input_select.select_next
                   service_data:
                     entity_id: input_select.house_mode
-              - type: custom:button-card
-                template: default
-                name: Guests
-                entity: input_boolean.guest_mode
 
           - type: horizontal-stack
             cards:
               - type: custom:button-card
-                template: default
+                template: v3_button
+                name: Guests
+                entity: input_boolean.guest_mode
+              - type: custom:button-card
+                template: v3_button
                 entity: input_boolean.simulation_mode
                 name: Simulation
               - type: custom:button-card
-                template: default
+                template: v3_button
                 entity: switch.mercury_home_mode
                 name: Mercury
+          - type: horizontal-stack
+            cards:
               - type: custom:button-card
-                template: default
+                template: v3_button
                 entity: binary_sensor.pi_hole_enabled
                 name: Pi-Hole
                 icon: mdi:pi-hole
+
+          - type: custom:decluttering-card
+            template: v3_section_title
+            variables:
+              - title: Media
+          - type: entities
+            entities:
+              - input_number.bathroom_high_volume
+
+      - type: vertical-stack
+        cards:
+          - type: custom:decluttering-card
+            template: v3_section_title
+            variables:
+              - title: Climate
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                template: v3_button
+                entity: input_boolean.heating_enabled
+                name: Central Heating
+              - type: custom:button-card
+                template: v3_button
+                entity: input_boolean.ac_heating
+                name: AC Heating
+              - type: custom:button-card
+                template: v3_button
+                entity: script.turn_on_all_radiators
+                name: Turn On Radiators
+
+          - type: entities
+            show_header_toggle: false
+            entities:
+              - input_number.radiators_temperature
+              - type: divider
+              - input_number.toshiba_heat_temp
+              - input_number.toshiba_cool_temp
+              - input_number.toshiba_trigger_temp

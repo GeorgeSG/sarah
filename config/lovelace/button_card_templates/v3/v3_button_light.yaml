@@ -1,0 +1,7 @@
+v3_button_light:
+  template: v3_button
+  state_display: |
+    [[[
+      if (entity.state === 'off') { return 'Off'; }
+      return Math.round(entity.attributes.brightness * 100 / 255) + "%";
+    ]]]

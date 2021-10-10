@@ -1,0 +1,21 @@
+v3_tablet_button:
+  template: v3_button
+  styles:
+    card:
+      - width: 100px
+      - height: 100px
+      - border-radius: 16px
+    icon:
+      - top: 4px
+      - left: 12px
+      - width: 20px
+      - height: 20px
+      - --mdc-icon-size: 20px
+    state:
+      - bottom: 4px
+      - left: 12px
+    name:
+      - left: 12px
+      - bottom: 22px
+      - width: 60px
+      - font-size: 13px

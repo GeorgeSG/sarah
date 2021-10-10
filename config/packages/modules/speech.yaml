@@ -56,7 +56,7 @@ script:
           {% if (is_state('media_player.master_bedroom', 'playing')
               and is_state('binary_sensor.sonos_recoverable', 'off'))
               or is_state('input_boolean.speech_notifications', 'off')
-              or is_state('input_boolean.georgi_home', 'off') %}
+              or is_state('input_boolean.someone_home', 'off') %}
             notify.telegram
           {% else %}
             {% if is_state('media_player.master_bedroom', 'playing')

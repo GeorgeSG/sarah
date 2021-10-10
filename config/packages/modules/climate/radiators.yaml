@@ -7,7 +7,6 @@ input_number:
   radiators_temperature:
     name: Radiators target temperature
     unit_of_measurement: "°C"
-    mode: box
     min: 22
     max: 27
     step: 0.5
@@ -31,7 +30,7 @@ script:
             entity_id: input_boolean.heating_enabled
             state: "on"
           - condition: state
-            entity_id: binary_sensor.georgi_home
+            entity_id: binary_sensor.someone_home
             state: "on"
       - service: climate.turn_on
         data_template:
@@ -66,7 +65,7 @@ script:
             entity_id: input_boolean.heating_enabled
             state: "on"
           - condition: state
-            entity_id: binary_sensor.georgi_home
+            entity_id: binary_sensor.someone_home
             state: "on"
       - service: script.maybe_turn_radiator_on
         data:

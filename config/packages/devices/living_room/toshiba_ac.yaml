@@ -128,7 +128,7 @@ script:
             entity_id: sensor.dark_sky_apparent_temperature
             above: 23
           - condition: state
-            entity_id: input_boolean.georgi_home
+            entity_id: input_boolean.someone_home
             state: "on"
           - condition: state
             entity_id: binary_sensor.living_room_right_window

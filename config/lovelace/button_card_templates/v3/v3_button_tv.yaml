@@ -1,0 +1,21 @@
+v3_button_tv:
+  template: v3_button
+  tap_action:
+    action: toggle
+  icon: mdi:television
+  state:
+    - value: 'playing'
+      styles: &on_styles
+        card:
+          - background-color: white
+          - color: black
+        icon:
+          - color: var(--primary-color)
+    - value: 'standby'
+      styles: *on_styles
+    - value: 'on'
+      styles: *on_styles
+    - value: 'home'
+      styles: *on_styles
+    - value: 'idle'
+      styles: *on_styles

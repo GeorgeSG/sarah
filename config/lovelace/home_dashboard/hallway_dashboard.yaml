@@ -1,6 +1,11 @@
 - type: custom:mod-card
   style:
     layout-card:
+      .: |
+        * {
+          --primary-color: #188A9C
+        }
+
       $:
         horizontal-layout:
           $:
@@ -13,54 +18,44 @@
     type: custom:layout-card
     layout_type: custom:horizontal-layout
     layout:
-      max_cols: 2
+      max_cols: 3
     cards:
-      - type: vertical-stack
-        title: Hallway
-        cards:
-          - type: horizontal-stack
-            cards:
-              - type: custom:button-card
-                template: default
-                entity: light.hallway
-                name: Hallway
-              - type: custom:button-card
-                template: default
-                entity: light.hallway_entrance
-                name: Entrance
-              - type: custom:button-card
-                template: default
-                entity: light.hallway_main
-                name: Main
-
-          - type: horizontal-stack
-            title: "Sensors"
-            cards:
-              - type: custom:button-card
-                template: default
-                entity: binary_sensor.front_door
-                name: Front door
-              - type: custom:button-card
-                template: [default, with_state_indicator]
-                entity: group.hallway_motion
-                name: Motion
-                variables:
-                  state_indicator_id: automation.lighting_hallway_motion_on
-              - type: custom:button-card
-                template: [regular, progress]
-                entity: sensor.hallway_motion_illuminance
-                name: Lux
-                variables:
-                  min_value: 0
-                  max_value: 1000
-                  normal_value: 1000
-
       - type: vertical-stack
         cards:
           - type: custom:decluttering-card
-            template: climate_card
+            template: v3_title
             variables:
-              - title: "Climate"
-              - main_entity: sensor.hallway_weather_temperature
-              - left_entity: sensor.hallway_weather_humidity
-              - right_entity: sensor.hallway_weather_pressure
+              - title: Hallway
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                template: v3_badge_temp
+                entity: sensor.hallway_weather_temperature
+              - type: custom:button-card
+                template: v3_badge_humidity
+                entity: sensor.hallway_weather_humidity
+              - type: custom:button-card
+                template: v3_badge_icon
+                entity: binary_sensor.hallway_motion_occupancy
+              - type: custom:button-card
+                template: v3_badge_icon
+                entity: binary_sensor.front_door
+
+          - type: custom:decluttering-card
+            template: v3_section_title
+            variables:
+              - title: Lights
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                template: v3_button_light
+                entity: light.hallway
+                name: All
+              - type: custom:button-card
+                template: v3_button_light
+                entity: light.hallway_main
+                name: Main
+              - type: custom:button-card
+                template: v3_button_light
+                entity: light.hallway_entrance
+                name: Entrance

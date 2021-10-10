@@ -1,0 +1,17 @@
+v3_badge_icon:
+  template: v3_badge
+  show_state: false
+  show_icon: true
+  styles:
+    icon:
+      - transform: translateX(-4px) translateY(11px)
+      - --mdc-icon-size: 30px
+      - color: white
+  state:
+    - value: 'on'
+      styles:
+        card:
+          - background-color: white
+          - color: black
+        icon:
+          - color: var(--primary-color)

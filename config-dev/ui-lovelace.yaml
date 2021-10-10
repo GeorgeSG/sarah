@@ -5,7 +5,6 @@ views:
     cards:
       - type: grid
         cards:
-          - type: custom:gui-sandbox
           - type: custom:button-card
             icon: mdi:reload
             name: Theme
@@ -38,7 +37,6 @@ views:
     cards:
       - type: horizontal-stack
         cards:
-          - type: custom:gui-sandbox
           - type: custom:button-card
             icon: mdi:reload
             name: Theme

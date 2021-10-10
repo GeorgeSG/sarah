@@ -1,6 +1,11 @@
 - type: custom:mod-card
   style:
     layout-card:
+      .: |
+        * {
+          --primary-color: #FF7900
+        }
+
       $:
         horizontal-layout:
           $:
@@ -13,20 +18,31 @@
     type: custom:layout-card
     layout_type: custom:horizontal-layout
     layout:
-      max_cols: 2
+      max_cols: 3
     cards:
       - type: vertical-stack
         cards:
           - type: custom:decluttering-card
-            template: media_with_controls
+            template: v3_title
             variables:
-              - player: media_player.bathroom
-              - player_name: Bathroom
               - title: Bathroom
-      - type: custom:decluttering-card
-        template: climate_card
-        variables:
-          - title: "Climate"
-          - main_entity: sensor.bathroom_weather_temperature
-          - left_entity: sensor.bathroom_weather_humidity
-          - right_entity: sensor.bathroom_weather_pressure
+
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                template: v3_badge_temp
+                entity: sensor.bathroom_weather_temperature
+              - type: custom:button-card
+                template: v3_badge_humidity
+                entity: sensor.bathroom_weather_humidity
+
+          - type: custom:decluttering-card
+            template: v3_section_title
+            variables:
+              - title: Devices
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                template: v3_button
+                entity: media_player.bathroom
+                name: Sonos

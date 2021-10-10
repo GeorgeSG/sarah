@@ -255,7 +255,7 @@ homeassistant:
       icon: mdi:ceiling-light
 
     light.living_room_main:
-      icon: bha:ceiling-lamp-plafond
+      icon: bha:ceiling-spot-lamp
 
     light.pc:
       friendly_name: PC
@@ -273,23 +273,23 @@ homeassistant:
 
     light.master_bedroom_main:
       friendly_name: Bedroom main
-      icon: bha:ceiling-lamp-plafond
+      icon: bha:ceiling-spot-lamp
 
     light.bedside:
       icon: mdi:desk-lamp
 
     # Kitchen
     light.kitchen_main:
-      icon: bha:ceiling-lamp-plafond
+      icon: bha:ceiling-spot-lamp
     light.kitchen_secondary:
-      icon: bha:ceiling-lamp-plafond
+      icon: bha:ceiling-spot-lamp
 
     # Hallway
     light.hallway:
       icon: mdi:lightbulb-group
 
     light.hallway_entrance:
-      icon: bha:ceiling-lamp-plafond
+      icon: bha:ceiling-spot-lamp
 
     light.hallway_main:
-      icon: bha:ceiling-lamp-plafond
+      icon: bha:ceiling-spot-lamp

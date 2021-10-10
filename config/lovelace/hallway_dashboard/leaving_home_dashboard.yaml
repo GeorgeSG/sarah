@@ -1,68 +1,117 @@
-type: custom:layout-card
-layout_type: custom:horizontal-layout
-layout:
-  max_cols: 2
-cards:
-  - type: vertical-stack
-    cards:
-      - type: custom:button-card
-        template: [hallway_dashboard_mode]
-      - type: custom:weather-card
-        entity: weather.dark_sky
-      - type: custom:sun-card
-        darkMode: true
-  - type: vertical-stack
-    cards:
-      - type: grid
-        square: false
-        columns: 4
-        cards:
-          - type: custom:button-card
-            template: [with_state_background, cover, small]
-            entity: cover.living_room
-            name: LR Cover
-            tap_action:
-              action: call-service
-              service: script.toggle_living_room_cover
-          - type: custom:button-card
-            template: [small, with_state_background]
-            entity: binary_sensor.living_room_right_window
-            name: Living room
-          - type: custom:button-card
-            template: [small, with_state_background]
-            entity: binary_sensor.bedroom_left_window
-            name: Bedroom left
-          - type: custom:button-card
-            template: [small, with_state_background]
-            entity: binary_sensor.bedroom_right_window
-            name: Bedroom right
-          - type: custom:button-card
-            template: [small, with_state_background]
-            entity: binary_sensor.kitchen_window
-            name: Kitchen
-          - type: custom:button-card
-            template: [small, with_state_background]
-            entity: binary_sensor.front_door
-          - type: custom:button-card
-            template: [small, with_state_background]
-            entity: binary_sensor.bedroom_door
+type: custom:mod-card
+style:
+  layout-card:
+    $:
+      horizontal-layout:
+        $:
+          .: |
+            #columns {
+              padding-left: 10px;
+              margin: 0 20px;
+              grid-gap: 20px;
+            }
+card:
+  type: custom:layout-card
+  layout_type: custom:horizontal-layout
+  layout:
+    max_cols: 2
+  cards:
+    - type: vertical-stack
+      cards:
+        - type: custom:decluttering-card
+          template: v3_section_title
+          variables:
+            - title: Sensors
+        - type: horizontal-stack
+          cards:
+            - type: custom:button-card
+              template: v3_badge
+              entity: sensor.quarantined_percent
+            - type: custom:button-card
+              template: v3_badge
+              entity: sensor.quarantine_times_left
+            - type: custom:button-card
+              template: v3_badge_icon
+              entity: sensor.active_motion_sensors
+              icon: |
+                [[[
+                  return entity.state === 0 ? 'mdi:motion-sensor-off' : 'mdi:motion-sensor';
+                ]]]
+              state:
+                - value: 0
+                  operator: '!='
+                  styles:
+                    card:
+                      - background-color: 'white'
+                    icon:
+                      - color: var(--primary-color)
+            - type: custom:button-card
+              template: v3_badge_icon
+              entity: sensor.open_window_count
+              icon: |
+                [[[
+                  return entity.state === 0 ? 'mdi:window-closed' : 'mdi:window-open';
+                ]]]
+              state:
+                - value: 0
+                  operator: '!='
+                  styles:
+                    card:
+                      - background-color: 'white'
+                    icon:
+                      - color: var(--primary-color)
+            - type: custom:button-card
+              template: v3_badge_icon
+              entity: sensor.open_door_count
+              icon: |
+                [[[
+                  return entity.state === 0 ? 'mdi:door-closed' : 'mdi:door-open';
+                ]]]
+              state:
+                - value: 0
+                  operator: '!='
+                  styles:
+                    card:
+                      - background-color: 'white'
+                    icon:
+                      - color: var(--primary-color)
 
-      - type: custom:mini-graph-card
-        hours_to_show: 72
-        line_width: 2
-        entities:
-          - sensor.dark_sky_precip_probability
-          - sensor.dark_sky_cloud_coverage
+        - type: custom:decluttering-card
+          template: v3_section_title
+          variables:
+            - title: Modes & Devices
+        - type: horizontal-stack
+          cards:
+            - type: custom:button-card
+              template: v3_tablet_button
+              entity: input_select.hallway_dashboard_mode
+              name: Mode
+              styles:
+                card:
+                  - background-color: var(--primary-color)
+              tap_action:
+                action: call-service
+                service: input_select.select_next
+                service_data:
+                  entity_id: input_select.hallway_dashboard_mode
+            - type: custom:button-card
+              template: [v3_button_cover, v3_tablet_button]
+              entity: cover.living_room
+              name: LR Cover
+              tap_action:
+                action: call-service
+                service: script.toggle_living_room_cover
 
-      - type: entities
-        entities:
-          - type: custom:decluttering-card
-            template: percentage_card
-            variables:
-              - name: Quarantine
-              - entity: sensor.quarantined_percent
-              - icon: mdi:percent
-              - orange: 100
-              - red: 100
-          - entity: sensor.quarantine_times_left
-            name: Times left
+
+        - type: custom:sun-card
+          darkMode: true
+    - type: vertical-stack
+      cards:
+        - type: custom:weather-card
+          entity: weather.dark_sky
+        - type: custom:mini-graph-card
+          hours_to_show: 72
+          line_width: 2
+          entities:
+            - sensor.dark_sky_precip_probability
+            - sensor.dark_sky_cloud_coverage

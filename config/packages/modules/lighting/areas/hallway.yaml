@@ -6,7 +6,7 @@ automation:
       to: "on"
     condition:
       condition: state
-      entity_id: binary_sensor.georgi_home
+      entity_id: binary_sensor.someone_home
       state: "on"
     action:
       - choose:

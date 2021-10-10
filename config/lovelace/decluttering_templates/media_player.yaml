@@ -9,6 +9,7 @@ sonos_media_player:
     name: "[[name]]"
     info: "[[info]]"
     entity: "[[player]]"
+    scale: 1.2
     speaker_group:
       sync_volume: "[[sync_volume]]"
       entities: &entities_in_gorup

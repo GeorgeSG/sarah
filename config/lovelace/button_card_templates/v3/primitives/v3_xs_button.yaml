@@ -1,0 +1,22 @@
+v3_xs_button:
+  template: v3_button
+  show_state: false
+  styles:
+    card:
+      - width: 75px
+      - height: 75px
+      - border-radius: 12px
+    icon:
+      - top: 4px
+      - left: 12px
+      - width: 20px
+      - height: 20px
+      - --mdc-icon-size: 20px
+    name:
+      - left: 12px
+      - bottom: 8px
+      - white-space: normal
+      - word-wrap: break-word
+      - word-break: break-word
+      - width: 60px
+      - font-size: 13px

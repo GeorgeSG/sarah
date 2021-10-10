@@ -1,0 +1,48 @@
+v3_scene:
+  variables:
+    scene_color_1: rgb(255, 255, 255)
+    scene_color_2: rgb(255, 255, 255)
+    degrees: 315
+  show_name: true
+  show_icon: true
+  show_state: false
+  card_size: 5
+  tap_action:
+    action: call-service
+    service: scene.turn_on
+    service_data:
+      entity_id: "[[[ return entity.entity_id ]]]"
+  hold_action:
+    action: more-info
+  styles:
+    card:
+      - width: 250px
+      - height: 60px
+      - font-size: 15px
+      - box-shadow: none
+      - background: >
+          [[[
+            const color_1 = variables.scene_color_1;
+            const color_2 = variables.scene_color_2 || variables.scene_color_1;
+            const degrees = variables.degrees;
+
+            return "linear-gradient("
+                + degrees + "deg, "
+                + color_1 + " 14%, "
+                + color_2 + " 14%, "
+                + color_2 + " 24%, var(--v3-background) 24%)"
+          ]]]
+    icon:
+      - position: absolute
+      - left: 16px
+      - width: 30px
+      - --mdc-icon-size: 30px
+      - display: flex
+      - align-items: center
+    name:
+      - position: absolute
+      - top: 22px
+      - left: 60px
+      - width: 180px
+      - font-weight: bold
+      - text-align: left

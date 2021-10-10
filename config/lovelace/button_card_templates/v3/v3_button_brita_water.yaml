@@ -1,0 +1,58 @@
+v3_button_brita_water:
+  template: v3_button
+  name: Brita water
+  entity: script.brita_pour_water
+  variables:
+    long_state: true
+    value_has_error: |
+      [[[
+        return states['binary_sensor.brita_should_change_filter'].state === 'on';
+      ]]]
+  state_display: |
+    [[[
+      return Math.round(states['input_number.brita_remaining_liters'].state) +
+        (variables.long_state ? 'L Remaining' : 'L')
+    ]]]
+  tap_action:
+    action: toggle
+  styles:
+    card:
+      - background: >
+          [[[
+            const remaining = states['input_number.brita_remaining_liters'].state;
+            const percent = 100 - remaining;
+
+            const gradient = [
+              '180deg',
+              'var(--v3-background) 0%',
+              `var(--v3-background) ${percent}%`,
+              `white ${percent}%`
+            ]
+
+            return `linear-gradient(${gradient.join(',')})`;
+          ]]]
+    name:
+      - color: |
+          [[[
+            const remaining = states['input_number.brita_remaining_liters'].state;
+            return remaining > 25 ? 'black' : 'white';
+          ]]]
+      - background-color: |
+          [[[
+            const remaining = states['input_number.brita_remaining_liters'].state;
+            return remaining > 25 ? 'white' : 'transparent';
+          ]]]
+      - border-radius: 4px
+
+    icon:
+      - color: |
+          [[[
+            const remaining = states['input_number.brita_remaining_liters'].state;
+            return remaining > 65 ? 'black' : 'white';
+          ]]]
+      - background-color: |
+          [[[
+            const remaining = states['input_number.brita_remaining_liters'].state;
+            return remaining > 65 ? 'white' : 'transparent';
+          ]]]
+      - border-radius: 4px

@@ -1,0 +1,121 @@
+v3_media_with_controls:
+  default:
+    - title: "Media"
+    - player_name:
+  card:
+    type: vertical-stack
+    title: "[[title]]"
+    cards:
+      - type: custom:decluttering-card
+        template: sonos_media_player
+        variables:
+          - player: "[[player]]"
+          - name: "[[player_name]]"
+          - sync_volume: false
+      - type: horizontal-stack
+        cards:
+          - type: vertical-stack
+            cards:
+              - type: custom:decluttering-card
+                template: v3_section_title
+                variables:
+                  - title: Volume
+                  - margin_left: 16px
+              - type: horizontal-stack
+                cards:
+                  - type: custom:button-card
+                    template: v3_xs_button
+                    show_state: false
+                    entity: script.sonos_volume_10
+                    icon: mdi:volume-medium
+                    name: Vol 10
+                    tap_action:
+                      action: call-service
+                      service: script.sonos_volume_10
+                    styles:
+                      card:
+                        - margin-left: 16px
+                    variables:
+                      background_color: rgba(60, 60, 60, 1)
+                  - type: custom:button-card
+                    template: v3_xs_button
+                    show_state: false
+                    entity: script.sonos_volume_20
+                    icon: mdi:volume-high
+                    name: Vol 20
+                    tap_action:
+                      action: call-service
+                      service: script.sonos_volume_20
+                    variables:
+                      background_color: rgba(60, 60, 60, 1)
+          - type: vertical-stack
+            cards:
+              - type: custom:decluttering-card
+                template: v3_section_title
+                variables:
+                  - title: Group
+                  - margin_left: 16px
+              - type: horizontal-stack
+                cards:
+                  - type: custom:button-card
+                    template: v3_xs_button
+                    entity: binary_sensor.sonos_is_bedroom_master
+                    name: Bedroom
+                    icon: mdi:speaker-multiple
+                    tap_action:
+                      action: call-service
+                      service: script.sonos_join_bedroom
+                    styles:
+                      card:
+                        - margin-left: 16px
+                    variables:
+                      background_color: rgba(60, 60, 60, 1)
+                  - type: custom:button-card
+                    template: v3_xs_button
+                    entity: binary_sensor.sonos_is_living_room_master
+                    name: TV
+                    icon: mdi:speaker-multiple
+                    tap_action:
+                      action: call-service
+                      service: script.sonos_join_tv
+                    variables:
+                      background_color: rgba(60, 60, 60, 1)
+      - type: vertical-stack
+        cards:
+          - type: custom:decluttering-card
+            template: v3_section_title
+            variables:
+              - title: Playlists
+              - margin_left: 16px
+          - type: custom:button-card
+            template: v3_pill
+            entity: script.music_play
+            name: Chill
+            icon: mdi:music
+            tap_action:
+              action: toggle
+          - type: custom:button-card
+            template: v3_pill
+            entity: script.music_play
+            name: Chill 2
+            icon: mdi:music
+            tap_action:
+              action: call-service
+              service: script.music_play
+              service_data:
+                playlist: "Songs for a Romantic Evening"
+                shuffle: true
+                volume_level: 0.1
+          - type: custom:button-card
+            template: v3_pill
+            entity: script.music_play
+            name: Retro
+            icon: mdi:music
+            tap_action:
+              action: call-service
+              service: script.music_play
+              service_data:
+                playlist: "Retro"
+            styles:
+              card:
+                - margin-bottom: 8px

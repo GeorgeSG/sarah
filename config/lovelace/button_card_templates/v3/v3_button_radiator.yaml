@@ -1,0 +1,15 @@
+v3_button_radiator:
+  template: v3_button
+  icon: mdi:radiator
+  state_display: |
+    [[[
+      if (entity.state === 'off') { return 'Off'};
+      return entity.state.charAt(0).toUpperCase() +
+        entity.state.slice(1) + "ing to " +
+        entity.attributes.temperature + '°';
+    ]]]
+  tap_action:
+    action: call-service
+    service: script.toggle_radiator
+    service_data:
+      entity_id: "[[[ return entity.entity_id ]]]"

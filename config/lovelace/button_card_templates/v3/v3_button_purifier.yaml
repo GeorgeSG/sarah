@@ -1,0 +1,12 @@
+v3_button_purifier:
+  template: v3_button
+  state_display: |
+    [[[
+      if (entity.state === 'off') { return 'Off'; }
+      return entity.attributes.speed.charAt(0).toUpperCase() + entity.attributes.speed.slice(1);
+    ]]]
+  variables:
+    value_has_error: |
+      [[[
+        return states['binary_sensor.purifier_filter_needs_change'].state === 'on';
+      ]]]

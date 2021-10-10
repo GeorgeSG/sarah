@@ -10,6 +10,7 @@ views:
   - title: Sarah
     path: hallway_dashboard
     icon: mdi:tablet-dashboard
+    background: '#333'
     panel: true
     cards:
       - type: custom:state-switch

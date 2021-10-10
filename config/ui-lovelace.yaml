@@ -2,45 +2,54 @@ decluttering_templates: !include_dir_merge_named lovelace/decluttering_templates
 button_card_templates: !include_dir_merge_named lovelace/button_card_templates
 popup_cards: !include lovelace/popup_cards.yaml
 
+swipe_nav:
+  swipe_amount: 30
+  skip_tabs: 5
+
+kiosk_mode:
+  hide_overflow: true
+
 title: Home
 views:
-  - title: Home
+  - title: Living Room
     path: default_view
-    icon: "mdi:home"
-    panel: true
-    cards: !include lovelace/home_dashboard/main_dashboard.yaml
-  - title: Living room
-    path: living_room
     icon: "mdi:sofa"
     panel: true
+    background: 'center / cover no-repeat url("/local/images/wallpapers-3/living_room.jpg") #0040A0 fixed'
     cards: !include lovelace/home_dashboard/living_room_dashboard.yaml
-  - title: Master bedroom
-    path: master_bedroom
+    theme: sarah-noctis-grey
+  - title: Bedroom
+    path: bedroom
     icon: "mdi:bed-empty"
     panel: true
+    background: 'center / cover no-repeat url("/local/images/wallpapers-3/bedroom.jpg") #871CAB fixed'
     cards: !include lovelace/home_dashboard/bedroom_dashboard.yaml
+    theme: sarah-noctis-grey
   - title: Kitchen
     path: kitchen
     icon: "mdi:chef-hat"
     panel: true
+    background: 'center / cover no-repeat url("/local/images/wallpapers-3/kitchen_3.jpg") #58892D fixed'
     cards: !include lovelace/home_dashboard/kitchen_dashboard.yaml
+    theme: sarah-noctis-grey
   - title: Bathroom
     path: bathroom
     icon: "mdi:shower-head"
     panel: true
+    background: 'center / cover no-repeat url("/local/images/wallpapers-3/bathroom_2.jpg") #FF7900 fixed'
     cards: !include lovelace/home_dashboard/bathroom_dashboard.yaml
+    theme: sarah-noctis-grey
   - title: Hallway
     path: hallway
     icon: "mdi:door-closed"
     panel: true
+    background: 'center / cover no-repeat url("/local/images/wallpapers-3/hallway_2.jpg") #188A9C fixed'
     cards: !include lovelace/home_dashboard/hallway_dashboard.yaml
+    theme: sarah-noctis-grey
   - title: Preferences
-    path: preferences
+    path: Preferences
     icon: "mdi:cogs"
     panel: true
+    background: 'center / cover no-repeat url("/local/images/wallpapers-3/preferences.jpg") #6A737A fixed'
     cards: !include lovelace/home_dashboard/preferences_dashboard.yaml
-  - title: Cameras
-    path: cameras
-    icon: "mdi:webcam"
-    panel: true
-    cards: !include lovelace/home_dashboard/cameras_dashboard.yaml
+    theme: sarah-noctis-grey

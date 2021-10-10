@@ -52,7 +52,7 @@ lovelace:
       mode: yaml
       title: Hallway Dashboard
       icon: mdi:tablet-dashboard
-      show_in_sidebar: false
+      show_in_sidebar: true
       filename: hallway-lovelace.yaml
     lovelace-kitchen:
       mode: yaml

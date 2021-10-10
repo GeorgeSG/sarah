@@ -1,201 +1,307 @@
-type: custom:layout-card
-layout_type: custom:horizontal-layout
-layout:
-  max_cols: 2
-cards:
-  # Column 1
-  - type: vertical-stack
-    cards:
-      - type: custom:button-card
-        template: [hallway_dashboard_mode]
-      - type: horizontal-stack
-        cards:
-          - type: custom:button-card
-            template: half
-            icon: none
-            entity: light.all
-            name: All
-          - type: custom:button-card
-            template: half
-            icon: none
-            entity: light.ceiling
-            name: Ceiling
-      - type: horizontal-stack
-        cards:
-          - type: custom:button-card
-            template: [small, with_state_background]
-            entity: light.living_room
-            name: Living room
-          - type: custom:button-card
-            template: [small, with_state_background]
-            entity: light.living_room_main
-            name: Main
-          - type: custom:button-card
-            template: [small, with_state_background]
-            entity: light.pc
-          - type: custom:button-card
-            template: [small, with_state_background]
-            entity: light.living_room_ambient
-            name: Ambient
-      - type: horizontal-stack
-        cards:
-          - type: custom:button-card
-            template: [small, with_state_background]
-            entity: light.master_bedroom
-            name: Bedroom
-          - type: custom:button-card
-            template: [small, with_state_background]
-            entity: light.master_bedroom_main
-            name: Main
-          - type: custom:button-card
-            template: [small, with_state_background]
-            entity: light.bed_led
-            name: Bed
-            tap_action:
-              action: call-service
-              service: script.bed_led_toggle
-          - type: custom:button-card
-            template: [small, with_state_background]
-            entity: light.bedside
-            name: Bedside
-      - type: horizontal-stack
-        cards:
-          - type: custom:button-card
-            template: [small, with_state_background]
-            entity: light.kitchen
-            name: Kitchen
-          - type: custom:button-card
-            template: [small, with_state_background]
-            entity: light.hallway_main
-            name: Hallway
-          - type: custom:button-card
-            template: [small, with_state_background]
-            entity: light.hallway_entrance
-            name: Entrance
+type: custom:mod-card
+style:
+  layout-card:
+    $:
+      horizontal-layout:
+        $:
+          .: |
+            #columns {
+              padding-left: 10px;
+              margin: 0 20px;
+              grid-gap: 20px;
+            }
+card:
+  type: custom:layout-card
+  layout_type: custom:horizontal-layout
+  layout:
+    max_cols: 2
+  cards:
+    # Column 1
+    - type: vertical-stack
+      cards:
+        - type: custom:decluttering-card
+          template: v3_section_title
+          variables:
+            - title: Sensors
+        - type: horizontal-stack
+          cards:
+            - type: custom:button-card
+              template: v3_badge_temp
+              entity: sensor.average_temperature
+            - type: custom:button-card
+              template: v3_badge_humidity
+              entity: sensor.average_humidity
+            - type: custom:button-card
+              template: v3_badge_icon
+              entity: sensor.active_motion_sensors
+              icon: |
+                [[[
+                  return entity.state === 0 ? 'mdi:motion-sensor-off' : 'mdi:motion-sensor';
+                ]]]
+              state:
+                - value: 0
+                  operator: '!='
+                  styles:
+                    card:
+                      - background-color: 'white'
+                    icon:
+                      - color: var(--primary-color)
+            - type: custom:button-card
+              template: v3_badge_icon
+              entity: sensor.open_window_count
+              icon: |
+                [[[
+                  return entity.state === 0 ? 'mdi:window-closed' : 'mdi:window-open';
+                ]]]
+              state:
+                - value: 0
+                  operator: '!='
+                  styles:
+                    card:
+                      - background-color: 'white'
+                    icon:
+                      - color: var(--primary-color)
+            - type: custom:button-card
+              template: v3_badge_icon
+              entity: sensor.open_door_count
+              icon: |
+                [[[
+                  return entity.state === 0 ? 'mdi:door-closed' : 'mdi:door-open';
+                ]]]
+              state:
+                - value: 0
+                  operator: '!='
+                  styles:
+                    card:
+                      - background-color: 'white'
+                    icon:
+                      - color: var(--primary-color)
 
-      - type: custom:decluttering-card
-        template: media_with_controls
-        variables:
-          - player: media_player.master_bedroom
-          - player_name: Bedroom
-          - title: ""
+        - type: custom:decluttering-card
+          template: v3_section_title
+          variables:
+            - title: Modes & Devices
+        - type: horizontal-stack
+          cards:
+            - type: custom:button-card
+              template: v3_tablet_button
+              entity: input_select.hallway_dashboard_mode
+              name: Mode
+              styles:
+                card:
+                  - background-color: var(--primary-color)
+              tap_action:
+                action: call-service
+                service: input_select.select_next
+                service_data:
+                  entity_id: input_select.hallway_dashboard_mode
+            - type: custom:button-card
+              template: v3_tablet_button
+              entity: input_boolean.guest_mode
+              tap_action:
+                action: toggle
+            - type: custom:button-card
+              template: [v3_button_tv, v3_tablet_button]
+              entity: media_player.living_room_tv
+              name: TV
+        - type: horizontal-stack
+          cards:
+            - type: custom:button-card
+              template: [v3_button_ac, v3_tablet_button]
+              entity: climate.toshiba_ac
+              name: AC
+              tap_action:
+                action: call-service
+                service: script.toshiba_ac_toggle
+            - type: custom:button-card
+              template: [v3_button_radiator, v3_tablet_button]
+              entity: climate.living_room_radiator_mode
+              name: "Living room"
+            - type: custom:button-card
+              template: [v3_button_radiator, v3_tablet_button]
+              entity: climate.bedroom_radiator_mode
+              name: "Bedroom"
+            - type: custom:button-card
+              template: [v3_button_radiator, v3_tablet_button]
+              entity: climate.kitchen_radiator_mode
+              name: "Kitchen"
+        - type: horizontal-stack
+          cards:
+            - type: custom:button-card
+              template: [v3_button_cover, v3_tablet_button]
+              entity: cover.living_room
+              name: LR Cover
+              tap_action:
+                action: call-service
+                service: script.toggle_living_room_cover
+            - type: custom:button-card
+              template: [v3_button_purifier, v3_tablet_button]
+              entity: fan.philips_airpurifier
+              name: Air Purifier
+            - type: custom:button-card
+              template: v3_tablet_button
+              entity: vacuum.vacuum
+              name: Vacuum
+            - type: custom:button-card
+              template: v3_button_brita_water
+              variables:
+                long_state: false
+              styles:
+                card:
+                  - width: 100px
+                  - height: 100px
+                  - border-radius: 16px
+                icon:
+                  - top: 4px
+                  - left: 12px
+                  - width: 20px
+                  - height: 20px
+                  - --mdc-icon-size: 20px
+                state:
+                  - bottom: 4px
+                  - left: 12px
+                name:
+                  - left: 12px
+                  - bottom: 22px
+                  - width: 60px
+                  - font-size: 13px
 
-  # Column 2
-  - type: vertical-stack
-    cards:
-      - type: grid
-        columns: 4
-        square: false
-        cards:
-          - type: custom:button-card
-            template: [small, with_state_background]
-            entity: input_boolean.speech_notifications
-            name: Speech
-          - type: custom:button-card
-            template: [small, with_state_background]
-            entity: binary_sensor.house_mode
-            tap_action:
-              action: call-service
-              service: input_select.select_next
-              service_data:
-                entity_id: input_select.house_mode
-          - type: custom:button-card
-            template: [small, with_state_background]
-            entity: input_boolean.guest_mode
-            tap_action:
-              action: toggle
-          - type: custom:button-card
-            template: [small, with_state_background]
-            entity: switch.mercury_home_mode
-            name: Mercury Home
+    # Column 2
+    - type: vertical-stack
+      cards:
+        - type: custom:decluttering-card
+          template: v3_section_title
+          variables:
+            - title: Lights
+        - type: horizontal-stack
+          cards:
+            - type: custom:button-card
+              template: v3_tablet_button
+              entity: light.living_room
+              name: Living room
+            - type: custom:button-card
+              template: v3_tablet_button
+              entity: light.living_room_main
+              name: Main
+            - type: custom:button-card
+              template: v3_tablet_button
+              entity: light.pc
+            - type: custom:button-card
+              template: v3_tablet_button
+              entity: light.living_room_ambient
+              name: Ambient
+        - type: horizontal-stack
+          cards:
+            - type: custom:button-card
+              template: v3_tablet_button
+              entity: light.master_bedroom
+              name: Bedroom
+            - type: custom:button-card
+              template: v3_tablet_button
+              entity: light.master_bedroom_main
+              name: Main
+            - type: custom:button-card
+              template: v3_tablet_button
+              entity: light.bed_led
+              name: Bed
+              tap_action:
+                action: call-service
+                service: script.bed_led_toggle
+            - type: custom:button-card
+              template: v3_tablet_button
+              entity: light.bedside
+              name: Bedside
+        - type: horizontal-stack
+          cards:
+            - type: custom:button-card
+              template: v3_tablet_button
+              entity: light.kitchen
+              name: Kitchen
+            - type: custom:button-card
+              template: v3_tablet_button
+              entity: light.hallway_main
+              name: Hallway
+            - type: custom:button-card
+              template: v3_tablet_button
+              entity: light.hallway_entrance
+              name: Entrance
 
+        - type: custom:decluttering-card
+          template: v3_section_title
+          variables:
+            - title: Media
 
-          - type: custom:button-card
-            template: small
-            entity: media_player.living_room_tv
-            name: TV
-            icon: mdi:television
-            tap_action:
-              action: toggle
-            state:
-              - value: 'playing'
-                styles: &on_styles
-                  card:
-                    - background-color: var(--primary-color)
-                    - color: black
-                  icon:
-                    - color: black
-              - value: 'standby'
-                styles: *on_styles
-              - value: 'on'
-                styles: *on_styles
-              - value: 'home'
-                styles: *on_styles
-              - value: 'idle'
-                styles: *on_styles
-
-          - type: custom:button-card
-            template: [small, with_state_background, with_state_indicator]
-            entity: switch.titanium
-            variables:
-              state_indicator_id: automation.titanium_turn_off_when_idle
-
-
-          - type: custom:button-card
-            template: [ac_button, small]
-          - type: custom:button-card
-            template: [radiator_button, small]
-            entity: climate.living_room_radiator_mode
-            name: "Living room"
-          - type: custom:button-card
-            template: [radiator_button, small]
-            entity: climate.bedroom_radiator_mode
-            name: "Bedroom"
-          - type: custom:button-card
-            template: [radiator_button, small]
-            entity: climate.kitchen_radiator_mode
-            name: "Kitchen"
-
-          - type: custom:button-card
-            template: [with_state_background, cover, small]
-            entity: cover.living_room
-            name: LR Cover
-            tap_action:
-              action: call-service
-              service: script.toggle_living_room_cover
-          - type: custom:button-card
-            template: [small, with_state_background, with_state_indicator]
-            entity: fan.philips_airpurifier
-            variables:
-              state_indicator_id: binary_sensor.purifier_filter_needs_change
-              state_indicator_size: 5px
-              state_indicator_off_size: 0px
-              state_indicator_on_color: var(--color-red)
-              state_on_indicator_on_color: var(--color-red)
-          - type: custom:button-card
-            template: [small, with_state_background]
-            entity: vacuum.vacuum
-            name: Vacuum
-          - type: custom:button-card
-            template: [brita_water, small]
-
-      - type: horizontal-stack
-        cards:
-          - type: "custom:mini-graph-card"
-            name: Temperature
-            icon: mdi:thermometer
-            entities:
-              - sensor.average_temperature
-            cache: false
-            group_by: hour
-            hours_to_show: 72
-            line_width: 2
-          - type: "custom:mini-graph-card"
-            name: Humidity
-            icon: mdi:water-percent
-            entities:
-              - sensor.average_humidity
-            cache: false
-            group_by: hour
-            hours_to_show: 72
-            line_width: 2
+        - type: horizontal-stack
+          cards:
+            - type: custom:button-card
+              template: v3_xs_button
+              entity: media_player.master_bedroom
+              name: Sonos
+            - type: custom:button-card
+              template: v3_xs_button
+              show_state: false
+              entity: script.sonos_volume_10
+              icon: mdi:volume-medium
+              name: Vol 10
+              tap_action:
+                action: call-service
+                service: script.sonos_volume_10
+            - type: custom:button-card
+              template: v3_xs_button
+              show_state: false
+              entity: script.sonos_volume_20
+              icon: mdi:volume-high
+              name: Vol 20
+              tap_action:
+                action: call-service
+                service: script.sonos_volume_20
+            - type: custom:button-card
+              template: v3_xs_button
+              entity: binary_sensor.sonos_is_bedroom_master
+              name: Bedroom
+              icon: mdi:speaker-multiple
+              tap_action:
+                action: call-service
+                service: script.sonos_join_bedroom
+            - type: custom:button-card
+              template: v3_xs_button
+              entity: binary_sensor.sonos_is_living_room_master
+              name: TV
+              icon: mdi:speaker-multiple
+              tap_action:
+                action: call-service
+                service: script.sonos_join_tv
+        - type: horizontal-stack
+          cards:
+            - type: custom:button-card
+              template: v3_xs_button
+              entity: script.music_play
+              name: Chill
+              icon: mdi:music
+              tap_action:
+                action: toggle
+            - type: custom:button-card
+              template: v3_xs_button
+              entity: script.music_play
+              name: Chill 2
+              icon: mdi:music
+              tap_action:
+                action: call-service
+                service: script.music_play
+                service_data:
+                  playlist: "Songs for a Romantic Evening"
+                  shuffle: true
+                  volume_level: 0.1
+            - type: custom:button-card
+              template: v3_xs_button
+              entity: script.music_play
+              name: Retro
+              icon: mdi:music
+              tap_action:
+                action: call-service
+                service: script.music_play
+                service_data:
+                  playlist: "Retro"
+              styles:
+                card:
+                  - margin-bottom: 8px
