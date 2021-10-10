@@ -29,24 +29,37 @@ The `speech` module uses [partial templates](https://github.com/GeorgeSG/sarah/t
 **Servers:**
 
 - [Intel NUC6i7KYK](https://www.intel.com/content/www/us/en/products/boards-kits/nuc/kits/nuc6i7kyk.html) - Ubuntu running Home Assistant and Plex Media Server
-- [Synology DS415play](https://www.synology.com/) - Synology NAS Server
+- [Synology DS1821+](https://www.synology.com/en-global/products/DS1821+) - Synology NAS Server
+- [Synology DS415play](https://www.synology.com/) - Synology NAS Server (backup)
 
 **Controllers:**
 
 - [ConBee II](https://www.phoscon.de/en/conbee2) - Zigbee controller
+- [aeotec Z-Stick gen 5](https://aeotec.com/z-wave-usb-stick/index.html) - Zwave controller
 
-**Sensors:**
+**Sensors & Switches:**
 
 - [Aqara Temperature and Humidity Sensor](https://www.aqara.com/us/temperature_humidity_sensor.html) (Zigbee)
 - [Aqara Door and Window Sensor](https://www.aqara.com/us/door_and_window_sensor.html) (Zigbee)
 - [Aqara Wireless Mini Switch](https://www.aqara.com/en/smart_wireless_mini_switch.html) (Zigbee)
 - [Aqara Motion Sensor](https://www.aqara.com/eu/motion_sensor.html) (Zigbee)
+- [Aeotec MultiSensor 6](https://aeotec.com/z-wave-sensor/index.html) (Zwave)
+- [Aeotec Trisensor](https://aeotec.com/z-wave-motion-sensor/index.html) (Zwave)
+- [Aeotec WallMote](https://aeotec.com/z-wave-wireless-switch/index.html) (Zwave - 4-button switch)
+- [Aqara Opple Wireless](https://zigbee.blakadder.com/Xiaomi_WXCJKG13LM.html) (Zigbee - 6-button switch)
 
 **Lights:**
 
+- [Philips Hue White & Color Ambiance E14](https://www.philips-hue.com/en-us/p/hue-white-and-color-ambiance-single-bulb-e12/046677556969)
+- [Philips Hue White Ambiance E14](https://www.philips-hue.com/en-us/p/hue-white-ambiance-single-bulb-e12/046677556976)
+- [Philips Hue White E14](https://www.philips-hue.com/en-us/p/hue-white-2-pack-e12/046677548285)
 - A bunch of random Tuya E14 lights (wifi - some flashed with Tasmota, some runing on Tuya Cloud)
 - [Yeelight S1 Lights](https://www.yeelight.com/en_US/product/lemon2-color) (wifi)
 - [Random LED strip from AliExpress](https://www.aliexpress.com/item/4000068013535.html?spm=a2g0s.9042311.0.0.6ea44c4d3Tm6AF) (Zigbee)
+
+A note on lights - I tried a lot of wifi lights, running on Tuya Cloud, running with Tasmota; also
+tried some Zigbee ones as well. They all broke or had issues - blinking, noise, etc. The Hues are
+expensive, but I would have saved money if I went with them from the start.
 
 **Media:**
 
@@ -55,12 +68,12 @@ The `speech` module uses [partial templates](https://github.com/GeorgeSG/sarah/t
 - [Sonos Beam](https://www.sonos.com/en-us/shop/beam.html)
 
 **Misc:**
-
-- [Aqara Magic Cube](https://www.gearbest.com/access-control/pp_1845856.html) (Zigbee)
 - [Philips AC2729 Air Purifier and Humidifier](https://www.p4c.philips.com/cgi-bin/cpindex.pl?scy=EE&slg=EN&ctn=AC2729/10) (wifi)
 - [Hama Wifi Socket](https://de.hama.com/00176565/hama-wifi-socket-with-integrated-current-measuring-device-3680-w-16-a) (wifi - Tasmota / MQTT)
 - [FrankEver IR Remote Controller](https://www.amazon.com/Controller-Universal-Infrared-Repeater-Compatible/dp/B07ZP5NQWF) (wifi - Tasmota / MQTT)
+- [Soma Smart Shades](https://www.somasmarthome.com/) (wifi)
 - Amcrest Security Camera
+- Tapo Security Camera
 
 ## Screenshots (v3)
 
