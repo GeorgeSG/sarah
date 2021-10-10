@@ -163,38 +163,29 @@ sensor.active_motion_sensors:
       - type: horizontal-stack
         cards:
           - type: custom:button-card
-            template: v3_button
+            template: [v3_button, v3_popup_button]
             entity: binary_sensor.hallway_motion_occupancy
             name: Hallway Entrance
             styles:
               card:
                 - margin-left: 8px
-            variables:
-              background_color: rgba(60, 60, 60, 1)
           - type: custom:button-card
-            template: v3_button
+            template: [v3_button, v3_popup_button]
             entity: binary_sensor.trisensor_motion
             name: Hallway
-            variables:
-              background_color: rgba(60, 60, 60, 1)
           - type: custom:button-card
-            template: v3_button
+            template: [v3_button, v3_popup_button]
             entity: binary_sensor.multisensor_motion
             name: Living Room
-            variables:
-              background_color: rgba(60, 60, 60, 1)
       - type: horizontal-stack
         cards:
           - type: custom:button-card
-            template: v3_button
+            template: [v3_button, v3_popup_button]
             entity: binary_sensor.kitchen_motion_occupancy
             name: Kitchen
             styles:
               card:
                 - margin-left: 8px
-                - margin-bottom: 8px
-            variables:
-              background_color: rgba(60, 60, 60, 1)
 
 sensor.open_door_count:
   title: Open doors
@@ -204,20 +195,15 @@ sensor.open_door_count:
       - type: horizontal-stack
         cards:
           - type: custom:button-card
-            template: v3_button
+            template: [v3_button, v3_popup_button]
             entity: binary_sensor.front_door
             styles:
               card:
                 - margin-left: 8px
-                - margin-bottom: 8px
-            variables:
-              background_color: rgba(60, 60, 60, 1)
           - type: custom:button-card
-            template: v3_button
+            template: [v3_button, v3_popup_button]
             entity: binary_sensor.bedroom_door
             name: Bedroom
-            variables:
-              background_color: rgba(60, 60, 60, 1)
 
 sensor.open_window_count:
   title: Open windows
@@ -227,38 +213,29 @@ sensor.open_window_count:
       - type: horizontal-stack
         cards:
           - type: custom:button-card
-            template: v3_button
+            template: [v3_button, v3_popup_button]
             entity: binary_sensor.living_room_right_window
             name: Living Room
             styles:
               card:
                 - margin-left: 8px
-            variables:
-              background_color: rgba(60, 60, 60, 1)
           - type: custom:button-card
-            template: v3_button
+            template: [v3_button, v3_popup_button]
             entity: binary_sensor.bedroom_left_window
             name: Bedroom Left
-            variables:
-              background_color: rgba(60, 60, 60, 1)
           - type: custom:button-card
-            template: v3_button
+            template: [v3_button, v3_popup_button]
             entity: binary_sensor.bedroom_right_window
             name: Bedroom Right
-            variables:
-              background_color: rgba(60, 60, 60, 1)
       - type: horizontal-stack
         cards:
           - type: custom:button-card
-            template: v3_button
+            template: [v3_button, v3_popup_button]
             entity: binary_sensor.kitchen_window
             name: Kitchen
             styles:
               card:
                 - margin-left: 8px
-                - margin-bottom: 8px
-            variables:
-              background_color: rgba(60, 60, 60, 1)
 
 sensor.bedroom_weather_temperature:
   title: Bedroom Climate
@@ -270,7 +247,26 @@ sensor.multisensor_6_temperature:
   title: Living Room Climate
   card:
     type: custom:decluttering-card
-    template: living_room_climate_card
+    template: climate_card
+    variables:
+      - main_entity: sensor.multisensor_6_temperature
+      - left_entity: sensor.multisensor_6_relative_humidity
+      - right_entity: sensor.multisensor_6_luminance
+      - right_name: Luminance
+
+
+sensor.multisensor_6_relative_humidity:
+  title: Living Room Humidity
+  card:
+    type: custom:decluttering-card
+    template: climate_card
+    variables:
+      - main_entity: sensor.multisensor_6_relative_humidity
+      - main_name: Humidity
+      - left_entity: sensor.multisensor_6_temperature
+      - left_name: Temperature
+      - right_entity: sensor.multisensor_6_luminance
+      - right_name: Luminance
 
 sensor.bedroom_weather_humidity:
   title: Bedroom Humidity

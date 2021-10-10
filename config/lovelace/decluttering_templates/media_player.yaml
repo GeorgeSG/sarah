@@ -28,21 +28,3 @@ sonos_media_player:
     idle_view:
       when_idle: true
       when_standby: true
-
-sonos_media_player_small:
-  card:
-    type: custom:mini-media-player
-    artwork: cover
-    name: "[[name]]"
-    entity: "[[player]]"
-    speaker_group:
-      entities: *entities_in_gorup
-    hide:
-      power: true
-      icon: true
-      controls: true
-      shuffle: true
-      info: true
-    idle_view:
-      when_idle: true
-      when_standby: true

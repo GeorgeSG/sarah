@@ -10,18 +10,24 @@ brita_card:
       - type: horizontal-stack
         cards:
           - type: custom:button-card
-            template: default
+            template: [v3_button, v3_popup_button]
             name: New filter
             entity: script.brita_new_filter
+            show_state: false
             tap_action:
               action: toggle
+            styles:
+              card:
+                - margin-left: 8px
+
           - type: custom:button-card
-            template: default
+            template: [v3_button, v3_popup_button]
             name: Pour water
             entity: script.brita_pour_water
+            show_state: false
             tap_action:
               action: toggle
           - type: custom:button-card
-            template: default
+            template: [v3_button, v3_popup_button]
             name: Filter
             entity: binary_sensor.brita_should_change_filter

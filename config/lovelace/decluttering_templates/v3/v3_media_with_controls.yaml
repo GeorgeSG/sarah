@@ -20,11 +20,11 @@ v3_media_with_controls:
                 template: v3_section_title
                 variables:
                   - title: Volume
-                  - margin_left: 16px
+                  - margin_left: 8px
               - type: horizontal-stack
                 cards:
                   - type: custom:button-card
-                    template: v3_xs_button
+                    template: [v3_xs_button, v3_popup_button]
                     show_state: false
                     entity: script.sonos_volume_10
                     icon: mdi:volume-medium
@@ -34,11 +34,9 @@ v3_media_with_controls:
                       service: script.sonos_volume_10
                     styles:
                       card:
-                        - margin-left: 16px
-                    variables:
-                      background_color: rgba(60, 60, 60, 1)
+                        - margin-left: 8px
                   - type: custom:button-card
-                    template: v3_xs_button
+                    template: [v3_xs_button, v3_popup_button]
                     show_state: false
                     entity: script.sonos_volume_20
                     icon: mdi:volume-high
@@ -46,19 +44,17 @@ v3_media_with_controls:
                     tap_action:
                       action: call-service
                       service: script.sonos_volume_20
-                    variables:
-                      background_color: rgba(60, 60, 60, 1)
           - type: vertical-stack
             cards:
               - type: custom:decluttering-card
                 template: v3_section_title
                 variables:
                   - title: Group
-                  - margin_left: 16px
+                  - margin_left: 8px
               - type: horizontal-stack
                 cards:
                   - type: custom:button-card
-                    template: v3_xs_button
+                    template: [v3_xs_button, v3_popup_button]
                     entity: binary_sensor.sonos_is_bedroom_master
                     name: Bedroom
                     icon: mdi:speaker-multiple
@@ -67,19 +63,15 @@ v3_media_with_controls:
                       service: script.sonos_join_bedroom
                     styles:
                       card:
-                        - margin-left: 16px
-                    variables:
-                      background_color: rgba(60, 60, 60, 1)
+                        - margin-left: 8px
                   - type: custom:button-card
-                    template: v3_xs_button
+                    template: [v3_xs_button, v3_popup_button]
                     entity: binary_sensor.sonos_is_living_room_master
                     name: TV
                     icon: mdi:speaker-multiple
                     tap_action:
                       action: call-service
                       service: script.sonos_join_tv
-                    variables:
-                      background_color: rgba(60, 60, 60, 1)
       - type: vertical-stack
         cards:
           - type: custom:decluttering-card

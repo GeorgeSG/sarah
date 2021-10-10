@@ -1,0 +1,6 @@
+v3_popup_button:
+  variables:
+    background_color: rgba(60, 60, 60, 1)
+  styles:
+    card:
+      - margin-bottom: 8px

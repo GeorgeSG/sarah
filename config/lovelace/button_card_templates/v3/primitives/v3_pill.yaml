@@ -8,7 +8,7 @@ v3_pill:
   styles:
     card:
       - width: 380px
-      - margin-left: 16px
+      - margin-left: 8px
       - height: 60px
       - font-size: 15px
       - border-radius: 8px

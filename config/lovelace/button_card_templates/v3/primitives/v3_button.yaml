@@ -34,7 +34,7 @@ v3_button:
     name:
       - position: absolute
       - left: 16px
-      - bottom: 28px
+      - bottom: "[[[ return this.___config.show_state ? '28px' : '10px'; ]]]"
       - white-space: normal
       - word-wrap: break-word
       - word-break: break-word
