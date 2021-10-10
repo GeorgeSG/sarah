@@ -5,10 +5,13 @@ philips_airpurifier_card:
       - type: horizontal-stack
         cards:
           - type: custom:button-card
-            template: default
+            template: [v3_button_purifier, v3_popup_button]
             entity: fan.philips_airpurifier
+            styles:
+              card:
+                - margin-left: 8px
           - type: custom:button-card
-            template: default
+            template: [v3_button, v3_popup_button]
             entity: sensor.purifier_speed
             tap_action:
               action: call-service
@@ -16,21 +19,45 @@ philips_airpurifier_card:
               service_data:
                 entity_id: input_select.purifier_speed
           - type: custom:button-card
-            template: default
+            template: [v3_button, v3_popup_button]
             entity: sensor.purifier_preset_mode
+            state_display: "[[[ return entity.state.charAt(0).toUpperCase() + entity.state.slice(1); ]]]"
             tap_action:
               action: call-service
               service: input_select.select_next
               service_data:
                 entity_id: input_select.purifier_preset_mode
+      - type: horizontal-stack
+        cards:
           - type: custom:button-card
-            template: default
+            template: [v3_button, v3_popup_button]
             entity: sensor.purifier_function
             tap_action:
               action: call-service
               service: script.purifier_toggle_function
-          - type: custom:decluttering-card
-            template: purifier_target_humidity
+            styles:
+              card:
+                - margin-left: 8px
+
+          - type: custom:button-card
+            template: [v3_button, v3_popup_button]
+            entity: sensor.purifier_target_humidity
+            variables:
+              value_has_error: |
+                [[[
+                  return states['binary_sensor.purifier_out_of_water'].state === 'on';
+                ]]]
+            tap_action:
+              action: call-service
+              service: input_select.select_next
+              service_data:
+                entity_id: input_select.purifier_target_humidity
+
+          - type: custom:button-card
+            template: [v3_button, v3_popup_button]
+            entity: binary_sensor.purifier_filter_needs_change
+            variables:
+              value_has_error: "[[[ return entity.state === 'on' ]]]"
 
       - type: entities
         show_header_toggle: false
@@ -40,7 +67,6 @@ philips_airpurifier_card:
               type: custom:template-entity-row
               name: Sensors
               icon: mdi:air-purifier
-            open: true
             entities:
               - sensor.purifier_air_quality
               - sensor.purifier_allergens
@@ -51,7 +77,7 @@ philips_airpurifier_card:
             head:
               type: custom:template-entity-row
               name: Attributes
-            open: true
+              icon: mdi:view-headline
             entities:
               - sensor.purifier_speed
               - sensor.purifier_preset_mode
@@ -66,6 +92,7 @@ philips_airpurifier_card:
             head:
               type: custom:template-entity-row
               name: Filters
+              icon: mdi:air-filter
             entities:
               - sensor.purifier_pre_filter
               - sensor.purifier_hepa_filter

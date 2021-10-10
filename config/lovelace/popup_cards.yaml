@@ -102,20 +102,25 @@ media_player.nvidia_shield: &nvidia_shield
       - type: horizontal-stack
         cards:
           - type: custom:button-card
+            template: [v3_button, v3_popup_button]
             icon: mdi:set-top-box
             name: Set to Shield
-            template: default
+            show_state: false
             tap_action:
               action: call-service
               service: media_player.select_source
               service_data:
                 entity_id: media_player.living_room_tv
                 source: Shield
+            styles:
+              card:
+                - margin-left: 8px
 
           - type: custom:button-card
+            template: [v3_button, v3_popup_button]
             name: Set to Switch
             icon: mdi:video-input-hdmi
-            template: default
+            show_state: false
             tap_action:
               action: call-service
               service: media_player.select_source
@@ -124,9 +129,10 @@ media_player.nvidia_shield: &nvidia_shield
                 source: Switch
 
           - type: custom:button-card
+            template: [v3_button, v3_popup_button]
             name: Bulsatcom
             icon: mdi:remote-tv
-            template: default
+            show_state: false
             tap_action:
               action: call-service
               service: script.tv_bulsatcom_toggle
@@ -354,7 +360,7 @@ sensor.purifier_allergens:
     template: bedroom_allergen_index_card
 
 fan.philips_airpurifier:
-  title: Air purifier
+  title: Air Purifier
   card:
     type: custom:decluttering-card
     template: philips_airpurifier_card

@@ -143,7 +143,7 @@ card:
             - type: custom:button-card
               template: [v3_button_cover, v3_tablet_button]
               entity: cover.living_room
-              name: LR Cover
+              name: LR Blinds
               tap_action:
                 action: call-service
                 service: script.toggle_living_room_cover
