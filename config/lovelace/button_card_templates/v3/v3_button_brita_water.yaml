@@ -20,7 +20,7 @@ v3_button_brita_water:
       - background: >
           [[[
             const remaining = states['input_number.brita_remaining_liters'].state;
-            const percent = 100 - remaining;
+            const percent = 100 - (remaining / 150 * 100);
 
             const gradient = [
               '180deg',
@@ -35,12 +35,14 @@ v3_button_brita_water:
       - color: |
           [[[
             const remaining = states['input_number.brita_remaining_liters'].state;
-            return remaining > 25 ? 'black' : 'white';
+            const percent = remaining / 150 * 100;
+            return percent > 25 ? 'black' : 'white';
           ]]]
       - background-color: |
           [[[
             const remaining = states['input_number.brita_remaining_liters'].state;
-            return remaining > 25 ? 'white' : 'transparent';
+            const percent = remaining / 150 * 100;
+            return percent > 25 ? 'white' : 'transparent';
           ]]]
       - border-radius: 4px
 
@@ -48,11 +50,13 @@ v3_button_brita_water:
       - color: |
           [[[
             const remaining = states['input_number.brita_remaining_liters'].state;
-            return remaining > 65 ? 'black' : 'white';
+            const percent = remaining / 150 * 100;
+            return percent > 65 ? 'black' : 'white';
           ]]]
       - background-color: |
           [[[
             const remaining = states['input_number.brita_remaining_liters'].state;
-            return remaining > 65 ? 'white' : 'transparent';
+            const percent = remaining / 150 * 100;
+            return percent > 65 ? 'white' : 'transparent';
           ]]]
       - border-radius: 4px
