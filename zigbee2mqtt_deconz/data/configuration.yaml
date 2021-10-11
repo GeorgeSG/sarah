@@ -6,7 +6,7 @@ mqtt:
   user: '!secret user'
   password: '!secret password'
 serial:
-  port: /dev/ttyACM2
+  port: /dev/ttyACM1
 advanced:
   channel: 15
   log_level: info
