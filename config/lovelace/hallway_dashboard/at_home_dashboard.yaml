@@ -166,6 +166,30 @@ card:
                   - width: 60px
                   - font-size: 13px
 
+        - type: custom:decluttering-card
+          template: v3_section_title
+          variables:
+            - title: "People"
+        - type: horizontal-stack
+          cards:
+            - type: custom:button-card
+              template: v3_xs_button
+              entity: binary_sensor.georgi_home
+              name: Georgi home?
+              tap_action:
+                action: call-service
+                service: input_boolean.toggle
+                service_data:
+                  entity_id: input_boolean.georgi_home
+            - type: custom:button-card
+              template: v3_xs_button
+              entity: binary_sensor.player_2_home
+              name: Player 2 home?
+              tap_action:
+                action: call-service
+                service: input_boolean.toggle
+                service_data:
+                  entity_id: input_boolean.player_2_home
     # Column 2
     - type: vertical-stack
       cards:
@@ -225,6 +249,10 @@ card:
               template: v3_tablet_button
               entity: light.hallway_entrance
               name: Entrance
+            - type: custom:button-card
+              template: v3_tablet_button
+              entity: light.light_lohas_6
+              name: G. Bedroom
 
         - type: custom:decluttering-card
           template: v3_section_title

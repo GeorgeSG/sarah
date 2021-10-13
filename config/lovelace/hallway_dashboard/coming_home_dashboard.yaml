@@ -216,6 +216,10 @@ card:
               template: v3_tablet_button
               entity: light.hallway_entrance
               name: Entrance
+            - type: custom:button-card
+              template: v3_tablet_button
+              entity: light.light_lohas_6
+              name: G. Bedroom
 
         - type: custom:decluttering-card
           template: v3_section_title

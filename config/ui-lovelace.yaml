@@ -4,7 +4,7 @@ popup_cards: !include lovelace/popup_cards.yaml
 
 swipe_nav:
   swipe_amount: 30
-  skip_tabs: 5
+  skip_tabs: 6
 
 kiosk_mode:
   hide_overflow: true

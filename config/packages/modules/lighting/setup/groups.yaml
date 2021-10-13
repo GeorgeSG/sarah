@@ -168,6 +168,7 @@ light:
       - light.master_bedroom
       - light.kitchen
       - light.hallway
+      - light.light_lohas_6
 
 automation:
   - alias: Lighting · Sync Kitchen Main states
