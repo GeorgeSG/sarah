@@ -347,6 +347,29 @@ sensor.hallway_weather_humidity:
       - left_name: Temperature
       - right_entity: sensor.hallway_weather_pressure
 
+
+sensor.guest_bedroom_weather_temperature:
+  title: Guest Bedroom Temperature
+  card:
+    type: custom:decluttering-card
+    template: climate_card
+    variables:
+      - main_entity: sensor.guest_bedroom_weather_temperature
+      - left_entity: sensor.guest_bedroom_weather_humidity
+      - right_entity: sensor.guest_bedroom_weather_pressure
+
+sensor.guest_bedroom_weather_humidity:
+  title: Guest Bedroom Humidity
+  card:
+    type: custom:decluttering-card
+    template: climate_card
+    variables:
+      - main_entity: sensor.guest_bedroom_weather_humidity
+      - main_name: Humidity
+      - left_entity: sensor.guest_bedroom_weather_temperature
+      - left_name: Temperature
+      - right_entity: sensor.guest_bedroom_weather_pressure
+
 sensor.purifier_air_quality:
   title: Bedroom air quality
   card:

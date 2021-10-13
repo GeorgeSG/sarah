@@ -50,7 +50,7 @@ views:
     path: guest_bedroom
     icon: "mdi:numeric-2-box-outline"
     panel: true
-    background: '#188A9C'
+    background: '#0040A0'
     cards: !include lovelace/home_dashboard/guest_bedroom_dashboard.yaml
     theme: sarah-noctis-grey
   - title: Preferences

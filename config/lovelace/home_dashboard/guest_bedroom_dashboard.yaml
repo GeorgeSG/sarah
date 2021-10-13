@@ -3,7 +3,7 @@
     layout-card:
       .: |
         * {
-          --primary-color: #188A9C
+          --primary-color: #0040A0
         }
 
       $:
