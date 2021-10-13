@@ -83,7 +83,7 @@ light:
     name: Living room ambient
     entities:
       - light.living_room_ambient_main
-      - light.light_avatar_small_1
+      - light.light_lohas_2
 
   - platform: group
     name: Living room
@@ -263,7 +263,7 @@ homeassistant:
 
     light.living_room_ambient:
       icon: mdi:floor-lamp-dual
-    light.light_avatar_small_1:
+    light.light_lohas_2:
       friendly_name: Living room ambient secondary
 
     # Master bedroom
@@ -293,3 +293,7 @@ homeassistant:
 
     light.hallway_main:
       icon: bha:ceiling-spot-lamp
+
+    # Guest Bedroom
+    light.light_lohas_6:
+      icon: bha:table-lamp-variant

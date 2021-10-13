@@ -88,7 +88,7 @@
                 name: Ambient Main
               - type: custom:button-card
                 template: v3_button
-                entity: light.light_avatar_small_1
+                entity: light.light_lohas_2
                 name: Ambient 2nd
 
       - type: vertical-stack

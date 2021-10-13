@@ -85,12 +85,12 @@ cards:
                 type: custom:decluttering-card
                 template: light_with_fade_and_switch
                 variables:
-                  - light: light.light_avatar_small_1
-                  - fade: switch.light_avatar_small_1_fade
-                  - wifi: sensor.light_avatar_small_1_wifi
+                  - light: light.light_lohas_2
+                  - fade: switch.light_lohas_2
+                  - wifi: sensor.light_lohas_2_wifi
               entities:
                 - type: custom:slider-entity-row
-                  entity: light.light_avatar_small_1
+                  entity: light.light_lohas_2
                   name: Brightness
                   hide_state: true
                   step: 5
@@ -243,3 +243,15 @@ cards:
                     - light: light.hue_1
                     - lqi: sensor.hue_1_lqi
                     - update: binary_sensor.hue_1_update_available
+
+        - type: entities
+          title: Guest Bedroom
+          icon: mdi:door-closed
+          show_header_toggle: false
+          entities:
+            - type: custom:decluttering-card
+              template: light_with_fade_and_switch
+              variables:
+                - light: light.light_lohas_6
+                - fade: switch.light_lohas_6
+                - wifi: sensor.light_lohas_6_wifi

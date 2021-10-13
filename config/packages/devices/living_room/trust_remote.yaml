@@ -44,7 +44,7 @@ automation:
             {% elif groupId == 3 %}
               {% set entityId = 'light.living_room_ambient_main' %}
             {% elif groupId == 4 %}
-              {% set entityId = 'light.light_avatar_small_1' %}
+              {% set entityId = 'light.light_lohas_2' %}
             {% endif %}
 
             {{ entityId }}
@@ -80,7 +80,7 @@ automation:
             {% elif groupId == 3 %}
               light.living_room_ambient_main
             {% elif groupId == 4 %}
-              light.light_avatar_small_1
+              light.light_lohas_2
             {% endif %}
           brightness_pct: 100
 
@@ -108,7 +108,7 @@ automation:
             {% elif groupId == 3 %}
               {% set entityId = 'light.living_room_ambient_main' %}
             {% elif groupId == 4 %}
-              {% set entityId = 'light.light_avatar_small_1' %}
+              {% set entityId = 'light.light_lohas_2' %}
             {% endif %}
 
             {{ entityId }}

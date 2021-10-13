@@ -25,7 +25,7 @@ automation:
             - light.living_room_main
             - light.pc
             - light.living_room_ambient_main
-            - light.light_avatar_small_1
+            - light.light_lohas_2
             - light.hallway_entrance
             - light.hallway_main
             - light.master_bedroom_main
@@ -40,7 +40,7 @@ automation:
         entity_id:
           - light.pc
           - light.living_room_ambient_main
-          - light.light_avatar_small_1
+          - light.light_lohas_2
           - light.hallway_main
       - service: light.turn_off
         entity_id:

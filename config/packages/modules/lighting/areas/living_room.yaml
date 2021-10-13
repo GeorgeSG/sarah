@@ -2,7 +2,7 @@ scene:
   - name: Living Room Ambient Neon
     icon: "mdi:weather-night"
     entities:
-      light.light_avatar_small_1:
+      light.light_lohas_2:
         state: "on"
         xy_color: [0.668, 0.284]
         brightness_pct: 80
@@ -13,9 +13,9 @@ scene:
   - name: Living Room Ambient Default
     icon: "mdi:weather-sunny"
     entities:
-      light.light_avatar_small_1:
+      light.light_lohas_2:
         state: "on"
-        white_value: 255
+        color_temp: 500
         brightness_pct: 100
       light.living_room_ambient_main:
         state: "on"
