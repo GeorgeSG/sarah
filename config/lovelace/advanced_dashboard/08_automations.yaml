@@ -161,6 +161,7 @@ cards:
           icon: mdi:shield-home
           entities:
             - automation.security_door_opened_while_away
+            - automation.security_door_opened_while_in_night_mode
 
         - type: entities
           title: Clock

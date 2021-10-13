@@ -26,6 +26,26 @@ script:
           kelvin: 2400
 
 automation:
+  - alias: Security · Door opened while in night mode
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.front_door
+        to: "on"
+    condition:
+      condition: state
+      entity_id: input_select.bedroom_mode
+      state: "night"
+    action:
+      - service: light.turn_on
+        entity_id: light.all
+      - service: script.say_discretely
+        data:
+          message: "Caution: Front door opened during night mode!"
+      - service: notify.telegram
+        data:
+          title: "🛡 *Security Module · Front Door Detection*"
+          message: "Caution: Front door opened during night mode!"
+
   - alias: Security · Door opened while away
     trigger:
       - platform: state
