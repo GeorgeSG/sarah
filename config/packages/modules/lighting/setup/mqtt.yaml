@@ -382,7 +382,7 @@ switch:
     payload_available: "Online"
     payload_not_available: "Offline"
     qos: 1
-    state_topic: "stat/light_le_1/RESULT"
+    state_topic: "tele/light_le_1/STATE"
     value_template: "{{ value_json.Fade }}"
 
   - platform: mqtt
@@ -393,7 +393,7 @@ switch:
     payload_available: "Online"
     payload_not_available: "Offline"
     qos: 1
-    state_topic: "stat/light_le_2/RESULT"
+    state_topic: "tele/light_le_2/STATE"
     value_template: "{{ value_json.Fade }}"
 
   - platform: mqtt
@@ -404,7 +404,7 @@ switch:
     payload_available: "Online"
     payload_not_available: "Offline"
     qos: 1
-    state_topic: "stat/light_le_3/RESULT"
+    state_topic: "tele/light_le_3/STATE"
     value_template: "{{ value_json.Fade }}"
 
   - platform: mqtt
@@ -415,7 +415,7 @@ switch:
     payload_available: "Online"
     payload_not_available: "Offline"
     qos: 1
-    state_topic: "stat/light_le_4/RESULT"
+    state_topic: "tele/light_le_4/STATE"
     value_template: "{{ value_json.Fade }}"
 
   - platform: mqtt
@@ -426,7 +426,7 @@ switch:
     payload_available: "Online"
     payload_not_available: "Offline"
     qos: 1
-    state_topic: "stat/light_lohas_2/RESULT"
+    state_topic: "tele/light_lohas_2/STATE"
     value_template: "{{ value_json.Fade }}"
 
   - platform: mqtt
@@ -437,7 +437,7 @@ switch:
     payload_available: "Online"
     payload_not_available: "Offline"
     qos: 1
-    state_topic: "stat/light_lohas_3/RESULT"
+    state_topic: "tele/light_lohas_3/STATE"
     value_template: "{{ value_json.Fade }}"
 
   # - platform: mqtt
@@ -459,7 +459,7 @@ switch:
     payload_available: "Online"
     payload_not_available: "Offline"
     qos: 1
-    state_topic: "stat/light_lohas_6/RESULT"
+    state_topic: "tele/light_lohas_6/STATE"
     value_template: "{{ value_json.Fade }}"
 
 automation:
