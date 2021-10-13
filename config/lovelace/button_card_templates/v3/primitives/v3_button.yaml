@@ -29,7 +29,7 @@ v3_button:
       - bottom: 10px
       - left: 16px
       - font-weight: bold
-      - font-size: 13px
+      - font-size: 14px
       - color: "[[[ return variables.value_has_error ? 'red' : 'white' ]]]"
     name:
       - position: absolute
@@ -51,7 +51,7 @@ v3_button:
         icon:
           - color: var(--primary-color)
         state:
-          - color: "[[[ return variables.value_has_error ? 'red' : 'black' ]]]"
+          - color: "[[[ return variables.value_has_error ? 'red' : 'var(--v3-btn-state-color)' ]]]"
     - value: 'home'
       styles: *on_styles
     - value: 'recording'

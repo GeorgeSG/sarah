@@ -49,15 +49,15 @@
                 entity: scene.living_room_ambient_neon
                 name: Neon
                 variables:
-                  scene_color_1: rgba(255, 0, 190, 0.7)
-                  scene_color_2: rgba(0, 255, 190, 0.7)
+                  scene_color_1: rgba(255, 0, 190, 1)
+                  scene_color_2: rgba(0, 255, 190, 1)
               - type: custom:button-card
                 template: v3_scene
                 entity: scene.living_room_ambient_default
                 name: Warm
                 variables:
-                  scene_color_1: rgba(240, 240, 190, 0.7)
-                  scene_color_2: rgba(255, 210, 170, 0.7)
+                  scene_color_1: rgba(240, 240, 190, 1)
+                  scene_color_2: rgba(255, 210, 170, 1)
           - type: custom:decluttering-card
             template: v3_section_title
             variables:

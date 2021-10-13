@@ -1,6 +1,6 @@
 v3_badge:
   variables:
-    state_size: 15px
+    state_size: 14px
   show_name: false
   show_icon: false
   show_state: true
