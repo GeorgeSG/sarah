@@ -46,6 +46,13 @@ views:
     background: 'center / cover no-repeat url("/local/images/wallpapers-3/hallway_2.jpg") #188A9C fixed'
     cards: !include lovelace/home_dashboard/hallway_dashboard.yaml
     theme: sarah-noctis-grey
+  - title: Guest Bedroom
+    path: guest_bedroom
+    icon: "mdi:numeric-2-box-outline"
+    panel: true
+    background: '#188A9C'
+    cards: !include lovelace/home_dashboard/guest_bedroom_dashboard.yaml
+    theme: sarah-noctis-grey
   - title: Preferences
     path: Preferences
     icon: "mdi:cogs"

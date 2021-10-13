@@ -76,6 +76,10 @@
                 entity: binary_sensor.pi_hole_enabled
                 name: Pi-Hole
                 icon: mdi:pi-hole
+              - type: custom:button-card
+                template: v3_button
+                entity: input_boolean.guest_bedroom
+                name: G. Bedroom Occupied
 
           - type: custom:decluttering-card
             template: v3_section_title

@@ -1,8 +1,10 @@
 input_boolean:
   guest_mode:
     name: Guest mode
-    initial: off
     icon: mdi:human-greeting
+  guest_bedroom:
+    name: Guest Bedroom
+    icon: mdi:cogs
 
 automation:
   - alias: Guest mode · Enable
