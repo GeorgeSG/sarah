@@ -37,11 +37,11 @@ automation:
             data_template:
               entity_id: light.master_bedroom
               brightness_pct: >-
-                {% if not is_state('input_select.house_mode', 'day') %} 40 {% else %} 100 {% endif %}
+                {% if not is_state('input_select.bedroom_mode', 'day') %} 40 {% else %} 100 {% endif %}
           - service: script.bed_led_on
             data_template:
               brightness_pct: >-
-                {% if not is_state('input_select.house_mode', 'day') %} 40 {% else %} 100 {% endif %}
+                {% if not is_state('input_select.bedroom_mode', 'day') %} 40 {% else %} 100 {% endif %}
 
         button_1_double:
           - service: light.turn_off
@@ -53,7 +53,7 @@ automation:
               entity_id: light.master_bedroom_main
               brightness_pct: >-
 
-                {% if not is_state('input_select.house_mode', 'day') %}
+                {% if not is_state('input_select.bedroom_mode', 'day') %}
                   40
                 {% else %}
                   100
@@ -72,7 +72,7 @@ automation:
                 - light.bedside
               brightness_pct: >-
 
-                {% if not is_state('input_select.house_mode', 'day') %}
+                {% if not is_state('input_select.bedroom_mode', 'day') %}
                   40
                 {% else %}
                   100

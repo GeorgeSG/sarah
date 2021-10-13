@@ -47,13 +47,13 @@
                 name: Speech
               - type: custom:button-card
                 template: v3_button
-                entity: input_select.house_mode
-                name: House
+                entity: input_select.bedroom_mode
+                name: Bedroom
                 tap_action:
                   action: call-service
                   service: input_select.select_next
                   service_data:
-                    entity_id: input_select.house_mode
+                    entity_id: input_select.bedroom_mode
 
           - type: horizontal-stack
             cards:

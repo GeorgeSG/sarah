@@ -1,7 +1,7 @@
 # Mode config
 input_select:
-  house_mode:
-    name: House mode
+  bedroom_mode:
+    name: Bedroom mode
     icon: mdi:home-analytics
     options:
       - day
@@ -11,14 +11,14 @@ input_select:
 binary_sensor:
   - platform: template
     sensors:
-      house_mode:
-        friendly_name: House mode
-        value_template: "{{ states('input_select.house_mode') }}"
+      bedroom_mode:
+        friendly_name: Bedroom mode
+        value_template: "{{ states('input_select.bedroom_mode') }}"
         icon_template: >-
 
-          {% if is_state('input_select.house_mode', 'day') %}
+          {% if is_state('input_select.bedroom_mode', 'day') %}
             mdi:weather-sunny
-          {% elif is_state('input_select.house_mode', 'bed') %}
+          {% elif is_state('input_select.bedroom_mode', 'bed') %}
             mdi:bed-king-outline
           {% else %}
             mdi:weather-night
@@ -26,31 +26,31 @@ binary_sensor:
 
 
 automation:
-  - alias: House mode · Set to day
+  - alias: Bedroom mode · Set to day
     trigger:
       platform: state
-      entity_id: input_select.house_mode
+      entity_id: input_select.bedroom_mode
       to: "day"
     action:
       - service: script.routine_waking_up
 
-  - alias: House mode · Set to bed
+  - alias: Bedroom mode · Set to bed
     trigger:
       platform: state
-      entity_id: input_select.house_mode
+      entity_id: input_select.bedroom_mode
       to: "bed"
     action:
       - service: script.routine_bedtime
 
-  - alias: House mode · Set to night
+  - alias: Bedroom mode · Set to night
     trigger:
       platform: state
-      entity_id: input_select.house_mode
+      entity_id: input_select.bedroom_mode
       to: "night"
     action:
       - service: script.routine_good_night
 
-  - alias: House mode · Set to day if bedroom door was opened
+  - alias: Bedroom mode · Set to day if bedroom door was opened
     trigger:
       - platform: state
         entity_id: binary_sensor.bedroom_door
@@ -63,13 +63,13 @@ automation:
       - condition: not
         conditions:
           - condition: state
-            entity_id: input_select.house_mode
+            entity_id: input_select.bedroom_mode
             state: "day"
       - condition: state
         entity_id: input_boolean.georgi_home
         state: "on"
     action:
       - service: input_select.select_option
-        entity_id: input_select.house_mode
+        entity_id: input_select.bedroom_mode
         data:
           option: "day"

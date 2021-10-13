@@ -22,7 +22,7 @@ automation:
           entity_id: input_boolean.alarm_enabled
           state: "on"
         - condition: state
-          entity_id: input_select.house_mode
+          entity_id: input_select.bedroom_mode
           state: "night"
     action:
       - service: script.music_play
@@ -31,7 +31,7 @@ automation:
 
       - delay: 00:01:00
       - condition: state
-        entity_id: input_select.house_mode
+        entity_id: input_select.bedroom_mode
         state: "night"
       - service: script.sonos_say
         data:
@@ -45,7 +45,7 @@ automation:
 
       - delay: 00:02:00
       - condition: state
-        entity_id: input_select.house_mode
+        entity_id: input_select.bedroom_mode
         state: "night"
       - service: script.sonos_say
         data:
@@ -59,7 +59,7 @@ automation:
 
       - delay: 00:05:00
       - condition: state
-        entity_id: input_select.house_mode
+        entity_id: input_select.bedroom_mode
         state: "night"
       - service: script.sonos_say
         data:
@@ -74,7 +74,7 @@ automation:
   - alias: Alarm · Set time
     trigger:
       platform: state
-      entity_id: input_select.house_mode
+      entity_id: input_select.bedroom_mode
       to: "day"
     action:
       - service: input_datetime.set_datetime

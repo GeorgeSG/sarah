@@ -129,13 +129,13 @@ cards:
             - automation.notification_door_opened
 
         - type: entities
-          title: House Mode
+          title: Bedroom Mode
           show_header_toggle: false
           entities:
-            - automation.house_mode_set_to_day
-            - automation.house_mode_set_to_bed
-            - automation.house_mode_set_to_night
-            - automation.house_mode_set_to_day_if_bedroom_door_was_opened
+            - automation.bedroom_mode_set_to_day
+            - automation.bedroom_mode_set_to_bed
+            - automation.bedroom_mode_set_to_night
+            - automation.bedroom_mode_set_to_day_if_bedroom_door_was_opened
 
         - type: entities
           title: Guest mode

@@ -135,7 +135,7 @@ automation:
           after: sunset
           after_offset: "-02:00:00"
         - condition: state
-          entity_id: input_select.house_mode
+          entity_id: input_select.bedroom_mode
           state: 'day'
     action:
       - service: light.turn_on

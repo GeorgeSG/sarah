@@ -1,9 +1,9 @@
-binary_sensor.house_mode:
-  title: House mode
+binary_sensor.bedroom_mode:
+  title: Bedroom mode
   card:
     type: entities
     entities:
-      - input_select.house_mode
+      - input_select.bedroom_mode
 
 binary_sensor.kitchen_motion_occupancy:
   title: Kitchen motion

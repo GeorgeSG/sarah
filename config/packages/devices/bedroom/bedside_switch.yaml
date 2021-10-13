@@ -24,19 +24,19 @@ automation:
           - service: script.bed_led_toggle
             data_template:
               brightness_pct: >-
-                {% if is_state('input_select.house_mode', 'night') %} 40 {% else %} 100 {% endif %}
+                {% if is_state('input_select.bedroom_mode', 'night') %} 40 {% else %} 100 {% endif %}
 
           - service: light.toggle
             data_template:
               entity_id: >-
 
-                {% if is_state('input_select.house_mode', 'day') %}
+                {% if is_state('input_select.bedroom_mode', 'day') %}
                   light.master_bedroom_main
-                {% elif is_state('input_select.house_mode', 'bed') %}
+                {% elif is_state('input_select.bedroom_mode', 'bed') %}
                   light.bedside
                 {% endif %}
               brightness_pct: >-
-                {% if is_state('input_select.house_mode', 'night') %} 40 {% else %} 100 {% endif %}
+                {% if is_state('input_select.bedroom_mode', 'night') %} 40 {% else %} 100 {% endif %}
 
         double_click:
           - service: light.toggle
@@ -46,8 +46,8 @@ automation:
           - service: script.bed_led_toggle
             data_template:
               brightness_pct: >-
-                {% if is_state('input_select.house_mode', 'night') %} 40 {% else %} 100 {% endif %}
+                {% if is_state('input_select.bedroom_mode', 'night') %} 40 {% else %} 100 {% endif %}
 
         hold:
           - service: input_select.select_next
-            entity_id: input_select.house_mode
+            entity_id: input_select.bedroom_mode

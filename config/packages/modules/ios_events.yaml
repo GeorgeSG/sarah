@@ -14,7 +14,7 @@ automation:
                 title: "📱 *iOS Module*"
                 message: "iOS alarm is off. Switching to Day Mode!"
             - service: input_select.select_option
-              entity_id: input_select.house_mode
+              entity_id: input_select.bedroom_mode
               data:
                 option: "day"
 
@@ -27,7 +27,7 @@ automation:
                 title: "📱 *iOS Module*"
                 message: "iOS wind_down is on. Switching to Bed Mode!"
             - service: input_select.select_option
-              entity_id: input_select.house_mode
+              entity_id: input_select.bedroom_mode
               data:
                 option: "bed"
 
@@ -40,7 +40,6 @@ automation:
                 title: "📱 *iOS Module*"
                 message: "iOS bedtime is on. Switching to Night Mode!"
             - service: input_select.select_option
-              entity_id: input_select.house_mode
+              entity_id: input_select.bedroom_mode
               data:
                 option: "night"
-
