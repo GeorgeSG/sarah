@@ -4,10 +4,6 @@ v3_button_brita_water:
   entity: script.brita_pour_water
   variables:
     long_state: true
-    value_has_error: |
-      [[[
-        return states['binary_sensor.brita_should_change_filter'].state === 'on';
-      ]]]
   state_display: |
     [[[
       return Math.round(states['input_number.brita_remaining_liters'].state) +
@@ -58,5 +54,27 @@ v3_button_brita_water:
             const remaining = states['input_number.brita_remaining_liters'].state;
             const percent = remaining / 150 * 100;
             return percent > 65 ? 'white' : 'transparent';
+          ]]]
+      - border-radius: 4px
+
+    state:
+      - position: absolute
+      - bottom: 10px
+      - left: 16px
+      - font-weight: bold
+      - font-size: 13px
+      - color: |
+          [[[
+            if (states['binary_sensor.brita_should_change_filter'].state === 'on') { return 'red'; }
+
+            const remaining = states['input_number.brita_remaining_liters'].state;
+            const percent = remaining / 150 * 100;
+            return percent > 10 ? 'black' : 'white';
+          ]]]
+      - background-color: |
+          [[[
+            const remaining = states['input_number.brita_remaining_liters'].state;
+            const percent = remaining / 150 * 100;
+            return percent > 10 ? 'white' : 'transparent';
           ]]]
       - border-radius: 4px
