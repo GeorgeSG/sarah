@@ -22,9 +22,9 @@ script:
           - light.browser_hallway
           - light.living_room_ambient
           - light.bedside
+          - light.bed_led
         data:
           brightness_pct: 100
-      - service: script.bed_led_on
 
       # Cameras
       - service: switch.turn_on

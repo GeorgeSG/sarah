@@ -11,7 +11,8 @@ script:
           message: "Entering night mode. Good night!"
 
       # Prepare Bed LED brightness to be turned on during night time
-      - service: script.bed_led_on
+      - service: light.turn_on
+        entity_id: light.bed_led
         data:
           brightness_pct: 40
 
@@ -31,6 +32,7 @@ script:
           - light.kitchen_secondary
           - light.hallway_main
           - light.hallway_entrance
+          - light.light_lohas_6
           - media_player.nvidia_shield
           - media_player.living_room_tv
           - switch.titanium

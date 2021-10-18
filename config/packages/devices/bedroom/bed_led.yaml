@@ -18,29 +18,3 @@ sensor:
     icon: "mdi:signal"
     unit_of_measurement: "lqi"
     value_template: "{{ value_json.linkquality }}"
-
-script:
-  bed_led_on:
-    sequence:
-      - delay: "00:00:01"
-      - service: light.turn_on
-        entity_id: light.bed_led
-      - delay: "00:00:03"
-      - service: light.turn_on
-        entity_id: light.bed_led
-        data_template:
-          brightness_pct: "{{ brightness_pct | default(100) }}"
-
-  bed_led_toggle:
-    sequence:
-      - choose:
-        - conditions:
-          - condition: state
-            entity_id: light.bed_led
-            state: "off"
-          sequence:
-            - service: script.bed_led_on
-
-        default:
-          - service: light.turn_off
-            entity_id: light.bed_led

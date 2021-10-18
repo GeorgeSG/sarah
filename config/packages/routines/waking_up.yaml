@@ -2,19 +2,6 @@ script:
   routine_waking_up:
     alias: Routine · Waking up
     sequence:
-      - service: fan.turn_off
-        entity_id: fan.philips_airpurifier
-
-      - service: media_player.media_stop
-        entity_id: media_player.master_bedroom
-
-      - delay: 00:00:01
-
-      - service: script.routine_morning_briefing
-      - wait_template: "{{ is_state('input_boolean.sarah_talking', 'off') }}"
-        timeout: 00:02:00
-      - delay: 00:00:01
-
       - service: light.turn_on
         entity_id: light.hallway
         data:
@@ -23,20 +10,42 @@ script:
       - service: light.turn_on
         entity_id:
           - light.living_room_ambient
-          - light.bed_led
-          - light.bedside
 
       - service: script.open_living_room_cover
       - service: script.shield_screensaver
 
-      - condition: state
-        entity_id: input_boolean.guest_mode
-        state: "off"
+      # Only when no guests are present
+      - condition: and
+        conditions:
+          - condition: state
+            entity_id: input_boolean.guest_mode
+            state: "off"
+          - condition: state
+            entity_id: input_boolean.guest_bedroom
+            state: "off"
       - service: script.say
         data:
           message: "Here's some music to start the day!"
       - delay: 00:00:02
       - service: script.music_play
+
+
+  routine_bedroom_morning:
+    alias: Routine · Bedroom · Morning
+    sequence:
+      - service: fan.turn_off
+        entity_id: fan.philips_airpurifier
+      - service: media_player.media_stop
+        entity_id: media_player.master_bedroom
+      - delay: 00:00:01
+      - service: light.turn_on
+        entity_id:
+          - light.bed_led
+          - light.bedside
+      - service: script.routine_morning_briefing
+      - wait_template: "{{ is_state('input_boolean.sarah_talking', 'off') }}"
+        timeout: 00:02:00
+      - delay: 00:00:01
 
   routine_morning_briefing:
     alias: Routine · Morning Briefing

@@ -33,7 +33,7 @@ script:
       - condition: not
         conditions:
           - condition: state
-            entity_id: input_select.bedroom_mode
+            entity_id: sensor.house_mode
             state: 'night'
       # Combine partials for speech message.
       - service: script.say_discretely

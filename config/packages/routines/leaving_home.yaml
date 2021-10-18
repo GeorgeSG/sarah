@@ -18,6 +18,7 @@ script:
 
       - service: media_player.media_stop
         entity_id: group.all_sonos
+      - service: script.dashboards_light_down
       - service: input_select.select_option
         entity_id: input_select.hallway_dashboard_mode
         data:

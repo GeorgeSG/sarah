@@ -39,10 +39,14 @@ script:
   sonos_join_bedroom:
     alias: Sonos · Join to Bedroom
     sequence:
+      - condition: state
+        entity_id: input_select.bedroom_mode
+        state: "day"
       - service: sonos.join
         entity_id: group.all_sonos
         data:
           master: media_player.master_bedroom
+
   sonos_join_tv:
     alias: Sonos · Join to TV
     sequence:
@@ -54,6 +58,7 @@ script:
         entity_id: media_player.living_room
         data:
           source: TV
+
   sonos_bathroom_up:
     alias: Sonos · Bathroom up
     sequence:
@@ -61,6 +66,7 @@ script:
         entity_id: media_player.bathroom
         data:
           volume_level: 0.5
+
   sonos_bathroom_down:
     alias: Sonos · Bathroom down
     sequence:
@@ -68,6 +74,7 @@ script:
         entity_id: media_player.bathroom
         data:
           volume_level: 0.2
+
   sonos_volume_10:
     alias: Sonos · Volume 10
     sequence:
@@ -79,6 +86,7 @@ script:
           - media_player.living_room
         data:
           volume_level: 0.1
+
   sonos_volume_20:
     alias: Sonos · Volume 20
     sequence:

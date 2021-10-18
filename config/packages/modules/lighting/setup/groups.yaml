@@ -151,6 +151,7 @@ light:
       - light.living_room
       - light.master_bedroom
       - light.hallway
+      - light.light_lohas_6
 
   - platform: group
     name: Ceiling

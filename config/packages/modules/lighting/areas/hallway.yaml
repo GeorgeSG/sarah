@@ -13,8 +13,8 @@ automation:
         # Turn on in Day Mode
         - conditions:
             - condition: state
-              entity_id: input_select.bedroom_mode
-              state: 'day'
+              entity_id: binary_sensor.someone_sleeping
+              state: "off"
           sequence:
             - service: light.turn_on
               entity_id:
@@ -41,9 +41,9 @@ automation:
       - choose:
         # Turn off in Day Mode
         - conditions:
-            condition: state
-            entity_id: input_select.bedroom_mode
-            state: 'day'
+            - condition: state
+              entity_id: binary_sensor.someone_sleeping
+              state: 'off'
           sequence:
             - service: light.turn_off
               entity_id: light.hallway

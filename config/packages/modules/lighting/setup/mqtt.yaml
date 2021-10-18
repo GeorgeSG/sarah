@@ -135,6 +135,10 @@ light:
     # rgb_value_template: "{{ (value_json.Color[0:2]|int(base=16),value_json.Color[2:4]|int(base=16),value_json.Color[4:6]|int(base=16)) | join(',')}}"
     qos: 1
     retain: false
+    effect_command_topic: "cmnd/light_lohas_2/Scheme"
+    effect_state_topic: "tele/light_lohas_2/STATE"
+    effect_value_template: "{{value_json.Scheme}}"
+    effect_list: [0, 1, 2, 3, 4]
 
   # - platform: mqtt
   #   name: "light_lohas_3"
@@ -246,6 +250,10 @@ light:
     # rgb_value_template: "{{ (value_json.Color[0:2]|int(base=16),value_json.Color[2:4]|int(base=16),value_json.Color[4:6]|int(base=16)) | join(',')}}"
     qos: 1
     retain: false
+    effect_command_topic: "cmnd/light_lohas_6/Scheme"
+    effect_state_topic: "tele/light_lohas_6/STATE"
+    effect_value_template: "{{value_json.Scheme}}"
+    effect_list: [0, 1, 2, 3, 4]
 
   - platform: "mqtt"
     name: "ledvance_1"

@@ -26,6 +26,10 @@ automation:
       platform: state
       entity_id: input_select.hallway_dashboard_mode
       to: "Leaving"
+    condition:
+      condition: state
+      entity_id: input_boolean.guest_bedroom
+      state: "off"
     action:
       - service: script.say
         data:
@@ -40,5 +44,6 @@ automation:
       - service: script.say
         data:
           message: "Goodbye!"
+      # TODO: add conditions
       - service: input_boolean.turn_off
         entity_id: input_boolean.georgi_home

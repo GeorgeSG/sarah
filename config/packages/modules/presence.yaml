@@ -119,6 +119,26 @@ automation:
         person: person.player_2
         input_boolean: input_boolean.player_2
 
+  - alias: Presence · Georgi leaving
+    trigger:
+      - platform: state
+        entity_id: person.georgi
+        from: "home"
+        to: "not_home"
+    action:
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.georgi_home
+
+  - alias: Presence · Player 2 leaving
+    trigger:
+      - platform: state
+        entity_id: person.player_2
+        from: "home"
+        to: "not_home"
+    action:
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.player_2_home
+
   - alias: Presence · Leaving home
     trigger:
       - platform: state

@@ -98,7 +98,7 @@ automation:
       to: "off"
     condition:
       condition: state
-      entity_id: input_select.bedroom_mode
+      entity_id: sensor.house_mode
       state: "day"
     action:
       - service: script.sonos_join_bedroom

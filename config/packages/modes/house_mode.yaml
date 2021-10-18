@@ -2,10 +2,14 @@
 input_select:
   bedroom_mode:
     name: Bedroom mode
-    icon: mdi:home-analytics
     options:
       - day
       - bed
+      - night
+  guest_bedroom_mode:
+    name: Guest Bedroom mode
+    options:
+      - day
       - night
 
 binary_sensor:
@@ -24,6 +28,37 @@ binary_sensor:
             mdi:weather-night
           {% endif %}
 
+      someone_sleeping:
+        friendly_name: Someone sleeping
+        value_template: >-
+
+          {% if is_state('input_boolean.guest_bedroom', 'off') %}
+            {{ is_state('input_boolean.bedroom_mode', 'night') }}
+          {% else %}
+            {{ is_state('input_select.bedroom_mode', 'night') or is_state('input_select.guest_bedroom_mode', 'night') }}
+          {% endif %}
+
+sensor:
+  - platform: template
+    sensors:
+      house_mode:
+        friendly_name: House mode
+        value_template: >-
+
+          {% if is_state('input_boolean.guest_bedroom', 'off') %}
+            {% if is_state('input_select.bedroom_mode', 'night') %}
+              night
+            {% else %}
+              day
+            {% endif %}
+          {% else %}
+            {% if is_state('input_select.bedroom_mode', 'night') and is_state('input_select.guest_bedroom_mode', 'night') %}
+              night
+            {% else %}
+              day
+            {% endif %}
+          {% endif %}
+
 
 automation:
   - alias: Bedroom mode · Set to day
@@ -32,7 +67,7 @@ automation:
       entity_id: input_select.bedroom_mode
       to: "day"
     action:
-      - service: script.routine_waking_up
+      - service: script.routine_bedroom_morning
 
   - alias: Bedroom mode · Set to bed
     trigger:
@@ -40,12 +75,29 @@ automation:
       entity_id: input_select.bedroom_mode
       to: "bed"
     action:
-      - service: script.routine_bedtime
+      - service: script.routine_bedroom_bedtime
 
-  - alias: Bedroom mode · Set to night
+  - alias: Guest Bedroom mode · Set to night
     trigger:
       platform: state
-      entity_id: input_select.bedroom_mode
+      entity_id: input_select.guest_bedroom_mode
+      to: "night"
+    action:
+      - service: light.turn_off
+        entity_id: light.light_lohas_6
+
+  - alias: House mode · Set to day
+    trigger:
+      platform: state
+      entity_id: sensor.house_mode
+      to: "day"
+    action:
+      - service: script.routine_waking_up
+
+  - alias: House mode · Set to night
+    trigger:
+      platform: state
+      entity_id: sensor.house_mode
       to: "night"
     action:
       - service: script.routine_good_night

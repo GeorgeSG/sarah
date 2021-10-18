@@ -38,10 +38,20 @@
           - type: custom:decluttering-card
             template: v3_section_title
             variables:
-              - title: Lights
+              - title: Controls
           - type: horizontal-stack
             cards:
               - type: custom:button-card
                 template: v3_button_light
                 entity: light.light_lohas_6
                 name: Night stand
+              - type: custom:button-card
+                template: v3_button
+                entity: input_select.guest_bedroom_mode
+                icon: mdi:bed
+                name: Mode
+                tap_action:
+                  action: call-service
+                  service: input_select.select_next
+                  service_data:
+                    entity_id: input_select.guest_bedroom_mode

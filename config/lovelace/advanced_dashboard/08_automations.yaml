@@ -46,6 +46,8 @@ cards:
             - input_boolean.routine_welcome_home
             - automation.presence_georgi_arrival_detection
             - automation.presence_player_2_arrival_detection
+            - automation.presence_georgi_leaving
+            - automation.presence_player_2_leaving
             - automation.presence_coming_home
             - automation.presence_leaving_home
             - automation.routine_coming_home_left_work
@@ -60,7 +62,7 @@ cards:
             - automation.living_room_desk_switch
             - automation.bedroom_opple
             - automation.bedroom_bedside_switch
-            - automation.bedroom_aqara_switch
+            - automation.guest_bedroom_aqara_switch
             - automation.bathroom_switch
 
         - type: entities
@@ -134,7 +136,9 @@ cards:
           entities:
             - automation.bedroom_mode_set_to_day
             - automation.bedroom_mode_set_to_bed
-            - automation.bedroom_mode_set_to_night
+            - automation.guest_bedroom_mode_set_to_night
+            - automation.house_mode_set_to_day
+            - automation.house_mode_set_to_night
             - automation.bedroom_mode_set_to_day_if_bedroom_door_was_opened
 
         - type: entities

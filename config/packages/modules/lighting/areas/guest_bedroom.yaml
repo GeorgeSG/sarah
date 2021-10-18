@@ -1,0 +1,20 @@
+script:
+  guest_bedroom_bedside_confirm:
+    sequence:
+      - service: scene.create
+        data:
+          scene_id: guest_bedroom_before_confirm
+          snapshot_entities:
+            - light.light_lohas_6
+      - service: light.turn_on
+        entity_id: light.light_lohas_6
+        data:
+          rgb_color: [110, 255, 0]
+      - delay: 00:00:02
+      - service: light.turn_on
+        entity_id: light.light_lohas_6
+        data:
+          color_temp: "{{ 400 if is_state('sun.sun', 'above_horizon') else 500 }}"
+      - service: scene.turn_on
+        entity_id: scene.guest_bedroom_before_confirm
+      - delay: 00:00:01

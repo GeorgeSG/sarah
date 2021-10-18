@@ -27,7 +27,7 @@ automation:
               entity_id: light.living_room_main
               brightness_pct: >-
 
-                {% if is_state('input_select.bedroom_mode', 'night') %}
+                {% if is_state('sensor.house_mode', 'night') %}
                   40
                 {% else %}
                   100
@@ -39,7 +39,7 @@ automation:
               entity_id: light.living_room_ambient
               brightness_pct: >-
 
-                {% if is_state('input_select.bedroom_mode', 'night') %}
+                {% if is_state('sensor.house_mode', 'night') %}
                   40
                 {% else %}
                   100

@@ -80,6 +80,15 @@
                 template: v3_button
                 entity: input_boolean.guest_bedroom
                 name: G. Bedroom Occupied
+              - type: custom:button-card
+                template: v3_button
+                entity: input_select.guest_bedroom_mode
+                name: G. Bedroom
+                tap_action:
+                  action: call-service
+                  service: input_select.select_next
+                  service_data:
+                    entity_id: input_select.guest_bedroom_mode
 
           - type: custom:decluttering-card
             template: v3_section_title
@@ -118,3 +127,17 @@
               - input_number.toshiba_heat_temp
               - input_number.toshiba_cool_temp
               - input_number.toshiba_trigger_temp
+
+
+          - type: custom:decluttering-card
+            template: v3_section_title
+            variables:
+              - title: Monitoring
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                template: v3_button
+                entity: binary_sensor.someone_sleeping
+              - type: custom:button-card
+                template: v3_button
+                entity: binary_sensor.someone_home
