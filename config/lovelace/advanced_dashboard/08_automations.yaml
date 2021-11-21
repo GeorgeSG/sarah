@@ -260,3 +260,12 @@ cards:
           entities:
             - automation.cover_living_room_open_at_morning
             - automation.cover_living_room_close_after_sunset
+
+        - type: entities
+          title: Milena Preferences
+          icon: mdi:star-settings-outline
+          show_header_toggle: false
+          entities:
+            - automation.preferences_milena_enable
+            - automation.preferences_milena_disable
+            - automation.preferences_milena_kitchen_temperature_main_adjust_on_start

@@ -33,7 +33,9 @@ automation:
                   entity_id: sensor.dark_sky_cloud_coverage
                   above: 80
             - service: light.turn_on
-              entity_id: light.kitchen
+              entity_id:
+                - light.kitchen_main
+                - light.kitchen_secondary
               data:
                 brightness_pct: 100
         # Turn on in Night Mode
@@ -71,6 +73,8 @@ automation:
         entity_id:
           - light.ledvance_1
           - light.hue_ambiance_1
+          - light.kitchen_main
+          - light.kitchen_secondary
       - service: light.turn_on
         entity_id: light.browser_kitchen
         data:

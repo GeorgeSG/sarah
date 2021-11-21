@@ -57,6 +57,7 @@ automation:
             entity_id:
               - light.hue_white_1
               - light.hue_1
+              - light.hallway
           - service: light.turn_on
             entity_id: light.browser_hallway
             data:

@@ -13,8 +13,8 @@ script:
       - delay: 00:00:02
       - service: light.turn_on
         entity_id: light.light_lohas_6
-        data:
-          color_temp: 154
+        data_template:
+          color_temp: "{{ states('input_number.guest_bedroom_light_temp') }}"
       - service: scene.turn_on
         entity_id: scene.guest_bedroom_before_confirm
       - delay: 00:00:01

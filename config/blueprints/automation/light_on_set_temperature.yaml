@@ -15,6 +15,8 @@ trigger:
   entity_id: !input light
   to: "on"
 
+mode: queued
+
 condition:
   condition: state
   entity_id: sensor.house_mode

@@ -52,7 +52,8 @@ sensor:
               day
             {% endif %}
           {% else %}
-            {% if is_state('input_select.bedroom_mode', 'night') and is_state('input_select.guest_bedroom_mode', 'night') %}
+            {% if (is_state('input_select.bedroom_mode', 'night') or is_state('input_select.bedroom_mode', 'bed'))
+                and is_state('input_select.guest_bedroom_mode', 'night') %}
               night
             {% else %}
               day

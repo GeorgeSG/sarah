@@ -30,15 +30,15 @@ automation:
               sequence:
                 - service: light.toggle
                   entity_id: light.light_lohas_6
-                  data:
+                  data_template:
                     brightness_pct: 10
-                    color_temp: 154
+                    color_temp: "{{ states('input_number.guest_bedroom_light_temp') }}"
             default:
               - service: light.toggle
                 entity_id: light.light_lohas_6
-                data:
+                data_template:
                   brightness_pct: 100
-                  color_temp: 154
+                  color_temp: "{{ states('input_number.guest_bedroom_light_temp') }}"
 
         double_click:
           - service: light.toggle

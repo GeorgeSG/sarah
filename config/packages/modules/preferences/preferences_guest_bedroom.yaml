@@ -1,0 +1,7 @@
+input_number:
+  guest_bedroom_light_temp:
+    name: Guest bedroom light temp
+    min: 154
+    max: 500
+    step: 1
+    icon: bha:table-lamp-variant

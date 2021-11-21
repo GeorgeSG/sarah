@@ -1,0 +1,69 @@
+binary_sensor:
+  - platform: template
+    sensors:
+      milena_preferences_enabled:
+        friendly_name: Milena Preferences
+        value_template: "{{ is_state('device_tracker.iphone_de_yovcheva', 'home') }}"
+        icon_template: >
+          {% if is_state('device_tracker.iphone_de_yovcheva', 'home') %} mdi:star-settings
+          {% else %} mdi:star-settings-outline
+          {% endif %}
+
+
+automation:
+  - alias: Preferences · Milena · Enable
+    trigger:
+      - platform: state
+        entity_id: device_tracker.iphone_de_yovcheva
+        from: "not_home"
+        to: "home"
+    action:
+      - service: automation.turn_off
+        entity_id:
+          - automation.lighting_kitchen_temperature_main_adjust_on_start
+          - automation.lighting_kitchen_temperature_secondary_adjust_on_start
+          - automation.lighting_kitchen_temperature_main_sunset
+          - automation.lighting_kitchen_temperature_secondary_sunset
+          - automation.lighting_kitchen_temperature_main_night
+          - automation.lighting_kitchen_temperature_secondary_night
+      - service: automation.turn_on
+        entity_id:
+          - automation.preferences_milena_kitchen_temperature_main_adjust_on_start
+      - service: input_number.set_value
+        entity_id: input_number.guest_bedroom_light_temp
+        data:
+          value: 154
+
+  - alias: Preferences · Milena · Disable
+    trigger:
+      - platform: state
+        entity_id: device_tracker.iphone_de_yovcheva
+        from: "home "
+        to: "not_home"
+    action:
+      - service: automation.turn_on
+        entity_id:
+          - automation.lighting_kitchen_temperature_main_adjust_on_start
+          - automation.lighting_kitchen_temperature_secondary_adjust_on_start
+          - automation.lighting_kitchen_temperature_main_sunset
+          - automation.lighting_kitchen_temperature_secondary_sunset
+          - automation.lighting_kitchen_temperature_main_night
+          - automation.lighting_kitchen_temperature_secondary_night
+      - service: automation.turn_off
+        entity_id:
+          - automation.preferences_milena_kitchen_temperature_main_adjust_on_start
+      - service: input_number.set_value
+        entity_id: input_number.guest_bedroom_light_temp
+        data:
+          value: 500
+
+  - alias: Preferences · Milena · Kitchen · Temperature · Main · Adjust on start
+    use_blueprint:
+      path: light_on_set_temperature.yaml
+      input:
+        light:
+          - light.kitchen_main
+          - light.kitchen_secondary
+        day_temp: 153
+        evening_temp: 153
+        night_temp: 153

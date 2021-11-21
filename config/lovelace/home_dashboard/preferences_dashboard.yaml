@@ -149,3 +149,13 @@
               - type: custom:button-card
                 template: v3_button
                 entity: binary_sensor.someone_home
+
+          - type: custom:decluttering-card
+            template: v3_section_title
+            variables:
+              - title: Preferences Milena
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                template: v3_button
+                entity: input_number.guest_bedroom_light_temp
