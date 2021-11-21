@@ -29,6 +29,12 @@
           - type: horizontal-stack
             cards:
               - type: custom:button-card
+                template: v3_button_person
+                entity: input_boolean.georgi_home
+                styles:
+                  card:
+                    - background-image: url("/local/images/people/georgi.jpg")
+              - type: custom:button-card
                 template: v3_badge_temp
                 entity: sensor.bedroom_weather_temperature
                 state_display: "[[[return entity.state.split(' ')[0] + '°']]]"
