@@ -11,6 +11,8 @@ person:
       - device_tracker.carbon
   - name: Player 2
     id: !secret player_2_user_id
+    device_trackers:
+      - device_tracker.iphone_de_yovcheva
 
 # https://www.home-assistant.io/integrations/device_tracker
 device_tracker:
@@ -117,7 +119,7 @@ automation:
       path: arrival_detection.yaml
       input:
         person: person.player_2
-        input_boolean: input_boolean.player_2
+        input_boolean: input_boolean.player_2_home
 
   - alias: Presence · Georgi leaving
     trigger:
