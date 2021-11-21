@@ -26,6 +26,14 @@
             template: v3_title
             variables:
               - title: Preferences
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                template: v3_badge
+                entity: binary_sensor.georgi_home
+              - type: custom:button-card
+                template: v3_badge
+                entity: binary_sensor.player_2_home
 
           - type: horizontal-stack
             cards:
