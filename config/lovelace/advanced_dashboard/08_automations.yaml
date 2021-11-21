@@ -136,6 +136,7 @@ cards:
           entities:
             - automation.bedroom_mode_set_to_day
             - automation.bedroom_mode_set_to_bed
+            - automation.bedroom_mode_set_to_night
             - automation.guest_bedroom_mode_set_to_night
             - automation.house_mode_set_to_day
             - automation.house_mode_set_to_night

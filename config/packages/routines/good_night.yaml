@@ -1,11 +1,12 @@
 script:
-  routine_good_night:
-    alias: Routine · Going to sleep
+  bedroom_good_night:
+    alias: Routine · Bedroom · Going to sleep
     sequence:
+      - service: sonos.unjoin
+        entity_id: media_player.master_bedroom
       - service: media_player.media_stop
-        entity_id: group.all_sonos
-
-      # Use say_discretely instead of talk, because night mode is already on.
+        entity_id: media_player.master_bedroom
+        # Use say_discretely instead of talk, because night mode is already on.
       - service: script.say_discretely
         data:
           message: "Entering night mode. Good night!"
@@ -22,6 +23,15 @@ script:
         entity_id: input_select.purifier_preset_mode
         data:
           option: "sleep"
+
+      - service: light.turn_off
+        entity_id: light.master_bedroom
+
+  routine_good_night:
+    alias: Routine · Going to sleep
+    sequence:
+      - service: media_player.media_stop
+        entity_id: group.all_sonos
 
       # Turn off everything else
       - service: homeassistant.turn_off

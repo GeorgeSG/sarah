@@ -77,6 +77,14 @@ automation:
     action:
       - service: script.routine_bedroom_bedtime
 
+  - alias: Bedroom mode · Set to night
+    trigger:
+      platform: state
+      entity_id: input_select.bedroom_mode
+      to: "night"
+    action:
+      - service: script.bedroom_good_night
+
   - alias: Guest Bedroom mode · Set to night
     trigger:
       platform: state
