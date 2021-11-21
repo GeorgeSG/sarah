@@ -42,10 +42,10 @@
                     - background-image: url("/local/images/people/milena.jpg")
               - type: custom:button-card
                 template: v3_badge
-                entity: input_boolean.georgi_home
+                entity: binary_sensor.someone_home
               - type: custom:button-card
                 template: v3_badge
-                entity: input_boolean.player_2_home
+                entity: binary_sensor.someone_sleeping
 
           - type: horizontal-stack
             cards:
@@ -148,19 +148,6 @@
               - input_number.toshiba_cool_temp
               - input_number.toshiba_trigger_temp
 
-
-          - type: custom:decluttering-card
-            template: v3_section_title
-            variables:
-              - title: Monitoring
-          - type: horizontal-stack
-            cards:
-              - type: custom:button-card
-                template: v3_button
-                entity: binary_sensor.someone_sleeping
-              - type: custom:button-card
-                template: v3_button
-                entity: binary_sensor.someone_home
 
           - type: custom:decluttering-card
             template: v3_section_title

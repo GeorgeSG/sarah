@@ -2,10 +2,6 @@ script:
   routine_leaving_home:
     alias: Routine · Leaving home
     sequence:
-      - service: switch.turn_off
-        entity_id: switch.mercury_home_mode
-      - service: switch.turn_on
-        entity_id: switch.tapo_bedroom
 
       - service: homeassistant.turn_off
         entity_id:
@@ -18,7 +14,13 @@ script:
 
       - service: media_player.media_stop
         entity_id: group.all_sonos
-      - service: script.dashboards_light_down
+
+      - service: light.turn_on
+        entity_id:
+          - light.browser_hallway
+          - light.browser_kitchen
+        data:
+          brightness_pct: 1
       - service: input_select.select_option
         entity_id: input_select.hallway_dashboard_mode
         data:
@@ -31,3 +33,8 @@ script:
         data:
           title: "🏠 *Presence Module · Leaving Home*"
           message: "I see you're leaving. Goodbye!"
+
+      - service: switch.turn_on
+        entity_id: switch.tapo_bedroom
+      - service: switch.turn_off
+        entity_id: switch.mercury_home_mode

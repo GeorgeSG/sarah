@@ -26,12 +26,6 @@ script:
         data:
           brightness_pct: 100
 
-      # Cameras
-      - service: switch.turn_on
-        entity_id: switch.mercury_home_mode
-      - service: switch.turn_off
-        entity_id: switch.tapo_bedroom
-
       - service: script.routine_coming_home_during_daytime
       - service: script.routine_coming_home_after_sunset
 
@@ -42,6 +36,12 @@ script:
 
       - service: script.routine_coming_home_welcome_home
       - service: script.turn_on_all_radiators
+
+      # Cameras
+      - service: switch.turn_off
+        entity_id: switch.tapo_bedroom
+      - service: switch.turn_on
+        entity_id: switch.mercury_home_mode
 
   routine_coming_home_during_daytime:
     alias: Routine · Coming home · During daytime
