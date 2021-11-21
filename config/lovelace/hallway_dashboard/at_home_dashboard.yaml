@@ -26,6 +26,18 @@ card:
         - type: horizontal-stack
           cards:
             - type: custom:button-card
+              template: v3_button_person
+              entity: input_boolean.georgi_home
+              styles:
+                card:
+                  - background-image: url("/local/images/people/georgi.jpg")
+            - type: custom:button-card
+              template: v3_button_person
+              entity: input_boolean.player_2_home
+              styles:
+                card:
+                  - background-image: url("/local/images/people/milena.jpg")
+            - type: custom:button-card
               template: v3_badge_temp
               entity: sensor.average_temperature
             - type: custom:button-card
@@ -166,30 +178,7 @@ card:
                   - width: 60px
                   - font-size: 13px
 
-        - type: custom:decluttering-card
-          template: v3_section_title
-          variables:
-            - title: "People"
-        - type: horizontal-stack
-          cards:
-            - type: custom:button-card
-              template: v3_xs_button
-              entity: binary_sensor.georgi_home
-              name: Georgi home?
-              tap_action:
-                action: call-service
-                service: input_boolean.toggle
-                service_data:
-                  entity_id: input_boolean.georgi_home
-            - type: custom:button-card
-              template: v3_xs_button
-              entity: binary_sensor.player_2_home
-              name: Player 2 home?
-              tap_action:
-                action: call-service
-                service: input_boolean.toggle
-                service_data:
-                  entity_id: input_boolean.player_2_home
+
     # Column 2
     - type: vertical-stack
       cards:

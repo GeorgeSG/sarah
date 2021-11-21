@@ -1,0 +1,22 @@
+v3_button_person:
+  template: v3_badge
+  show_state: false
+  show_icon: false
+  show_name: false
+  hold_action:
+    action: more-info
+  styles:
+    card:
+      - width: 60px
+      - height: 60px
+      - border-radius: 60px
+      - background-repeat: no-repeat
+      - background-position: center center
+      - background-size: cover
+      - border-color: var(--primary-color)
+  state:
+    - value: 'off'
+      styles:
+        card:
+          - filter: grayscale(100%)
+          - border-color: black
