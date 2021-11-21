@@ -17,6 +17,10 @@ automation:
         entity_id: device_tracker.iphone_de_yovcheva
         from: "not_home"
         to: "home"
+      - platform: state
+        entity_id: input_boolean.player_2_home
+        from: "off"
+        to: "on"
     action:
       - service: automation.turn_off
         entity_id:
@@ -38,8 +42,12 @@ automation:
     trigger:
       - platform: state
         entity_id: device_tracker.iphone_de_yovcheva
-        from: "home "
+        from: "home"
         to: "not_home"
+      - platform: state
+        entity_id: input_boolean.player_2_home
+        from: "on"
+        to: "off"
     action:
       - service: automation.turn_on
         entity_id:

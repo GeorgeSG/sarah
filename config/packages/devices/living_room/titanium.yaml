@@ -258,7 +258,7 @@ automation:
       topic: "z2m_deconz/vibration_sensor"
     condition:
       condition: state
-      entity_id: binary_sensor.georgi_home
+      entity_id: input_boolean.georgi_home
       state: 'off'
     action:
       - service: notify.mobile_app_carbon

@@ -9,6 +9,7 @@ person:
     user_id: !secret georgi_user_id
     device_trackers:
       - device_tracker.carbon
+
   - name: Player 2
     id: !secret player_2_user_id
     device_trackers:
@@ -48,24 +49,6 @@ input_boolean:
 binary_sensor:
   - platform: template
     sensors:
-      georgi_home:
-        friendly_name: Georgi
-        device_class: presence
-        value_template: "{{ is_state('input_boolean.georgi_home', 'on') }}"
-        icon_template: >
-          {% if is_state('input_boolean.georgi_home', 'on') %} mdi:account
-          {% else %} mdi:account-off-outline
-          {% endif %}
-
-      player_2_home:
-        friendly_name: Player 2
-        device_class: presence
-        value_template: "{{ is_state('input_boolean.player_2_home', 'on') }}"
-        icon_template: >
-          {% if is_state('input_boolean.player_2_home', 'on') %} mdi:account
-          {% else %} mdi:account-off-outline
-          {% endif %}
-
       someone_home:
         friendly_name: Someone home
         device_class: presence

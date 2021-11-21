@@ -63,7 +63,7 @@ cards:
               cards:
                 - type: custom:button-card
                   template: default
-                  entity: binary_sensor.georgi_home
+                  entity: input_boolean.georgi_home
                   tap_action:
                     action: call-service
                     service: input_boolean.toggle

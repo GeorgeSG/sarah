@@ -30,10 +30,10 @@
             cards:
               - type: custom:button-card
                 template: v3_badge
-                entity: binary_sensor.georgi_home
+                entity: input_boolean.georgi_home
               - type: custom:button-card
                 template: v3_badge
-                entity: binary_sensor.player_2_home
+                entity: input_boolean.player_2_home
 
           - type: horizontal-stack
             cards:
