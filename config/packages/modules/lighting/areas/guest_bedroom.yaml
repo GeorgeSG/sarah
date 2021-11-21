@@ -14,7 +14,7 @@ script:
       - service: light.turn_on
         entity_id: light.light_lohas_6
         data:
-          color_temp: "{{ 400 if is_state('sun.sun', 'above_horizon') else 500 }}"
+          color_temp: 154
       - service: scene.turn_on
         entity_id: scene.guest_bedroom_before_confirm
       - delay: 00:00:01

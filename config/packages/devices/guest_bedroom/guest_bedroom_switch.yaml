@@ -32,11 +32,13 @@ automation:
                   entity_id: light.light_lohas_6
                   data:
                     brightness_pct: 10
+                    color_temp: 154
             default:
               - service: light.toggle
                 entity_id: light.light_lohas_6
                 data:
                   brightness_pct: 100
+                  color_temp: 154
 
         double_click:
           - service: light.toggle
