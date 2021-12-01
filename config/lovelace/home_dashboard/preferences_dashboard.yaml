@@ -67,13 +67,8 @@
                 name: Speech
               - type: custom:button-card
                 template: v3_button
-                entity: input_select.bedroom_mode
-                name: Bedroom
-                tap_action:
-                  action: call-service
-                  service: input_select.select_next
-                  service_data:
-                    entity_id: input_select.bedroom_mode
+                entity: input_boolean.simulation_mode
+                name: Simulation
 
           - type: horizontal-stack
             cards:
@@ -88,8 +83,14 @@
                 name: Mercury
               - type: custom:button-card
                 template: v3_button
-                entity: input_boolean.simulation_mode
-                name: Simulation
+                entity: input_select.bedroom_mode
+                name: Bedroom
+                tap_action:
+                  action: call-service
+                  service: input_select.select_next
+                  service_data:
+                    entity_id: input_select.bedroom_mode
+
           - type: horizontal-stack
             cards:
               - type: custom:button-card

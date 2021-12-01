@@ -26,7 +26,7 @@ binary_sensor.kitchen_motion_occupancy:
         entities:
           - entity: sensor.kitchen_motion_illuminance
 
-binary_sensor.hallway_motion_occupancy:
+group.hallway_motion:
   title: Hallway motion
   card:
     type: vertical-stack
@@ -177,7 +177,7 @@ sensor.active_motion_sensors:
                 - margin-left: 8px
           - type: custom:button-card
             template: [v3_button, v3_popup_button]
-            entity: binary_sensor.trisensor_motion
+            entity: binary_sensor.trisensor_home_security_motion_detection
             name: Hallway
           - type: custom:button-card
             template: [v3_button, v3_popup_button]
@@ -633,8 +633,29 @@ vacuum.vacuum:
               subtitle: Cleaning time
       - type: custom:xiaomi-vacuum-map-card
         entity: vacuum.vacuum
-        camera_calibration: true
-        map_camera: camera.xiaomi_cloud_map_extractor
+        map_source:
+          camera: camera.xiaomi_cloud_map_extractor
+        calibration_source:
+          camera: true
+        map_locked: true
+        map_modes:
+          - template: vacuum_clean_zone
+          - template: vacuum_goto
+          - template: vacuum_follow_path
+          - template: vacuum_clean_segment
+            name: Rooms
+            predefined_selections:
+              - zones: [[25457, 25178], [27053, 25119], [27053, 27779], [24334, 27839], [24334, 25533], [25398, 25474]]
+                id: 1
+                label:
+                  text: "Kitchen"
+                  x: 25457
+                  y: 25178
+                  offset_y: 35
+                icon:
+                  name: "mdi:chef-hat"
+                  x: 25457
+                  y: 25178
 
 switch.tapo_bedroom:
   title: "Bedroom Camera"

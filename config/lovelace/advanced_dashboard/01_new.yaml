@@ -96,7 +96,7 @@ cards:
       - type: "custom:mini-graph-card"
         entities:
           - sensor.living_room_radiator_temperature
-          - sensor.trisensor_temperature
+          - sensor.multisensor_6_temperature
         cache: false
         group_by: hour
         hours_to_show: 72

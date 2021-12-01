@@ -59,10 +59,6 @@ binary_sensor:
           {% else %} mdi:account-off-outline
           {% endif %}
 
-      trisensor_motion:
-        friendly_name: TriSensor motion
-        device_class: motion
-        value_template: "{{ is_state('sensor.trisensor_burglar', '8') }}"
 
       multisensor_motion:
         friendly_name: MultiSensor motion

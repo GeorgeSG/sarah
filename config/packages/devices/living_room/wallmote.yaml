@@ -2,12 +2,12 @@ automation:
   - alias: Wallmote · Living room · 1 · Tap · Toggle lights
     trigger:
       platform: event
-      event_type: zwave.scene_activated
+      event_type: zwave_js_value_notification
       event_data:
-        entity_id: zwave.aeon_labs_zw130_wallmote_quad
         node_id: 5
-        scene_id: 1
-        scene_data: 0
+        value: "KeyPressed"
+        property: "scene"
+        property_key: "001"
     action:
       - service: light.toggle
         entity_id: light.living_room
@@ -15,12 +15,12 @@ automation:
   - alias: Wallmote · Living room · 1 · Toggle · PC Light
     trigger:
       platform: event
-      event_type: zwave.scene_activated
+      event_type: zwave_js_value_notification
       event_data:
-        entity_id: zwave.aeon_labs_zw130_wallmote_quad
         node_id: 5
-        scene_id: 1
-        scene_data: 1
+        value: "KeyReleased"
+        property: "scene"
+        property_key: "001"
     action:
       - service: light.toggle
         entity_id: light.pc
@@ -28,12 +28,12 @@ automation:
   - alias: Wallmote · Living room · 2 · Tap · Toggle Music
     trigger:
       platform: event
-      event_type: zwave.scene_activated
+      event_type: zwave_js_value_notification
       event_data:
-        entity_id: zwave.aeon_labs_zw130_wallmote_quad
         node_id: 5
-        scene_id: 2
-        scene_data: 0
+        value: "KeyPressed"
+        property: "scene"
+        property_key: "002"
     action:
       - service: media_player.media_play_pause
         entity_id: media_player.living_room
@@ -41,24 +41,23 @@ automation:
   - alias: Wallmote · Living room · 2 · Hold · Play music
     trigger:
       platform: event
-      event_type: zwave.scene_activated
+      event_type: zwave_js_value_notification
       event_data:
-        entity_id: zwave.aeon_labs_zw130_wallmote_quad
         node_id: 5
-        scene_id: 2
-        scene_data: 1
+        value: "KeyReleased"
+        property: "scene"
+        property_key: "002"
     action:
       - service: script.music_play
 
   - alias: Wallmote · Living room · 3 · Tap · Toggle Main lights
     trigger:
       platform: event
-      event_type: zwave.scene_activated
+      event_type: zwave_js_value_notification
       event_data:
-        entity_id: zwave.aeon_labs_zw130_wallmote_quad
         node_id: 5
-        scene_id: 3
-        scene_data: 0
+        value: "KeyPressed"
+        property_key: "003"
     action:
       - service: light.toggle
         entity_id:
@@ -68,12 +67,11 @@ automation:
   - alias: Wallmote · Living room · 3 · Hold · Toggle Ambient lights
     trigger:
       platform: event
-      event_type: zwave.scene_activated
+      event_type: zwave_js_value_notification
       event_data:
-        entity_id: zwave.aeon_labs_zw130_wallmote_quad
         node_id: 5
-        scene_id: 3
-        scene_data: 1
+        value: "KeyReleased"
+        property_key: "003"
     action:
       - service: light.toggle
         entity_id: light.living_room_ambient
@@ -81,23 +79,21 @@ automation:
   - alias: Wallmote · Living room · 4 · Tap · Toggle AC
     trigger:
       platform: event
-      event_type: zwave.scene_activated
+      event_type: zwave_js_value_notification
       event_data:
-        entity_id: zwave.aeon_labs_zw130_wallmote_quad
         node_id: 5
-        scene_id: 4
-        scene_data: 0
+        value: "KeyPressed"
+        property_key: "004"
     action:
       - service: script.toshiba_ac_toggle
 
   - alias: Wallmote · Living room · 4 · Hold · Toggle Cover
     trigger:
       platform: event
-      event_type: zwave.scene_activated
+      event_type: zwave_js_value_notification
       event_data:
-        entity_id: zwave.aeon_labs_zw130_wallmote_quad
         node_id: 5
-        scene_id: 4
-        scene_data: 1
+        value: "KeyReleased"
+        property_key: "004"
     action:
       - service: script.toggle_living_room_cover
