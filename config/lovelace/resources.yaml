@@ -44,6 +44,8 @@
   type: module
 - url: /hacsfiles/kb-better-graph-colors/kb-better-graph-colors.js
   type: module
+- url: /hacsfiles/simple-clock-card/simple-clock-card.js
+  type: module
 - url: /hacsfiles/lovelace-swipe-navigation/swipe-navigation.js
   type: module
 - url: /hacsfiles/lovelace-template-entity-row/template-entity-row.js
@@ -62,6 +64,7 @@
   type: module
 - url: /hacsfiles/home-assistant-sun-card/home-assistant-sun-card.js
   type: module
+
 
 
 - url: /hacsfiles/lovelace-folder-card/folder-card.js

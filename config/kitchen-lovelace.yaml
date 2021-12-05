@@ -26,4 +26,14 @@ views:
                       margin: 0 20px;
                       grid-gap: 20px;
                     }
-        card: !include lovelace/home_dashboard/kitchen_dashboard_card.yaml
+        card:
+          type: vertical-stack
+          cards:
+            - type: 'custom:simple-clock-card'
+              hide_seconds: true
+              style: |
+                ha-card {
+                  margin: 10px;
+                  padding: 10px;
+                }
+            - !include lovelace/home_dashboard/kitchen_dashboard_card.yaml

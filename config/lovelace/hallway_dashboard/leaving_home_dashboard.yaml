@@ -76,6 +76,15 @@ card:
                     icon:
                       - color: var(--primary-color)
 
+        - type: 'custom:simple-clock-card'
+          hide_seconds: true
+          font_size: 2rem
+          padding_size: 10px
+          style: |
+            ha-card {
+              margin-top: 10px;
+            }
+
         - type: custom:decluttering-card
           template: v3_section_title
           variables:
