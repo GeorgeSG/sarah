@@ -431,6 +431,28 @@ script.brita_pour_water:
     type: custom:decluttering-card
     template: brita_card
 
+sensor.kitchen_outlet_electric_consumption_w:
+  title: Kitchen power
+  card:
+    type: entities
+    entities:
+      - entity: switch.kitchen_outlet
+        name: Turned on
+      - entity: light.kitchen_outlet
+        name: Light
+      - entity: sensor.kitchen_outlet_electric_consumption_v
+        name: Voltage
+      - entity: sensor.kitchen_outlet_electric_consumption_a
+        name: Amperes
+      - entity: sensor.kitchen_outlet_electric_consumption_w
+        name: Watts
+      - entity: sensor.kitchen_outlet_electric_consumption_kwh
+        name: kWh
+      - entity: binary_sensor.kitchen_outlet_power_management_over_current_detected
+        name: Over-current detected
+      - entity: binary_sensor.kitchen_outlet_power_management_over_load_detected
+        name: Over-load detected
+
 sensor.desk_outlet_power:
   title: Desk power
   card:
