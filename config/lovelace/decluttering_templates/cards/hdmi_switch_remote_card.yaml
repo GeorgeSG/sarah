@@ -1,8 +1,32 @@
 hdmi_switch_remote_card:
   card:
     type: picture-elements
-    image: /local/images/remotes/hdmi_switcher.png
+    image: /local/images/remotes/hdmi_switch_new.png
     elements:
+      - type: image
+        image: /local/images/floorplan/transparent.png
+        entity: script.hdmi_switch_on
+        tap_action:
+          action: toggle
+        style:
+          width: 23.6%
+          height: 11.8%
+          top: 11.4%
+          left: 82%
+          border-radius: 50%
+
+      - type: image
+        image: /local/images/floorplan/transparent.png
+        entity: script.hdmi_switch_off
+        tap_action:
+          action: toggle
+        style:
+          width: 23.6%
+          height: 11.8%
+          top: 11%
+          left: 14.1%
+          border-radius: 50%
+
       - type: image
         image: /local/images/floorplan/transparent.png
         entity: script.hdmi_switch_1
@@ -11,8 +35,8 @@ hdmi_switch_remote_card:
         style:
           width: 23.6%
           height: 11.8%
-          top: 9.6%
-          left: 19.5%
+          top: 23.6%
+          left: 13.5%
           border-radius: 50%
       - type: image
         image: /local/images/floorplan/transparent.png
@@ -22,8 +46,8 @@ hdmi_switch_remote_card:
         style:
           width: 23.6%
           height: 11.8%
-          top: 9.6%
-          left: 50%
+          top: 23.6%
+          left: 83%
           border-radius: 50%
       - type: image
         image: /local/images/floorplan/transparent.png
@@ -33,8 +57,8 @@ hdmi_switch_remote_card:
         style:
           width: 23.6%
           height: 11.8%
-          top: 9.6%
-          left: 80.5%
+          top: 36%
+          left: 49%
           border-radius: 50%
       - type: image
         image: /local/images/floorplan/transparent.png
@@ -44,9 +68,21 @@ hdmi_switch_remote_card:
         style:
           width: 23.6%
           height: 11.8%
-          top: 23%
-          left: 19.5%
+          top: 48.5%
+          left: 13.5%
           border-radius: 50%
+      - type: image
+        image: /local/images/floorplan/transparent.png
+        entity: script.hdmi_switch_5
+        tap_action:
+          action: toggle
+        style:
+          width: 23.6%
+          height: 11.8%
+          top: 48.5%
+          left: 83%
+          border-radius: 50%
+
       - type: image
         image: /local/images/floorplan/transparent.png
         entity: script.hdmi_switch_next
@@ -55,39 +91,17 @@ hdmi_switch_remote_card:
         style:
           width: 23.6%
           height: 11.8%
-          top: 23%
-          left: 80.5%
-          border-radius: 50%
-      - type: image
-        image: /local/images/floorplan/transparent.png
-        entity: script.hdmi_switch_pip
-        tap_action:
-          action: toggle
-        style:
-          width: 23.6%
-          height: 11.8%
-          top: 63.7%
-          left: 19.5%
-          border-radius: 50%
-      - type: image
-        image: /local/images/floorplan/transparent.png
-        entity: script.hdmi_switch_sel
-        tap_action:
-          action: toggle
-        style:
-          width: 23.6%
-          height: 11.8%
-          top: 63.7%
+          top: 61.5%
           left: 50%
           border-radius: 50%
       - type: image
         image: /local/images/floorplan/transparent.png
-        entity: script.hdmi_switch_enter
+        entity: script.hdmi_switch_prev
         tap_action:
           action: toggle
         style:
           width: 23.6%
           height: 11.8%
-          top: 63.7%
-          left: 80.5%
+          top: 74%
+          left: 50%
           border-radius: 50%
