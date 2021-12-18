@@ -24,15 +24,27 @@ light:
     brightness_scale: 254
 
   - platform: "mqtt"
-    name: "hue_white_3"
-    state_topic: "z2m_deconz/hue_white_3"
+    name: "hue_white_5"
+    state_topic: "z2m_deconz/hue_white_5"
     availability_topic: "z2m_deconz/bridge/state"
     brightness: true
     color_temp: false
     xy: false
     hs: false
     schema: "json"
-    command_topic: "z2m_deconz/hue_white_3/set"
+    command_topic: "z2m_deconz/hue_white_5/set"
+    brightness_scale: 254
+
+  - platform: "mqtt"
+    name: "hue_white_6"
+    state_topic: "z2m_deconz/hue_white_6"
+    availability_topic: "z2m_deconz/bridge/state"
+    brightness: true
+    color_temp: false
+    xy: false
+    hs: false
+    schema: "json"
+    command_topic: "z2m_deconz/hue_white_6/set"
     brightness_scale: 254
 
   - platform: "mqtt"
@@ -120,6 +132,49 @@ light:
     hs: false
     schema: "json"
     command_topic: "z2m_deconz/hue_ambiance_4/set"
+    brightness_scale: 254
+    max_mireds: 500
+    min_mireds: 150
+    effect: true
+    effect_list:
+      - "blink"
+      - "breathe"
+      - "okay"
+      - "channel_change"
+      - "finish_effect"
+
+  - platform: "mqtt"
+    name: "hue_ambiance_5"
+    state_topic: "z2m_deconz/hue_ambiance_5"
+    availability_topic: "z2m_deconz/bridge/state"
+    brightness: true
+    color_temp: true
+    xy: false
+    hs: false
+    schema: "json"
+    command_topic: "z2m_deconz/hue_ambiance_5/set"
+    brightness_scale: 254
+    max_mireds: 500
+    min_mireds: 150
+    effect: true
+    effect_list:
+      - "blink"
+      - "breathe"
+      - "okay"
+      - "channel_change"
+      - "finish_effect"
+
+
+  - platform: "mqtt"
+    name: "hue_ambiance_6"
+    state_topic: "z2m_deconz/hue_ambiance_6"
+    availability_topic: "z2m_deconz/bridge/state"
+    brightness: true
+    color_temp: true
+    xy: false
+    hs: false
+    schema: "json"
+    command_topic: "z2m_deconz/hue_ambiance_6/set"
     brightness_scale: 254
     max_mireds: 500
     min_mireds: 150
@@ -272,18 +327,34 @@ sensor:
     value_template: "{{ value_json['update']['state'] }}"
 
   - platform: "mqtt"
-    name: "hue_white_3_lqi"
-    state_topic: "z2m_deconz/hue_white_3"
+    name: "hue_white_5_lqi"
+    state_topic: "z2m_deconz/hue_white_5"
     availability_topic: "z2m_deconz/bridge/state"
     value_template: "{{ value_json.linkquality }}"
     unit_of_measurement: "lqi"
     icon: "mdi:signal"
   - platform: "mqtt"
-    name: "hue_white_3_update_state"
-    state_topic: "z2m_deconz/hue_white_3"
+    name: "hue_white_5_update_state"
+    state_topic: "z2m_deconz/hue_white_5"
     availability_topic: "z2m_deconz/bridge/state"
     icon: "mdi:update"
     value_template: "{{ value_json['update']['state'] }}"
+
+
+  - platform: "mqtt"
+    name: "hue_white_6_lqi"
+    state_topic: "z2m_deconz/hue_white_6"
+    availability_topic: "z2m_deconz/bridge/state"
+    value_template: "{{ value_json.linkquality }}"
+    unit_of_measurement: "lqi"
+    icon: "mdi:signal"
+  - platform: "mqtt"
+    name: "hue_white_6_update_state"
+    state_topic: "z2m_deconz/hue_white_6"
+    availability_topic: "z2m_deconz/bridge/state"
+    icon: "mdi:update"
+    value_template: "{{ value_json['update']['state'] }}"
+
 
   - platform: "mqtt"
     name: "pc_lqi"
@@ -351,6 +422,34 @@ sensor:
   - platform: "mqtt"
     name: "hue_ambiance_4_update_state"
     state_topic: "z2m_deconz/hue_ambiance_4"
+    availability_topic: "z2m_deconz/bridge/state"
+    icon: "mdi:update"
+    value_template: "{{ value_json['update']['state'] }}"
+
+  - platform: "mqtt"
+    name: "hue_ambiance_5_lqi"
+    state_topic: "z2m_deconz/hue_ambiance_5"
+    availability_topic: "z2m_deconz/bridge/state"
+    value_template: "{{ value_json.linkquality }}"
+    unit_of_measurement: "lqi"
+    icon: "mdi:signal"
+  - platform: "mqtt"
+    name: "hue_ambiance_5_update_state"
+    state_topic: "z2m_deconz/hue_ambiance_5"
+    availability_topic: "z2m_deconz/bridge/state"
+    icon: "mdi:update"
+    value_template: "{{ value_json['update']['state'] }}"
+
+  - platform: "mqtt"
+    name: "hue_ambiance_6_lqi"
+    state_topic: "z2m_deconz/hue_ambiance_6"
+    availability_topic: "z2m_deconz/bridge/state"
+    value_template: "{{ value_json.linkquality }}"
+    unit_of_measurement: "lqi"
+    icon: "mdi:signal"
+  - platform: "mqtt"
+    name: "hue_ambiance_6_update_state"
+    state_topic: "z2m_deconz/hue_ambiance_6"
     availability_topic: "z2m_deconz/bridge/state"
     icon: "mdi:update"
     value_template: "{{ value_json['update']['state'] }}"
@@ -442,8 +541,15 @@ binary_sensor:
     payload_off: false
     value_template: "{{ value_json.update_available}}"
   - platform: "mqtt"
-    name: "hue_white_3_update_available"
-    state_topic: "z2m_deconz/hue_white_3"
+    name: "hue_white_5_update_available"
+    state_topic: "z2m_deconz/hue_white_5"
+    availability_topic: "z2m_deconz/bridge/state"
+    payload_on: true
+    payload_off: false
+    value_template: "{{ value_json.update_available}}"
+  - platform: "mqtt"
+    name: "hue_white_6_update_available"
+    state_topic: "z2m_deconz/hue_white_6"
     availability_topic: "z2m_deconz/bridge/state"
     payload_on: true
     payload_off: false
@@ -484,6 +590,21 @@ binary_sensor:
     payload_on: true
     payload_off: false
     value_template: "{{ value_json.update_available}}"
+  - platform: "mqtt"
+    name: "hue_ambiance_5_update_available"
+    state_topic: "z2m_deconz/hue_ambiance_5"
+    availability_topic: "z2m_deconz/bridge/state"
+    payload_on: true
+    payload_off: false
+    value_template: "{{ value_json.update_available}}"
+  - platform: "mqtt"
+    name: "hue_ambiance_6_update_available"
+    state_topic: "z2m_deconz/hue_ambiance_6"
+    availability_topic: "z2m_deconz/bridge/state"
+    payload_on: true
+    payload_off: false
+    value_template: "{{ value_json.update_available}}"
+
 
   - platform: "mqtt"
     name: "hue_1_update_available"

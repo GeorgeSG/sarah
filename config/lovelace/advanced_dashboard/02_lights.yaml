@@ -157,16 +157,14 @@ cards:
           entities:
             - light.kitchen
             - type: divider
-            - light.kitchen_main
             - type: custom:fold-entity-row
               entity: light.kitchen_main
               name: Main lights
               entities:
-                - light.ledvance_1
+                - light.hue_ambiance_6
                 - light.neo_1
                 - light.neo_2
             - type: divider
-            - light.kitchen_secondary
             - type: custom:fold-entity-row
               entity: light.kitchen_secondary
               name: Secondary lights
@@ -226,7 +224,6 @@ cards:
                     - update: binary_sensor.hue_white_2_update_available
 
             - type: divider
-            - light.hallway_main
             - type: custom:fold-entity-row
               entity: light.hallway_main
               name: Main lights
@@ -234,9 +231,9 @@ cards:
                 - type: custom:decluttering-card
                   template: light_with_update_and_lqi
                   variables:
-                    - light: light.hue_white_3
-                    - lqi: sensor.hue_white_3_lqi
-                    - update: binary_sensor.hue_white_3_update_available
+                    - light: light.hue_ambiance_5
+                    - lqi: sensor.hue_ambiance_5_lqi
+                    - update: binary_sensor.hue_ambiance_5_update_available
                 - type: custom:decluttering-card
                   template: light_with_update_and_lqi
                   variables:

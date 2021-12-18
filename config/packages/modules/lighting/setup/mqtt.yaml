@@ -1,29 +1,4 @@
 light:
-  # - platform: mqtt
-  #   name: "light_hama_1"
-  #   state_topic: "stat/light_hama_1/RESULT"
-  #   state_value_template: "{{ value_json.POWER }}"
-  #   command_topic: "cmnd/light_hama_1/POWER"
-  #   payload_on: "ON"
-  #   payload_off: "OFF"
-  #   availability_topic: "tele/light_hama_1/LWT"
-  #   payload_available: "Online"
-  #   payload_not_available: "Offline"
-  #   on_command_type: "brightness"
-  #   brightness_command_topic: "cmnd/light_hama_1/Dimmer"
-  #   brightness_state_topic: "tele/light_hama_1/STATE"
-  #   brightness_scale: 100
-  #   brightness_value_template: "{{ value_json.Dimmer }}"
-  #   color_temp_command_topic: "cmnd/light_hama_1/CT"
-  #   color_temp_state_topic: "tele/light_hama_1/STATE"
-  #   color_temp_value_template: "{{ value_json.CT }}"
-  #   rgb_command_topic: "cmnd/light_hama_1/Color"
-  #   rgb_state_topic: "tele/light_hama_1/STATE"
-  #   rgb_command_template: "{{ '%02X%02X%02X=' | format(red, green, blue)}}"
-  #   rgb_value_template: "{{ (value_json.Color[0]|int(base=16),value_json.Color[1]|int(base=16),value_json.Color[2]|int(base=16)) | join(',')}}"
-  #   qos: 1
-  #   retain: false
-
   - platform: mqtt
     name: "light_le_1"
     state_topic: "tele/light_le_1/STATE"
@@ -140,89 +115,6 @@ light:
     effect_value_template: "{{value_json.Scheme}}"
     effect_list: [0, 1, 2, 3, 4]
 
-  # - platform: mqtt
-  #   name: "light_lohas_3"
-  #   state_topic: "tele/light_lohas_3/STATE"
-  #   state_value_template: "{{ value_json.POWER }}"
-  #   command_topic: "cmnd/light_lohas_3/POWER"
-  #   payload_on: "ON"
-  #   payload_off: "OFF"
-  #   availability_topic: "tele/light_lohas_3/LWT"
-  #   payload_available: "Online"
-  #   payload_not_available: "Offline"
-  #   on_command_type: "brightness"
-  #   brightness_command_topic: "cmnd/light_lohas_3/Dimmer"
-  #   brightness_state_topic: "tele/light_lohas_3/STATE"
-  #   brightness_scale: 100
-  #   brightness_value_template: "{{ value_json.Dimmer }}"
-  #   hs_command_topic: "cmnd/light_lohas_3/HSBColor"
-  #   hs_state_topic: "tele/light_lohas_3/STATE"
-  #   hs_value_template: "{{ value_json.HSBColor.split(',')[0:2]|join(',') }}"
-  #   color_temp_command_topic: "cmnd/light_lohas_3/CT"
-  #   color_temp_state_topic: "tele/light_lohas_3/STATE"
-  #   color_temp_value_template: "{{ value_json.CT }}"
-  #   rgb_command_topic: "cmnd/light_lohas_3/Color"
-  #   rgb_state_topic: "tele/light_lohas_3/STATE"
-  #   rgb_command_template: "{{ '%02X%02X%02X=' | format(red, green, blue)}}"
-  #   rgb_value_template: "{{ (value_json.Color[0:2]|int(base=16),value_json.Color[2:4]|int(base=16),value_json.Color[4:6]|int(base=16)) | join(',')}}"
-  #   qos: 1
-  #   retain: false
-
-  # - platform: mqtt
-  #   name: "light_lohas_4"
-  #   state_topic: "tele/light_lohas_4/STATE"
-  #   state_value_template: "{{ value_json.POWER }}"
-  #   command_topic: "cmnd/light_lohas_4/POWER"
-  #   payload_on: "ON"
-  #   payload_off: "OFF"
-  #   availability_topic: "tele/light_lohas_4/LWT"
-  #   payload_available: "Online"
-  #   payload_not_available: "Offline"
-  #   on_command_type: "brightness"
-  #   brightness_command_topic: "cmnd/light_lohas_4/Dimmer"
-  #   brightness_state_topic: "tele/light_lohas_4/STATE"
-  #   brightness_scale: 100
-  #   brightness_value_template: "{{ value_json.Dimmer }}"
-  #   hs_command_topic: "cmnd/light_lohas_4/HSBColor"
-  #   hs_state_topic: "tele/light_lohas_4/STATE"
-  #   hs_value_template: "{{ value_json.HSBColor.split(',')[0:2]|join(',') }}"
-  #   color_temp_command_topic: "cmnd/light_lohas_4/CT"
-  #   color_temp_state_topic: "tele/light_lohas_4/STATE"
-  #   color_temp_value_template: "{{ value_json.CT }}"
-  #   rgb_command_topic: "cmnd/light_lohas_4/Color"
-  #   rgb_state_topic: "tele/light_lohas_4/STATE"
-  #   rgb_command_template: "{{ '%02X%02X%02X=' | format(red, green, blue)}}"
-  #   rgb_value_template: "{{ (value_json.Color[0:2]|int(base=16),value_json.Color[2:4]|int(base=16),value_json.Color[4:6]|int(base=16)) | join(',')}}"
-  #   qos: 1
-  #   retain: false
-
-  # - platform: mqtt
-  #   name: "light_lohas_5"
-  #   state_topic: "tele/light_lohas_5/STATE"
-  #   state_value_template: "{{ value_json.POWER }}"
-  #   command_topic: "cmnd/light_lohas_5/POWER"
-  #   payload_on: "ON"
-  #   payload_off: "OFF"
-  #   availability_topic: "tele/light_lohas_5/LWT"
-  #   payload_available: "Online"
-  #   payload_not_available: "Offline"
-  #   on_command_type: "brightness"
-  #   brightness_command_topic: "cmnd/light_lohas_5/Dimmer"
-  #   brightness_state_topic: "tele/light_lohas_5/STATE"
-  #   brightness_scale: 100
-  #   brightness_value_template: "{{ value_json.Dimmer }}"
-  #   hs_command_topic: "cmnd/light_lohas_5/HSBColor"
-  #   hs_state_topic: "tele/light_lohas_5/STATE"
-  #   hs_value_template: "{{ value_json.HSBColor.split(',')[0:2]|join(',') }}"
-  #   color_temp_command_topic: "cmnd/light_lohas_5/CT"
-  #   color_temp_state_topic: "tele/light_lohas_5/STATE"
-  #   color_temp_value_template: "{{ value_json.CT }}"
-  #   rgb_command_topic: "cmnd/light_lohas_5/Color"
-  #   rgb_state_topic: "tele/light_lohas_5/STATE"
-  #   rgb_value_template: "{{ value_json.Color.split(',')[0:3]|join(',') }}"
-  #   qos: 1
-  #   retain: false
-
   - platform: mqtt
     name: "light_lohas_6"
     state_topic: "tele/light_lohas_6/STATE"
@@ -270,16 +162,6 @@ light:
     min_mireds: 150
 
 sensor:
-  # - platform: mqtt
-  #   name: "light_hama_1_wifi"
-  #   availability_topic: "tele/light_hama_1/LWT"
-  #   device_class: signal_strength
-  #   payload_available: "Online"
-  #   payload_not_available: "Offline"
-  #   state_topic: "tele/light_hama_1/STATE"
-  #   unit_of_measurement: "%"
-  #   value_template: "{{ value_json.Wifi.RSSI }}"
-
   - platform: mqtt
     name: "light_le_1_wifi"
     availability_topic: "tele/light_le_1/LWT"
@@ -330,26 +212,6 @@ sensor:
     unit_of_measurement: "%"
     value_template: "{{ value_json.Wifi.RSSI }}"
 
-  # - platform: mqtt
-  #   name: "light_lohas_3_wifi"
-  #   availability_topic: "tele/light_lohas_3/LWT"
-  #   device_class: signal_strength
-  #   payload_available: "Online"
-  #   payload_not_available: "Offline"
-  #   state_topic: "tele/light_lohas_3/STATE"
-  #   unit_of_measurement: "%"
-  #   value_template: "{{ value_json.Wifi.RSSI }}"
-
-  # - platform: mqtt
-  #   name: "light_lohas_4_wifi"
-  #   availability_topic: "tele/light_lohas_4/LWT"
-  #   device_class: signal_strength
-  #   payload_available: "Online"
-  #   payload_not_available: "Offline"
-  #   state_topic: "tele/light_lohas_4/STATE"
-  #   unit_of_measurement: "%"
-  #   value_template: "{{ value_json.Wifi.RSSI }}"
-
   - platform: mqtt
     name: "light_lohas_6_wifi"
     availability_topic: "tele/light_lohas_6/LWT"
@@ -371,17 +233,6 @@ sensor:
 ## Switch
 
 switch:
-  # - platform: mqtt
-  #   name: "light_hama_1_fade"
-  #   availability_topic: "tele/light_hama_1/LWT"
-  #   command_topic: "cmnd/light_hama_1/FADE"
-  #   icon: mdi:gradient
-  #   payload_available: "Online"
-  #   payload_not_available: "Offline"
-  #   qos: 1
-  #   state_topic: "stat/light_hama_1/RESULT"
-  #   value_template: "{{ value_json.Fade }}"
-
   - platform: mqtt
     name: "light_le_1_fade"
     availability_topic: "tele/light_le_1/LWT"
@@ -448,17 +299,6 @@ switch:
     state_topic: "tele/light_lohas_3/STATE"
     value_template: "{{ value_json.Fade }}"
 
-  # - platform: mqtt
-  #   name: "light_lohas_4_fade"
-  #   availability_topic: "tele/light_lohas_4/LWT"
-  #   command_topic: "cmnd/light_lohas_4/FADE"
-  #   icon: mdi:gradient
-  #   payload_available: "Online"
-  #   payload_not_available: "Offline"
-  #   qos: 1
-  #   state_topic: "stat/light_lohas_4/RESULT"
-  #   value_template: "{{ value_json.Fade }}"
-
   - platform: mqtt
     name: "light_lohas_6_fade"
     availability_topic: "tele/light_lohas_6/LWT"
@@ -498,11 +338,15 @@ automation:
           payload: ""
       - service: mqtt.publish
         data:
-          topic: "z2m_deconz/hue_white_3/get"
+          topic: "z2m_deconz/hue_white_4/get"
           payload: ""
       - service: mqtt.publish
         data:
-          topic: "z2m_deconz/hue_white_4/get"
+          topic: "z2m_deconz/hue_white_5/get"
+          payload: ""
+      - service: mqtt.publish
+        data:
+          topic: "z2m_deconz/hue_white_6/get"
           payload: ""
       - service: mqtt.publish
         data:
@@ -519,6 +363,14 @@ automation:
       - service: mqtt.publish
         data:
           topic: "z2m_deconz/hue_ambiance_4/get"
+          payload: ""
+      - service: mqtt.publish
+        data:
+          topic: "z2m_deconz/hue_ambiance_5/get"
+          payload: ""
+      - service: mqtt.publish
+        data:
+          topic: "z2m_deconz/hue_ambiance_6/get"
           payload: ""
       - service: mqtt.publish
         data:
