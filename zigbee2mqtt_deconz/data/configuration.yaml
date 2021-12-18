@@ -2,11 +2,11 @@ homeassistant: false
 permit_join: true
 mqtt:
   base_topic: z2m_deconz
-  server: 'mqtt://192.168.0.27'
+  server: mqtt://192.168.0.27
   user: '!secret user'
   password: '!secret password'
 serial:
-  port: /dev/ttyACM1
+  port: /dev/ttyACM0
 advanced:
   channel: 15
   log_level: info
@@ -139,9 +139,6 @@ devices:
   '0x00178801099664bf':
     friendly_name: hue_white_2
     transition: 0.2
-  '0x0017880109964b5f':
-    friendly_name: hue_white_3
-    transition: 0.2
   '0x0017880109964b77':
     friendly_name: hue_white_4
     transition: 0.2
@@ -172,8 +169,20 @@ devices:
   '0x00178801090c4797':
     friendly_name: hue_ambiance_4
     transition: 0.2
+  '0x001788010bb38ee5':
+    friendly_name: hue_ambiance_5
+    transition: 0.2
+  '0x001788010bb38dda':
+    friendly_name: hue_ambiance_6
+    transition: 0.2
   '0x086bd7fffe075b7d':
     friendly_name: '0x086bd7fffe075b7d'
+  '0x0017880109964b5f':
+    friendly_name: unknown_1
+  '0x001788010b3a1573':
+    friendly_name: unknown_2
+  '0x001788010b3a1d48':
+    friendly_name: unknown_3
 groups:
   '1':
     friendly_name: light_kitchen_secondary
@@ -189,12 +198,12 @@ groups:
     devices:
       - '0x00158d00024f54bb'
       - '0x00158d00024f5642'
-      - '0xf0d1b800001a2a8f'
+      - '0x001788010bb38dda'
   '3':
     friendly_name: light_hallway_main
     transition: 0.2
     devices:
-      - '0x0017880109964b5f'
+      - '0x001788010bb38ee5'
       - '0x0017880108e9dbd2'
   '4':
     friendly_name: light_hallway_entrance

@@ -8,7 +8,7 @@ services:
       - ./data:/app/data
       - /run/udev:/run/udev:ro
     devices:
-      - /dev/ttyACM2:/dev/ttyACM2
+      - /dev/ttyACM0:/dev/ttyACM0
     restart: always
     network_mode: host
     privileged: true
