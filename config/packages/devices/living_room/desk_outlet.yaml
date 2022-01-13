@@ -34,7 +34,6 @@ sensor:
     name: "Desk Outlet Energy total start time"
     state_topic: "tele/outlet_1/SENSOR"
     value_template: '{{ value_json.ENERGY.TotalStartTime }}'
-    device_class: timestamp
   - platform: mqtt
     name: "Desk Outlet Power"
     state_topic: "tele/outlet_1/SENSOR"
