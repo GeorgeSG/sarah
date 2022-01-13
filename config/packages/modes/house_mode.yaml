@@ -33,7 +33,7 @@ binary_sensor:
         value_template: >-
 
           {% if is_state('input_boolean.guest_bedroom', 'off') %}
-            {{ is_state('input_boolean.bedroom_mode', 'night') }}
+            {{ is_state('input_select.bedroom_mode', 'night') }}
           {% else %}
             {{ is_state('input_select.bedroom_mode', 'night') or is_state('input_select.guest_bedroom_mode', 'night') }}
           {% endif %}
