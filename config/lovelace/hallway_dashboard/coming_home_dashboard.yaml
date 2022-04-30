@@ -311,6 +311,18 @@ card:
             - type: custom:button-card
               template: v3_xs_button
               entity: script.music_play
+              name: Jazz
+              icon: mdi:music
+              tap_action:
+                action: call-service
+                service: script.music_play
+                service_data:
+                  playlist: "Smooth Romantic Evening"
+                  shuffle: true
+                  volume_level: 0.1
+            - type: custom:button-card
+              template: v3_xs_button
+              entity: script.music_play
               name: Retro
               icon: mdi:music
               tap_action:
