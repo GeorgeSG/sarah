@@ -65,9 +65,6 @@ lovelace:
 # https://www.home-assistant.io/components/system_health
 system_health:
 
-# https://www.home-assistant.io/components/updater
-updater:
-
 # https://www.home-assistant.io/components/logger
 logger:
   default: warning
@@ -151,6 +148,7 @@ logbook:
 
 # https://www.home-assistant.io/integrations/media_extractor
 # TODO: Add to media module
+media_source:
 media_extractor:
 
 # https://www.home-assistant.io/integrations/mobile_app

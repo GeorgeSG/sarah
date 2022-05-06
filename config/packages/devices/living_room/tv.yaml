@@ -1,11 +1,11 @@
 # https://www.home-assistant.io/integrations/webostv
-webostv:
-  - host: !secret living_room_tv_ip
-    name: Living Room TV
-    turn_on_action:
-      service: wake_on_lan.send_magic_packet
-      data:
-        mac: !secret living_room_tv_mac
+# webostv:
+#   - host: !secret living_room_tv_ip
+#     name: Living Room TV
+#     turn_on_action:
+#       service: wake_on_lan.send_magic_packet
+#       data:
+#         mac: !secret living_room_tv_mac
 
 media_player:
   - platform: androidtv
@@ -91,6 +91,14 @@ script:
           command: "adb shell am start -n \"com.android.systemui/.Somnambulator\""
 
 automation:
+  - alias: TV · Turn on
+    trigger:
+      - platform: webostv.turn_on
+        entity_id: media_player.living_room_tv
+    action:
+      - service: wake_on_lan.send_magic_packet
+        data:
+          mac: 78:5D:C8:C9:DB:76
   - alias: TV · Join Beam to Sonos group when off
     trigger:
       platform: state
