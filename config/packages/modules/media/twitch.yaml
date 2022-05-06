@@ -1,8 +1,8 @@
-sensor:
-  - platform: twitch
-    client_id: !secret twitch_client_id
-    channels:
-      - LIRIK
-      - day9tv
-      - cohhcarnage
-      - sacriel
+# sensor:
+#   - platform: twitch
+#     client_id: !secret twitch_client_id
+#     channels:
+#       - LIRIK
+#       - day9tv
+#       - cohhcarnage
+#       - sacriel
