@@ -70,3 +70,11 @@
 #   - platform: androidtv
 #     name: nvidia shield
 #     host: !secret nvidia_shield_host
+
+
+# https://www.home-assistant.io/docs/mqtt
+# mqtt:
+#   broker: !secret mqtt_ip
+#   client_id: homeassistant
+#   username: !secret mqtt_username
+#   password: !secret mqtt_password
