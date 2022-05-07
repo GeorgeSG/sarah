@@ -34,8 +34,7 @@ action:
             color_temp: !input day_temp
 
     - conditions:
-        condition: and
-        conditions:
+        and:
           - condition: sun
             after: sunset
           - condition: not

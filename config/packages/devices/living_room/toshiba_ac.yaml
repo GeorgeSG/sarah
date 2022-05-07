@@ -120,8 +120,7 @@ script:
 
   toshiba_ac_on_cool_if_hot:
     sequence:
-      - condition: and
-        conditions:
+      - and:
           - "{{ states('sensor.multisensor_6_temperature')|float > states('input_number.toshiba_trigger_temp')|float }}"
           - condition: numeric_state
             entity_id: sensor.dark_sky_apparent_temperature

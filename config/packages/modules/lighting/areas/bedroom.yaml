@@ -129,8 +129,7 @@ automation:
       entity_id: binary_sensor.bedroom_door
       to: "on"
     condition:
-      condition: and
-      conditions:
+      and:
         - condition: sun
           after: sunset
           after_offset: "-02:00:00"

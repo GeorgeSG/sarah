@@ -16,8 +16,7 @@ automation:
       platform: template
       value_template: "{{ states('sensor.time') == states('input_datetime.alarm_time')[0:5] }}"
     condition:
-      condition: and
-      conditions:
+      and:
         - condition: state
           entity_id: input_boolean.alarm_enabled
           state: "on"

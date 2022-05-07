@@ -46,12 +46,11 @@ script:
   routine_coming_home_during_daytime:
     alias: Routine · Coming home · During daytime
     sequence:
-      - condition: and
-        conditions:
-          - condition: sun
-            after: sunrise
-          - condition: sun
-            before: sunset
+      - and:
+        - condition: sun
+          after: sunrise
+        - condition: sun
+          before: sunset
       - service: script.open_living_room_cover
 
   routine_coming_home_after_sunset:
@@ -89,12 +88,11 @@ script:
         timeout: 00:02:00
       - delay: 00:00:01
 
-      - condition: and
-        conditions:
-          - condition: time
-            before: "23:00:00"
-          - condition: time
-            after: "9:00:00"
+      - and:
+        - condition: time
+          before: "23:00:00"
+        - condition: time
+          after: "9:00:00"
 
       - service: script.say
         data_template:

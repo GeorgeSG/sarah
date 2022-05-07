@@ -42,8 +42,7 @@ automation:
         device_ieee: !secret magic_cube_ieee
         command: knock
     condition:
-      condition: and
-      conditions:
+      and:
         - condition: state
           entity_id: input_boolean.magic_cube_enabled
           state: "on"
@@ -62,8 +61,7 @@ automation:
         device_ieee: !secret magic_cube_ieee
         command: rotate_left
     condition:
-      condition: and
-      conditions:
+      and:
         - condition: state
           entity_id: input_boolean.magic_cube_enabled
           state: "on"
@@ -84,8 +82,7 @@ automation:
         device_ieee: !secret magic_cube_ieee
         command: rotate_right
     condition:
-      condition: and
-      conditions:
+      and:
         - condition: state
           entity_id: input_boolean.magic_cube_enabled
           state: "on"
@@ -107,8 +104,7 @@ automation:
         device_ieee: !secret magic_cube_ieee
         command: knock
     condition:
-      condition: and
-      conditions:
+      and:
         - condition: state
           entity_id: input_boolean.magic_cube_enabled
           state: "on"
@@ -127,8 +123,7 @@ automation:
         device_ieee: !secret magic_cube_ieee
         command: rotate_left
     condition:
-      condition: and
-      conditions:
+      and:
         - condition: state
           entity_id: input_boolean.magic_cube_enabled
           state: "on"
@@ -147,8 +142,7 @@ automation:
         device_ieee: !secret magic_cube_ieee
         command: rotate_right
     condition:
-      condition: and
-      conditions:
+      and:
         - condition: state
           entity_id: input_boolean.magic_cube_enabled
           state: "on"

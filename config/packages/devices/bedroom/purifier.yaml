@@ -255,8 +255,7 @@ automation:
       entity_id: sensor.bedroom_weather_humidity
       below: 20
     condition:
-      condition: and
-      conditions:
+      and:
         - condition: state
           entity_id: binary_sensor.purifier_out_of_water
           state: "off"
@@ -288,8 +287,7 @@ automation:
       entity_id: sensor.purifier_air_quality
       above: 30
     condition:
-      condition: and
-      conditions:
+      and:
         - condition: state
           entity_id: input_boolean.someone_home
           state: "on"
@@ -331,8 +329,7 @@ automation:
       entity_id: sensor.bedroom_weather_humidity
       above: 55
     condition:
-      condition: and
-      conditions:
+      and:
         - condition: state
           entity_id: fan.philips_airpurifier
           state: "on"
@@ -360,8 +357,7 @@ automation:
       entity_id: sensor.purifier_air_quality
       below: 20
     condition:
-      condition: and
-      conditions:
+      and:
         - condition: state
           entity_id: fan.philips_airpurifier
           state: "on"

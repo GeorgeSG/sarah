@@ -24,14 +24,13 @@ script:
   maybe_turn_radiator_on:
     alias: Climate · Heating · Maybe turn radiator on
     sequence:
-      - condition: and
-        conditions:
-          - condition: state
-            entity_id: input_boolean.heating_enabled
-            state: "on"
-          - condition: state
-            entity_id: binary_sensor.someone_home
-            state: "on"
+      - and:
+        - condition: state
+          entity_id: input_boolean.heating_enabled
+          state: "on"
+        - condition: state
+          entity_id: binary_sensor.someone_home
+          state: "on"
       - service: climate.turn_on
         data_template:
           entity_id: "{{ entity_id }}"
@@ -57,14 +56,13 @@ script:
   turn_on_all_radiators:
     alias: Climate · Heating · Turn on all radiators
     sequence:
-      - condition: and
-        conditions:
-          - condition: state
-            entity_id: input_boolean.heating_enabled
-            state: "on"
-          - condition: state
-            entity_id: binary_sensor.someone_home
-            state: "on"
+      - and:
+        - condition: state
+          entity_id: input_boolean.heating_enabled
+          state: "on"
+        - condition: state
+          entity_id: binary_sensor.someone_home
+          state: "on"
       - service: script.maybe_turn_radiator_on
         data:
           entity_id: climate.living_room_radiator_mode

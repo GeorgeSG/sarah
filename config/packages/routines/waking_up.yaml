@@ -15,14 +15,13 @@ script:
       - service: script.shield_screensaver
 
       # Only when no guests are present
-      - condition: and
-        conditions:
-          - condition: state
-            entity_id: input_boolean.guest_mode
-            state: "off"
-          - condition: state
-            entity_id: input_boolean.guest_bedroom
-            state: "off"
+      - and:
+        - condition: state
+          entity_id: input_boolean.guest_mode
+          state: "off"
+        - condition: state
+          entity_id: input_boolean.guest_bedroom
+          state: "off"
       - wait_template: "{{ is_state('input_boolean.sarah_talking', 'off') }}"
         timeout: 00:02:00
       - delay: 00:00:0

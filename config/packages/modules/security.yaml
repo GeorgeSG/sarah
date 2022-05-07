@@ -52,8 +52,7 @@ automation:
         entity_id: binary_sensor.front_door
         to: "on"
     condition:
-      condition: and
-      conditions:
+      and:
         - condition: state
           entity_id: person.georgi
           state: "not_home"
