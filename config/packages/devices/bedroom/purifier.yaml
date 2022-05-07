@@ -79,11 +79,7 @@ sensor:
         friendly_name: Function
         value_template: "{{ state_attr('fan.philips_airpurifier', 'function') }}"
         icon_template: >-
-          {% if state_attr('fan.philips_airpurifier', 'function') == 'Purification' %}
-            {{ 'mdi:air-purifier' }}
-          {% else %}
-            {{ 'mdi:air-humidifier' }}
-          {% endif %}
+          {{ state_attr('fan.philips_airpurifier', 'function') == 'Purification' | iif('mdi:air-purifier', 'mdi:air-humidifier') }}
       purifier_pre_filter:
         friendly_name: Pre-filter
         unit_of_measurement: "Hrs"
@@ -160,11 +156,7 @@ script:
         entity_id: fan.philips_airpurifier
         data_template:
           function: >-
-            {% if state_attr('fan.philips_airpurifier', 'function') == 'Purification' %}
-              {{ 'Purification & Humidification' }}
-            {% else %}
-              {{ 'Purification' }}
-            {% endif %}
+            {{ state_attr('fan.philips_airpurifier', 'function') == 'Purification' | iif('Purification & Humidification', 'Purification') }}
 
 automation:
   - alias: Purifier · On start · Sync and update state

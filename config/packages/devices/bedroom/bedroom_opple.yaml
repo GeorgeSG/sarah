@@ -48,13 +48,7 @@ automation:
           - service: light.turn_on
             data_template:
               entity_id: light.master_bedroom_main
-              brightness_pct: >-
-
-                {% if not is_state('input_select.bedroom_mode', 'day') %}
-                  40
-                {% else %}
-                  100
-                {% endif %}
+              brightness_pct: "{{ is_state('input_select.bedroom_mode', 'day') | iif(100, 40) }}"
 
         button_1_triple:
           - service: light.turn_off
@@ -68,13 +62,7 @@ automation:
               entity_id:
                 - light.bedside
                 - light.bed_led
-              brightness_pct: >-
-
-                {% if not is_state('input_select.bedroom_mode', 'day') %}
-                  40
-                {% else %}
-                  100
-                {% endif %}
+              brightness_pct: "{{ is_state('input_select.bedroom_mode', 'day') | iif(100, 40) }}"
 
         button_3_single:
           - service: media_player.media_play_pause

@@ -30,13 +30,11 @@ automation:
                 {% elif is_state('input_select.bedroom_mode', 'bed') %}
                   light.bedside
                 {% endif %}
-              brightness_pct: >-
-                {% if is_state('input_select.bedroom_mode', 'night') %} 40 {% else %} 100 {% endif %}
+              brightness_pct: "{{ is_state('input_select.bedroom_mode', 'night') | iif(40, 100)}}"
 
           - service: script.bed_led_toggle
             data_template:
-              brightness_pct: >-
-                {% if is_state('input_select.bedroom_mode', 'night') %} 40 {% else %} 100 {% endif %}
+              brightness_pct: "{{ is_state('input_select.bedroom_mode', 'night') | iif(40, 100)}}"
 
 
         double_click:
@@ -46,8 +44,7 @@ automation:
               brightness_pct: 100
           - service: script.bed_led_toggle
             data_template:
-              brightness_pct: >-
-                {% if is_state('input_select.bedroom_mode', 'night') %} 40 {% else %} 100 {% endif %}
+              brightness_pct: "{{ is_state('input_select.bedroom_mode', 'night') | iif(40, 100)}}"
 
         hold:
           - service: input_select.select_next

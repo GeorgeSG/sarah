@@ -122,7 +122,7 @@ script:
     sequence:
       - condition: and
         conditions:
-          - condition: "{{ states('sensor.multisensor_6_temperature')|float > states('input_number.toshiba_trigger_temp')|float }}"
+          - "{{ states('sensor.multisensor_6_temperature')|float > states('input_number.toshiba_trigger_temp')|float }}"
           - condition: numeric_state
             entity_id: sensor.dark_sky_apparent_temperature
             above: 23

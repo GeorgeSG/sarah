@@ -5,10 +5,10 @@ binary_sensor:
         friendly_name: Milena Preferences
         value_template: "{{ is_state('device_tracker.iphone_de_yovcheva', 'home') }}"
         icon_template: >
-          {% if is_state('device_tracker.iphone_de_yovcheva', 'home') %} mdi:star-settings
-          {% else %} mdi:star-settings-outline
-          {% endif %}
-
+          {{
+            is_state('device_tracker.iphone_de_yovcheva', 'home')
+            | iif('mdi:star-settings', 'mdi:star-settings-outline')
+           }}
 
 automation:
   - alias: Preferences · Milena · Enable

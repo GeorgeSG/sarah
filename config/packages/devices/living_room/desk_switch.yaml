@@ -25,25 +25,13 @@ automation:
           - service: light.toggle
             data_template:
               entity_id: light.living_room_main
-              brightness_pct: >-
-
-                {% if is_state('sensor.house_mode', 'night') %}
-                  40
-                {% else %}
-                  100
-                {% endif %}
+              brightness_pct: "{{ is_state('sensor.house_mode', 'night') | iif(40, 100) }}"
 
         double_click:
           - service: light.toggle
             data_template:
               entity_id: light.living_room_ambient
-              brightness_pct: >-
-
-                {% if is_state('sensor.house_mode', 'night') %}
-                  40
-                {% else %}
-                  100
-                {% endif %}
+              brightness_pct: "{{ is_state('sensor.house_mode', 'night') | iif(40, 100) }}"
 
         hold:
           - service: media_player.media_play_pause

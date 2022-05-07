@@ -12,11 +12,7 @@ binary_sensor:
         value_template: >-
           {{ is_state("binary_sensor.titanium_ping", "on") }}
         icon_template: >-
-          {% if is_state("binary_sensor.titanium_ping", "on") %}
-            mdi:desktop-mac-dashboard
-          {% else %}
-            mdi:desktop-mac
-          {% endif %}
+          {{ is_state("binary_sensor.titanium_ping", "on") | iif(' mdi:desktop-mac-dashboard', 'mdi:desktop-mac') }}
 
   - platform: mqtt
     name: "Titanium playing"
@@ -163,12 +159,7 @@ switch:
         turn_off:
           service: script.titanium_shutdown
         icon_template: >-
-
-          {% if is_state('binary_sensor.titanium', 'on') %}
-            mdi:monitor-dashboard
-          {% else %}
-            mdi:monitor-off
-          {% endif %}
+          {{ is_state('binary_sensor.titanium', 'on') | iif('mdi:monitor-dashboard', 'mdi:monitor-off') }}
 
 script:
   titanium_start:
