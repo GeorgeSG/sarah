@@ -2,7 +2,6 @@
 sun:
 
 sensor:
-  # - platform: launch_library
   - platform: moon
 
 binary_sensor:

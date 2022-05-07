@@ -56,3 +56,17 @@
 # pi_hoyle:
 #   - host: !secret pihole_host
 #     api_key: !secret pihole_api_key
+
+# https://www.home-assistant.io/integrations/webostv
+# webostv:
+#   - host: !secret living_room_tv_ip
+#     name: Living Room TV
+#     turn_on_action:
+#       service: wake_on_lan.send_magic_packet
+#       data:
+#         mac: !secret living_room_tv_mac
+
+# media_player:
+#   - platform: androidtv
+#     name: nvidia shield
+#     host: !secret nvidia_shield_host
