@@ -167,7 +167,7 @@ automation:
       platform: state
       entity_id: media_player.nvidia_shield
       to: 'playing'
-    condition: "{{ state_attr('media_player.nvidia_shield', 'source') == 'Google Cast' }}"
+    condition: "{{ is_state_attr('media_player.nvidia_shield', 'source', 'Google Cast') }}"
     action:
       - service: script.sonos_join_tv
       - service: logbook.log

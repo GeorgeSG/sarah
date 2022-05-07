@@ -9,11 +9,10 @@ script:
   toggle_living_room_cover:
     sequence:
       - choose:
-        - conditions: >
-            {{ state_attr('cover.living_room', 'current_position') == 0 }}
+        - conditions: "{{ is_state_attr('cover.living_room', 'current_position', 0) }}"
           sequence:
             - service: script.open_living_room_cover
-        - conditions: >
+        - conditions: >-
            {{ state_attr('cover.living_room', 'current_position') >= 80 }}
           sequence:
             - service: cover.close_cover
