@@ -5,9 +5,7 @@ automation:
       event_type: ios.action_fired
     action:
       choose:
-        - conditions:
-            - condition: template
-              value_template: "{{ trigger.event.data.actionName == 'alarm_off' }}"
+        - conditions: "{{ trigger.event.data.actionName == 'alarm_off' }}"
           sequence:
             - service: notify.telegram
               data:
@@ -18,9 +16,7 @@ automation:
               data:
                 option: "day"
 
-        - conditions:
-            - condition: template
-              value_template: "{{ trigger.event.data.actionName == 'wind_down' }}"
+        - conditions: "{{ trigger.event.data.actionName == 'wind_down' }}"
           sequence:
             - service: notify.telegram
               data:
@@ -31,9 +27,7 @@ automation:
               data:
                 option: "bed"
 
-        - conditions:
-            - condition: template
-              value_template: "{{ trigger.event.data.actionName == 'bedtime' }}"
+        - conditions: "{{ trigger.event.data.actionName == 'bedtime' }}"
           sequence:
             - service: notify.telegram
               data:

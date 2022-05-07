@@ -60,10 +60,7 @@ automation:
     trigger:
       - platform: mqtt
         topic: z2m_deconz/trust_remote
-    condition:
-      - condition: template
-        value_template: >
-          {{ trigger.payload_json.action == "on" }}
+    condition: "{{ trigger.payload_json.action == 'on' }}"
     action:
       - service: light.turn_on
         data_template:
@@ -88,10 +85,7 @@ automation:
     trigger:
       - platform: mqtt
         topic: z2m_deconz/trust_remote
-    condition:
-      - condition: template
-        value_template: >-
-          {{ trigger.payload_json.action == "off" }}
+    condition: "{{ trigger.payload_json.action == 'off' }}"
     action:
       - service: light.turn_off
         data_template:

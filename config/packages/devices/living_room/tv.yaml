@@ -155,9 +155,7 @@ automation:
       platform: state
       entity_id: media_player.nvidia_shield
       to: "off"
-    condition:
-      condition: template
-      value_template: "{{ is_state_attr('media_player.living_room_tv', 'source', 'Shield') }}"
+    condition: "{{ is_state_attr('media_player.living_room_tv', 'source', 'Shield') }}"
     action:
       - service: media_player.turn_off
         entity_id: media_player.living_room_tv
@@ -172,9 +170,7 @@ automation:
       platform: state
       entity_id: media_player.nvidia_shield
       to: 'playing'
-    condition:
-      - condition: template
-        value_template: "{{ state_attr('media_player.nvidia_shield', 'source') == 'Google Cast' }}"
+    condition: "{{ state_attr('media_player.nvidia_shield', 'source') == 'Google Cast' }}"
     action:
       - service: script.sonos_join_tv
       - service: logbook.log

@@ -32,9 +32,7 @@ variables:
   person_entity: !input person_entity
   person_name: "{{ states[person_entity].name }}"
 
-condition:
-  condition: template
-  value_template: "{{ trigger.from_state.state == zone_state and trigger.to_state.state != zone_state }}"
+condition: "{{ trigger.from_state.state == zone_state and trigger.to_state.state != zone_state }}"
 
 action:
   domain: mobile_app

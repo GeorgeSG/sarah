@@ -119,8 +119,7 @@ automation:
       - platform: state
         entity_id: group.bedroom_windows
     condition:
-      - condition: template
-        value_template: "{{ now().hour >= states('input_datetime.alarm_time')[0:2]|int }}"
+      - "{{ now().hour >= states('input_datetime.alarm_time')[0:2]|int }}"
       - condition: not
         conditions:
           - condition: state

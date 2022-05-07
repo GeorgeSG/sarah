@@ -19,9 +19,7 @@ script:
   tapo_bedroom_toggle:
     sequence:
       - choose:
-        - conditions:
-          - condition: template
-            value_template: "{{ state_attr('camera.bedroom_hd', 'privacy_mode') == 'off' }}"
+        - conditions: "{{ state_attr('camera.bedroom_hd', 'privacy_mode') == 'off' }}"
           sequence:
             - service: script.tapo_bedroom_off
 

@@ -44,9 +44,7 @@ script:
     alias: Climate · Heating · Toggle radiator
     sequence:
       - choose:
-        - conditions:
-          - condition: template
-            value_template: "{{ is_state(entity_id, 'off') }}"
+        - conditions: "{{ is_state(entity_id, 'off') }}"
           sequence:
             - service: script.maybe_turn_radiator_on
               data_template:
