@@ -27,12 +27,12 @@ binary_sensor:
       sonos_is_bedroom_master:
         friendly_name: Sonos is Bedroom master
         value_template: >-
-          {% set group = state_attr('media_player.master_bedroom', 'sonos_group') %}
+          {% set group = state_attr('media_player.master_bedroom', 'group_members') %}
           {{ group|length > 1 and group[0] == 'media_player.master_bedroom' }}
       sonos_is_living_room_master:
         friendly_name: Sonos is Living room master
         value_template: >-
-          {% set group = state_attr('media_player.master_bedroom', 'sonos_group') %}
+          {% set group = state_attr('media_player.master_bedroom', 'group_members') %}
           {{ group|length > 1 and group[0] == 'media_player.living_room' }}
 
 script:
