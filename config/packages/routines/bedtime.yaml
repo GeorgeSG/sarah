@@ -1,6 +1,7 @@
 script:
   routine_bedroom_bedtime:
     alias: Routine · Bedroom · Bedtime
+    continue_on_error: true
     sequence:
       - service: sonos.unjoin
         entity_id:
