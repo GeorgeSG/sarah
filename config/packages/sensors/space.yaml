@@ -3,7 +3,3 @@ sun:
 
 sensor:
   - platform: moon
-
-binary_sensor:
-  # https://www.home-assistant.io/integrations/iss/
-  - platform: iss
