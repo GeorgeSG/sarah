@@ -1,7 +1,6 @@
 script:
   routine_waking_up:
     alias: Routine · Waking up
-    continue_on_error: true
     sequence:
       - service: light.turn_on
         entity_id: light.hallway

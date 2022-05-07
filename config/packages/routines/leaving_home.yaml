@@ -1,7 +1,6 @@
 script:
   routine_leaving_home:
     alias: Routine · Leaving home
-    continue_on_error: true
     sequence:
 
       - service: homeassistant.turn_off

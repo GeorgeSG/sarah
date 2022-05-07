@@ -7,7 +7,6 @@ input_boolean:
 script:
   routine_coming_home:
     alias: Routine · Coming home
-    continue_on_error: true
     sequence:
       - service: input_select.select_option
         entity_id: input_select.hallway_dashboard_mode
@@ -58,13 +57,12 @@ script:
   routine_coming_home_after_sunset:
     alias: Routine · Coming home · After sunset
     sequence:
-      - condition: or
-        conditions:
-          - condition: sun
-            after: sunset
-            after_offset: "-01:00:00"
-          - condition: sun
-            before: sunrise
+      - or:
+        - condition: sun
+          after: sunset
+          after_offset: "-01:00:00"
+        - condition: sun
+          before: sunrise
       - service: notify.telegram
         data:
           title: "🏠 *Presence Module · Coming Home*"
