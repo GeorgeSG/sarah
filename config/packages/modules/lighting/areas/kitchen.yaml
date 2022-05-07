@@ -20,15 +20,13 @@ automation:
               entity_id: light.browser_kitchen
               data:
                 brightness_pct: 100
-            - condition: or
-              conditions:
-                - condition: or
-                  conditions:
-                    - condition: sun
-                      after: sunset
-                      after_offset: "-01:00:00"
-                    - condition: sun
-                      before: sunrise
+            - or:
+                - or:
+                  - condition: sun
+                    after: sunset
+                    after_offset: "-01:00:00"
+                  - condition: sun
+                    before: sunrise
                 - condition: numeric_state
                   entity_id: sensor.dark_sky_cloud_coverage
                   above: 80

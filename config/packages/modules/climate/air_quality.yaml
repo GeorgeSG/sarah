@@ -38,15 +38,13 @@ automation:
       from: "off"
       to: "on"
     condition:
-      - condition: or
-        conditions:
-          - condition: state
-            entity_id:
-              - binary_sensor.kitchen_window
-              - binary_sensor.living_room_right_window
-              - binary_sensor.bedroom_left_window
-              - binary_sensor.bedroom_right_window
-            state: "on"
+      - condition: state
+        entity_id:
+          - binary_sensor.kitchen_window
+          - binary_sensor.living_room_right_window
+          - binary_sensor.bedroom_left_window
+          - binary_sensor.bedroom_right_window
+        state: "on"
     action:
       - service: script.say
         data:
