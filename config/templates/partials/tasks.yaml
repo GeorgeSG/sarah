@@ -1,9 +1,9 @@
 >-
 
-  {% set brita_filter    = is_state('binary_sensor.brita_should_change_filter', 'on') %}
+  {% set brita_filter    = is_state('binary_sensor.brita_should_change_filter', 'on') | default(false) %}
 
-  {% set purifier_filter = is_state('binary_sensor.purifier_filter_needs_change', 'on') %}
-  {% set purifier_water  = is_state('binary_sensor.purifier_out_of_water', 'on') %}
+  {% set purifier_filter = is_state('binary_sensor.purifier_filter_needs_change', 'on') | default(false) %}
+  {% set purifier_water  = is_state('binary_sensor.purifier_out_of_water', 'on') | default(false) %}
   {% set has_purifier_tasks = purifier_filter or purifier_water %}
 
   {% set vacuum_main_brush = states('sensor.roborock_vacuum_s5_main_brush_left') | int == 0 %}
