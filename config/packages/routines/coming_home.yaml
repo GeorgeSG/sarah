@@ -7,6 +7,7 @@ input_boolean:
 script:
   routine_coming_home:
     alias: Routine · Coming home
+    continue_on_error: true
     sequence:
       - service: input_select.select_option
         entity_id: input_select.hallway_dashboard_mode
