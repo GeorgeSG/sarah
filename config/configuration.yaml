@@ -119,6 +119,7 @@ recorder: &recorder_config
       - zwave
     entities:
       - device_tracker.carbon
+      - device_tracker.arsenic
       - media_player.living_room_tv
       - media_player.nvidia_shield
       - switch.camera

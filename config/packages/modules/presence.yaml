@@ -8,7 +8,7 @@ person:
     id: !secret georgi_user_id
     user_id: !secret georgi_user_id
     device_trackers:
-      - device_tracker.carbon
+      - device_tracker.arsenic
 
   - name: Player 2
     id: !secret player_2_user_id
@@ -68,7 +68,7 @@ binary_sensor:
 sensor:
   - platform: history_stats
     name: Quarantined percent
-    entity_id: device_tracker.carbon
+    entity_id: device_tracker.arsenic
     state: "home"
     type: ratio
     duration:
@@ -77,7 +77,7 @@ sensor:
 
   - platform: history_stats
     name: Quarantine times left
-    entity_id: device_tracker.carbon
+    entity_id: device_tracker.arsenic
     state: "home"
     type: count
     duration:
@@ -158,6 +158,9 @@ automation:
 homeassistant:
   customize:
     device_tracker.carbon:
+      icon: mdi:cellphone-iphone
+
+    device_tracker.arsenic:
       icon: mdi:cellphone-iphone
 
     group.hallway_motion:
