@@ -168,9 +168,7 @@
                 name: Mode
                 tap_action:
                   action: call-service
-                  service: input_select.select_next
-                  service_data:
-                    entity_id: input_select.bedroom_mode
+                  service: script.toggle_bedroom_mode
 
           - type: vertical-stack
             cards:

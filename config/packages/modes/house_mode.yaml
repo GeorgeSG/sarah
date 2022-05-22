@@ -61,6 +61,15 @@ sensor:
           {% endif %}
 
 
+script:
+  toggle_bedroom_mode:
+    alias: Toggle bedroom mode
+    sequence:
+      - service: input_select.select_option
+        entity_id: input_select.bedroom_mode
+        data_template:
+          option: "{{ is_state('input_select.bedroom_mode', 'day') | iif('night', 'day') }}"
+
 automation:
   - alias: Bedroom mode · Set to day
     trigger:

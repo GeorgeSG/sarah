@@ -47,5 +47,4 @@ automation:
               brightness_pct: "{{ is_state('input_select.bedroom_mode', 'night') | iif(40, 100)}}"
 
         hold:
-          - service: input_select.select_next
-            entity_id: input_select.bedroom_mode
+          - service: script.toggle_bedroom_mode
