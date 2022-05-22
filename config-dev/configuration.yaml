@@ -4,11 +4,6 @@ default_config:
 http:
   server_port: 8124
 
-hacs:
-  token: !secret hacs_dev_token
-  appdaemon: true
-  netdaemon: true
-
 logger:
   default: warning
   logs:
