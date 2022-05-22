@@ -92,7 +92,7 @@ script:
         - condition: time
           before: "23:00:00"
         - condition: time
-          after: "9:00:00"
+          after: "09:00:00"
 
       - service: script.say
         data_template:
