@@ -30,6 +30,9 @@ script:
       #     message: "Here's some music to start the day!"
       - delay: 00:00:02
       - service: script.music_play
+        data:
+          volume_level: 0.1
+          shuffle: true
 
   routine_bedroom_morning:
     alias: Routine · Bedroom · Morning
