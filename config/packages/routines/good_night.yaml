@@ -7,9 +7,9 @@ script:
       - service: media_player.media_stop
         entity_id: media_player.master_bedroom
         # Use say_discretely instead of talk, because night mode is already on.
-      - service: script.say_discretely
-        data:
-          message: "Entering night mode. Good night!"
+        # - service: script.say_discretely
+        #   data:
+        #     message: "Entering night mode. Good night!"
 
       # Prepare Bed LED brightness to be turned on during night time
       - service: light.turn_on
@@ -54,3 +54,6 @@ script:
           - light.browser_hallway
         data:
           brightness_pct: 1
+
+      - service: cover.close_cover
+        entity_id: cover.living_room

@@ -8,9 +8,9 @@ script:
           - media_player.kitchen
           - media_player.bathroom
 
-      - service: script.say_discretely
-        data:
-          message: "Entering bed time."
+      # - service: script.say_discretely
+      #   data:
+      #     message: "Entering bed time."
 
       # Set master bedroom state
       - service: fan.turn_on

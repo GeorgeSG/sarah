@@ -47,6 +47,27 @@ script:
             {%- else -%}
               {{ message }}
             {%- endif -%}
+  chat:
+    alias: Speech · Send message
+    sequence:
+      # Don't talk while in night mode.
+      - condition: not
+        conditions:
+          - condition: state
+            entity_id: sensor.house_mode
+            state: 'night'
+      # Combine partials for speech message.
+      - service: notify.telegram
+        data_template:
+          title: "{{ title | default('💬 *Speech Module*') }}"
+          message: >-
+            {%- if partials is defined -%}
+              {%- for partial in partials -%}
+                {{ partial }}{{ " " }}
+              {%- endfor -%}
+            {%- else -%}
+              {{ message }}
+            {%- endif -%}
 
   say_discretely:
     alias: Speech · Say discretely
