@@ -183,6 +183,11 @@ devices:
     friendly_name: unknown_2
   '0x001788010b3a1d48':
     friendly_name: unknown_3
+  '0x00158d000800d341':
+    friendly_name: terrarium_weather
+    retain: true
+    temperature_precision: 1
+    humidity_precision: 1
 groups:
   '1':
     friendly_name: light_kitchen_secondary
