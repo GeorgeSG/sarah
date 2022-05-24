@@ -46,6 +46,13 @@ views:
     background: 'center / cover no-repeat url("/local/images/wallpapers-3/hallway_2.jpg") #188A9C fixed'
     cards: !include lovelace/home_dashboard/hallway_dashboard.yaml
     theme: sarah-noctis-grey
+  - title: Terrarium
+    path: terrarium
+    icon: "mdi:snake"
+    panel: true
+    background: 'center / cover no-repeat url("/local/images/wallpapers-3/terrarium.jpg") #5E3C0F fixed'
+    cards: !include lovelace/home_dashboard/terrarium_dashboard.yaml
+    theme: sarah-noctis-grey
   - title: Guest Bedroom
     path: guest_bedroom
     icon: "mdi:numeric-2-box-outline"
