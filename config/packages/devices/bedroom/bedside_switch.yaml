@@ -24,27 +24,25 @@ automation:
           - service: light.toggle
             data_template:
               entity_id: >-
-
                 {% if is_state('input_select.bedroom_mode', 'day') %}
                   light.master_bedroom_main
-                {% elif is_state('input_select.bedroom_mode', 'bed') %}
+                {% else %}
                   light.bedside
                 {% endif %}
-              brightness_pct: "{{ is_state('input_select.bedroom_mode', 'night') | iif(40, 100)}}"
+              brightness_pct: 100
 
-          - service: script.bed_led_toggle
-            data_template:
-              brightness_pct: "{{ is_state('input_select.bedroom_mode', 'night') | iif(40, 100)}}"
-
+          # - service: script.bed_led_toggle
+          #   data_template:
+          #     brightness_pct: "{{ is_state('input_select.bedroom_mode', 'night') | iif(40, 100)}}"
 
         double_click:
           - service: light.toggle
             entity_id: light.bedside
             data:
               brightness_pct: 100
-          - service: script.bed_led_toggle
-            data_template:
-              brightness_pct: "{{ is_state('input_select.bedroom_mode', 'night') | iif(40, 100)}}"
+          # - service: script.bed_led_toggle
+          #   data_template:
+          #     brightness_pct: "{{ is_state('input_select.bedroom_mode', 'night') | iif(40, 100)}}"
 
         hold:
           - service: script.toggle_bedroom_mode
