@@ -45,8 +45,9 @@ automation:
       event: start
     action:
       - delay: 00:00:03
-      - service: script.say
+      - service: script.chat
         data:
+          title: "⚙️ *System Module · Status*"
           message: "Hey! I was out for a bit, but I'm back online!"
           # - service: notify.telegram
           #   data:
