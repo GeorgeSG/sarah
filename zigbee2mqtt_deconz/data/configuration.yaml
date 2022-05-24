@@ -188,6 +188,8 @@ devices:
     retain: true
     temperature_precision: 1
     humidity_precision: 1
+  '0x54ef441000357e66':
+    friendly_name: aqara_tvoc
 groups:
   '1':
     friendly_name: light_kitchen_secondary
