@@ -175,6 +175,12 @@ devices:
   '0x001788010bb38dda':
     friendly_name: hue_ambiance_6
     transition: 0.2
+  '0x0017880109b16994':
+    friendly_name: hue_ambiance_7
+    transition: 0.2
+  '0x0017880109b16985':
+    friendly_name: hue_ambiance_8
+    transition: 0.2
   '0x086bd7fffe075b7d':
     friendly_name: '0x086bd7fffe075b7d'
   '0x0017880109964b5f':
@@ -204,8 +210,8 @@ groups:
     transition: 0.2
     devices:
       - '0x00158d00024f54bb'
-      - '0x00158d00024f5642'
       - '0x001788010bb38dda'
+      - '0x0017880109b16985'
   '3':
     friendly_name: light_hallway_main
     transition: 0.2
