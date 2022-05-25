@@ -68,8 +68,6 @@ automation:
           - light.light_lohas_2 # living room ambient Secondary
           - light.hue_1 # Hallway
           - light.neo_1 # Kitchen
-          - light.neo_2 # Kitchen
-          - light.pc
         data:
           rgb_color: [0, 0, 255]
           brightness_pct: 100

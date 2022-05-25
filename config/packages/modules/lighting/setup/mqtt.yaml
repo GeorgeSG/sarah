@@ -374,6 +374,14 @@ automation:
           payload: ""
       - service: mqtt.publish
         data:
+          topic: "z2m_deconz/hue_ambiance_7/get"
+          payload: ""
+      - service: mqtt.publish
+        data:
+          topic: "z2m_deconz/hue_ambiance_8/get"
+          payload: ""
+      - service: mqtt.publish
+        data:
           topic: "z2m_deconz/hue_1/get"
           payload: ""
       - service: mqtt.publish

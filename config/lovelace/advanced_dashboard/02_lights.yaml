@@ -162,8 +162,8 @@ cards:
               name: Main lights
               entities:
                 - light.hue_ambiance_6
+                - light.hue_ambiance_8
                 - light.neo_1
-                - light.neo_2
             - type: divider
             - type: custom:fold-entity-row
               entity: light.kitchen_secondary
