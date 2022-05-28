@@ -5,8 +5,6 @@ cards:
     entities:
       - input_boolean.purifier_turned_on_for_bad_air
       - binary_sensor.aqi_above_threshold
-      - input_boolean.magic_cube_enabled
-      - input_select.magic_cube_mode
       - type: divider
       - sensor.carbon_activity
       - sensor.carbon_last_update_trigger

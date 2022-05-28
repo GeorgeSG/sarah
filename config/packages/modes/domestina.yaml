@@ -25,13 +25,6 @@ group:
     - automation.purifier_turn_on_low_air_quality
     - automation.purifier_turn_off_okay_humidity
     - automation.system_announce_start
-    - automation.magic_cube_mode_change
-    - automation.magic_cube_lighting_toggle_on_knock
-    - automation.magic_cube_lighting_dim_on_rotate_left
-    - automation.magic_cube_lighting_brighten_on_rotate_right
-    - automation.magic_cube_music_play_pause_on_knock
-    - automation.magic_cube_music_volume_down_on_rotate_left
-    - automation.magic_cube_music_volume_up_on_rotate_right
 
 automation:
   - alias: Domestina · Automate start
@@ -56,8 +49,7 @@ automation:
         entity_id: input_boolean.guest_mode
       - service: automation.turn_off
         entity_id: group.domestina_disabled_automations
-      - service: input_boolean.turn_off
-        entity_id: input_boolean.magic_cube_enabled
+
 
   - alias: Domestina · Automate end
     trigger:
@@ -81,5 +73,3 @@ automation:
         entity_id: input_boolean.guest_mode
       - service: automation.turn_on
         entity_id: group.domestina_disabled_automations
-      - service: input_boolean.turn_on
-        entity_id: input_boolean.magic_cube_enabled
