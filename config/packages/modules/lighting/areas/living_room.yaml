@@ -21,31 +21,3 @@ scene:
         state: "on"
         color_temp: 284
         brightness_pct: 80
-
-automation:
-  - alias: Lighting · Living Room · Temperature · Adjust on start
-    use_blueprint:
-      path: light_on_set_temperature.yaml
-      input:
-        light:
-          - light.living_room_main
-          - light.pc
-
-  - alias: Lighting · Living Room · Temperature · Sunset
-    use_blueprint:
-      path: light_sun_set_temperature.yaml
-      input:
-        light:
-          - light.living_room_main
-          - light.pc
-        temp: 400
-
-  - alias: Lighting · Living Room · Temperature · Night
-    use_blueprint:
-      path: light_sun_set_temperature.yaml
-      input:
-        light:
-          - light.living_room_main
-          - light.pc
-        temp: 500
-        after_offset: "+03:00:00"

@@ -29,8 +29,8 @@ action:
         before: sunset
       sequence:
         - service: light.turn_on
-          entity_id: !input light
-          data:
+          data_template:
+            entity_id: "{{ trigger.entity_id }}"
             color_temp: !input day_temp
 
     - conditions:
@@ -44,8 +44,8 @@ action:
                 after_offset: "+03:00:00"
       sequence:
         - service: light.turn_on
-          entity_id: !input light
-          data:
+          data_template:
+            entity_id: "{{ trigger.entity_id }}"
             color_temp: !input evening_temp
 
     - conditions:
@@ -56,6 +56,6 @@ action:
         before: sunrise
       sequence:
         - service: light.turn_on
-          entity_id: !input light
-          data:
+          data_template:
+            entity_id: "{{ trigger.entity_id }}"
             color_temp: !input night_temp

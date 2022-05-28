@@ -18,6 +18,6 @@ condition:
     state: "on"
 action:
   - service: light.turn_on
-    entity_id: !input light
-    data:
+    data_template:
+      entity_id: "{{ trigger.entity_id }}"
       color_temp: !input temp

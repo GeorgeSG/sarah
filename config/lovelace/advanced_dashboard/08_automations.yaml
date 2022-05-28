@@ -72,27 +72,16 @@ cards:
           entities:
             - automation.lighting_turn_on_ceiling_lights_after_sunset
             - automation.lighting_turn_off_all_lights_after_sunrise
-            # - type: divider
-            # - automation.lighting_temperature_adjust_based_on_time
             - type: divider
-            - automation.lighting_living_room_temperature_adjust_on_start
-            - automation.lighting_living_room_temperature_sunset
-            - automation.lighting_living_room_temperature_night
+            - automation.lighting_temperature_adjust_on_start
+            - automation.lighting_temperature_sunset
+            - automation.lighting_temperature_night
             - type: divider
             - automation.lighting_bedroom_door_open
-            - automation.lighting_bedroom_temperature_adjust_on_start
-            - automation.lighting_bedroom_temperature_sunset
-            - automation.lighting_bedroom_temperature_night
             - type: divider
             - automation.lighting_kitchen_motion_on
             - automation.lighting_kitchen_night_motion_off
             - automation.lighting_kitchen_day_motion_off
-            - automation.lighting_kitchen_temperature_main_adjust_on_start
-            - automation.lighting_kitchen_temperature_secondary_adjust_on_start
-            - automation.lighting_kitchen_temperature_main_sunset
-            - automation.lighting_kitchen_temperature_secondary_sunset
-            - automation.lighting_kitchen_temperature_main_night
-            - automation.lighting_kitchen_temperature_secondary_night
             - type: divider
             - automation.lighting_hallway_motion_on
             - automation.lighting_hallway_motion_off

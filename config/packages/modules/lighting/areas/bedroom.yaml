@@ -139,24 +139,3 @@ automation:
     action:
       - service: light.turn_on
         entity_id: light.master_bedroom_main
-
-  - alias: Lighting · Bedroom · Temperature · Adjust on start
-    use_blueprint:
-      path: light_on_set_temperature.yaml
-      input:
-        light: light.master_bedroom_main
-
-  - alias: Lighting · Bedroom · Temperature · Sunset
-    use_blueprint:
-      path: light_sun_set_temperature.yaml
-      input:
-        light: light.master_bedroom_main
-        temp: 400
-
-  - alias: Lighting · Bedroom · Temperature · Night
-    use_blueprint:
-      path: light_sun_set_temperature.yaml
-      input:
-        light: light.master_bedroom_main
-        temp: 500
-        after_offset: "+03:00:00"
