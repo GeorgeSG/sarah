@@ -15,7 +15,7 @@ trigger:
   entity_id: !input light
   to: "on"
 
-mode: queued
+mode: parallel
 
 condition:
   condition: state

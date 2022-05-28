@@ -7,6 +7,8 @@ blueprint:
     after_offset:
       default: "+00:00:00"
 
+mode: parallel
+
 trigger:
   platform: sun
   event: sunset
