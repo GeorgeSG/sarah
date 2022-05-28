@@ -128,7 +128,6 @@ cards:
             - automation.guest_bedroom_mode_set_to_night
             - automation.house_mode_set_to_day
             - automation.house_mode_set_to_night
-            - automation.bedroom_mode_set_to_day_if_bedroom_door_was_opened
 
         - type: entities
           title: Guest mode

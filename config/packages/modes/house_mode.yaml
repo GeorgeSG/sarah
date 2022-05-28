@@ -119,26 +119,3 @@ automation:
       to: "night"
     action:
       - service: script.routine_good_night
-
-  - alias: Bedroom mode · Set to day if bedroom door was opened
-    trigger:
-      - platform: state
-        entity_id: binary_sensor.bedroom_door
-        to: "on"
-      - platform: state
-        entity_id: group.bedroom_windows
-    condition:
-      - "{{ now().hour >= states('input_datetime.alarm_time')[0:2]|int }}"
-      - condition: not
-        conditions:
-          - condition: state
-            entity_id: input_select.bedroom_mode
-            state: "day"
-      - condition: state
-        entity_id: input_boolean.georgi_home
-        state: "on"
-    action:
-      - service: input_select.select_option
-        entity_id: input_select.bedroom_mode
-        data:
-          option: "day"
