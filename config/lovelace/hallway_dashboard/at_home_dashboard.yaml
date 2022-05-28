@@ -19,10 +19,6 @@ card:
     # Column 1
     - type: vertical-stack
       cards:
-        - type: custom:decluttering-card
-          template: v3_section_title
-          variables:
-            - title: Sensors
         - type: horizontal-stack
           cards:
             - type: custom:button-card

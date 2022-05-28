@@ -46,6 +46,7 @@ cards:
             - input_boolean.routine_welcome_home
             - automation.presence_georgi_arrival_detection
             - automation.presence_player_2_arrival_detection
+            - automation.presence_player_2_arrival_best_effort
             - automation.presence_georgi_leaving
             - automation.presence_player_2_leaving
             - automation.presence_coming_home

@@ -45,5 +45,5 @@ automation:
         data:
           message: "Goodbye!"
       # TODO: add conditions
-      - service: input_boolean.turn_off
-        entity_id: input_boolean.georgi_home
+      # - service: input_boolean.turn_off
+      #   entity_id: input_boolean.georgi_home

@@ -18,12 +18,20 @@ card:
   cards:
     - type: vertical-stack
       cards:
-        - type: custom:decluttering-card
-          template: v3_section_title
-          variables:
-            - title: Sensors
         - type: horizontal-stack
           cards:
+            - type: custom:button-card
+              template: v3_button_person
+              entity: input_boolean.georgi_home
+              styles:
+                card:
+                  - background-image: url("/local/images/people/georgi.jpg")
+            - type: custom:button-card
+              template: v3_button_person
+              entity: input_boolean.player_2_home
+              styles:
+                card:
+                  - background-image: url("/local/images/people/maya.jpg")
             - type: custom:button-card
               template: v3_badge
               entity: sensor.quarantined_percent
@@ -110,6 +118,10 @@ card:
               tap_action:
                 action: call-service
                 service: script.toggle_living_room_cover
+            - type: custom:button-card
+              template: v3_tablet_button
+              entity: input_boolean.simulation_mode
+              name: Simulation
 
 
         - type: custom:sun-card
