@@ -100,6 +100,17 @@ automation:
         person: person.player_2
         input_boolean: input_boolean.player_2_home
 
+  - alias: Presence · Player 2 Arrival best effort
+    trigger:
+      - platform: state
+        entity_id: person.player_2
+        from: "not_home"
+        to: "home"
+        for: "00:10:00"
+    action:
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.player_2_home
+
   - alias: Presence · Georgi leaving
     trigger:
       - platform: state
