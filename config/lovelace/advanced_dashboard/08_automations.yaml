@@ -107,7 +107,6 @@ cards:
             - type: divider
             - automation.tv_plex_setup_house_for_plex
             - automation.tv_plex_restore_house_after_plex
-            - automation.youtube_download_latest_pds
             - automation.media_sonos_put_beam_in_night_mode
             - automation.media_sonos_put_beam_in_day_mode
 
