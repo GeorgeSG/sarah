@@ -123,10 +123,11 @@ light:
   - platform: group
     name: On after dark
     entities:
-      - light.living_room
-      - light.master_bedroom
+      - light.living_room_main
+      - light.pc
+      - light.master_bedroom_main
+      - light.bedside
       - light.hallway
-      - light.light_lohas_6
 
   - platform: group
     name: Ceiling
