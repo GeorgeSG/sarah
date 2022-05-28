@@ -1,5 +1,0 @@
-homeassistant:
-  customize:
-    light.bed_led:
-      friendly_name: Bed LED
-      icon: bha:led-strip
