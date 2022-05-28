@@ -59,7 +59,6 @@ binary_sensor:
           {% else %} mdi:account-off-outline
           {% endif %}
 
-
       multisensor_motion:
         friendly_name: MultiSensor motion
         device_class: motion
@@ -91,6 +90,7 @@ automation:
       path: arrival_detection.yaml
       input:
         person: person.georgi
+        name: Georgi
         input_boolean: input_boolean.georgi_home
 
   - alias: Presence · Player 2 Arrival detection
@@ -98,6 +98,7 @@ automation:
       path: arrival_detection.yaml
       input:
         person: person.player_2
+        name: Maya
         input_boolean: input_boolean.player_2_home
 
   - alias: Presence · Player 2 Arrival best effort
