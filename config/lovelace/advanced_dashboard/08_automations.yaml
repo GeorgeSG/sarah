@@ -201,6 +201,7 @@ cards:
             - automation.system_telegram_announce_status
             - automation.speech_telegram_action_do_nothing
             - automation.ifttt_call_service
+            - automation.batteries_notify_when_a_battery_is_low
 
         - type: entities
           title: Wallmote

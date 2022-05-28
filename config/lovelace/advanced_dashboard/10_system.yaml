@@ -42,9 +42,6 @@ cards:
             - type: custom:battery-entity-row
               entity: sensor.kitchen_radiator_battery_level
               name: Kitchen Room Radiator
-            - type: custom:battery-entity-row
-              entity: sensor.aeon_labs_zw130_wallmote_quad_battery_level
-              name: Wallmote
         - type: entities
           title: Aqara sensors
           entities:
@@ -75,6 +72,10 @@ cards:
               entity: sensor.hallway_weather_battery
             - type: custom:battery-entity-row
               entity: sensor.hallway_motion_battery
+            - type: custom:battery-entity-row
+              entity: sensor.guest_bedroom_weather_battery
+            - type: custom:battery-entity-row
+              entity: sensor.terrarium_weather_battery
         - type: entities
           title: Aqara Devices
           entities:
@@ -86,8 +87,13 @@ cards:
               entity: sensor.bedroom_wall_switch_battery
             - type: custom:battery-entity-row
               entity: sensor.bathroom_switch_battery
-            # - type: custom:battery-entity-row
-            #   entity: sensor.cube_power
+            - type: custom:battery-entity-row
+              entity: sensor.living_room_opple_battery
+            - type: custom:battery-entity-row
+              entity: sensor.bedroom_opple_battery
+            - type: custom:battery-entity-row
+              entity: sensor.living_room_cover_battery_level
+
         - type: vertical-stack
           cards:
             - type: entities

@@ -1,0 +1,45 @@
+automation:
+  - alias: Batteries · Notify when a battery is low
+    trigger:
+      platform: numeric_state
+      entity_id:
+        - sensor.trisensor_battery_level
+        - sensor.front_door_battery
+
+        - sensor.multisensor_6_battery_level
+        - sensor.living_room_right_window_battery
+        - sensor.living_room_opple_battery
+        - sensor.desk_switch_battery
+        - sensor.living_room_cover_battery_level
+        # - sensor.living_room_radiator_battery_level
+
+        - sensor.bedroom_door_battery
+        - sensor.bedroom_left_window_battery
+        - sensor.bedroom_right_window_battery
+        - sensor.bedroom_weather_battery
+        - sensor.bedroom_opple_battery
+        - sensor.bedside_switch_battery
+        - sensor.bedroom_wall_switch_battery
+        - sensor.bedroom_radiator_battery_level
+
+        - sensor.kitchen_window_battery
+        - sensor.kitchen_weather_battery
+        - sensor.kitchen_motion_battery
+        - sensor.kitchen_radiator_battery_level
+
+        - sensor.bathroom_weather_battery
+        - sensor.bathroom_switch_battery
+
+        - sensor.hallway_weather_battery
+        - sensor.hallway_motion_battery
+
+        - sensor.guest_bedroom_weather_battery
+        - sensor.terrarium_weather_battery
+      below: 20
+
+    action:
+      - service: notify.telegram
+        data_template:
+          title: "⚙️ *System Module · Low Battery*"
+          message: >-
+            {{ trigger.entity_id + "battery is reporting: " + trigger.to_state.state }}
