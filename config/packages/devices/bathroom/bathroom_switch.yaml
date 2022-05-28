@@ -34,7 +34,6 @@ automation:
             entity_id: media_player.bathroom
             data_template:
               volume_level: >-
-
                 {% if state_attr('media_player.bathroom', 'volume_level')|float > (states('input_number.bathroom_high_volume')|float - 0.05) %}
                   0.25
                 {% else %}

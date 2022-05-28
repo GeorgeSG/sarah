@@ -1,0 +1,20 @@
+blueprint:
+  name: Sonos · Join to master
+  domain: script
+  input:
+    join_player:
+      name: Sonos player to join to master
+      selector:
+        device:
+          integration: media_player
+
+sequence:
+  - service: sonos.join
+    entity_id: !input join_player
+    data_template:
+      master: >-
+        {% if is_state('binary_sensor.sonos_is_living_room_master', 'on') %}
+          media_player.living_room
+        {% else %}
+          media_player.master_bedroom
+        {% endif %}

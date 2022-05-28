@@ -24,16 +24,26 @@ binary_sensor:
           {% else %}
             False
           {% endif %}
+
       sonos_is_bedroom_master:
         friendly_name: Sonos is Bedroom master
         value_template: >-
           {% set group = state_attr('media_player.master_bedroom', 'group_members') %}
           {{ group|length > 1 and group[0] == 'media_player.master_bedroom' }}
+
       sonos_is_living_room_master:
         friendly_name: Sonos is Living room master
         value_template: >-
           {% set group = state_attr('media_player.master_bedroom', 'group_members') %}
           {{ group|length > 1 and group[0] == 'media_player.living_room' }}
+
+      sonos_is_kitchen_grouped:
+        friendly_name: Sonos Kitchen is grouped
+        value_template: "{{ state_attr('media_player.kitchen', 'group_members')|length > 1 }}"
+
+      sonos_is_bathroom_grouped:
+        friendly_name: Sonos Bathroom is grouped
+        value_template: "{{ state_attr('media_player.bathroom', 'group_members')|length > 1 }}"
 
 script:
   sonos_join_bedroom:
@@ -58,6 +68,32 @@ script:
         entity_id: media_player.living_room
         data:
           source: TV
+
+  sonos_kitchen_unjoin:
+    alias: Sonos · Kitchen · Unjoin
+    sequence:
+      - service: sonos.unjoin
+        entity_id: media_player.kitchen
+
+  sonos_kitchen_join:
+    alias: Sonos · Kitchen · Join to master
+    use_blueprint:
+      path: sonos_join.yaml
+      input:
+        join_player: media_player.kitchen
+
+  sonos_bathroom_unjoin:
+    alias: Sonos · Bathroom · Unjoin
+    sequence:
+      - service: sonos.unjoin
+        entity_id: media_player.bathroom
+
+  sonos_bathroom_join:
+    alias: Sonos · Bathroom · Join to master
+    use_blueprint:
+      path: sonos_join.yaml
+      input:
+        join_player: media_player.bathroom
 
   sonos_bathroom_up:
     alias: Sonos · Bathroom up

@@ -57,15 +57,23 @@ cards:
             entity: media_player.kitchen
             name: Sonos
           - type: custom:button-card
+            template: v3_button
+            entity: binary_sensor.sonos_is_kitchen_grouped
+            name: Sonos Grouped
+            tap_action:
+              action: call-service
+              service: "[[[ return entity.state == 'on' ? 'script.sonos_kitchen_unjoin' : 'script.sonos_kitchen_join' ]]]"
+          - type: custom:button-card
             template: v3_button_radiator
             entity: climate.kitchen_radiator_mode
             name: Radiator
+
+      - type: horizontal-stack
+        cards:
           - type: custom:button-card
             template: v3_button
             entity: vacuum.vacuum
             name: Vacuum
-      - type: horizontal-stack
-        cards:
           - type: custom:button-card
             template: v3_button_brita_water
           - type: custom:button-card

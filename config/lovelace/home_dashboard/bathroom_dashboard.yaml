@@ -46,3 +46,11 @@
                 template: v3_button
                 entity: media_player.bathroom
                 name: Sonos
+
+              - type: custom:button-card
+                template: v3_button
+                entity: binary_sensor.sonos_is_bathroom_grouped
+                name: Sonos Grouped
+                tap_action:
+                  action: call-service
+                  service: "[[[ return entity.state == 'on' ? 'script.sonos_bathroom_unjoin' : 'script.sonos_bathroom_join' ]]]"
