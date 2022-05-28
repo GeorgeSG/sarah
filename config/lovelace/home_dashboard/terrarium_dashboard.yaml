@@ -34,6 +34,13 @@
               - type: custom:button-card
                 template: v3_badge_humidity
                 entity: sensor.terrarium_weather_humidity
+              - type: custom:button-card
+                template: v3_badge_icon
+                entity: binary_sensor.terrarium_cam_motion
+          - type: custom:decluttering-card
+            template: v3_section_title
+            variables:
+              - title: Climate
           - type: custom:decluttering-card
             template: climate_card
             variables:
@@ -42,3 +49,13 @@
               - left_entity: sensor.terrarium_weather_temperature
               - left_name: Temperature
               - right_entity: sensor.terrarium_weather_pressure
+      - type: vertical-stack
+        cards:
+          - type: custom:decluttering-card
+            template: v3_section_title
+            variables:
+              - title: Camera
+          - type: picture-glance
+            camera_image: camera.terrarium_cam_sd
+            entities:
+              - camera.terrarium_cam_hd
