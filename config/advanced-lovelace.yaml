@@ -8,7 +8,6 @@ views:
   - !include lovelace/advanced_dashboard/02_lights.yaml
   - !include lovelace/advanced_dashboard/03_climate.yaml
   - !include lovelace/advanced_dashboard/04_sensors.yaml
-  - !include lovelace/advanced_dashboard/07_media.yaml
   - !include lovelace/advanced_dashboard/08_automations.yaml
   - !include lovelace/advanced_dashboard/09_network.yaml
   - !include lovelace/advanced_dashboard/10_system.yaml

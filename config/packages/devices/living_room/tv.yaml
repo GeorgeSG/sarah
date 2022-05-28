@@ -10,19 +10,6 @@ script:
         data_template:
           command: "am start -a android.intent.action.VIEW -d twitch://stream/{{ channel }}"
 
-  tv_fireplace:
-    icon: mdi:fireplace
-    alias: TV · Fireplace
-    sequence:
-      - service: script.tv_prepare_for_playback
-        data_template:
-          volume_level: "{{ volume_level | default(0.1) }}"
-      - service: media_extractor.play_media
-        entity_id: media_player.shield
-        data:
-          media_content_id: "https://www.youtube.com/watch?v=AWKzr6n0ea0"
-          media_content_type: video/youtube
-
   tv_bulsatcom_toggle:
     icon: mdi:remote-tv
     alias: TV · Bulsatcom toggle

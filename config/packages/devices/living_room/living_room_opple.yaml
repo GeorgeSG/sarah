@@ -106,8 +106,6 @@ automation:
           - service: automation.turn_off
             entity_id: automation.tv_sonos_join_tv_on_google_cast
 
-          - service: script.tv_fireplace
-
           - service: sonos.join
             entity_id:
               - media_player.kitchen

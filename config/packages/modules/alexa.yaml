@@ -30,7 +30,6 @@ alexa:
         - sensor.purifier_air_quality
 
         - script.routine_bedtime
-        - script.tv_fireplace
         - script.sonos_join_bedroom
         - script.sonos_join_tv
         - script.routine_good_night
@@ -75,8 +74,6 @@ alexa:
         name: "Bedroom air quality"
       script.routine_bedtime:
         name: "Bedtime"
-      script.tv_fireplace:
-        name: "Fireplace"
       script.sonos_join_bedroom:
         name: "Sonos Bedroom"
       script.sonos_join_tv:

@@ -40,10 +40,3 @@ automation:
                 {% else %}
                   {{ states('input_number.bathroom_high_volume')|float }}
                 {% endif %}
-
-        double_click:
-          - service: media_player.volume_set
-            entity_id: media_player.bathroom
-            data_template:
-              volume_level: "{{ states('input_number.bathroom_high_volume')|float }}"
-          - service: script.youtube_play_latest_pds

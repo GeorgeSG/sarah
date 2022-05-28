@@ -12,7 +12,6 @@ group:
     - automation.alarm_wake_up
     - automation.lighting_living_room_toggle_ceiling_lights_on_desk_switch_single_click
     - automation.lighting_living_room_toggle_ambient_lights_on_desk_switch_double_click
-    - automation.youtube_play_latest_pds_on_bathroom_switch_dobule_click
     - automation.media_sonos_volume_up_on_bathroom_switch_click
     - automation.music_living_room_play_pause_on_desk_switch_hold
     - automation.music_master_bedroom_play_pause_on_switch_hold
