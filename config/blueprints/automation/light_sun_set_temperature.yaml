@@ -21,5 +21,5 @@ condition:
 action:
   - service: light.turn_on
     data_template:
-      entity_id: "{{ trigger.entity_id }}"
+      entity_id: !input light
       color_temp: !input temp
