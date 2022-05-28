@@ -43,7 +43,7 @@ input_number:
     name: AC cool temp
     unit_of_measurement: "ºC"
     min: 17
-    max: 21
+    max: 25
     step: 1
     icon: mdi:air-conditioner
   toshiba_trigger_temp:
