@@ -240,8 +240,8 @@ sensor:
     name: "Router 1 LQI"
     state_topic: "z2m_deconz/router_1"
     availability_topic: "z2m_deconz/bridge/state"
-    icon: "mdi:signal"
     unit_of_measurement: "lqi"
+    device_class: "signal_strength"
     value_template: "{{ value_json.linkquality }}"
 
 script:

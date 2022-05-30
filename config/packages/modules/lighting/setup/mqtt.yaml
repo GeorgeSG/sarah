@@ -228,7 +228,7 @@ sensor:
     availability_topic: "z2m_deconz/bridge/state"
     value_template: "{{ value_json.linkquality }}"
     unit_of_measurement: "lqi"
-    icon: "mdi:signal"
+    device_class: "signal_strength"
 
 ## Switch
 

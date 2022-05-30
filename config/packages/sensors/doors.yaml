@@ -18,8 +18,8 @@ sensor:
     name: "Bedroom door LQI"
     state_topic: "z2m_deconz/bedroom_door"
     availability_topic: "z2m_deconz/bridge/state"
-    icon: "mdi:signal"
     unit_of_measurement: "lqi"
+    device_class: "signal_strength"
     value_template: "{{ value_json.linkquality }}"
 
   - platform: mqtt
@@ -34,8 +34,8 @@ sensor:
     name: "Front door LQI"
     state_topic: "z2m_deconz/front_door"
     availability_topic: "z2m_deconz/bridge/state"
-    icon: "mdi:signal"
     unit_of_measurement: "lqi"
+    device_class: "signal_strength"
     value_template: "{{ value_json.linkquality }}"
 
   - platform: template

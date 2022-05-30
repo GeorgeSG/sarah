@@ -16,8 +16,8 @@ sensor:
     name: "Bedroom Opple LQI"
     state_topic: "z2m_deconz/opple_1"
     availability_topic: "z2m_deconz/bridge/state"
-    icon: "mdi:signal"
     unit_of_measurement: "lqi"
+    device_class: "signal_strength"
     value_template: "{{ value_json.linkquality }}"
 
 automation:

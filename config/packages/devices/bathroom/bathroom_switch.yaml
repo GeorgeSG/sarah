@@ -19,7 +19,7 @@ sensor:
     name: "Bathroom switch LQI"
     state_topic: "z2m_deconz/bathroom_switch"
     availability_topic: "z2m_deconz/bridge/state"
-    icon: "mdi:signal"
+    device_class: "signal_strength"
     unit_of_measurement: "lqi"
     value_template: "{{ value_json.linkquality }}"
 

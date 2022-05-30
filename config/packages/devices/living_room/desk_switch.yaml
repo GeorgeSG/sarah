@@ -10,8 +10,8 @@ sensor:
     name: "Desk switch LQI"
     state_topic: "z2m_deconz/desk_switch"
     availability_topic: "z2m_deconz/bridge/state"
-    icon: "mdi:signal"
     unit_of_measurement: "lqi"
+    device_class: "signal_strength"
     value_template: "{{ value_json.linkquality }}"
 
 

@@ -53,8 +53,8 @@ sensor:
     name: "Bedroom weather LQI"
     state_topic: "z2m_deconz/bedroom_weather"
     availability_topic: "z2m_deconz/bridge/state"
-    icon: "mdi:signal"
     unit_of_measurement: "lqi"
+    device_class: "signal_strength"
     value_template: "{{ value_json.linkquality }}"
 
   # Kitchen weather sensor
@@ -90,8 +90,8 @@ sensor:
     name: "Kitchen weather LQI"
     state_topic: "z2m_deconz/kitchen_weather"
     availability_topic: "z2m_deconz/bridge/state"
-    icon: "mdi:signal"
     unit_of_measurement: "lqi"
+    device_class: "signal_strength"
     value_template: "{{ value_json.linkquality }}"
 
   # Bathroom weather sensor
@@ -127,8 +127,8 @@ sensor:
     name: "Bathroom weather LQI"
     state_topic: "z2m_deconz/bathroom_weather"
     availability_topic: "z2m_deconz/bridge/state"
-    icon: "mdi:signal"
     unit_of_measurement: "lqi"
+    device_class: "signal_strength"
     value_template: "{{ value_json.linkquality }}"
 
   # Hallway weather sensor
@@ -164,8 +164,8 @@ sensor:
     name: "Hallway weather LQI"
     state_topic: "z2m_deconz/hallway_weather"
     availability_topic: "z2m_deconz/bridge/state"
-    icon: "mdi:signal"
     unit_of_measurement: "lqi"
+    device_class: "signal_strength"
     value_template: "{{ value_json.linkquality }}"
 
   # Guest bedroom weather sensor
@@ -201,8 +201,8 @@ sensor:
     name: "Guest bedroom weather LQI"
     state_topic: "z2m_deconz/guest_bedroom_weather"
     availability_topic: "z2m_deconz/bridge/state"
-    icon: "mdi:signal"
     unit_of_measurement: "lqi"
+    device_class: "signal_strength"
     value_template: "{{ value_json.linkquality }}"
 
   # Terrarium weather sensor
