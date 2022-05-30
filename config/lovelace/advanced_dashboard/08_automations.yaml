@@ -75,8 +75,17 @@ cards:
             - automation.lighting_turn_off_all_lights_after_sunrise
             - type: divider
             - automation.lighting_temperature_adjust_on_start
-            - automation.lighting_temperature_sunset
-            - automation.lighting_temperature_night
+            - automation.lighting_temperature_sunset_living_room_main
+            - automation.lighting_temperature_sunset_pc
+            - automation.lighting_temperature_sunset_bedroom_main
+            - automation.lighting_temperature_sunset_kitchen_main
+            - automation.lighting_temperature_sunset_kitchen_secondary
+            - automation.lighting_temperature_night_living_room_main
+            - automation.lighting_temperature_night_pc
+            - automation.lighting_temperature_night_bedroom_main
+            - automation.lighting_temperature_night_kitchen_main
+            - automation.lighting_temperature_night_kitchen_secondary
+            - automation.lighting_temperature_adjust_on_start
             - type: divider
             - automation.lighting_bedroom_door_open
             - type: divider

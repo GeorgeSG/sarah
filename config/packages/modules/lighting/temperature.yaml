@@ -10,27 +10,77 @@ automation:
           - light.kitchen_main
           - light.kitchen_secondary
 
-  - alias: Lighting · Temperature · Sunset
+  - alias: Lighting · Temperature · Sunset · Living room main
     use_blueprint:
       path: light_sun_set_temperature.yaml
       input:
-        light:
-          - light.living_room_main
-          - light.pc
-          - light.master_bedroom_main
-          - light.kitchen_main
-          - light.kitchen_secondary
+        light: light.living_room_main
         temp: 400
 
-  - alias: Lighting ·Temperature · Night
+  - alias: Lighting · Temperature · Sunset · PC
     use_blueprint:
       path: light_sun_set_temperature.yaml
       input:
-        light:
-          - light.living_room_main
-          - light.pc
-          - light.master_bedroom_main
-          - light.kitchen_main
-          - light.kitchen_secondary
+        light: light.pc
+        temp: 400
+
+  - alias: Lighting · Temperature · Sunset · Bedroom main
+    use_blueprint:
+      path: light_sun_set_temperature.yaml
+      input:
+        light: light.master_bedroom_main
+        temp: 400
+
+  - alias: Lighting · Temperature · Sunset · Kitchen main
+    use_blueprint:
+      path: light_sun_set_temperature.yaml
+      input:
+        light: light.kitchen_main
+        temp: 400
+
+  - alias: Lighting · Temperature · Sunset · Kitchen secondary
+    use_blueprint:
+      path: light_sun_set_temperature.yaml
+      input:
+        light: light.kitchen_secondary
+        temp: 400
+
+  - alias: Lighting ·Temperature · Night · Living room main
+    use_blueprint:
+      path: light_sun_set_temperature.yaml
+      input:
+        light: light.living_room_main
+        temp: 500
+        after_offset: "+03:00:00"
+
+  - alias: Lighting ·Temperature · Night · PC
+    use_blueprint:
+      path: light_sun_set_temperature.yaml
+      input:
+        light: light.pc
+        temp: 500
+        after_offset: "+03:00:00"
+
+  - alias: Lighting ·Temperature · Night · Bedroom main
+    use_blueprint:
+      path: light_sun_set_temperature.yaml
+      input:
+        light: light.master_bedroom_main
+        temp: 500
+        after_offset: "+03:00:00"
+
+  - alias: Lighting ·Temperature · Night · Kitchen main
+    use_blueprint:
+      path: light_sun_set_temperature.yaml
+      input:
+        light: light.kitchen_main
+        temp: 500
+        after_offset: "+03:00:00"
+
+  - alias: Lighting ·Temperature · Night · Kitchen secondary
+    use_blueprint:
+      path: light_sun_set_temperature.yaml
+      input:
+        light: light.kitchen_secondary
         temp: 500
         after_offset: "+03:00:00"
