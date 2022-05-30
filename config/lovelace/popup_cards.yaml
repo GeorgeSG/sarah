@@ -393,6 +393,12 @@ sensor.guest_bedroom_weather_humidity:
       - left_name: Temperature
       - right_entity: sensor.guest_bedroom_weather_pressure
 
+sensor.aqara_tvoc_voc:
+  title: VOC
+  card:
+    type: custom:decluttering-card
+    template: aqara_tvoc_card
+
 sensor.purifier_air_quality:
   title: Bedroom air quality
   card:

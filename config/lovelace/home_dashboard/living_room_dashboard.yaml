@@ -35,6 +35,9 @@
                 template: v3_badge_humidity
                 entity: sensor.multisensor_6_relative_humidity
               - type: custom:button-card
+                template: v3_badge
+                entity: sensor.aqara_tvoc_voc
+              - type: custom:button-card
                 template: v3_badge_icon
                 entity: binary_sensor.living_room_right_window
 

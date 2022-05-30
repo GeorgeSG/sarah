@@ -49,6 +49,8 @@ cards:
               entity: sensor.front_door_battery
             - type: custom:battery-entity-row
               entity: sensor.living_room_right_window_battery
+            - type: custom:battery-entity-row
+              entity: sensor.aqara_tvoc_battery
             - type: divider
             - type: custom:battery-entity-row
               entity: sensor.bedroom_door_battery
@@ -102,6 +104,7 @@ cards:
                 - sensor.living_room_opple_lqi
                 - sensor.desk_switch_lqi
                 - sensor.living_room_right_window_lqi
+                - sensor.aqara_tvoc_lqi
                 - type: divider
                 - sensor.bedside_switch_lqi
                 # - sensor.bed_led_lqi
