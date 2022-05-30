@@ -7,6 +7,7 @@ aqara_tvoc_card:
           - sensor.aqara_tvoc_voc
         cache: false
         group_by: hour
+        icon: "mdi:molecule"
         hours_to_show: 72
         line_width: 2
         show:
