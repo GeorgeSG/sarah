@@ -50,7 +50,7 @@ input_number:
     name: AC cooling trigger temp
     unit_of_measurement: "ºC"
     min: 18
-    max: 25
+    max: 28
     step: 1
     icon: mdi:air-conditioner
 
@@ -126,7 +126,7 @@ script:
             entity_id: sensor.dark_sky_apparent_temperature
             above: 23
           - condition: state
-            entity_id: input_boolean.someone_home
+            entity_id: binary_sensor.someone_home
             state: "on"
           - condition: state
             entity_id: binary_sensor.living_room_right_window
@@ -144,12 +144,14 @@ automation:
     trigger:
       - platform: template
         value_template: "{{ states('sensor.multisensor_6_temperature')|float > states('input_number.toshiba_trigger_temp')|float }}"
+        for: "00:05:00"
       - platform: state
         entity_id:
           - binary_sensor.living_room_right_window
           - group.bedroom_windows
         from: "on"
         to: "off"
+        for: "00:05:00"
     action:
       - service: script.toshiba_ac_on_cool_if_hot
 
@@ -161,7 +163,7 @@ automation:
       # TODO: this below trigger works only for summer :)
       - platform: numeric_state
         entity_id: sensor.multisensor_6_temperature
-        below: 20
+        below: 23
 
       - platform: state
         entity_id:
@@ -169,6 +171,7 @@ automation:
           - group.bedroom_windows
         from: "off"
         to: "on"
+        for: "00:01:00"
     condition:
       condition: not
       conditions:
