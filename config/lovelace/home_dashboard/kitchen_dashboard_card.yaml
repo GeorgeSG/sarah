@@ -23,6 +23,9 @@ cards:
           - type: custom:button-card
             template: v3_badge_icon
             entity: binary_sensor.kitchen_window
+          - type: custom:button-card
+            template: v3_badge_icon
+            entity: binary_sensor.kitchen_door
 
 
       - type: custom:decluttering-card

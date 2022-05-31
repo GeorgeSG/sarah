@@ -131,9 +131,20 @@ script:
           - condition: state
             entity_id: binary_sensor.living_room_right_window
             state: "off"
-          - condition: state
-            entity_id: group.bedroom_windows
-            state: "off"
+          - or:
+              - condition: state
+                entity_id: group.bedroom_windows
+                state: "off"
+              - condition: state
+                entity_id: binary_sensor.bedroom_door
+                state: "off"
+          - or:
+              - condition: state
+                entity_id: binary_sensor.kitchen_window
+                state: "off"
+              - condition: state
+                entity_id: binary_sensor.kitchen_door
+                state: "off"
           - condition: state
             entity_id: climate.toshiba_ac
             state: "off"
@@ -149,6 +160,8 @@ automation:
         entity_id:
           - binary_sensor.living_room_right_window
           - group.bedroom_windows
+          - binary_sensor.kitchen_window
+          - binary_sensor.kitchen_door
         from: "on"
         to: "off"
         for: "00:05:00"
