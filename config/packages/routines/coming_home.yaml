@@ -61,10 +61,6 @@ script:
           after_offset: "-01:00:00"
         - condition: sun
           before: sunrise
-      - service: notify.telegram
-        data:
-          title: "🏠 *Presence Module · Coming Home*"
-          message: "You're coming home after sunset! (this is for debug ;))"
       - service: light.turn_on
         entity_id: light.on_after_dark
         data:
