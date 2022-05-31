@@ -71,6 +71,8 @@ devices:
     friendly_name: trust_remote
   '0x00158d0003f42ea3':
     friendly_name: hallway_motion
+  '0x00158d0007e3e381':
+    friendly_name: hallway_motion_2
   '0x00158d00041444bc':
     friendly_name: kitchen_motion
   '0x00158d00042d163f':
@@ -95,43 +97,11 @@ devices:
     friendly_name: opple_1
   '0x04cf8cdf3c794751':
     friendly_name: opple_2
-  '0x00158d0002a721fd':
-    friendly_name: '0x00158d0002a721fd'
-  '0x7cb03eaa00ae0faf':
-    friendly_name: osram_1
-    transition: 0.5
-  '0x7cb03eaa00ae0ecc':
-    friendly_name: osram_2
-    transition: 0.5
-  '0x7cb03eaa00ae2ae2':
-    friendly_name: osram_3
-    transition: 0.5
-  '0x7cb03eaa00ae145d':
-    friendly_name: osram_4
-    transition: 0.5
-  '0x7cb03eaa00ae29ca':
-    friendly_name: osram_5
-    transition: 0.5
-  '0x7cb03eaa00a96a93':
-    friendly_name: osram_6
-    transition: 0.5
-  '0x7cb03eaa00a97656':
-    friendly_name: osram_7
-    transition: 0.5
-  '0x7cb03eaa00a961ea':
-    friendly_name: osram_8
-    transition: 0.5
-  '0x7cb03eaa00a96337':
-    friendly_name: osram_9
-    transition: 0.5
   '0x00158d00024f54bb':
     friendly_name: neo_1
     transition: 0.2
   '0x00158d00024f5642':
     friendly_name: neo_2
-    transition: 0.2
-  '0xf0d1b800001a2a8f':
-    friendly_name: ledvance_1
     transition: 0.2
   '0x0017880109966274':
     friendly_name: hue_white_1
@@ -183,12 +153,6 @@ devices:
     transition: 0.2
   '0x086bd7fffe075b7d':
     friendly_name: '0x086bd7fffe075b7d'
-  '0x0017880109964b5f':
-    friendly_name: unknown_1
-  '0x001788010b3a1573':
-    friendly_name: unknown_2
-  '0x001788010b3a1d48':
-    friendly_name: unknown_3
   '0x00158d000800d341':
     friendly_name: terrarium_weather
     retain: true
