@@ -118,9 +118,14 @@ automation:
         entity_id: person.georgi
         from: "home"
         to: "not_home"
+        for: "00:01:00"
     action:
       - service: input_boolean.turn_off
         entity_id: input_boolean.georgi_home
+      - service: notify.telegram
+        data:
+          title: "🏠 *Presence Module · Leaving Home*"
+          message: "I notice Georgi has left. Marking as away."
 
   - alias: Presence · Player 2 leaving
     trigger:
@@ -128,9 +133,14 @@ automation:
         entity_id: person.player_2
         from: "home"
         to: "not_home"
+        for: "00:01:00"
     action:
       - service: input_boolean.turn_off
         entity_id: input_boolean.player_2_home
+      - service: notify.telegram
+        data:
+          title: "🏠 *Presence Module · Leaving Home*"
+          message: "I notice Maya has left. Marking as away."
 
   - alias: Presence · Leaving home
     trigger:

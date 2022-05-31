@@ -32,7 +32,7 @@ script:
       - service: notify.telegram
         data:
           title: "🏠 *Presence Module · Leaving Home*"
-          message: "I see you're leaving. Goodbye!"
+          message: "I see no one is home. Entering away mode."
 
       - service: switch.turn_on
         entity_id: switch.tapo_bedroom
