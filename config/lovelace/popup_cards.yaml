@@ -34,6 +34,7 @@ group.hallway_motion:
       - type: glance
         entities:
           - entity: binary_sensor.hallway_motion_occupancy
+          - entity: binary_sensor.hallway_motion_2_occupancy
           - entity: sensor.hallway_motion_illuminance
           - entity: sensor.hallway_motion_battery
 

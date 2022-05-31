@@ -42,7 +42,7 @@
                 entity: binary_sensor.hallway_motion_occupancy
               - type: custom:button-card
                 template: v3_badge_icon
-                entity: binary_sensor.trisensor_home_security_motion_detection
+                entity: binary_sensor.hallway_motion_2_occupancy
               - type: custom:button-card
                 template: v3_badge_icon
                 entity: binary_sensor.front_door

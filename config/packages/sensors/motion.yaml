@@ -11,12 +11,21 @@ group:
     name: Hallway Motion
     entities:
       - binary_sensor.hallway_motion_occupancy
-      - binary_sensor.trisensor_home_security_motion_detection
+      - binary_sensor.hallway_motion_2_occupancy
+      # - binary_sensor.trisensor_home_security_motion_detection
 
 binary_sensor:
   - platform: mqtt
     name: "Hallway motion occupancy"
     state_topic: "z2m_deconz/hallway_motion"
+    availability_topic: "z2m_deconz/bridge/state"
+    payload_on: true
+    payload_off: false
+    value_template: "{{ value_json.occupancy }}"
+    device_class: "motion"
+  - platform: mqtt
+    name: "Hallway motion 2 occupancy"
+    state_topic: "z2m_deconz/hallway_motion_2"
     availability_topic: "z2m_deconz/bridge/state"
     payload_on: true
     payload_off: false
@@ -49,6 +58,28 @@ sensor:
   - platform: mqtt
     name: "Hallway motion LQI"
     state_topic: "z2m_deconz/hallway_motion"
+    availability_topic: "z2m_deconz/bridge/state"
+    unit_of_measurement: "lqi"
+    device_class: "signal_strength"
+    value_template: "{{ value_json.linkquality }}"
+
+  # Hallway Motion 2
+  - platform: mqtt
+    name: "Hallway motion 2 illuminance"
+    state_topic: "z2m_deconz/hallway_motion_2"
+    availability_topic: "z2m_deconz/bridge/state"
+    device_class: "illuminance"
+    value_template: "{{ value_json.illuminance_lux }}"
+  - platform: mqtt
+    name: "Hallway motion 2 battery"
+    state_topic: "z2m_deconz/hallway_motion_2"
+    availability_topic: "z2m_deconz/bridge/state"
+    unit_of_measurement: "%"
+    device_class: "battery"
+    value_template: "{{ value_json.battery }}"
+  - platform: mqtt
+    name: "Hallway motion 2 LQI"
+    state_topic: "z2m_deconz/hallway_motion_2"
     availability_topic: "z2m_deconz/bridge/state"
     unit_of_measurement: "lqi"
     device_class: "signal_strength"

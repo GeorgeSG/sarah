@@ -2,7 +2,7 @@ automation:
   - alias: Lighting · Hallway · Motion On
     trigger:
       platform: state
-      entity_id: binary_sensor.hallway_motion_occupancy
+      entity_id: group.hallway_motion
       to: "on"
     condition:
       condition: state
@@ -35,7 +35,7 @@ automation:
   - alias: Lighting · Hallway · Motion Off
     trigger:
       platform: state
-      entity_id: binary_sensor.hallway_motion_occupancy
+      entity_id: group.hallway_motion
       to: "off"
       for: "00:01:00"
     action:
