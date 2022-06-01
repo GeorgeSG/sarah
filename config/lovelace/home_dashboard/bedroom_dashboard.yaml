@@ -29,18 +29,6 @@
           - type: horizontal-stack
             cards:
               - type: custom:button-card
-                template: v3_button_person
-                entity: input_boolean.georgi_home
-                styles:
-                  card:
-                    - background-image: url("/local/images/people/georgi.jpg")
-              - type: custom:button-card
-                template: v3_button_person
-                entity: input_boolean.player_2_home
-                styles:
-                  card:
-                    - background-image: url("/local/images/people/maya.jpg")
-              - type: custom:button-card
                 template: v3_badge_temp
                 entity: sensor.bedroom_weather_temperature
                 state_display: "[[[return entity.state.split(' ')[0] + '°']]]"
@@ -53,8 +41,6 @@
                 state_display: "[[[return entity.state.split(' ')[0] + ' pm2.5']]]"
                 variables:
                   state_size: "11px"
-          - type: horizontal-stack
-            cards:
               - type: custom:button-card
                 template: v3_badge_icon
                 entity: binary_sensor.bedroom_left_window
