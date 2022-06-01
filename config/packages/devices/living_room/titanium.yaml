@@ -14,139 +14,139 @@ binary_sensor:
         icon_template: >-
           {{ is_state("binary_sensor.titanium_ping", "on") | iif(' mdi:desktop-mac-dashboard', 'mdi:desktop-mac') }}
 
-  - platform: mqtt
-    name: "Titanium playing"
-    availability_topic: "iotlink/workgroup/titanium/lwt"
-    payload_available: "ON"
-    payload_not_available: "OFF"
-    payload_on: "True"
-    payload_off: "False"
-    state_topic: "iotlink/workgroup/titanium/windows-monitor/stats/media/playing"
+  # - platform: mqtt
+  #   name: "Titanium playing"
+  #   availability_topic: "iotlink/workgroup/titanium/lwt"
+  #   payload_available: "ON"
+  #   payload_not_available: "OFF"
+  #   payload_on: "True"
+  #   payload_off: "False"
+  #   state_topic: "iotlink/workgroup/titanium/windows-monitor/stats/media/playing"
 
 #
 # ─── IOTLink ──────────────────────────────────────────────────────────────
 #
-sensor:
-  - platform: mqtt
-    name: "Titanium uptime"
-    icon: mdi:clock-check
-    availability_topic: "iotlink/workgroup/titanium/lwt"
-    payload_available: "ON"
-    payload_not_available: "OFF"
-    state_topic: "iotlink/workgroup/titanium/windows-monitor/stats/system/uptime"
+# sensor:
+#   - platform: mqtt
+#     name: "Titanium uptime"
+#     icon: mdi:clock-check
+#     availability_topic: "iotlink/workgroup/titanium/lwt"
+#     payload_available: "ON"
+#     payload_not_available: "OFF"
+#     state_topic: "iotlink/workgroup/titanium/windows-monitor/stats/system/uptime"
 
-  - platform: mqtt
-    name: "Titanium idle time"
-    icon: mdi:clock-alert
-    availability_topic: "iotlink/workgroup/titanium/lwt"
-    payload_available: "ON"
-    payload_not_available: "OFF"
-    state_topic: "iotlink/workgroup/titanium/windows-monitor/stats/system/idle-time"
-    value_template: "{{ value | multiply(1/60) | round(0) }}"
-    unit_of_measurement: "minutes"
+#   - platform: mqtt
+#     name: "Titanium idle time"
+#     icon: mdi:clock-alert
+#     availability_topic: "iotlink/workgroup/titanium/lwt"
+#     payload_available: "ON"
+#     payload_not_available: "OFF"
+#     state_topic: "iotlink/workgroup/titanium/windows-monitor/stats/system/idle-time"
+#     value_template: "{{ value | multiply(1/60) | round(0) }}"
+#     unit_of_measurement: "minutes"
 
-  # CPU
-  - platform: mqtt
-    name: "Titanium CPU usage"
-    icon: mdi:chip
-    availability_topic: "iotlink/workgroup/titanium/lwt"
-    payload_available: "ON"
-    payload_not_available: "OFF"
-    state_topic: "iotlink/workgroup/titanium/windows-monitor/stats/cpu/usage"
-    unit_of_measurement: "%"
+#   # CPU
+#   - platform: mqtt
+#     name: "Titanium CPU usage"
+#     icon: mdi:chip
+#     availability_topic: "iotlink/workgroup/titanium/lwt"
+#     payload_available: "ON"
+#     payload_not_available: "OFF"
+#     state_topic: "iotlink/workgroup/titanium/windows-monitor/stats/cpu/usage"
+#     unit_of_measurement: "%"
 
-  # Memory
-  - platform: mqtt
-    name: "Titanium memory used"
-    icon: mdi:memory
-    availability_topic: "iotlink/workgroup/titanium/lwt"
-    payload_available: "ON"
-    payload_not_available: "OFF"
-    state_topic: "iotlink/workgroup/titanium/windows-monitor/stats/memory/used"
-    unit_of_measurement: "MB"
+#   # Memory
+#   - platform: mqtt
+#     name: "Titanium memory used"
+#     icon: mdi:memory
+#     availability_topic: "iotlink/workgroup/titanium/lwt"
+#     payload_available: "ON"
+#     payload_not_available: "OFF"
+#     state_topic: "iotlink/workgroup/titanium/windows-monitor/stats/memory/used"
+#     unit_of_measurement: "MB"
 
-  - platform: mqtt
-    name: "Titanium memory used percent"
-    icon: mdi:memory
-    availability_topic: "iotlink/workgroup/titanium/lwt"
-    payload_available: "ON"
-    payload_not_available: "OFF"
-    state_topic: "iotlink/workgroup/titanium/windows-monitor/stats/memory/usage"
-    unit_of_measurement: "%"
+#   - platform: mqtt
+#     name: "Titanium memory used percent"
+#     icon: mdi:memory
+#     availability_topic: "iotlink/workgroup/titanium/lwt"
+#     payload_available: "ON"
+#     payload_not_available: "OFF"
+#     state_topic: "iotlink/workgroup/titanium/windows-monitor/stats/memory/usage"
+#     unit_of_measurement: "%"
 
-  - platform: mqtt
-    name: "Titanium memory available"
-    icon: mdi:memory
-    availability_topic: "iotlink/workgroup/titanium/lwt"
-    payload_available: "ON"
-    payload_not_available: "OFF"
-    state_topic: "iotlink/workgroup/titanium/windows-monitor/stats/memory/available"
-    unit_of_measurement: "MB"
+#   - platform: mqtt
+#     name: "Titanium memory available"
+#     icon: mdi:memory
+#     availability_topic: "iotlink/workgroup/titanium/lwt"
+#     payload_available: "ON"
+#     payload_not_available: "OFF"
+#     state_topic: "iotlink/workgroup/titanium/windows-monitor/stats/memory/available"
+#     unit_of_measurement: "MB"
 
-  - platform: mqtt
-    name: "Titanium memory total"
-    icon: mdi:memory
-    availability_topic: "iotlink/workgroup/titanium/lwt"
-    payload_available: "ON"
-    payload_not_available: "OFF"
-    state_topic: "iotlink/workgroup/titanium/windows-monitor/stats/memory/total"
-    unit_of_measurement: "MB"
+#   - platform: mqtt
+#     name: "Titanium memory total"
+#     icon: mdi:memory
+#     availability_topic: "iotlink/workgroup/titanium/lwt"
+#     payload_available: "ON"
+#     payload_not_available: "OFF"
+#     state_topic: "iotlink/workgroup/titanium/windows-monitor/stats/memory/total"
+#     unit_of_measurement: "MB"
 
-  # C Drive
-  - platform: mqtt
-    name: "Titanium C usage"
-    icon: mdi:harddisk
-    availability_topic: "iotlink/workgroup/titanium/lwt"
-    payload_available: "ON"
-    payload_not_available: "OFF"
-    state_topic: "iotlink/workgroup/titanium/windows-monitor/stats/hard-drive/c/drive-usage"
-    unit_of_measurement: "%"
+#   # C Drive
+#   - platform: mqtt
+#     name: "Titanium C usage"
+#     icon: mdi:harddisk
+#     availability_topic: "iotlink/workgroup/titanium/lwt"
+#     payload_available: "ON"
+#     payload_not_available: "OFF"
+#     state_topic: "iotlink/workgroup/titanium/windows-monitor/stats/hard-drive/c/drive-usage"
+#     unit_of_measurement: "%"
 
-  - platform: mqtt
-    name: "Titanium C free space"
-    icon: mdi:harddisk
-    availability_topic: "iotlink/workgroup/titanium/lwt"
-    payload_available: "ON"
-    payload_not_available: "OFF"
-    state_topic: "iotlink/workgroup/titanium/windows-monitor/stats/hard-drive/c/total-free-space"
-    unit_of_measurement: "GB"
+#   - platform: mqtt
+#     name: "Titanium C free space"
+#     icon: mdi:harddisk
+#     availability_topic: "iotlink/workgroup/titanium/lwt"
+#     payload_available: "ON"
+#     payload_not_available: "OFF"
+#     state_topic: "iotlink/workgroup/titanium/windows-monitor/stats/hard-drive/c/total-free-space"
+#     unit_of_measurement: "GB"
 
-  - platform: mqtt
-    name: "Titanium C used space"
-    icon: mdi:harddisk
-    availability_topic: "iotlink/workgroup/titanium/lwt"
-    payload_available: "ON"
-    payload_not_available: "OFF"
-    state_topic: "iotlink/workgroup/titanium/windows-monitor/stats/hard-drive/c/used-space"
-    unit_of_measurement: "GB"
+#   - platform: mqtt
+#     name: "Titanium C used space"
+#     icon: mdi:harddisk
+#     availability_topic: "iotlink/workgroup/titanium/lwt"
+#     payload_available: "ON"
+#     payload_not_available: "OFF"
+#     state_topic: "iotlink/workgroup/titanium/windows-monitor/stats/hard-drive/c/used-space"
+#     unit_of_measurement: "GB"
 
-  - platform: mqtt
-    name: "Titanium C total space"
-    icon: mdi:harddisk
-    availability_topic: "iotlink/workgroup/titanium/lwt"
-    payload_available: "ON"
-    payload_not_available: "OFF"
-    state_topic: "iotlink/workgroup/titanium/windows-monitor/stats/hard-drive/c/total-size"
-    unit_of_measurement: "GB"
+#   - platform: mqtt
+#     name: "Titanium C total space"
+#     icon: mdi:harddisk
+#     availability_topic: "iotlink/workgroup/titanium/lwt"
+#     payload_available: "ON"
+#     payload_not_available: "OFF"
+#     state_topic: "iotlink/workgroup/titanium/windows-monitor/stats/hard-drive/c/total-size"
+#     unit_of_measurement: "GB"
 
 
-  # Media
-  - platform: mqtt
-    name: "Titanium volume"
-    icon: mdi:volume-medium
-    availability_topic: "iotlink/workgroup/titanium/lwt"
-    payload_available: "ON"
-    payload_not_available: "OFF"
-    state_topic: "iotlink/workgroup/titanium/windows-monitor/stats/media/volume"
-    unit_of_measurement: "%"
+#   # Media
+#   - platform: mqtt
+#     name: "Titanium volume"
+#     icon: mdi:volume-medium
+#     availability_topic: "iotlink/workgroup/titanium/lwt"
+#     payload_available: "ON"
+#     payload_not_available: "OFF"
+#     state_topic: "iotlink/workgroup/titanium/windows-monitor/stats/media/volume"
+#     unit_of_measurement: "%"
 
-camera:
-  - platform: mqtt
-    name: "Titanium Screen 0"
-    topic: "iotlink/workgroup/titanium/windows-monitor/stats/display/0/screen"
-  - platform: mqtt
-    name: "Titanium Screen 1"
-    topic: "iotlink/workgroup/titanium/windows-monitor/stats/display/1/screen"
+# camera:
+#   - platform: mqtt
+#     name: "Titanium Screen 0"
+#     topic: "iotlink/workgroup/titanium/windows-monitor/stats/display/0/screen"
+#   - platform: mqtt
+#     name: "Titanium Screen 1"
+#     topic: "iotlink/workgroup/titanium/windows-monitor/stats/display/1/screen"
 
 switch:
   - platform: template

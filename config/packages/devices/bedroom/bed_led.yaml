@@ -1,23 +1,21 @@
-light:
-  - platform: mqtt
-    name: "Bed LED"
-    state_topic: "z2m_deconz/bed_led"
-    availability_topic: "z2m_deconz/bridge/state"
-    brightness: true
-    color_temp: true
-    xy: true
-    schema: "json"
-    command_topic: "z2m_deconz/bed_led/set"
-    brightness_scale: 254
-
-sensor:
-  - platform: mqtt
-    name: "Bed LED LQI"
-    state_topic: "z2m_deconz/bed_led"
-    availability_topic: "z2m_deconz/bridge/state"
-    device_class: "signal_strength"
-    unit_of_measurement: "lqi"
-    value_template: "{{ value_json.linkquality }}"
+mqtt:
+  light:
+    - name: "Bed LED"
+      state_topic: "z2m_deconz/bed_led"
+      availability_topic: "z2m_deconz/bridge/state"
+      brightness: true
+      color_temp: true
+      xy: true
+      schema: "json"
+      command_topic: "z2m_deconz/bed_led/set"
+      brightness_scale: 254
+  sensor:
+    - name: "Bed LED LQI"
+      state_topic: "z2m_deconz/bed_led"
+      availability_topic: "z2m_deconz/bridge/state"
+      device_class: "signal_strength"
+      unit_of_measurement: "lqi"
+      value_template: "{{ value_json.linkquality }}"
 
 script:
   bed_led_on:

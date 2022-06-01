@@ -1,23 +1,21 @@
-sensor:
-  - platform: mqtt
-    name: "Trust remote action"
-    state_topic: "z2m_deconz/trust_remote"
-    availability_topic: "z2m_deconz/bridge/state"
-    icon: "mdi:gesture-double-tap"
-    value_template: "{{ value_json.action }}"
-  - platform: mqtt
-    name: "Trust remote group"
-    state_topic: "z2m_deconz/trust_remote"
-    availability_topic: "z2m_deconz/bridge/state"
-    icon: "mdi:lightbulb-group"
-    value_template: "{{ value_json.action_group }}"
-  - platform: mqtt
-    name: "Trust remote LQI"
-    state_topic: "z2m_deconz/trust_remote"
-    availability_topic: "z2m_deconz/bridge/state"
-    unit_of_measurement: "lqi"
-    device_class: "signal_strength"
-    value_template: "{{ value_json.linkquality }}"
+mqtt:
+  sensor:
+    - name: "Trust remote action"
+      state_topic: "z2m_deconz/trust_remote"
+      availability_topic: "z2m_deconz/bridge/state"
+      icon: "mdi:gesture-double-tap"
+      value_template: "{{ value_json.action }}"
+    - name: "Trust remote group"
+      state_topic: "z2m_deconz/trust_remote"
+      availability_topic: "z2m_deconz/bridge/state"
+      icon: "mdi:lightbulb-group"
+      value_template: "{{ value_json.action_group }}"
+    - name: "Trust remote LQI"
+      state_topic: "z2m_deconz/trust_remote"
+      availability_topic: "z2m_deconz/bridge/state"
+      unit_of_measurement: "lqi"
+      device_class: "signal_strength"
+      value_template: "{{ value_json.linkquality }}"
 
 automation:
   - alias: Trust remote · Dimming

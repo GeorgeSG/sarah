@@ -1,24 +1,22 @@
-sensor:
-  - platform: mqtt
-    name: "Bedroom Opple action"
-    state_topic: "z2m_deconz/opple_1"
-    availability_topic: "z2m_deconz/bridge/state"
-    icon: "mdi:gesture-double-tap"
-    value_template: "{{ value_json.action }}"
-  - platform: mqtt
-    name: "Bedroom Opple battery"
-    state_topic: "z2m_deconz/opple_1"
-    availability_topic: "z2m_deconz/bridge/state"
-    unit_of_measurement: "%"
-    device_class: "battery"
-    value_template: "{{ value_json.battery }}"
-  - platform: mqtt
-    name: "Bedroom Opple LQI"
-    state_topic: "z2m_deconz/opple_1"
-    availability_topic: "z2m_deconz/bridge/state"
-    unit_of_measurement: "lqi"
-    device_class: "signal_strength"
-    value_template: "{{ value_json.linkquality }}"
+mqtt:
+  sensor:
+    - name: "Bedroom Opple action"
+      state_topic: "z2m_deconz/opple_1"
+      availability_topic: "z2m_deconz/bridge/state"
+      icon: "mdi:gesture-double-tap"
+      value_template: "{{ value_json.action }}"
+    - name: "Bedroom Opple battery"
+      state_topic: "z2m_deconz/opple_1"
+      availability_topic: "z2m_deconz/bridge/state"
+      unit_of_measurement: "%"
+      device_class: "battery"
+      value_template: "{{ value_json.battery }}"
+    - name: "Bedroom Opple LQI"
+      state_topic: "z2m_deconz/opple_1"
+      availability_topic: "z2m_deconz/bridge/state"
+      unit_of_measurement: "lqi"
+      device_class: "signal_strength"
+      value_template: "{{ value_json.linkquality }}"
 
 automation:
   - alias: Bedroom · Opple

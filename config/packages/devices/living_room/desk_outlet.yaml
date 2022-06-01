@@ -1,62 +1,54 @@
-switch:
-  - platform: mqtt
-    name: "Desk Outlet"
-    state_topic: "stat/outlet_1/RESULT"
-    value_template: "{{ value_json.POWER }}"
-    command_topic: "cmnd/outlet_1/POWER"
-    payload_on: "ON"
-    payload_off: "OFF"
-    availability_topic: "tele/outlet_1/LWT"
-    payload_available: "Online"
-    payload_not_available: "Offline"
-    qos: 1
+mqtt:
+  switch:
+    - name: "Desk Outlet"
+      state_topic: "stat/outlet_1/RESULT"
+      value_template: "{{ value_json.POWER }}"
+      command_topic: "cmnd/outlet_1/POWER"
+      payload_on: "ON"
+      payload_off: "OFF"
+      availability_topic: "tele/outlet_1/LWT"
+      payload_available: "Online"
+      payload_not_available: "Offline"
+      qos: 1
 
-sensor:
-  - platform: mqtt
-    name: "Desk Outlet Energy today"
-    state_topic: "tele/outlet_1/SENSOR"
-    value_template: '{{ value_json.ENERGY.Today }}'
-    device_class: power
-    unit_of_measurement: "kWh"
-  - platform: mqtt
-    name: "Desk Outlet Energy yesterday"
-    state_topic: "tele/outlet_1/SENSOR"
-    value_template: '{{ value_json.ENERGY.Yesterday }}'
-    device_class: power
-    unit_of_measurement: "kWh"
-  - platform: mqtt
-    name: "Desk Outlet Energy total"
-    state_topic: "tele/outlet_1/SENSOR"
-    value_template: '{{ value_json.ENERGY.Total }}'
-    device_class: power
-    unit_of_measurement: "kWh"
-  - platform: mqtt
-    name: "Desk Outlet Energy total start time"
-    state_topic: "tele/outlet_1/SENSOR"
-    value_template: '{{ value_json.ENERGY.TotalStartTime }}'
-  - platform: mqtt
-    name: "Desk Outlet Power"
-    state_topic: "tele/outlet_1/SENSOR"
-    value_template: '{{ value_json.ENERGY.Power }}'
-    device_class: power
-    unit_of_measurement: "W"
-  - platform: mqtt
-    name: "Desk Outlet Voltage"
-    state_topic: "tele/outlet_1/SENSOR"
-    value_template: '{{ value_json.ENERGY.Voltage }}'
-    unit_of_measurement: "V"
-  - platform: mqtt
-    name: "Desk Outlet Current"
-    state_topic: "tele/outlet_1/SENSOR"
-    value_template: '{{ value_json.ENERGY.Current }}'
-    unit_of_measurement: "A"
+  sensor:
+    - name: "Desk Outlet Energy today"
+      state_topic: "tele/outlet_1/SENSOR"
+      value_template: '{{ value_json.ENERGY.Today }}'
+      device_class: power
+      unit_of_measurement: "kWh"
+    - name: "Desk Outlet Energy yesterday"
+      state_topic: "tele/outlet_1/SENSOR"
+      value_template: '{{ value_json.ENERGY.Yesterday }}'
+      device_class: power
+      unit_of_measurement: "kWh"
+    - name: "Desk Outlet Energy total"
+      state_topic: "tele/outlet_1/SENSOR"
+      value_template: '{{ value_json.ENERGY.Total }}'
+      device_class: power
+      unit_of_measurement: "kWh"
+    - name: "Desk Outlet Energy total start time"
+      state_topic: "tele/outlet_1/SENSOR"
+      value_template: '{{ value_json.ENERGY.TotalStartTime }}'
+    - name: "Desk Outlet Power"
+      state_topic: "tele/outlet_1/SENSOR"
+      value_template: '{{ value_json.ENERGY.Power }}'
+      device_class: power
+      unit_of_measurement: "W"
+    - name: "Desk Outlet Voltage"
+      state_topic: "tele/outlet_1/SENSOR"
+      value_template: '{{ value_json.ENERGY.Voltage }}'
+      unit_of_measurement: "V"
+    - name: "Desk Outlet Current"
+      state_topic: "tele/outlet_1/SENSOR"
+      value_template: '{{ value_json.ENERGY.Current }}'
+      unit_of_measurement: "A"
 
-  - platform: mqtt
-    name: "Desk Outlet WiFi"
-    state_topic: "tele/outlet_1/STATE"
-    unit_of_measurement: "%"
-    value_template: "{{value_json.Wifi.RSSI }}"
-    availability_topic: "tele/outlet_1/LWT"
-    payload_available: "Online"
-    payload_not_available: "Offline"
-    device_class: signal_strength
+    - name: "Desk Outlet WiFi"
+      state_topic: "tele/outlet_1/STATE"
+      unit_of_measurement: "%"
+      value_template: "{{value_json.Wifi.RSSI }}"
+      availability_topic: "tele/outlet_1/LWT"
+      payload_available: "Online"
+      payload_not_available: "Offline"
+      device_class: signal_strength
