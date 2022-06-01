@@ -54,6 +54,18 @@ input_number:
     step: 1
     icon: mdi:air-conditioner
 
+template:
+  - binary_sensor:
+      - name: Toshiba AC conditions met
+        state: >
+          {% set temp_matching = states('sensor.multisensor_6_temperature')|float >= states('input_number.toshiba_trigger_temp')|float %}
+          {% set outside_temp_high = states('sensor.dark_sky_apparent_temperature')|float + 2 >= states('input_number.toshiba_trigger_temp')|float %}
+          {% set someone_home = is_state('binary_sensor.someone_home', 'on') %}
+          {% set bedroom_ready = is_state('group.bedroom_windows', 'off') or is_state('binary_sensor.bedroom_door', 'off') %}
+          {% set kitchen_ready = is_state('binary_sensor.kitchen_window', 'off') or is_state('binary_sensor.kitchen_door', 'off') %}
+          {% set ac_off = is_state('climate.toshiba_ac', 'off') %}
+          {{ temp_matching and outside_temp_high and someone_home and bedroom_ready and kitchen_ready and ac_off }}
+
 script:
   toshiba_ac_toggle:
     sequence:
@@ -120,34 +132,9 @@ script:
 
   toshiba_ac_on_cool_if_hot:
     sequence:
-      - and:
-          - "{{ states('sensor.multisensor_6_temperature')|float > states('input_number.toshiba_trigger_temp')|float }}"
-          - condition: numeric_state
-            entity_id: sensor.dark_sky_apparent_temperature
-            above: 23
-          - condition: state
-            entity_id: binary_sensor.someone_home
-            state: "on"
-          - condition: state
-            entity_id: binary_sensor.living_room_right_window
-            state: "off"
-          - or:
-              - condition: state
-                entity_id: group.bedroom_windows
-                state: "off"
-              - condition: state
-                entity_id: binary_sensor.bedroom_door
-                state: "off"
-          - or:
-              - condition: state
-                entity_id: binary_sensor.kitchen_window
-                state: "off"
-              - condition: state
-                entity_id: binary_sensor.kitchen_door
-                state: "off"
-          - condition: state
-            entity_id: climate.toshiba_ac
-            state: "off"
+      - condition: state
+        entity_id: binary_sensor.toshiba_ac_conditions_met
+        state: 'on'
       - service: script.toshiba_ac_on_cool
 
 automation:
@@ -164,7 +151,6 @@ automation:
           - binary_sensor.kitchen_door
         from: "on"
         to: "off"
-        for: "00:05:00"
     action:
       - service: script.toshiba_ac_on_cool_if_hot
 
