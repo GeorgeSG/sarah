@@ -24,11 +24,11 @@ script:
           state: "off"
       - wait_template: "{{ is_state('input_boolean.sarah_talking', 'off') }}"
         timeout: 00:02:00
-      - delay: 00:00:00
+      # - delay: 00:00:00
       # - service: script.say
       #   data:
       #     message: "Here's some music to start the day!"
-      - delay: 00:00:02
+      # - delay: 00:00:02
       - service: script.music_play
         data:
           volume_level: 0.1
