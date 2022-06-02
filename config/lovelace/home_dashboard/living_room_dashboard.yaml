@@ -40,10 +40,6 @@
                 styles:
                   card:
                     - background-image: url("/local/images/people/maya.jpg")
-
-              - type: custom:button-card
-                template: v3_badge
-                entity: device_tracker.maya_phone_1
               - type: custom:button-card
                 template: v3_badge_temp
                 entity: sensor.multisensor_6_temperature
@@ -55,6 +51,9 @@
               - type: custom:button-card
                 template: v3_badge
                 entity: sensor.aqara_tvoc_voc
+              - type: custom:button-card
+                template: v3_badge_icon
+                entity: binary_sensor.toshiba_ac_conditions_met
               - type: custom:button-card
                 template: v3_badge_icon
                 entity: binary_sensor.living_room_right_window

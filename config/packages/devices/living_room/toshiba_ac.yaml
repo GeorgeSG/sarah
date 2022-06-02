@@ -57,6 +57,9 @@ input_number:
 template:
   - binary_sensor:
       - name: Toshiba AC conditions met
+        icon: >
+          {{ is_state('binary_sensor.toshiba_ac_conditions_met', 'on') | iif('mdi:home-thermometer', 'mdi:home-thermometer-outline') }}
+
         state: >
           {% set temp_matching = states('sensor.multisensor_6_temperature')|float >= states('input_number.toshiba_trigger_temp')|float %}
           {% set outside_temp_high = states('sensor.dark_sky_apparent_temperature')|float + 2 >= states('input_number.toshiba_trigger_temp')|float %}
