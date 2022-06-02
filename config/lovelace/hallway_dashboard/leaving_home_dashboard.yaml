@@ -33,12 +33,6 @@ card:
                 card:
                   - background-image: url("/local/images/people/maya.jpg")
             - type: custom:button-card
-              template: v3_badge
-              entity: sensor.quarantined_percent
-            - type: custom:button-card
-              template: v3_badge
-              entity: sensor.quarantine_times_left
-            - type: custom:button-card
               template: v3_badge_icon
               entity: sensor.active_motion_sensors
               icon: |

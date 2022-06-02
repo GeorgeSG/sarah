@@ -125,16 +125,10 @@ card:
                 service: input_select.select_next
                 service_data:
                   entity_id: input_select.hallway_dashboard_mode
-
             - type: custom:button-card
               template: v3_tablet_button
-              entity: input_boolean.georgi_home
-              name: Georgi home?
-              tap_action:
-                action: call-service
-                service: input_boolean.toggle
-                service_data:
-                  entity_id: input_boolean.georgi_home
+              entity: input_boolean.simulation_mode
+              name: Simulation
             - type: custom:button-card
               template: v3_tablet_button
               entity: input_boolean.guest_mode
@@ -174,10 +168,6 @@ card:
               tap_action:
                 action: call-service
                 service: script.toggle_living_room_cover
-            - type: custom:button-card
-              template: v3_tablet_button
-              entity: input_boolean.simulation_mode
-              name: Simulation
             - type: custom:button-card
               template: [v3_button_purifier, v3_tablet_button]
               entity: fan.philips_airpurifier
