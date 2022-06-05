@@ -95,12 +95,3 @@ mqtt:
       unit_of_measurement: "lqi"
       device_class: "signal_strength"
       value_template: "{{ value_json.linkquality }}"
-
-sensor:
-  - platform: template
-    sensors:
-      active_motion_sensors:
-        friendly_name: Active motion sensor count
-        value_template: >-
-          {% set entityStates = states | selectattr('entity_id', 'in', state_attr('group.all_motion_sensors', 'entity_id')) %}
-          {{ entityStates | selectattr('state', 'eq', 'on') | list | count | int }}
