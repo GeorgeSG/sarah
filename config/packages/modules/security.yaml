@@ -54,8 +54,8 @@ automation:
     condition:
       and:
         - condition: state
-          entity_id: person.georgi
-          state: "not_home"
+          entity_id: binary_sensor.someone_home
+          state: "off"
         - condition: state
           entity_id: input_boolean.guest_mode
           state: "off"
