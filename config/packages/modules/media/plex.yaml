@@ -10,7 +10,7 @@ automation:
           - media_player.plex_lg
         to: "playing"
     action:
-      - service: sonos.unjoin
+      - service: media_player.unjoin
         entity_id: media_player.living_room
       - service: media_player.select_source
         entity_id: media_player.living_room

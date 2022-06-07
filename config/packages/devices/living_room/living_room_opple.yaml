@@ -104,12 +104,12 @@ automation:
           - service: automation.turn_off
             entity_id: automation.tv_sonos_join_tv_on_google_cast
 
-          - service: sonos.join
-            entity_id:
-              - media_player.kitchen
-              - media_player.bathroom
+          - service: media_player.joing
+            entity_id: media_player.master_bedroom
             data:
-              master: media_player.master_bedroom
+              group_members:
+                - media_player.kitchen
+                - media_player.bathroom
 
           # Music play, without the join
           - service: media_player.volume_set

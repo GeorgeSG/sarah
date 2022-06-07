@@ -2,7 +2,7 @@ script:
   bedroom_good_night:
     alias: Routine · Bedroom · Going to sleep
     sequence:
-      - service: sonos.unjoin
+      - service: media_player.unjoin
         entity_id: media_player.master_bedroom
       - service: media_player.media_stop
         entity_id: media_player.master_bedroom

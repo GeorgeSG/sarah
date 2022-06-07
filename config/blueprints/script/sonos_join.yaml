@@ -9,10 +9,10 @@ blueprint:
           integration: media_player
 
 sequence:
-  - service: sonos.join
-    entity_id: !input join_player
+  - service: media_player.join
     data_template:
-      master: >-
+      group_members: !input join_player
+      entity_id: >-
         {% if is_state('binary_sensor.sonos_is_living_room_master', 'on') %}
           media_player.living_room
         {% else %}
