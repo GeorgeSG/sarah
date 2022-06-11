@@ -34,19 +34,11 @@ card:
                   - background-image: url("/local/images/people/maya.jpg")
             - type: custom:button-card
               template: v3_badge_icon
-              entity: sensor.active_motion_sensors
+              entity: group.all_motion_sensors
               icon: |
                 [[[
-                  return entity.state === 0 ? 'mdi:motion-sensor-off' : 'mdi:motion-sensor';
+                  return entity.state === 'off' ? 'mdi:motion-sensor-off' : 'mdi:motion-sensor';
                 ]]]
-              state:
-                - value: 0
-                  operator: '!='
-                  styles:
-                    card:
-                      - background-color: 'white'
-                    icon:
-                      - color: var(--primary-color)
             - type: custom:button-card
               template: v3_badge_icon
               entity: sensor.open_window_count
@@ -54,6 +46,8 @@ card:
                 [[[
                   return entity.state === 0 ? 'mdi:window-closed' : 'mdi:window-open';
                 ]]]
+              tap_action:
+                action: more-info
               state:
                 - value: 0
                   operator: '!='

@@ -3,9 +3,9 @@ group:
     name: All motion_sensors
     entities:
       - binary_sensor.hallway_motion_occupancy
+      - binary_sensor.hallway_motion_2_occupancy
       - binary_sensor.kitchen_motion_occupancy
       - binary_sensor.multisensor_motion
-      - binary_sensor.trisensor_home_security_motion_detection
 
   hallway_motion:
     name: Hallway Motion

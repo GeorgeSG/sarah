@@ -162,7 +162,7 @@ media_player.nvidia_shield: &nvidia_shield
 media_player.living_room_tv: *nvidia_shield
 
 
-sensor.active_motion_sensors:
+group.all_motion_sensors:
   title: Active motion sensors
   card:
     type: vertical-stack
@@ -178,7 +178,7 @@ sensor.active_motion_sensors:
                 - margin-left: 8px
           - type: custom:button-card
             template: [v3_button, v3_popup_button]
-            entity: binary_sensor.trisensor_home_security_motion_detection
+            entity: binary_sensor.hallway_motion_2_occupancy
             name: Hallway
           - type: custom:button-card
             template: [v3_button, v3_popup_button]
