@@ -3,6 +3,9 @@ input_boolean:
     name: Coming home · Say welcome
     initial: on
     icon: mdi:account-plus-outline
+  coming_home_play_music:
+    name: Coming home · Play music
+    icon: mdi:music-box-outline
 
 script:
   routine_coming_home:
@@ -88,6 +91,9 @@ script:
           before: "23:00:00"
         - condition: time
           after: "09:00:00"
+        - condition: state
+          entity_id: input_boolean.coming_home_play_music
+          state: "on"
 
       - service: script.say
         data_template:
@@ -101,7 +107,6 @@ script:
               ] | random
             }}
       - delay: 00:00:02
-
       - service: script.music_play
 
 automation:
