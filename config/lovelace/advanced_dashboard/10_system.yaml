@@ -88,7 +88,7 @@ cards:
             - type: custom:battery-entity-row
               entity: sensor.bedside_switch_battery
             - type: custom:battery-entity-row
-              entity: sensor.bedroom_wall_switch_battery
+              entity: sensor.bedside_second_switch_battery
             - type: custom:battery-entity-row
               entity: sensor.bathroom_switch_battery
             - type: custom:battery-entity-row
@@ -110,7 +110,7 @@ cards:
                 - type: divider
                 - sensor.bedside_switch_lqi
                 # - sensor.bed_led_lqi
-                - sensor.bedroom_wall_switch_lqi
+                - sensor.bedside_second_switch_lqi
                 - sensor.bedroom_opple_lqi
                 - sensor.bedroom_door_lqi
                 - sensor.bedroom_left_window_lqi

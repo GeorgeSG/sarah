@@ -19,7 +19,7 @@ automation:
         - sensor.bedroom_weather_battery
         - sensor.bedroom_opple_battery
         - sensor.bedside_switch_battery
-        - sensor.bedroom_wall_switch_battery
+        - sensor.bedside_second_switch_battery
         - sensor.bedroom_radiator_battery_level
 
         - sensor.kitchen_window_battery

@@ -63,6 +63,7 @@ cards:
             - automation.living_room_desk_switch
             - automation.bedroom_opple
             - automation.bedroom_bedside_switch
+            - automation.bedroom_bedside_second_switch
             - automation.guest_bedroom_aqara_switch
             - automation.bathroom_switch
 
