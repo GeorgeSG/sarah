@@ -115,9 +115,13 @@
           - type: entities
             entities:
               - input_boolean.coming_home_play_music
+              - type: divider
               - input_number.bathroom_high_volume
               - input_number.wake_up_volume
               - input_text.wake_up_spotify_playlist
+              - type: divider
+              - automation.tv_plex_setup_house_for_plex
+              - automation.tv_plex_restore_house_after_plex
 
       - type: vertical-stack
         cards:
