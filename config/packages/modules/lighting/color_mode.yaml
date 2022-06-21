@@ -64,7 +64,6 @@ automation:
           brightness_pct: 40
       - service: light.turn_on
         entity_id:
-          - light.bed_led
           - light.light_lohas_2 # living room ambient Secondary
           - light.hue_1 # Hallway
           - light.neo_1 # Kitchen

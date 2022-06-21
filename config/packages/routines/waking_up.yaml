@@ -63,7 +63,6 @@ script:
       - delay: 00:00:01
       - service: light.turn_on
         entity_id:
-          - light.bed_led
           - light.bedside
       - service: script.routine_morning_briefing
 

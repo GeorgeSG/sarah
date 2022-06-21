@@ -104,7 +104,6 @@ light:
     entities:
       - light.master_bedroom_main
       - light.bedside
-      - light.bed_led
 
   - platform: group
     name: Kitchen

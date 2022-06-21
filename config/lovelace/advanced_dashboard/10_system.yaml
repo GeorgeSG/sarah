@@ -109,7 +109,6 @@ cards:
                 - sensor.aqara_tvoc_lqi
                 - type: divider
                 - sensor.bedside_switch_lqi
-                # - sensor.bed_led_lqi
                 - sensor.bedside_second_switch_lqi
                 - sensor.bedroom_opple_lqi
                 - sensor.bedroom_door_lqi

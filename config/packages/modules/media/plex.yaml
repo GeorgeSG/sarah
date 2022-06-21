@@ -29,7 +29,6 @@ automation:
             - light.hallway_entrance
             - light.hallway_main
             - light.master_bedroom_main
-            - light.bed_led
             - light.kitchen_main
             - light.kitchen_secondary
       - service: light.turn_off
@@ -45,7 +44,6 @@ automation:
       - service: light.turn_off
         entity_id:
           - light.master_bedroom_main
-          - light.bed_led
           - light.kitchen_main
           - light.kitchen_secondary
 

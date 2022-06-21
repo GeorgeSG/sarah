@@ -55,7 +55,6 @@ The `speech` module uses [partial templates](https://github.com/GeorgeSG/sarah/t
 - [Philips Hue White E14](https://www.philips-hue.com/en-us/p/hue-white-2-pack-e12/046677548285)
 - A bunch of random Tuya E14 lights (wifi - some flashed with Tasmota, some runing on Tuya Cloud)
 - [Yeelight S1 Lights](https://www.yeelight.com/en_US/product/lemon2-color) (wifi)
-- [Random LED strip from AliExpress](https://www.aliexpress.com/item/4000068013535.html?spm=a2g0s.9042311.0.0.6ea44c4d3Tm6AF) (Zigbee)
 
 A note on lights - I tried a lot of wifi lights, running on Tuya Cloud, running with Tasmota; also
 tried some Zigbee ones as well. They all broke or had issues - blinking, noise, etc. The Hues are

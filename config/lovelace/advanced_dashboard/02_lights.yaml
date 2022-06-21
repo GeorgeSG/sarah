@@ -148,7 +148,6 @@ cards:
                     - lqi: sensor.hue_5_lqi
                     - update: binary_sensor.hue_5_update_available
             - light.bedside
-            - light.bed_led
 
         - type: entities
           title: Kitchen

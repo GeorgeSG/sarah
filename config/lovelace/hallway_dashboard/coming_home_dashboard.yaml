@@ -216,21 +216,14 @@ card:
               name: Main
             - type: custom:button-card
               template: v3_tablet_button
-              entity: light.bed_led
-              name: Bed
-              tap_action:
-                action: call-service
-                service: script.bed_led_toggle
-            - type: custom:button-card
-              template: v3_tablet_button
               entity: light.bedside
               name: Bedside
-        - type: horizontal-stack
-          cards:
             - type: custom:button-card
               template: v3_tablet_button
               entity: light.kitchen
               name: Kitchen
+        - type: horizontal-stack
+          cards:
             - type: custom:button-card
               template: v3_tablet_button
               entity: light.hallway_main

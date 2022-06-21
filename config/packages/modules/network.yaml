@@ -40,7 +40,6 @@ homekit:
       - light.master_bedroom
       - light.master_bedroom_main
       - light.bedside
-      - light.bed_led
       - binary_sensor.bedroom_door
       - binary_sensor.bedroom_left_window
       - binary_sensor.bedroom_right_window
@@ -108,8 +107,6 @@ homekit:
       name: Bedroom Main
     light.bedside:
       name: Bedside Lamp
-    light.bed_led:
-      name: Bed LED
     sensor.bedroom_weather_temperature:
       linked_battery_sensor: sensor.bedroom_weather_battery
       low_battery_threshold: 20

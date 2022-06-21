@@ -265,20 +265,3 @@
         background-color: rgba(255,0,0,0.5)
         color: transparent
         transform: perspective(2000px) rotateX(185.6deg) rotateY(73.1deg)
-
-# Master bedroom LED Strip
-- type: conditional
-  conditions:
-    - entity: light.bed_led
-      state: "on"
-  elements:
-    - type: state-label
-      entity: light.bed_led
-      style:
-        width: 9.9%
-        height: 0
-        top: 7.6%
-        left: 67.6%
-        color: transparent
-        box-shadow: '0 0 7px 4px rgb(255, 127, 0)'
-        opacity: 0.6

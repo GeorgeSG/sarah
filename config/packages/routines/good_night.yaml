@@ -11,12 +11,6 @@ script:
         #   data:
         #     message: "Entering night mode. Good night!"
 
-      # Prepare Bed LED brightness to be turned on during night time
-      - service: light.turn_on
-        entity_id: light.bed_led
-        data:
-          brightness_pct: 40
-
       - service: fan.turn_on
         entity_id: fan.philips_airpurifier
       - service: input_select.select_option

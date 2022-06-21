@@ -1,15 +1,10 @@
 script:
   apply_bedroom_ambient_neon:
     sequence:
-      - service: light.turn_off
-        entity_id: light.bed_led
-      - delay: "00:00:03"
       - service: scene.turn_on
         entity_id: scene.bedroom_ambient_neon
   apply_bedroom_neon:
     sequence:
-      - service: light.turn_off
-        entity_id: light.bed_led
       - service: light.turn_on
         entity_id: light.master_bedroom_main
       - delay: "00:00:01"
@@ -23,8 +18,6 @@ script:
         entity_id: scene.bedroom_ambient_neon
   apply_bedroom_pink:
     sequence:
-      - service: light.turn_off
-        entity_id: light.bed_led
       - service: light.turn_on
         entity_id: light.master_bedroom_main
       - delay: "00:00:01"
@@ -49,10 +42,6 @@ scene:
         state: "on"
         rgb_color: [0, 255, 190]
         brightness: 230
-      light.bed_led:
-        state: "on"
-        xy_color: [0.66, 0.28]
-        brightness: 254
 
   - name: Bedroom Ambient Neon
     icon: "mdi:weather-night"
@@ -61,10 +50,6 @@ scene:
         state: "on"
         rgb_color: [0, 255, 190]
         brightness: 230
-      light.bed_led:
-        state: "on"
-        xy_color: [0.66, 0.28]
-        brightness: 254
 
   - name: Bedroom Pink
     icon: "mdi:weather-night"
@@ -77,10 +62,6 @@ scene:
         state: "on"
         rgb_color: [255, 36, 145]
         brightness: 230
-      light.bed_led:
-        state: "on"
-        xy_color: [0.66, 0.28]
-        brightness: 254
 
   - name: Bedroom Ambient Pink
     icon: "mdi:weather-night"
@@ -89,10 +70,6 @@ scene:
         state: "on"
         rgb_color: [255, 36, 145]
         brightness: 230
-      light.bed_led:
-        state: "on"
-        xy_color: [0.66, 0.28]
-        brightness: 254
 
   - name: Bedroom Ambient Default
     icon: "mdi:weather-sunny"
@@ -100,10 +77,6 @@ scene:
       light.bedside:
         state: "on"
         color_temp: 359
-        brightness: 255
-      light.bed_led:
-        state: "on"
-        color_temp: 500
         brightness: 255
 
   - name: Bedroom Default
@@ -116,10 +89,6 @@ scene:
       light.bedside:
         state: "on"
         color_temp: 359
-        brightness: 255
-      light.bed_led:
-        state: "on"
-        color_temp: 500
         brightness: 255
 
 automation:

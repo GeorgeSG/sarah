@@ -52,14 +52,12 @@ automation:
           - service: light.turn_off
             entity_id:
               - light.bedside
-              - light.bed_led
 
         button_2_triple:
           - service: light.turn_on
             data_template:
               entity_id:
                 - light.bedside
-                - light.bed_led
               brightness_pct: "{{ is_state('input_select.bedroom_mode', 'day') | iif(100, 40) }}"
 
         button_3_single:
