@@ -1,3 +1,16 @@
+input_text:
+  wake_up_spotify_playlist:
+    name: Waking up Spotify playlist
+    icon: mdi:spotify
+
+input_number:
+  wake_up_volume:
+    name: Waking up volume
+    min: 0
+    max: 1
+    step: 0.05
+    icon: mdi:volume-high
+
 script:
   routine_waking_up:
     alias: Routine · Waking up
@@ -29,10 +42,16 @@ script:
       #   data:
       #     message: "Here's some music to start the day!"
       # - delay: 00:00:02
-      - service: script.music_play
-        data:
-          volume_level: 0.1
+      - service: script.music_prepare
+        data_template:
+          volume_level: "{{ states('input_number.wake_up_volume') | float }}"
           shuffle: true
+      - service: media_player.play_media
+        target:
+          entity_id: media_player.master_bedroom
+        data_template:
+          media_content_type: "music"
+          media_content_id: "{{ states('input_text.wake_up_spotify_playlist') }}"
 
   routine_bedroom_morning:
     alias: Routine · Bedroom · Morning

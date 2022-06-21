@@ -31,7 +31,11 @@ script:
     alias: Routine · Going to sleep
     sequence:
       - service: media_player.media_stop
-        entity_id: group.all_sonos
+        entity_id:
+          - media_player.master_bedroom
+          - media_player.bathroom
+          - media_player.kitchen
+          - media_player.living_room
 
       # Turn off everything else
       - service: homeassistant.turn_off

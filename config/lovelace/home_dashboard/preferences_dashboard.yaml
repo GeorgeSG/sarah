@@ -80,22 +80,6 @@
             cards:
               - type: custom:button-card
                 template: v3_button
-                entity: binary_sensor.pi_hole_enabled
-                name: Pi-Hole
-                icon: mdi:pi-hole
-              - type: custom:button-card
-                template: v3_button
-                entity: switch.mercury_home_mode
-                name: Mercury
-              - type: custom:button-card
-                template: v3_button
-                entity: input_boolean.coming_home_play_music
-                name: Coming home music?
-
-          - type: horizontal-stack
-            cards:
-              - type: custom:button-card
-                template: v3_button
                 name: Guests
                 entity: input_boolean.guest_mode
               - type: custom:button-card
@@ -112,13 +96,28 @@
                   service_data:
                     entity_id: input_select.guest_bedroom_mode
 
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                template: v3_button
+                entity: binary_sensor.pi_hole_enabled
+                name: Pi-Hole
+                icon: mdi:pi-hole
+              - type: custom:button-card
+                template: v3_button
+                entity: switch.mercury_home_mode
+                name: Mercury
+
           - type: custom:decluttering-card
             template: v3_section_title
             variables:
               - title: Media
           - type: entities
             entities:
+              - input_boolean.coming_home_play_music
               - input_number.bathroom_high_volume
+              - input_number.wake_up_volume
+              - input_text.wake_up_spotify_playlist
 
       - type: vertical-stack
         cards:

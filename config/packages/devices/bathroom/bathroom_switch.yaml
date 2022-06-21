@@ -1,7 +1,6 @@
 input_number:
   bathroom_high_volume:
     name: Bathroom high volume
-    mode: box
     min: 0
     max: 1
     step: 0.05

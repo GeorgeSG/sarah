@@ -35,8 +35,8 @@ automation:
           #     brightness_pct: "{{ is_state('input_select.bedroom_mode', 'night') | iif(40, 100)}}"
 
         double_click:
-          - service: media_player.media_play_pause
-            entity_id: media_player.master_bedroom
+          - service: light.toggle
+            entity_id: light.bedside
 
         hold:
           - service: script.toggle_bedroom_mode
