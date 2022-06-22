@@ -48,10 +48,10 @@ cards:
                 - sensor.hacs
                 - binary_sensor.updater
                 - sensor.uptime
-                - entity: sensor.home_assistant_v2_db
+                - entity: sensor.home_assistant_v2_db_size
                   name: Database
                   icon: mdi:database
-                - entity: sensor.home_assistant_log
+                - entity: sensor.home_assistant_log_size
                   name: Logs
                   icon: mdi:view-list
                 - type: custom:mini-graph-card
