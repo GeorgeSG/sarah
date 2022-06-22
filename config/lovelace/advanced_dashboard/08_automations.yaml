@@ -32,8 +32,7 @@ cards:
                 service: automation.reload
             - entity: sensor.automations_count
               icon: mdi:pound
-            - automation.titanium_turn_off_when_idle
-            - automation.titanium_notify_on_vibration_sensor_move
+            - automation.cadmium_turn_off_when_idle
             - automation.slack_meeting_starts
             - automation.slack_meeting_ends
             - automation.hallway_tablet_set_to_home_after_10_minutes

@@ -23,9 +23,9 @@ cards:
         - type: vertical-stack
           cards:
             - type: custom:decluttering-card
-              template: titanium_card
+              template: cadmium_card
               variables:
-                - title: Titanium
+                - title: Cadmium
                 - icon: mdi:desktop-tower
 
             - type: custom:decluttering-card

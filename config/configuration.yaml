@@ -126,7 +126,7 @@ recorder: &recorder_config
       - switch.camera
       - switch.desk_outlet
       - switch.pihole_temp_disable
-      - switch.titanium
+      - switch.cadmium
 
 # https://www.home-assistant.io/integrations/history
 history: *recorder_config

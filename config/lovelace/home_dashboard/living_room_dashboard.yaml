@@ -62,22 +62,24 @@
             template: v3_section_title
             variables:
               - title: Scenes
-          - type: vertical-stack
-            cards:
-              - type: custom:button-card
-                template: v3_scene
-                entity: scene.living_room_ambient_neon
-                name: Neon
-                variables:
-                  scene_color_1: rgba(255, 0, 190, 1)
-                  scene_color_2: rgba(0, 255, 190, 1)
-              - type: custom:button-card
-                template: v3_scene
-                entity: scene.living_room_ambient_default
-                name: Warm
-                variables:
-                  scene_color_1: rgba(240, 240, 190, 1)
-                  scene_color_2: rgba(255, 210, 170, 1)
+          - type: custom:decluttering-card
+            template: v3_horizontal_stack_card
+            variables:
+              - cards:
+                  - type: custom:button-card
+                    template: v3_scene
+                    entity: scene.living_room_ambient_neon
+                    name: Neon
+                    variables:
+                      scene_color_1: rgba(255, 0, 190, 1)
+                      scene_color_2: rgba(0, 255, 190, 1)
+                  - type: custom:button-card
+                    template: v3_scene
+                    entity: scene.living_room_ambient_default
+                    name: Warm
+                    variables:
+                      scene_color_1: rgba(240, 240, 190, 1)
+                      scene_color_2: rgba(255, 210, 170, 1)
           - type: custom:decluttering-card
             template: v3_section_title
             variables:
@@ -128,15 +130,18 @@
                 entity: media_player.living_room_tv
                 name: TV
               - type: custom:button-card
+                template: v3_button
+                entity: switch.cadmium
+
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
                 template: v3_button_cover
                 entity: cover.living_room
                 name: Blinds
                 tap_action:
                   action: call-service
                   service: script.toggle_living_room_cover
-
-          - type: horizontal-stack
-            cards:
               - type: custom:button-card
                 template: v3_button_radiator
                 entity: climate.living_room_radiator_mode
@@ -149,6 +154,8 @@
                   action: call-service
                   service: script.toshiba_ac_toggle
 
+          - type: horizontal-stack
+            cards:
               - type: custom:button-card
                 template: v3_button_power
                 entity: switch.desk_outlet

@@ -1,0 +1,227 @@
+binary_sensor:
+  - platform: ping
+    host: !secret cadmium_ip
+    name: cadmium_ping
+    scan_interval: 10
+    count: 2
+
+  - platform: template
+    sensors:
+      cadmium:
+        friendly_name: Cadmium
+        value_template: >-
+          {{ is_state("binary_sensor.cadmium_ping", "on") }}
+        icon_template: >-
+          {{ is_state("binary_sensor.cadmium_ping", "on") | iif(' mdi:desktop-mac-dashboard', 'mdi:desktop-mac') }}
+
+#
+# ─── IOTLink ──────────────────────────────────────────────────────────────
+#
+
+mqtt:
+    # binary_sensor:
+    # - name: "Cadmium playing"
+    #   availability_topic: "iotlink/workgroup/cadmium/lwt"
+    #   payload_available: "ON"
+    #   payload_not_available: "OFF"
+    #   payload_on: "True"
+    #   payload_off: "False"
+    #   state_topic: "iotlink/workgroup/cadmium/windows-monitor/stats/media/playing"
+
+  sensor:
+    - name: "Cadmium uptime"
+      icon: mdi:clock-check
+      availability_topic: "iotlink/workgroup/cadmium/lwt"
+      payload_available: "ON"
+      payload_not_available: "OFF"
+      state_topic: "iotlink/workgroup/cadmium/windows-monitor/stats/system/uptime"
+
+    - name: "Cadmium idle time"
+      icon: mdi:clock-alert
+      availability_topic: "iotlink/workgroup/cadmium/lwt"
+      payload_available: "ON"
+      payload_not_available: "OFF"
+      state_topic: "iotlink/workgroup/cadmium/windows-monitor/stats/system/idle-time"
+      value_template: "{{ value | multiply(1/60) | round(0) }}"
+      unit_of_measurement: "minutes"
+
+    # CPU
+    - name: "Cadmium CPU usage"
+      icon: mdi:chip
+      availability_topic: "iotlink/workgroup/cadmium/lwt"
+      payload_available: "ON"
+      payload_not_available: "OFF"
+      state_topic: "iotlink/workgroup/cadmium/windows-monitor/stats/cpu/usage"
+      unit_of_measurement: "%"
+
+
+    # Memory
+    - name: "Cadmium memory used"
+      icon: mdi:memory
+      availability_topic: "iotlink/workgroup/cadmium/lwt"
+      payload_available: "ON"
+      payload_not_available: "OFF"
+      state_topic: "iotlink/workgroup/cadmium/windows-monitor/stats/memory/used"
+      unit_of_measurement: "MB"
+
+    - name: "Cadmium memory used percent"
+      icon: mdi:memory
+      availability_topic: "iotlink/workgroup/cadmium/lwt"
+      payload_available: "ON"
+      payload_not_available: "OFF"
+      state_topic: "iotlink/workgroup/cadmium/windows-monitor/stats/memory/usage"
+      unit_of_measurement: "%"
+
+    - name: "Cadmium memory available"
+      icon: mdi:memory
+      availability_topic: "iotlink/workgroup/cadmium/lwt"
+      payload_available: "ON"
+      payload_not_available: "OFF"
+      state_topic: "iotlink/workgroup/cadmium/windows-monitor/stats/memory/available"
+      unit_of_measurement: "MB"
+
+    - name: "Cadmium memory total"
+      icon: mdi:memory
+      availability_topic: "iotlink/workgroup/cadmium/lwt"
+      payload_available: "ON"
+      payload_not_available: "OFF"
+      state_topic: "iotlink/workgroup/cadmium/windows-monitor/stats/memory/total"
+      unit_of_measurement: "MB"
+
+    # C Drive
+    - name: "Cadmium C usage"
+      icon: mdi:harddisk
+      availability_topic: "iotlink/workgroup/cadmium/lwt"
+      payload_available: "ON"
+      payload_not_available: "OFF"
+      state_topic: "iotlink/workgroup/cadmium/windows-monitor/stats/hard-drive/c/drive-usage"
+      unit_of_measurement: "%"
+
+    - name: "Cadmium C free space"
+      icon: mdi:harddisk
+      availability_topic: "iotlink/workgroup/cadmium/lwt"
+      payload_available: "ON"
+      payload_not_available: "OFF"
+      state_topic: "iotlink/workgroup/cadmium/windows-monitor/stats/hard-drive/c/total-free-space"
+      unit_of_measurement: "GB"
+
+    - name: "Cadmium C used space"
+      icon: mdi:harddisk
+      availability_topic: "iotlink/workgroup/cadmium/lwt"
+      payload_available: "ON"
+      payload_not_available: "OFF"
+      state_topic: "iotlink/workgroup/cadmium/windows-monitor/stats/hard-drive/c/used-space"
+      unit_of_measurement: "GB"
+
+    - name: "Cadmium C total space"
+      icon: mdi:harddisk
+      availability_topic: "iotlink/workgroup/cadmium/lwt"
+      payload_available: "ON"
+      payload_not_available: "OFF"
+      state_topic: "iotlink/workgroup/cadmium/windows-monitor/stats/hard-drive/c/total-size"
+      unit_of_measurement: "GB"
+
+
+    # # Media
+    # - name: "Cadmium volume"
+    #   icon: mdi:volume-medium
+    #   availability_topic: "iotlink/workgroup/cadmium/lwt"
+    #   payload_available: "ON"
+    #   payload_not_available: "OFF"
+    #   state_topic: "iotlink/workgroup/cadmium/windows-monitor/stats/media/volume"
+
+
+switch:
+  - platform: template
+    switches:
+      cadmium:
+        friendly_name: Cadmium
+        value_template: "{{ is_state('binary_sensor.cadmium', 'on') }}"
+        turn_on:
+          service: script.cadmium_start
+        turn_off:
+          service: script.cadmium_shutdown
+        icon_template: >-
+          {{ is_state('binary_sensor.cadmium', 'on') | iif('mdi:monitor-dashboard', 'mdi:monitor-off') }}
+
+script:
+  cadmium_start:
+    alias: Cadmium · Start
+    icon: mdi:play-box-outline
+    sequence:
+      - service: wake_on_lan.send_magic_packet
+        data:
+          mac: !secret cadmium_mac
+
+  cadmium_shutdown:
+    alias: Cadmium · Shutdown
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: "iotlink/workgroup/cadmium/commands/shutdown"
+          payload: ""
+
+  cadmium_lock:
+    alias: Cadmium · Lock
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: "iotlink/workgroup/cadmium/commands/lock"
+          payload: ""
+
+  # cadmium_vol_mute:
+  #   alias: Cadmium · Toggle Mute
+  #   sequence:
+  #     - service: mqtt.publish
+  #       data:
+  #         topic: "iotlink/workgroup/cadmium/commands/volume/mute"
+  #         payload: ""
+
+  # cadmium_set_volume:
+  #   alias: Cadmium · Set volume
+  #   sequence:
+  #     - service: mqtt.publish
+  #       data_template:
+  #         topic: "iotlink/workgroup/cadmium/commands/volume/set"
+  #         payload: "{{ volume | default(30) }}"
+
+  cadmium_displays_on:
+    alias: Cadmium · Displays ON
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: "iotlink/workgroup/cadmium/commands/displays/on"
+          payload: ""
+
+  cadmium_displays_off:
+    alias: Cadmium · Displays OFF
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: "iotlink/workgroup/cadmium/commands/displays/off"
+          payload: ""
+
+  cadmium_refresh:
+    alias: Cadmium · Refresh
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: "iotlink/workgroup/cadmium/refresh"
+          payload: ""
+
+automation:
+  - alias: Cadmium · Turn off when idle
+    trigger:
+      platform: numeric_state
+      entity_id: sensor.cadmium_idle_time
+      above: 180
+    action:
+      - service: script.cadmium_shutdown
+      - service: notify.telegram
+        data:
+          title: "🖥 *Devices · Cadmium*"
+          message: "Hey, I'm turning Cadmium off. It's been idling for 3 hours."
+      - service: logbook.log
+        data:
+          name: "🖥 Devices · "
+          message: "Cadmium · Turning off - idling for 3 hours"

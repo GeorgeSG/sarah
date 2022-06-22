@@ -137,9 +137,13 @@ card:
               tap_action:
                 action: toggle
             - type: custom:button-card
-              template: [v3_button_tv, v3_tablet_button]
-              entity: media_player.living_room_tv
-              name: TV
+              template: [v3_button_cover, v3_tablet_button]
+              entity: cover.living_room
+              name: LR Blinds
+              tap_action:
+                action: call-service
+                service: script.toggle_living_room_cover
+
         - type: horizontal-stack
           cards:
             - type: custom:button-card
@@ -164,12 +168,12 @@ card:
         - type: horizontal-stack
           cards:
             - type: custom:button-card
-              template: [v3_button_cover, v3_tablet_button]
-              entity: cover.living_room
-              name: LR Blinds
-              tap_action:
-                action: call-service
-                service: script.toggle_living_room_cover
+              template: [v3_button_tv, v3_tablet_button]
+              entity: media_player.living_room_tv
+              name: TV
+            - type: custom:button-card
+              template: v3_tablet_button
+              entity: switch.cadmium
             - type: custom:button-card
               template: [v3_button_purifier, v3_tablet_button]
               entity: fan.philips_airpurifier

@@ -43,7 +43,7 @@ script:
           - light.light_lohas_6
           - media_player.nvidia_shield
           - media_player.living_room_tv
-          - switch.titanium
+          - switch.cadmium
           - group.all_radiators
 
       - service: light.turn_on

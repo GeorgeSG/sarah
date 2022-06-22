@@ -121,6 +121,9 @@ card:
               template: [v3_button_tv, v3_tablet_button]
               entity: media_player.living_room_tv
               name: TV
+            - type: custom:button-card
+              template: v3_tablet_button
+              entity: switch.cadmium
         - type: horizontal-stack
           cards:
             - type: custom:button-card

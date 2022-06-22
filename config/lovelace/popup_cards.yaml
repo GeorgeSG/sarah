@@ -418,11 +418,11 @@ fan.philips_airpurifier:
     type: custom:decluttering-card
     template: philips_airpurifier_card
 
-switch.titanium:
-  title: Titanium
+switch.cadmium:
+  title: Cadmium
   card:
     type: custom:decluttering-card
-    template: titanium_card
+    template: cadmium_card
 
 sensor.fast_com_download:
   title: Network Speed

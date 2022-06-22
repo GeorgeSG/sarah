@@ -6,11 +6,11 @@
 
     # Living room ───────────────────────────────────────────────────────────────────────────
 
-    # Titanium
+    # Cadmium
     - type: custom:decluttering-card
       template: floorplan_state_icon
       variables:
-        - entity: switch.titanium
+        - entity: switch.cadmium
         - top: 62%
         - left: 81%
 

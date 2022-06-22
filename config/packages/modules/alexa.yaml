@@ -37,7 +37,7 @@ alexa:
         - script.brita_pour_water
         - script.latest_pds
         - script.music_play
-        - script.titanium_start
+        - script.cadmium_start
 
     entity_config:
       light.ceiling:
@@ -88,5 +88,5 @@ alexa:
         name: "Play the latest PDS"
       script.music_play:
         name: "Music chill"
-      script.titanium_start:
-        name: "Titanium"
+      script.cadmium_start:
+        name: "Cadmium"
