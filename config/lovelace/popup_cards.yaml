@@ -49,11 +49,12 @@ group.hallway_motion:
         entities:
           - entity: sensor.hallway_motion_illuminance
 
-sensor.synology_type_volume_1:
-  title: Platinum
+sensor.mercury_temperature:
+  title: Mercury
   card:
     type: custom:decluttering-card
-    template: platinum_card
+    template: mercury_card
+
 
 media_player.living_room:
   title: Living room Sonos
@@ -423,6 +424,8 @@ switch.cadmium:
   card:
     type: custom:decluttering-card
     template: cadmium_card
+    variables:
+      - title: ''
 
 sensor.fast_com_download:
   title: Network Speed

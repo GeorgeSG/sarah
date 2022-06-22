@@ -1,7 +1,6 @@
-platinum_card:
+mercury_card:
   default:
     - title:
-    - icon:
   card:
     type: entities
     style: |
@@ -11,34 +10,45 @@ platinum_card:
     title: "[[title]]"
     icon: "[[icon]]"
     entities:
-      - type: custom:template-entity-row
-        name: Open admin UI
-        icon: mdi:firefox
-        tap_action:
-          action: url
-          url_path: http://platinum.lan:5000
+      - type: custom:hui-horizontal-stack-card
+        cards:
+          - type: custom:button-card
+            template: v3_xs_button
+            entity: switch.cadmium
+            icon: mdi:firefox
+            name: "Open UI"
+            tap_action:
+              action: url
+              url_path: https://home.gar.dev
+          - type: custom:button-card
+            template: v3_xs_button
+            entity: update.mercury_dsm_update
+            name: Update?
+          - type: custom:button-card
+            template: v3_xs_button
+            entity: button.mercury_reboot
+            name: Reboot
+          - type: custom:button-card
+            template: v3_xs_button
+            entity: button.mercury_shutdown
+            name: Shutdown
+
       - type: custom:fold-entity-row
         head:
           type: custom:decluttering-card
           template: percentage_card
           variables:
             - name: CPU
-            - entity: sensor.synology_cpu_load_total
+            - entity: sensor.mercury_cpu_utilization_total
             - icon: mdi:chip
             - orange: 40
             - red: 60
         entities:
-          - entity: sensor.synology_cpu_load_system
-            name: CPU load (System)
-          - entity: sensor.synology_cpu_load_user
+          - entity: sensor.mercury_cpu_utilization_user
             name: CPU load (User)
-          - entity: sensor.synology_cpu_load_other
-            name: CPU load (Other)
-          - entity: sensor.synology_cpu_load_1_min
-            name: CPU load (1 min)
-          - entity: sensor.synology_cpu_load_5_min
+          - entity: sensor.mercury_cpu_load_average_5_min
             name: CPU load (5 min)
-          - entity: sensor.synology_cpu_load_15_min
+          - entity: sensor.mercury_cpu_load_average_15_min
             name: CPU load (15 min)
 
       - type: custom:fold-entity-row
@@ -47,22 +57,18 @@ platinum_card:
           template: percentage_card
           variables:
             - name: Memory
-            - entity: sensor.synology_memory_usage_real
+            - entity: sensor.mercury_memory_usage_real
             - icon: mdi:memory
             - orange: 70
             - red: 85
         entities:
-          - entity: sensor.synology_memory_cached
-            name: Memory cached
-          - entity: sensor.synology_memory_size
-            name: Memory size
-          - entity: sensor.synology_memory_available_real
+          - entity: sensor.mercury_memory_available_real
             name: Memory available (Real)
-          - entity: sensor.synology_memory_total_real
+          - entity: sensor.mercury_memory_total_real
             name: Memory total (Real)
-          - entity: sensor.synology_memory_available_swap
+          - entity: sensor.mercury_memory_available_swap
             name: Memory available (Swap)
-          - entity: sensor.synology_memory_total_swap
+          - entity: sensor.mercury_memory_total_swap
             name: Memory total (Swap)
 
       - type: custom:fold-entity-row
@@ -71,90 +77,80 @@ platinum_card:
           template: percentage_card
           variables:
             - name: Volume 1
-            - entity: sensor.synology_volume_used_volume_1
+            - entity: sensor.mercury_volume_1_volume_used
             - icon: mdi:harddisk
             - orange: 85
             - red: 90
         entities:
-          - entity: sensor.synology_average_disk_temp_volume_1
+          - entity: sensor.mercury_volume_1_status
+            name: Status
+          - entity: sensor.mercury_volume_1_average_disk_temp
             name: Average temperature
-          - entity: sensor.synology_maximum_disk_temp_volume_1
-            name: Maximum temperature
-          - entity: sensor.synology_used_space_volume_1
+          - entity: sensor.mercury_volume_1_used_space
             name: Used space
-          - entity: sensor.synology_total_size_volume_1
-            name: Total size
 
       - type: custom:fold-entity-row
         head:
-          type: custom:decluttering-card
-          template: percentage_card
-          variables:
-            - name: Volume 2
-            - entity: sensor.synology_volume_used_volume_2
-            - icon: mdi:harddisk
-            - orange: 85
-            - red: 90
+          entity: sensor.mercury_drive_1_status
+          name: Drive 1
         entities:
-          - entity: sensor.synology_average_disk_temp_volume_2
-            name: Average temperature
-          - entity: sensor.synology_maximum_disk_temp_volume_2
-            name: Maximum temperature
-          - entity: sensor.synology_used_space_volume_2
-            name: Used space
-          - entity: sensor.synology_total_size_volume_2
-            name: Total size
+          - entity: sensor.mercury_drive_1_temperature
+            name: Temperature
+          - entity: binary_sensor.mercury_drive_1_below_min_remaining_life
+            name: Below minimum remaining life
+          - entity: binary_sensor.mercury_drive_1_exceeded_max_bad_sectors
+            name: Exceeded max bad sectors
+      - type: custom:fold-entity-row
+        head:
+          entity: sensor.mercury_drive_2_status
+          name: Drive 2
+        entities:
+          - entity: sensor.mercury_drive_2_temperature
+            name: Temperature
+          - entity: binary_sensor.mercury_drive_2_below_min_remaining_life
+            name: Below minimum remaining life
+          - entity: binary_sensor.mercury_drive_2_exceeded_max_bad_sectors
+            name: Exceeded max bad sectors
+      - type: custom:fold-entity-row
+        head:
+          entity: sensor.mercury_drive_3_status
+          name: Drive 3
+        entities:
+          - entity: sensor.mercury_drive_3_temperature
+            name: Temperature
+          - entity: binary_sensor.mercury_drive_3_below_min_remaining_life
+            name: Below minimum remaining life
+          - entity: binary_sensor.mercury_drive_3_exceeded_max_bad_sectors
+            name: Exceeded max bad sectors
+      - type: custom:fold-entity-row
+        head:
+          entity: sensor.mercury_drive_4_status
+          name: Drive 4
+        entities:
+          - entity: sensor.mercury_drive_4_temperature
+            name: Temperature
+          - entity: binary_sensor.mercury_drive_4_below_min_remaining_life
+            name: Below minimum remaining life
+          - entity: binary_sensor.mercury_drive_4_exceeded_max_bad_sectors
+            name: Exceeded max bad sectors
 
       - type: custom:fold-entity-row
         head:
-          entity: sensor.synology_status_sda
-          name: /sda
+          entity: sensor.mercury_cache_device_1_status
+          name: Cache
         entities:
-          - entity: sensor.synology_temperature_sda
+          - entity: sensor.mercury_cache_device_1_temperature
             name: Temperature
-          - entity: sensor.synology_below_min_remaining_life_sda
+          - entity: binary_sensor.mercury_cache_device_1_below_min_remaining_life
             name: Below minimum remaining life
-          - entity: sensor.synology_exceeded_max_bad_sectors_sda
-            name: Exceeded max bad sectors
-      - type: custom:fold-entity-row
-        head:
-          entity: sensor.synology_status_sdb
-          name: /sdb
-        entities:
-          - entity: sensor.synology_temperature_sdb
-            name: Temperature
-          - entity: sensor.synology_below_min_remaining_life_sdb
-            name: Below minimum remaining life
-          - entity: sensor.synology_exceeded_max_bad_sectors_sdb
-            name: Exceeded max bad sectors
-      - type: custom:fold-entity-row
-        head:
-          entity: sensor.synology_status_sdc
-          name: /sdc
-        entities:
-          - entity: sensor.synology_temperature_sdc
-            name: Temperature
-          - entity: sensor.synology_below_min_remaining_life_sdc
-            name: Below minimum remaining life
-          - entity: sensor.synology_exceeded_max_bad_sectors_sdc
-            name: Exceeded max bad sectors
-      - type: custom:fold-entity-row
-        head:
-          entity: sensor.synology_status_sdd
-          name: /sdd
-        entities:
-          - entity: sensor.synology_temperature_sdd
-            name: Temperature
-          - entity: sensor.synology_below_min_remaining_life_sdd
-            name: Below minimum remaining life
-          - entity: sensor.synology_exceeded_max_bad_sectors_sdd
+          - entity: binary_sensor.mercury_cache_device_1_exceeded_max_bad_sectors
             name: Exceeded max bad sectors
 
       - type: custom:hui-horizontal-stack-card
         cards:
           - type: entities
             entities:
-              - entity: sensor.synology_network_down
+              - entity: sensor.mercury_download_throughput
                 name: Down
                 style: |
                   :host {
@@ -183,7 +179,7 @@ platinum_card:
                         }
           - type: entities
             entities:
-              - entity: sensor.synology_network_up
+              - entity: sensor.mercury_upload_throughput
                 name: Up
                 style: |
                   :host {
@@ -195,9 +191,9 @@ platinum_card:
         align_state: left
         entities:
           - color: var(--accent-color)
-            entity: sensor.synology_network_up
+            entity: sensor.mercury_upload_throughput
           - color: green
-            entity: sensor.synology_network_down
+            entity: sensor.mercury_download_throughput
         group: false
         points_per_hour: 1
         line_width: 3

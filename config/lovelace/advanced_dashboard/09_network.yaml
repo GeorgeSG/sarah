@@ -29,9 +29,9 @@ cards:
                 - icon: mdi:desktop-tower
 
             - type: custom:decluttering-card
-              template: platinum_card
+              template: mercury_card
               variables:
-                - title: Platinum
+                - title: Mercury
                 - icon: mdi:nas
 
         - type: vertical-stack

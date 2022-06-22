@@ -61,3 +61,16 @@
                   service: input_select.select_next
                   service_data:
                     entity_id: input_select.guest_bedroom_mode
+
+          - type: custom:decluttering-card
+            template: v3_section_title
+            variables:
+              - title: Devices
+
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                template: v3_button
+                entity: sensor.mercury_temperature
+                name: Mercury
+                icon: mdi:nas
