@@ -3,7 +3,7 @@ button_card_templates: !include_dir_merge_named lovelace/button_card_templates
 popup_cards: !include lovelace/popup_cards.yaml
 
 swipe_nav:
-  swipe_amount: 30
+  swipe_amount: 50
   skip_tabs: 6
 
 kiosk_mode:
