@@ -33,6 +33,8 @@ mercury_card:
             entity: button.mercury_shutdown
             name: Shutdown
 
+      - entity: sensor.mercury_temperature
+        name: Temperature
       - type: custom:fold-entity-row
         head:
           type: custom:decluttering-card
