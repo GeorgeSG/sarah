@@ -26,17 +26,17 @@ cards:
             - type: horizontal-stack
               cards:
                 - type: custom:button-card
-                  template: default
+                  template: v3_button
                   entity: binary_sensor.multisensor_motion
                   name: Living room
                 - type: custom:button-card
-                  template: [default, with_state_indicator]
+                  template: [v3_button, with_state_indicator]
                   entity: binary_sensor.kitchen_motion_occupancy
                   name: Kitchen
                   variables:
                     state_indicator_id: automation.lighting_kitchen_motion_on
                 - type: custom:button-card
-                  template: [default, with_state_indicator]
+                  template: [v3_button, with_state_indicator]
                   entity: group.hallway_motion
                   name: Hallway
                   variables:
@@ -44,34 +44,26 @@ cards:
             - type: horizontal-stack
               cards:
                 - type: custom:button-card
-                  template: default
+                  template: v3_button
                   entity: binary_sensor.living_room_right_window
                   name: Living room
                 - type: custom:button-card
-                  template: default
+                  template: v3_button
                   entity: binary_sensor.bedroom_left_window
                   name: Bedroom left
                 - type: custom:button-card
-                  template: default
+                  template: v3_button
                   entity: binary_sensor.bedroom_right_window
                   name: Bedroom right
                 - type: custom:button-card
-                  template: default
+                  template: v3_button
                   entity: binary_sensor.kitchen_window
                   name: Kitchen
             - type: horizontal-stack
               cards:
                 - type: custom:button-card
-                  template: default
-                  entity: input_boolean.georgi_home
-                  tap_action:
-                    action: call-service
-                    service: input_boolean.toggle
-                    service_data:
-                      entity_id: input_boolean.georgi_home
-                - type: custom:button-card
-                  template: default
+                  template: v3_button
                   entity: binary_sensor.front_door
                 - type: custom:button-card
-                  template: default
+                  template: v3_button
                   entity: binary_sensor.bedroom_door
