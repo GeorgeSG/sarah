@@ -36,4 +36,80 @@ views:
                   margin: 10px;
                   padding: 10px;
                 }
-            - !include lovelace/home_dashboard/kitchen_dashboard_card.yaml
+            - type: custom:decluttering-card
+              template: v3_title
+              variables:
+                - title: Kitchen
+            - type: horizontal-stack
+              cards:
+                - type: custom:button-card
+                  template: v3_badge_temp
+                  entity: sensor.kitchen_weather_temperature
+                - type: custom:button-card
+                  template: v3_badge_humidity
+                  entity: sensor.kitchen_weather_humidity
+                - type: custom:button-card
+                  template: v3_badge_icon
+                  entity: binary_sensor.kitchen_motion_occupancy
+                - type: custom:button-card
+                  template: v3_badge_icon
+                  entity: binary_sensor.kitchen_window
+                - type: custom:button-card
+                  template: v3_badge_icon
+                  entity: binary_sensor.kitchen_door
+
+            - type: custom:decluttering-card
+              template: v3_section_title
+              variables:
+                - title: Lights
+            - type: horizontal-stack
+              cards:
+                - type: custom:button-card
+                  template: v3_button_light
+                  entity: light.kitchen
+                  name: All
+                - type: custom:button-card
+                  template: v3_button_light
+                  entity: light.kitchen_main
+                  name: Main
+                - type: custom:button-card
+                  template: v3_button_light
+                  entity: light.kitchen_secondary
+                  name: Secondary
+
+            - type: custom:decluttering-card
+              template: v3_section_title
+              variables:
+                - title: Devices
+            - type: horizontal-stack
+              cards:
+                - type: custom:button-card
+                  template: v3_button
+                  entity: media_player.kitchen
+                  name: Sonos
+                - type: custom:button-card
+                  template: v3_button
+                  entity: binary_sensor.sonos_is_kitchen_grouped
+                  name: Sonos Grouped
+                  tap_action:
+                    action: call-service
+                    service: "[[[ return entity.state == 'on' ? 'script.sonos_kitchen_unjoin' : 'script.sonos_kitchen_join' ]]]"
+                - type: custom:button-card
+                  template: v3_button_radiator
+                  entity: climate.kitchen_radiator_mode
+                  name: Radiator
+
+            - type: horizontal-stack
+              cards:
+                - type: custom:button-card
+                  template: v3_button
+                  entity: vacuum.vacuum
+                  name: Vacuum
+                - type: custom:button-card
+                  template: v3_button_brita_water
+                - type: custom:button-card
+                  template: v3_button_power
+                  entity: switch.kitchen_outlet
+                  name: Outlet
+                  variables:
+                    power_sensor: sensor.kitchen_outlet_electric_consumption_w

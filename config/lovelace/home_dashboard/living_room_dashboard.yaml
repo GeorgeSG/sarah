@@ -3,7 +3,7 @@
     layout-card:
       .: |
         * {
-          --primary-color: #0040A0
+          --primary-color: #6b8988
         }
 
       $:
@@ -29,6 +29,17 @@
           - type: horizontal-stack
             cards:
               - type: custom:button-card
+                template: v3_badge_temp
+                entity: sensor.multisensor_6_temperature
+              - type: custom:button-card
+                template: v3_badge_humidity
+                entity: sensor.multisensor_6_relative_humidity
+              - type: custom:button-card
+                template: v3_badge
+                entity: sensor.aqara_tvoc_voc
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
                 template: v3_button_person
                 entity: input_boolean.georgi_home
                 styles:
@@ -40,17 +51,6 @@
                 styles:
                   card:
                     - background-image: url("/local/images/people/maya.jpg")
-              - type: custom:button-card
-                template: v3_badge_temp
-                entity: sensor.multisensor_6_temperature
-              - type: custom:button-card
-                template: v3_badge_humidity
-                entity: sensor.multisensor_6_relative_humidity
-          - type: horizontal-stack
-            cards:
-              - type: custom:button-card
-                template: v3_badge
-                entity: sensor.aqara_tvoc_voc
               - type: custom:button-card
                 template: v3_badge_icon
                 entity: binary_sensor.toshiba_ac_conditions_met

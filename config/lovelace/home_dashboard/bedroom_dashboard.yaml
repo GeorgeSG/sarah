@@ -3,7 +3,7 @@
     layout-card:
       .: |
         * {
-          --primary-color: #871CAB
+          --primary-color: #9489d1
         }
 
       $:
@@ -41,6 +41,8 @@
                 state_display: "[[[return entity.state.split(' ')[0] + ' pm2.5']]]"
                 variables:
                   state_size: "11px"
+          - type: horizontal-stack
+            cards:
               - type: custom:button-card
                 template: v3_badge_icon
                 entity: binary_sensor.bedroom_left_window

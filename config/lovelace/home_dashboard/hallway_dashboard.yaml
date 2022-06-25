@@ -3,7 +3,7 @@
     layout-card:
       .: |
         * {
-          --primary-color: #188A9C
+          --primary-color: #b1633e
         }
 
       $:
@@ -37,6 +37,8 @@
               - type: custom:button-card
                 template: v3_badge_icon
                 entity: group.hallway_motion
+          - type: horizontal-stack
+            cards:
               - type: custom:button-card
                 template: v3_badge_icon
                 entity: binary_sensor.hallway_motion_occupancy

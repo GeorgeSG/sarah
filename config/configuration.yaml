@@ -34,10 +34,16 @@ lovelace:
   dashboards:
     lovelace-home:
       mode: yaml
-      title: Home
-      icon: mdi:home
-      show_in_sidebar: true
+      title: Mobile
+      icon: mdi:cellphone
+      show_in_sidebar: false
       filename: ui-lovelace.yaml
+    lovelace-desktop:
+      mode: yaml
+      title: Desktop
+      icon: mdi:desktop-mac-dashboard
+      show_in_sidebar: false
+      filename: desktop-lovelace.yaml
     lovelace-floorlan:
       mode: yaml
       title: Floorplan

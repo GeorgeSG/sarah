@@ -29,30 +29,16 @@
           - type: horizontal-stack
             cards:
               - type: custom:button-card
-                template: v3_button_person
-                entity: input_boolean.georgi_home
-                styles:
-                  card:
-                    - background-image: url("/local/images/people/georgi.jpg")
-              - type: custom:button-card
-                template: v3_button_person
-                entity: input_boolean.player_2_home
-                styles:
-                  card:
-                    - background-image: url("/local/images/people/maya.jpg")
-              # - type: custom:button-card
-              #   template: v3_button_person
-              #   entity: input_boolean.player_2_home
-              #   styles:
-              #     card:
-              #       - background-image: url("/local/images/people/milena.jpg")
-              - type: custom:button-card
                 template: v3_badge
                 entity: binary_sensor.someone_home
               - type: custom:button-card
                 template: v3_badge
                 entity: binary_sensor.someone_sleeping
 
+          - type: custom:decluttering-card
+            template: v3_section_title
+            variables:
+              - title: Toggles
           - type: horizontal-stack
             cards:
               - type: custom:button-card
