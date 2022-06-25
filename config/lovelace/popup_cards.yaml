@@ -510,6 +510,18 @@ sensor.desk_outlet_power:
       - entity: sensor.desk_outlet_wifi
         name: Wifi strength
 
+sensor.printer_status:
+  title: Brother Printer
+  card:
+    type: entities
+    entities:
+      - sensor.printer_black_toner_remaining
+      - sensor.printer_drum_remaining_life
+      - sensor.printer_duplex_unit_pages_counter
+      - sensor.printer_page_counter
+      - sensor.printer_uptime
+
+
 sensor.average_temperature:
   title: Temperatures
   card:

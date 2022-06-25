@@ -157,6 +157,10 @@
           - type: horizontal-stack
             cards:
               - type: custom:button-card
+                template: v3_button
+                entity: sensor.printer_status
+                name: Printer
+              - type: custom:button-card
                 template: v3_button_power
                 entity: switch.desk_outlet
                 name: Desk Outlet
