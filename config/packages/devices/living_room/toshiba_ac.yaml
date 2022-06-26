@@ -56,6 +56,15 @@ input_number:
 
 template:
   - binary_sensor:
+      - name: Toshiba AC Climate conditions met
+        state: >
+          {% set temp_matching = states('sensor.multisensor_6_temperature')|float >= states('input_number.toshiba_trigger_temp')|float %}
+          {% set outside_temp_high = states('sensor.dark_sky_apparent_temperature')|float + 2 >= states('input_number.toshiba_trigger_temp')|float %}
+          {% set someone_home = is_state('binary_sensor.someone_home', 'on') %}
+          {% set ac_off = is_state('climate.toshiba_ac', 'off') %}
+
+          {{ temp_matching and outside_temp_high and someone_home and ac_off }}
+
       - name: Toshiba AC conditions met
         icon: >
           {{ is_state('binary_sensor.toshiba_ac_conditions_met', 'on') | iif('mdi:home-thermometer', 'mdi:home-thermometer-outline') }}
@@ -188,3 +197,15 @@ automation:
           name: "💨 Climate Module · "
           message: "AC · Switching off"
           domain: climate
+
+  - alias: Climate · AC · Notify conditions met
+    trigger:
+      platform: state
+      entity_id: binary_sensor.toshiba_ac_climate_conditions_met
+      from: 'off'
+      to: 'on'
+    action:
+      - service: notify.telegram
+        data:
+          title: "💨 Climate Module · AC · Conditions met"
+          message: "I would turn the AC on, but some windows or doors are open."
