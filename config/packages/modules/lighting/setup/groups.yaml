@@ -153,7 +153,7 @@ automation:
       - delay: "00:00:03"
       - service: mqtt.publish
         data:
-          topic: "z2m_deconz/neo_1/get"
+          topic: "z2m_deconz/tradfri_1/get"
           payload: ""
       - service: mqtt.publish
         data:

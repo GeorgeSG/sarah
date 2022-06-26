@@ -1,5 +1,17 @@
 mqtt:
   light:
+    - name: "tradfri_1"
+      state_topic: "z2m_deconz/tradfri_1"
+      availability_topic: "z2m_deconz/bridge/state"
+      brightness: true
+      color_temp: true
+      xy: false
+      schema: "json"
+      command_topic: "z2m_deconz/tradfri_1/set"
+      brightness_scale: 254
+      max_mireds: 500
+      min_mireds: 150
+
     - name: "light_le_1"
       state_topic: "tele/light_le_1/STATE"
       state_value_template: "{{ value_json.POWER }}"
@@ -156,6 +168,13 @@ mqtt:
       min_mireds: 150
 
   sensor:
+    - name: "tradfri_1_lqi"
+      state_topic: "z2m_deconz/tradfri_1"
+      availability_topic: "z2m_deconz/bridge/state"
+      value_template: "{{ value_json.linkquality }}"
+      unit_of_measurement: "lqi"
+      device_class: "signal_strength"
+
     - name: "light_le_1_wifi"
       availability_topic: "tele/light_le_1/LWT"
       device_class: signal_strength
@@ -381,15 +400,7 @@ automation:
           payload: ""
       - service: mqtt.publish
         data:
-          topic: "z2m_deconz/ledvance_1/get"
-          payload: ""
-      - service: mqtt.publish
-        data:
-          topic: "z2m_deconz/neo_1/get"
-          payload: ""
-      - service: mqtt.publish
-        data:
-          topic: "z2m_deconz/neo_2/get"
+          topic: "z2m_deconz/tradfri_1/get"
           payload: ""
       - service: mqtt.publish
         data:

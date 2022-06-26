@@ -162,7 +162,7 @@ cards:
               entities:
                 - light.hue_ambiance_6
                 - light.hue_ambiance_8
-                - light.neo_1
+                - light.tradfri_1
             - type: divider
             - type: custom:fold-entity-row
               entity: light.kitchen_secondary
