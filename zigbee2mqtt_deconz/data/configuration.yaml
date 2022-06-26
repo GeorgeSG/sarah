@@ -178,7 +178,7 @@ groups:
     friendly_name: light_kitchen_main
     transition: 0.2
     devices:
-      - '0x00158d00024f54bb'
+      - '0x8cf681fffe1ef0c4'
       - '0x001788010bb38dda'
       - '0x0017880109b16985'
   '3':
