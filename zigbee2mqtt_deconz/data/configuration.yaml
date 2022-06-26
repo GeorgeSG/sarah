@@ -163,6 +163,8 @@ devices:
     retain: true
     temperature_precision: 1
     humidity_precision: 1
+  '0x8cf681fffe1ef0c4':
+    friendly_name: tradfri_1
 groups:
   '1':
     friendly_name: light_kitchen_secondary
