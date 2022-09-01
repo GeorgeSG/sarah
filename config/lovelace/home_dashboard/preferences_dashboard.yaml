@@ -34,6 +34,9 @@
               - type: custom:button-card
                 template: v3_badge
                 entity: binary_sensor.someone_sleeping
+              - type: custom:button-card
+                template: v3_badge
+                entity: sensor.house_mode
 
           - type: custom:decluttering-card
             template: v3_section_title

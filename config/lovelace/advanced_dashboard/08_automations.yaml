@@ -99,6 +99,7 @@ cards:
             - automation.lighting_sync_tasmota_states_on_start_up
             - automation.lighting_sync_zigbee_states_on_start_up
             - type: divider
+            - automation.trust_remote_guest_bedroom
             - automation.trust_remote_dimming
             - automation.trust_remote_turn_on
             - automation.trust_remote_turn_off

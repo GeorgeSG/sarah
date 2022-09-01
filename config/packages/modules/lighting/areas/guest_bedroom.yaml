@@ -9,12 +9,14 @@ script:
       - service: light.turn_on
         entity_id: light.tradfri_large
         data:
-          rgb_color: [110, 255, 0]
+          color_temp: 500
+          # rgb_color: [110, 255, 0]
       - delay: 00:00:02
       - service: light.turn_on
         entity_id: light.tradfri_large
         data_template:
           color_temp: "{{ states('input_number.guest_bedroom_light_temp') }}"
+      - delay: 00:00:02
       - service: scene.turn_on
         entity_id: scene.guest_bedroom_before_confirm
       - delay: 00:00:01

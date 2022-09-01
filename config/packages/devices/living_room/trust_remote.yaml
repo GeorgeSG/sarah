@@ -18,6 +18,29 @@ mqtt:
       value_template: "{{ value_json.linkquality }}"
 
 automation:
+  - alias: Trust remote · Guest bedroom
+    trigger:
+      - platform: mqtt
+        topic: z2m_deconz/trust_remote
+    action:
+      - choose:
+        - conditions: "{{ trigger.payload_json.action == 'up-press' }}"
+          sequence:
+            - service: light.turn_on
+              entity_id: light.tradfri_large
+              data_template:
+                brightness_pct: "{{ is_state('input_select.guest_bedroom_mode', 'day') | iif(100, 10) }}"
+                color_temp: "{{ states('input_number.guest_bedroom_light_temp') }}"
+        - conditions: "{{ trigger.payload_json.action == 'down-press' }}"
+          sequence:
+            - service: light.turn_off
+              entity_id: light.tradfri_large
+        - conditions: "{{ trigger.payload_json.action == 'on' or trigger.payload_json.action == 'off' }}"
+          sequence:
+            - service: script.guest_bedroom_bedside_confirm
+            - service: input_select.select_next
+              entity_id: input_select.guest_bedroom_mode
+
   - alias: Trust remote · Dimming
     trigger:
       - platform: state
