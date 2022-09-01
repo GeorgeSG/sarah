@@ -5,14 +5,14 @@ script:
         data:
           scene_id: guest_bedroom_before_confirm
           snapshot_entities:
-            - light.light_lohas_6
+            - light.tradfri_large
       - service: light.turn_on
-        entity_id: light.light_lohas_6
+        entity_id: light.tradfri_large
         data:
           rgb_color: [110, 255, 0]
       - delay: 00:00:02
       - service: light.turn_on
-        entity_id: light.light_lohas_6
+        entity_id: light.tradfri_large
         data_template:
           color_temp: "{{ states('input_number.guest_bedroom_light_temp') }}"
       - service: scene.turn_on

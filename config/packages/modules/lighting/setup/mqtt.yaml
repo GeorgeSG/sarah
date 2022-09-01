@@ -12,6 +12,18 @@ mqtt:
       max_mireds: 500
       min_mireds: 150
 
+    - name: "tradfri_large"
+      state_topic: "z2m_deconz/tradfri_large"
+      availability_topic: "z2m_deconz/bridge/state"
+      brightness: true
+      color_temp: true
+      xy: false
+      schema: "json"
+      command_topic: "z2m_deconz/tradfri_large/set"
+      brightness_scale: 254
+      max_mireds: 500
+      min_mireds: 150
+
     - name: "light_le_1"
       state_topic: "tele/light_le_1/STATE"
       state_value_template: "{{ value_json.POWER }}"
@@ -170,6 +182,13 @@ mqtt:
   sensor:
     - name: "tradfri_1_lqi"
       state_topic: "z2m_deconz/tradfri_1"
+      availability_topic: "z2m_deconz/bridge/state"
+      value_template: "{{ value_json.linkquality }}"
+      unit_of_measurement: "lqi"
+      device_class: "signal_strength"
+
+    - name: "tradfri_large_lqi"
+      state_topic: "z2m_deconz/tradfri_large"
       availability_topic: "z2m_deconz/bridge/state"
       value_template: "{{ value_json.linkquality }}"
       unit_of_measurement: "lqi"

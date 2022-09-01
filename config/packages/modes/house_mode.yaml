@@ -102,7 +102,7 @@ automation:
       to: "night"
     action:
       - service: light.turn_off
-        entity_id: light.light_lohas_6
+        entity_id: light.tradfri_large
 
   - alias: House mode · Set to day
     trigger:

@@ -49,7 +49,7 @@
             cards:
               - type: custom:button-card
                 template: v3_button_light
-                entity: light.light_lohas_6
+                entity: light.tradfri_large
                 name: Night stand
               - type: custom:button-card
                 template: v3_button

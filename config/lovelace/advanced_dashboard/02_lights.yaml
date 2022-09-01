@@ -246,8 +246,7 @@ cards:
           show_header_toggle: false
           entities:
             - type: custom:decluttering-card
-              template: light_with_fade_and_switch
+              template: light_with_update_and_lqi
               variables:
-                - light: light.light_lohas_6
-                - fade: switch.light_lohas_6
-                - wifi: sensor.light_lohas_6_wifi
+                - light: light.tradfri_large
+                - lqi: sensor.tradfri_large_lqi
