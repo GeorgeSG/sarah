@@ -165,6 +165,8 @@ devices:
     humidity_precision: 1
   '0x8cf681fffe1ef0c4':
     friendly_name: tradfri_1
+  '0x2c1165fffe7d6d9c':
+    friendly_name: tradfri_large
 groups:
   '1':
     friendly_name: light_kitchen_secondary
