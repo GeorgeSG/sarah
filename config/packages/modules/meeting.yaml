@@ -1,40 +1,40 @@
-binary_sensor:
-  - platform: template
-    sensors:
-      in_a_meeting:
-        friendly_name: In a meeting
-        value_template: >-
-          {% set slack_emoji = state_attr('sensor.slack_hs_georgi', 'status_emoji') %}
-          {% set slack_status = state_attr('sensor.slack_hs_georgi', 'status_text') %}
-          {{ slack_emoji == ':spiral_calendar_pad:' or 'meeting' in slack_status.lower() }}
+# binary_sensor:
+#   - platform: template
+#     sensors:
+#       in_a_meeting:
+#         friendly_name: In a meeting
+#         value_template: >-
+#           {% set slack_emoji = state_attr('sensor.slack_hs_georgi', 'status_emoji') %}
+#           {% set slack_status = state_attr('sensor.slack_hs_georgi', 'status_text') %}
+#           {{ slack_emoji == ':spiral_calendar_pad:' or 'meeting' in slack_status.lower() }}
 
-automation:
-  - alias: Slack Meeting · Starts
-    trigger:
-      platform: state
-      entity_id: binary_sensor.in_a_meeting
-      to: "on"
-    action:
-      - service: cover.close_cover
-        entity_id: cover.living_room
-      - service: light.turn_on
-        entity_id: light.pc
-      - service: media_player.media_stop
-        entity_id:
-          - media_player.living_room
-          - media_player.master_bedroom
-      - service: input_boolean.turn_off
-        entity_id: input_boolean.speech_notifications
+# automation:
+#   - alias: Slack Meeting · Starts
+#     trigger:
+#       platform: state
+#       entity_id: binary_sensor.in_a_meeting
+#       to: "on"
+#     action:
+#       - service: cover.close_cover
+#         entity_id: cover.living_room
+#       - service: light.turn_on
+#         entity_id: light.pc
+#       - service: media_player.media_stop
+#         entity_id:
+#           - media_player.living_room
+#           - media_player.master_bedroom
+#       - service: input_boolean.turn_off
+#         entity_id: input_boolean.speech_notifications
 
-  - alias: Slack Meeting · Ends
-    trigger:
-      platform: state
-      entity_id: binary_sensor.in_a_meeting
-      from: "on"
-      to: "off"
-      for: "00:03:00"
+#   - alias: Slack Meeting · Ends
+#     trigger:
+#       platform: state
+#       entity_id: binary_sensor.in_a_meeting
+#       from: "on"
+#       to: "off"
+#       for: "00:03:00"
 
-    action:
-      - service: script.open_living_room_cover
-      - service: input_boolean.turn_on
-        entity_id: input_boolean.speech_notifications
+#     action:
+#       - service: script.open_living_room_cover
+#       - service: input_boolean.turn_on
+#         entity_id: input_boolean.speech_notifications
