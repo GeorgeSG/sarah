@@ -544,12 +544,7 @@ mqtt:
       payload_on: true
       payload_off: false
       value_template: "{{ value_json.update_available}}"
-    - name: "hue_white_4_update_available"
-      state_topic: "z2m_deconz/hue_white_4"
-      availability_topic: "z2m_deconz/bridge/state"
-      payload_on: true
-      payload_off: false
-      value_template: "{{ value_json.update_available}}"
+
 
     - name: "hue_ambiance_1_update_available"
       state_topic: "z2m_deconz/hue_ambiance_1"
