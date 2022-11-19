@@ -355,10 +355,6 @@ automation:
           payload: ""
       - service: mqtt.publish
         data:
-          topic: "z2m_deconz/hue_white_4/get"
-          payload: ""
-      - service: mqtt.publish
-        data:
           topic: "z2m_deconz/hue_white_5/get"
           payload: ""
       - service: mqtt.publish
@@ -421,19 +417,19 @@ automation:
         data:
           topic: "z2m_deconz/tradfri_1/get"
           payload: ""
-      - service: mqtt.publish
-        data:
-          topic: "z2m_deconz/light_hallway_main/get"
-          payload: ""
-      - service: mqtt.publish
-        data:
-          topic: "z2m_deconz/light_hallway_entrance/get"
-          payload: ""
-      - service: mqtt.publish
-        data:
-          topic: "z2m_deconz/light_kitchen_main/get"
-          payload: ""
-      - service: mqtt.publish
-        data:
-          topic: "z2m_deconz/light_kitchen_secondary/get"
-          payload: ""
+      # - service: mqtt.publish
+      #   data:
+      #     topic: "z2m_deconz/light_hallway_main/get"
+      #     payload: ""
+      # - service: mqtt.publish
+      #   data:
+      #     topic: "z2m_deconz/light_hallway_entrance/get"
+      #     payload: ""
+      # - service: mqtt.publish
+      #   data:
+      #     topic: "z2m_deconz/light_kitchen_main/get"
+      #     payload: ""
+      # - service: mqtt.publish
+      #   data:
+      #     topic: "z2m_deconz/light_kitchen_secondary/get"
+      #     payload: ""
