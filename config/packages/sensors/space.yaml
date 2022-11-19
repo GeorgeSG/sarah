@@ -1,5 +1,3 @@
 # https://www.home-assistant.io/integrations/sun
 sun:
 
-sensor:
-  - platform: moon

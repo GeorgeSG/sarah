@@ -28,22 +28,19 @@ script:
 
   tapo_bedroom_on:
     sequence:
-      - service: tapo_control.set_privacy_mode
-        entity_id: camera.bedroom_hd
+      - service: swtich.turn_off
+        entity_id: switch.bedroom_privacy
+      - service: input_select.select_option
+        entity_id: select.bedroom_move_to_preset
         data:
-          privacy_mode: "off"
-      - service: tapo_control.ptz
-        entity_id: camera.bedroom_hd
-        data:
-          preset: "live"
+          option: "live"
 
   tapo_bedroom_off:
     sequence:
-      - service: tapo_control.ptz
-        entity_id: camera.bedroom_hd
+      - service: input_select.select_option
+        entity_id: select.bedroom_move_to_preset
         data:
-          preset: "off"
-      - service: tapo_control.set_privacy_mode
-        entity_id: camera.bedroom_hd
-        data:
-          privacy_mode: "on"
+          option: "off"
+      - service: swtich.turn_on
+        entity_id: switch.bedroom_privacy
+

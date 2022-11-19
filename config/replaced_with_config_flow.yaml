@@ -4,6 +4,12 @@
 #   token: !secret hacs_github_token
 #   appdaemon: true
 
+# sensor:
+#   - platform: moon
+
+
+# - platform: uptime
+
 # https://www.home-assistant.io/integrations/mikrotik
 # mikrotik:
 #   - name: Mikrotik
