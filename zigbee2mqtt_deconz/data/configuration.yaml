@@ -1,5 +1,5 @@
-homeassistant: false
-permit_join: true
+homeassistant: true
+permit_join: false
 mqtt:
   base_topic: z2m_deconz
   server: mqtt://192.168.0.27
@@ -7,6 +7,8 @@ mqtt:
   password: '!secret password'
 serial:
   port: /dev/ttyACM0
+frontend:
+  port: 8083
 advanced:
   channel: 15
   log_level: info
@@ -78,8 +80,6 @@ devices:
   '0x00158d00042d163f':
     friendly_name: living_room_right_window
     retain: true
-  '0x00124b001f6fc6a2':
-    friendly_name: bed_led
   '0x00158d00040249c8':
     friendly_name: bedside_switch
   '0x00158d0002f24a63':
@@ -97,20 +97,11 @@ devices:
     friendly_name: opple_1
   '0x04cf8cdf3c794751':
     friendly_name: opple_2
-  '0x00158d00024f54bb':
-    friendly_name: neo_1
-    transition: 0.2
-  '0x00158d00024f5642':
-    friendly_name: neo_2
-    transition: 0.2
   '0x0017880109966274':
     friendly_name: hue_white_1
     transition: 0.2
   '0x00178801099664bf':
     friendly_name: hue_white_2
-    transition: 0.2
-  '0x0017880109964b77':
-    friendly_name: hue_white_4
     transition: 0.2
   '0x0017880108e9dbd2':
     friendly_name: hue_1
@@ -130,6 +121,7 @@ devices:
   '0x00178801090c52a7':
     friendly_name: hue_ambiance_1
     transition: 0.2
+    color_sync: true
   '0x00178801090f0bd4':
     friendly_name: hue_ambiance_2
     transition: 0.2
@@ -151,8 +143,6 @@ devices:
   '0x0017880109b16985':
     friendly_name: hue_ambiance_8
     transition: 0.2
-  '0x086bd7fffe075b7d':
-    friendly_name: '0x086bd7fffe075b7d'
   '0x00158d000800d341':
     friendly_name: terrarium_weather
     retain: true
