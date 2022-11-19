@@ -17,8 +17,6 @@ sensor:
       - "time"
       - "date"
 
-  - platform: uptime
-
   - platform: template
     sensors:
       sarah_url:
