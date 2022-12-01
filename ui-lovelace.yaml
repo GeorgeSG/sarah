@@ -14,35 +14,35 @@ views:
     path: default_view
     icon: "mdi:sofa"
     panel: true
-    background: 'top / 100% no-repeat url("/local/images/wallpapers/comic/iPhone/Media Room.jpg") #6b8988 fixed'
+    background: '#6b8988'
     cards: !include lovelace/home_dashboard/living_room_dashboard.yaml
     theme: sarah-noctis-grey
   - title: Bedroom
     path: bedroom
     icon: "mdi:bed-empty"
     panel: true
-    background: 'top / 100% no-repeat url("/local/images/wallpapers/comic/iPhone/Bedroom.jpg") #9489d1 fixed'
+    background: '#9489d1'
     cards: !include lovelace/home_dashboard/bedroom_dashboard.yaml
     theme: sarah-noctis-grey
   - title: Kitchen
     path: kitchen
     icon: "mdi:chef-hat"
     panel: true
-    background: 'top / 100% no-repeat url("/local/images/wallpapers/comic/iPhone/Kitchen.jpg") #bacd8c fixed'
+    background: '#bacd8c'
     cards: !include lovelace/home_dashboard/kitchen_dashboard.yaml
     theme: sarah-noctis-grey
   - title: Bathroom
     path: bathroom
     icon: "mdi:shower-head"
     panel: true
-    background: 'top / 100% no-repeat url("/local/images/wallpapers/comic/iPhone/Bathroom.jpg") #2982c4 fixed'
+    background: '#2982c4'
     cards: !include lovelace/home_dashboard/bathroom_dashboard.yaml
     theme: sarah-noctis-grey
   - title: Hallway
     path: hallway
     icon: "mdi:door-closed"
     panel: true
-    background: 'top / 100% no-repeat url("/local/images/wallpapers/comic/iPhone/Hallway.jpg") #b1633e fixed'
+    background: '#b1633e'
     cards: !include lovelace/home_dashboard/hallway_dashboard.yaml
     theme: sarah-noctis-grey
   - title: Terrarium
@@ -63,6 +63,6 @@ views:
     path: Preferences
     icon: "mdi:cogs"
     panel: true
-    background: 'top / 100% no-repeat url("/local/images/wallpapers/comic/iPhone/Work-Bench.jpg") #8aaec3 fixed'
+    background: '#8aaec3'
     cards: !include lovelace/home_dashboard/preferences_dashboard.yaml
     theme: sarah-noctis-grey
