@@ -3,13 +3,13 @@ switch:
     switches:
       tapo_bedroom:
         friendly_name: "Bedroom Camera"
-        value_template: "{{ is_state_attr('camera.bedroom_hd', 'privacy_mode', 'off') }}"
+        value_template: "{{ is_state('switch.bedroom_privacy', 'off') }}"
         turn_on:
           service: script.tapo_bedroom_on
         turn_off:
           service: script.tapo_bedroom_off
         icon_template: >
-          {%if state_attr('camera.bedroom_hd', 'privacy_mode') %}
+          {%if is_state('switch.bedroom_privacy', 'off') %}
             mdi:video
           {% else %}
             mdi:video-off
@@ -19,7 +19,7 @@ script:
   tapo_bedroom_toggle:
     sequence:
       - choose:
-        - conditions: "{{ is_state_attr('camera.bedroom_hd', 'privacy_mode', 'off') }}"
+        - conditions: "{{ is_state('switch.bedroom_privacy', 'on') }}"
           sequence:
             - service: script.tapo_bedroom_off
 
@@ -28,19 +28,19 @@ script:
 
   tapo_bedroom_on:
     sequence:
-      - service: swtich.turn_off
+      - service: switch.turn_off
         entity_id: switch.bedroom_privacy
-      - service: input_select.select_option
+      - service: select.select_option
         entity_id: select.bedroom_move_to_preset
         data:
-          option: "live"
+          option: away
+
 
   tapo_bedroom_off:
     sequence:
-      - service: input_select.select_option
+      - service: select.select_option
         entity_id: select.bedroom_move_to_preset
         data:
-          option: "off"
-      - service: swtich.turn_on
+          option: home
+      - service: switch.turn_on
         entity_id: switch.bedroom_privacy
-
