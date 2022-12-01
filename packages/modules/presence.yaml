@@ -97,14 +97,14 @@ automation:
     use_blueprint:
       path: arrival_detection.yaml
       input:
-        person: person.player_2
+        person: person.maya
         name: Maya
         input_boolean: input_boolean.player_2_home
 
   - alias: Presence · Player 2 Arrival best effort
     trigger:
       - platform: state
-        entity_id: person.player_2
+        entity_id: person.maya
         from: "not_home"
         to: "home"
         for: "00:10:00"
@@ -130,7 +130,7 @@ automation:
   - alias: Presence · Player 2 leaving
     trigger:
       - platform: state
-        entity_id: person.player_2
+        entity_id: person.maya
         from: "home"
         to: "not_home"
         for: "00:01:00"
