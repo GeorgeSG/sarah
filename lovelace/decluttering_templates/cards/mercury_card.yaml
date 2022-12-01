@@ -1,6 +1,7 @@
 mercury_card:
   default:
     - title:
+    - icon:
   card:
     type: entities
     style: |
