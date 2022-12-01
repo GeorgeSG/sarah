@@ -160,6 +160,12 @@
                 template: v3_button
                 entity: sensor.printer_status
                 name: Printer
+                variables:
+                  value_has_error: |
+                    [[[
+                      return states['sensor.printer_black_toner_remaining'].state < 10 ||
+                        states['sensor.printer_drum_remaining_pages'].state < 500
+                    ]]]
               - type: custom:button-card
                 template: v3_button_power
                 entity: switch.desk_outlet
