@@ -30,14 +30,15 @@
           - type: horizontal-stack
             cards:
               - type: custom:button-card
-                template: v3_badge_temp
+                template: v3_chip
                 entity: sensor.terrarium_weather_temperature
               - type: custom:button-card
-                template: v3_badge_humidity
+                template: v3_chip
                 entity: sensor.terrarium_weather_humidity
               - type: custom:button-card
-                template: v3_badge_icon
+                template: v3_chip_name
                 entity: binary_sensor.terrarium_cam_motion
+                name: Motion
           - type: custom:decluttering-card
             template: v3_section_title
             variables:

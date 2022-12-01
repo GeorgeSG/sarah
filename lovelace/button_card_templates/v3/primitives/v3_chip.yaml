@@ -1,0 +1,47 @@
+v3_chip:
+  variables:
+    state_size: 14px
+    background_color: 'var(--v3-background)'
+  show_name: false
+  show_icon: true
+  show_state: true
+  hold_action:
+    action: more-info
+  styles:
+    grid:
+      - grid-template-areas: '"i s"'
+      - grid-template-rows: 1fr
+    card:
+      - width: "[[[ return this.___config.show_state ? 'auto' : '38px' ]]]"
+      - height: 38px
+      - font-size: 19px
+      - border-radius: 20px
+      - padding: "[[[ return this.___config.show_state ? '0 10px' : '0' ]]]"
+      - box-shadow: none
+      - --ha-card-background: "[[[ return variables.background_color ]]]"
+      - border: 2px solid transparent
+    state:
+      - align-self: center
+      - text-overflow: initial
+      - font-weight: bold
+      - font-size: "[[[ return variables.state_size ]]]"
+      - padding-left: 7px
+    icon:
+      - position: initial
+      - width: 100%
+      - height: auto
+      - justify-self: center
+      - align-self: center
+      - --mdc-icon-size: 20px
+    entity_picture:
+      - width: auto
+      - height: 38px
+  state:
+    - value: 'on'
+      styles:
+        card:
+          - background-color: white
+          - color: black
+          - border: 2px solid white
+        icon:
+          - color: var(--primary-color)

@@ -30,25 +30,25 @@
           - type: horizontal-stack
             cards:
               - type: custom:button-card
-                template: v3_badge_temp
+                template: v3_chip
                 entity: sensor.hallway_weather_temperature
               - type: custom:button-card
-                template: v3_badge_humidity
+                template: v3_chip
                 entity: sensor.hallway_weather_humidity
-              - type: custom:button-card
-                template: v3_badge_icon
-                entity: group.hallway_motion
           - type: horizontal-stack
             cards:
               - type: custom:button-card
-                template: v3_badge_icon
-                entity: binary_sensor.hallway_motion_occupancy
-              - type: custom:button-card
-                template: v3_badge_icon
-                entity: binary_sensor.hallway_motion_2_occupancy
-              - type: custom:button-card
-                template: v3_badge_icon
+                template: v3_chip_name
                 entity: binary_sensor.front_door_contact
+                name: Front door
+              - type: custom:button-card
+                template: v3_chip_name
+                entity: binary_sensor.hallway_motion_occupancy
+                name: Motion
+              - type: custom:button-card
+                template: v3_chip_name
+                entity: binary_sensor.hallway_motion_2_occupancy
+                name: Motion 2
 
           - type: custom:decluttering-card
             template: v3_section_title

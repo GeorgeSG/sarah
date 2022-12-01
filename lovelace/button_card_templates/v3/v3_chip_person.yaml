@@ -1,0 +1,13 @@
+v3_chip_person:
+  template: v3_chip
+  show_state: false
+  show_entity_picture: true
+  show_name: false
+  hold_action:
+    action: more-info
+  state:
+    - value: 'off'
+      styles:
+        card:
+          - filter: grayscale(100%)
+          - border-color: black

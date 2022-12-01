@@ -30,29 +30,29 @@
           - type: horizontal-stack
             cards:
               - type: custom:button-card
-                template: v3_badge_temp
+                template: v3_chip
                 entity: sensor.bedroom_weather_temperature
-                state_display: "[[[return entity.state.split(' ')[0] + '°']]]"
               - type: custom:button-card
-                template: v3_badge_humidity
+                template: v3_chip
                 entity: sensor.bedroom_weather_humidity
               - type: custom:button-card
-                template: v3_badge
+                template: v3_chip
                 entity: sensor.purifier_air_quality
                 state_display: "[[[return entity.state.split(' ')[0] + ' pm2.5']]]"
-                variables:
-                  state_size: "11px"
           - type: horizontal-stack
             cards:
               - type: custom:button-card
-                template: v3_badge_icon
+                template: v3_chip_name
                 entity: binary_sensor.bedroom_left_window_contact
+                name: Left window
               - type: custom:button-card
-                template: v3_badge_icon
+                template: v3_chip_name
                 entity: binary_sensor.bedroom_right_window_contact
+                name: Right window
               - type: custom:button-card
-                template: v3_badge_icon
+                template: v3_chip_name
                 entity: binary_sensor.bedroom_door_contact
+                name: Door
 
           - type: custom:decluttering-card
             template: v3_section_title

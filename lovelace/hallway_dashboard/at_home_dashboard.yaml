@@ -19,80 +19,66 @@ card:
     # Column 1
     - type: vertical-stack
       cards:
+        - type: 'custom:simple-clock-card'
+          hide_seconds: true
+          font_size: 4rem
+          padding_size: 0px
+          style: |
+            ha-card {
+              background: none;
+              box-shadow: none;
+              margin-top: 30px;
+              text-align: left;
+            }
+
         - type: horizontal-stack
           cards:
             - type: custom:button-card
-              template: v3_button_person
+              template: v3_chip_person
               entity: input_boolean.georgi_home
-              styles:
-                card:
-                  - background-image: url("/local/images/people/georgi.jpg")
+              entity_picture: /local/images/people/georgi.jpg
             - type: custom:button-card
-              template: v3_button_person
+              template: v3_chip_person
               entity: input_boolean.player_2_home
-              styles:
-                card:
-                  - background-image: url("/local/images/people/maya.jpg")
-            # - type: custom:button-card
-            #   template: v3_button_person
-            #   entity: input_boolean.player_2_home
-            #   styles:
-            #     card:
-            #       - background-image: url("/local/images/people/milena.jpg")
+              entity_picture: /local/images/people/maya.jpg
             - type: custom:button-card
-              template: v3_badge_temp
+              template: v3_chip
               entity: sensor.average_temperature
+              icon: mdi:thermometer
             - type: custom:button-card
-              template: v3_badge_humidity
+              template: v3_chip
               entity: sensor.average_humidity
+              icon: mdi:water-percent
+        - type: horizontal-stack
+          cards:
             - type: custom:button-card
-              template: v3_badge_icon
+              template: v3_chip_name
               entity: group.all_motion_sensors
               icon: |
                 [[[
                   return entity.state === 'off' ? 'mdi:motion-sensor-off' : 'mdi:motion-sensor';
                 ]]]
+              name: Motion
               tap_action:
                 action: more-info
             - type: custom:button-card
-              template: v3_badge_icon
+              template: v3_chip_entity_count
               entity: sensor.open_window_count
+              variables:
+                entity_type: window
               icon: |
                 [[[
                   return entity.state === 0 ? 'mdi:window-closed' : 'mdi:window-open';
                 ]]]
-              state:
-                - value: 0
-                  operator: '!='
-                  styles:
-                    card:
-                      - background-color: 'white'
-                    icon:
-                      - color: var(--primary-color)
             - type: custom:button-card
-              template: v3_badge_icon
+              template: v3_chip_entity_count
               entity: sensor.open_door_count
+              variables:
+                entity_type: door
               icon: |
                 [[[
                   return entity.state === 0 ? 'mdi:door-closed' : 'mdi:door-open';
                 ]]]
-              state:
-                - value: 0
-                  operator: '!='
-                  styles:
-                    card:
-                      - background-color: 'white'
-                    icon:
-                      - color: var(--primary-color)
-
-        - type: 'custom:simple-clock-card'
-          hide_seconds: true
-          font_size: 2rem
-          padding_size: 10px
-          style: |
-            ha-card {
-              margin-top: 10px;
-            }
 
         - type: custom:decluttering-card
           template: v3_section_title
@@ -148,6 +134,15 @@ card:
         - type: horizontal-stack
           cards:
             - type: custom:button-card
+              template: v3_tablet_button
+              entity: media_player.master_bedroom
+              name: Sonos
+              hold_action:
+                action: call-service
+                service: media_player.media_play_pause
+                service_data:
+                  entity_id: media_player.master_bedroom
+            - type: custom:button-card
               template: [v3_button_cover, v3_tablet_button]
               entity: cover.living_room
               name: LR Blinds
@@ -158,10 +153,6 @@ card:
               template: [v3_button_purifier, v3_tablet_button]
               entity: fan.philips_airpurifier
               name: Air Purifier
-            - type: custom:button-card
-              template: v3_tablet_button
-              entity: vacuum.vacuum
-              name: Vacuum
             - type: custom:button-card
               template: v3_button_brita_water
               variables:
@@ -189,6 +180,13 @@ card:
     # Column 2
     - type: vertical-stack
       cards:
+        - type: custom:weather-card
+          entity: weather.dark_sky
+          forecast: false
+        - type: markdown
+          content: >-
+            {% set forecast = states('sensor.dark_sky_hourly_summary') %}
+            {{ forecast }}
         - type: custom:decluttering-card
           template: v3_section_title
           variables:
@@ -196,148 +194,51 @@ card:
         - type: horizontal-stack
           cards:
             - type: custom:button-card
-              template: v3_tablet_button
+              template: v3_xs_button
               entity: light.living_room
               name: Living room
             - type: custom:button-card
-              template: v3_tablet_button
+              template: v3_xs_button
               entity: light.living_room_main
               name: Main
             - type: custom:button-card
-              template: v3_tablet_button
+              template: v3_xs_button
               entity: light.hue_ambiance_7
             - type: custom:button-card
-              template: v3_tablet_button
+              template: v3_xs_button
               entity: light.living_room_ambient
               name: Ambient
         - type: horizontal-stack
           cards:
             - type: custom:button-card
-              template: v3_tablet_button
+              template: v3_xs_button
               entity: light.master_bedroom
               name: Bedroom
             - type: custom:button-card
-              template: v3_tablet_button
+              template: v3_xs_button
               entity: light.master_bedroom_main
               name: Main
             - type: custom:button-card
-              template: v3_tablet_button
+              template: v3_xs_button
               entity: light.bedside
               name: Bedside
             - type: custom:button-card
-              template: v3_tablet_button
+              template: v3_xs_button
               entity: light.kitchen
               name: Kitchen
         - type: horizontal-stack
           cards:
             - type: custom:button-card
-              template: v3_tablet_button
+              template: v3_xs_button
               entity: light.hallway_main
               name: Hallway
             - type: custom:button-card
-              template: v3_tablet_button
+              template: v3_xs_button
               entity: light.hallway_entrance
               name: Entrance
             - type: custom:button-card
-              template: v3_tablet_button
+              template: v3_xs_button
               entity: light.tradfri_large
               name: G. Bedroom
-
-        - type: custom:decluttering-card
-          template: v3_section_title
-          variables:
-            - title: Media
-
-        - type: horizontal-stack
-          cards:
-            - type: custom:button-card
-              template: v3_xs_button
-              entity: media_player.master_bedroom
-              name: Sonos
-              hold_action:
-                action: call-service
-                service: media_player.media_play_pause
-                service_data:
-                  entity_id: media_player.kitchen
-            - type: custom:button-card
-              template: v3_xs_button
-              show_state: false
-              entity: script.sonos_volume_10
-              icon: mdi:volume-medium
-              name: Vol 10
-              tap_action:
-                action: call-service
-                service: script.sonos_volume_10
-            - type: custom:button-card
-              template: v3_xs_button
-              show_state: false
-              entity: script.sonos_volume_20
-              icon: mdi:volume-high
-              name: Vol 20
-              tap_action:
-                action: call-service
-                service: script.sonos_volume_20
-            - type: custom:button-card
-              template: v3_xs_button
-              entity: binary_sensor.sonos_is_bedroom_master
-              name: Bedroom
-              icon: mdi:speaker-multiple
-              tap_action:
-                action: call-service
-                service: script.sonos_join_bedroom
-            - type: custom:button-card
-              template: v3_xs_button
-              entity: binary_sensor.sonos_is_living_room_master
-              name: TV
-              icon: mdi:speaker-multiple
-              tap_action:
-                action: call-service
-                service: script.sonos_join_tv
-        - type: horizontal-stack
-          cards:
-            - type: custom:button-card
-              template: v3_xs_button
-              entity: script.music_play
-              name: Chill
-              icon: mdi:music
-              tap_action:
-                action: toggle
-            - type: custom:button-card
-              template: v3_xs_button
-              entity: script.music_play
-              name: Chill 2
-              icon: mdi:music
-              tap_action:
-                action: call-service
-                service: script.music_play
-                service_data:
-                  playlist: "Songs for a Romantic Evening"
-                  shuffle: true
-                  volume_level: 0.1
-            - type: custom:button-card
-              template: v3_xs_button
-              entity: script.music_play
-              name: Jazz
-              icon: mdi:music
-              tap_action:
-                action: call-service
-                service: script.music_play
-                service_data:
-                  playlist: "Smooth Romantic Evening"
-                  shuffle: true
-                  volume_level: 0.1
-            - type: custom:button-card
-              template: v3_xs_button
-              entity: script.music_play
-              name: Retro
-              icon: mdi:music
-              tap_action:
-                action: call-service
-                service: script.music_play
-                service_data:
-                  playlist: "Retro"
-              styles:
-                card:
-                  - margin-bottom: 8px
 
     - !include ../popup_cards.yaml

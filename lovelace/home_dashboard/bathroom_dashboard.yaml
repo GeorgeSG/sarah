@@ -31,10 +31,10 @@
           - type: horizontal-stack
             cards:
               - type: custom:button-card
-                template: v3_badge_temp
+                template: v3_chip
                 entity: sensor.bathroom_weather_temperature
               - type: custom:button-card
-                template: v3_badge_humidity
+                template: v3_chip
                 entity: sensor.bathroom_weather_humidity
 
           - type: custom:decluttering-card

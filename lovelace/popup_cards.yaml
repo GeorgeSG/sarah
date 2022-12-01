@@ -17,7 +17,7 @@ cards:
         - type: glance
           entities:
             - entity: binary_sensor.kitchen_motion_occupancy
-            - entity: sensor.kitchen_motion_illuminance
+            - entity: sensor.kitchen_motion_illuminance_lux
             - entity: sensor.kitchen_motion_battery
         - type: "custom:mini-graph-card"
           animate: true
@@ -28,7 +28,7 @@ cards:
             average: true
             extrema: true
           entities:
-            - entity: sensor.kitchen_motion_illuminance
+            - entity: sensor.kitchen_motion_illuminance_lux
 
   - type: custom:popup-card
     entity: group.hallway_motion
@@ -40,7 +40,7 @@ cards:
           entities:
             - entity: binary_sensor.hallway_motion_occupancy
             - entity: binary_sensor.hallway_motion_2_occupancy
-            - entity: sensor.hallway_motion_illuminance
+            - entity: sensor.hallway_motion_illuminance_lux
             - entity: sensor.hallway_motion_battery
 
         - type: "custom:mini-graph-card"
@@ -52,7 +52,7 @@ cards:
             average: true
             extrema: true
           entities:
-            - entity: sensor.hallway_motion_illuminance
+            - entity: sensor.hallway_motion_illuminance_lux
 
   - type: custom:popup-card
     entity: sensor.mercury_temperature

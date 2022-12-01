@@ -1,0 +1,30 @@
+v3_chip_name:
+  template: v3_chip
+  show_state: false
+  show_entity_picture: false
+  show_icon: true
+  show_name: true
+  hold_action:
+    action: more-info
+  styles:
+    card:
+      - width: "[[[ return this.___config.show_name ? 'auto' : '38px' ]]]"
+      - padding: "[[[ return this.___config.show_name ? '0 10px' : '0' ]]]"
+      - border: 2px solid transparent
+    grid:
+      - grid-template-areas: '"i n"'
+      - grid-template-rows: 1fr
+    icon:
+      - position: initial
+      - width: 100%
+      - height: auto
+      - justify-self: center
+      - align-self: center
+      - --mdc-icon-size: 20px
+    name:
+      - align-self: center
+      - text-overflow: initial
+      - font-weight: bold
+      - font-size: "[[[ return variables.state_size ]]]"
+      - padding-left: 7px
+      - width: auto

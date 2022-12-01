@@ -26,88 +26,66 @@ card:
         - type: markdown
           content: !include ../../templates/partials/tasks.yaml
 
+        - type: 'custom:simple-clock-card'
+          hide_seconds: true
+          font_size: 4rem
+          padding_size: 0px
+          style: |
+            ha-card {
+              background: none;
+              box-shadow: none;
+              margin-top: 30px;
+              text-align: left;
+            }
+
         - type: horizontal-stack
           cards:
             - type: custom:button-card
-              template: v3_button_person
+              template: v3_chip_person
               entity: input_boolean.georgi_home
-              styles:
-                card:
-                  - background-image: url("/local/images/people/georgi.jpg")
+              entity_picture: /local/images/people/georgi.jpg
             - type: custom:button-card
-              template: v3_button_person
+              template: v3_chip_person
               entity: input_boolean.player_2_home
-              styles:
-                card:
-                  - background-image: url("/local/images/people/maya.jpg")
-            # - type: custom:button-card
-            #   template: v3_button_person
-            #   entity: input_boolean.player_2_home
-            #   styles:
-            #     card:
-            #       - background-image: url("/local/images/people/milena.jpg")
+              entity_picture: /local/images/people/maya.jpg
             - type: custom:button-card
-              template: v3_badge_temp
+              template: v3_chip
               entity: sensor.average_temperature
+              icon: mdi:thermometer
             - type: custom:button-card
-              template: v3_badge_humidity
+              template: v3_chip
               entity: sensor.average_humidity
+              icon: mdi:water-percent
+        - type: horizontal-stack
+          cards:
             - type: custom:button-card
-              template: v3_badge_icon
+              template: v3_chip_name
               entity: group.all_motion_sensors
               icon: |
                 [[[
                   return entity.state === 'off' ? 'mdi:motion-sensor-off' : 'mdi:motion-sensor';
                 ]]]
+              name: Motion
               tap_action:
                 action: more-info
-              state:
-                - value: 0
-                  operator: '!='
-                  styles:
-                    card:
-                      - background-color: 'white'
-                    icon:
-                      - color: var(--primary-color)
             - type: custom:button-card
-              template: v3_badge_icon
+              template: v3_chip_entity_count
               entity: sensor.open_window_count
+              variables:
+                entity_type: window
               icon: |
                 [[[
                   return entity.state === 0 ? 'mdi:window-closed' : 'mdi:window-open';
                 ]]]
-              state:
-                - value: 0
-                  operator: '!='
-                  styles:
-                    card:
-                      - background-color: 'white'
-                    icon:
-                      - color: var(--primary-color)
             - type: custom:button-card
-              template: v3_badge_icon
+              template: v3_chip_entity_count
               entity: sensor.open_door_count
+              variables:
+                entity_type: door
               icon: |
                 [[[
                   return entity.state === 0 ? 'mdi:door-closed' : 'mdi:door-open';
                 ]]]
-              state:
-                - value: 0
-                  operator: '!='
-                  styles:
-                    card:
-                      - background-color: 'white'
-                    icon:
-                      - color: var(--primary-color)
-
-        - type: 'custom:simple-clock-card'
-          hide_seconds: true
-          font_size: 2rem
-          padding_size: 10px
-          style: |
-            ha-card {
-              margin-top: 10px;
-            }
 
         - type: custom:decluttering-card
           template: v3_section_title
