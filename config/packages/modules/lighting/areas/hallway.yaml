@@ -28,9 +28,9 @@ automation:
             entity_id:
               - light.hue_white_1
               - light.hue_1
-              - light.browser_hallway
             data:
               brightness_pct: 1
+          - service: script.browser_hallway_low
 
   - alias: Lighting · Hallway · Motion Off
     trigger:
@@ -48,10 +48,7 @@ automation:
           sequence:
             - service: light.turn_off
               entity_id: light.hallway
-            - service: light.turn_on
-              entity_id: light.browser_hallway
-              data:
-                brightness_pct: 1
+            - service: script.browser_hallway_low
         # Turn off in Night Mode
         default:
           - service: light.turn_off
@@ -59,7 +56,4 @@ automation:
               - light.hue_white_1
               - light.hue_1
               - light.hallway
-          - service: light.turn_on
-            entity_id: light.browser_hallway
-            data:
-              brightness_pct: 1
+          - service: script.browser_hallway_low

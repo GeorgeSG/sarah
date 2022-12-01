@@ -46,12 +46,7 @@ script:
           - switch.cadmium
           - group.all_radiators
 
-      - service: light.turn_on
-        entity_id:
-          - light.browser_kitchen
-          - light.browser_hallway
-        data:
-          brightness_pct: 1
+      - service: script.browsers_low
 
       - service: cover.close_cover
         entity_id: cover.living_room

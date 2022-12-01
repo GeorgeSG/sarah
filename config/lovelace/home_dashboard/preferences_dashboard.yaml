@@ -111,6 +111,8 @@
               - type: divider
               - automation.tv_plex_setup_house_for_plex
               - automation.tv_plex_restore_house_after_plex
+              - light.browser_hallway
+              - light.browser_kitchen
 
       - type: vertical-stack
         cards:

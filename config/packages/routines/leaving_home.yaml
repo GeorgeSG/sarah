@@ -19,12 +19,8 @@ script:
           - media_player.kitchen
           - media_player.living_room
 
-      - service: light.turn_on
-        entity_id:
-          - light.browser_hallway
-          - light.browser_kitchen
-        data:
-          brightness_pct: 1
+      - service: script.browsers_low
+
       - service: input_select.select_option
         entity_id: input_select.hallway_dashboard_mode
         data:

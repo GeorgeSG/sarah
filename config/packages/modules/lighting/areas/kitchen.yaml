@@ -42,9 +42,9 @@ automation:
             entity_id:
               - light.hue_ambiance_6
               - light.hue_ambiance_1
-              - light.browser_kitchen
             data:
               brightness_pct: 1
+          - service: script.browser_kitchen_low
 
   - alias: Lighting · Kitchen · Night · Motion off
     trigger:
@@ -73,10 +73,7 @@ automation:
           - light.hue_ambiance_1
           - light.kitchen_main
           - light.kitchen_secondary
-      - service: light.turn_on
-        entity_id: light.browser_kitchen
-        data:
-          brightness_pct: 1
+      - service: script.browser_kitchen_low
 
   - alias: Lighting · Kitchen · Day · Motion off
     trigger:
@@ -93,7 +90,4 @@ automation:
       # Turn off in Day Mode
       - service: light.turn_off
         entity_id: light.kitchen
-      - service: light.turn_on
-        entity_id: light.browser_kitchen
-        data:
-          brightness_pct: 1
+      - service: script.browser_kitchen_low
