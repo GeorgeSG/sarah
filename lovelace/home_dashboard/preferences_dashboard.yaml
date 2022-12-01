@@ -26,7 +26,7 @@
           - type: custom:decluttering-card
             template: v3_title
             variables:
-              - title: Preferences
+              - title: ⚙️ Preferences
           - type: horizontal-stack
             cards:
               - type: custom:button-card
@@ -78,13 +78,8 @@
                 name: G. Bedroom Occupied
               - type: custom:button-card
                 template: v3_button
-                entity: input_select.guest_bedroom_mode
-                name: G. Bedroom
-                tap_action:
-                  action: call-service
-                  service: input_select.select_next
-                  service_data:
-                    entity_id: input_select.guest_bedroom_mode
+                entity: switch.mercury_home_mode
+                name: Mercury Home mode
 
           - type: horizontal-stack
             cards:
@@ -93,10 +88,6 @@
                 entity: binary_sensor.pi_hole_enabled
                 name: Pi-Hole
                 icon: mdi:pi-hole
-              - type: custom:button-card
-                template: v3_button
-                entity: switch.mercury_home_mode
-                name: Mercury
 
           - type: custom:decluttering-card
             template: v3_section_title
@@ -105,25 +96,37 @@
           - type: entities
             entities:
               - input_number.global_light_temp
+              - input_number.guest_bedroom_light_temp
+              - automation.tv_plex_setup_house_for_plex
+              - automation.tv_plex_restore_house_after_plex
+
+      - type: vertical-stack
+        cards:
           - type: custom:decluttering-card
             template: v3_section_title
             variables:
               - title: Media
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                template: v3_button
+                entity: input_boolean.coming_home_play_music
+                name: Coming home music
+              - type: custom:button-card
+                template: v3_button
+                entity: light.browser_hallway
+                name: Hallway Dashboard
+              - type: custom:button-card
+                template: v3_button
+                entity: light.browser_kitchen
+                name: Kitchen Dashboard
           - type: entities
             entities:
-              - input_boolean.coming_home_play_music
               - type: divider
-              - input_number.bathroom_high_volume
-              - input_number.wake_up_volume
               - input_text.wake_up_spotify_playlist
-              - type: divider
-              - automation.tv_plex_setup_house_for_plex
-              - automation.tv_plex_restore_house_after_plex
-              - light.browser_hallway
-              - light.browser_kitchen
+              - input_number.wake_up_volume
+              - input_number.bathroom_high_volume
 
-      - type: vertical-stack
-        cards:
           - type: custom:decluttering-card
             template: v3_section_title
             variables:
@@ -141,7 +144,8 @@
               - type: custom:button-card
                 template: v3_button
                 entity: script.turn_on_all_radiators
-                name: Turn On Radiators
+                name: Turn on all radiators
+                show_state: false
 
           - type: entities
             show_header_toggle: false
@@ -152,15 +156,5 @@
               - input_number.toshiba_cool_temp
               - input_number.toshiba_trigger_temp
 
-
-          - type: custom:decluttering-card
-            template: v3_section_title
-            variables:
-              - title: Preferences Milena
-          - type: horizontal-stack
-            cards:
-              - type: custom:button-card
-                template: v3_button
-                entity: input_number.guest_bedroom_light_temp
 
       - !include ../popup_cards.yaml

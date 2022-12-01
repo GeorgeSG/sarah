@@ -38,7 +38,7 @@ views:
             - type: custom:decluttering-card
               template: v3_title
               variables:
-                - title: Kitchen
+                - title: 🧑‍🍳 Kitchen
             - type: horizontal-stack
               cards:
                 - type: custom:button-card

@@ -26,7 +26,7 @@
           - type: custom:decluttering-card
             template: v3_title
             variables:
-              - title: Hallway
+              - title: 🗝️ Hallway
           - type: horizontal-stack
             cards:
               - type: custom:button-card

@@ -26,38 +26,34 @@
           - type: custom:decluttering-card
             template: v3_title
             variables:
-              - title: Living room
+              - title: 📺 Living room
           - type: horizontal-stack
             cards:
               - type: custom:button-card
-                template: v3_badge_temp
+                template: v3_chip
+                entity: input_boolean.georgi_home
+                entity_picture: /local/images/people/georgi.jpg
+                show_state: false
+              - type: custom:button-card
+                template: v3_chip
+                entity: input_boolean.player_2_home
+                entity_picture: /local/images/people/maya.jpg
+                show_state: false
+              - type: custom:button-card
+                template: v3_chip
+                entity: binary_sensor.living_room_right_window_contact
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                template: v3_chip
                 entity: sensor.multisensor_6_temperature
               - type: custom:button-card
-                template: v3_badge_humidity
+                template: v3_chip
                 entity: sensor.multisensor_6_relative_humidity
               - type: custom:button-card
-                template: v3_badge
+                template: v3_chip
                 entity: sensor.aqara_tvoc_voc
-          - type: horizontal-stack
-            cards:
-              - type: custom:button-card
-                template: v3_button_person
-                entity: input_boolean.georgi_home
-                styles:
-                  card:
-                    - background-image: url("/local/images/people/georgi.jpg")
-              - type: custom:button-card
-                template: v3_button_person
-                entity: input_boolean.player_2_home
-                styles:
-                  card:
-                    - background-image: url("/local/images/people/maya.jpg")
-              - type: custom:button-card
-                template: v3_badge_icon
-                entity: binary_sensor.toshiba_ac_conditions_met
-              - type: custom:button-card
-                template: v3_badge_icon
-                entity: binary_sensor.living_room_right_window_contact
+                icon: mdi:weather-windy
 
           - type: custom:decluttering-card
             template: v3_section_title

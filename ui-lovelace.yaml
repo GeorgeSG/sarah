@@ -28,7 +28,7 @@ views:
     path: kitchen
     icon: "mdi:chef-hat"
     panel: true
-    background: '#bacd8c'
+    background: '#8c9a6c'
     cards: !include lovelace/home_dashboard/kitchen_dashboard.yaml
     theme: sarah-noctis-grey
   - title: Bathroom

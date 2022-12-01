@@ -26,7 +26,7 @@
           - type: custom:decluttering-card
             template: v3_title
             variables:
-              - title: Bathroom
+              - title: 🛀 Bathroom
 
           - type: horizontal-stack
             cards:
