@@ -6,8 +6,6 @@ homeassistant:
   unit_system: metric
   time_zone: Europe/Sofia
   packages: !include_dir_named packages
-  allowlist_external_dirs:
-    - /www/audio/youtube
 
 #
 # ─── HOME ASSISTANT COMPONENTS ENABLED ──────────────────────────────────────────
