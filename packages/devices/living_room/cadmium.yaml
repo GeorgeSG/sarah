@@ -12,22 +12,13 @@ binary_sensor:
         value_template: >-
           {{ is_state("binary_sensor.cadmium_ping", "on") }}
         icon_template: >-
-          {{ is_state("binary_sensor.cadmium_ping", "on") | iif(' mdi:desktop-mac-dashboard', 'mdi:desktop-mac') }}
+          {{ is_state("binary_sensor.cadmium_ping", "on") | iif(' mdi:desktop-mac-dashboard', 'mdi:monitor') }}
 
 #
 # ─── IOTLink ──────────────────────────────────────────────────────────────
 #
 
 mqtt:
-    # binary_sensor:
-    # - name: "Cadmium playing"
-    #   availability_topic: "iotlink/workgroup/cadmium/lwt"
-    #   payload_available: "ON"
-    #   payload_not_available: "OFF"
-    #   payload_on: "True"
-    #   payload_off: "False"
-    #   state_topic: "iotlink/workgroup/cadmium/windows-monitor/stats/media/playing"
-
   sensor:
     - name: "Cadmium uptime"
       icon: mdi:clock-check
@@ -122,15 +113,6 @@ mqtt:
       unit_of_measurement: "GB"
 
 
-    # # Media
-    # - name: "Cadmium volume"
-    #   icon: mdi:volume-medium
-    #   availability_topic: "iotlink/workgroup/cadmium/lwt"
-    #   payload_available: "ON"
-    #   payload_not_available: "OFF"
-    #   state_topic: "iotlink/workgroup/cadmium/windows-monitor/stats/media/volume"
-
-
 switch:
   - platform: template
     switches:
@@ -168,22 +150,6 @@ script:
         data:
           topic: "iotlink/workgroup/cadmium/commands/lock"
           payload: ""
-
-  # cadmium_vol_mute:
-  #   alias: Cadmium · Toggle Mute
-  #   sequence:
-  #     - service: mqtt.publish
-  #       data:
-  #         topic: "iotlink/workgroup/cadmium/commands/volume/mute"
-  #         payload: ""
-
-  # cadmium_set_volume:
-  #   alias: Cadmium · Set volume
-  #   sequence:
-  #     - service: mqtt.publish
-  #       data_template:
-  #         topic: "iotlink/workgroup/cadmium/commands/volume/set"
-  #         payload: "{{ volume | default(30) }}"
 
   cadmium_displays_on:
     alias: Cadmium · Displays ON
