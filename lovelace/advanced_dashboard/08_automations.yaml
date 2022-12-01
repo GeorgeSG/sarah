@@ -184,7 +184,7 @@ cards:
             - automation.cliamate_air_quality_turn_on_purifier_in_bedroom_on_window_open
             - type: divider
             - script.turn_on_all_radiators
-            - automation.climate_heating_turn_on_all_radiators_at_5_am
+            - automation.climate_heating_adjust_temperature_based_on_time
             - automation.climate_heating_link_living_room_radiator_to_windows
             - type: divider
             - automation.climate_ac_turn_on_if_hot

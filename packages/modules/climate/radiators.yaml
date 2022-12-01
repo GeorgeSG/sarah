@@ -63,27 +63,41 @@ script:
         - condition: state
           entity_id: binary_sensor.someone_home
           state: "on"
-      - service: script.maybe_turn_radiator_on
-        data:
-          entity_id: climate.living_room_radiator_mode
-      - service: script.maybe_turn_radiator_on
-        data:
-          entity_id: climate.bedroom_radiator_mode
-      - service: script.maybe_turn_radiator_on
-        data:
-          entity_id: climate.kitchen_radiator_mode
+      - service: climate.turn_on
+        entity_id:
+          - climate.bedroom_radiator_mode
+          - climate.living_room_radiator_mode
+          - climate.kitchen_radiator_mode
+      - service: climate.set_temperature
+        entity_id:
+           - climate.bedroom_radiator_mode
+           - climate.living_room_radiator_mode
+           - climate.kitchen_radiator_mode
+        data_template:
+          temperature: "{{ states('input_number.radiators_temperature') | int | default(25) }}"
 
 automation:
-  - alias: Climate · Heating · Turn on all radiators at 5 am
+  - alias: Climate · Heating · Adjust temperature based on time
     trigger:
-      platform: time
-      at: "05:00:00"
+      - platform: time
+        at: "05:00:00"
+        id: "25"
+      - platform: time
+        at: "11:00:00"
+        id: "23"
+      - platform: time
+        at: "16:00:00"
+        id: "22"
     action:
+      - service: input_number.set_value
+        entity_id: input_number.radiators_temperature
+        data_template:
+          value: "{{ trigger.id | float }}"
       - service: script.turn_on_all_radiators
       - service: logbook.log
-        data:
+        data_template:
           name: "💨 Climate module · "
-          message: "Heating On · All rooms · 5 AM"
+          message: "Heating On · All rooms · {{ trigger.id }} degrees"
           domain: climate
 
   - alias: Climate · Heating · Link living room radiator to windows
