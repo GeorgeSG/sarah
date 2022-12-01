@@ -16,8 +16,8 @@ v3_scene:
     action: more-info
   styles:
     card:
-      - width: 250px
-      - height: 60px
+      - width: 200px
+      - height: 50px
       - font-size: 15px
       - box-shadow: none
       - background: >
@@ -41,8 +41,9 @@ v3_scene:
       - align-items: center
     name:
       - position: absolute
-      - top: 22px
+      - top: 18px
       - left: 60px
       - width: 180px
       - font-weight: bold
       - text-align: left
+      - text-shadow: 1px 1px 1px rgba(0, 0, 0, 1)
