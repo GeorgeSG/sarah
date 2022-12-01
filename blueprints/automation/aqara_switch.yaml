@@ -16,11 +16,11 @@ trigger:
 
 action:
   - choose:
-    - conditions: "{{ trigger.payload_json.click == 'single' }}"
+    - conditions: "{{ trigger.payload == 'single' }}"
       sequence: !input click
 
-    - conditions: "{{ trigger.payload_json.click == 'double' }}"
+    - conditions: "{{ trigger.payload == 'double' }}"
       sequence: !input double_click
 
-    - conditions: "{{ trigger.payload_json.action == 'hold' }}"
+    - conditions: "{{ trigger.payload == 'hold' }}"
       sequence: !input hold

@@ -11,6 +11,7 @@ automation:
     mode: parallel
     trigger:
       platform: state
+      to: "on"
       entity_id:
         - light.living_room_main
         - light.pc

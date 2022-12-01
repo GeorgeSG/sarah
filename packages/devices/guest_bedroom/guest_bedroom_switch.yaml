@@ -23,7 +23,7 @@
 #     use_blueprint:
 #       path: aqara_switch.yaml
 #       input:
-#         z2m_topic: "z2m_deconz/bedroom_wall_switch"
+#         z2m_topic: "z2m_deconz/bedroom_wall_switch/action"
 #         click:
 #           - choose:
 #             - conditions:
