@@ -11,7 +11,10 @@
   {% set vacuum_dirty      = states('sensor.roborock_vacuum_s5_sensor_dirty_left')|int(-1) == 0 %}
   {% set has_vacuum_tasks = vacuum_main_brush or vacuum_side_brush or vacuum_filter or vacuum_dirty %}
 
-  {% set has_tasks  = brita_filter or has_purifier_tasks or has_vacuum_tasks %}
+  {% set printer_toner = states('sensor.printer_black_toner_remaining')|int(-1) < 10 %}
+  {% set printer_drum   = states('sensor.printer_drum_remaining_pages')|int(-1) < 500 %}
+
+  {% set has_tasks  = brita_filter or has_purifier_tasks or has_vacuum_tasks or printer_toner or printer_drum %}
 
   {%- if has_tasks -%}  {{
     [
@@ -28,3 +31,5 @@
   {% if vacuum_side_brush %} Vacuum side brush needs changing. {%- endif -%}
   {% if vacuum_filter %} Vacuum filter needs changing. {%- endif -%}
   {% if vacuum_dirty %} Vacuum sensor needs cleaning. {%- endif -%}
+  {% if printer_toner %} Printer toner below 10%. {%- endif -%}
+  {% if printer_drum %} Printer drum below 500 pages. {%- endif -%}
