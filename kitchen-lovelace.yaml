@@ -55,7 +55,7 @@ views:
                   entity: binary_sensor.kitchen_window_contact
                 - type: custom:button-card
                   template: v3_badge_icon
-                  entity: binary_sensor.kitchen_door_contact
+                  entity: binary_sensor.kitchen_door
 
             - type: custom:decluttering-card
               template: v3_section_title

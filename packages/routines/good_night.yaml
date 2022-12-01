@@ -36,10 +36,8 @@ script:
         entity_id:
           - light.living_room
           - light.master_bedroom
-          - light.kitchen_main
-          - light.kitchen_secondary
-          - light.hallway_main
-          - light.hallway_entrance
+          - light.kitchen
+          - light.hallway
           - light.tradfri_large
           - media_player.nvidia_shield
           - media_player.living_room_tv

@@ -16,9 +16,7 @@ script:
     alias: Routine · Waking up
     sequence:
       - service: light.turn_on
-        entity_id:
-          - light.hallway_main
-          - light.hallway_entrance
+        entity_id: light.hallway
         data:
           brightness_pct: 100
 

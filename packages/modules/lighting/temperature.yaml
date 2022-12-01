@@ -16,8 +16,7 @@ automation:
         - light.living_room_main
         - light.hue_ambiance_7
         - light.master_bedroom_main
-        - light.kitchen_main
-        - light.kitchen_secondary
+        - light.kitchen
     action:
       - service: light.turn_on
         data_template:

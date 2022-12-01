@@ -61,9 +61,7 @@ automation:
     use_blueprint:
       path: light_on_set_temperature.yaml
       input:
-        light:
-          - light.kitchen_main
-          - light.kitchen_secondary
+        light: light.kitchen
         day_temp: 153
         evening_temp: 153
         night_temp: 153

@@ -25,68 +25,65 @@ light:
       - light.living_room_ambient_main
       - light.light_lohas_2
 
-  - platform: group
-    name: Master bedroom main
-    entities:
-      - light.hue_2
-      - light.hue_3
-      - light.hue_4
-      - light.hue_5
+  # - platform: group
+  #   name: Master bedroom main
+  #   entities:
+  #     - light.hue_2
+  #     - light.hue_3
+  #     - light.hue_4
+  #     - light.hue_5
 
   - platform: group
     name: Master bedroom
     entities:
-      - light.hue_2
-      - light.hue_3
-      - light.hue_4
-      - light.hue_5
+      - light.master_bedroom_main
       - light.bedside
 
-  - platform: group
-    name: Kitchen main
-    entities:
-      - light.tradfri_1
-      - light.hue_ambiance_6
-      - light.hue_ambiance_8
+  # - platform: group
+  #   name: Kitchen main
+  #   entities:
+  #     - light.tradfri_1
+  #     - light.hue_ambiance_6
+  #     - light.hue_ambiance_8
 
-  - platform: group
-    name: Kitchen secondary
-    entities:
-      - light.hue_ambiance_1
-      - light.hue_ambiance_2
-      - light.hue_ambiance_3
-      - light.hue_ambiance_4
+  # - platform: group
+  #   name: Kitchen secondary
+  #   entities:
+  #     - light.hue_ambiance_1
+  #     - light.hue_ambiance_2
+  #     - light.hue_ambiance_3
+  #     - light.hue_ambiance_4
 
-  - platform: group
-    name: Kitchen
-    entities:
-      - light.tradfri_1
-      - light.hue_ambiance_6
-      - light.hue_ambiance_8
-      - light.hue_ambiance_1
-      - light.hue_ambiance_2
-      - light.hue_ambiance_3
-      - light.hue_ambiance_4
+  # - platform: group
+  #   name: Kitchen
+  #   entities:
+  #     - light.tradfri_1
+  #     - light.hue_ambiance_6
+  #     - light.hue_ambiance_8
+  #     - light.hue_ambiance_1
+  #     - light.hue_ambiance_2
+  #     - light.hue_ambiance_3
+  #     - light.hue_ambiance_4
 
-  - platform: group
-    name: Hallway main
-    entities:
-      - light.hue_ambiance_5
-      - light.hue_1
+  # - platform: group
+  #   name: Hallway main
+  #   entities:
+  #     - light.hue_ambiance_5
+  #     - light.hue_1
 
-  - platform: group
-    name: Hallway entrance
-    entities:
-      - light.hue_white_1
-      - light.hue_white_2
+  # - platform: group
+  #   name: Hallway entrance
+  #   entities:
+  #     - light.hue_white_1
+  #     - light.hue_white_2
 
-  - platform: group
-    name: Hallway
-    entities:
-      - light.hue_ambiance_5
-      - light.hue_1
-      - light.hue_white_1
-      - light.hue_white_2
+  # - platform: group
+  #   name: Hallway
+  #   entities:
+  #     - light.hue_ambiance_5
+  #     - light.hue_1
+  #     - light.hue_white_1
+  #     - light.hue_white_2
 
   - platform: group
     name: On after dark
@@ -101,17 +98,10 @@ light:
       # LR ambiance
       - light.living_room_ambient_main
       - light.light_lohas_2
-      # BR main
-      - light.hue_2
-      - light.hue_3
-      - light.hue_4
-      - light.hue_5
+
+      - light.master_bedroom_main
       - light.bedside
-      # Hallway
-      - light.hue_ambiance_5
-      - light.hue_1
-      - light.hue_white_1
-      - light.hue_white_2
+      - light.hallway
 
 
 script:
@@ -120,34 +110,20 @@ script:
       service: light.turn_on
       entity_id:
         # LR main
-      - light.light_le_1
-      - light.light_le_2
-      - light.light_le_3
-      - light.light_le_4
-      # PC
-      - light.hue_ambiance_7
-      # LR ambiance
-      - light.living_room_ambient_main
-      - light.light_lohas_2
-      # BR main
-      - light.hue_2
-      - light.hue_3
-      - light.hue_4
-      - light.hue_5
-      - light.bedside
-      # Hallway
-      - light.hue_ambiance_5
-      - light.hue_1
-      - light.hue_white_1
-      - light.hue_white_2
-      # Kitchen
-      - light.tradfri_1
-      - light.hue_ambiance_6
-      - light.hue_ambiance_8
-      - light.hue_ambiance_1
-      - light.hue_ambiance_2
-      - light.hue_ambiance_3
-      - light.hue_ambiance_4
+        - light.light_le_1
+        - light.light_le_2
+        - light.light_le_3
+        - light.light_le_4
+        # PC
+        - light.hue_ambiance_7
+        # LR ambiance
+        - light.living_room_ambient_main
+        - light.light_lohas_2
+        - light.master_bedroom_main
+        - light.bedside
+
+        - light.hallway
+        - light.kitchen
   turn_off_all_lights:
     sequence:
       service: light.turn_off
@@ -162,25 +138,11 @@ script:
         # LR ambiance
         - light.living_room_ambient_main
         - light.light_lohas_2
-        # BR main
-        - light.hue_2
-        - light.hue_3
-        - light.hue_4
-        - light.hue_5
+        - light.master_bedroom_main
         - light.bedside
-        # Hallway
-        - light.hue_ambiance_5
-        - light.hue_1
-        - light.hue_white_1
-        - light.hue_white_2
-        # Kitchen
-        - light.tradfri_1
-        - light.hue_ambiance_6
-        - light.hue_ambiance_8
-        - light.hue_ambiance_1
-        - light.hue_ambiance_2
-        - light.hue_ambiance_3
-        - light.hue_ambiance_4
+
+        - light.hallway
+        - light.kitchen
 
 homeassistant:
   customize:
