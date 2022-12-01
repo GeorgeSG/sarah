@@ -10,12 +10,16 @@ views:
   - title: Kitchen
     path: kitchen
     icon: "mdi:chef-hat"
-    panel: true
     background: "#333"
     cards:
       - type: custom:mod-card
         style:
           layout-card:
+            .: |
+              * {
+                --primary-color: black;
+                margin: 0 var(--main-layout-card-margin);
+              }
             $:
               horizontal-layout:
                 $:
