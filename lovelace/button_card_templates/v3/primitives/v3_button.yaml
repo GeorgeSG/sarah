@@ -6,14 +6,14 @@ v3_button:
   show_state: true
   show_icon: true
   show_name: true
-  size: 120px
+  size: var(--v3-button-size, 120px)
   card_size: 2
   hold_action:
     action: more-info
   styles:
     card:
-      - width: 120px
-      - height: 120px
+      - width: var(--v3-button-size, 120px)
+      - height: var(--v3-button-size, 120px)
       - box-shadow: none
       - --ha-card-background: "[[[ return variables.background_color ]]]"
     icon:
