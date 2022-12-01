@@ -86,6 +86,11 @@ views:
                   template: v3_button
                   entity: media_player.kitchen
                   name: Sonos
+                  hold_action:
+                    action: call-service
+                    service: media_player.media_play_pause
+                    service_data:
+                      entity_id: media_player.kitchen
                 - type: custom:button-card
                   template: v3_button
                   entity: binary_sensor.sonos_is_kitchen_grouped
