@@ -1,4 +1,5 @@
 custom_components/
+image/
 .google.token
 .spotify-token-cache
 .pip_progress
