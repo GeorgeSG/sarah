@@ -157,31 +157,4 @@ devices:
     friendly_name: tradfri_1
   '0x2c1165fffe7d6d9c':
     friendly_name: tradfri_large
-groups:
-  '1':
-    friendly_name: light_kitchen_secondary
-    transition: 0.2
-    devices:
-      - '0x00178801090c52a7'
-      - '0x00178801090f0bd4'
-      - '0x00178801090c4820'
-      - '0x00178801090c4797'
-  '2':
-    friendly_name: light_kitchen_main
-    transition: 0.2
-    devices:
-      - '0x8cf681fffe1ef0c4'
-      - '0x001788010bb38dda'
-      - '0x0017880109b16985'
-  '3':
-    friendly_name: light_hallway_main
-    transition: 0.2
-    devices:
-      - '0x001788010bb38ee5'
-      - '0x0017880108e9dbd2'
-  '4':
-    friendly_name: light_hallway_entrance
-    transition: 0.2
-    devices:
-      - '0x0017880109966274'
-      - '0x00178801099664bf'
+groups: {}
