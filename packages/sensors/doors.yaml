@@ -2,54 +2,8 @@ group:
   all_doors:
     name: All doors
     entities:
-      - binary_sensor.front_door
-      - binary_sensor.bedroom_door
-
-mqtt:
-  sensor:
-    - name: "Bedroom door battery"
-      state_topic: "z2m_deconz/bedroom_door"
-      availability_topic: "z2m_deconz/bridge/state"
-      unit_of_measurement: "%"
-      device_class: "battery"
-      value_template: "{{ value_json.battery }}"
-
-    - name: "Bedroom door LQI"
-      state_topic: "z2m_deconz/bedroom_door"
-      availability_topic: "z2m_deconz/bridge/state"
-      unit_of_measurement: "lqi"
-      device_class: "signal_strength"
-      value_template: "{{ value_json.linkquality }}"
-
-    - name: "Front door battery"
-      state_topic: "z2m_deconz/front_door"
-      availability_topic: "z2m_deconz/bridge/state"
-      unit_of_measurement: "%"
-      device_class: "battery"
-      value_template: "{{ value_json.battery }}"
-
-    - name: "Front door LQI"
-      state_topic: "z2m_deconz/front_door"
-      availability_topic: "z2m_deconz/bridge/state"
-      unit_of_measurement: "lqi"
-      device_class: "signal_strength"
-      value_template: "{{ value_json.linkquality }}"
-
-  binary_sensor:
-    - name: "Bedroom door"
-      state_topic: "z2m_deconz/bedroom_door"
-      availability_topic: "z2m_deconz/bridge/state"
-      payload_on: false
-      payload_off: true
-      value_template: "{{ value_json.contact }}"
-      device_class: "door"
-    - name: "Front door"
-      state_topic: "z2m_deconz/front_door"
-      availability_topic: "z2m_deconz/bridge/state"
-      payload_on: false
-      payload_off: true
-      value_template: "{{ value_json.contact }}"
-      device_class: "door"
+      - binary_sensor.front_door_contact
+      - binary_sensor.bedroom_door_contact
 
 sensor:
   - platform: template

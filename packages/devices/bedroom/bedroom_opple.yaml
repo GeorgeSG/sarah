@@ -1,29 +1,10 @@
-mqtt:
-  sensor:
-    - name: "Bedroom Opple action"
-      state_topic: "z2m_deconz/opple_1/action"
-      availability_topic: "z2m_deconz/bridge/state"
-      icon: "mdi:gesture-double-tap"
-    - name: "Bedroom Opple battery"
-      state_topic: "z2m_deconz/opple_1"
-      availability_topic: "z2m_deconz/bridge/state"
-      unit_of_measurement: "%"
-      device_class: "battery"
-      value_template: "{{ value_json.battery }}"
-    - name: "Bedroom Opple LQI"
-      state_topic: "z2m_deconz/opple_1"
-      availability_topic: "z2m_deconz/bridge/state"
-      unit_of_measurement: "lqi"
-      device_class: "signal_strength"
-      value_template: "{{ value_json.linkquality }}"
-
 automation:
   - alias: Bedroom · Opple
+    id: bedroom_opple
     use_blueprint:
       path: oppo_6_btn_switch.yaml
       input:
-        opple_z2m_name: "z2m_deconz/opple_1"
-        action_sensor: sensor.bedroom_opple_action
+        action_sensor: sensor.opple_1_action
 
         button_1_single:
           - service: light.turn_off

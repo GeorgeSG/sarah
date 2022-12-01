@@ -6,27 +6,12 @@ input_number:
     step: 0.05
     icon: mdi:speaker
 
-mqtt:
-  sensor:
-    - name: "Bathroom switch battery"
-      state_topic: "z2m_deconz/bathroom_switch"
-      availability_topic: "z2m_deconz/bridge/state"
-      unit_of_measurement: "%"
-      device_class: "battery"
-      value_template: "{{ value_json.battery }}"
-    - name: "Bathroom switch LQI"
-      state_topic: "z2m_deconz/bathroom_switch"
-      availability_topic: "z2m_deconz/bridge/state"
-      device_class: "signal_strength"
-      unit_of_measurement: "lqi"
-      value_template: "{{ value_json.linkquality }}"
-
 automation:
   - alias: Bathroom · Switch
     use_blueprint:
       path: aqara_switch.yaml
       input:
-        z2m_topic: "z2m_deconz/bathroom_switch/action"
+        action_entity: sensor.bathroom_switch_action
         click:
           - service: media_player.volume_set
             entity_id: media_player.bathroom

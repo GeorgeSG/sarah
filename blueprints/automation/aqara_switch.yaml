@@ -2,25 +2,25 @@ blueprint:
   name: Aqara single switch
   domain: automation
   input:
-    z2m_topic:
+    action_entity:
     click:
       default: []
     double_click:
       default: []
     hold:
       default: []
-
+mode: queued
 trigger:
-  platform: mqtt
-  topic: !input z2m_topic
+  platform: state
+  entity_id: !input action_entity
 
 action:
   - choose:
-    - conditions: "{{ trigger.payload == 'single' }}"
+    - conditions: "{{ trigger.to_state.state == 'single' }}"
       sequence: !input click
 
-    - conditions: "{{ trigger.payload == 'double' }}"
+    - conditions: "{{ trigger.to_state.state == 'double' }}"
       sequence: !input double_click
 
-    - conditions: "{{ trigger.payload == 'hold' }}"
+    - conditions: "{{ trigger.to_state.state == 'hold' }}"
       sequence: !input hold

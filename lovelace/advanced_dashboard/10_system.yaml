@@ -88,13 +88,13 @@ cards:
             - type: custom:battery-entity-row
               entity: sensor.bedside_switch_battery
             - type: custom:battery-entity-row
-              entity: sensor.bedside_second_switch_battery
+              entity: sensor.bedroom_wall_switch_battery
             - type: custom:battery-entity-row
               entity: sensor.bathroom_switch_battery
             - type: custom:battery-entity-row
-              entity: sensor.living_room_opple_battery
+              entity: sensor.opple_2_battery
             - type: custom:battery-entity-row
-              entity: sensor.bedroom_opple_battery
+              entity: sensor.opple_1_battery
             - type: custom:battery-entity-row
               entity: sensor.living_room_battery_level
 
@@ -103,32 +103,31 @@ cards:
             - type: entities
               title: Zigbee2MQTT link quality
               entities:
-                - sensor.living_room_opple_lqi
-                - sensor.desk_switch_lqi
-                - sensor.living_room_right_window_lqi
-                - sensor.aqara_tvoc_lqi
+                - sensor.opple_2_linkquality
+                - sensor.desk_switch_linkquality
+                - sensor.living_room_right_window_linkquality
+                - sensor.aqara_tvoc_linkquality
                 - type: divider
-                - sensor.bedside_switch_lqi
-                - sensor.bedside_second_switch_lqi
-                - sensor.bedroom_opple_lqi
-                - sensor.bedroom_door_lqi
-                - sensor.bedroom_left_window_lqi
-                - sensor.bedroom_right_window_lqi
-                - sensor.bedroom_weather_lqi
+                - sensor.bedside_switch_linkquality
+                - sensor.bedroom_wall_switch_linkquality
+                - sensor.opple_1_linkquality
+                - sensor.bedroom_door_linkquality
+                - sensor.bedroom_left_window_linkquality
+                - sensor.bedroom_right_window_linkquality
+                - sensor.bedroom_weather_linkquality
                 - type: divider
-                - sensor.kitchen_window_lqi
-                - sensor.kitchen_weather_lqi
-                - sensor.kitchen_motion_lqi
+                - sensor.kitchen_window_linkquality
+                - sensor.kitchen_weather_linkquality
+                - sensor.kitchen_motion_linkquality
                 - type: divider
-                - sensor.bathroom_weather_lqi
-                - sensor.bathroom_switch_lqi
-                - sensor.front_door_lqi
-                - sensor.hallway_weather_lqi
-                - sensor.hallway_motion_lqi
-                - sensor.hallway_motion_2_lqi
+                - sensor.bathroom_weather_linkquality
+                - sensor.bathroom_switch_linkquality
+                - sensor.front_door_linkquality
+                - sensor.hallway_weather_linkquality
+                - sensor.hallway_motion_linkquality
+                - sensor.hallway_motion_2_linkquality
                 - type: divider
-                - sensor.guest_bedroom_weather_lqi
-                - sensor.router_1_lqi
+                - sensor.guest_bedroom_weather_linkquality
 
             - type: entities
               entities:

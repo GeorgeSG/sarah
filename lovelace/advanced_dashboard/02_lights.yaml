@@ -75,8 +75,8 @@ cards:
             - type: custom:decluttering-card
               template: light_with_update_and_lqi
               variables:
-                - light: light.pc
-                - lqi: sensor.pc_lqi
+                - light: light.hue_ambiance_7
+                - lqi: sensor.hue_ambiance_7_linkquality
                 - update: binary_sensor.pc_update_available
             - light.living_room_ambient
             - light.living_room_ambient_main

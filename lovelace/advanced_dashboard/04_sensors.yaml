@@ -45,25 +45,25 @@ cards:
               cards:
                 - type: custom:button-card
                   template: v3_button
-                  entity: binary_sensor.living_room_right_window
+                  entity: binary_sensor.living_room_right_window_contact
                   name: Living room
                 - type: custom:button-card
                   template: v3_button
-                  entity: binary_sensor.bedroom_left_window
+                  entity: binary_sensor.bedroom_left_window_contact
                   name: Bedroom left
                 - type: custom:button-card
                   template: v3_button
-                  entity: binary_sensor.bedroom_right_window
+                  entity: binary_sensor.bedroom_right_window_contact
                   name: Bedroom right
                 - type: custom:button-card
                   template: v3_button
-                  entity: binary_sensor.kitchen_window
+                  entity: binary_sensor.kitchen_window_contact
                   name: Kitchen
             - type: horizontal-stack
               cards:
                 - type: custom:button-card
                   template: v3_button
-                  entity: binary_sensor.front_door
+                  entity: binary_sensor.front_door_contact
                 - type: custom:button-card
                   template: v3_button
-                  entity: binary_sensor.bedroom_door
+                  entity: binary_sensor.bedroom_door_contact

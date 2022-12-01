@@ -29,7 +29,7 @@ automation:
   - alias: Security · Door opened while in night mode
     trigger:
       - platform: state
-        entity_id: binary_sensor.front_door
+        entity_id: binary_sensor.front_door_contact
         to: "on"
     condition:
       condition: state
@@ -49,7 +49,7 @@ automation:
   - alias: Security · Door opened while away
     trigger:
       - platform: state
-        entity_id: binary_sensor.front_door
+        entity_id: binary_sensor.front_door_contact
         to: "on"
     condition:
       and:

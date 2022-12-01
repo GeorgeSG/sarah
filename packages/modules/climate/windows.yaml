@@ -2,113 +2,33 @@ group:
   all_windows:
     name: All windows
     entities:
-      - binary_sensor.living_room_right_window
-      - binary_sensor.bedroom_left_window
-      - binary_sensor.bedroom_right_window
-      - binary_sensor.kitchen_window
+      - binary_sensor.living_room_right_window_contact
+      - binary_sensor.bedroom_left_window_contact
+      - binary_sensor.bedroom_right_window_contact
+      - binary_sensor.kitchen_window_contact
 
   bedroom_windows:
     name: Bedroom windows
     entities:
-      - binary_sensor.bedroom_left_window
-      - binary_sensor.bedroom_right_window
-
-mqtt:
-  binary_sensor:
-    - name: "Living room right window"
-      state_topic: "z2m_deconz/living_room_right_window"
-      availability_topic: "z2m_deconz/bridge/state"
-      payload_on: false
-      payload_off: true
-      value_template: "{{ value_json.contact }}"
-      device_class: "window"
-
-    - name: "Bedroom left window"
-      state_topic: "z2m_deconz/bedroom_left_window"
-      availability_topic: "z2m_deconz/bridge/state"
-      payload_on: false
-      payload_off: true
-      value_template: "{{ value_json.contact }}"
-      device_class: "window"
-
-    - name: "Bedroom right window"
-      state_topic: "z2m_deconz/bedroom_right_window"
-      availability_topic: "z2m_deconz/bridge/state"
-      payload_on: false
-      payload_off: true
-      value_template: "{{ value_json.contact }}"
-      device_class: "window"
-
-    - name: "Kitchen window"
-      state_topic: "z2m_deconz/kitchen_window"
-      availability_topic: "z2m_deconz/bridge/state"
-      payload_on: false
-      payload_off: true
-      value_template: "{{ value_json.contact }}"
-      device_class: "window"
-
-  sensor:
-    - name: "Living room right window battery"
-      state_topic: "z2m_deconz/living_room_right_window"
-      availability_topic: "z2m_deconz/bridge/state"
-      unit_of_measurement: "%"
-      device_class: "battery"
-      value_template: "{{ value_json.battery }}"
-
-    - name: "Living room right window LQI"
-      state_topic: "z2m_deconz/living_room_right_window"
-      availability_topic: "z2m_deconz/bridge/state"
-      icon: "mdi:signal"
-      unit_of_measurement: "lqi"
-      value_template: "{{ value_json.linkquality }}"
-
-    - name: "Bedroom left window battery"
-      state_topic: "z2m_deconz/bedroom_left_window"
-      availability_topic: "z2m_deconz/bridge/state"
-      unit_of_measurement: "%"
-      device_class: "battery"
-      value_template: "{{ value_json.battery }}"
-
-    - name: "Bedroom left window LQI"
-      state_topic: "z2m_deconz/bedroom_left_window"
-      availability_topic: "z2m_deconz/bridge/state"
-      icon: "mdi:signal"
-      unit_of_measurement: "lqi"
-      value_template: "{{ value_json.linkquality }}"
-
-    - name: "Bedroom right window battery"
-      state_topic: "z2m_deconz/bedroom_right_window"
-      availability_topic: "z2m_deconz/bridge/state"
-      unit_of_measurement: "%"
-      device_class: "battery"
-      value_template: "{{ value_json.battery }}"
-
-    - name: "Bedroom right window LQI"
-      state_topic: "z2m_deconz/bedroom_right_window"
-      availability_topic: "z2m_deconz/bridge/state"
-      icon: "mdi:signal"
-      unit_of_measurement: "lqi"
-      value_template: "{{ value_json.linkquality }}"
-
-    - name: "Kitchen window battery"
-      state_topic: "z2m_deconz/kitchen_window"
-      availability_topic: "z2m_deconz/bridge/state"
-      unit_of_measurement: "%"
-      device_class: "battery"
-      value_template: "{{ value_json.battery }}"
-
-    - name: "Kitchen window LQI"
-      state_topic: "z2m_deconz/kitchen_window"
-      availability_topic: "z2m_deconz/bridge/state"
-      icon: "mdi:signal"
-      unit_of_measurement: "lqi"
-      value_template: "{{ value_json.linkquality }}"
+      - binary_sensor.bedroom_left_window_contact
+      - binary_sensor.bedroom_right_window_contact
 
 sensor:
   - platform: template
     sensors:
       open_window_count:
-        friendly_name: Open window count
+        friendly_name: Open windozw count
         value_template: >-
           {% set entityStates = states | selectattr('entity_id', 'in', state_attr('group.all_windows', 'entity_id')) %}
           {{ entityStates | selectattr('state', 'eq', 'on') | list | count | int }}
+
+homeassistant:
+  customize:
+    binary_sensor.living_room_right_window_contact:
+      device_class: window
+    binary_sensor.bedroom_left_window_contact:
+      device_class: window
+    binary_sensor.bedroom_right_window_contact:
+      device_class: window
+    binary_sensor.kitchen_window_contact:
+      device_class: window

@@ -73,8 +73,8 @@ template:
           {% set temp_matching = states('sensor.multisensor_6_temperature')|float >= states('input_number.toshiba_trigger_temp')|float %}
           {% set outside_temp_high = states('sensor.dark_sky_apparent_temperature')|float + 2 >= states('input_number.toshiba_trigger_temp')|float %}
           {% set someone_home = is_state('binary_sensor.someone_home', 'on') %}
-          {% set bedroom_ready = is_state('group.bedroom_windows', 'off') or is_state('binary_sensor.bedroom_door', 'off') %}
-          {% set kitchen_ready = is_state('binary_sensor.kitchen_window', 'off') or is_state('binary_sensor.kitchen_door', 'off') %}
+          {% set bedroom_ready = is_state('group.bedroom_windows', 'off') or is_state('binary_sensor.bedroom_door_contact', 'off') %}
+          {% set kitchen_ready = is_state('binary_sensor.kitchen_window_contact', 'off') or is_state('binary_sensor.kitchen_door_contact', 'off') %}
           {% set ac_off = is_state('climate.toshiba_ac', 'off') %}
           {{ temp_matching and outside_temp_high and someone_home and bedroom_ready and kitchen_ready and ac_off }}
 
@@ -157,10 +157,10 @@ automation:
         for: "00:05:00"
       - platform: state
         entity_id:
-          - binary_sensor.living_room_right_window
+          - binary_sensor.living_room_right_window_contact
           - group.bedroom_windows
-          - binary_sensor.kitchen_window
-          - binary_sensor.kitchen_door
+          - binary_sensor.kitchen_window_contact
+          - binary_sensor.kitchen_door_contact
         from: "on"
         to: "off"
     action:
@@ -178,7 +178,7 @@ automation:
 
       - platform: state
         entity_id:
-          - binary_sensor.living_room_right_window
+          - binary_sensor.living_room_right_window_contact
           - group.bedroom_windows
         from: "off"
         to: "on"

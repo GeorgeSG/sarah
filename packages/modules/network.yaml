@@ -23,8 +23,8 @@ homekit:
       - light.living_room
       - light.living_room_main
       - light.living_room_ambient
-      - light.pc
-      - binary_sensor.living_room_right_window
+      - light.hue_ambiance_7
+      - binary_sensor.living_room_right_window_contact
       - climate.living_room_radiator_mode
       - climate.toshiba_ac
       - cover.living_room
@@ -40,9 +40,9 @@ homekit:
       - light.master_bedroom
       - light.master_bedroom_main
       - light.bedside
-      - binary_sensor.bedroom_door
-      - binary_sensor.bedroom_left_window
-      - binary_sensor.bedroom_right_window
+      - binary_sensor.bedroom_door_contact
+      - binary_sensor.bedroom_left_window_contact
+      - binary_sensor.bedroom_right_window_contact
       - climate.bedroom_radiator_mode
       - fan.philips_airpurifier
       - media_player.master_bedroom
@@ -57,7 +57,7 @@ homekit:
       - light.kitchen_secondary
       - climate.kitchen_radiator_mode
       - binary_sensor.kitchen_motion_occupancy
-      - binary_sensor.kitchen_window
+      - binary_sensor.kitchen_window_contact
       - input_number.brita_remaining_liters
       - script.brita_pour_water
       - sensor.kitchen_weather_humidity
@@ -81,9 +81,9 @@ homekit:
       name: Living Room Main
     light.living_room_ambient:
       name: Living Room Ambient
-    light.pc:
+    light.hue_ambiance_7:
       name: PC Light
-    binary_sensor.living_room_right_window:
+    binary_sensor.living_room_right_window_contact:
       linked_battery_sensor: sensor.living_room_right_window_battery
       low_battery_threshold: 20
       name: Living Room Window
@@ -121,15 +121,15 @@ homekit:
       name: Bedroom Air Quality
     sensor.purifier_allergens:
       name: Bedroom Allergens
-    binary_sensor.bedroom_door:
+    binary_sensor.bedroom_door_contact:
       linked_battery_sensor: sensor.bedroom_door_battery
       low_battery_threshold: 20
       name: Bedroom Door
-    binary_sensor.bedroom_left_window:
+    binary_sensor.bedroom_left_window_contact:
       linked_battery_sensor: sensor.bedroom_left_window_battery
       low_battery_threshold: 20
       name: Bedroom Left Window
-    binary_sensor.bedroom_right_window:
+    binary_sensor.bedroom_right_window_contact:
       linked_battery_sensor: sensor.bedroom_right_window_battery
       low_battery_threshold: 20
       name: Bedroom Right Window
@@ -152,7 +152,7 @@ homekit:
       linked_battery_sensor: sensor.kitchen_motion_battery
       low_battery_threshold: 20
       name: Kitchen Motion
-    binary_sensor.kitchen_window:
+    binary_sensor.kitchen_window_contact:
       linked_battery_sensor: sensor.kitchen_window_battery
       low_battery_threshold: 20
       name: Kitchen Window

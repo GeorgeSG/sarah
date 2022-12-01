@@ -20,7 +20,7 @@ automation:
       - service: light.turn_on
         entity_id:
           - light.living_room_main
-          - light.pc
+          - light.hue_ambiance_7
           - light.master_bedroom_main
           - light.hallway
           - light.kitchen

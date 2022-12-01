@@ -23,7 +23,7 @@ automation:
         property_key: "001"
     action:
       - service: light.toggle
-        entity_id: light.pc
+        entity_id: light.hue_ambiance_7
 
   - alias: Wallmote · Living room · 2 · Tap · Toggle Music
     trigger:
@@ -62,7 +62,7 @@ automation:
       - service: light.toggle
         entity_id:
           - light.living_room_main
-          - light.pc
+          - light.hue_ambiance_7
 
   - alias: Wallmote · Living room · 3 · Hold · Toggle Ambient lights
     trigger:

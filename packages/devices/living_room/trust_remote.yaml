@@ -1,41 +1,22 @@
-mqtt:
-  sensor:
-    - name: "Trust remote action"
-      state_topic: "z2m_deconz/trust_remote"
-      availability_topic: "z2m_deconz/bridge/state"
-      icon: "mdi:gesture-double-tap"
-      value_template: "{{ value_json.action }}"
-    - name: "Trust remote group"
-      state_topic: "z2m_deconz/trust_remote"
-      availability_topic: "z2m_deconz/bridge/state"
-      icon: "mdi:lightbulb-group"
-      value_template: "{{ value_json.action_group }}"
-    - name: "Trust remote LQI"
-      state_topic: "z2m_deconz/trust_remote"
-      availability_topic: "z2m_deconz/bridge/state"
-      unit_of_measurement: "lqi"
-      device_class: "signal_strength"
-      value_template: "{{ value_json.linkquality }}"
-
 automation:
   - alias: Trust remote · Guest bedroom
     trigger:
-      - platform: mqtt
-        topic: z2m_deconz/trust_remote
+      - platform: state
+        entity_id: sensor.trust_remote_action
     action:
       - choose:
-        - conditions: "{{ trigger.payload_json.action == 'up-press' }}"
+        - conditions: "{{ trigger.to_state.state == 'up-press' }}"
           sequence:
             - service: light.turn_on
               entity_id: light.tradfri_large
               data_template:
                 brightness_pct: "{{ is_state('input_select.guest_bedroom_mode', 'day') | iif(100, 10) }}"
                 color_temp: "{{ states('input_number.guest_bedroom_light_temp') }}"
-        - conditions: "{{ trigger.payload_json.action == 'down-press' }}"
+        - conditions: "{{ trigger.to_state.state == 'down-press' }}"
           sequence:
             - service: light.turn_off
               entity_id: light.tradfri_large
-        - conditions: "{{ trigger.payload_json.action == 'on' or trigger.payload_json.action == 'off' }}"
+        - conditions: "{{ trigger.to_state.state == 'on' or trigger.to_state.state == 'off' }}"
           sequence:
             - service: script.guest_bedroom_bedside_confirm
             - service: input_select.select_next
@@ -59,7 +40,7 @@ automation:
             {% elif groupId == 0 %}
               {% set entityId = 'light.living_room_main' %}
             {% elif groupId == 1 %}
-              {% set entityId = 'light.pc' %}
+              {% set entityId = 'light.hue_ambiance_7' %}
             {% elif groupId == 2 %}
               {% set entityId = 'light.living_room_ambient' %}
             {% elif groupId == 3 %}
@@ -76,54 +57,3 @@ automation:
             {% else %}
               -20
             {% endif %}
-
-  - alias: Trust remote · Turn on
-    trigger:
-      - platform: mqtt
-        topic: z2m_deconz/trust_remote
-    condition: "{{ trigger.payload_json.action == 'on' }}"
-    action:
-      - service: light.turn_on
-        data_template:
-          entity_id: >-
-            {% set groupId = (trigger.payload_json.action_group % 10) %}
-            {% if groupId == 5 %}
-              light.living_room
-            {% elif groupId == 0 %}
-              light.living_room_main
-            {% elif groupId == 1 %}
-              light.pc
-            {% elif groupId == 2 %}
-              light.living_room_ambient
-            {% elif groupId == 3 %}
-              light.living_room_ambient_main
-            {% elif groupId == 4 %}
-              light.light_lohas_2
-            {% endif %}
-          brightness_pct: 100
-
-  - alias: Trust remote · Turn off
-    trigger:
-      - platform: mqtt
-        topic: z2m_deconz/trust_remote
-    condition: "{{ trigger.payload_json.action == 'off' }}"
-    action:
-      - service: light.turn_off
-        data_template:
-          entity_id: >-
-            {% set groupId = (trigger.payload_json.action_group % 10) %}
-            {% if groupId == 5 %}
-              {% set entityId = 'light.living_room' %}
-            {% elif groupId == 0 %}
-              {% set entityId = 'light.living_room_main' %}
-            {% elif groupId == 1 %}
-              {% set entityId = 'light.pc' %}
-            {% elif groupId == 2 %}
-              {% set entityId = 'light.living_room_ambient' %}
-            {% elif groupId == 3 %}
-              {% set entityId = 'light.living_room_ambient_main' %}
-            {% elif groupId == 4 %}
-              {% set entityId = 'light.light_lohas_2' %}
-            {% endif %}
-
-            {{ entityId }}

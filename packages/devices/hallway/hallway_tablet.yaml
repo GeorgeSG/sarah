@@ -36,7 +36,7 @@ automation:
           message: "Waiting for front door to open. Have a great time!"
       - wait_for_trigger:
           - platform: state
-            entity_id: binary_sensor.front_door
+            entity_id: binary_sensor.front_door_contact
             to: "on"
         timeout:
           minutes: 5
@@ -44,6 +44,3 @@ automation:
       - service: script.say
         data:
           message: "Goodbye!"
-      # TODO: add conditions
-      # - service: input_boolean.turn_off
-      #   entity_id: input_boolean.georgi_home

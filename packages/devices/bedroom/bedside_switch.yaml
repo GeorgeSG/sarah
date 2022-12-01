@@ -1,24 +1,9 @@
-mqtt:
-  sensor:
-    - name: "Bedside switch battery"
-      state_topic: "z2m_deconz/bedside_switch"
-      availability_topic: "z2m_deconz/bridge/state"
-      unit_of_measurement: "%"
-      device_class: "battery"
-      value_template: "{{ value_json.battery }}"
-    - name: "Bedside switch LQI"
-      state_topic: "z2m_deconz/bedside_switch"
-      availability_topic: "z2m_deconz/bridge/state"
-      unit_of_measurement: "lqi"
-      device_class: "signal_strength"
-      value_template: "{{ value_json.linkquality }}"
-
 automation:
   - alias: Bedroom · Bedside Switch
     use_blueprint:
       path: aqara_switch.yaml
       input:
-        z2m_topic: "z2m_deconz/bedside_switch/action"
+        action_entity: sensor.bedside_switch_action
         click:
           - service: light.toggle
             data_template:

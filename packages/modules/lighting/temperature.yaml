@@ -14,7 +14,7 @@ automation:
       to: "on"
       entity_id:
         - light.living_room_main
-        - light.pc
+        - light.hue_ambiance_7
         - light.master_bedroom_main
         - light.kitchen_main
         - light.kitchen_secondary
@@ -68,8 +68,8 @@ automation:
             light.living_room_main:
               state: "{{ states('light.living_room_main') }}"
               color_temp: "{{ trigger.to_state }}"
-            light.pc:
-              state: "{{ states('light.pc') }}"
+            light.hue_ambiance_7:
+              state: "{{ states('light.hue_ambiance_7') }}"
               color_temp: "{{ trigger.to_state }}"
             light.master_bedroom_main:
               state: "{{ states('light.master_bedroom_main') }}"

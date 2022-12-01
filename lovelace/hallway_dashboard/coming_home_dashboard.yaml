@@ -202,7 +202,7 @@ card:
               name: Main
             - type: custom:button-card
               template: v3_tablet_button
-              entity: light.pc
+              entity: light.hue_ambiance_7
             - type: custom:button-card
               template: v3_tablet_button
               entity: light.living_room_ambient

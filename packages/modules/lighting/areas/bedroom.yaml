@@ -95,7 +95,7 @@ automation:
   - alias: Lighting · Bedroom · Door open
     trigger:
       platform: state
-      entity_id: binary_sensor.bedroom_door
+      entity_id: binary_sensor.bedroom_door_contact
       to: "on"
     condition:
       and:

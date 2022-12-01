@@ -1,71 +1,3 @@
-# mqtt:
-#   light:
-    # - name: "Hallway main"
-    #   state_topic: "z2m_deconz/light_hallway_main"
-    #   availability_topic: "z2m_deconz/bridge/state"
-    #   brightness: true
-    #   color_temp: true
-    #   xy: false
-    #   hs: false
-    #   schema: "json"
-    #   command_topic: "z2m_deconz/light_hallway_main/set"
-    #   brightness_scale: 254
-    #   max_mireds: 500
-    #   min_mireds: 150
-
-    # - name: "Hallway entrance"
-    #   state_topic: "z2m_deconz/light_hallway_entrance"
-    #   availability_topic: "z2m_deconz/bridge/state"
-    #   brightness: true
-    #   color_temp: false
-    #   xy: false
-    #   hs: false
-    #   schema: "json"
-    #   command_topic: "z2m_deconz/light_hallway_entrance/set"
-    #   brightness_scale: 254
-
-    # - name: "Kitchen main"
-    #   state_topic: "z2m_deconz/light_kitchen_main"
-    #   availability_topic: "z2m_deconz/bridge/state"
-    #   brightness: true
-    #   color_temp: true
-    #   xy: false
-    #   hs: false
-    #   schema: "json"
-    #   command_topic: "z2m_deconz/light_kitchen_main/set"
-    #   brightness_scale: 254
-    #   max_mireds: 500
-    #   min_mireds: 150
-    #   effect: true
-    #   effect_list:
-    #     - "blink"
-    #     - "breathe"
-    #     - "okay"
-    #     - "channel_change"
-    #     - "finish_effect"
-
-    # - name: "Kitchen secondary"
-    #   availability_topic: "z2m_deconz/bridge/state"
-    #   brightness: true
-    #   brightness_scale: 254
-    #   color_mode: true
-    #   command_topic: "z2m_deconz/light_kitchen_secondary/set"
-    #   effect: true
-    #   effect_list:
-    #     - "blink"
-    #     - "breathe"
-    #     - "okay"
-    #     - "channel_change"
-    #     - "finish_effect"
-    #     - "stop_effect"
-    #   json_attributes_topic: "z2m_deconz/light_kitchen_secondary"
-    #   max_mireds: 454
-    #   min_mireds: 153
-    #   schema: "json"
-    #   state_topic: "z2m_deconz/light_kitchen_secondary"
-    #   supported_color_modes: ["color_temp"]
-
-
 light:
   - platform: group
     name: Living room main
@@ -79,7 +11,7 @@ light:
     name: Living room ceiling
     entities:
       - light.living_room_main
-      - light.pc
+      - light.hue_ambiance_7
 
   - platform: group
     name: Living room ambient
@@ -150,7 +82,7 @@ light:
     name: On after dark
     entities:
       - light.living_room_main
-      - light.pc
+      - light.hue_ambiance_7
       - light.master_bedroom_main
       - light.bedside
       - light.hallway
@@ -159,7 +91,7 @@ light:
     name: Ceiling
     entities:
       - light.living_room_main
-      - light.pc
+      - light.hue_ambiance_7
       - light.master_bedroom_main
       - light.kitchen
       - light.hallway
@@ -261,7 +193,7 @@ homeassistant:
     light.living_room_main:
       icon: bha:ceiling-spot-lamp
 
-    light.pc:
+    light.hue_ambiance_7:
       friendly_name: PC
       icon: bha:outdoor-lamp-variant
 

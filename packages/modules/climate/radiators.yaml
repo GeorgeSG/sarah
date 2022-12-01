@@ -103,12 +103,12 @@ automation:
   - alias: Climate · Heating · Link living room radiator to windows
     trigger:
       - platform: state
-        entity_id: binary_sensor.living_room_right_window
+        entity_id: binary_sensor.living_room_right_window_contact
     action:
       - choose:
         - conditions:
           - condition: state
-            entity_id: binary_sensor.living_room_right_window
+            entity_id: binary_sensor.living_room_right_window_contact
             state: "on"
           - condition: not
             conditions:
@@ -125,7 +125,7 @@ automation:
                 domain: climate
         - conditions:
           - condition: state
-            entity_id: binary_sensor.living_room_right_window
+            entity_id: binary_sensor.living_room_right_window_contact
             state: "off"
           - condition: state
             entity_id: climate.living_room_radiator_mode

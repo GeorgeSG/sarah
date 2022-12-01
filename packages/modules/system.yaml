@@ -71,8 +71,8 @@ automation:
             Guest mode: {{ states('input_boolean.guest_mode') }}
 
             Windows:
-              Living room: {{ states('binary_sensor.living_room_right_window') }}
-              Master bedroom: {{ states('binary_sensor.bedroom_right_window') }}
+              Living room: {{ states('binary_sensor.living_room_right_window_contact') }}
+              Master bedroom: {{ states('binary_sensor.bedroom_right_window_contact') }}
 
             Lights:
               Living room: {{ states('light.living_room') }}

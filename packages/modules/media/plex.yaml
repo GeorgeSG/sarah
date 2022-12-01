@@ -23,7 +23,7 @@ automation:
           scene_id: plex_before_start
           snapshot_entities:
             - light.living_room_main
-            - light.pc
+            - light.hue_ambiance_7
             - light.living_room_ambient_main
             - light.light_lohas_2
             - light.hallway_entrance
@@ -37,7 +37,7 @@ automation:
           - light.living_room_main
       - service: light.turn_off
         entity_id:
-          - light.pc
+          - light.hue_ambiance_7
           - light.living_room_ambient_main
           - light.light_lohas_2
           - light.hallway_main

@@ -1,8 +1,8 @@
 >-
 
   {%- if is_state('group.all_windows', 'on') -%}
-    {%- if is_state('binary_sensor.living_room_right_window', 'on') -%} The living room window is opened. {% endif %}
-    {%- if is_state('binary_sensor.bedroom_right_window', 'on') -%} The master bedroom window is opened. {%- endif -%}
+    {%- if is_state('binary_sensor.living_room_right_window_contact', 'on') -%} The living room window is opened. {% endif %}
+    {%- if is_state('binary_sensor.bedroom_right_window_contact', 'on') -%} The master bedroom window is opened. {%- endif -%}
   {%- else -%}
     All windows are closed.
   {%- endif -%}

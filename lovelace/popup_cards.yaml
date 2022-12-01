@@ -279,13 +279,13 @@ cards:
           cards:
             - type: custom:button-card
               template: [v3_button, v3_popup_button]
-              entity: binary_sensor.front_door
+              entity: binary_sensor.front_door_contact
               styles:
                 card:
                   - margin-left: 8px
             - type: custom:button-card
               template: [v3_button, v3_popup_button]
-              entity: binary_sensor.bedroom_door
+              entity: binary_sensor.bedroom_door_contact
               name: Bedroom
 
   - type: custom:popup-card
@@ -298,24 +298,24 @@ cards:
           cards:
             - type: custom:button-card
               template: [v3_button, v3_popup_button]
-              entity: binary_sensor.living_room_right_window
+              entity: binary_sensor.living_room_right_window_contact
               name: Living Room
               styles:
                 card:
                   - margin-left: 8px
             - type: custom:button-card
               template: [v3_button, v3_popup_button]
-              entity: binary_sensor.bedroom_left_window
+              entity: binary_sensor.bedroom_left_window_contact
               name: Bedroom Left
             - type: custom:button-card
               template: [v3_button, v3_popup_button]
-              entity: binary_sensor.bedroom_right_window
+              entity: binary_sensor.bedroom_right_window_contact
               name: Bedroom Right
         - type: horizontal-stack
           cards:
             - type: custom:button-card
               template: [v3_button, v3_popup_button]
-              entity: binary_sensor.kitchen_window
+              entity: binary_sensor.kitchen_window_contact
               name: Kitchen
               styles:
                 card:

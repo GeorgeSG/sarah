@@ -41,10 +41,10 @@
             cards:
               - type: custom:button-card
                 template: v3_badge_icon
-                entity: binary_sensor.kitchen_window
+                entity: binary_sensor.kitchen_window_contact
               - type: custom:button-card
                 template: v3_badge_icon
-                entity: binary_sensor.kitchen_door
+                entity: binary_sensor.kitchen_door_contact
 
           - type: custom:decluttering-card
             template: v3_section_title
@@ -59,11 +59,11 @@
                 name: All
               - type: custom:button-card
                 template: v3_button_light
-                entity: light.kitchen_main
+                entity: light.light_kitchen_main
                 name: Main
               - type: custom:button-card
                 template: v3_button_light
-                entity: light.kitchen_secondary
+                entity: light.light_kitchen_secondary
                 name: Secondary
 
       - type: vertical-stack

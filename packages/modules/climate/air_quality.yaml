@@ -16,10 +16,10 @@ automation:
     trigger:
       platform: state
       entity_id:
-        - binary_sensor.kitchen_window
-        - binary_sensor.living_room_right_window
-        - binary_sensor.bedroom_left_window
-        - binary_sensor.bedroom_right_window
+        - binary_sensor.kitchen_window_contact
+        - binary_sensor.living_room_right_window_contact
+        - binary_sensor.bedroom_left_window_contact
+        - binary_sensor.bedroom_right_window_contact
       from: "off"
       to: "on"
     condition:
@@ -40,10 +40,10 @@ automation:
     condition:
       - condition: state
         entity_id:
-          - binary_sensor.kitchen_window
-          - binary_sensor.living_room_right_window
-          - binary_sensor.bedroom_left_window
-          - binary_sensor.bedroom_right_window
+          - binary_sensor.kitchen_window_contact
+          - binary_sensor.living_room_right_window_contact
+          - binary_sensor.bedroom_left_window_contact
+          - binary_sensor.bedroom_right_window_contact
         state: "on"
     action:
       - service: script.say
