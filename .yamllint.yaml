@@ -2,8 +2,8 @@ extends: default
 
 ignore: |
   appdaemon/
-  config/templates/partials/
-  config/secrets.yaml
+  templates/partials/
+  secrets.yaml
 
 rules:
   document-start:

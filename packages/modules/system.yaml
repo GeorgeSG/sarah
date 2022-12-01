@@ -28,7 +28,7 @@ sensor:
 
 
 shell_command:
-  clear_logs: truncate -s 0 /config/home-assistant.log
+  clear_logs: truncate -s 0 /home-assistant.log
 
 script:
   sarah_restart:
