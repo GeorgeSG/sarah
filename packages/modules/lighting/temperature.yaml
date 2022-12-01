@@ -66,16 +66,16 @@ automation:
           entities:
             light.living_room_main:
               state: "{{ states('light.living_room_main') }}"
-              color_temp: "{{ trigger.to_state }}"
+              color_temp: "{{ trigger.to_state.state }}"
             light.hue_ambiance_7:
               state: "{{ states('light.hue_ambiance_7') }}"
-              color_temp: "{{ trigger.to_state }}"
+              color_temp: "{{ trigger.to_state.state }}"
             light.master_bedroom_main:
               state: "{{ states('light.master_bedroom_main') }}"
-              color_temp: "{{ trigger.to_state }}"
+              color_temp: "{{ trigger.to_state.state }}"
             light.kitchen_main:
               state: "{{ states('light.kitchen_main') }}"
-              color_temp: "{{ trigger.to_state }}"
+              color_temp: "{{ trigger.to_state.state }}"
             light.kitchen_secondary:
               state: "{{ states('light.kitchen_secondary') }}"
-              color_temp: "{{ trigger.to_state }}"
+              color_temp: "{{ trigger.to_state.state }}"
