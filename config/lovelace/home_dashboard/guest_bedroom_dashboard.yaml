@@ -18,7 +18,7 @@
     type: custom:layout-card
     layout_type: custom:horizontal-layout
     layout:
-      max_cols: 3
+      max_cols: 1
     cards:
       - type: vertical-stack
         cards:
@@ -74,3 +74,5 @@
                 entity: sensor.mercury_temperature
                 name: Mercury
                 icon: mdi:nas
+
+      - !include ../popup_cards.yaml

@@ -1,6 +1,5 @@
 decluttering_templates: !include_dir_merge_named lovelace/decluttering_templates
 button_card_templates: !include_dir_merge_named lovelace/button_card_templates
-popup_cards: !include lovelace/popup_cards.yaml
 
 kiosk_mode:
   kiosk: false
@@ -113,3 +112,5 @@ views:
                 #   name: Outlet
                 #   variables:
                 #     power_sensor: sensor.kitchen_outlet_electric_consumption_w
+
+            - !include ./lovelace/popup_cards.yaml

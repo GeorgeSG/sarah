@@ -18,7 +18,7 @@
     type: custom:layout-card
     layout_type: custom:horizontal-layout
     layout:
-      max_cols: 3
+      max_cols: 2
     cards:
       - type: vertical-stack
         cards:
@@ -121,7 +121,6 @@
                 entity: light.bedside
                 name: Bedside
 
-
       - type: vertical-stack
         cards:
           - type: custom:decluttering-card
@@ -162,3 +161,5 @@
                 camera_image: camera.bedroom_hd
                 entities:
                   - switch.tapo_bedroom
+
+      - !include ../popup_cards.yaml

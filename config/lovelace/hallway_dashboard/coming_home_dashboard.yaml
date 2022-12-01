@@ -183,7 +183,6 @@ card:
               entity: vacuum.vacuum
               name: Vacuum
 
-
     # Column 2
     - type: vertical-stack
       cards:
@@ -332,3 +331,5 @@ card:
               styles:
                 card:
                   - margin-bottom: 8px
+
+    - !include ../popup_cards.yaml

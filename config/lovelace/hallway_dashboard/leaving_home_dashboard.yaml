@@ -124,3 +124,5 @@ card:
           entities:
             - sensor.dark_sky_precip_probability
             - sensor.dark_sky_cloud_coverage
+
+    - !include ../popup_cards.yaml

@@ -18,7 +18,7 @@
     type: custom:layout-card
     layout_type: custom:horizontal-layout
     layout:
-      max_cols: 3
+      max_cols: 1
     cards:
       - type: vertical-stack
         cards:
@@ -67,3 +67,5 @@
                 template: v3_button_light
                 entity: light.hallway_entrance
                 name: Entrance
+
+      - !include ../popup_cards.yaml

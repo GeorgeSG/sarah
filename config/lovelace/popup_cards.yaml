@@ -1,733 +1,779 @@
-binary_sensor.bedroom_mode:
-  title: Bedroom mode
-  card:
-    type: entities
-    entities:
-      - input_select.bedroom_mode
+type: horizontal-stack
+cards:
+  - type: custom:popup-card
+    entity: binary_sensor.bedroom_mode
+    title: Bedroom mode
+    card:
+      type: entities
+      entities:
+        - input_select.bedroom_mode
 
-binary_sensor.kitchen_motion_occupancy:
-  title: Kitchen motion
-  card:
-    type: vertical-stack
-    cards:
-      - type: glance
-        entities:
-          - entity: binary_sensor.kitchen_motion_occupancy
-          - entity: sensor.kitchen_motion_illuminance
-          - entity: sensor.kitchen_motion_battery
-      - type: "custom:mini-graph-card"
-        animate: true
-        points_per_hour: 1
-        hours_to_show: 48
-        show:
-          graph: bar
-          average: true
-          extrema: true
-        entities:
-          - entity: sensor.kitchen_motion_illuminance
+  - type: custom:popup-card
+    entity: binary_sensor.kitchen_motion_occupancy
+    title: Kitchen motion
+    card:
+      type: vertical-stack
+      cards:
+        - type: glance
+          entities:
+            - entity: binary_sensor.kitchen_motion_occupancy
+            - entity: sensor.kitchen_motion_illuminance
+            - entity: sensor.kitchen_motion_battery
+        - type: "custom:mini-graph-card"
+          animate: true
+          points_per_hour: 1
+          hours_to_show: 48
+          show:
+            graph: bar
+            average: true
+            extrema: true
+          entities:
+            - entity: sensor.kitchen_motion_illuminance
 
-group.hallway_motion:
-  title: Hallway motion
-  card:
-    type: vertical-stack
-    cards:
-      - type: glance
-        entities:
-          - entity: binary_sensor.hallway_motion_occupancy
-          - entity: binary_sensor.hallway_motion_2_occupancy
-          - entity: sensor.hallway_motion_illuminance
-          - entity: sensor.hallway_motion_battery
+  - type: custom:popup-card
+    entity: group.hallway_motion
+    title: Hallway motion
+    card:
+      type: vertical-stack
+      cards:
+        - type: glance
+          entities:
+            - entity: binary_sensor.hallway_motion_occupancy
+            - entity: binary_sensor.hallway_motion_2_occupancy
+            - entity: sensor.hallway_motion_illuminance
+            - entity: sensor.hallway_motion_battery
 
-      - type: "custom:mini-graph-card"
-        animate: true
-        points_per_hour: 1
-        hours_to_show: 48
-        show:
-          graph: bar
-          average: true
-          extrema: true
-        entities:
-          - entity: sensor.hallway_motion_illuminance
+        - type: "custom:mini-graph-card"
+          animate: true
+          points_per_hour: 1
+          hours_to_show: 48
+          show:
+            graph: bar
+            average: true
+            extrema: true
+          entities:
+            - entity: sensor.hallway_motion_illuminance
 
-sensor.mercury_temperature:
-  title: Mercury
-  card:
-    type: custom:decluttering-card
-    template: mercury_card
-
-
-media_player.living_room:
-  title: Living room Sonos
-  card:
-    type: custom:decluttering-card
-    template: v3_media_with_controls
-    variables:
-      - player: media_player.living_room
-      - player_name: Living room
-      - title: ""
-
-media_player.kitchen:
-  title: Kitchen Sonos
-  card:
-    type: custom:decluttering-card
-    template: v3_media_with_controls
-    variables:
-      - player: media_player.kitchen
-      - player_name: Kitchen
-      - title: ""
-
-media_player.bathroom:
-  title: Bathroom Sonos
-  card:
-    type: custom:decluttering-card
-    template: v3_media_with_controls
-    variables:
-      - player: media_player.bathroom
-      - player_name: Bathroom
-      - title: ""
-
-media_player.master_bedroom:
-  title: Bedroom Sonos
-  card:
-    type: custom:decluttering-card
-    template: v3_media_with_controls
-    variables:
-      - player: media_player.master_bedroom
-      - player_name: Bedroom
-      - title: ""
-
-media_player.nvidia_shield: &nvidia_shield
-  title: TV
-  card:
-    type: vertical-stack
-    cards:
-      - type: horizontal-stack
-        cards:
-          - type: custom:button-card
-            template: [v3_button, v3_popup_button]
-            icon: mdi:set-top-box
-            name: Set to Shield
-            show_state: false
-            tap_action:
-              action: call-service
-              service: media_player.select_source
-              service_data:
-                entity_id: media_player.living_room_tv
-                source: Shield
-            styles:
-              card:
-                - margin-left: 8px
-
-          - type: custom:button-card
-            template: [v3_button, v3_popup_button]
-            name: Set to Switch
-            icon: mdi:video-input-hdmi
-            show_state: false
-            tap_action:
-              action: call-service
-              service: media_player.select_source
-              service_data:
-                entity_id: media_player.living_room_tv
-                source: Switch
-
-          - type: custom:button-card
-            template: [v3_button, v3_popup_button]
-            name: Bulsatcom
-            icon: mdi:remote-tv
-            show_state: false
-            tap_action:
-              action: call-service
-              service: script.tv_bulsatcom_toggle
-
-      - type: custom:mini-media-player
-        entity: media_player.nvidia_shield
-
-      - type: custom:mini-media-player
-        entity: media_player.living_room_tv
-
-      - type: custom:decluttering-card
-        template: sonos_media_player
-        variables:
-          - player: media_player.living_room
-          - name: Sonos
-          - sync_volume: false
-
-      - type: horizontal-stack
-        title: Remotes
-        cards:
-          - type: custom:decluttering-card
-            template: hdmi_switch_remote_card
-          - type: custom:decluttering-card
-            template: bulsatcom_remote_card
-
-media_player.living_room_tv: *nvidia_shield
+  - type: custom:popup-card
+    entity: sensor.mercury_temperature
+    title: Mercury
+    card:
+      type: custom:decluttering-card
+      template: mercury_card
 
 
-group.all_motion_sensors:
-  title: Active motion sensors
-  card:
-    type: vertical-stack
-    cards:
-      - type: horizontal-stack
-        cards:
-          - type: custom:button-card
-            template: [v3_button, v3_popup_button]
-            entity: binary_sensor.hallway_motion_occupancy
-            name: Hallway Entrance
-            styles:
-              card:
-                - margin-left: 8px
-          - type: custom:button-card
-            template: [v3_button, v3_popup_button]
-            entity: binary_sensor.hallway_motion_2_occupancy
-            name: Hallway
-          - type: custom:button-card
-            template: [v3_button, v3_popup_button]
-            entity: binary_sensor.multisensor_motion
-            name: Living Room
-      - type: horizontal-stack
-        cards:
-          - type: custom:button-card
-            template: [v3_button, v3_popup_button]
-            entity: binary_sensor.kitchen_motion_occupancy
-            name: Kitchen
-            styles:
-              card:
-                - margin-left: 8px
+  - type: custom:popup-card
+    entity: media_player.living_room
+    title: Living room Sonos
+    card:
+      type: custom:decluttering-card
+      template: v3_media_with_controls
+      variables:
+        - player: media_player.living_room
+        - player_name: Living room
+        - title: ""
 
-sensor.open_door_count:
-  title: Open doors
-  card:
-    type: vertical-stack
-    cards:
-      - type: horizontal-stack
-        cards:
-          - type: custom:button-card
-            template: [v3_button, v3_popup_button]
-            entity: binary_sensor.front_door
-            styles:
-              card:
-                - margin-left: 8px
-          - type: custom:button-card
-            template: [v3_button, v3_popup_button]
-            entity: binary_sensor.bedroom_door
-            name: Bedroom
+  - type: custom:popup-card
+    entity: media_player.kitchen
+    title: Kitchen Sonos
+    card:
+      type: custom:decluttering-card
+      template: v3_media_with_controls
+      variables:
+        - player: media_player.kitchen
+        - player_name: Kitchen
+        - title: ""
 
-sensor.open_window_count:
-  title: Open windows
-  card:
-    type: vertical-stack
-    cards:
-      - type: horizontal-stack
-        cards:
-          - type: custom:button-card
-            template: [v3_button, v3_popup_button]
-            entity: binary_sensor.living_room_right_window
-            name: Living Room
-            styles:
-              card:
-                - margin-left: 8px
-          - type: custom:button-card
-            template: [v3_button, v3_popup_button]
-            entity: binary_sensor.bedroom_left_window
-            name: Bedroom Left
-          - type: custom:button-card
-            template: [v3_button, v3_popup_button]
-            entity: binary_sensor.bedroom_right_window
-            name: Bedroom Right
-      - type: horizontal-stack
-        cards:
-          - type: custom:button-card
-            template: [v3_button, v3_popup_button]
-            entity: binary_sensor.kitchen_window
-            name: Kitchen
-            styles:
-              card:
-                - margin-left: 8px
+  - type: custom:popup-card
+    entity: media_player.bathroom
+    title: Bathroom Sonos
+    card:
+      type: custom:decluttering-card
+      template: v3_media_with_controls
+      variables:
+        - player: media_player.bathroom
+        - player_name: Bathroom
+        - title: ""
 
-sensor.bedroom_weather_temperature:
-  title: Bedroom Climate
-  card:
-    type: custom:decluttering-card
-    template: bedroom_climate_card
+  - type: custom:popup-card
+    entity: media_player.master_bedroom
+    title: Bedroom Sonos
+    card:
+      type: custom:decluttering-card
+      template: v3_media_with_controls
+      variables:
+        - player: media_player.master_bedroom
+        - player_name: Bedroom
+        - title: ""
 
-sensor.multisensor_6_temperature:
-  title: Living Room Climate
-  card:
-    type: custom:decluttering-card
-    template: climate_card
-    variables:
-      - main_entity: sensor.multisensor_6_temperature
-      - left_entity: sensor.multisensor_6_relative_humidity
-      - right_entity: sensor.multisensor_6_luminance
-      - right_name: Luminance
+  - type: custom:popup-card
+    entity: media_player.nvidia_shield
+    title: TV
+    card:
+      type: vertical-stack
+      cards:
+        - type: horizontal-stack
+          cards:
+            - type: custom:button-card
+              template: [v3_button, v3_popup_button]
+              icon: mdi:set-top-box
+              name: Set to Shield
+              show_state: false
+              tap_action:
+                action: call-service
+                service: media_player.select_source
+                service_data:
+                  entity_id: media_player.living_room_tv
+                  source: Shield
+              styles:
+                card:
+                  - margin-left: 8px
 
+            - type: custom:button-card
+              template: [v3_button, v3_popup_button]
+              name: Set to Switch
+              icon: mdi:video-input-hdmi
+              show_state: false
+              tap_action:
+                action: call-service
+                service: media_player.select_source
+                service_data:
+                  entity_id: media_player.living_room_tv
+                  source: Switch
 
-sensor.multisensor_6_relative_humidity:
-  title: Living Room Humidity
-  card:
-    type: custom:decluttering-card
-    template: climate_card
-    variables:
-      - main_entity: sensor.multisensor_6_relative_humidity
-      - main_name: Humidity
-      - left_entity: sensor.multisensor_6_temperature
-      - left_name: Temperature
-      - right_entity: sensor.multisensor_6_luminance
-      - right_name: Luminance
+            - type: custom:button-card
+              template: [v3_button, v3_popup_button]
+              name: Bulsatcom
+              icon: mdi:remote-tv
+              show_state: false
+              tap_action:
+                action: call-service
+                service: script.tv_bulsatcom_toggle
 
-sensor.bedroom_weather_humidity:
-  title: Bedroom Humidity
-  card:
-    type: custom:decluttering-card
-    template: bedroom_humidity_card
+        - type: custom:mini-media-player
+          entity: media_player.nvidia_shield
 
-sensor.kitchen_weather_temperature:
-  title: Kitchen Temperature
-  card:
-    type: custom:decluttering-card
-    template: climate_card
-    variables:
-      - main_entity: sensor.kitchen_weather_temperature
-      - left_entity: sensor.kitchen_weather_humidity
-      - right_entity: sensor.kitchen_weather_pressure
+        - type: custom:mini-media-player
+          entity: media_player.living_room_tv
 
-sensor.kitchen_weather_humidity:
-  title: Kitchen Humidity
-  card:
-    type: custom:decluttering-card
-    template: climate_card
-    variables:
-      - main_entity: sensor.kitchen_weather_humidity
-      - main_name: Humidity
-      - left_entity: sensor.kitchen_weather_temperature
-      - left_name: Temperature
-      - right_entity: sensor.kitchen_weather_pressure
+        - type: custom:decluttering-card
+          template: sonos_media_player
+          variables:
+            - player: media_player.living_room
+            - name: Sonos
+            - sync_volume: false
 
-sensor.bathroom_weather_temperature:
-  title: Bathroom Temperature
-  card:
-    type: custom:decluttering-card
-    template: climate_card
-    variables:
-      - main_entity: sensor.bathroom_weather_temperature
-      - left_entity: sensor.bathroom_weather_humidity
-      - right_entity: sensor.bathroom_weather_pressure
+        - type: horizontal-stack
+          title: Remotes
+          cards:
+            - type: custom:decluttering-card
+              template: hdmi_switch_remote_card
+            - type: custom:decluttering-card
+              template: bulsatcom_remote_card
 
-sensor.bathroom_weather_humidity:
-  title: Bathroom Humidity
-  card:
-    type: custom:decluttering-card
-    template: climate_card
-    variables:
-      - main_entity: sensor.bathroom_weather_humidity
-      - main_name: Humidity
-      - left_entity: sensor.bathroom_weather_temperature
-      - left_name: Temperature
-      - right_entity: sensor.bathroom_weather_pressure
+  # - type: custom:popup-card
+  #   entity: media_player.living_room_tv: *nvidia_shiel
 
 
-sensor.hallway_weather_temperature:
-  title: Hallway Temperature
-  card:
-    type: custom:decluttering-card
-    template: climate_card
-    variables:
-      - main_entity: sensor.hallway_weather_temperature
-      - left_entity: sensor.hallway_weather_humidity
-      - right_entity: sensor.hallway_weather_pressure
+  - type: custom:popup-card
+    entity: group.all_motion_sensors
+    title: Active motion sensors
+    card:
+      type: vertical-stack
+      cards:
+        - type: horizontal-stack
+          cards:
+            - type: custom:button-card
+              template: [v3_button, v3_popup_button]
+              entity: binary_sensor.hallway_motion_occupancy
+              name: Hallway Entrance
+              styles:
+                card:
+                  - margin-left: 8px
+            - type: custom:button-card
+              template: [v3_button, v3_popup_button]
+              entity: binary_sensor.hallway_motion_2_occupancy
+              name: Hallway
+            - type: custom:button-card
+              template: [v3_button, v3_popup_button]
+              entity: binary_sensor.multisensor_motion
+              name: Living Room
+        - type: horizontal-stack
+          cards:
+            - type: custom:button-card
+              template: [v3_button, v3_popup_button]
+              entity: binary_sensor.kitchen_motion_occupancy
+              name: Kitchen
+              styles:
+                card:
+                  - margin-left: 8px
 
-sensor.hallway_weather_humidity:
-  title: Hallway Humidity
-  card:
-    type: custom:decluttering-card
-    template: climate_card
-    variables:
-      - main_entity: sensor.hallway_weather_humidity
-      - main_name: Humidity
-      - left_entity: sensor.hallway_weather_temperature
-      - left_name: Temperature
-      - right_entity: sensor.hallway_weather_pressure
+  - type: custom:popup-card
+    entity: sensor.open_door_count
+    title: Open doors
+    card:
+      type: vertical-stack
+      cards:
+        - type: horizontal-stack
+          cards:
+            - type: custom:button-card
+              template: [v3_button, v3_popup_button]
+              entity: binary_sensor.front_door
+              styles:
+                card:
+                  - margin-left: 8px
+            - type: custom:button-card
+              template: [v3_button, v3_popup_button]
+              entity: binary_sensor.bedroom_door
+              name: Bedroom
 
+  - type: custom:popup-card
+    entity: sensor.open_window_count
+    title: Open windows
+    card:
+      type: vertical-stack
+      cards:
+        - type: horizontal-stack
+          cards:
+            - type: custom:button-card
+              template: [v3_button, v3_popup_button]
+              entity: binary_sensor.living_room_right_window
+              name: Living Room
+              styles:
+                card:
+                  - margin-left: 8px
+            - type: custom:button-card
+              template: [v3_button, v3_popup_button]
+              entity: binary_sensor.bedroom_left_window
+              name: Bedroom Left
+            - type: custom:button-card
+              template: [v3_button, v3_popup_button]
+              entity: binary_sensor.bedroom_right_window
+              name: Bedroom Right
+        - type: horizontal-stack
+          cards:
+            - type: custom:button-card
+              template: [v3_button, v3_popup_button]
+              entity: binary_sensor.kitchen_window
+              name: Kitchen
+              styles:
+                card:
+                  - margin-left: 8px
 
-sensor.terrarium_weather_temperature:
-  title: Terrarium Temperature
-  card:
-    type: custom:decluttering-card
-    template: climate_card
-    variables:
-      - main_entity: sensor.terrarium_weather_temperature
-      - left_entity: sensor.terrarium_weather_humidity
-      - right_entity: sensor.terrarium_weather_pressure
+  - type: custom:popup-card
+    entity: sensor.bedroom_weather_temperature
+    title: Bedroom Climate
+    card:
+      type: custom:decluttering-card
+      template: bedroom_climate_card
 
-
-sensor.terrarium_weather_humidity:
-  title: Terrarium Humidity
-  card:
-    type: custom:decluttering-card
-    template: climate_card
-    variables:
-      - main_entity: sensor.terrarium_weather_humidity
-      - main_name: Humidity
-      - left_entity: sensor.terrarium_weather_temperature
-      - left_name: Temperature
-      - right_entity: sensor.terrarium_weather_pressure
-
-sensor.guest_bedroom_weather_temperature:
-  title: Guest Bedroom Temperature
-  card:
-    type: custom:decluttering-card
-    template: climate_card
-    variables:
-      - main_entity: sensor.guest_bedroom_weather_temperature
-      - left_entity: sensor.guest_bedroom_weather_humidity
-      - right_entity: sensor.guest_bedroom_weather_pressure
-
-sensor.guest_bedroom_weather_humidity:
-  title: Guest Bedroom Humidity
-  card:
-    type: custom:decluttering-card
-    template: climate_card
-    variables:
-      - main_entity: sensor.guest_bedroom_weather_humidity
-      - main_name: Humidity
-      - left_entity: sensor.guest_bedroom_weather_temperature
-      - left_name: Temperature
-      - right_entity: sensor.guest_bedroom_weather_pressure
-
-sensor.aqara_tvoc_voc:
-  title: VOC
-  card:
-    type: custom:decluttering-card
-    template: aqara_tvoc_card
-
-sensor.purifier_air_quality:
-  title: Bedroom air quality
-  card:
-    type: custom:decluttering-card
-    template: bedroom_air_quality_card
-
-sensor.purifier_allergens:
-  title: Bedroom allergen index
-  card:
-    type: custom:decluttering-card
-    template: bedroom_allergen_index_card
-
-fan.philips_airpurifier:
-  title: Air Purifier
-  card:
-    type: custom:decluttering-card
-    template: philips_airpurifier_card
-
-switch.cadmium:
-  title: Cadmium
-  card:
-    type: custom:decluttering-card
-    template: cadmium_card
-    variables:
-      - title: ''
-
-sensor.fast_com_download:
-  title: Network Speed
-  card:
-    type: custom:decluttering-card
-    template: network_card
-
-binary_sensor.pi_hole_enabled:
-  title: Pi-Hole
-  card:
-    type: custom:decluttering-card
-    template: pi_hole_card
-
-input_boolean.alarm_enabled:
-  title: Alarm
-  card:
-    type: vertical-stack
-    cards:
-      - type: custom:time-picker-card
-        entity: input_datetime.alarm_time
-        hour_mode: 12
-        minute_step: 10
-        hide:
-          name: true
-      - type: entities
-        show_header_toggle: false
-        entities:
-          - input_boolean.alarm_enabled
-          - input_datetime.alarm_time
-          - entity: automation.alarm_set_time
-            name: Automatically set time
-
-script.brita_pour_water:
-  title: Brita
-  card:
-    type: custom:decluttering-card
-    template: brita_card
-
-sensor.kitchen_outlet_electric_consumption_w:
-  title: Kitchen power
-  card:
-    type: entities
-    entities:
-      - entity: switch.kitchen_outlet
-        name: Turned on
-      - entity: light.kitchen_outlet
-        name: Light
-      - entity: sensor.kitchen_outlet_electric_consumption_v
-        name: Voltage
-      - entity: sensor.kitchen_outlet_electric_consumption_a
-        name: Amperes
-      - entity: sensor.kitchen_outlet_electric_consumption_w
-        name: Watts
-      - entity: sensor.kitchen_outlet_electric_consumption_kwh
-        name: kWh
-      - entity: binary_sensor.kitchen_outlet_power_management_over_current_detected
-        name: Over-current detected
-      - entity: binary_sensor.kitchen_outlet_power_management_over_load_detected
-        name: Over-load detected
-
-sensor.desk_outlet_power:
-  title: Desk power
-  card:
-    type: entities
-    entities:
-      - entity: switch.desk_outlet
-        name: Turned on
-      - entity: sensor.desk_outlet_power
-        name: Power
-      - entity: sensor.desk_outlet_voltage
-        name: Voltage
-      - entity: sensor.desk_outlet_current
-        name: Current
-      - entity: sensor.desk_outlet_energy_today
-        name: Energy today
-      - entity: sensor.desk_outlet_energy_yesterday
-        name: Energy yesterday
-      - entity: sensor.desk_outlet_energy_total
-        name: Total energy
-      - entity: sensor.desk_outlet_energy_total_start_time
-        name: Total energy start
-      - entity: sensor.desk_outlet_wifi
-        name: Wifi strength
-
-sensor.printer_status:
-  title: Brother Printer
-  card:
-    type: entities
-    entities:
-      - sensor.printer_black_toner_remaining
-      - sensor.printer_drum_remaining_life
-      - sensor.printer_duplex_unit_pages_counter
-      - sensor.printer_page_counter
-      - sensor.printer_uptime
+  - type: custom:popup-card
+    entity: sensor.multisensor_6_temperature
+    title: Living Room Climate
+    card:
+      type: custom:decluttering-card
+      template: climate_card
+      variables:
+        - main_entity: sensor.multisensor_6_temperature
+        - left_entity: sensor.multisensor_6_relative_humidity
+        - right_entity: sensor.multisensor_6_luminance
+        - right_name: Luminance
 
 
-sensor.average_temperature:
-  title: Temperatures
-  card:
-    type: vertical-stack
-    cards:
-      - type: horizontal-stack
-        cards:
-          - type: custom:button-card
-            template: [regular, progress]
-            entity: sensor.multisensor_6_temperature
-            name: Living room
-            state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
-          - type: custom:button-card
-            template: [regular, progress]
-            entity: sensor.trisensor_temperature
-            name: Desk
-            state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
-          - type: custom:button-card
-            template: [regular, progress]
-            entity: sensor.living_room_radiator_temperature
-            name: Radiator
-            state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
-          - type: custom:button-card
-            template: [regular, progress]
-            entity: sensor.bedroom_weather_temperature
-            name: Bedroom
-            state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
-      - type: horizontal-stack
-        cards:
-          - type: custom:button-card
-            template: [regular, progress]
-            entity: sensor.kitchen_weather_temperature
-            name: Kitchen
-            state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
-          - type: custom:button-card
-            template: [regular, progress]
-            entity: sensor.bathroom_weather_temperature
-            name: Bathroom
-            state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
-          - type: custom:button-card
-            template: [regular, progress]
-            entity: sensor.hallway_weather_temperature
-            name: Hallway
-            state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
-          - type: custom:button-card
-            template: [regular, progress]
-            entity: sensor.guest_bedroom_weather_temperature
-            name: G. Bedroom
-            state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
-      - type: entities
-        entities:
-          - type: custom:template-entity-row
-            entity: sensor.average_temperature
-            name: Open temperature dashboard
-            icon: mdi:thermometer
-            tap_action:
-              action: navigate
-              navigation_path: /lovelace-main/climate
+  - type: custom:popup-card
+    entity: sensor.multisensor_6_relative_humidity
+    title: Living Room Humidity
+    card:
+      type: custom:decluttering-card
+      template: climate_card
+      variables:
+        - main_entity: sensor.multisensor_6_relative_humidity
+        - main_name: Humidity
+        - left_entity: sensor.multisensor_6_temperature
+        - left_name: Temperature
+        - right_entity: sensor.multisensor_6_luminance
+        - right_name: Luminance
 
-sensor.average_humidity:
-  title: Humidities
-  card:
-    type: vertical-stack
-    cards:
-      - type: horizontal-stack
-        cards:
-          - type: custom:button-card
-            template: [regular, progress]
-            entity: sensor.multisensor_6_relative_humidity
-            state_display: "[[[ return Math.round(entity.state) + ' %' ]]]"
-            name: Living room
-            variables:
-              min_value: 25
-              max_value: 90
-              normal_value: 40
-              high_value: 65
-              low_color: "var(--color-red)"
-          - type: custom:button-card
-            template: [regular, progress]
-            entity: sensor.bedroom_weather_humidity
-            state_display: "[[[ return Math.round(entity.state) + ' %' ]]]"
-            name: Bedroom
-            variables:
-              min_value: 25
-              max_value: 90
-              normal_value: 40
-              high_value: 65
-              low_color: "var(--color-red)"
-          - type: custom:button-card
-            template: [regular, progress]
-            entity: sensor.kitchen_weather_humidity
-            state_display: "[[[ return Math.round(entity.state) + ' %' ]]]"
-            name: Kitchen
-            variables:
-              min_value: 25
-              max_value: 90
-              normal_value: 40
-              high_value: 65
-              low_color: "var(--color-red)"
-      - type: horizontal-stack
-        cards:
-          - type: custom:button-card
-            template: [regular, progress]
-            entity: sensor.bathroom_weather_humidity
-            state_display: "[[[ return Math.round(entity.state) + ' %' ]]]"
-            name: Bathroom
-            variables:
-              min_value: 25
-              max_value: 90
-              normal_value: 40
-              high_value: 65
-              low_color: "var(--color-red)"
-          - type: custom:button-card
-            template: [regular, progress]
-            entity: sensor.hallway_weather_humidity
-            state_display: "[[[ return Math.round(entity.state) + ' %' ]]]"
-            name: Hallway
-            variables:
-              min_value: 25
-              max_value: 90
-              normal_value: 40
-              high_value: 65
-              low_color: "var(--color-red)"
-          - type: custom:button-card
-            template: [regular, progress]
-            entity: sensor.guest_bedroom_weather_humidity
-            state_display: "[[[ return Math.round(entity.state) + ' %' ]]]"
-            name: G. Bedroom
-            variables:
-              min_value: 25
-              max_value: 90
-              normal_value: 40
-              high_value: 65
-              low_color: "var(--color-red)"
-      - type: entities
-        entities:
-          - type: custom:template-entity-row
-            entity: sensor.average_temperature
-            name: Open temperature dashboard
-            icon: mdi:thermometer
-            tap_action:
-              action: navigate
-              navigation_path: /lovelace-main/climate
+  - type: custom:popup-card
+    entity: sensor.bedroom_weather_humidity
+    title: Bedroom Humidity
+    card:
+      type: custom:decluttering-card
+      template: bedroom_humidity_card
+
+  - type: custom:popup-card
+    entity: sensor.kitchen_weather_temperature
+    title: Kitchen Temperature
+    card:
+      type: custom:decluttering-card
+      template: climate_card
+      variables:
+        - main_entity: sensor.kitchen_weather_temperature
+        - left_entity: sensor.kitchen_weather_humidity
+        - right_entity: sensor.kitchen_weather_pressure
+
+  - type: custom:popup-card
+    entity: sensor.kitchen_weather_humidity
+    title: Kitchen Humidity
+    card:
+      type: custom:decluttering-card
+      template: climate_card
+      variables:
+        - main_entity: sensor.kitchen_weather_humidity
+        - main_name: Humidity
+        - left_entity: sensor.kitchen_weather_temperature
+        - left_name: Temperature
+        - right_entity: sensor.kitchen_weather_pressure
+
+  - type: custom:popup-card
+    entity: sensor.bathroom_weather_temperature
+    title: Bathroom Temperature
+    card:
+      type: custom:decluttering-card
+      template: climate_card
+      variables:
+        - main_entity: sensor.bathroom_weather_temperature
+        - left_entity: sensor.bathroom_weather_humidity
+        - right_entity: sensor.bathroom_weather_pressure
+
+  - type: custom:popup-card
+    entity: sensor.bathroom_weather_humidity
+    title: Bathroom Humidity
+    card:
+      type: custom:decluttering-card
+      template: climate_card
+      variables:
+        - main_entity: sensor.bathroom_weather_humidity
+        - main_name: Humidity
+        - left_entity: sensor.bathroom_weather_temperature
+        - left_name: Temperature
+        - right_entity: sensor.bathroom_weather_pressure
 
 
-vacuum.vacuum:
-  title: Vacuum
-  card:
-    type: custom:layout-card
-    layout_type: custom:horizontal-layout
-    layout:
-      max_cols: 2
-    cards:
-      - type: custom:vacuum-card
-        entity: vacuum.vacuum
-        stats:
-          default:
-            - attribute: filter_left
-              unit: hours
-              subtitle: Filter
-            - attribute: side_brush_left
-              unit: hours
-              subtitle: Side brush
-            - attribute: main_brush_left
-              unit: hours
-              subtitle: Main brush
-            - attribute: sensor_dirty_left
-              unit: hours
-              subtitle: Sensors
-          cleaning:
-            - attribute: cleaned_area
-              unit: m2
-              subtitle: Cleaning area
-            - attribute: cleaning_time
-              unit: minutes
-              subtitle: Cleaning time
-      - type: custom:xiaomi-vacuum-map-card
-        entity: vacuum.vacuum
-        map_source:
-          camera: camera.xiaomi_cloud_map_extractor
-        calibration_source:
-          camera: true
-        map_locked: true
-        map_modes:
-          - template: vacuum_clean_zone
-          - template: vacuum_goto
-          - template: vacuum_follow_path
-          - template: vacuum_clean_segment
-            name: Rooms
-            predefined_selections:
-              - zones: [[25457, 25178], [27053, 25119], [27053, 27779], [24334, 27839], [24334, 25533], [25398, 25474]]
-                id: 1
-                label:
-                  text: "Kitchen"
-                  x: 25457
-                  y: 25178
-                  offset_y: 35
-                icon:
-                  name: "mdi:chef-hat"
-                  x: 25457
-                  y: 25178
+  - type: custom:popup-card
+    entity: sensor.hallway_weather_temperature
+    title: Hallway Temperature
+    card:
+      type: custom:decluttering-card
+      template: climate_card
+      variables:
+        - main_entity: sensor.hallway_weather_temperature
+        - left_entity: sensor.hallway_weather_humidity
+        - right_entity: sensor.hallway_weather_pressure
 
-switch.tapo_bedroom:
-  title: "Bedroom Camera"
-  card:
-    type: picture-glance
-    camera_image: camera.bedroom_hd
-    entities:
-      - switch.tapo_bedroom
+  - type: custom:popup-card
+    entity: sensor.hallway_weather_humidity
+    title: Hallway Humidity
+    card:
+      type: custom:decluttering-card
+      template: climate_card
+      variables:
+        - main_entity: sensor.hallway_weather_humidity
+        - main_name: Humidity
+        - left_entity: sensor.hallway_weather_temperature
+        - left_name: Temperature
+        - right_entity: sensor.hallway_weather_pressure
+
+
+  - type: custom:popup-card
+    entity: sensor.terrarium_weather_temperature
+    title: Terrarium Temperature
+    card:
+      type: custom:decluttering-card
+      template: climate_card
+      variables:
+        - main_entity: sensor.terrarium_weather_temperature
+        - left_entity: sensor.terrarium_weather_humidity
+        - right_entity: sensor.terrarium_weather_pressure
+
+
+  - type: custom:popup-card
+    entity: sensor.terrarium_weather_humidity
+    title: Terrarium Humidity
+    card:
+      type: custom:decluttering-card
+      template: climate_card
+      variables:
+        - main_entity: sensor.terrarium_weather_humidity
+        - main_name: Humidity
+        - left_entity: sensor.terrarium_weather_temperature
+        - left_name: Temperature
+        - right_entity: sensor.terrarium_weather_pressure
+
+  - type: custom:popup-card
+    entity: sensor.guest_bedroom_weather_temperature
+    title: Guest Bedroom Temperature
+    card:
+      type: custom:decluttering-card
+      template: climate_card
+      variables:
+        - main_entity: sensor.guest_bedroom_weather_temperature
+        - left_entity: sensor.guest_bedroom_weather_humidity
+        - right_entity: sensor.guest_bedroom_weather_pressure
+
+  - type: custom:popup-card
+    entity: sensor.guest_bedroom_weather_humidity
+    title: Guest Bedroom Humidity
+    card:
+      type: custom:decluttering-card
+      template: climate_card
+      variables:
+        - main_entity: sensor.guest_bedroom_weather_humidity
+        - main_name: Humidity
+        - left_entity: sensor.guest_bedroom_weather_temperature
+        - left_name: Temperature
+        - right_entity: sensor.guest_bedroom_weather_pressure
+
+  - type: custom:popup-card
+    entity: sensor.aqara_tvoc_voc
+    title: VOC
+    card:
+      type: custom:decluttering-card
+      template: aqara_tvoc_card
+
+  - type: custom:popup-card
+    entity: sensor.purifier_air_quality
+    title: Bedroom air quality
+    card:
+      type: custom:decluttering-card
+      template: bedroom_air_quality_card
+
+  - type: custom:popup-card
+    entity: sensor.purifier_allergens
+    title: Bedroom allergen index
+    card:
+      type: custom:decluttering-card
+      template: bedroom_allergen_index_card
+
+  - type: custom:popup-card
+    entity: fan.philips_airpurifier
+    title: Air Purifier
+    card:
+      type: custom:decluttering-card
+      template: philips_airpurifier_card
+
+  - type: custom:popup-card
+    entity: switch.cadmium
+    title: Cadmium
+    card:
+      type: custom:decluttering-card
+      template: cadmium_card
+      variables:
+        - title: ''
+
+  - type: custom:popup-card
+    entity: sensor.fast_com_download
+    title: Network Speed
+    card:
+      type: custom:decluttering-card
+      template: network_card
+
+  - type: custom:popup-card
+    entity: binary_sensor.pi_hole_enabled
+    title: Pi-Hole
+    card:
+      type: custom:decluttering-card
+      template: pi_hole_card
+
+  - type: custom:popup-card
+    entity: input_boolean.alarm_enabled
+    title: Alarm
+    card:
+      type: vertical-stack
+      cards:
+        - type: custom:time-picker-card
+          entity: input_datetime.alarm_time
+          hour_mode: 12
+          minute_step: 10
+          hide:
+            name: true
+        - type: entities
+          show_header_toggle: false
+          entities:
+            - input_boolean.alarm_enabled
+            - input_datetime.alarm_time
+            - entity: automation.alarm_set_time
+              name: Automatically set time
+
+
+  - type: custom:popup-card
+    entity: script.brita_pour_water
+    title: Brita
+    card:
+      type: custom:decluttering-card
+      template: brita_card
+
+  - type: custom:popup-card
+    entity: sensor.kitchen_outlet_electric_consumption_w
+    title: Kitchen power
+    card:
+      type: entities
+      entities:
+        - entity: switch.kitchen_outlet
+          name: Turned on
+        - entity: light.kitchen_outlet
+          name: Light
+        - entity: sensor.kitchen_outlet_electric_consumption_v
+          name: Voltage
+        - entity: sensor.kitchen_outlet_electric_consumption_a
+          name: Amperes
+        - entity: sensor.kitchen_outlet_electric_consumption_w
+          name: Watts
+        - entity: sensor.kitchen_outlet_electric_consumption_kwh
+          name: kWh
+        - entity: binary_sensor.kitchen_outlet_power_management_over_current_detected
+          name: Over-current detected
+        - entity: binary_sensor.kitchen_outlet_power_management_over_load_detected
+          name: Over-load detected
+
+  - type: custom:popup-card
+    entity: sensor.desk_outlet_power
+    title: Desk power
+    card:
+      type: entities
+      entities:
+        - entity: switch.desk_outlet
+          name: Turned on
+        - entity: sensor.desk_outlet_power
+          name: Power
+        - entity: sensor.desk_outlet_voltage
+          name: Voltage
+        - entity: sensor.desk_outlet_current
+          name: Current
+        - entity: sensor.desk_outlet_energy_today
+          name: Energy today
+        - entity: sensor.desk_outlet_energy_yesterday
+          name: Energy yesterday
+        - entity: sensor.desk_outlet_energy_total
+          name: Total energy
+        - entity: sensor.desk_outlet_energy_total_start_time
+          name: Total energy start
+        - entity: sensor.desk_outlet_wifi
+          name: Wifi strength
+
+  - type: custom:popup-card
+    entity: sensor.printer_status
+    title: Brother Printer
+    card:
+      type: entities
+      entities:
+        - sensor.printer_black_toner_remaining
+        - sensor.printer_drum_remaining_life
+        - sensor.printer_duplex_unit_pages_counter
+        - sensor.printer_page_counter
+        - sensor.printer_uptime
+
+
+  - type: custom:popup-card
+    entity: sensor.average_temperature
+    title: Temperatures
+    card:
+      type: vertical-stack
+      cards:
+        - type: horizontal-stack
+          cards:
+            - type: custom:button-card
+              template: [regular, progress]
+              entity: sensor.multisensor_6_temperature
+              name: Living room
+              state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
+            - type: custom:button-card
+              template: [regular, progress]
+              entity: sensor.trisensor_temperature
+              name: Desk
+              state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
+            - type: custom:button-card
+              template: [regular, progress]
+              entity: sensor.living_room_radiator_temperature
+              name: Radiator
+              state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
+            - type: custom:button-card
+              template: [regular, progress]
+              entity: sensor.bedroom_weather_temperature
+              name: Bedroom
+              state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
+        - type: horizontal-stack
+          cards:
+            - type: custom:button-card
+              template: [regular, progress]
+              entity: sensor.kitchen_weather_temperature
+              name: Kitchen
+              state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
+            - type: custom:button-card
+              template: [regular, progress]
+              entity: sensor.bathroom_weather_temperature
+              name: Bathroom
+              state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
+            - type: custom:button-card
+              template: [regular, progress]
+              entity: sensor.hallway_weather_temperature
+              name: Hallway
+              state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
+            - type: custom:button-card
+              template: [regular, progress]
+              entity: sensor.guest_bedroom_weather_temperature
+              name: G. Bedroom
+              state_display: "[[[ return Math.round(entity.state) + ' °C' ]]]"
+        - type: entities
+          entities:
+            - type: custom:template-entity-row
+              entity: sensor.average_temperature
+              name: Open temperature dashboard
+              icon: mdi:thermometer
+              tap_action:
+                action: navigate
+                navigation_path: /lovelace-main/climate
+
+  - type: custom:popup-card
+    entity: sensor.average_humidity
+    title: Humidities
+    card:
+      type: vertical-stack
+      cards:
+        - type: horizontal-stack
+          cards:
+            - type: custom:button-card
+              template: [regular, progress]
+              entity: sensor.multisensor_6_relative_humidity
+              state_display: "[[[ return Math.round(entity.state) + ' %' ]]]"
+              name: Living room
+              variables:
+                min_value: 25
+                max_value: 90
+                normal_value: 40
+                high_value: 65
+                low_color: "var(--color-red)"
+            - type: custom:button-card
+              template: [regular, progress]
+              entity: sensor.bedroom_weather_humidity
+              state_display: "[[[ return Math.round(entity.state) + ' %' ]]]"
+              name: Bedroom
+              variables:
+                min_value: 25
+                max_value: 90
+                normal_value: 40
+                high_value: 65
+                low_color: "var(--color-red)"
+            - type: custom:button-card
+              template: [regular, progress]
+              entity: sensor.kitchen_weather_humidity
+              state_display: "[[[ return Math.round(entity.state) + ' %' ]]]"
+              name: Kitchen
+              variables:
+                min_value: 25
+                max_value: 90
+                normal_value: 40
+                high_value: 65
+                low_color: "var(--color-red)"
+        - type: horizontal-stack
+          cards:
+            - type: custom:button-card
+              template: [regular, progress]
+              entity: sensor.bathroom_weather_humidity
+              state_display: "[[[ return Math.round(entity.state) + ' %' ]]]"
+              name: Bathroom
+              variables:
+                min_value: 25
+                max_value: 90
+                normal_value: 40
+                high_value: 65
+                low_color: "var(--color-red)"
+            - type: custom:button-card
+              template: [regular, progress]
+              entity: sensor.hallway_weather_humidity
+              state_display: "[[[ return Math.round(entity.state) + ' %' ]]]"
+              name: Hallway
+              variables:
+                min_value: 25
+                max_value: 90
+                normal_value: 40
+                high_value: 65
+                low_color: "var(--color-red)"
+            - type: custom:button-card
+              template: [regular, progress]
+              entity: sensor.guest_bedroom_weather_humidity
+              state_display: "[[[ return Math.round(entity.state) + ' %' ]]]"
+              name: G. Bedroom
+              variables:
+                min_value: 25
+                max_value: 90
+                normal_value: 40
+                high_value: 65
+                low_color: "var(--color-red)"
+        - type: entities
+          entities:
+            - type: custom:template-entity-row
+              entity: sensor.average_temperature
+              name: Open temperature dashboard
+              icon: mdi:thermometer
+              tap_action:
+                action: navigate
+                navigation_path: /lovelace-main/climate
+
+
+  - type: custom:popup-card
+    entity: vacuum.vacuum
+    title: Vacuum
+    card:
+      type: custom:layout-card
+      layout_type: custom:horizontal-layout
+      layout:
+        max_cols: 2
+      cards:
+        - type: custom:vacuum-card
+          entity: vacuum.vacuum
+          stats:
+            default:
+              - attribute: filter_left
+                unit: hours
+                subtitle: Filter
+              - attribute: side_brush_left
+                unit: hours
+                subtitle: Side brush
+              - attribute: main_brush_left
+                unit: hours
+                subtitle: Main brush
+              - attribute: sensor_dirty_left
+                unit: hours
+                subtitle: Sensors
+            cleaning:
+              - attribute: cleaned_area
+                unit: m2
+                subtitle: Cleaning area
+              - attribute: cleaning_time
+                unit: minutes
+                subtitle: Cleaning time
+        - type: custom:xiaomi-vacuum-map-card
+          entity: vacuum.vacuum
+          map_source:
+            camera: camera.xiaomi_cloud_map_extractor
+          calibration_source:
+            camera: true
+          map_locked: true
+          map_modes:
+            - template: vacuum_clean_zone
+            - template: vacuum_goto
+            - template: vacuum_follow_path
+            - template: vacuum_clean_segment
+              name: Rooms
+              predefined_selections:
+                - zones: [[25457, 25178], [27053, 25119], [27053, 27779], [24334, 27839], [24334, 25533], [25398, 25474]]
+                  id: 1
+                  label:
+                    text: "Kitchen"
+                    x: 25457
+                    y: 25178
+                    offset_y: 35
+                  icon:
+                    name: "mdi:chef-hat"
+                    x: 25457
+                    y: 25178
+
+  - type: custom:popup-card
+    entity: switch.tapo_bedroom
+    title: "Bedroom Camera"
+    card:
+      type: picture-glance
+      camera_image: camera.bedroom_hd
+      entities:
+        - switch.tapo_bedroom

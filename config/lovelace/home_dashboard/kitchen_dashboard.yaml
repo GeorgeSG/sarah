@@ -18,7 +18,7 @@
     type: custom:layout-card
     layout_type: custom:horizontal-layout
     layout:
-      max_cols: 3
+      max_cols: 2
     cards:
       - type: vertical-stack
         cards:
@@ -104,3 +104,5 @@
               #   name: Outlet
               #   variables:
               #     power_sensor: sensor.kitchen_outlet_electric_consumption_w
+
+      - !include ../popup_cards.yaml

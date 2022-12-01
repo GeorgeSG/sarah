@@ -18,7 +18,7 @@
     type: custom:layout-card
     layout_type: custom:horizontal-layout
     layout:
-      max_cols: 3
+      max_cols: 2
     cards:
       - type: vertical-stack
         cards:
@@ -59,3 +59,5 @@
             camera_image: camera.terrarium_cam_sd
             entities:
               - camera.terrarium_cam_hd
+
+      - !include ../popup_cards.yaml

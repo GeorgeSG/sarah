@@ -18,7 +18,7 @@
     type: custom:layout-card
     layout_type: custom:horizontal-layout
     layout:
-      max_cols: 3
+      max_cols: 2
     cards:
       - type: vertical-stack
         cards:
@@ -152,3 +152,5 @@
               - type: custom:button-card
                 template: v3_button
                 entity: input_number.guest_bedroom_light_temp
+
+      - !include ../popup_cards.yaml

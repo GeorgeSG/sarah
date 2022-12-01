@@ -18,7 +18,7 @@
     type: custom:layout-card
     layout_type: custom:horizontal-layout
     layout:
-      max_cols: 3
+      max_cols: 1
     cards:
       - type: vertical-stack
         cards:
@@ -54,3 +54,5 @@
                 tap_action:
                   action: call-service
                   service: "[[[ return entity.state == 'on' ? 'script.sonos_bathroom_unjoin' : 'script.sonos_bathroom_join' ]]]"
+
+      - !include ../popup_cards.yaml

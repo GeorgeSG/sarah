@@ -186,7 +186,6 @@ card:
                   - width: 60px
                   - font-size: 13px
 
-
     # Column 2
     - type: vertical-stack
       cards:
@@ -335,3 +334,5 @@ card:
               styles:
                 card:
                   - margin-bottom: 8px
+
+    - !include ../popup_cards.yaml
