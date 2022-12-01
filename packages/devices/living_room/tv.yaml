@@ -93,7 +93,7 @@ automation:
       entity_id: media_player.living_room_tv
     action:
       - choose:
-          - conditions: "{{ trigger.to_state == 'off' }}"
+          - conditions: "{{ trigger.to_state.state == 'off' }}"
             sequence:
               - service: media_player.turn_off
                 entity_id: media_player.nvidia_shield
@@ -102,21 +102,21 @@ automation:
                   name: "📺 Media Module · "
                   message: "Sync TV state · Turning Shield off - TV is off"
                   domain: media_player
-          - conditions: "{{ trigger.to_state == 'on' }}"
+          - conditions: "{{ trigger.to_state.state == 'on' }}"
             sequence:
               - service: media_player.turn_on
                 entity_id: media_player.nvidia_shield
       - service: logbook.log
         data_template:
           name: "📺 Media Module · "
-          message: Sync TV state · Turning Shield on - TV is {{ trigger.to_state }}
+          message: Sync TV state · Turning Shield on - TV is {{ trigger.to_state.state }}
           domain: media_player
 
   - alias: TV · State · Sync Shield state
     trigger:
       - platform: state
         entity_id: media_player.nvidia_shield
-        from: "on"
+        to: "off"
         id: "off"
       - platform: state
         entity_id: media_player.nvidia_shield
@@ -140,7 +140,7 @@ automation:
       - service: logbook.log
         data_template:
           name: "📺 Media Module · "
-          message: Sync TV state · Turning TV on - Shield is {{ trigger.id }}
+          message: Sync TV state · Turning TV {{ trigger.id }} - Shield is {{ trigger.id }}
           domain: media_player
 
   - alias: TV · Prepare for casting
