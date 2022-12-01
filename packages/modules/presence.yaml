@@ -2,19 +2,6 @@
 # ─── INTEGRATIONS ───────────────────────────────────────────────────────────────
 #
 
-# https://www.home-assistant.io/components/person
-person:
-  - name: Georgi
-    id: !secret georgi_user_id
-    user_id: !secret georgi_user_id
-    device_trackers:
-      - device_tracker.arsenic
-
-  - name: Player 2
-    id: !secret player_2_user_id
-    device_trackers:
-      - device_tracker.maya_phone_1
-
 # https://www.home-assistant.io/integrations/device_tracker
 device_tracker:
   - platform: tile
