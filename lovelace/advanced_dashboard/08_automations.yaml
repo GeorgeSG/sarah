@@ -50,8 +50,6 @@ cards:
             - automation.presence_player_2_leaving
             - automation.presence_coming_home
             - automation.presence_leaving_home
-            - automation.routine_coming_home_left_work
-            - automation.presence_leaving_work
 
         - type: entities
           title: Switches
@@ -63,7 +61,6 @@ cards:
             - automation.bedroom_opple
             - automation.bedroom_bedside_switch
             - automation.bedroom_bedside_second_switch
-            - automation.guest_bedroom_aqara_switch
             - automation.bathroom_switch
 
         - type: entities
@@ -75,17 +72,8 @@ cards:
             - automation.lighting_turn_off_all_lights_after_sunrise
             - type: divider
             - automation.lighting_temperature_adjust_on_start
-            - automation.lighting_temperature_sunset_living_room_main
-            - automation.lighting_temperature_sunset_pc
-            - automation.lighting_temperature_sunset_bedroom_main
-            - automation.lighting_temperature_sunset_kitchen_main
-            - automation.lighting_temperature_sunset_kitchen_secondary
-            - automation.lighting_temperature_night_living_room_main
-            - automation.lighting_temperature_night_pc
-            - automation.lighting_temperature_night_bedroom_main
-            - automation.lighting_temperature_night_kitchen_main
-            - automation.lighting_temperature_night_kitchen_secondary
-            - automation.lighting_temperature_adjust_on_start
+            - automation.lighting_temperature_based_on_sun
+            - automation.lighting_temperature_change
             - type: divider
             - automation.lighting_bedroom_door_open
             - type: divider
@@ -96,7 +84,6 @@ cards:
             - automation.lighting_hallway_motion_on
             - automation.lighting_hallway_motion_off
             - type: divider
-            - automation.lighting_sync_tasmota_states_on_start_up
             - automation.lighting_sync_zigbee_states_on_start_up
             - type: divider
             - automation.trust_remote_guest_bedroom
@@ -110,10 +97,8 @@ cards:
           icon: mdi:play-box-outline
           entities:
             - automation.tv_join_beam_to_sonos_group_when_off
-            - automation.tv_state_sync_on_tv_on
-            - automation.tv_state_sync_on_tv_off
-            - automation.tv_state_sync_on_shield_on
-            - automation.tv_state_sync_on_shield_off
+            - automation.tv_state_sync_tv_state
+            - automation.tv_state_sync_shield_state
             - automation.tv_prepare_for_casting
             - type: divider
             - automation.tv_plex_setup_house_for_plex
@@ -133,21 +118,15 @@ cards:
           title: Bedroom Mode
           show_header_toggle: false
           entities:
-            - automation.bedroom_mode_set_to_day
-            - automation.bedroom_mode_set_to_bed
-            - automation.bedroom_mode_set_to_night
+            - automation.bedroom_mode_change
             - automation.guest_bedroom_mode_set_to_night
-            - automation.house_mode_set_to_day
-            - automation.house_mode_set_to_night
+            - automation.house_mode_change
 
         - type: entities
           title: Guest mode
           show_header_toggle: false
           entities:
-            - automation.guest_mode_enable
-            - automation.guest_mode_disable
-            - automation.guest_mode_enable_from_telegram
-            - automation.guest_mode_disable_from_telegram
+            - automation.guest_mode_change
 
         - type: entities
           title: Domestina

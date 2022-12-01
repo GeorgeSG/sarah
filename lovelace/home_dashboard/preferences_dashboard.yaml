@@ -100,6 +100,13 @@
           - type: custom:decluttering-card
             template: v3_section_title
             variables:
+              - title: Lighting
+          - type: entities
+            entities:
+              - input_number.global_light_temp
+          - type: custom:decluttering-card
+            template: v3_section_title
+            variables:
               - title: Media
           - type: entities
             entities:

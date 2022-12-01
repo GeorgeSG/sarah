@@ -158,20 +158,6 @@ automation:
     action:
       - service: script.routine_coming_home
 
-  - alias: Presence · Leaving work
-    trigger:
-      platform: state
-      entity_id: person.georgi
-      from: "Work"
-      to: "not_home"
-    action:
-      - service: notify.telegram
-        data:
-          title: "🏠 *Presence Module · Leaving Work*"
-          message: "Hey, I see you're leaving work. Are you coming home?"
-          data:
-            inline_keyboard:
-              - "Yes:/leaving_work_to_home, No:/do_nothing"
 
 #
 # ─── CUSTOMIZATION ──────────────────────────────────────────────────────────────

@@ -87,66 +87,60 @@ automation:
           message: "Sonos Group · TV off - joining Beam to Sonos Group"
           domain: media_player
 
-  - alias: TV · State · Sync on TV on
+  - alias: TV · State · Sync TV state
     trigger:
       platform: state
       entity_id: media_player.living_room_tv
-      to: "on"
     action:
-      - service: media_player.turn_on
+      - choose:
+          - conditions: "{{ trigger.to_state == 'off' }}"
+            sequence:
+              - service: media_player.turn_off
+                entity_id: media_player.nvidia_shield
+              - service: logbook.log
+                data:
+                  name: "📺 Media Module · "
+                  message: "Sync TV state · Turning Shield off - TV is off"
+                  domain: media_player
+          - conditions: "{{ trigger.to_state == 'on' }}"
+            sequence:
+              - service: media_player.turn_on
+                entity_id: media_player.nvidia_shield
+      - service: logbook.log
+        data_template:
+          name: "📺 Media Module · "
+          message: Sync TV state · Turning Shield on - TV is {{ trigger.to_state }}
+          domain: media_player
+
+  - alias: TV · State · Sync Shield state
+    trigger:
+      - platform: state
         entity_id: media_player.nvidia_shield
-      - service: logbook.log
-        data:
-          name: "📺 Media Module · "
-          message: "Sync TV state · Turning Shield on - TV is on"
-          domain: media_player
-
-  - alias: TV · State · Sync on TV off
-    trigger:
-      platform: state
-      entity_id: media_player.living_room_tv
-      to: "off"
-    action:
-      - service: media_player.turn_off
+        from: "on"
+        id: "off"
+      - platform: state
         entity_id: media_player.nvidia_shield
-      - service: logbook.log
-        data:
-          name: "📺 Media Module · "
-          message: "Sync TV state · Turning Shield off - TV is off"
-          domain: media_player
-
-  - alias: TV · State · Sync on Shield on
-    trigger:
-      platform: state
-      entity_id: media_player.nvidia_shield
-      from: "off"
+        from: "off"
+        id: "on"
     action:
-      - service: media_player.turn_on
-        entity_id: media_player.living_room_tv
-      - delay: "00:00:15"
-      - service: media_player.select_source
-        entity_id: media_player.living_room_tv
-        data:
-          source: "Shield"
+      - choose:
+          - conditions: "{{ trigger.id == 'on' }}"
+            sequence:
+              - service: media_player.turn_on
+                entity_id: media_player.living_room_tv
+              - delay: "00:00:15"
+              - service: media_player.select_source
+                entity_id: media_player.living_room_tv
+                data:
+                  source: "Shield"
+          - conditions: "{{ trigger.id == 'off' }}"
+            sequence:
+              - service: media_player.turn_off
+                entity_id: media_player.living_room_tv
       - service: logbook.log
-        data:
+        data_template:
           name: "📺 Media Module · "
-          message: "Sync TV state · Turning TV on - Shield is on"
-          domain: media_player
-
-  - alias: TV · State · Sync on Shield off
-    trigger:
-      platform: state
-      entity_id: media_player.nvidia_shield
-      to: "off"
-    condition: "{{ is_state_attr('media_player.living_room_tv', 'source', 'Shield') }}"
-    action:
-      - service: media_player.turn_off
-        entity_id: media_player.living_room_tv
-      - service: logbook.log
-        data:
-          name: "📺 Media Module · "
-          message: "Sync TV state · Turning TV off - Shield is off"
+          message: Sync TV state · Turning TV on - Shield is {{ trigger.id }}
           domain: media_player
 
   - alias: TV · Prepare for casting

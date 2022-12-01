@@ -16,9 +16,7 @@ group:
     - automation.music_living_room_play_pause_on_desk_switch_hold
     - automation.music_master_bedroom_play_pause_on_switch_hold
     - automation.notification_door_opened
-    - automation.bedroom_mode_set_to_night
-    - automation.bedroom_mode_set_to_bed
-    - automation.bedroom_mode_set_to_day
+    - automation.bedroom_mode_change
     - automation.bedroom_mode_toggle_on_bedside_switch_hold
     - automation.security_door_opened_while_away
     - automation.purifier_turn_on_low_humidity

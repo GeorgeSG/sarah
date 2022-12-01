@@ -71,29 +71,21 @@ script:
           option: "{{ is_state('input_select.bedroom_mode', 'day') | iif('night', 'day') }}"
 
 automation:
-  - alias: Bedroom mode · Set to day
+  - alias: Bedroom mode · Change
     trigger:
       platform: state
       entity_id: input_select.bedroom_mode
-      to: "day"
     action:
-      - service: script.routine_bedroom_morning
-
-  - alias: Bedroom mode · Set to bed
-    trigger:
-      platform: state
-      entity_id: input_select.bedroom_mode
-      to: "bed"
-    action:
-      - service: script.routine_bedroom_bedtime
-
-  - alias: Bedroom mode · Set to night
-    trigger:
-      platform: state
-      entity_id: input_select.bedroom_mode
-      to: "night"
-    action:
-      - service: script.bedroom_good_night
+      - choose:
+          - conditions: "{{ trigger.to_state == 'day' }}"
+            sequence:
+              - service: script.routine_bedroom_morning
+          - conditions: "{{ trigger.to_state == 'bed' }}"
+            sequence:
+              - service: script.routine_bedroom_bedtime
+          - conditions: "{{ trigger.to_state == 'night' }}"
+            sequence:
+              - service: script.bedroom_good_night
 
   - alias: Guest Bedroom mode · Set to night
     trigger:
@@ -104,18 +96,15 @@ automation:
       - service: light.turn_off
         entity_id: light.tradfri_large
 
-  - alias: House mode · Set to day
+  - alias: House mode · Change
     trigger:
       platform: state
       entity_id: sensor.house_mode
-      to: "day"
     action:
-      - service: script.routine_waking_up
-
-  - alias: House mode · Set to night
-    trigger:
-      platform: state
-      entity_id: sensor.house_mode
-      to: "night"
-    action:
-      - service: script.routine_good_night
+      choose:
+        - conditions: "{{ trigger.to_state == 'day' }}"
+          sequence:
+            - service: script.routine_waking_up
+        - conditions: "{{ trigger.to_state == 'night' }}"
+          sequence:
+            - service: script.routine_good_night

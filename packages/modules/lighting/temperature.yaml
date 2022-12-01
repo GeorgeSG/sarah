@@ -1,86 +1,81 @@
+input_number:
+  global_light_temp:
+    name: Light temperature
+    min: 100
+    max: 500
+    step: 1
+    icon: mdi:lightbulb-night-outline
+
 automation:
   - alias: Lighting · Temperature · Adjust on start
-    use_blueprint:
-      path: light_on_set_temperature.yaml
-      input:
-        light:
-          - light.living_room_main
-          - light.pc
-          - light.master_bedroom_main
-          - light.kitchen_main
-          - light.kitchen_secondary
+    mode: parallel
+    trigger:
+      platform: state
+      entity_id:
+        - light.living_room_main
+        - light.pc
+        - light.master_bedroom_main
+        - light.kitchen_main
+        - light.kitchen_secondary
+    action:
+      - service: light.turn_on
+        data_template:
+          entity_id: "{{ trigger.entity_id }}"
+          color_temp: "{{ states('input_number.global_light_temp') }}"
 
-  - alias: Lighting · Temperature · Sunset · Living room main
-    use_blueprint:
-      path: light_sun_set_temperature.yaml
-      input:
-        light: light.living_room_main
-        temp: 400
+  - alias: Lighting · Temperature · Based on sun
+    id: lighting_temperature_based_on_sun
+    trigger:
+      - platform: sun
+        event: sunrise
+        id: "300"
+      - platform: sun
+        event: sunset
+        offset: "-01:00:00"
+        id: "380"
+      - platform: sun
+        event: sunset
+        id: "400"
+      - platform: sun
+        event: sunset
+        offset: "+01:00:00"
+        id: "433"
+      - platform: sun
+        event: sunset
+        offset: "+02:00:00"
+        id: "466"
+      - platform: sun
+        event: sunset
+        offset: "+03:00:00"
+        id: "500"
 
-  - alias: Lighting · Temperature · Sunset · PC
-    use_blueprint:
-      path: light_sun_set_temperature.yaml
-      input:
-        light: light.pc
-        temp: 400
+    action:
+      - service: input_number.set_value
+        entity_id: input_number.global_light_temp
+        data_template:
+          value: "{{ trigger.id | int }}"
 
-  - alias: Lighting · Temperature · Sunset · Bedroom main
-    use_blueprint:
-      path: light_sun_set_temperature.yaml
-      input:
-        light: light.master_bedroom_main
-        temp: 400
-
-  - alias: Lighting · Temperature · Sunset · Kitchen main
-    use_blueprint:
-      path: light_sun_set_temperature.yaml
-      input:
-        light: light.kitchen_main
-        temp: 400
-
-  - alias: Lighting · Temperature · Sunset · Kitchen secondary
-    use_blueprint:
-      path: light_sun_set_temperature.yaml
-      input:
-        light: light.kitchen_secondary
-        temp: 400
-
-  - alias: Lighting ·Temperature · Night · Living room main
-    use_blueprint:
-      path: light_sun_set_temperature.yaml
-      input:
-        light: light.living_room_main
-        temp: 500
-        after_offset: "+03:00:00"
-
-  - alias: Lighting ·Temperature · Night · PC
-    use_blueprint:
-      path: light_sun_set_temperature.yaml
-      input:
-        light: light.pc
-        temp: 500
-        after_offset: "+03:00:00"
-
-  - alias: Lighting ·Temperature · Night · Bedroom main
-    use_blueprint:
-      path: light_sun_set_temperature.yaml
-      input:
-        light: light.master_bedroom_main
-        temp: 500
-        after_offset: "+03:00:00"
-
-  - alias: Lighting ·Temperature · Night · Kitchen main
-    use_blueprint:
-      path: light_sun_set_temperature.yaml
-      input:
-        light: light.kitchen_main
-        temp: 500
-        after_offset: "+03:00:00"
-
-  - alias: Lighting ·Temperature · Night · Kitchen secondary
-    use_blueprint:
-      path: light_sun_set_temperature.yaml
-      input:
-        light: light.kitchen_secondary
-        temp: 500
-        after_offset: "+03:00:00"
+  - alias: Lighting · Temperature · Change
+    id: "lighting_temperature_change"
+    trigger:
+      platform: state
+      entity_id: input_number.global_light_temp
+    action:
+      - service: scene.apply
+        data_template:
+          entities:
+            light.living_room_main:
+              state: "{{ states('light.living_room_main') }}"
+              color_temp: "{{ trigger.to_state }}"
+            light.pc:
+              state: "{{ states('light.pc') }}"
+              color_temp: "{{ trigger.to_state }}"
+            light.master_bedroom_main:
+              state: "{{ states('light.master_bedroom_main') }}"
+              color_temp: "{{ trigger.to_state }}"
+            light.kitchen_main:
+              state: "{{ states('light.kitchen_main') }}"
+              color_temp: "{{ trigger.to_state }}"
+            light.kitchen_secondary:
+              state: "{{ states('light.kitchen_secondary') }}"
+              color_temp: "{{ trigger.to_state }}"

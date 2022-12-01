@@ -3,15 +3,11 @@
   {%- set getting_hot = [
      " to cool down a bit.",
      ". It's getting hot!",
-     ", or you're probably gonna boil!",
-     ", or you're gonna simmer!"
    ] -%}
 
    {%- set getting_cold = [
      " to warm up a bit.",
      ". It's getting chilly!",
-     ", or you're probably gonna freeze!",
-     ", or you're gonna ice up!"
    ] -%}
 
    {%- if (states('sensor.dark_sky_temperature') | int) < (states('sensor.bedroom_weather_temperature') | int) -%}

@@ -229,15 +229,7 @@ automation:
       - service: philips_airpurifier_http.set_target_humidity
         entity_id: fan.philips_airpurifier
         data_template:
-          humidity: >-
-            {% set state = states('input_select.purifier_target_humidity') | int %}
-            {% if state == 40 %}
-              40
-            {% elif state == 50 %}
-              50
-            {% else %}
-              60
-            {% endif %}
+          humidity: "{{ states('input_select.purifier_target_humidity') | int }}"
 
   - alias: Purifier · Sync humidity
     trigger:
