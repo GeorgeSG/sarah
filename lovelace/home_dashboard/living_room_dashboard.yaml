@@ -3,7 +3,8 @@
     layout-card:
       .: |
         * {
-          --primary-color: #6b8988
+          --primary-color: #6b8988;
+          margin: 0 var(--main-layout-card-margin);
         }
 
       $:
