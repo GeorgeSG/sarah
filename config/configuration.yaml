@@ -96,6 +96,9 @@ discovery:
 # https://www.home-assistant.io/integrations/ffmpeg
 ffmpeg:
 
+# https://www.home-assistant.io/integrations/ssdp/
+ssdp:
+
 # https://www.home-assistant.io/integrations/frontend
 frontend:
   themes: !include_dir_merge_named themes
