@@ -36,8 +36,7 @@ automation:
       entity_id: sensor.house_mode
       state: "night"
     action:
-      - service: light.turn_on
-        entity_id: light.all
+      - service: script.turn_on_all_lights
       - service: script.sonos_say
         data:
           message: "Caution: Front door opened during night mode!"

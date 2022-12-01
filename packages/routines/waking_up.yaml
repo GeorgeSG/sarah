@@ -16,7 +16,9 @@ script:
     alias: Routine · Waking up
     sequence:
       - service: light.turn_on
-        entity_id: light.hallway
+        entity_id:
+          - light.hallway_main
+          - light.hallway_entrance
         data:
           brightness_pct: 100
 
@@ -86,8 +88,6 @@ script:
               }}
             - !include ../../templates/partials/master_bedroom_climate.yaml
             - !include ../../templates/partials/outside_forecast.yaml
-            # FIXME: there are more light entities than lights. This count doesn't work
-            # - !include ../../templates/partials/light_check.yaml
             - !include ../../templates/partials/window_check.yaml
             - !include ../../templates/partials/window_suggestions.yaml
             - !include ../../templates/partials/iss.yaml

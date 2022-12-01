@@ -11,7 +11,7 @@ automation:
         - sensor.living_room_opple_battery
         - sensor.desk_switch_battery
         - sensor.living_room_battery_level
-        # - sensor.living_room_radiator_battery_level
+        - sensor.living_room_radiator_battery_level
 
         - sensor.bedroom_door_battery
         - sensor.bedroom_left_window_battery

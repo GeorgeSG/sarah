@@ -43,8 +43,7 @@ automation:
       platform: time
       at: "03:00:00"
     action:
-      - service: light.turn_off
-        entity_id: light.all
+      - service: script.turn_off_all_lights
       - service: media_player.media_stop
         entity_id:
           - media_player.master_bedroom
@@ -76,8 +75,7 @@ automation:
       platform: time
       at: "17:00:00"
     action:
-      - service: light.turn_on
-        entity_id: light.all
+      - service: script.turn_on_all_lights
       - service: script.music_play
 
   - alias: Simulation mode · 2200

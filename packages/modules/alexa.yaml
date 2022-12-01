@@ -2,7 +2,6 @@ alexa:
   smart_home:
     filter:
       include_entities:
-        - light.ceiling
         - light.living_room_main
         - light.master_bedroom_main
         - light.bedside
@@ -40,8 +39,6 @@ alexa:
         - script.cadmium_start
 
     entity_config:
-      light.ceiling:
-        name: "Ceiling"
       light.living_room_main:
         name: "Living room"
       light.master_bedroom_main:

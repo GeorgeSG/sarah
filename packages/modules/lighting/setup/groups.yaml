@@ -7,11 +7,6 @@ light:
       - light.light_le_3
       - light.light_le_4
 
-  - platform: group
-    name: Living room ceiling
-    entities:
-      - light.living_room_main
-      - light.hue_ambiance_7
 
   - platform: group
     name: Living room ambient
@@ -22,8 +17,13 @@ light:
   - platform: group
     name: Living room
     entities:
-      - light.living_room_ceiling
-      - light.living_room_ambient
+      - light.light_le_1
+      - light.light_le_2
+      - light.light_le_3
+      - light.light_le_4
+      - light.hue_ambiance_7
+      - light.living_room_ambient_main
+      - light.light_lohas_2
 
   - platform: group
     name: Master bedroom main
@@ -36,7 +36,10 @@ light:
   - platform: group
     name: Master bedroom
     entities:
-      - light.master_bedroom_main
+      - light.hue_2
+      - light.hue_3
+      - light.hue_4
+      - light.hue_5
       - light.bedside
 
   - platform: group
@@ -57,8 +60,13 @@ light:
   - platform: group
     name: Kitchen
     entities:
-      - light.kitchen_main
-      - light.kitchen_secondary
+      - light.tradfri_1
+      - light.hue_ambiance_6
+      - light.hue_ambiance_8
+      - light.hue_ambiance_1
+      - light.hue_ambiance_2
+      - light.hue_ambiance_3
+      - light.hue_ambiance_4
 
   - platform: group
     name: Hallway main
@@ -75,120 +83,110 @@ light:
   - platform: group
     name: Hallway
     entities:
-      - light.hallway_entrance
-      - light.hallway_main
+      - light.hue_ambiance_5
+      - light.hue_1
+      - light.hue_white_1
+      - light.hue_white_2
 
   - platform: group
     name: On after dark
     entities:
-      - light.living_room_main
+      # LR main
+      - light.light_le_1
+      - light.light_le_2
+      - light.light_le_3
+      - light.light_le_4
+      # PC
       - light.hue_ambiance_7
-      - light.master_bedroom_main
+      # LR ambiance
+      - light.living_room_ambient_main
+      - light.light_lohas_2
+      # BR main
+      - light.hue_2
+      - light.hue_3
+      - light.hue_4
+      - light.hue_5
       - light.bedside
-      - light.hallway
+      # Hallway
+      - light.hue_ambiance_5
+      - light.hue_1
+      - light.hue_white_1
+      - light.hue_white_2
 
-  - platform: group
-    name: Ceiling
-    entities:
-      - light.living_room_main
+
+script:
+  turn_on_all_lights:
+    sequence:
+      service: light.turn_on
+      entity_id:
+        # LR main
+      - light.light_le_1
+      - light.light_le_2
+      - light.light_le_3
+      - light.light_le_4
+      # PC
       - light.hue_ambiance_7
-      - light.master_bedroom_main
-      - light.kitchen
-      - light.hallway
-
-  - platform: group
-    name: All
-    entities:
-      - light.living_room
-      - light.master_bedroom
-      - light.kitchen
-      - light.hallway
-      - light.tradfri_large
-
-# automation:
-#   - alias: Lighting · Sync Kitchen Main states
-#     trigger:
-#       platform: state
-#       entity_id: light.kitchen_main
-#     action:
-#       - delay: "00:00:03"
-#       - service: mqtt.publish
-#         data:
-#           topic: "z2m_deconz/tradfri_1/get"
-#           payload: ""
-#       - service: mqtt.publish
-#         data:
-#           topic: "z2m_deconz/hue_ambiance_8/get"
-#           payload: ""
-#       - service: mqtt.publish
-#         data:
-#           topic: "z2m_deconz/hue_ambiance_6/get"
-#           payload: ""
-
-  # - alias: Lighting · Sync Kitchen Secondary states
-  #   trigger:
-  #     platform: state
-  #     entity_id: light.kitchen_secondary
-  #   action:
-  #     - delay: "00:00:03"
-  #     - service: mqtt.publish
-  #       data:
-  #         topic: "z2m_deconz/hue_ambiance_1/get"
-  #         payload: ""
-  #     - service: mqtt.publish
-  #       data:
-  #         topic: "z2m_deconz/hue_ambiance_2/get"
-  #         payload: ""
-  #     - service: mqtt.publish
-  #       data:
-  #         topic: "z2m_deconz/hue_ambiance_3/get"
-  #         payload: ""
-  #     - service: mqtt.publish
-  #       data:
-  #         topic: "z2m_deconz/hue_ambiance_4/get"
-  #         payload: ""
-
-  # - alias: Lighting · Sync Hallway Main states
-  #   trigger:
-  #     platform: state
-  #     entity_id: light.hallway_main
-  #   action:
-  #     - delay: "00:00:03"
-  #     - service: mqtt.publish
-  #       data:
-  #         topic: "z2m_deconz/hue_ambiance_5/get"
-  #         payload: ""
-  #     - service: mqtt.publish
-  #       data:
-  #         topic: "z2m_deconz/hue_1/get"
-  #         payload: ""
-
-  # - alias: Lighting · Sync Hallway Entrance states
-  #   trigger:
-  #     platform: state
-  #     entity_id: light.hallway_main
-  #   action:
-  #     - delay: "00:00:03"
-  #     - service: mqtt.publish
-  #       data:
-  #         topic: "z2m_deconz/hue_white_1/get"
-  #         payload: ""
-  #     - service: mqtt.publish
-  #       data:
-  #         topic: "z2m_deconz/hue_white_2/get"
-  #         payload: ""
-
+      # LR ambiance
+      - light.living_room_ambient_main
+      - light.light_lohas_2
+      # BR main
+      - light.hue_2
+      - light.hue_3
+      - light.hue_4
+      - light.hue_5
+      - light.bedside
+      # Hallway
+      - light.hue_ambiance_5
+      - light.hue_1
+      - light.hue_white_1
+      - light.hue_white_2
+      # Kitchen
+      - light.tradfri_1
+      - light.hue_ambiance_6
+      - light.hue_ambiance_8
+      - light.hue_ambiance_1
+      - light.hue_ambiance_2
+      - light.hue_ambiance_3
+      - light.hue_ambiance_4
+  turn_off_all_lights:
+    sequence:
+      service: light.turn_off
+      entity_id:
+        # LR main
+        - light.light_le_1
+        - light.light_le_2
+        - light.light_le_3
+        - light.light_le_4
+        # PC
+        - light.hue_ambiance_7
+        # LR ambiance
+        - light.living_room_ambient_main
+        - light.light_lohas_2
+        # BR main
+        - light.hue_2
+        - light.hue_3
+        - light.hue_4
+        - light.hue_5
+        - light.bedside
+        # Hallway
+        - light.hue_ambiance_5
+        - light.hue_1
+        - light.hue_white_1
+        - light.hue_white_2
+        # Kitchen
+        - light.tradfri_1
+        - light.hue_ambiance_6
+        - light.hue_ambiance_8
+        - light.hue_ambiance_1
+        - light.hue_ambiance_2
+        - light.hue_ambiance_3
+        - light.hue_ambiance_4
 
 homeassistant:
   customize:
-    light.ceiling:
-      icon: mdi:ceiling-light
-
     # Living room
     light.living_room:
       icon: mdi:lightbulb-group
-    light.living_room_ceiling:
-      icon: mdi:ceiling-light
 
     light.living_room_main:
       icon: bha:ceiling-spot-lamp

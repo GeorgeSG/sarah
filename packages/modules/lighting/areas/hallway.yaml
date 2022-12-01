@@ -18,7 +18,8 @@ automation:
           sequence:
             - service: light.turn_on
               entity_id:
-                - light.hallway
+                - light.hallway_main
+                - light.hallway_entrance
                 - light.browser_hallway
               data:
                 brightness_pct: 100
@@ -47,7 +48,9 @@ automation:
               state: 'off'
           sequence:
             - service: light.turn_off
-              entity_id: light.hallway
+              entity_id:
+                - light.hallway_main
+                - light.hallway_entrance
             - service: script.browser_hallway_low
         # Turn off in Night Mode
         default:
@@ -55,5 +58,6 @@ automation:
             entity_id:
               - light.hue_white_1
               - light.hue_1
-              - light.hallway
+              - light.hallway_main
+              - light.hallway_entrace
           - service: script.browser_hallway_low
