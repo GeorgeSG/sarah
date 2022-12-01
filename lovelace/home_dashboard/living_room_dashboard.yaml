@@ -33,10 +33,12 @@
                 template: v3_chip_person
                 entity: input_boolean.georgi_home
                 entity_picture: /local/images/people/georgi.jpg
+                name: Georgi
               - type: custom:button-card
                 template: v3_chip_person
                 entity: input_boolean.player_2_home
                 entity_picture: /local/images/people/maya.jpg
+                name: Maya
               - type: custom:button-card
                 template: v3_chip
                 entity: binary_sensor.living_room_right_window_contact
