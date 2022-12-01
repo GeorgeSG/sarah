@@ -1,10 +1,9 @@
 mqtt:
   sensor:
     - name: "Bedroom Opple action"
-      state_topic: "z2m_deconz/opple_1"
+      state_topic: "z2m_deconz/opple_1/action"
       availability_topic: "z2m_deconz/bridge/state"
       icon: "mdi:gesture-double-tap"
-      value_template: "{{ value_json.action }}"
     - name: "Bedroom Opple battery"
       state_topic: "z2m_deconz/opple_1"
       availability_topic: "z2m_deconz/bridge/state"
