@@ -77,13 +77,13 @@ automation:
       entity_id: input_select.bedroom_mode
     action:
       - choose:
-          - conditions: "{{ trigger.to_state == 'day' }}"
+          - conditions: "{{ trigger.to_state.state == 'day' }}"
             sequence:
               - service: script.routine_bedroom_morning
-          - conditions: "{{ trigger.to_state == 'bed' }}"
+          - conditions: "{{ trigger.to_state.state == 'bed' }}"
             sequence:
               - service: script.routine_bedroom_bedtime
-          - conditions: "{{ trigger.to_state == 'night' }}"
+          - conditions: "{{ trigger.to_state.state == 'night' }}"
             sequence:
               - service: script.bedroom_good_night
 
@@ -102,9 +102,9 @@ automation:
       entity_id: sensor.house_mode
     action:
       choose:
-        - conditions: "{{ trigger.to_state == 'day' }}"
+        - conditions: "{{ trigger.to_state.state == 'day' }}"
           sequence:
             - service: script.routine_waking_up
-        - conditions: "{{ trigger.to_state == 'night' }}"
+        - conditions: "{{ trigger.to_state.state == 'night' }}"
           sequence:
             - service: script.routine_good_night
