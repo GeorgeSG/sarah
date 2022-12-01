@@ -36,10 +36,10 @@ cards:
                   name: Folder Card · Downloads
                 - entity: sensor.folder_card_stars
                   icon: mdi:star
-                  name: Slack User · Stars
+                  name: Folder Card · Stars
                 - entity: sensor.slack_user_stars
                   icon: mdi:slack
-                  name: Folder Card · Stars
+                  name: Slack User · Stars
 
             - type: "custom:weather-card"
               current: true
