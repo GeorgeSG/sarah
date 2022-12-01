@@ -123,6 +123,7 @@ recorder: &recorder_config
       - input_select
       - light
       - person
+      - sensor
       - weather
       - zwave
     entities:
