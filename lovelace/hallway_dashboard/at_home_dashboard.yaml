@@ -182,13 +182,88 @@ card:
     # Column 2
     - type: vertical-stack
       cards:
-        - type: custom:weather-card
-          entity: weather.dark_sky
-          forecast: false
-        - type: markdown
-          content: >-
-            {% set forecast = states('sensor.dark_sky_hourly_summary') %}
-            {{ forecast }}
+        - type: custom:stack-in-card
+          mode: vertical
+          keep:
+            background: true
+          card_mod:
+            style: |
+              ha-card {
+                margin-top: 16px;
+              }
+          cards:
+            - type: custom:simple-weather-card
+              entity: weather.dark_sky
+              backdrop: true
+              secondary_info:
+                - humidity
+                - wind_speed
+                - precipitation_probability
+              card_mod:
+                style: |
+                  .weather__info:not(.weather__info--add) {
+                    margin-left: 14px;
+                  }
+
+            - type: custom:air-visual-card
+              air_pollution_level: sensor.u_s_air_pollution_level
+              air_quality_index: sensor.u_s_air_quality_index
+              main_pollutant: sensor.u_s_main_pollutant
+              hide_title: true
+              hide_weather: true
+              country: Sofia
+              card_mod:
+                style: |
+                  .grid-container {
+                    grid-template-columns: 70px 30% auto;
+                    grid-template-rows: 0 38px auto;
+                  }
+
+                  .face {
+                     border-top-left-radius: 0;
+                  }
+
+                  .face img {
+                    height: 40px;
+                  }
+
+                  .country {
+                    text-align: left;
+                    padding-left: 16px;
+                  }
+
+                  .aplSensor {
+                    justify-content: end;
+                    padding-right: 16px;
+                    padding-top: 16px;
+                    font-size: 1em;
+                    border-top-right-radius: 0;
+                  }
+
+                  .mainPollutantSensor {
+                    padding: 0 0 16px 0;
+                  }
+
+                  .mainPollutantSensorText {
+                    width: auto;
+                    padding: 0 16px;
+                    margin-left: auto;
+                    margin-right: 16px;
+                  }
+
+                  .aqiSensor {
+                    justify-content: start;
+                    padding-left: 16px;
+                    padding-top: 16px;
+                    font-size: 1.5em;
+                    height: auto;
+                  }
+
+            - type: markdown
+              content: >-
+                {% set forecast = states('sensor.dark_sky_hourly_summary') %}
+                It will be {{ forecast[0] | lower }}{{ forecast [1:] }}
+
         - type: custom:decluttering-card
           template: v3_section_title
           variables:
