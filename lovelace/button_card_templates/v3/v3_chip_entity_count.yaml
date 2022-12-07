@@ -2,7 +2,7 @@ v3_chip_entity_count:
   variables:
     entity_type:
   template: v3_chip_name
-  name: "[[[ return `${entity.state} open ${variables.entity_type}${entity.state > 1 ? 's' : ''}` ]]]"
+  name: "[[[ return `${entity.state} open ${variables.entity_type}${entity.state != 1 ? 's' : ''}` ]]]"
   state:
     - value: 0
       operator: '!='
