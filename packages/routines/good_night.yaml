@@ -20,6 +20,7 @@ script:
 
       - service: light.turn_off
         entity_id: light.master_bedroom
+      - service: script.living_room_candle_off
 
   routine_good_night:
     alias: Routine · Going to sleep
@@ -48,3 +49,4 @@ script:
 
       - service: cover.close_cover
         entity_id: cover.living_room
+      - service: script.living_room_candle_off

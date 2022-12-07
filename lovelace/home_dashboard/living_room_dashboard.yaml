@@ -109,6 +109,16 @@
                 template: v3_button
                 entity: light.light_lohas_2
                 name: Ambient 2nd
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                template: v3_button
+                entity: script.living_room_candle_on
+                name: Candle
+                icon: mdi:candle
+                show_state: false
+                tap_action:
+                  action: more-info
 
       - type: vertical-stack
         cards:

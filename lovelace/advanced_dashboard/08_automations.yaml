@@ -68,6 +68,7 @@ cards:
           show_header_toggle: false
           icon: mdi:lightbulb
           entities:
+            - automation.living_room_candle_turn_on_after_sunset
             - automation.lighting_turn_on_ceiling_lights_after_sunset
             - automation.lighting_turn_off_all_lights_after_sunrise
             - type: divider

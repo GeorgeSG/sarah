@@ -1,0 +1,76 @@
+script:
+  living_room_candle:
+    alias: Living Room · Candle 1 · On
+    sequence:
+      - service: mqtt.publish
+        data_template:
+          topic: cmnd/ir_blaster_1/IRSend
+          payload:  "{\"Protocol\":\"NEC\",\"Bits\":32,\"Data\":\"{{ command }}\"}"
+  living_room_candle_on:
+    alias: "Living room candle · on"
+    sequence:
+      - service: script.living_room_candle
+        data:
+          command: "0x01FE48B7"
+  living_room_candle_off:
+    alias: "Living room candle · off"
+    sequence:
+      - service: script.living_room_candle
+        data:
+          command: "0x01FEE01F"
+  living_room_candle_25:
+    alias: "Living room candle · 25%"
+    sequence:
+      - service: script.living_room_candle
+        data:
+          command: "0x01FE906F"
+  living_room_candle_50:
+    alias: "Living room candle · 50%"
+    sequence:
+      - service: script.living_room_candle
+        data:
+          command: "0x01FE609F"
+  living_room_candle_75:
+    alias: "Living room candle · 75%"
+    sequence:
+      - service: script.living_room_candle
+        data:
+          command: "0x01FEC03F"
+  living_room_candle_100:
+    alias: "Living room candle · 100%"
+    sequence:
+      - service: script.living_room_candle
+        data:
+          command: "0x01FE7887"
+  living_room_candle_2h:
+    alias: "Living room candle · 2h"
+    sequence:
+      - service: script.living_room_candle
+        data:
+          command: "0x01FE30CF"
+  living_room_candle_4h:
+    alias: "Living room candle · 4h"
+    sequence:
+      - service: script.living_room_candle
+        data:
+          command: "0x01FED827"
+  living_room_candle_6h:
+    alias: "Living room candle · 6h"
+    sequence:
+      - service: script.living_room_candle
+        data:
+          command: "0x01FE708F"
+  living_room_candle_8h:
+    alias: "Living room candle · 8h"
+    sequence:
+      - service: script.living_room_candle
+        data:
+          command: "0x01FEF00F"
+
+automation:
+  - alias: Living room candle · turn on after sunset
+    trigger:
+      platform: sun
+      event: sunset
+    action:
+      - service: script.living_room_candle_on
