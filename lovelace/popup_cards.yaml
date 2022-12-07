@@ -115,7 +115,7 @@ cards:
         - type: horizontal-stack
           cards:
             - type: custom:button-card
-              template: [v3_button, v3_popup_button]
+              template: [v3_tablet_button, v3_popup_button]
               icon: mdi:set-top-box
               name: Set to Shield
               show_state: false
@@ -130,7 +130,7 @@ cards:
                   - margin-left: 8px
 
             - type: custom:button-card
-              template: [v3_button, v3_popup_button]
+              template: [v3_tablet_button, v3_popup_button]
               name: Set to Switch
               icon: mdi:video-input-hdmi
               show_state: false
@@ -142,7 +142,7 @@ cards:
                   source: Switch
 
             - type: custom:button-card
-              template: [v3_button, v3_popup_button]
+              template: [v3_tablet_button, v3_popup_button]
               name: Bulsatcom
               icon: mdi:remote-tv
               show_state: false
@@ -180,7 +180,7 @@ cards:
         - type: horizontal-stack
           cards:
             - type: custom:button-card
-              template: [v3_button, v3_popup_button]
+              template: [v3_tablet_button, v3_popup_button]
               icon: mdi:set-top-box
               name: Set to Shield
               show_state: false
@@ -195,7 +195,7 @@ cards:
                   - margin-left: 8px
 
             - type: custom:button-card
-              template: [v3_button, v3_popup_button]
+              template: [v3_tablet_button, v3_popup_button]
               name: Set to Switch
               icon: mdi:video-input-hdmi
               show_state: false
@@ -207,7 +207,7 @@ cards:
                   source: Switch
 
             - type: custom:button-card
-              template: [v3_button, v3_popup_button]
+              template: [v3_tablet_button, v3_popup_button]
               name: Bulsatcom
               icon: mdi:remote-tv
               show_state: false
@@ -245,24 +245,24 @@ cards:
         - type: horizontal-stack
           cards:
             - type: custom:button-card
-              template: [v3_button, v3_popup_button]
+              template: [v3_tablet_button, v3_popup_button]
               entity: binary_sensor.hallway_motion_occupancy
               name: Hallway Entrance
               styles:
                 card:
                   - margin-left: 8px
             - type: custom:button-card
-              template: [v3_button, v3_popup_button]
+              template: [v3_tablet_button, v3_popup_button]
               entity: binary_sensor.hallway_motion_2_occupancy
               name: Hallway
             - type: custom:button-card
-              template: [v3_button, v3_popup_button]
+              template: [v3_tablet_button, v3_popup_button]
               entity: binary_sensor.multisensor_motion
               name: Living Room
         - type: horizontal-stack
           cards:
             - type: custom:button-card
-              template: [v3_button, v3_popup_button]
+              template: [v3_tablet_button, v3_popup_button]
               entity: binary_sensor.kitchen_motion_occupancy
               name: Kitchen
               styles:
@@ -278,15 +278,20 @@ cards:
         - type: horizontal-stack
           cards:
             - type: custom:button-card
-              template: [v3_button, v3_popup_button]
+              template: [v3_tablet_button, v3_popup_button]
               entity: binary_sensor.front_door_contact
               styles:
                 card:
                   - margin-left: 8px
+              name: Front
             - type: custom:button-card
-              template: [v3_button, v3_popup_button]
+              template: [v3_tablet_button, v3_popup_button]
               entity: binary_sensor.bedroom_door_contact
               name: Bedroom
+            - type: custom:button-card
+              template: [v3_tablet_button, v3_popup_button]
+              entity: binary_sensor.kitchen_door
+              name: Kitchen
 
   - type: custom:popup-card
     entity: sensor.open_window_count
@@ -297,24 +302,24 @@ cards:
         - type: horizontal-stack
           cards:
             - type: custom:button-card
-              template: [v3_button, v3_popup_button]
+              template: [v3_tablet_button, v3_popup_button]
               entity: binary_sensor.living_room_right_window_contact
               name: Living Room
               styles:
                 card:
                   - margin-left: 8px
             - type: custom:button-card
-              template: [v3_button, v3_popup_button]
+              template: [v3_tablet_button, v3_popup_button]
               entity: binary_sensor.bedroom_left_window_contact
               name: Bedroom Left
             - type: custom:button-card
-              template: [v3_button, v3_popup_button]
+              template: [v3_tablet_button, v3_popup_button]
               entity: binary_sensor.bedroom_right_window_contact
               name: Bedroom Right
         - type: horizontal-stack
           cards:
             - type: custom:button-card
-              template: [v3_button, v3_popup_button]
+              template: [v3_tablet_button, v3_popup_button]
               entity: binary_sensor.kitchen_window_contact
               name: Kitchen
               styles:
@@ -840,3 +845,97 @@ cards:
       camera_image: camera.bedroom_hd
       entities:
         - switch.tapo_bedroom
+
+
+  - type: custom:popup-card
+    entity: script.living_room_candle_on
+    title: Living room candle
+    card:
+      type: vertical-stack
+      cards:
+        - type: horizontal-stack
+          cards:
+            - type: custom:button-card
+              template: v3_tablet_button
+              entity: script.living_room_candle_on
+              name: Turn on
+              icon: mdi:lightbulb-on-outline
+              show_state: false
+              tap_action:
+                action: toggle
+            - type: custom:button-card
+              template: v3_tablet_button
+              entity: script.living_room_candle_off
+              name: Turn off
+              icon: mdi:lightbulb-off-outline
+              show_state: false
+              tap_action:
+                action: toggle
+        - type: horizontal-stack
+          cards:
+            - type: custom:button-card
+              template: v3_xs_button
+              entity: script.living_room_candle_25
+              name: 25%
+              icon: mdi:lightbulb-on-20
+              show_state: false
+              tap_action:
+                action: toggle
+            - type: custom:button-card
+              template: v3_xs_button
+              entity: script.living_room_candle_50
+              name: 50%
+              icon: mdi:lightbulb-on-50
+              show_state: false
+              tap_action:
+                action: toggle
+            - type: custom:button-card
+              template: v3_xs_button
+              entity: script.living_room_candle_75
+              name: 75%
+              icon: mdi:lightbulb-on-70
+              show_state: false
+              tap_action:
+                action: toggle
+            - type: custom:button-card
+              template: v3_xs_button
+              entity: script.living_room_candle_100
+              name: 100%
+              icon: mdi:lightbulb-on
+              show_state: false
+              tap_action:
+                action: toggle
+        - type: horizontal-stack
+          cards:
+            - type: custom:button-card
+              template: v3_xs_button
+              entity: script.living_room_candle_2h
+              name: 2h
+              icon: mdi:timer-off
+              show_state: false
+              tap_action:
+                action: toggle
+            - type: custom:button-card
+              template: v3_xs_button
+              entity: script.living_room_candle_4h
+              name: 4h
+              icon: mdi:timer-off
+              show_state: false
+              tap_action:
+                action: toggle
+            - type: custom:button-card
+              template: v3_xs_button
+              entity: script.living_room_candle_6h
+              name: 6h
+              icon: mdi:timer-off
+              show_state: false
+              tap_action:
+                action: toggle
+            - type: custom:button-card
+              template: v3_xs_button
+              entity: script.living_room_candle_8h
+              name: 8h
+              icon: mdi:timer-off
+              show_state: false
+              tap_action:
+                action: toggle
