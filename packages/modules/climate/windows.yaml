@@ -26,9 +26,13 @@ homeassistant:
   customize:
     binary_sensor.living_room_right_window_contact:
       device_class: window
+      friendly_name: Living room right window
     binary_sensor.bedroom_left_window_contact:
       device_class: window
+      friendly_name: Bedroom left window
     binary_sensor.bedroom_right_window_contact:
       device_class: window
+      friendly_name: Bedroom right window
     binary_sensor.kitchen_window_contact:
       device_class: window
+      friendly_name: Kitchen window

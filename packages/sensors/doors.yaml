@@ -4,6 +4,7 @@ group:
     entities:
       - binary_sensor.front_door_contact
       - binary_sensor.bedroom_door_contact
+      - binary_sensor.kitchen_door
 
 sensor:
   - platform: template
@@ -13,3 +14,10 @@ sensor:
         value_template: >-
           {% set entityStates = states | selectattr('entity_id', 'in', state_attr('group.all_doors', 'entity_id')) %}
           {{ entityStates | selectattr('state', 'eq', 'on') | list | count | int }}
+
+homeassistant:
+  customize:
+    binary_sensor.front_door_contact:
+      friendly_name: Front door
+    binary_sensor.kitchen_door_contact:
+      friendly_name: Kitchen door
