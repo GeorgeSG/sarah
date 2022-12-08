@@ -1,0 +1,8 @@
+automation:
+  - alias: Kitchen christmast lights · turn on after sunset
+    trigger:
+      platform: sun
+      event: sunset
+    action:
+      - service: switch.turn_on
+        entity_id: switch.kitchen_outlet

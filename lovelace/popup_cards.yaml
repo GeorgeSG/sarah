@@ -570,7 +570,7 @@ cards:
       template: brita_card
 
   - type: custom:popup-card
-    entity: sensor.kitchen_outlet_electric_consumption_w
+    entity: switch.kitchen_outlet
     title: Kitchen power
     card:
       type: entities

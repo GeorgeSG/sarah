@@ -107,11 +107,12 @@
                 name: Vacuum
               - type: custom:button-card
                 template: v3_button_brita_water
-              # - type: custom:button-card
-              #   template: v3_button_power
-              #   entity: switch.kitchen_outlet
-              #   name: Outlet
-              #   variables:
-              #     power_sensor: sensor.kitchen_outlet_electric_consumption_w
+              - type: custom:button-card
+                template: v3_button
+                entity: switch.kitchen_outlet
+                icon: mdi:string-lights
+                name: Christmas lights
+                # variables:
+                #   power_sensor: sensor.kitchen_outlet_electric_consumption_w
 
       - !include ../popup_cards.yaml
