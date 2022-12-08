@@ -43,4 +43,4 @@ automation:
         data_template:
           title: "⚙️ *System Module · Low Battery*"
           message: >-
-            {{ trigger.entity_id + "battery is reporting: " + trigger.to_state.state }}
+            {{ trigger.entity_id + " is reporting: " + trigger.to_state.state }}
