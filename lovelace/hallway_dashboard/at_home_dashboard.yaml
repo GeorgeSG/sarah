@@ -285,6 +285,22 @@ card:
               template: v3_xs_button
               entity: light.living_room_ambient
               name: Ambient
+            - type: custom:button-card
+              template: v3_xs_button
+              entity: script.living_room_candle_on
+              name: Candles
+              icon: mdi:candle
+              show_state: false
+              tap_action:
+                action: more-info
+            - type: custom:button-card
+              template: v3_xs_button
+              entity: input_select.isparkle_color
+              name: 🎄 L. Room
+              icon: mdi:string-lights
+              show_state: false
+              tap_action:
+                action: more-info
         - type: horizontal-stack
           cards:
             - type: custom:button-card
@@ -303,6 +319,11 @@ card:
               template: v3_xs_button
               entity: light.kitchen
               name: Kitchen
+            - type: custom:button-card
+              template: v3_xs_button
+              entity: switch.kitchen_outlet
+              icon: mdi:string-lights
+              name: 🎄 Kitchen
         - type: horizontal-stack
           cards:
             - type: custom:button-card
@@ -317,5 +338,6 @@ card:
               template: v3_xs_button
               entity: light.tradfri_large
               name: G. Bedroom
+
 
     - !include ../popup_cards.yaml
