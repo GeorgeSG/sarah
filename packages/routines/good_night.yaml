@@ -21,6 +21,7 @@ script:
       - service: light.turn_off
         entity_id: light.master_bedroom
       - service: script.living_room_candle_off
+      - service: rest_command.isparkle_off
 
   routine_good_night:
     alias: Routine · Going to sleep

@@ -1,0 +1,50 @@
+input_select:
+  isparkle_color:
+    name: Christmas lights color
+    options:
+      - mix
+      - white
+  isparkle_fade:
+    name: Christmas lights fade
+    options:
+      - fade
+      - solid
+
+input_number:
+  isparkle_fade_1:
+    name: Christmas lights fade 1
+    min: 0
+    max: 999
+  isparkle_fade_2:
+    name: Christmas lights fade 2
+    min: 0
+    max: 999
+  isparkle_brightness_1:
+    name: Christmas lights brightness 1
+    min: 0
+    max: 10
+  isparkle_brightness_2:
+    name: Christmas lights brightness 2
+    min: 0
+    max: 10
+
+automation:
+  - alias: Christmas lights change
+    trigger:
+      - platform: state
+        entity_id:
+          - input_select.isparkle_color
+          - input_select.isparkle_fade
+          - input_number.isparkle_fade_1
+          - input_number.isparkle_fade_2
+          - input_number.isparkle_brightness_1
+          - input_number.isparkle_brightness_2
+    action:
+      service: rest_command.isparkle_set
+      data_template:
+        color: "{{ states('input_select.isparkle_color') }}"
+        fn: "{{ states('input_select.isparkle_fade') }}"
+        brightness1: "{{ states('input_number.isparkle_brightness_1') | int }}"
+        timing1: "{{ states('input_number.isparkle_fade_1') | int}}"
+        brightness2: "{{ states('input_number.isparkle_brightness_2') | int }}"
+        timing2: "{{ states('input_number.isparkle_fade_2') | int }}"

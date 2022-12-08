@@ -939,3 +939,110 @@ cards:
               show_state: false
               tap_action:
                 action: toggle
+
+  - type: custom:popup-card
+    entity:  input_select.isparkle_color
+    title: "Christmas lights"
+    card:
+      type: vertical-stack
+      cards:
+        - type: horizontal-stack
+          cards:
+            - type: custom:button-card
+              template: v3_button
+              icon: mdi:string-lights
+              name: "On"
+              show_state: false
+              tap_action:
+                action: call-service
+                service: rest_command.isparkle_on
+            - type: custom:button-card
+              template: v3_button
+              name: "Off"
+              icon: mdi:string-lights-off
+              show_state: false
+              tap_action:
+                action: call-service
+                service: rest_command.isparkle_off
+        - type: horizontal-stack
+          cards:
+            - type: custom:button-card
+              template: v3_tablet_button
+              name: "Fade white"
+              icon: mdi:string-lights
+              show_state: false
+              tap_action:
+                action: call-service
+                service: rest_command.isparkle_fade
+                service_data:
+                  color: white
+                  fadeInTime: 20
+                  fadeOutTime: 20
+            - type: custom:button-card
+              template: v3_tablet_button
+              name: "Fade white slow"
+              icon: mdi:string-lights
+              show_state: false
+              tap_action:
+                action: call-service
+                service: rest_command.isparkle_fade
+                service_data:
+                  color: white
+                  fadeInTime: 100
+                  fadeOutTime: 100
+            - type: custom:button-card
+              template: v3_tablet_button
+              name: "Fade color"
+              icon: mdi:string-lights
+              show_state: false
+              tap_action:
+                action: call-service
+                service: rest_command.isparkle_fade
+                service_data:
+                  color: mix
+                  fadeInTime: 20
+                  fadeOutTime: 20
+            - type: custom:button-card
+              template: v3_tablet_button
+              name: "Fade color slow"
+              icon: mdi:string-lights
+              show_state: false
+              tap_action:
+                action: call-service
+                service: rest_command.isparkle_fade
+                service_data:
+                  color: mix
+                  fadeInTime: 100
+                  fadeOutTime: 100
+        - type: horizontal-stack
+          cards:
+            - type: custom:button-card
+              template: v3_tablet_button
+              name: "Static white"
+              icon: mdi:string-lights
+              show_state: false
+              tap_action:
+                action: call-service
+                service: rest_command.isparkle_set
+                service_data:
+                  color: white
+                  fn: solid
+                  brightness1: 10
+                  brightness2: 10
+                  timing1: 0
+                  timing2: 0
+            - type: custom:button-card
+              template: v3_tablet_button
+              name: "Static color"
+              icon: mdi:string-lights
+              show_state: false
+              tap_action:
+                action: call-service
+                service: rest_command.isparkle_set
+                service_data:
+                  color: mix
+                  fn: solid
+                  brightness1: 10
+                  brightness2: 10
+                  timing1: 0
+                  timing2: 0

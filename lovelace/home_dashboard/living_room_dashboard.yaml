@@ -119,6 +119,14 @@
                 show_state: false
                 tap_action:
                   action: more-info
+              - type: custom:button-card
+                template: v3_button
+                entity: input_select.isparkle_color
+                name: Christmas lights
+                icon: mdi:string-lights
+                show_state: false
+                tap_action:
+                  action: more-info
 
       - type: vertical-stack
         cards:

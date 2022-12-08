@@ -164,3 +164,23 @@ media_extractor:
 
 # https://www.home-assistant.io/integrations/mobile_app
 mobile_app:
+
+rest_command:
+  isparkle_on:
+    url: "http://192.168.0.13:1338/on"
+    method: "POST"
+    content_type: "application/x-www-form-urlencoded"
+  isparkle_off:
+    url: "http://192.168.0.13:1338/off"
+    method: "POST"
+    content_type: "application/x-www-form-urlencoded"
+  isparkle_fade:
+    url: "http://192.168.0.13:1338/fade"
+    method: "POST"
+    content_type: "application/x-www-form-urlencoded"
+    payload: "color={{ color }}&fadeInTime={{ fadeInTime }}&&fadeOutTime={{ fadeOutTime }}"
+  isparkle_set:
+    url: "http://192.168.0.13:1338/set"
+    method: "POST"
+    content_type: "application/x-www-form-urlencoded"
+    payload: "color={{ color }}&fn={{ fn }}&brightness1={{ brightness1 }}&timing1={{ timing1 }}&brightness2={{ brightness2 }}&timing2={{ timing2 }}"
