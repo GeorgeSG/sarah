@@ -109,8 +109,8 @@
               - title: Christmas lights
           - type: entities
             entities:
-              - rest_command.isparkle_on
-              - rest_command.isparkle_off
+              - script.isparkle_on
+              - script.isparkle_off
               - input_select.isparkle_color
               - input_select.isparkle_fade
               - input_number.isparkle_brightness_1

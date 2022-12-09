@@ -24,7 +24,8 @@ script:
         entity_id:
           - light.living_room_ambient
 
-      - service: rest_command.isparkle_on
+      - service: script.isparkle_on
+        entity_id: switch.kitchen_outlet
       - service: script.open_living_room_cover
       - service: script.shield_screensaver
 
@@ -36,8 +37,8 @@ script:
         - condition: state
           entity_id: input_boolean.guest_bedroom
           state: "off"
-      - wait_template: "{{ is_state('input_boolean.sarah_talking', 'off') }}"
-        timeout: 00:02:00
+      # - wait_template: "{{ is_state('input_boolean.sarah_talking', 'off') }}"
+      #   timeout: 00:02:00
       # - delay: 00:00:00
       # - service: script.say
       #   data:

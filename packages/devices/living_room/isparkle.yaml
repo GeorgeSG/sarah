@@ -28,6 +28,24 @@ input_number:
     min: 0
     max: 10
 
+script:
+  isparkle_on:
+    sequence:
+      - service: rest_command.isparkle_on
+      - delay: 00:00:01
+      - service: rest_command.isparkle_on
+      - delay: 00:00:01
+      - service: rest_command.isparkle_on
+      - delay: 00:00:01
+  isparkle_off:
+    sequence:
+      - service: rest_command.isparkle_off
+      - delay: 00:00:01
+      - service: rest_command.isparkle_off
+      - delay: 00:00:01
+      - service: rest_command.isparkle_off
+      - delay: 00:00:01
+
 automation:
   - alias: Christmas lights change
     trigger:

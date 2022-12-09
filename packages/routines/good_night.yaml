@@ -44,11 +44,10 @@ script:
           - media_player.living_room_tv
           - switch.cadmium
           - group.all_radiators
-          - switch.kitchen_outlet
 
       - service: script.browsers_low
 
       - service: cover.close_cover
         entity_id: cover.living_room
       - service: script.living_room_candle_off
-      - service: rest_command.isparkle_off
+      - service: script.isparkle_off

@@ -955,7 +955,7 @@ cards:
               show_state: false
               tap_action:
                 action: call-service
-                service: rest_command.isparkle_on
+                service: script.isparkle_on
             - type: custom:button-card
               template: v3_button
               name: "Off"
@@ -963,7 +963,7 @@ cards:
               show_state: false
               tap_action:
                 action: call-service
-                service: rest_command.isparkle_off
+                service: script.isparkle_off
         - type: horizontal-stack
           cards:
             - type: custom:button-card
