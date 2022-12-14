@@ -32,19 +32,19 @@ script:
   isparkle_on:
     sequence:
       - service: rest_command.isparkle_on
-      - delay: 00:00:01
+      - delay: 00:00:02
       - service: rest_command.isparkle_on
-      - delay: 00:00:01
+      - delay: 00:00:02
       - service: rest_command.isparkle_on
-      - delay: 00:00:01
+      - delay: 00:00:02
   isparkle_off:
     sequence:
       - service: rest_command.isparkle_off
-      - delay: 00:00:01
+      - delay: 00:00:02
       - service: rest_command.isparkle_off
-      - delay: 00:00:01
+      - delay: 00:00:02
       - service: rest_command.isparkle_off
-      - delay: 00:00:01
+      - delay: 00:00:02
 
 automation:
   - alias: Christmas lights change
