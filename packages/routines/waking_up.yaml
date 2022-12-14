@@ -25,7 +25,6 @@ script:
           - light.living_room_ambient
 
       - service: script.isparkle_on
-        entity_id: switch.kitchen_outlet
       - service: script.open_living_room_cover
       - service: script.shield_screensaver
 

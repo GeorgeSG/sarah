@@ -70,6 +70,7 @@ cards:
           entities:
             - automation.living_room_candle_turn_on_after_sunset
             - automation.kitchen_christmast_lights_turn_on_after_sunset
+            - automation.kitchen_christmast_lights_turn_off_on_sunrise
             - automation.lighting_turn_on_ceiling_lights_after_sunset
             - automation.lighting_turn_off_all_lights_after_sunrise
             - type: divider
