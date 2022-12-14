@@ -3,10 +3,10 @@ v3_button_radiator:
   icon: mdi:radiator
   state_display: |
     [[[
-      if (entity.state === 'off') { return 'Off'};
-      return entity.state.charAt(0).toUpperCase() +
-        entity.state.slice(1) + " to " +
-        entity.attributes.temperature + '°';
+      if (entity?.state === 'off') { return 'Off'};
+      return entity?.state.charAt(0).toUpperCase() +
+        entity?.state.slice(1) + " to " +
+        entity?.attributes?.temperature + '°';
     ]]]
   tap_action:
     action: call-service

@@ -10,9 +10,9 @@ v3_button_ac:
       if (entity.state === "off") {
         return "Off";
       }
-      return entity.attributes.hvac_action.charAt(0).toUpperCase() +
-        entity.attributes.hvac_action.slice(1) + ' to ' +
-        entity.attributes.temperature + '°';
+      return entity.attributes?.hvac_action?.charAt(0).toUpperCase() +
+        entity.attributes?.hvac_action?.slice(1) + ' to ' +
+        entity.attributes?.temperature + '°';
     ]]]
   state:
     - value: 'off'

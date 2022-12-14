@@ -4,7 +4,7 @@ v3_button_power:
     power_sensor:
   state_display: |
     [[[
-      if (entity.state === 'off') return 'Off';
+      if (entity?.state === 'off') return 'Off';
       return states[variables.power_sensor].state + " W";
     ]]]
   icon: mdi:power-socket

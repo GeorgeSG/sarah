@@ -2,9 +2,9 @@ v3_button_purifier:
   template: v3_button
   state_display: |
     [[[
-      if (entity.state === 'off') { return 'Off'; }
-      if (!entity.attributes.preset_mode) { return 'Unknown preset'; }
-      return entity.attributes.preset_mode.charAt(0).toUpperCase() + entity.attributes.preset_mode.slice(1);
+      if (entity?.state === 'off') { return 'Off'; }
+      if (!entity?.attributes.preset_mode) { return 'Unknown preset'; }
+      return entity?.attributes?.preset_mode.charAt(0).toUpperCase() + entity?.attributes?.preset_mode.slice(1);
     ]]]
   variables:
     value_has_error: |

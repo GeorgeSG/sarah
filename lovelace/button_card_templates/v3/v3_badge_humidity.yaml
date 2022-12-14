@@ -1,3 +1,3 @@
 v3_badge_humidity:
   template: v3_badge
-  state_display: "[[[ return Number.parseFloat(entity.state.split(' ')[0]).toFixed(1) + '%' ]]]"
+  state_display: "[[[ return Number.parseFloat(entity?.state.split(' ')[0]).toFixed(1) + '%' ]]]"
