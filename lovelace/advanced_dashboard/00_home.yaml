@@ -40,25 +40,3 @@ cards:
                 - entity: sensor.slack_user_stars
                   icon: mdi:slack
                   name: Slack User · Stars
-
-            - type: "custom:weather-card"
-              current: true
-              details: true
-              entity: weather.dark_sky
-              forecast: true
-
-        - type: vertical-stack
-          title: Quarantine
-          cards:
-            - type: entities
-              entities:
-                - type: custom:decluttering-card
-                  template: percentage_card
-                  variables:
-                    - name: Percent
-                    - entity: sensor.quarantined_percent
-                    - icon: mdi:percent
-                    - orange: 100
-                    - red: 100
-                - entity: sensor.quarantine_times_left
-                  name: Times left

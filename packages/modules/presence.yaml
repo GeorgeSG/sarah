@@ -53,7 +53,7 @@ binary_sensor:
 
 sensor:
   - platform: history_stats
-    name: Quarantined percent
+    name: Georgi home percent
     entity_id: device_tracker.arsenic
     state: "home"
     type: ratio
@@ -62,8 +62,26 @@ sensor:
     end: "{{ now() }}"
 
   - platform: history_stats
-    name: Quarantine times left
+    name: Georgi times left
     entity_id: device_tracker.arsenic
+    state: "home"
+    type: count
+    duration:
+      days: 7
+    end: "{{ now() }}"
+
+  - platform: history_stats
+    name: Maya home percent
+    entity_id: device_tracker.maya_phone_1
+    state: "home"
+    type: ratio
+    duration:
+      days: 7
+    end: "{{ now() }}"
+
+  - platform: history_stats
+    name: Maya times left
+    entity_id: device_tracker.maya_phone_1
     state: "home"
     type: count
     duration:

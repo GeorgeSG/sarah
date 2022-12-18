@@ -10,6 +10,13 @@ kiosk_mode:
 
 title: Home
 views:
+  - title: World
+    path: world_view
+    icon: "mdi:earth"
+    panel: true
+    background: '#38593a'
+    cards: !include lovelace/home_dashboard/world_dashboard.yaml
+    theme: sarah-noctis-grey
   - title: Living Room
     path: default_view
     icon: "mdi:sofa"
@@ -21,7 +28,7 @@ views:
     path: bedroom
     icon: "mdi:bed-empty"
     panel: true
-    background: '#9489d1'
+    background: '#786fa7'
     cards: !include lovelace/home_dashboard/bedroom_dashboard.yaml
     theme: sarah-noctis-grey
   - title: Kitchen
@@ -56,13 +63,13 @@ views:
     path: guest_bedroom
     icon: "mdi:numeric-2-box-outline"
     panel: true
-    background: '#0040A0'
+    background: '#39445a'
     cards: !include lovelace/home_dashboard/guest_bedroom_dashboard.yaml
     theme: sarah-noctis-grey
   - title: Preferences
     path: Preferences
     icon: "mdi:cogs"
     panel: true
-    background: '#8aaec3'
+    background: '#404040'
     cards: !include lovelace/home_dashboard/preferences_dashboard.yaml
     theme: sarah-noctis-grey

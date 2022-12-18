@@ -6,7 +6,7 @@
     - type: custom:decluttering-card
       template: coloured-vertical-stack
       variables:
-        - color: "#6A737A"
+        - color: "#404040"
         - cards:
           - type: custom:decluttering-card
             template: v3_title

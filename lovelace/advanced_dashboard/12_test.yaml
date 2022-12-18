@@ -5,9 +5,6 @@ cards:
     entities:
       - input_boolean.purifier_turned_on_for_bad_air
       - binary_sensor.aqi_above_threshold
-      - type: divider
-      - sensor.carbon_activity
-      - sensor.carbon_last_update_trigger
 
   - type: custom:mini-graph-card
     hours_to_show: 168
