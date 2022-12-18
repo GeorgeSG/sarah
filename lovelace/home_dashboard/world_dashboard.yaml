@@ -1,7 +1,7 @@
 - type: custom:layout-card
   layout_type: custom:horizontal-layout
   layout:
-    max_cols: 2
+    max_cols: 3
   cards:
     - type: custom:decluttering-card
       template: coloured-vertical-stack
@@ -12,6 +12,19 @@
             template: v3_title
             variables:
               - title: 🌍 Outside world
+
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                template: v3_chip_person
+                entity: input_boolean.georgi_home
+                entity_picture: /local/images/people/georgi.jpg
+                name: Georgi
+              - type: custom:button-card
+                template: v3_chip_person
+                entity: input_boolean.player_2_home
+                entity_picture: /local/images/people/maya.jpg
+                name: Maya
 
           - type: custom:decluttering-card
             template: stacked-weather
@@ -58,5 +71,22 @@
               - entity: sensor.maya_times_left
                 name: Maya times left
 
+    - type: custom:decluttering-card
+      template: coloured-vertical-stack
+      variables:
+        - color: "#38593a"
+        - cards:
+          - type: custom:decluttering-card
+            template: v3_section_title
+            variables:
+              - title: Network stats
+          - type: custom:decluttering-card
+            template: network_card
+          - type: custom:decluttering-card
+            template: v3_section_title
+            variables:
+              - title: Pi-hole
+          - type: custom:decluttering-card
+            template: pi_hole_card
 
     - !include ../popup_cards.yaml

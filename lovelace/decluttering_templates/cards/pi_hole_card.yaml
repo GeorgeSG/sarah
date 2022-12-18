@@ -13,12 +13,6 @@ pi_hole_card:
             name: Status
           - entity: switch.pihole_temp_disable
             name: Pause for 5 mins
-          - type: custom:template-entity-row
-            name: Open admin UI
-            icon: mdi:firefox
-            tap_action:
-              action: url
-              url_path: http://cobalt.lan:8081/admin
 
       - type: horizontal-stack
         cards:
