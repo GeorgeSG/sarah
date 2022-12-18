@@ -1,0 +1,14 @@
+coloured-vertical-stack:
+  default:
+    - color: "black"
+  card:
+    type: custom:mod-card
+    card_mod:
+        style: |
+          ha-card {
+            --primary-color: [[color]];
+            margin: 20px var(--main-layout-card-margin) 0;
+          }
+    card:
+      type: vertical-stack
+      cards: "[[cards]]"

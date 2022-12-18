@@ -1,28 +1,13 @@
-- type: custom:mod-card
-  style:
-    layout-card:
-      .: |
-        * {
-          --primary-color: #0040A0;
-          margin: 0 var(--main-layout-card-margin);
-        }
-
-      $:
-        horizontal-layout:
-          $:
-            .: |
-              #columns {
-                margin: 0 20px;
-                grid-gap: 20px;
-              }
-  card:
-    type: custom:layout-card
-    layout_type: custom:horizontal-layout
-    layout:
-      max_cols: 2
-    cards:
-      - type: vertical-stack
-        cards:
+- type: custom:layout-card
+  layout_type: custom:horizontal-layout
+  layout:
+    max_cols: 2
+  cards:
+    - type: custom:decluttering-card
+      template: coloured-vertical-stack
+      variables:
+        - color: "#0040A0"
+        - cards:
           - type: custom:decluttering-card
             template: v3_title
             variables:
@@ -51,8 +36,11 @@
               - left_entity: sensor.terrarium_weather_temperature
               - left_name: Temperature
               - right_entity: sensor.terrarium_weather_pressure
-      - type: vertical-stack
-        cards:
+    - type: custom:decluttering-card
+      template: coloured-vertical-stack
+      variables:
+        - color: "#0040A0"
+        - cards:
           - type: custom:decluttering-card
             template: v3_section_title
             variables:
@@ -62,4 +50,4 @@
             entities:
               - camera.terrarium_cam_hd
 
-      - !include ../popup_cards.yaml
+    - !include ../popup_cards.yaml

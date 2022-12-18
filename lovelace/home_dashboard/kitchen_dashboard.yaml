@@ -1,28 +1,13 @@
-- type: custom:mod-card
-  style:
-    layout-card:
-      .: |
-        * {
-          --primary-color: #bacd8c;
-          margin: 0 var(--main-layout-card-margin);
-        }
-
-      $:
-        horizontal-layout:
-          $:
-            .: |
-              #columns {
-                margin: 0 20px;
-                grid-gap: 20px;
-              }
-  card:
-    type: custom:layout-card
-    layout_type: custom:horizontal-layout
-    layout:
-      max_cols: 2
-    cards:
-      - type: vertical-stack
-        cards:
+- type: custom:layout-card
+  layout_type: custom:horizontal-layout
+  layout:
+    max_cols: 2
+  cards:
+    - type: custom:decluttering-card
+      template: coloured-vertical-stack
+      variables:
+        - color: "#bacd8c"
+        - cards:
           - type: custom:decluttering-card
             template: v3_title
             variables:
@@ -70,8 +55,11 @@
                 entity: light.kitchen_secondary
                 name: Secondary
 
-      - type: vertical-stack
-        cards:
+    - type: custom:decluttering-card
+      template: coloured-vertical-stack
+      variables:
+        - color: "#bacd8c"
+        - cards:
           - type: custom:decluttering-card
             template: v3_section_title
             variables:
@@ -115,4 +103,4 @@
                 # variables:
                 #   power_sensor: sensor.kitchen_outlet_electric_consumption_w
 
-      - !include ../popup_cards.yaml
+    - !include ../popup_cards.yaml

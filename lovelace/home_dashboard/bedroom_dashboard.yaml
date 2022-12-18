@@ -1,28 +1,13 @@
-- type: custom:mod-card
-  style:
-    layout-card:
-      .: |
-        * {
-          --primary-color: #9489d1;
-          margin: 0 var(--main-layout-card-margin);
-        }
-
-      $:
-        horizontal-layout:
-          $:
-            .: |
-              #columns {
-                margin: 0 20px;
-                grid-gap: 20px;
-              }
-  card:
-    type: custom:layout-card
-    layout_type: custom:horizontal-layout
-    layout:
-      max_cols: 2
-    cards:
-      - type: vertical-stack
-        cards:
+- type: custom:layout-card
+  layout_type: custom:horizontal-layout
+  layout:
+    max_cols: 2
+  cards:
+    - type: custom:decluttering-card
+      template: coloured-vertical-stack
+      variables:
+        - color: "#9489d1"
+        - cards:
           - type: custom:decluttering-card
             template: v3_title
             variables:
@@ -122,8 +107,11 @@
                 entity: light.bedside
                 name: Bedside
 
-      - type: vertical-stack
-        cards:
+    - type: custom:decluttering-card
+      template: coloured-vertical-stack
+      variables:
+        - color: "#9489d1"
+        - cards:
           - type: custom:decluttering-card
             template: v3_section_title
             variables:
@@ -168,4 +156,4 @@
                 entities:
                   - switch.tapo_bedroom
 
-      - !include ../popup_cards.yaml
+    - !include ../popup_cards.yaml

@@ -1,28 +1,13 @@
-- type: custom:mod-card
-  style:
-    layout-card:
-      .: |
-        * {
-          --primary-color: #2982c4;
-          margin: 0 var(--main-layout-card-margin);
-        }
-
-      $:
-        horizontal-layout:
-          $:
-            .: |
-              #columns {
-                margin: 0 20px;
-                grid-gap: 20px;
-              }
-  card:
-    type: custom:layout-card
-    layout_type: custom:horizontal-layout
-    layout:
-      max_cols: 1
-    cards:
-      - type: vertical-stack
-        cards:
+- type: custom:layout-card
+  layout_type: custom:horizontal-layout
+  layout:
+    max_cols: 1
+  cards:
+    - type: custom:decluttering-card
+      template: coloured-vertical-stack
+      variables:
+        - color: "#2982c4"
+        - cards:
           - type: custom:decluttering-card
             template: v3_title
             variables:
@@ -61,4 +46,4 @@
                   action: call-service
                   service: "[[[ return entity.state == 'on' ? 'script.sonos_bathroom_unjoin' : 'script.sonos_bathroom_join' ]]]"
 
-      - !include ../popup_cards.yaml
+    - !include ../popup_cards.yaml
