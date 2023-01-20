@@ -7,10 +7,10 @@ source "$(dirname $0)/utils.sh"
 
 log "[ui] uploading configuration..."
 
-ssh $REMOTE_HOST -p $REMOTE_PORT "rm -rf $REMOTE_REPO_PATH/lovelace" 2>/dev/null
+ssh $REMOTE_HOST -p $REMOTE_PORT "rm -rf $REMOTE_REPO_PATH/config/lovelace" 2>/dev/null
 
 scp -P $REMOTE_PORT \
-    -r themes/ *-lovelace.yaml lovelace \
-    "${REMOTE_HOST}:${REMOTE_REPO_PATH}/" 2>/dev/null >/dev/null
+    -r config/*-lovelace.yaml config/lovelace \
+    "${REMOTE_HOST}:${REMOTE_REPO_PATH}/config" 2>/dev/null >/dev/null
 
 log "${NO_FORMAT}[ui] ${LIGHT_GREEN}done${NO_FORMAT}"

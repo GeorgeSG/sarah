@@ -8,14 +8,14 @@ source "$(dirname $0)/utils.sh"
 log "[upload] deleting old folders..."
 
 ssh $REMOTE_HOST -p $REMOTE_PORT \
-    "rm -rf $REMOTE_REPO_PATH/{blueprints,custom_scripts,lovelace,packages,templates}" 2>/dev/null
+    "rm -rf $REMOTE_REPO_PATH/config/{blueprints,custom_scripts,lovelace,packages,templates}" 2>/dev/null
 
 log "[upload] ${LIGHT_GREEN}delete done${NO_FORMAT}"
 echo
 
 log "[upload] reuploading..."
 scp -P $REMOTE_PORT \
-    -r {blueprints,custom_scripts,lovelace,packages,templates,themes,*.yaml} \
-    "${REMOTE_HOST}:${REMOTE_REPO_PATH}/" >/dev/null 2>/dev/null
+    -r config/{blueprints,custom_scripts,lovelace,packages,templates,themes,*.yaml} \
+    "${REMOTE_HOST}:${REMOTE_REPO_PATH}/config" >/dev/null 2>/dev/null
 
 log "[upload] ${LIGHT_GREEN}reupload done${NO_FORMAT}"

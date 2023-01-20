@@ -2,4 +2,4 @@
 set -o allexport; source "$(dirname $0)/.env"; set +o allexport
 
 ssh $REMOTE_HOST -p $REMOTE_PORT -t \
-    "docker-compose -f $REMOTE_REPO_PATH/docker-compose.yaml logs -f --tail=\"200\" | grep home-assistant"
+    "docker-compose -f $REMOTE_REPO_PATH/config/docker-compose.yaml logs -f --tail=\"200\" | grep home-assistant"
