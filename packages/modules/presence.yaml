@@ -54,7 +54,7 @@ binary_sensor:
 sensor:
   - platform: history_stats
     name: Georgi home percent
-    entity_id: device_tracker.arsenic
+    entity_id: device_tracker.lithium
     state: "home"
     type: ratio
     duration:
@@ -63,7 +63,7 @@ sensor:
 
   - platform: history_stats
     name: Georgi times left
-    entity_id: device_tracker.arsenic
+    entity_id: device_tracker.lithium
     state: "home"
     type: count
     duration:
@@ -72,7 +72,7 @@ sensor:
 
   - platform: history_stats
     name: Maya home percent
-    entity_id: device_tracker.maya_phone_1
+    entity_id: device_tracker.maya_s22
     state: "home"
     type: ratio
     duration:
@@ -81,7 +81,7 @@ sensor:
 
   - platform: history_stats
     name: Maya times left
-    entity_id: device_tracker.maya_phone_1
+    entity_id: device_tracker.maya_s22
     state: "home"
     type: count
     duration:
