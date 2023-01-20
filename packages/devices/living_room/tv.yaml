@@ -70,6 +70,7 @@ automation:
       - service: wake_on_lan.send_magic_packet
         data:
           mac: 78:5D:C8:C9:DB:76
+
   - alias: TV · Join Beam to Sonos group when off
     trigger:
       platform: state
@@ -84,24 +85,20 @@ automation:
       - service: logbook.log
         data:
           name: "📺 Media Module · "
-          message: "Sonos Group · TV off - joining Beam to Sonos Group"
+          message: "Sonos Group · TV off - joining Beam to Sonos Group ··"
           domain: media_player
 
   - alias: TV · State · Sync TV state
+    mode: single
     trigger:
       platform: state
       entity_id: media_player.living_room_tv
     action:
       - choose:
-          - conditions: "{{ trigger.to_state.state == 'off' }}"
+          - conditions: "{{ trigger.to_state.state == 'off' and not is_state('media_player.nvidia_shield', 'off') }}"
             sequence:
               - service: media_player.turn_off
                 entity_id: media_player.nvidia_shield
-              - service: logbook.log
-                data:
-                  name: "📺 Media Module · "
-                  message: "Sync TV state · Turning Shield off - TV is off"
-                  domain: media_player
           - conditions: "{{ trigger.to_state.state == 'on' }}"
             sequence:
               - service: media_player.turn_on
@@ -109,7 +106,7 @@ automation:
       - service: logbook.log
         data_template:
           name: "📺 Media Module · "
-          message: Sync TV state · Turning Shield on - TV is {{ trigger.to_state.state }}
+          message: "Sync TV state · Turning Shield {{ trigger.to_state.state }} - TV is {{ trigger.to_state.state }} ··"
           domain: media_player
 
   - alias: TV · State · Sync Shield state
@@ -121,10 +118,16 @@ automation:
       - platform: state
         entity_id: media_player.nvidia_shield
         from: "off"
+        to: "idle"
+        id: "on"
+      - platform: state
+        entity_id: media_player.nvidia_shield
+        from: "off"
+        to: "playing"
         id: "on"
     action:
       - choose:
-          - conditions: "{{ trigger.id == 'on' }}"
+          - conditions: "{{ trigger.id == 'on' and not is_state('media_player.living_room_tv', 'on') }}"
             sequence:
               - service: media_player.turn_on
                 entity_id: media_player.living_room_tv
@@ -133,14 +136,14 @@ automation:
                 entity_id: media_player.living_room_tv
                 data:
                   source: "Shield"
-          - conditions: "{{ trigger.id == 'off' }}"
+          - conditions: "{{ trigger.id == 'off' and not is_state('media_player.living_room_tv', 'off') }}"
             sequence:
               - service: media_player.turn_off
                 entity_id: media_player.living_room_tv
       - service: logbook.log
         data_template:
           name: "📺 Media Module · "
-          message: Sync TV state · Turning TV {{ trigger.id }} - Shield is {{ trigger.id }}
+          message: "Sync TV state · Turning TV {{ trigger.id }} - Shield is {{ trigger.id }} ··"
           domain: media_player
 
   - alias: TV · Prepare for casting
