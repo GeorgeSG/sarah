@@ -5,7 +5,7 @@ services:
     container_name: home-assistant
     image: homeassistant/home-assistant:stable
     volumes:
-      - ./:/config
+      - ./config:/config
     devices:
       - /dev/ttyACM0:/dev/ttyACM0
     environment:
