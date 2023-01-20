@@ -29,12 +29,12 @@
                 entity: binary_sensor.living_room_right_window_contact
           - type: horizontal-stack
             cards:
-              # - type: custom:button-card
-              #   template: v3_chip
-              #   entity: sensor.multisensor_6_temperature
-              # - type: custom:button-card
-              #   template: v3_chip
-              #   entity: sensor.multisensor_6_relative_humidity
+              - type: custom:button-card
+                template: v3_chip
+                entity: sensor.multisensor_6_temperature
+              - type: custom:button-card
+                template: v3_chip
+                entity: sensor.multisensor_6_relative_humidity
               - type: custom:button-card
                 template: v3_chip
                 entity: sensor.aqara_tvoc_voc
@@ -104,14 +104,7 @@
                 show_state: false
                 tap_action:
                   action: more-info
-              - type: custom:button-card
-                template: v3_button
-                entity: input_select.isparkle_color
-                name: Christmas lights
-                icon: mdi:string-lights
-                show_state: false
-                tap_action:
-                  action: more-info
+
 
     - type: custom:decluttering-card
       template: coloured-vertical-stack
