@@ -50,4 +50,3 @@ script:
       - service: cover.close_cover
         entity_id: cover.living_room
       - service: script.living_room_candle_off
-      - service: script.isparkle_off

@@ -24,7 +24,6 @@ script:
         entity_id:
           - light.living_room_ambient
 
-      - service: script.isparkle_on
       - service: script.open_living_room_cover
       - service: script.shield_screensaver
 

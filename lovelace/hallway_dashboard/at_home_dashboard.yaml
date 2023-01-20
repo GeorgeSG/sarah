@@ -293,14 +293,6 @@ card:
               show_state: false
               tap_action:
                 action: more-info
-            - type: custom:button-card
-              template: v3_xs_button
-              entity: input_select.isparkle_color
-              name: 🎄 L. Room
-              icon: mdi:string-lights
-              show_state: false
-              tap_action:
-                action: more-info
         - type: horizontal-stack
           cards:
             - type: custom:button-card
@@ -319,11 +311,6 @@ card:
               template: v3_xs_button
               entity: light.kitchen
               name: Kitchen
-            - type: custom:button-card
-              template: v3_xs_button
-              entity: switch.kitchen_outlet
-              icon: mdi:string-lights
-              name: 🎄 Kitchen
         - type: horizontal-stack
           cards:
             - type: custom:button-card
