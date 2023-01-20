@@ -49,6 +49,12 @@
               - title: Network stats
           - type: custom:decluttering-card
             template: network_card
+
+    - type: custom:decluttering-card
+      template: coloured-vertical-stack
+      variables:
+        - color: "#38593a"
+        - cards:
           - type: custom:decluttering-card
             template: v3_section_title
             variables:
