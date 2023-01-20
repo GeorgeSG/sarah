@@ -88,21 +88,6 @@
               - automation.tv_plex_setup_house_for_plex
               - automation.tv_plex_restore_house_after_plex
 
-          - type: custom:decluttering-card
-            template: v3_section_title
-            variables:
-              - title: Christmas lights
-          - type: entities
-            entities:
-              - script.isparkle_on
-              - script.isparkle_off
-              - input_select.isparkle_color
-              - input_select.isparkle_fade
-              - input_number.isparkle_brightness_1
-              - input_number.isparkle_fade_1
-              - input_number.isparkle_brightness_2
-              - input_number.isparkle_fade_2
-
     - type: custom:decluttering-card
       template: coloured-vertical-stack
       variables:
