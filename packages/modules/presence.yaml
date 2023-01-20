@@ -51,43 +51,6 @@ binary_sensor:
         device_class: motion
         value_template: "{{ is_state('sensor.multisensor_6_burglar', '8') }}"
 
-sensor:
-  - platform: history_stats
-    name: Georgi home percent
-    entity_id: device_tracker.lithium
-    state: "home"
-    type: ratio
-    duration:
-      days: 7
-    end: "{{ now() }}"
-
-  - platform: history_stats
-    name: Georgi times left
-    entity_id: device_tracker.lithium
-    state: "home"
-    type: count
-    duration:
-      days: 7
-    end: "{{ now() }}"
-
-  - platform: history_stats
-    name: Maya home percent
-    entity_id: device_tracker.maya_s22
-    state: "home"
-    type: ratio
-    duration:
-      days: 7
-    end: "{{ now() }}"
-
-  - platform: history_stats
-    name: Maya times left
-    entity_id: device_tracker.maya_s22
-    state: "home"
-    type: count
-    duration:
-      days: 7
-    end: "{{ now() }}"
-
 
 automation:
   - alias: Presence · Georgi Arrival detection

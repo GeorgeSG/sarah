@@ -38,39 +38,6 @@
           - type: custom:sun-card
             darkMode: true
 
-
-    - type: custom:decluttering-card
-      template: coloured-vertical-stack
-      variables:
-        - color: "#38593a"
-        - cards:
-          - type: custom:decluttering-card
-            template: v3_section_title
-            variables:
-              - title: Home stats
-          - type: entities
-            entities:
-              - type: custom:decluttering-card
-                template: percentage_card
-                variables:
-                  - name: Georgi home
-                  - entity: sensor.georgi_home_percent
-                  - icon: mdi:percent
-                  - orange: 100
-                  - red: 100
-              - entity: sensor.georgi_times_left
-                name: Georgi times left
-              - type: custom:decluttering-card
-                template: percentage_card
-                variables:
-                  - name: Maya home
-                  - entity: sensor.maya_home_percent
-                  - icon: mdi:percent
-                  - orange: 100
-                  - red: 100
-              - entity: sensor.maya_times_left
-                name: Maya times left
-
     - type: custom:decluttering-card
       template: coloured-vertical-stack
       variables:
