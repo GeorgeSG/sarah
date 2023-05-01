@@ -11,7 +11,7 @@ stacked-weather:
         }
     cards:
       - type: custom:simple-weather-card
-        entity: weather.dark_sky
+        entity: weather.pirateweather
         backdrop: true
         secondary_info:
           - humidity
@@ -79,5 +79,4 @@ stacked-weather:
 
       - type: markdown
         content: >-
-          {% set forecast = states('sensor.dark_sky_hourly_summary') %}
-          It will be {{ forecast[0] | lower }}{{ forecast [1:] }}
+          It will be {{  state_attr('weather.pirateweather', 'forecast')[0]['condition'] }}

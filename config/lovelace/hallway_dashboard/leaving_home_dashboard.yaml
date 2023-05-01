@@ -119,12 +119,12 @@ card:
     - type: vertical-stack
       cards:
         - type: custom:weather-card
-          entity: weather.dark_sky
-        - type: custom:mini-graph-card
-          hours_to_show: 72
-          line_width: 2
-          entities:
-            - sensor.dark_sky_precip_probability
-            - sensor.dark_sky_cloud_coverage
+          entity: weather.pirateweather
+        # - type: custom:mini-graph-card
+        #   hours_to_show: 72
+        #   line_width: 2
+        #   entities:
+        #     - sensor.dark_sky_precip_probability
+        #     - sensor.dark_sky_cloud_coverage
 
     - !include ../popup_cards.yaml

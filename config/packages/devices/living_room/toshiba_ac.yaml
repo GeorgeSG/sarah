@@ -59,7 +59,7 @@ template:
       - name: Toshiba AC Climate conditions met
         state: >
           {% set temp_matching = states('sensor.multisensor_6_temperature')|float >= states('input_number.toshiba_trigger_temp')|float %}
-          {% set outside_temp_high = states('sensor.dark_sky_apparent_temperature')|float + 2 >= states('input_number.toshiba_trigger_temp')|float %}
+          {% set outside_temp_high = state_attr('weather.pirateweather', 'temperature')|float + 2 >= states('input_number.toshiba_trigger_temp')|float %}
           {% set someone_home = is_state('binary_sensor.someone_home', 'on') %}
           {% set ac_off = is_state('climate.toshiba_ac', 'off') %}
 
@@ -71,7 +71,7 @@ template:
 
         state: >
           {% set temp_matching = states('sensor.multisensor_6_temperature')|float >= states('input_number.toshiba_trigger_temp')|float %}
-          {% set outside_temp_high = states('sensor.dark_sky_apparent_temperature')|float + 2 >= states('input_number.toshiba_trigger_temp')|float %}
+          {% set outside_temp_high = state_attr('weather.pirateweather', 'temperature')|float + 2 >= states('input_number.toshiba_trigger_temp')|float %}
           {% set someone_home = is_state('binary_sensor.someone_home', 'on') %}
           {% set bedroom_ready = is_state('group.bedroom_windows', 'off') or is_state('binary_sensor.bedroom_door_contact', 'off') %}
           {% set kitchen_ready = is_state('binary_sensor.kitchen_window_contact', 'off') or is_state('binary_sensor.kitchen_door', 'off') %}

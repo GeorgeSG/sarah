@@ -10,7 +10,7 @@
      ". It's getting chilly!",
    ] -%}
 
-   {%- if (states('sensor.dark_sky_temperature') | int) < (states('sensor.bedroom_weather_temperature') | int) -%}
+   {%- if (state_attr('weather.pirateweather', 'temperature') | int) < (states('sensor.bedroom_weather_temperature') | int) -%}
 
      {%- if is_state('binary_sensor.bedroom_right_window_contact', 'off')
            and (states('sensor.bedroom_weather_temperature') | int) > 22 -%}

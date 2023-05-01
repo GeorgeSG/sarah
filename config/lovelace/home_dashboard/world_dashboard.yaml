@@ -32,7 +32,7 @@
           - type: "custom:weather-card"
             current: true
             details: true
-            entity: weather.dark_sky
+            entity: weather.pirateweather
             forecast: true
 
           - type: custom:sun-card

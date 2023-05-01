@@ -6,25 +6,6 @@ cards:
       - input_boolean.purifier_turned_on_for_bad_air
       - binary_sensor.aqi_above_threshold
 
-  - type: custom:mini-graph-card
-    hours_to_show: 168
-    points_per_hour: 0.25
-    # line_width: 2
-    entities:
-      - sensor.dark_sky_cloud_coverage
-      - sensor.dark_sky_uv_index
-  - type: custom:mini-graph-card
-    hours_to_show: 168
-    points_per_hour: 0.25
-    # line_width: 2
-    entities:
-      - sensor.dark_sky_precip_intensity
-      - sensor.dark_sky_precip_probability
-  - type: history-graph
-    hours_to_show: 168
-    entities:
-      - sensor.dark_sky_precip
-      - sensor.dark_sky_precip_probability
 
   - type: vertical-stack
     cards:
