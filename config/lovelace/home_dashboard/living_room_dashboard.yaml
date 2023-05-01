@@ -25,8 +25,9 @@
                 entity_picture: /local/images/people/maya.jpg
                 name: Maya
               - type: custom:button-card
-                template: v3_chip
+                template: v3_chip_name
                 entity: binary_sensor.living_room_right_window_contact
+                name: Window
           - type: horizontal-stack
             cards:
               - type: custom:button-card
