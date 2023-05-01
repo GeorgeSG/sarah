@@ -29,7 +29,8 @@ card:
         - type: 'custom:simple-clock-card'
           hide_seconds: true
           font_size: 4rem
-          padding_size: 0px
+          paddingTop_size: 0px
+          paddingBottom_size: 0px
           style: |
             ha-card {
               background: none;
