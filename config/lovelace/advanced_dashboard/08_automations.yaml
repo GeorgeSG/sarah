@@ -126,6 +126,8 @@ cards:
           show_header_toggle: false
           entities:
             - automation.guest_mode_change
+            - automation.mercury_power_on_at_10am_when_guest_mode_enabled
+            - automation.mercury_power_off_at_10pm_when_guest_mode_enabled
 
         - type: entities
           title: Domestina

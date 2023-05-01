@@ -1,0 +1,40 @@
+script:
+  mercury_start:
+    alias: Mercury · Start
+    icon: mdi:play-box-outline
+    sequence:
+      - service: wake_on_lan.send_magic_packet
+        data:
+          mac: !secret mercury_mac
+
+automation:
+  - alias: Mercury · Power on at 10am when guest mode enabled
+    trigger:
+      - platform: time
+        at: "11:00:00"
+    condition:
+      condition: state
+      entity_id: input_boolean.guest_mode
+      state: "on"
+    action:
+      - service: script.mercury_start
+      - service: notify.telegram
+        data_template:
+          title: "*Mercury · Powering on*"
+          message: "11:00 · Powering Mercury on (guest mode enabled)"
+
+  - alias: Mercury · Power off at 10pm when guest mode enabled
+    trigger:
+      - platform: time
+        at: "22:00:00"
+    condition:
+      condition: state
+      entity_id: input_boolean.guest_mode
+      state: "on"
+    action:
+      - service: button.press
+        entity_id: button.mercury_shutdown
+      - service: notify.telegram
+        data_template:
+          title: "*Mercury · Powering off*"
+          message: "22:00 · Powering Mercury off (guest mode enabled)"
