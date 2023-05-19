@@ -137,8 +137,7 @@ recorder: &recorder_config
       - switch.pihole_temp_disable
       - switch.cadmium
 
-# https://www.home-assistant.io/integrations/history
-history: *recorder_config
+history:
 
 # https://www.home-assistant.io/components/logbook
 logbook:
