@@ -1,3 +1,8 @@
+input_text:
+  bedroom_2_playlist:
+    name: Bedroom playlist
+    icon: mdi:spotify
+
 automation:
   - alias: Bedroom · Bedside Second Switch
     use_blueprint:
@@ -16,8 +21,16 @@ automation:
               brightness_pct: 100
 
         double_click:
-          - service: media_player.media_play_pause
+          - service: scene.turn_on
+            entity_id: scene.bedroom_ambient_pink
+          - service: media_player.unjoin
             entity_id: media_player.master_bedroom
+          - service: media_player.play_media
+            target:
+              entity_id: media_player.master_bedroom
+            data_template:
+              media_content_type: "music"
+              media_content_id: "{{ states('input_text.bedroom_2_playlist') }}"
 
         hold:
           - service: script.toggle_bedroom_mode

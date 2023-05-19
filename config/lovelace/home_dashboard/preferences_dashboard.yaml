@@ -117,6 +117,7 @@
               - input_text.wake_up_spotify_playlist
               - input_number.wake_up_volume
               - input_number.bathroom_high_volume
+              - input_text.bedroom_2_playlist
 
           - type: custom:decluttering-card
             template: v3_section_title
