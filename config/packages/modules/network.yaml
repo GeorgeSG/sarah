@@ -199,23 +199,19 @@ homekit:
 # ─── ENTITIES ───────────────────────────────────────────────────────────────────
 #
 
-switch:
-  - platform: command_line
-    switches:
-      pihole_temp_disable:
-        friendly_name: "Pi-Hole pause for 5 mins"
-        command_on: !secret pihole_disable_5
-        command_off: !secret pihole_enable
-        command_state: !secret pihole_status
-        value_template: '{{ value_json.status == "disabled" }}'
-
-binary_sensor:
-  - platform: command_line
-    name: "Pi-Hole enabled"
-    command: !secret pihole_status
-    payload_on: "enabled"
-    payload_off: "disabled"
-    value_template: '{{ value_json.status }}'
+command_line:
+  - switch:
+      name: pihole_temp_disable
+      command_on: !secret pihole_disable_5
+      command_off: !secret pihole_enable
+      command_state: !secret pihole_status
+      value_template: '{{ value_json.status == "disabled" }}'
+  - binary_sensor:
+      name: "Pi-Hole enabled"
+      command: !secret pihole_status
+      payload_on: "enabled"
+      payload_off: "disabled"
+      value_template: '{{ value_json.status }}'
 
 mqtt:
   sensor:
