@@ -1,0 +1,11 @@
+decluttering_templates: !include_dir_merge_named lovelace/decluttering_templates
+button_card_templates: !include_dir_merge_named lovelace/button_card_templates
+
+title: Sarah
+views:
+  - title: Sarah
+    path: fire_dashboard
+    icon: mdi:tablet-dashboard
+    background: '#333'
+    panel: true
+    cards: !include lovelace/fire_dashboard/fire_dashboard.yaml

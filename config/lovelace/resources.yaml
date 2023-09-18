@@ -16,8 +16,8 @@
   type: module
 - url: /hacsfiles/hass-bha-icons/hass-bha-icons.js
   type: module
-- url: /hacsfiles/kiosk-mode/kiosk-mode.js
-  type: module
+# - url: /hacsfiles/kiosk-mode/kiosk-mode.js
+#   type: module
 - url: /hacsfiles/light-entity-card/light-entity-card.js
   type: module
 - url: /hacsfiles/lovelace-card-mod/card-mod.js

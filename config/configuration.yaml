@@ -61,6 +61,12 @@ lovelace:
       icon: mdi:tablet-dashboard
       show_in_sidebar: false
       filename: hallway-lovelace.yaml
+    lovelace-fire:
+      mode: yaml
+      title: Fire Dashboard
+      icon: mdi:tablet-dashboard
+      show_in_sidebar: false
+      filename: fire-lovelace.yaml
     lovelace-kitchen:
       mode: yaml
       title: Kitchen Dashboard
@@ -88,9 +94,9 @@ logger:
 #
 
 # https://www.home-assistant.io/integrations/discovery
-discovery:
-  ignore:
-    - yeelight
+# discovery:
+#   ignore:
+#     - yeelight
 
 # https://www.home-assistant.io/integrations/ffmpeg
 ffmpeg:

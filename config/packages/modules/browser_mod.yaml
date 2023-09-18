@@ -2,13 +2,20 @@
 browser_mod:
 
 script:
+  browser_fire_low:
+    sequence:
+      - service: light.turn_on
+        entity_id:
+          - light.fire1_screen
+        data:
+          brightness_pct: 30
   browser_hallway_low:
     sequence:
       - service: light.turn_on
         entity_id:
           - light.browser_hallway
         data:
-          brightness_pct: 10
+          brightness_pct: 20
   browser_kitchen_low:
     sequence:
       - service: light.turn_on
@@ -20,6 +27,7 @@ script:
     sequence:
       - service: script.browser_hallway_low
       - service: script.browser_kitchen_low
+      - service: script.browser_fire_low
 
 
 

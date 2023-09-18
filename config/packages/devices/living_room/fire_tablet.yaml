@@ -1,0 +1,14 @@
+script:
+  fire_toggle_brightness:
+     sequence:
+        - service: light.turn_on
+          entity_id: light.fire1_screen
+          data_template:
+            brightness: >
+              {% if state_attr('light.fire1_screen', 'brightness') == 255 %}
+                30
+              {% elif state_attr('light.fire1_screen', 'brightness') <= 35 %}
+                128
+              {% else %}
+                255
+              {% endif %}

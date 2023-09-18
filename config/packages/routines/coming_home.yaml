@@ -23,6 +23,7 @@ script:
           - light.hallway_main
           - light.browser_kitchen
           - light.browser_hallway
+          - light.fire1_screen
           - light.living_room_ambient
           - light.bedside
         data:

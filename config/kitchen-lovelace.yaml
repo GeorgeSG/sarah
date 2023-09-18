@@ -1,9 +1,9 @@
 decluttering_templates: !include_dir_merge_named lovelace/decluttering_templates
 button_card_templates: !include_dir_merge_named lovelace/button_card_templates
 
-kiosk_mode:
-  kiosk: false
-  hide_overflow: true
+# kiosk_mode:
+#   kiosk: false
+#   hide_overflow: true
 
 title: Sarah
 views:
