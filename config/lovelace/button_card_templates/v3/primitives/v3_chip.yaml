@@ -28,8 +28,8 @@ v3_chip:
       - padding-left: 7px
     icon:
       - position: initial
-      - width: 100%
-      - height: auto
+      - width: 24px
+      - height: 24px
       - justify-self: center
       - align-self: center
       - --mdc-icon-size: 20px
