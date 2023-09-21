@@ -119,6 +119,7 @@ recorder: &recorder_config
   include:
     domains:
       - automation
+      - button
       - binary_sensor
       - camera
       - climate
@@ -129,6 +130,7 @@ recorder: &recorder_config
       - input_select
       - light
       - person
+      - script
       - sensor
       - weather
       - zwave
