@@ -1,11 +1,11 @@
-script:
-  mercury_start:
-    alias: Mercury · Start
-    icon: mdi:play-box-outline
-    sequence:
-      - service: wake_on_lan.send_magic_packet
-        data:
-          mac: !secret mercury_mac
+template:
+  - button:
+      - name: Mercury · Start
+        icon: mdi:power
+        press:
+          - service: wake_on_lan.send_magic_packet
+            data:
+              mac: !secret mercury_mac
 
 automation:
   - alias: Mercury · Power on at 10am when guest mode enabled
@@ -17,7 +17,8 @@ automation:
       entity_id: input_boolean.guest_mode
       state: "on"
     action:
-      - service: script.mercury_start
+      - service: button.press
+        entity_id: button.mercury_start
       - service: notify.telegram
         data_template:
           title: "*Mercury · Powering on*"

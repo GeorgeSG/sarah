@@ -31,6 +31,10 @@ mercury_card:
             name: Reboot
           - type: custom:button-card
             template: v3_xs_button
+            entity: button.mercury_start
+            name: Start
+          - type: custom:button-card
+            template: v3_xs_button
             entity: button.mercury_shutdown
             name: Shutdown
 
