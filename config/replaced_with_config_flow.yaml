@@ -93,3 +93,24 @@
 #   file_paths:
 #     - /config/home-assistant_v2.db
 #     - /config/home-assistant.log
+
+#
+# binary_sensor:
+#   - platform: workday
+#     name: Workday today
+#     country: BG
+#     add_holidays:
+#       - '2020-04-20'
+#       - '2020-05-25'
+#       - '2020-09-07'
+#       - '2020-12-28'
+
+#   - platform: workday
+#     name: Workday tomorrow
+#     days_offset: 1
+#     country: BG
+#     add_holidays:
+#       - '2020-04-20'
+#       - '2020-05-25'
+#       - '2020-09-07'
+#       - '2020-12-28'
