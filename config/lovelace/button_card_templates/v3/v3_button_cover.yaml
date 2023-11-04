@@ -1,7 +1,2 @@
 v3_button_cover:
   template: [v3_button, cover]
-  state_display: |
-    [[[
-      if (entity?.state === 'closed') { return 'Closed' }
-      return entity?.attributes?.current_position + '% Open';
-    ]]]

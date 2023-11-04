@@ -41,7 +41,8 @@ automation:
               - media_player.nvidia_shield
 
         button_3_double:
-          - service: script.sonos_join_tv
+          - service: cover.close_cover
+            entity_id: cover.living_room
 
         button_3_triple:
           - service: script.sonos_join_bedroom
@@ -57,9 +58,8 @@ automation:
               - media_player.nvidia_shield
 
         button_4_double:
-          - service: script.music_play
-            data:
-              playlist: 'Starred'
+          - service: cover.open_cover
+            entity_id: cover.living_room
 
         button_4_triple:
           - service: script.music_play
