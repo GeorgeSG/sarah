@@ -1,9 +1,4 @@
-sensor:
-  - platform: waqi
-    token: !secret waqi_key
-    locations:
-      - "mladost"
-      - "druzhba"
+
 
 binary_sensor:
   - platform: threshold

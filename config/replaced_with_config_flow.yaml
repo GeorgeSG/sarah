@@ -114,3 +114,10 @@
 #       - '2020-05-25'
 #       - '2020-09-07'
 #       - '2020-12-28'
+
+# sensor:
+#   - platform: waqi
+#     token: !secret waqi_key
+#     locations:
+#       - "mladost"
+#       - "druzhba"
