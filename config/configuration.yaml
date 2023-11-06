@@ -101,6 +101,8 @@ logger:
 # https://www.home-assistant.io/integrations/ffmpeg
 ffmpeg:
 
+cloud:
+
 # https://www.home-assistant.io/integrations/ssdp/
 ssdp:
 
