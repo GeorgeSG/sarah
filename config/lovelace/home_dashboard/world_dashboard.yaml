@@ -35,7 +35,7 @@
             entity: weather.pirateweather
             forecast: true
 
-          - type: custom:sun-card
+          - type: custom:horizon-card
             darkMode: true
 
     - type: custom:decluttering-card

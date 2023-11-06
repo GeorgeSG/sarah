@@ -115,7 +115,7 @@ card:
               name: Simulation
 
 
-        - type: custom:sun-card
+        - type: custom:horizon-card
           darkMode: true
     - type: vertical-stack
       cards:
