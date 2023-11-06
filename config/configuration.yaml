@@ -13,6 +13,8 @@ homeassistant:
 # ─── HOME ASSISTANT COMPONENTS ENABLED ──────────────────────────────────────────
 #
 
+automation: !include automations.yaml
+
 # https://www.home-assistant.io/components/config
 config:
 
