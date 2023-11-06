@@ -21,10 +21,6 @@ cards:
         max_cols: 3
       cards:
         - type: entities
-          entities:
-            - type: custom:battery-entity-row
-              entity: sensor.carbon_battery_level
-        - type: entities
           title: Z-Wave Devices
           entities:
             - type: custom:battery-entity-row
@@ -95,8 +91,6 @@ cards:
               entity: sensor.opple_2_battery
             - type: custom:battery-entity-row
               entity: sensor.opple_1_battery
-            - type: custom:battery-entity-row
-              entity: sensor.living_room_battery_level
 
         - type: vertical-stack
           cards:
