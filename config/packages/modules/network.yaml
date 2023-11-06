@@ -30,10 +30,8 @@ homekit:
       - cover.living_room
       - media_player.living_room
       - scene.living_room_ambient_neon
-      - sensor.living_room_radiator_temperature
       - sensor.multisensor_6_relative_humidity
       - sensor.multisensor_6_temperature
-      - switch.desk_outlet
 
       # Bedroom
       - light.master_bedroom
@@ -64,6 +62,7 @@ homekit:
       - vacuum.vacuum
 
       # Bathroom
+      - media_player.bathroom
       - sensor.bathroom_weather_temperature
       - sensor.bathroom_weather_humidity
 
@@ -71,6 +70,8 @@ homekit:
       - light.hallway
       - light.hallway_entrance
       - light.hallway_main
+      - binary_sensor.hallway_motion_occupancy
+      - binary_sensor.hallway_motion_2_occupancy
       - group.hallway_motion
       - sensor.hallway_weather_temperature
       - sensor.hallway_weather_humidity
