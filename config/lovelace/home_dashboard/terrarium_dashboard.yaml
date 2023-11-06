@@ -20,10 +20,7 @@
               - type: custom:button-card
                 template: v3_chip
                 entity: sensor.terrarium_weather_humidity
-              - type: custom:button-card
-                template: v3_chip_name
-                entity: binary_sensor.terrarium_cam_motion
-                name: Motion
+
           - type: custom:decluttering-card
             template: v3_section_title
             variables:
