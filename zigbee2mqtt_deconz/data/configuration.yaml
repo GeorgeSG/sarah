@@ -1,5 +1,5 @@
 homeassistant: true
-permit_join: false
+permit_join: true
 mqtt:
   base_topic: z2m_deconz
   server: mqtt://192.168.0.27
@@ -56,11 +56,13 @@ devices:
     retain: true
     temperature_precision: 1
     humidity_precision: 1
+    humidity_calibration: -1
   '0x00158d00047ba6cd':
     friendly_name: bathroom_weather
     retain: true
     temperature_precision: 1
     humidity_precision: 1
+    temperature_calibration: -1.5
   '0x00158d00045ee213':
     friendly_name: front_door
     retain: true
@@ -69,6 +71,7 @@ devices:
     retain: true
     temperature_precision: 1
     humidity_precision: 1
+    temperature_calibration: -0.3
   '0x00158d0001cbbb94':
     friendly_name: trust_remote
   '0x00158d0003f42ea3':
@@ -148,15 +151,19 @@ devices:
     retain: true
     temperature_precision: 1
     humidity_precision: 1
-  '0x54ef441000357e66':
-    friendly_name: aqara_tvoc
-    retain: true
-    temperature_precision: 1
-    humidity_precision: 1
+    humidity_calibration: -4.5
+    temperature_calibration: -0.5
   '0x8cf681fffe1ef0c4':
     friendly_name: tradfri_1
   '0x2c1165fffe7d6d9c':
     friendly_name: tradfri_large
+  '0x54ef4410008426ee':
+    friendly_name: living_room_cover
+  '0x54ef4410007f68f8':
+    friendly_name: living_room_valve
+  '0x54ef441000357e66':
+    friendly_name: aqara_tvoc
+    retain: true
 groups:
   '1':
     friendly_name: kitchen_main
