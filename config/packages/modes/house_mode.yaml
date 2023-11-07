@@ -69,6 +69,18 @@ script:
         entity_id: input_select.bedroom_mode
         data_template:
           option: "{{ is_state('input_select.bedroom_mode', 'day') | iif('night', 'day') }}"
+  mode_good_morning:
+    sequence:
+      - service: input_select.select_option
+        entity_id: input_select.bedroom_mode
+        data:
+          option: 'day'
+  mode_good_night:
+    sequence:
+      - service: input_select.select_option
+        entity_id: input_select.bedroom_mode
+        data:
+          option: 'night'
 
 automation:
   - alias: Bedroom mode · Change
