@@ -15,6 +15,8 @@ homeassistant:
 
 automation: !include automations.yaml
 
+assist_pipeline:
+
 # https://www.home-assistant.io/components/config
 config:
 
@@ -139,9 +141,8 @@ recorder: &recorder_config
       - weather
       - zwave
     entities:
-      - device_tracker.carbon
-      - device_tracker.arsenic
-      - device_tracker.maya_phone_1
+      - device_tracker.mayas_iphone
+      - device_tracker.titanium
       - media_player.living_room_tv
       - media_player.nvidia_shield
       - switch.camera
