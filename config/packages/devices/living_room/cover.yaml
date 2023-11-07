@@ -1,3 +1,8 @@
+mqtt:
+  sensor:
+    - name: 'cover_changed'
+      state_topic: "z2m_deconz/living_room_cover/set"
+
 script:
   open_living_room_cover:
     sequence:
@@ -22,6 +27,17 @@ script:
 
 
 automation:
+  - alias: Cover · update state when change requested
+    trigger:
+      platform: state
+      entity_id: sensor.cover_changed
+    action:
+      - delay: 00:00:15
+      - service: mqtt.publish
+        data_template:
+          topic: "z2m_deconz/living_room_cover/get"
+          payload: "{ \"state\": \"\" }"
+
   - alias: Cover · Living Room · Open at morning
     trigger:
       platform: time
