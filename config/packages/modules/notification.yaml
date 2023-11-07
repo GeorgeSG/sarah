@@ -4,15 +4,20 @@ notify:
     platform: telegram
     api_key: !secret telegram_token
     chat_id: !secret telegram_georgi_chat_id
+  - name: all_phones
+    platform: group
+    services:
+      - service: mobile_app_titanium
+      - service: mobile_app_mayas_iphone
 
 automation:
   - alias: Notification · Phone battery low
     trigger:
       platform: template
-      value_template: "{{ states('sensor.carbon_battery_level') | int < 10 }}"
+      value_template: "{{ states('sensor.titanium_battery_level') | int < 10 }}"
     condition:
       condition: state
-      entity_id: sensor.carbon_battery_state
+      entity_id: sensor.titanium_battery_state
       state: "Not Charging"
     action:
       - service: script.say
