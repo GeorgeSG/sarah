@@ -133,11 +133,5 @@ automation:
 
 homeassistant:
   customize:
-    device_tracker.carbon:
-      icon: mdi:cellphone-iphone
-
-    device_tracker.arsenic:
-      icon: mdi:cellphone-iphone
-
     group.hallway_motion:
       icon: mdi:motion-sensor
