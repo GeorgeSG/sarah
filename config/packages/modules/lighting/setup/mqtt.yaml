@@ -141,7 +141,7 @@ mqtt:
       payload_available: "Online"
       payload_not_available: "Offline"
       state_topic: "tele/light_le_1/STATE"
-      unit_of_measurement: "%"
+      unit_of_measurement: "dBm"
       value_template: "{{ value_json.Wifi.RSSI }}"
 
     - name: "light_le_2_wifi"
@@ -150,7 +150,7 @@ mqtt:
       payload_available: "Online"
       payload_not_available: "Offline"
       state_topic: "tele/light_le_2/STATE"
-      unit_of_measurement: "%"
+      unit_of_measurement: "dBm"
       value_template: "{{ value_json.Wifi.RSSI }}"
 
     - name: "light_le_3_wifi"
@@ -159,7 +159,7 @@ mqtt:
       payload_available: "Online"
       payload_not_available: "Offline"
       state_topic: "tele/light_le_3/STATE"
-      unit_of_measurement: "%"
+      unit_of_measurement: "dBm"
       value_template: "{{ value_json.Wifi.RSSI }}"
 
     - name: "light_le_4_wifi"
@@ -168,7 +168,7 @@ mqtt:
       payload_available: "Online"
       payload_not_available: "Offline"
       state_topic: "tele/light_le_4/STATE"
-      unit_of_measurement: "%"
+      unit_of_measurement: "dBm"
       value_template: "{{ value_json.Wifi.RSSI }}"
 
     - name: "light_lohas_2_wifi"
@@ -177,7 +177,7 @@ mqtt:
       payload_available: "Online"
       payload_not_available: "Offline"
       state_topic: "tele/light_lohas_2/STATE"
-      unit_of_measurement: "%"
+      unit_of_measurement: "dBm"
       value_template: "{{ value_json.Wifi.RSSI }}"
 
     - name: "light_lohas_6_wifi"
@@ -186,7 +186,7 @@ mqtt:
       payload_available: "Online"
       payload_not_available: "Offline"
       state_topic: "tele/light_lohas_6/STATE"
-      unit_of_measurement: "%"
+      unit_of_measurement: "dBm"
       value_template: "{{ value_json.Wifi.RSSI }}"
 
   # ## Switch
@@ -239,26 +239,6 @@ mqtt:
       payload_not_available: "Offline"
       qos: 1
       state_topic: "tele/light_lohas_2/STATE"
-      value_template: "{{ value_json.Fade }}"
-
-    - name: "light_lohas_3_fade"
-      availability_topic: "tele/light_lohas_3/LWT"
-      command_topic: "cmnd/light_lohas_3/FADE"
-      icon: mdi:gradient
-      payload_available: "Online"
-      payload_not_available: "Offline"
-      qos: 1
-      state_topic: "tele/light_lohas_3/STATE"
-      value_template: "{{ value_json.Fade }}"
-
-    - name: "light_lohas_6_fade"
-      availability_topic: "tele/light_lohas_6/LWT"
-      command_topic: "cmnd/light_lohas_6/FADE"
-      icon: mdi:gradient
-      payload_available: "Online"
-      payload_not_available: "Offline"
-      qos: 1
-      state_topic: "tele/light_lohas_6/STATE"
       value_template: "{{ value_json.Fade }}"
 
 automation:
