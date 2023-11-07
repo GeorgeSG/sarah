@@ -8,18 +8,15 @@ automation:
 
         - sensor.multisensor_6_battery_level
         - sensor.living_room_right_window_battery
-        - sensor.living_room_opple_battery
+        - sensor.opple_2_battery
         - sensor.desk_switch_battery
-        - sensor.living_room_battery_level
-        - sensor.living_room_radiator_battery_level
 
         - sensor.bedroom_door_battery
         - sensor.bedroom_left_window_battery
         - sensor.bedroom_right_window_battery
         - sensor.bedroom_weather_battery
-        - sensor.bedroom_opple_battery
+        - sensor.opple_1_battery
         - sensor.bedside_switch_battery
-        - sensor.bedside_second_switch_battery
         - sensor.bedroom_radiator_battery_level
 
         - sensor.kitchen_window_battery
