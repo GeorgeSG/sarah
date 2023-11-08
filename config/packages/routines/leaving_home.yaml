@@ -11,6 +11,7 @@ script:
           - climate.toshiba_ac
           - group.all_radiators
           - fan.philips_airpurifier
+          - fan.bathroom
 
       - service: media_player.media_stop
         entity_id:

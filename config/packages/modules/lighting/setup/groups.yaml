@@ -141,6 +141,7 @@ script:
         - light.master_bedroom_main
         - light.bedside
 
+        - light.bathroom
         - light.hallway
         - light.kitchen
 

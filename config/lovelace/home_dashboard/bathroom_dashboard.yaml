@@ -25,9 +25,24 @@
           - type: custom:decluttering-card
             template: v3_section_title
             variables:
+              - title: Lights
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                template: v3_button
+                entity: light.bathroom
+                name: Light
+
+          - type: custom:decluttering-card
+            template: v3_section_title
+            variables:
               - title: Devices
           - type: horizontal-stack
             cards:
+              - type: custom:button-card
+                template: v3_button
+                entity: fan.bathroom
+                name: Fan
               - type: custom:button-card
                 template: v3_button
                 entity: media_player.bathroom

@@ -210,6 +210,10 @@ card:
           cards:
             - type: custom:button-card
               template: v3_tablet_button
+              entity: light.bathroom
+              name: Bath
+            - type: custom:button-card
+              template: v3_tablet_button
               entity: light.hallway_main
               name: Hallway
             - type: custom:button-card

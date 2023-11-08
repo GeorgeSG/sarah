@@ -40,10 +40,12 @@ script:
           - light.kitchen
           - light.hallway
           - light.tradfri_large
+          - light.bathroom
           - media_player.nvidia_shield
           - media_player.living_room_tv
           - switch.cadmium
           - group.all_radiators
+          - fan.bathroom
 
       - service: script.browsers_low
 

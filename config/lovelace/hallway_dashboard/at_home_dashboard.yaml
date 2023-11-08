@@ -129,7 +129,7 @@ card:
                 service: script.toshiba_ac_toggle
             - type: custom:button-card
               template: [v3_button_radiator, v3_tablet_button]
-              entity: climate.living_room_radiator_mode
+              entity: climate.living_room_valve
               name: "Living room"
             - type: custom:button-card
               template: [v3_button_radiator, v3_tablet_button]
@@ -239,6 +239,10 @@ card:
               name: Kitchen
         - type: horizontal-stack
           cards:
+            - type: custom:button-card
+              template: v3_xs_button
+              entity: light.bathroom
+              name: Bath
             - type: custom:button-card
               template: v3_xs_button
               entity: light.hallway_main

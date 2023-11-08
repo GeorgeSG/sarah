@@ -62,6 +62,8 @@ homekit:
       - vacuum.vacuum
 
       # Bathroom
+      - light.bathroom
+      - fan.bathroom
       - media_player.bathroom
       - sensor.bathroom_weather_temperature
       - sensor.bathroom_weather_humidity
