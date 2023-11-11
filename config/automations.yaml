@@ -1,0 +1,131 @@
+- id: '1699305396452'
+  alias: Terrarium · Climate alert
+  description: ''
+  trigger:
+  - platform: template
+    value_template: '{{ states(''sensor.terrarium_weather_temperature'')|float > 29
+      or states(''sensor.terrarium_weather_temperature'')|float < 22 }}
+
+      '
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
+    id: temperature
+  - platform: template
+    value_template: '{{ states(''sensor.terrarium_weather_humidity'')|float > 85 or
+      states(''sensor.terrarium_weather_humidity'')|float < 60 }}
+
+      '
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
+    id: humidity
+  condition: []
+  action:
+  - service: notify.mobile_app_mayas_iphone
+    data:
+      title: Terrarium · {{ trigger.id }} alert
+      message: '{{ trigger.id }} has been {{ trigger.to_state }} for 5 mins!'
+      data:
+        url: /lovelace/terrarium
+  mode: single
+- id: '1699306268852'
+  alias: Printer · Toner warning
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id:
+    - sensor.printer_black_toner_remaining
+    below: 30
+  condition: []
+  action:
+  - service: notify.all_phones
+    data:
+      title: 'Printer · Low toner '
+      message: The printer's toner is below 30%.
+  mode: single
+- id: '1699306535213'
+  alias: Printer · Drum warning
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id:
+    - sensor.printer_drum_remaining_life
+    below: 30
+  condition: []
+  action:
+  - service: notify.all_phones
+    data:
+      title: Printer · Needs new drum
+      message: The printer's drum lifespan is below 30%.
+  mode: single
+- id: '1699446647329'
+  alias: Bathroom · Turn off fan
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.bathroom_motion_occupancy
+    to: 'off'
+    for:
+      hours: 0
+      minutes: 15
+      seconds: 0
+  condition: []
+  action:
+  - service: fan.turn_off
+    data: {}
+    target:
+      entity_id: fan.bathroom
+  mode: single
+- id: '1699447664911'
+  alias: Bathroom · Motion light
+  description: ''
+  use_blueprint:
+    path: homeassistant/motion_light.yaml
+    input:
+      motion_entity: binary_sensor.bathroom_motion_occupancy
+      light_target:
+        entity_id: light.bathroom
+      no_motion_wait: 1800
+- id: '1699458113624'
+  alias: Living room presence debug
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.living_room_presence
+    to: 'on'
+    id: detected
+  - platform: state
+    entity_id:
+    - binary_sensor.living_room_presence
+    to: 'off'
+    id: clear
+  condition: []
+  action:
+  - if:
+    - condition: trigger
+      id:
+      - detected
+    then:
+    - service: light.turn_on
+      data:
+        rgb_color:
+        - 7
+        - 255
+        - 190
+      target:
+        entity_id: light.living_room_ambient_main
+    else:
+    - service: light.turn_on
+      data:
+        rgb_color:
+        - 255
+        - 26
+        - 71
+      target:
+        entity_id: light.living_room_ambient_main
+  mode: single
