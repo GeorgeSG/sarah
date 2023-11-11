@@ -16,7 +16,7 @@ group:
   all_radiators:
     name: "All Radiators"
     entities:
-      - climate.living_room_radiator_mode
+      - climate.living_room_valve
       - climate.bedroom_radiator_mode
       - climate.kitchen_radiator_mode
 
@@ -66,12 +66,12 @@ script:
       - service: climate.turn_on
         entity_id:
           - climate.bedroom_radiator_mode
-          - climate.living_room_radiator_mode
+          - climate.living_room_valve
           - climate.kitchen_radiator_mode
       - service: climate.set_temperature
         entity_id:
            - climate.bedroom_radiator_mode
-           - climate.living_room_radiator_mode
+           - climate.living_room_valve
            - climate.kitchen_radiator_mode
         data_template:
           temperature: "{{ states('input_number.radiators_temperature') | int | default(25) }}"
@@ -113,11 +113,11 @@ automation:
           - condition: not
             conditions:
               - condition: state
-                entity_id: climate.living_room_radiator_mode
+                entity_id: climate.living_room_valve
                 state: "off"
           sequence:
             - service: climate.turn_off
-              entity_id: climate.living_room_radiator_mode
+              entity_id: climate.living_room_valve
             - service: logbook.log
               data:
                 name: "💨 Climate module · "
@@ -128,12 +128,12 @@ automation:
             entity_id: binary_sensor.living_room_right_window_contact
             state: "off"
           - condition: state
-            entity_id: climate.living_room_radiator_mode
+            entity_id: climate.living_room_valve
             state: "off"
           sequence:
             - service: script.maybe_turn_radiator_on
               data:
-                entity_id: climate.living_room_radiator_mode
+                entity_id: climate.living_room_valve
             - service: logbook.log
               data:
                 name: "💨 Climate module · "

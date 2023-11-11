@@ -1,0 +1,36 @@
+input_boolean:
+  movie_mode:
+    name: Movie mode
+    icon: mdi:movie
+
+automation:
+  - alias: Movie mode · Change
+    trigger:
+      platform: state
+      entity_id: input_boolean.movie_mode
+    action:
+      choose:
+        - conditions: "{{ trigger.to_state.state == 'on' }}"
+          sequence:
+            - service: automation.turn_off
+              entity_id:
+                - automation.lighting_hallway_motion_on
+                - automation.lighting_hallway_motion_off
+            - service: automation.turn_on
+              entity_id:
+                - automation.tv_plex_setup_house_for_plex
+                - automation.tv_plex_restore_house_after_plex
+            - service: script.plex_before_start
+
+        - conditions: "{{ trigger.to_state.state == 'off' }}"
+          sequence:
+            - service: scene.turn_on
+              entity_id: scene.plex_before_start
+            - service: automation.turn_off
+              entity_id:
+                - automation.tv_plex_setup_house_for_plex
+                - automation.tv_plex_restore_house_after_plex
+            - service: automation.turn_on
+              entity_id:
+               - automation.lighting_hallway_motion_on
+               - automation.lighting_hallway_motion_off

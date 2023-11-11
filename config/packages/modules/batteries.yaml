@@ -26,10 +26,10 @@ automation:
 
         - sensor.bathroom_weather_battery
         - sensor.bathroom_switch_battery
+        - sensor.bathroom_motion_battery
 
         - sensor.hallway_weather_battery
         - sensor.hallway_motion_battery
-        - sensor.hallway_motion_2_battery
 
         - sensor.guest_bedroom_weather_battery
         - sensor.terrarium_weather_battery

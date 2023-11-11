@@ -76,6 +76,11 @@
                 entity: binary_sensor.pi_hole_enabled
                 name: Pi-Hole
                 icon: mdi:pi-hole
+              - type: custom:button-card
+                template: v3_button
+                entity: input_boolean.movie_mode
+                name: Movie Mode
+                icon: mdi:movie
 
           - type: custom:decluttering-card
             template: v3_section_title
@@ -116,8 +121,12 @@
                 entity: light.browser_kitchen
                 name: Kitchen Dashboard
           - type: entities
+            title: "Plex"
             entities:
-              - type: divider
+              - input_text.plex_default_show
+              - script.start_default_show
+          - type: entities
+            entities:
               - input_text.wake_up_spotify_playlist
               - input_number.wake_up_volume
               - input_number.bathroom_high_volume

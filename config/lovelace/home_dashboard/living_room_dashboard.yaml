@@ -31,6 +31,16 @@
           - type: horizontal-stack
             cards:
               - type: custom:button-card
+                template: v3_chip_name
+                entity: binary_sensor.living_room_presence
+                name: Presence
+              - type: custom:button-card
+                template: v3_chip_name
+                entity: binary_sensor.multisensor_6_home_security_motion_detection
+                name: Motion
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
                 template: v3_chip
                 entity: sensor.multisensor_6_temperature
               - type: custom:button-card
@@ -146,7 +156,7 @@
                   service: script.toggle_living_room_cover
               - type: custom:button-card
                 template: v3_button_radiator
-                entity: climate.living_room_radiator_mode
+                entity: climate.living_room_valve
                 name: Radiator
               - type: custom:button-card
                 template: v3_button_ac

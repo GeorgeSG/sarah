@@ -25,7 +25,7 @@ homekit:
       - light.living_room_ambient
       - light.hue_ambiance_7
       - binary_sensor.living_room_right_window_contact
-      - climate.living_room_radiator_mode
+      - climate.living_room_valve
       - climate.toshiba_ac
       - cover.living_room
       - media_player.living_room
@@ -67,13 +67,13 @@ homekit:
       - media_player.bathroom
       - sensor.bathroom_weather_temperature
       - sensor.bathroom_weather_humidity
+      - binary_sensor.bathroom_occupancy
 
       # Hallway
       - light.hallway
       - light.hallway_entrance
       - light.hallway_main
       - binary_sensor.hallway_motion_occupancy
-      - binary_sensor.hallway_motion_2_occupancy
       - group.hallway_motion
       - sensor.hallway_weather_temperature
       - sensor.hallway_weather_humidity

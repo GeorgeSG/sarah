@@ -100,6 +100,7 @@ cards:
             - automation.tv_state_sync_shield_state
             - automation.tv_prepare_for_casting
             - type: divider
+            - automation.movie_mode_change
             - automation.tv_plex_setup_house_for_plex
             - automation.tv_plex_restore_house_after_plex
             - automation.media_sonos_put_beam_in_night_mode

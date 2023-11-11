@@ -39,7 +39,6 @@ cards:
         - type: glance
           entities:
             - entity: binary_sensor.hallway_motion_occupancy
-            - entity: binary_sensor.hallway_motion_2_occupancy
             - entity: sensor.hallway_motion_illuminance_lux
             - entity: sensor.hallway_motion_battery
 
@@ -253,8 +252,8 @@ cards:
                   - margin-left: 8px
             - type: custom:button-card
               template: [v3_tablet_button, v3_popup_button]
-              entity: binary_sensor.hallway_motion_2_occupancy
-              name: Hallway
+              entity: binary_sensor.bathroom_motion_occupancy
+              name: Bathroom
             - type: custom:button-card
               template: [v3_tablet_button, v3_popup_button]
               entity: binary_sensor.multisensor_motion

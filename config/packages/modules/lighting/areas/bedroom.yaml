@@ -1,34 +1,32 @@
 script:
-  apply_bedroom_ambient_neon:
+  bedroom_scene_default:
     sequence:
       - service: scene.turn_on
-        entity_id: scene.bedroom_ambient_neon
-  apply_bedroom_neon:
+        entity_id: scene.bedroom_default
+      - service: media_player.media_stop
+        entity_id: media_player.master_bedroom
+  bedroom_scene_1:
     sequence:
-      - service: light.turn_on
-        entity_id: light.master_bedroom_main
-      - delay: "00:00:01"
-      - service: light.turn_on
-        entity_id: light.master_bedroom_main
+      - service:  scene.turn_on
+        entity_id: scene.bedroom_pink
+  bedroom_scene_1_music:
+    sequence:
+      - service:  scene.turn_on
+        entity_id: scene.bedroom_pink
+      - service: media_player.shuffle_set
+        entity_id: media_player.master_bedroom
         data:
-          rgb_color: [255, 0, 63]
-          brightness: 153
-      - delay: "00:00:02"
-      - service: scene.turn_on
-        entity_id: scene.bedroom_ambient_neon
-  apply_bedroom_pink:
-    sequence:
-      - service: light.turn_on
-        entity_id: light.master_bedroom_main
-      - delay: "00:00:01"
-      - service: light.turn_on
-        entity_id: light.master_bedroom_main
-        data:
-          rgb_color: [255, 92, 38]
-          brightness: 120
-      - delay: "00:00:02"
-      - service: scene.turn_on
-        entity_id: scene.bedroom_ambient_pink
+          shuffle: true
+      - service: media_player.volume_set
+        entity_id: media_player.master_bedroom
+        data_template:
+          volume_level: "{{ '0.3' if now().hour <= 23 else '0.15' }}"
+      - service: media_player.play_media
+        entity_id: media_player.master_bedroom
+        data_template:
+          media_content_type: "music"
+          media_content_id: "https://open.spotify.com/playlist/5b13IkygqCYveAlyrv34vB?si=3ac0c03fe65c4611"
+
 
 scene:
   - name: Bedroom Neon
@@ -88,8 +86,8 @@ scene:
         color_temp: 350
       light.bedside:
         state: "on"
-        color_temp: 359
-        brightness: 255
+        rgb_color: [255, 36, 145]
+        brightness: 230
 
 automation:
   - alias: Lighting · Bedroom · Door open

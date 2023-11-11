@@ -30,10 +30,7 @@
                 template: v3_chip_name
                 entity: binary_sensor.hallway_motion_occupancy
                 name: Motion
-              - type: custom:button-card
-                template: v3_chip_name
-                entity: binary_sensor.hallway_motion_2_occupancy
-                name: Motion 2
+
 
           - type: custom:decluttering-card
             template: v3_section_title

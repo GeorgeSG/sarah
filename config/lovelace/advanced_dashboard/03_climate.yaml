@@ -25,7 +25,7 @@ cards:
           entities:
             - input_boolean.heating_enabled
             - input_number.radiators_temperature
-            - climate.living_room_radiator_mode
+            - climate.living_room_valve
             - climate.bedroom_radiator_mode
             - climate.kitchen_radiator_mode
             - script.turn_on_all_radiators

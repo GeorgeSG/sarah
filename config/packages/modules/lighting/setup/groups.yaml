@@ -88,21 +88,19 @@ light:
   - platform: group
     name: On after dark
     entities:
-      # LR main
-      - light.light_le_1
-      - light.light_le_2
-      - light.light_le_3
-      - light.light_le_4
-      # PC
-      - light.hue_ambiance_7
-      # LR ambiance
-      - light.living_room_ambient_main
-      - light.light_lohas_2
+      # # LR main
+      # - light.light_le_1
+      # - light.light_le_2
+      # - light.light_le_3
+      # - light.light_le_4
+      # # PC
+      # - light.hue_ambiance_7
+      # # LR ambiance
+      # - light.living_room_ambient_main
+      # - light.light_lohas_2
 
       - light.master_bedroom_main
       - light.bedside
-      - light.hallway
-
 
 script:
   turn_on_all_lights:

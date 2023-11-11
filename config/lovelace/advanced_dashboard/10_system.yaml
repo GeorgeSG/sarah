@@ -71,7 +71,7 @@ cards:
             - type: custom:battery-entity-row
               entity: sensor.hallway_motion_battery
             - type: custom:battery-entity-row
-              entity: sensor.hallway_motion_2_battery
+              entity: sensor.bathroom_motion_battery
             - type: custom:battery-entity-row
               entity: sensor.guest_bedroom_weather_battery
             - type: custom:battery-entity-row
@@ -119,7 +119,7 @@ cards:
                 - sensor.front_door_linkquality
                 - sensor.hallway_weather_linkquality
                 - sensor.hallway_motion_linkquality
-                - sensor.hallway_motion_2_linkquality
+                - sensor.bathroom_motion_linkquality
                 - type: divider
                 - sensor.guest_bedroom_weather_linkquality
 

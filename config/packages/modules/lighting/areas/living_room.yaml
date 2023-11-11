@@ -1,3 +1,52 @@
+automation:
+  - alias: "Lightning · Living room · Motion on"
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.multisensor_6_home_security_motion_detection
+        to: "on"
+      - platform: state
+        entity_id: binary_sensor.living_room_presence
+        to: "on"
+    condition:
+      - condition: state
+        entity_id: binary_sensor.someone_home
+        state: "on"
+      - condition: sun
+        after: sunset
+        after_offset: "-00:30:00"
+      - condition: state
+        entity_id: sensor.house_mode
+        state: 'day'
+
+    action:
+      - service: light.turn_on
+        entity_id:
+          # LR main
+          - light.light_le_1
+          - light.light_le_2
+          - light.light_le_3
+          - light.light_le_4
+          # PC
+          - light.hue_ambiance_7
+
+  - alias: "Lightning · Living room · Motion off"
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.living_room_presence
+        to: "off"
+        for:
+          minutes: 5
+    action:
+      - service: light.turn_off
+        entity_id:
+          # LR main
+          - light.light_le_1
+          - light.light_le_2
+          - light.light_le_3
+          - light.light_le_4
+          # PC
+          - light.hue_ambiance_7
+
 scene:
   - name: Living Room Ambient Neon
     icon: "mdi:weather-night"

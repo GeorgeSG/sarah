@@ -1,15 +1,43 @@
 # Depends on Plex integration (config flow): https://www.home-assistant.io/integrations/plex
 
-automation:
-  - alias: TV · Plex · Setup house for Plex
-    trigger:
-      - platform: state
-        entity_id:
-          - media_player.plex_shield_chromecast
-          - media_player.plex_shield_player
-          - media_player.plex_lg
-        to: "playing"
-    action:
+input_text:
+  plex_default_show:
+    name: Default show to start on plex
+    icon: mdi:plex
+
+script:
+  start_default_show:
+    mode: restart
+    sequence:
+      - service: media_player.unjoin
+        entity_id: media_player.living_room
+      - service: media_player.select_source
+        entity_id: media_player.living_room
+        data:
+          source: TV
+      - service: media_player.turn_on
+        entity_id: media_player.living_room_tv
+      - wait_template: "{{ is_state('media_player.nvidia_shield', 'standby') or is_state('media_player.nvidia_shield', 'idle') }}"
+      - service: androidtv.adb_command
+        target:
+          entity_id: media_player.nvidia_shield
+        data:
+          command: "HOME"
+      - service: media_player.select_source
+        entity_id: media_player.nvidia_shield
+        data:
+          source: "Plex"
+      - delay: 00:00:01
+      - service: media_player.play_media
+        entity_id: media_player.plex_shield
+        data_template:
+          media_content_type: "EPISODE"
+          media_content_id: '{ "library_name": "TV Shows", "show_name": "{{ states("input_text.plex_default_show")}}", "episode.unwatched": true, "episode.inProgress": [true, false], "resume": 1, "sort": "addedAt:asc", "maxresults": 1 }'
+      - service: media_player.media_pause
+        entity_id: media_player.master_bedroom
+
+  plex_before_start:
+    sequence:
       - service: media_player.unjoin
         entity_id: media_player.living_room
       - service: media_player.select_source
@@ -43,12 +71,24 @@ automation:
           - light.master_bedroom_main
           - light.kitchen
 
+automation:
+  - alias: TV · Plex · Setup house for Plex
+    trigger:
+      - platform: state
+        entity_id:
+          - media_player.plex_shield_chromecast
+          - media_player.plex_shield
+          - media_player.plex_lg
+        to: "playing"
+    action:
+      - service: script.plex_before_start
+
   - alias: TV · Plex · Restore house after Plex
     trigger:
       - platform: state
         entity_id:
           - media_player.plex_shield_chromecast
-          - media_player.plex_shield_player
+          - media_player.plex_shield
           - media_player.plex_lg
         from: "playing"
     action:
