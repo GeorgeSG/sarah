@@ -62,7 +62,8 @@ devices:
     retain: true
     temperature_precision: 1
     humidity_precision: 1
-    temperature_calibration: -1.5
+    temperature_calibration: -0.3
+    humidity_calibration: -1
   '0x00158d00045ee213':
     friendly_name: front_door
     retain: true
@@ -77,7 +78,7 @@ devices:
   '0x00158d0003f42ea3':
     friendly_name: hallway_motion
   '0x00158d0007e3e381':
-    friendly_name: hallway_motion_2
+    friendly_name: bathroom_motion
   '0x00158d00041444bc':
     friendly_name: kitchen_motion
   '0x00158d00042d163f':
@@ -164,6 +165,11 @@ devices:
   '0x54ef441000357e66':
     friendly_name: aqara_tvoc
     retain: true
+    humidity_calibration: -3
+  '0x086bd7fffe075b7d':
+    friendly_name: '0x086bd7fffe075b7d'
+  '0x54ef441000818477':
+    friendly_name: bathroom_wall_switch
 groups:
   '1':
     friendly_name: kitchen_main
