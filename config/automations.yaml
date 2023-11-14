@@ -13,7 +13,7 @@
       seconds: 0
     id: temperature
   - platform: template
-    value_template: '{{ states(''sensor.terrarium_weather_humidity'')|float > 85 or
+    value_template: '{{ states(''sensor.terrarium_weather_humidity'')|float > 87 or
       states(''sensor.terrarium_weather_humidity'')|float < 60 }}
 
       '
@@ -27,7 +27,7 @@
   - service: notify.mobile_app_mayas_iphone
     data:
       title: Terrarium · {{ trigger.id }} alert
-      message: '{{ trigger.id }} has been {{ trigger.to_state }} for 5 mins!'
+      message: '{{ trigger.id }} has been out of bounds for 5 mins!'
       data:
         url: /lovelace/terrarium
   mode: single
@@ -89,7 +89,7 @@
       motion_entity: binary_sensor.bathroom_motion_occupancy
       light_target:
         entity_id: light.bathroom
-      no_motion_wait: 1800
+      no_motion_wait: 900
 - id: '1699458113624'
   alias: Living room presence debug
   description: ''
@@ -128,4 +128,21 @@
         - 71
       target:
         entity_id: light.living_room_ambient_main
+  mode: single
+- id: '1699735427094'
+  alias: Front door · turn on lights
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.front_door_contact
+    to: 'on'
+  condition: []
+  action:
+  - service: light.turn_on
+    data: {}
+    target:
+      entity_id:
+      - light.hallway_main
+      - light.hallway_entrance
   mode: single
