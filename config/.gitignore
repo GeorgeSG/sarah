@@ -26,3 +26,4 @@ pyozw.sqlite
 zwave_device_config.yaml
 zwcfg_*
 zwscene.xml
+.cloud
