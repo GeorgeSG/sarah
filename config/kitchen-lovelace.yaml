@@ -126,6 +126,16 @@ views:
                       entity: vacuum.vacuum
                       name: Vacuum
                     - type: custom:button-card
+                      template: v3_button
+                      name: Coffe machine
+                      entity: button.coffee_machine
+                      show_state: false
+                      tap_action:
+                        action: call-service
+                        service: button.press
+                        service_data:
+                          entity_id: button.coffee_machine
+                    - type: custom:button-card
                       template: v3_button_brita_water
 
 

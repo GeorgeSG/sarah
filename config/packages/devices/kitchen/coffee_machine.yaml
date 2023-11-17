@@ -1,0 +1,46 @@
+input_boolean:
+  coffee_machine_turned_on_today:
+    name: Coffee machine turned on today?
+    initial: off
+
+template:
+  - button:
+    - name: "Coffee machine"
+      icon: mdi:coffee
+      press:
+        - service: mqtt.publish
+          data:
+            topic: !secret coffee_machine_topic
+            payload: '{ "action": "press" }'
+
+
+automation:
+  - alias: Coffee Machine · Turn on in the morning
+    mode: 'single'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.bedroom_door_contact
+      - platform: state
+        entity_id: group.hallway_motion
+    condition:
+      - condition: time
+        after: "07:00:00"
+      - condition: state
+        entity_id: input_boolean.guest_mode
+        state: "off"
+      - condition: state
+        entity_id: input_boolean.coffee_machine_turned_on_today
+        state: "off"
+    action:
+      - service: button.press
+        entity_id: button.coffee_machine
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.coffee_machine_turned_on_today
+
+  - alias: Coffee Machine · Reset state at night
+    trigger:
+      - platform: time
+        at: "05:00:00"
+    action:
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.coffee_machine_turned_on_today

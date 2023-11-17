@@ -161,5 +161,10 @@
               - input_number.toshiba_cool_temp
               - input_number.toshiba_trigger_temp
 
+          - type: entities
+            title: "debug"
+            entities:
+              - input_boolean.coffee_machine_turned_on_today
+
 
     - !include ../popup_cards.yaml
