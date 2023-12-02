@@ -30,6 +30,8 @@
                 template: v3_chip_name
                 entity: group.hallway_motion
                 name: Motion
+                tap_action:
+                  action: more-info
 
 
           - type: custom:decluttering-card

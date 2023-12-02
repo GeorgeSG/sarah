@@ -14,11 +14,17 @@ cards:
     card:
       type: vertical-stack
       cards:
-        - type: glance
-          entities:
-            - entity: binary_sensor.kitchen_motion_occupancy
-            - entity: sensor.kitchen_motion_illuminance_lux
-            - entity: sensor.kitchen_motion_battery
+        - type: horizontal-stack
+          cards:
+            - type: tile
+              entity: binary_sensor.kitchen_motion_occupancy
+              name: Motion
+            - type: tile
+              entity: sensor.kitchen_motion_illuminance_lux
+              name: Illuminance
+            - type: tile
+              entity: sensor.kitchen_motion_battery
+              name: Battery
         - type: "custom:mini-graph-card"
           animate: true
           points_per_hour: 1
@@ -36,11 +42,28 @@ cards:
     card:
       type: vertical-stack
       cards:
-        - type: glance
-          entities:
-            - entity: binary_sensor.hallway_motion_occupancy
-            - entity: sensor.hallway_motion_illuminance_lux
-            - entity: sensor.hallway_motion_battery
+        - type: horizontal-stack
+          cards:
+            - type: tile
+              entity: binary_sensor.hallway_motion_occupancy
+              name: Motion
+            - type: tile
+              entity: sensor.hallway_motion_illuminance_lux
+              name: Illuminance
+            - type: tile
+              entity: sensor.hallway_motion_battery
+              name: Battery
+        - type: horizontal-stack
+          cards:
+            - type: tile
+              entity: binary_sensor.hallway_motion_2_occupancy
+              name: Motion 2
+            - type: tile
+              entity: sensor.hallway_motion_2_illuminance_lux
+              name: Illuminance 2
+            - type: tile
+              entity: sensor.hallway_motion_2_battery
+              name: Battery 2
 
         - type: "custom:mini-graph-card"
           animate: true

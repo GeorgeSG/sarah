@@ -36,6 +36,8 @@
   type: module
 - url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js
   type: module
+- url: /hacsfiles/lovelace-more-info-card/more-info-card.js
+  type: module
 - url: /hacsfiles/mini-media-player/mini-media-player-bundle.js
   type: module
 - url: /hacsfiles/popup-backdrop-filter/popup-backdrop-filter.js
