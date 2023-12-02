@@ -90,45 +90,6 @@
       light_target:
         entity_id: light.bathroom
       no_motion_wait: 900
-- id: '1699458113624'
-  alias: Living room presence debug
-  description: ''
-  trigger:
-  - platform: state
-    entity_id:
-    - binary_sensor.living_room_presence
-    to: 'on'
-    id: detected
-  - platform: state
-    entity_id:
-    - binary_sensor.living_room_presence
-    to: 'off'
-    id: clear
-  condition: []
-  action:
-  - if:
-    - condition: trigger
-      id:
-      - detected
-    then:
-    - service: light.turn_on
-      data:
-        rgb_color:
-        - 7
-        - 255
-        - 190
-      target:
-        entity_id: light.living_room_ambient_main
-    else:
-    - service: light.turn_on
-      data:
-        rgb_color:
-        - 255
-        - 26
-        - 71
-      target:
-        entity_id: light.living_room_ambient_main
-  mode: single
 - id: '1699735427094'
   alias: Front door · turn on lights
   description: ''
