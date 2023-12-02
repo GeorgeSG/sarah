@@ -28,7 +28,7 @@
                 name: Front door
               - type: custom:button-card
                 template: v3_chip_name
-                entity: binary_sensor.hallway_motion_occupancy
+                entity: group.hallway_motion
                 name: Motion
 
 

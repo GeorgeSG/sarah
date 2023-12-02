@@ -71,6 +71,8 @@ cards:
             - type: custom:battery-entity-row
               entity: sensor.hallway_motion_battery
             - type: custom:battery-entity-row
+              entity: sensor.hallway_motion_2_battery
+            - type: custom:battery-entity-row
               entity: sensor.bathroom_motion_battery
             - type: custom:battery-entity-row
               entity: sensor.guest_bedroom_weather_battery

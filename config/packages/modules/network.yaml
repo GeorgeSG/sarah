@@ -74,6 +74,7 @@ homekit:
       - light.hallway_entrance
       - light.hallway_main
       - binary_sensor.hallway_motion_occupancy
+      - binary_sensor.hallway_motion_2_occupancy
       - group.hallway_motion
       - sensor.hallway_weather_temperature
       - sensor.hallway_weather_humidity

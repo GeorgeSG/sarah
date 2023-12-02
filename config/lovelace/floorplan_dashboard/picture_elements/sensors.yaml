@@ -208,7 +208,7 @@
     - type: custom:decluttering-card
       template: floorplan_state_icon
       variables:
-        - entity: binary_sensor.hallway_motion_occupancy
+        - entity: group.hallway_motion
         - top: 34%
         - left: 54%
         - tap_action:

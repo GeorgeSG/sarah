@@ -170,6 +170,8 @@ devices:
     friendly_name: '0x086bd7fffe075b7d'
   '0x54ef441000818477':
     friendly_name: bathroom_wall_switch
+  '0x54ef4410008381ee':
+    friendly_name: hallway_motion_2
 groups:
   '1':
     friendly_name: kitchen_main
