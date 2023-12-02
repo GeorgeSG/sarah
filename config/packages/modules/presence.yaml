@@ -40,9 +40,9 @@ binary_sensor:
         friendly_name: Someone home
         device_class: presence
         value_template: >
-          {{ is_state('input_boolean.georgi_home', 'on') or is_state('input_boolean.player_2_home', 'on') }}
+          {{ is_state('input_boolean.guest_mode', 'on') or is_state('input_boolean.georgi_home', 'on') or is_state('input_boolean.player_2_home', 'on') }}
         icon_template: >
-          {% if is_state('input_boolean.georgi_home', 'on') or is_state('input_boolean.player_2_home', 'on') %} mdi:account
+          {% if is_state('input_boolean.guest_mode', 'on') or is_state('input_boolean.georgi_home', 'on') or is_state('input_boolean.player_2_home', 'on') %} mdi:account
           {% else %} mdi:account-off-outline
           {% endif %}
 
