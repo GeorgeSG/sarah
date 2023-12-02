@@ -156,6 +156,9 @@
             show_header_toggle: false
             entities:
               - input_number.radiators_temperature
+              - input_number.living_room_radiator_temperature
+              - input_number.bedroom_radiator_temperature
+              - input_number.kitchen_radiator_temperature
               - type: divider
               - input_number.toshiba_heat_temp
               - input_number.toshiba_cool_temp

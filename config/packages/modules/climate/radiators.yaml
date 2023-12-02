@@ -4,10 +4,31 @@ input_boolean:
     icon: mdi:radiator
 
 input_number:
+  living_room_radiator_temperature:
+    name: Living room radiator target temperature
+    unit_of_measurement: "°C"
+    min: 20
+    max: 27
+    step: 0.5
+    icon: mdi:temperature-celsius
+  bedroom_radiator_temperature:
+    name: Bedroom radiator target temperature
+    unit_of_measurement: "°C"
+    min: 20
+    max: 27
+    step: 0.5
+    icon: mdi:temperature-celsius
+  kitchen_radiator_temperature:
+    name: Kitchen radiator target temperature
+    unit_of_measurement: "°C"
+    min: 20
+    max: 27
+    step: 0.5
+    icon: mdi:temperature-celsius
   radiators_temperature:
     name: Radiators target temperature
     unit_of_measurement: "°C"
-    min: 22
+    min: 20
     max: 27
     step: 0.5
     icon: mdi:temperature-celsius
@@ -37,7 +58,16 @@ script:
       - service: climate.set_temperature
         data_template:
           entity_id: "{{ entity_id }}"
-          temperature: "{{ states('input_number.radiators_temperature') | int | default(25) }}"
+          temperature: >-
+             {% if entity_id == 'climate.living_room_valve' %}
+                {{ states('input_number.living_room_radiator_temperature') | int | default(23) }}
+              {% elif entity_id == 'climate.bedroom_radiator_mode' %}
+                {{ states('input_number.bedroom_radiator_temperature') | int | default(23) }}
+              {% elif entity_id == 'climate.kitchen_radiator_mode' %}
+                {{ states('input_number.kitchen_radiator_temperature') | int | default(23) }}
+              {% else %}
+                {{ states('input_number.radiators_temperature') | int | default(23) }}
+              {% endif %}
 
   toggle_radiator:
     alias: Climate · Heating · Toggle radiator
@@ -63,42 +93,81 @@ script:
         - condition: state
           entity_id: binary_sensor.someone_home
           state: "on"
-      - service: climate.turn_on
-        entity_id:
-          - climate.bedroom_radiator_mode
-          - climate.living_room_valve
-          - climate.kitchen_radiator_mode
-      - service: climate.set_temperature
-        entity_id:
-           - climate.bedroom_radiator_mode
-           - climate.living_room_valve
-           - climate.kitchen_radiator_mode
-        data_template:
-          temperature: "{{ states('input_number.radiators_temperature') | int | default(25) }}"
+      - service: script.maybe_turn_radiator_on
+        data:
+          entity_id: climate.living_room_valve
+      - service: script.maybe_turn_radiator_on
+        data:
+          entity_id: climate.bedroom_radiator_mode
+      - service: script.maybe_turn_radiator_on
+        data:
+          entity_id: climate.kitchen_radiator_mode
 
 automation:
   - alias: Climate · Heating · Adjust temperature based on time
     trigger:
       - platform: time
         at: "05:00:00"
-        id: "25"
+        id: "5"
       - platform: time
         at: "11:00:00"
-        id: "23"
+        id: "11"
       - platform: time
         at: "16:00:00"
+        id: "16"
+      - platform: time
+        at: "22:00:00"
         id: "22"
     action:
       - service: input_number.set_value
         entity_id: input_number.radiators_temperature
         data_template:
-          value: "{{ trigger.id | float }}"
-      - service: script.turn_on_all_radiators
-      - service: logbook.log
+          value: >-
+            {% if trigger.id === '5' %}
+              25
+            {% elif trigger.id === '11' %}
+              23
+            {% elif trigger.id === '16' %}
+              22
+            {% endif %}
+      - service: input_number.set_value
+        entity_id: input_number.living_room_radiator_temperature
         data_template:
-          name: "💨 Climate module · "
-          message: "Heating On · All rooms · {{ trigger.id }} degrees"
-          domain: climate
+          value: >-
+            {% if trigger.id === '5' %}
+              25
+            {% elif trigger.id === '11' %}
+              25
+            {% elif trigger.id === '16' %}
+              25
+            {% endif %}
+      - service: input_number.set_value
+        entity_id: input_number.bedroom_radiator_temperature
+        data_template:
+          value: >-
+            {% if trigger.id === '5' %}
+              25
+            {% elif trigger.id === '11' %}
+              23
+            {% elif trigger.id === '16' %}
+              22
+            {% elif trigger.id === '22' %}
+              20
+            {% endif %}
+      - service: input_number.set_value
+        entity_id: input_number.kitchen_radiator_temperature
+        data_template:
+          value: >-
+            {% if trigger.id === '5' %}
+              25
+            {% elif trigger.id === '11' %}
+              22
+            {% elif trigger.id === '16' %}
+              20
+            {% endif %}
+
+      - service: script.turn_on_all_radiators
+
 
   - alias: Climate · Heating · Link living room radiator to windows
     trigger:
@@ -118,11 +187,6 @@ automation:
           sequence:
             - service: climate.turn_off
               entity_id: climate.living_room_valve
-            - service: logbook.log
-              data:
-                name: "💨 Climate module · "
-                message: "Heating Off · Living room · Window opened"
-                domain: climate
         - conditions:
           - condition: state
             entity_id: binary_sensor.living_room_right_window_contact
@@ -134,8 +198,3 @@ automation:
             - service: script.maybe_turn_radiator_on
               data:
                 entity_id: climate.living_room_valve
-            - service: logbook.log
-              data:
-                name: "💨 Climate module · "
-                message: "Heating On · Living room · Window closed"
-                domain: climate
