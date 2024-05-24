@@ -121,3 +121,9 @@
 #     locations:
 #       - "mladost"
 #       - "druzhba"
+
+
+# https://www.home-assistant.io/integrations/fastdotcom
+# fastdotcom:
+  # scan_interval:
+  #   minutes: 90

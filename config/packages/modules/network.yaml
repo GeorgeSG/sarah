@@ -7,11 +7,6 @@
 # - https://www.home-assistant.io/integrations/synologydsm
 # - https://www.home-assistant.io/integrations/zha
 
-# https://www.home-assistant.io/integrations/fastdotcom
-fastdotcom:
-  scan_interval:
-    minutes: 90
-
 # https://www.home-assistant.io/integrations/wake_on_lan
 wake_on_lan:
 
