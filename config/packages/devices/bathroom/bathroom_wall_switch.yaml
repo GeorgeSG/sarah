@@ -1,0 +1,54 @@
+input_number:
+  bathroom_motion_timeout:
+    name: Bathroom · Motion timeout
+    icon: mdi:timer
+    initial: 900
+    min: 600
+    max: 1800
+    step: 1
+
+automation:
+  - alias: Bathroom · Increase timeout on click
+    trigger:
+      platform: state
+      entity_id: sensor.bathroom_wall_switch_action
+      to: "single_left"
+    action:
+      - service: input_number.set_value
+        entity_id: input_number.bathroom_motion_timeout
+        data:
+          value: "{{ 1800 if is_state('light.bathroom', 'on') else 900 }}"
+
+  - alias: Bathroom · Motion light
+    mode: restart
+    max_exceeded: silent
+    trigger:
+      platform: state
+      entity_id: binary_sensor.bathroom_motion_occupancy
+      from: "off"
+      to: "on"
+    action:
+      - service: light.turn_on
+        entity_id: light.bathroom
+      - wait_for_trigger:
+          platform: state
+          entity_id: binary_sensor.bathroom_motion_occupancy
+          from: "on"
+          to: "off"
+      - delay: "{{ states('input_number.bathroom_motion_timeout') | int }}"
+      - service: light.turn_off
+        entity_id: light.bathroom
+      - service: input_number.set_value
+        entity_id: input_number.bathroom_motion_timeout
+        data:
+          value: 900
+
+  - alias: Bathroom · Fan on if light on
+    trigger:
+      platform: state
+      entity_id: light.bathroom
+      to: "on"
+      for: "00:05:00"
+    action:
+      - service: fan.turn_on
+        entity_id: fan.bathroom

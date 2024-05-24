@@ -35,7 +35,7 @@ script:
       - service: script.toshiba_ac_on_cool_if_hot
 
       - service: script.sonos_join_bedroom
-      - service: script.shield_screensaver
+      - service: script.tv_screensaver
 
       - service: script.routine_coming_home_welcome_home
       - service: script.turn_on_all_radiators

@@ -53,10 +53,10 @@ script:
           entity_id: binary_sensor.someone_home
           state: "on"
       - service: climate.turn_on
-        data_template:
+        data:
           entity_id: "{{ entity_id }}"
       - service: climate.set_temperature
-        data_template:
+        data:
           entity_id: "{{ entity_id }}"
           temperature: >-
              {% if entity_id == 'climate.living_room_valve' %}
@@ -76,11 +76,11 @@ script:
         - conditions: "{{ is_state(entity_id, 'off') }}"
           sequence:
             - service: script.maybe_turn_radiator_on
-              data_template:
+              data:
                 entity_id: "{{ entity_id }}"
         default:
           - service: climate.turn_off
-            data_template:
+            data:
               entity_id: "{{ entity_id }}"
 
   turn_on_all_radiators:
@@ -121,48 +121,48 @@ automation:
     action:
       - service: input_number.set_value
         entity_id: input_number.radiators_temperature
-        data_template:
+        data:
           value: >-
-            {% if trigger.id === '5' %}
+            {% if trigger.id == '5' %}
               25
-            {% elif trigger.id === '11' %}
+            {% elif trigger.id == '11' %}
               23
-            {% elif trigger.id === '16' %}
+            {% elif trigger.id == '16' %}
               22
             {% endif %}
       - service: input_number.set_value
         entity_id: input_number.living_room_radiator_temperature
-        data_template:
+        data:
           value: >-
-            {% if trigger.id === '5' %}
+            {% if trigger.id == '5' %}
               25
-            {% elif trigger.id === '11' %}
+            {% elif trigger.id == '11' %}
               25
-            {% elif trigger.id === '16' %}
+            {% elif trigger.id == '16' %}
               25
             {% endif %}
       - service: input_number.set_value
         entity_id: input_number.bedroom_radiator_temperature
-        data_template:
+        data:
           value: >-
-            {% if trigger.id === '5' %}
+            {% if trigger.id == '5' %}
               25
-            {% elif trigger.id === '11' %}
+            {% elif trigger.id == '11' %}
               23
-            {% elif trigger.id === '16' %}
+            {% elif trigger.id == '16' %}
               22
-            {% elif trigger.id === '22' %}
+            {% elif trigger.id == '22' %}
               20
             {% endif %}
       - service: input_number.set_value
         entity_id: input_number.kitchen_radiator_temperature
-        data_template:
+        data:
           value: >-
-            {% if trigger.id === '5' %}
+            {% if trigger.id == '5' %}
               25
-            {% elif trigger.id === '11' %}
+            {% elif trigger.id == '11' %}
               22
-            {% elif trigger.id === '16' %}
+            {% elif trigger.id == '16' %}
               20
             {% endif %}
 

@@ -80,16 +80,6 @@
     target:
       entity_id: fan.bathroom
   mode: single
-- id: '1699447664911'
-  alias: Bathroom · Motion light
-  description: ''
-  use_blueprint:
-    path: homeassistant/motion_light.yaml
-    input:
-      motion_entity: binary_sensor.bathroom_motion_occupancy
-      light_target:
-        entity_id: light.bathroom
-      no_motion_wait: 900
 - id: '1699735427094'
   alias: Front door · turn on lights
   description: ''

@@ -143,10 +143,7 @@ cards:
               show_state: false
               tap_action:
                 action: call-service
-                service: media_player.select_source
-                service_data:
-                  entity_id: media_player.living_room_tv
-                  source: Shield
+                service: script.tv_switch_to_shield
               styles:
                 card:
                   - margin-left: 8px
@@ -163,14 +160,14 @@ cards:
                   entity_id: media_player.living_room_tv
                   source: Switch
 
-            - type: custom:button-card
-              template: [v3_tablet_button, v3_popup_button]
-              name: Bulsatcom
-              icon: mdi:remote-tv
-              show_state: false
-              tap_action:
-                action: call-service
-                service: script.tv_bulsatcom_toggle
+            # - type: custom:button-card
+            #   template: [v3_tablet_button, v3_popup_button]
+            #   name: Bulsatcom
+            #   icon: mdi:remote-tv
+            #   show_state: false
+            #   tap_action:
+            #     action: call-service
+            #     service: script.tv_bulsatcom_toggle
 
         - type: custom:mini-media-player
           entity: media_player.nvidia_shield
@@ -190,8 +187,6 @@ cards:
           cards:
             - type: custom:decluttering-card
               template: hdmi_switch_remote_card
-            - type: custom:decluttering-card
-              template: bulsatcom_remote_card
 
   - type: custom:popup-card
     entity: media_player.living_room_tv
@@ -203,22 +198,54 @@ cards:
           cards:
             - type: custom:button-card
               template: [v3_tablet_button, v3_popup_button]
-              icon: mdi:set-top-box
-              name: Set to Shield
+              icon: mdi:apple
+              name: Apple TV
               show_state: false
               tap_action:
                 action: call-service
-                service: media_player.select_source
-                service_data:
-                  entity_id: media_player.living_room_tv
-                  source: Shield
+                service: script.tv_switch_to_apple_tv
               styles:
                 card:
                   - margin-left: 8px
 
             - type: custom:button-card
               template: [v3_tablet_button, v3_popup_button]
-              name: Set to Switch
+              icon: mdi:playstation
+              name: PS5
+              show_state: false
+              tap_action:
+                action: call-service
+                service: script.tv_switch_to_playstation
+              styles:
+                card:
+                  - margin-left: 8px
+
+            - type: custom:button-card
+              template: [v3_tablet_button, v3_popup_button]
+              icon: mdi:set-top-box
+              name: Shield
+              show_state: false
+              tap_action:
+                action: call-service
+                service: script.tv_switch_to_shield
+              styles:
+                card:
+                  - margin-left: 8px
+            - type: custom:button-card
+              template: [v3_tablet_button, v3_popup_button]
+              icon: mdi:tv
+              name: EON
+              show_state: false
+              tap_action:
+                action: call-service
+                service: script.tv_switch_to_eon
+              styles:
+                card:
+                  - margin-left: 8px
+
+            - type: custom:button-card
+              template: [v3_tablet_button, v3_popup_button]
+              name: Switch
               icon: mdi:video-input-hdmi
               show_state: false
               tap_action:
@@ -228,20 +255,16 @@ cards:
                   entity_id: media_player.living_room_tv
                   source: Switch
 
-            - type: custom:button-card
-              template: [v3_tablet_button, v3_popup_button]
-              name: Bulsatcom
-              icon: mdi:remote-tv
-              show_state: false
-              tap_action:
-                action: call-service
-                service: script.tv_bulsatcom_toggle
-
-        - type: custom:mini-media-player
-          entity: media_player.nvidia_shield
 
         - type: custom:mini-media-player
           entity: media_player.living_room_tv
+
+        - type: custom:mini-media-player
+          entity: media_player.apple_tv
+          name: Apple TV
+
+        - type: custom:mini-media-player
+          entity: media_player.nvidia_shield
 
         - type: custom:decluttering-card
           template: sonos_media_player
@@ -255,8 +278,7 @@ cards:
           cards:
             - type: custom:decluttering-card
               template: hdmi_switch_remote_card
-            - type: custom:decluttering-card
-              template: bulsatcom_remote_card
+
 
   - type: custom:popup-card
     entity: group.all_motion_sensors

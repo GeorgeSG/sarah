@@ -66,4 +66,6 @@
                   action: call-service
                   service: "[[[ return entity.state == 'on' ? 'script.sonos_bathroom_unjoin' : 'script.sonos_bathroom_join' ]]]"
 
+
+
     - !include ../popup_cards.yaml

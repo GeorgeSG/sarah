@@ -76,6 +76,9 @@ cards:
             - automation.lighting_temperature_based_on_sun
             - automation.lighting_temperature_change
             - type: divider
+            - automation.lightning_living_room_motion_on
+            - automation.lightning_living_room_motion_off
+            - type: divider
             - automation.lighting_bedroom_door_open
             - type: divider
             - automation.lighting_kitchen_motion_on

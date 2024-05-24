@@ -1,65 +1,82 @@
 
 script:
-  tv_twitch:
-    icon: mdi:twitch
-    alias: TV · Start Twitch stream
+  tv_switch_to_eon:
     sequence:
-      - service: script.tv_prepare_for_playback
-      - service: androidtv.adb_command
+      - if:
+          condition: state
+          entity_id: media_player.living_room_tv
+          state: "off"
+        then:
+          - service: media_player.turn_on
+            entity_id: media_player.living_room_tv
+          - delay: 00:00:03
+      - service: script.tv_switch_to_shield
+      - service: media_player.select_source
         entity_id: media_player.nvidia_shield
-        data_template:
-          command: "am start -a android.intent.action.VIEW -d twitch://stream/{{ channel }}"
+        data:
+          source: com.ug.eon.android.tv
 
-  tv_bulsatcom_toggle:
-    icon: mdi:remote-tv
-    alias: TV · Bulsatcom toggle
+  tv_switch_to_playstation:
     sequence:
-      - service: script.bulsatcom_power
-      - service: media_player.turn_on
+      - if:
+          condition: state
+          entity_id: media_player.living_room_tv
+          state: "off"
+        then:
+          - service: media_player.turn_on
+            entity_id: media_player.living_room_tv
+          - delay: 00:00:03
+
+      - service: media_player.select_source
         entity_id: media_player.living_room_tv
+        data:
+          source: "PS5"
+
+  tv_switch_to_apple_tv:
+    sequence:
+      - if:
+          condition: state
+          entity_id: media_player.living_room_tv
+          state: "off"
+        then:
+          - service: media_player.turn_on
+            entity_id: media_player.living_room_tv
+          - delay: 00:00:03
+      - service: media_player.select_source
+        entity_id: media_player.living_room_tv
+        data:
+          source: "Apple TV"
+
+  tv_switch_to_shield:
+    sequence:
+      - if:
+          condition: state
+          entity_id: media_player.living_room_tv
+          state: "off"
+        then:
+          - service: media_player.turn_on
+            entity_id: media_player.living_room_tv
+          - delay: 00:00:03
       - service: script.hdmi_switch_1
       - service: media_player.select_source
         entity_id: media_player.living_room_tv
         data:
           source: Switch
 
-  latest_pds:
-    alias: Play the latest PDS
+  tv_screensaver:
     sequence:
-      - service: media_extractor.play_media
-        entity_id: media_player.shield
-        data_template:
-          media_content_id: "{{ state_attr('sensor.philip_defranco', 'url') }}"
-          media_content_type: video/youtube
+      - service: script.tv_switch_to_apple_tv
+      - delay: 00:00:05
+      - service: remote.send_command
+        entity_id: remote.apple_tv
+        data:
+          command: "home"
+          num_repeats: 2
+      - service: remote.send_command
+        entity_id: remote.apple_tv
+        data:
+          command: "menu"
 
-  tv_prepare_for_playback:
-    alias: TV · Prepare for playback
-    sequence:
-      - service: media_player.unjoin
-        entity_id: media_player.living_room
-      - service: media_player.select_source
-        entity_id: media_player.living_room
-        data:
-          source: TV
-      - service: media_player.volume_set
-        entity_id: media_player.living_room
-        data_template:
-          volume_level: "{{ volume_level | default(0.3) }}"
-      - service: media_player.turn_on
-        entity_id: media_player.nvidia_shield
-      - service: media_player.select_source
-        entity_id: media_player.living_room_tv
-        data:
-          source: Shield
-
-  shield_screensaver:
-    sequence:
-      - service: media_player.turn_on
-        entity_id: media_player.nvidia_shield
-      - service: androidtv.adb_command
-        entity_id: media_player.nvidia_shield
-        data:
-          command: "adb shell am start -n \"com.android.systemui/.Somnambulator\""
 
 automation:
   - alias: TV · Turn on
@@ -82,22 +99,74 @@ automation:
       state: "day"
     action:
       - service: script.sonos_join_bedroom
-      - service: logbook.log
-        data:
-          name: "📺 Media Module · "
-          message: "Sonos Group · TV off - joining Beam to Sonos Group ··"
-          domain: media_player
 
-  - alias: TV · State · Sync TV state
+  - alias: TV · State · Turn on STBs
+    mode: single
+    trigger:
+      platform: state
+      entity_id: media_player.living_room_tv
+      to: "on"
+    action:
+      - service: media_player.turn_on
+        entity_id: media_player.nvidia_shield
+      - service: remote.send_command
+        entity_id: remote.apple_tv
+        data:
+          command: wakeup
+
+  - alias: TV · Off · Turn off devices
     mode: single
     trigger:
       platform: state
       entity_id: media_player.living_room_tv
       to: "off"
-    condition:  "{{ not is_state('media_player.nvidia_shield', 'off') }}"
     action:
       - service: media_player.turn_off
         entity_id: media_player.nvidia_shield
+      - service: remote.send_command
+        entity_id: remote.apple_tv
+        data:
+          command: suspend
+
+  - alias: TV · State · Sync Apple TV state
+    trigger:
+      - platform: state
+        entity_id: media_player.apple_tv
+        to: "standby"
+        id: "off"
+      - platform: state
+        entity_id: media_player.apple_tv
+        to: "off"
+        id: "off"
+      - platform: state
+        entity_id: media_player.apple_tv
+        from: "standby"
+        to: "paused"
+        id: "on"
+      - platform: state
+        entity_id: media_player.apple_tv
+        to: "idle"
+        id: "on"
+      - platform: state
+        entity_id: media_player.apple_tv
+        from: "off"
+        to: "playing"
+        id: "on"
+    action:
+      - choose:
+          - conditions: "{{ trigger.id == 'on' and not is_state('media_player.living_room_tv', 'on') }}"
+            sequence:
+              - service: script.tv_switch_to_apple_tv
+              - service: remote.send_command
+                entity_id: remote.apple_tv
+                data:
+                  command: home
+                  num_repeats: 2
+          - conditions: "{{ (trigger.id == 'off' or trigger.id == 'standby') and not is_state('media_player.living_room_tv', 'off') }}"
+            sequence:
+              - service: media_player.turn_off
+                entity_id: media_player.living_room_tv
+
 
   - alias: TV · State · Sync Shield state
     trigger:
@@ -119,22 +188,12 @@ automation:
       - choose:
           - conditions: "{{ trigger.id == 'on' and not is_state('media_player.living_room_tv', 'on') }}"
             sequence:
-              - service: media_player.turn_on
-                entity_id: media_player.living_room_tv
-              - delay: "00:00:15"
-              - service: media_player.select_source
-                entity_id: media_player.living_room_tv
-                data:
-                  source: "Shield"
+              - service: script.tv_switch_to_shield
           - conditions: "{{ trigger.id == 'off' and not is_state('media_player.living_room_tv', 'off') }}"
             sequence:
               - service: media_player.turn_off
                 entity_id: media_player.living_room_tv
-      - service: logbook.log
-        data_template:
-          name: "📺 Media Module · "
-          message: "Sync TV state · Turning TV {{ trigger.id }} - Shield is {{ trigger.id }} ··"
-          domain: media_player
+
 
   - alias: TV · Prepare for casting
     trigger:
@@ -144,11 +203,6 @@ automation:
     condition: "{{ is_state_attr('media_player.nvidia_shield', 'source', 'Google Cast') }}"
     action:
       - service: script.sonos_join_tv
-      - service: logbook.log
-        data:
-          name: "📺 Media Module · "
-          message: "TV · Google Cast - Joining Sonoses"
-          domain: media_player
       - delay: "00:00:10"
       - service: media_player.select_source
         entity_id: media_player.living_room_tv
@@ -163,3 +217,45 @@ homeassistant:
     media_player.nvidia_shield:
       icon: mdi:set-top-box
       friendly_name: Nvidia Shield
+
+
+
+  # tv_twitch:
+  #   icon: mdi:twitch
+  #   alias: TV · Start Twitch stream
+  #   sequence:
+  #     - service: script.tv_prepare_for_playback
+  #     - service: androidtv.adb_command
+  #       entity_id: media_player.nvidia_shield
+  #       data_template:
+  #         command: "am start -a android.intent.action.VIEW -d twitch://stream/{{ channel }}"
+
+
+  # latest_pds:
+  #   alias: Play the latest PDS
+  #   sequence:
+  #     - service: media_extractor.play_media
+  #       entity_id: media_player.shield
+  #       data_template:
+  #         media_content_id: "{{ state_attr('sensor.philip_defranco', 'url') }}"
+  #         media_content_type: video/youtube
+
+  # tv_prepare_for_playback:
+  #   alias: TV · Prepare for playback
+  #   sequence:
+  #     - service: media_player.unjoin
+  #       entity_id: media_player.living_room
+  #     - service: media_player.select_source
+  #       entity_id: media_player.living_room
+  #       data:
+  #         source: TV
+  #     - service: media_player.volume_set
+  #       entity_id: media_player.living_room
+  #       data_template:
+  #         volume_level: "{{ volume_level | default(0.3) }}"
+  #     - service: media_player.turn_on
+  #       entity_id: media_player.nvidia_shield
+  #     - service: media_player.select_source
+  #       entity_id: media_player.living_room_tv
+  #       data:
+  #         source: Shield

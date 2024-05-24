@@ -38,6 +38,10 @@
                 template: v3_chip_name
                 entity: binary_sensor.multisensor_6_home_security_motion_detection
                 name: Motion
+              - type: custom:button-card
+                template: v3_chip_name
+                entity: binary_sensor.trisensor_motion
+                name: Desk Motion
           - type: horizontal-stack
             cards:
               - type: custom:button-card
@@ -66,6 +70,13 @@
                     variables:
                       scene_color_1: rgba(255, 0, 190, 1)
                       scene_color_2: rgba(0, 255, 190, 1)
+                  - type: custom:button-card
+                    template: v3_scene
+                    entity: scene.living_room_ambient_christmas
+                    name: Christmas
+                    variables:
+                      scene_color_1: rgba(255, 0, 0, 1)
+                      scene_color_2: rgba(0, 255, 0, 1)
                   - type: custom:button-card
                     template: v3_scene
                     entity: scene.living_room_ambient_default
@@ -115,6 +126,10 @@
                 show_state: false
                 tap_action:
                   action: more-info
+              - type: custom:button-card
+                template: v3_button
+                entity: input_boolean.living_room_motion_lights
+                name: Auto
 
 
     - type: custom:decluttering-card

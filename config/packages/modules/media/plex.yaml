@@ -15,24 +15,36 @@ script:
         entity_id: media_player.living_room
         data:
           source: TV
-      - service: media_player.turn_on
-        entity_id: media_player.living_room_tv
-      - wait_template: "{{ is_state('media_player.nvidia_shield', 'standby') or is_state('media_player.nvidia_shield', 'idle') }}"
-      - service: androidtv.adb_command
-        target:
-          entity_id: media_player.nvidia_shield
-        data:
-          command: "HOME"
+      - service: script.tv_switch_to_apple_tv
+      - wait_template: "{{ is_state('media_player.apple_tv', 'idle') or is_state('media_player.apple_tv', 'paused') }}"
       - service: media_player.select_source
-        entity_id: media_player.nvidia_shield
+        entity_id: media_player.apple_tv
         data:
           source: "Plex"
+
       - delay: 00:00:01
+      - service: remote.send_command
+        entity_id: remote.apple_tv
+        data:
+          command: "select"
+
       - service: media_player.play_media
-        entity_id: media_player.plex_shield
+        entity_id: media_player.apple_tv
         data_template:
           media_content_type: "EPISODE"
           media_content_id: '{ "library_name": "TV Shows", "show_name": "{{ states("input_text.plex_default_show")}}", "episode.unwatched": true, "episode.inProgress": [true, false], "resume": 1, "sort": "addedAt:asc", "maxresults": 1 }'
+
+      - service: button.press
+        entity_id: button.scan_clients_cobalt
+
+      - wait_template: "{{ not is_state('media_player.plex_apple_tv', 'unavailable') }}"
+
+      - service: media_player.play_media
+        entity_id: media_player.plex_apple_tv
+        data_template:
+          media_content_type: "EPISODE"
+          media_content_id: '{ "library_name": "TV Shows", "show_name": "{{ states("input_text.plex_default_show")}}", "episode.unwatched": true, "episode.inProgress": [true, false], "resume": 1, "sort": "addedAt:asc", "maxresults": 1 }'
+
       - service: media_player.media_pause
         entity_id: media_player.master_bedroom
 

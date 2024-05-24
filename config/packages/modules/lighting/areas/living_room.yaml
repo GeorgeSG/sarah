@@ -1,3 +1,10 @@
+input_boolean:
+  living_room_motion_lights:
+    name: "Living Room Ambient"
+    initial: on
+    icon: mdi:lightbulb-auto
+
+
 automation:
   - alias: "Lightning · Living room · Motion on"
     trigger:
@@ -17,6 +24,10 @@ automation:
       - condition: state
         entity_id: sensor.house_mode
         state: 'day'
+      - condition: state
+        entity_id: input_boolean.living_room_motion_lights
+        state: 'on'
+
 
     action:
       - service: light.turn_on
@@ -36,6 +47,10 @@ automation:
         to: "off"
         for:
           minutes: 5
+    condition:
+      - condition: state
+        entity_id: input_boolean.living_room_motion_lights
+        state: 'on'
     action:
       - service: light.turn_off
         entity_id:
@@ -48,6 +63,17 @@ automation:
           - light.hue_ambiance_7
 
 scene:
+  - name: Living Room Ambient Christmas
+    icon: mdi:pine-tree
+    entities:
+      light.light_lohas_2:
+        state: "on"
+        rgb_color: [0, 255, 0]
+        brightness_pct: 100
+      light.living_room_ambient_main:
+        state: "on"
+        rgb_color: [255, 0, 0]
+        brightness_pct: 100
   - name: Living Room Ambient Neon
     icon: "mdi:weather-night"
     entities:

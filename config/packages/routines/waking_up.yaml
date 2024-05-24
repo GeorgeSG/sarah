@@ -25,7 +25,7 @@ script:
           - light.living_room_ambient
 
       - service: script.open_living_room_cover
-      - service: script.shield_screensaver
+      - service: script.tv_screensaver
 
       # Only when no guests are present
       - and:

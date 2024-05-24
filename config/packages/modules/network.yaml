@@ -19,6 +19,9 @@ wake_on_lan:
 homekit:
   filter:
     include_entities:
+      - person.georgi
+      - person.maya
+
       # Living Room
       - light.living_room
       - light.living_room_main
@@ -28,10 +31,16 @@ homekit:
       - climate.living_room_valve
       - climate.toshiba_ac
       - cover.living_room
-      - media_player.living_room
       - scene.living_room_ambient_neon
+      - scene.living_room_ambient_default
+      - scene.living_room_ambient_christmas
+      - binary_sensor.multisensor_motion
+      - binary_sensor.living_room_presence
       - sensor.multisensor_6_relative_humidity
       - sensor.multisensor_6_temperature
+      - media_player.living_room_tv
+      - media_player.apple_tv
+      - media_player.nvidia_shield
 
       # Bedroom
       - light.master_bedroom
@@ -42,11 +51,8 @@ homekit:
       - binary_sensor.bedroom_right_window_contact
       - climate.bedroom_radiator_mode
       - fan.philips_airpurifier
-      - media_player.master_bedroom
       - sensor.bedroom_weather_humidity
       - sensor.bedroom_weather_temperature
-      - sensor.purifier_air_quality
-      - sensor.purifier_allergens
 
       # Kitchen
       - light.kitchen
@@ -55,8 +61,6 @@ homekit:
       - climate.kitchen_radiator_mode
       - binary_sensor.kitchen_motion_occupancy
       - binary_sensor.kitchen_window_contact
-      - input_number.brita_remaining_liters
-      - script.brita_pour_water
       - sensor.kitchen_weather_humidity
       - sensor.kitchen_weather_temperature
       - vacuum.vacuum
@@ -75,6 +79,7 @@ homekit:
       - light.hallway_main
       - binary_sensor.hallway_motion_occupancy
       - binary_sensor.hallway_motion_2_occupancy
+      - binary_sensor.front_door_contact
       - group.hallway_motion
       - sensor.hallway_weather_temperature
       - sensor.hallway_weather_humidity
@@ -98,12 +103,6 @@ homekit:
       linked_battery_sensor: sensor.multisensor_6_battery_level
       low_battery_threshold: 20
       name: Living Room Humidity
-    climate.living_room_radiator_mode:
-      linked_battery_sensor: sensor.living_room_radiator_battery_level
-      low_battery_threshold: 20
-      name: Living Room Radiator
-    switch.desk_outlet:
-      type: outlet
 
     # Bedroom
     light.master_bedroom_main:
@@ -140,11 +139,6 @@ homekit:
       linked_battery_sensor: sensor.bedroom_radiator_battery_level
       low_battery_threshold: 20
       name: Bedroom Radiator
-    media_player.master_bedroom:
-      feature_list:
-        - feature: play_pause
-        - feature: play_stop
-        - feature: toggle_mute
 
     # Kitchen
     light.kitchen_main:
