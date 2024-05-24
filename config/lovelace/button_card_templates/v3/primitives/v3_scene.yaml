@@ -20,6 +20,7 @@ v3_scene:
       - height: 50px
       - font-size: 15px
       - box-shadow: none
+      - border-radius: 10px
       - background: >
           [[[
             const color_1 = variables.scene_color_1;

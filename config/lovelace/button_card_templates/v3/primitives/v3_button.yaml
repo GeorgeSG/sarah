@@ -15,6 +15,7 @@ v3_button:
       - width: var(--v3-button-size, 120px)
       - height: var(--v3-button-size, 120px)
       - box-shadow: none
+      - border-radius: 10%
       - --ha-card-background: "[[[ return variables.background_color ]]]"
     icon:
       - position: absolute

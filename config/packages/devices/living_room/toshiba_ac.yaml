@@ -10,7 +10,7 @@ climate:
     command_topic: "cmnd/ir_blaster_1/irhvac"
     state_topic: "tele/ir_blaster_1/RESULT"
     temperature_sensor: sensor.multisensor_6_temperature
-    protocol: "TOSHIBA_AC"
+    vendor: "TOSHIBA_AC"
     max_temp: 30  # optional - default 32 int value
     min_temp: 17
     target_temp: 22  # optional - default 26 int value
