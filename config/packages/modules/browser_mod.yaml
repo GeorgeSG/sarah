@@ -1,5 +1,4 @@
 # https://github.com/thomasloven/hass-browser_mod
-browser_mod:
 
 script:
   browser_fire_low:

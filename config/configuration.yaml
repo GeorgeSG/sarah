@@ -173,7 +173,6 @@ logbook:
 # https://www.home-assistant.io/integrations/media_extractor
 # TODO: Add to media module
 media_source:
-media_extractor:
 
 # https://www.home-assistant.io/integrations/mobile_app
 mobile_app:

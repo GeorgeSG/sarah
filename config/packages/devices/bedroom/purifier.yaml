@@ -156,7 +156,7 @@ script:
         entity_id: fan.philips_airpurifier
         data_template:
           function: >-
-            {{ state_attr('fan.philips_airpurifier', 'function') == 'Purification' | iif('Purification & Humidification', 'Purification') }}
+            {{ iif(state_attr('fan.philips_airpurifier', 'function') == 'Purification', 'Purification & Humidification', 'Purification') }}
 
 automation:
   - alias: Purifier · On start · Sync and update state

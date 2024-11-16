@@ -79,4 +79,4 @@ stacked-weather:
 
       - type: markdown
         content: >-
-          It will be {{  state_attr('weather.pirateweather', 'forecast')[0]['condition'] }}
+          It will be {{  states('sensor.pirateweather_daily_summary') }}
