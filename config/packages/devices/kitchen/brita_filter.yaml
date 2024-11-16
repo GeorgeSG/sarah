@@ -38,7 +38,7 @@ script:
       - service: input_number.set_value
         entity_id: input_number.brita_remaining_liters
         data_template:
-          value: "{{ states('input_number.brita_remaining_liters') | float - 1 }}"
+          value: "{{ states('input_number.brita_remaining_liters') | float - 1.7 }}"
 
   brita_new_filter:
     alias: Brita · New filter
