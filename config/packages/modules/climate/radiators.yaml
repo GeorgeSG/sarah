@@ -38,7 +38,7 @@ group:
     name: "All Radiators"
     entities:
       - climate.living_room_valve
-      - climate.bedroom_radiator_mode
+      - climate.bedroom_radiator
       - climate.kitchen_radiator_mode
 
 script:
@@ -61,7 +61,7 @@ script:
           temperature: >-
              {% if entity_id == 'climate.living_room_valve' %}
                 {{ states('input_number.living_room_radiator_temperature') | int | default(23) }}
-              {% elif entity_id == 'climate.bedroom_radiator_mode' %}
+              {% elif entity_id == 'climate.bedroom_radiator' %}
                 {{ states('input_number.bedroom_radiator_temperature') | int | default(23) }}
               {% elif entity_id == 'climate.kitchen_radiator_mode' %}
                 {{ states('input_number.kitchen_radiator_temperature') | int | default(23) }}
@@ -98,7 +98,7 @@ script:
           entity_id: climate.living_room_valve
       - service: script.maybe_turn_radiator_on
         data:
-          entity_id: climate.bedroom_radiator_mode
+          entity_id: climate.bedroom_radiator
       - service: script.maybe_turn_radiator_on
         data:
           entity_id: climate.kitchen_radiator_mode

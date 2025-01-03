@@ -26,7 +26,7 @@ cards:
             - input_boolean.heating_enabled
             - input_number.radiators_temperature
             - climate.living_room_valve
-            - climate.bedroom_radiator_mode
+            - climate.bedroom_radiator
             - climate.kitchen_radiator_mode
             - script.turn_on_all_radiators
             - type: divider

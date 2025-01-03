@@ -106,7 +106,7 @@
     - type: custom:decluttering-card
       template: floorplan_state_with_icon
       variables:
-        - entity: climate.bedroom_radiator_mode
+        - entity: climate.bedroom_radiator
         - top: 27%
         - left: 81%
         - icon: mdi:radiator

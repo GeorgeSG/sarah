@@ -44,7 +44,7 @@ homekit:
       - binary_sensor.bedroom_door_contact
       - binary_sensor.bedroom_left_window_contact
       - binary_sensor.bedroom_right_window_contact
-      - climate.bedroom_radiator_mode
+      - climate.bedroom_radiator
       - fan.philips_airpurifier
       - sensor.bedroom_weather_humidity
       - sensor.bedroom_weather_temperature

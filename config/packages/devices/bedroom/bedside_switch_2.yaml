@@ -10,27 +10,38 @@ automation:
       input:
         action_entity: sensor.bedroom_wall_switch_action
         click:
-          - service: light.toggle
+          - service: light.turn_on
             data_template:
-              entity_id: >-
-                {% if is_state('input_select.bedroom_mode', 'day') %}
-                  ['light.master_bedroom_main', 'light.bedside']
+              entity_id: light.tradfri_large
+              brightness: >-
+                {% set brt_min = 0 %}
+                {% set brt_max = 254 %}
+                {% set brt_steps = 5 %}
+                {% set brt_step = ((brt_max - brt_min) / brt_steps)|round(0, 'floor') %}
+                {% set brightness = state_attr("light.tradfri_large", 'brightness')|int(0) %}
+                {% if brightness == 0 %}
+                  {{ 25 }}
+                {% elif brightness > 230 %}
+                  {{ 0 }}
+                {% elif brightness %}
+                  {# Increase brightness one step. #}
+                  {{ (brightness + brt_step, brt_max)|min }}
                 {% else %}
-                  light.bedside
+                  {# Set the brightness to max if light is off. #}
+                  {{ brt_max }}
                 {% endif %}
-              brightness_pct: 100
 
-        double_click:
-          - service: scene.turn_on
-            entity_id: scene.bedroom_ambient_pink
-          - service: media_player.unjoin
-            entity_id: media_player.master_bedroom
-          - service: media_player.play_media
-            target:
-              entity_id: media_player.master_bedroom
-            data_template:
-              media_content_type: "music"
-              media_content_id: "{{ states('input_text.bedroom_2_playlist') }}"
+        # double_click:
+        #   - service: scene.turn_on
+        #     entity_id: scene.bedroom_ambient_pink
+        #   - service: media_player.unjoin
+        #     entity_id: media_player.master_bedroom
+        #   - service: media_player.play_media
+        #     target:
+        #       entity_id: media_player.master_bedroom
+        #     data_template:
+        #       media_content_type: "music"
+        #       media_content_id: "{{ states('input_text.bedroom_2_playlist') }}"
 
-        hold:
-          - service: script.toggle_bedroom_mode
+        # hold:
+        #   - service: script.toggle_bedroom_mode
