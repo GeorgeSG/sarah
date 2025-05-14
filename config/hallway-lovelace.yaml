@@ -3,15 +3,316 @@ button_card_templates: !include_dir_merge_named lovelace/button_card_templates
 
 title: Sarah
 views:
-  - title: Sarah
+  - title: Inside
     path: hallway_dashboard
-    icon: mdi:tablet-dashboard
     background: '#333'
     panel: true
     cards:
-      - type: custom:state-switch
-        entity: input_select.hallway_dashboard_mode
-        states:
-          Home: !include lovelace/hallway_dashboard/at_home_dashboard.yaml
-          Leaving: !include lovelace/hallway_dashboard/leaving_home_dashboard.yaml
-          "Coming Home": !include lovelace/hallway_dashboard/coming_home_dashboard.yaml
+      - type: custom:mod-card
+        style:
+          layout-card:
+            $:
+              horizontal-layout:
+                $:
+                  .: |
+                    #columns {
+                      padding-left: 10px;
+                      margin: 0 20px;
+                      grid-gap: 20px;
+                    }
+        card:
+          type: custom:layout-card
+          layout_type: custom:horizontal-layout
+          layout:
+            max_cols: 2
+          cards:
+            # Column 1
+            - type: vertical-stack
+              cards:
+                - type: 'custom:simple-clock-card'
+                  hide_seconds: true
+                  font_size: 4rem
+                  paddingTop_size: 25px
+                  paddingBottom_size: 25px
+                - type: horizontal-stack
+                  cards:
+                    - type: custom:button-card
+                      template: v3_chip_person
+                      entity: input_boolean.georgi_home
+                      entity_picture: /local/images/people/georgi.jpg
+                      name: Georgi
+                    - type: custom:button-card
+                      template: v3_chip_person
+                      entity: input_boolean.player_2_home
+                      entity_picture: /local/images/people/maya.jpg
+                      name: Maya
+                    - type: custom:button-card
+                      template: v3_chip
+                      entity: sensor.average_temperature
+                      icon: mdi:thermometer
+                    - type: custom:button-card
+                      template: v3_chip
+                      entity: sensor.average_humidity
+                      icon: mdi:water-percent
+                - type: horizontal-stack
+                  cards:
+                    - type: custom:button-card
+                      template: v3_chip_name
+                      entity: group.all_motion_sensors
+                      icon: |
+                        [[[
+                          return entity.state === 'off' ? 'mdi:motion-sensor-off' : 'mdi:motion-sensor';
+                        ]]]
+                      name: Motion
+                      tap_action:
+                        action: more-info
+                    - type: custom:button-card
+                      template: v3_chip_entity_count
+                      entity: sensor.open_window_count
+                      variables:
+                        entity_type: window
+                      icon: |
+                        [[[
+                          return entity.state === 0 ? 'mdi:window-closed' : 'mdi:window-open';
+                        ]]]
+                    - type: custom:button-card
+                      template: v3_chip_entity_count
+                      entity: sensor.open_door_count
+                      variables:
+                        entity_type: door
+                      icon: |
+                        [[[
+                          return entity.state === 0 ? 'mdi:door-closed' : 'mdi:door-open';
+                        ]]]
+
+                - type: custom:decluttering-card
+                  template: v3_section_title
+                  variables:
+                    - title: Modes & Devices
+                - type: horizontal-stack
+                  cards:
+                    - type: custom:button-card
+                      template: v3_tablet_button
+                      entity: input_boolean.guest_mode
+                      tap_action:
+                        action: toggle
+                    - type: custom:button-card
+                      template: [v3_button, v3_tablet_button]
+                      entity: input_select.bedroom_mode
+                      name: Mode
+                      icon: mdi:bed
+                      tap_action:
+                        action: call-service
+                        service: script.toggle_bedroom_mode
+                    - type: custom:button-card
+                      template: [v3_button_tv, v3_tablet_button]
+                      entity: media_player.living_room_tv
+                      name: TV
+                    - type: custom:button-card
+                      template: v3_tablet_button
+                      entity: media_player.master_bedroom
+                      name: Sonos
+                      hold_action:
+                        action: call-service
+                        service: media_player.media_play_pause
+                        service_data:
+                          entity_id: media_player.master_bedroom
+                - type: horizontal-stack
+                  cards:
+                    - type: custom:button-card
+                      template: [v3_button_ac, v3_tablet_button]
+                      entity: climate.toshiba_ac
+                      name: AC
+                      tap_action:
+                        action: call-service
+                        service: script.toshiba_ac_toggle
+                    - type: custom:button-card
+                      template: [v3_button_radiator, v3_tablet_button]
+                      entity: climate.living_room_valve
+                      name: "Living room"
+                    - type: custom:button-card
+                      template: [v3_button_radiator, v3_tablet_button]
+                      entity: climate.bedroom_radiator
+                      name: "Bedroom"
+                    - type: custom:button-card
+                      template: [v3_button_radiator, v3_tablet_button]
+                      entity: climate.kitchen_radiator_mode
+                      name: "Kitchen"
+                - type: horizontal-stack
+                  cards:
+
+                    - type: custom:button-card
+                      template: [v3_button_purifier, v3_tablet_button]
+                      entity: fan.philips_airpurifier
+                      name: Air Purifier
+                    - type: custom:button-card
+                      template: v3_button_brita_water
+                      variables:
+                        long_state: false
+                      styles:
+                        card:
+                          - width: 100px
+                          - height: 100px
+                          - border-radius: 16px
+                        icon:
+                          - top: 4px
+                          - left: 12px
+                          - width: 20px
+                          - height: 20px
+                          - --mdc-icon-size: 20px
+                        state:
+                          - bottom: 4px
+                          - left: 12px
+                        name:
+                          - left: 12px
+                          - bottom: 22px
+                          - width: 60px
+                          - font-size: 13px
+
+            # Column 2
+            - type: vertical-stack
+              cards:
+                - type: custom:decluttering-card
+                  template: v3_section_title
+                  variables:
+                    - title: Lights
+                - type: horizontal-stack
+                  cards:
+                    - type: custom:button-card
+                      template: v3_tablet_button
+                      entity: light.living_room
+                      name: Living room
+                    - type: custom:button-card
+                      template: v3_tablet_button
+                      entity: light.living_room_main
+                      name: Main
+                    - type: custom:button-card
+                      template: v3_tablet_button
+                      entity: light.hue_ambiance_7
+                    - type: custom:button-card
+                      template: v3_tablet_button
+                      entity: light.living_room_ambient
+                      name: Ambient
+
+                - type: horizontal-stack
+                  cards:
+                    - type: custom:button-card
+                      template: v3_tablet_button
+                      entity: light.master_bedroom
+                      name: Bedroom
+                    - type: custom:button-card
+                      template: v3_tablet_button
+                      entity: light.master_bedroom_main
+                      name: Main
+                    - type: custom:button-card
+                      template: v3_tablet_button
+                      entity: light.bedside
+                      name: Bedside
+                    - type: custom:button-card
+                      template: v3_tablet_button
+                      entity: light.kitchen
+                      name: Kitchen
+                - type: horizontal-stack
+                  cards:
+                    - type: custom:button-card
+                      template: v3_tablet_button
+                      entity: light.bathroom
+                      name: Bath
+                    - type: custom:button-card
+                      template: v3_tablet_button
+                      entity: light.hallway_main
+                      name: Hallway
+                    - type: custom:button-card
+                      template: v3_tablet_button
+                      entity: light.hallway_entrance
+                      name: Entrance
+                    - type: custom:button-card
+                      template: v3_tablet_button
+                      entity: light.tradfri_large
+                      name: G. Bedroom
+            - !include ./lovelace/popup_cards.yaml
+
+  - title: Outside
+    background: '#333'
+    panel: true
+    cards:
+      - type: custom:mod-card
+        style:
+          layout-card:
+            $:
+              horizontal-layout:
+                $:
+                  .: |
+                    #columns {
+                      padding-left: 10px;
+                      margin: 0 20px;
+                      grid-gap: 20px;
+                    }
+        card:
+          type: custom:layout-card
+          layout_type: custom:horizontal-layout
+          layout:
+            max_cols: 2
+          cards:
+            # Column 1
+            - type: vertical-stack
+              cards:
+                - type: 'custom:simple-clock-card'
+                  hide_seconds: true
+                  font_size: 4rem
+                  paddingTop_size: 25px
+                  paddingBottom_size: 25px
+                - type: horizontal-stack
+                  cards:
+                    - type: custom:button-card
+                      template: v3_chip_person
+                      entity: input_boolean.georgi_home
+                      entity_picture: /local/images/people/georgi.jpg
+                      name: Georgi
+                    - type: custom:button-card
+                      template: v3_chip_person
+                      entity: input_boolean.player_2_home
+                      entity_picture: /local/images/people/maya.jpg
+                      name: Maya
+
+                - type: horizontal-stack
+                  cards:
+                    - type: custom:decluttering-card
+                      template: bus_departure
+                      variables:
+                        - title: Bus 1 (1257)
+                        - entity: sensor.sofia_traffic_bus_1
+                        - empty: No upcoming buses
+                    - type: custom:decluttering-card
+                      template: bus_departure
+                      variables:
+                        - title: Bus 5 (1257)
+                        - entity: sensor.sofia_traffic_bus_5
+                        - empty: No upcoming buses
+                    - type: custom:decluttering-card
+                      template: bus_departure
+                      variables:
+                        - title: Bus 6 (1257)
+                        - entity: sensor.sofia_traffic_bus_6
+                        - empty: No upcoming buses
+
+                - type: horizontal-stack
+                  cards:
+                    - type: custom:decluttering-card
+                      template: bus_departure
+                      variables:
+                        - title: Metro M1
+                        - entity: sensor.sofia_traffic_subway_m1
+                        - empty: No upcoming trains
+                    - type: custom:decluttering-card
+                      template: bus_departure
+                      variables:
+                        - title: Metro M4
+                        - entity: sensor.sofia_traffic_subway_m4
+                        - empty: No upcoming trains
+            - type: vertical-stack
+              cards:
+                - type: custom:decluttering-card
+                  template: stacked-weather
+                - type: custom:horizon-card
+                  darkMode: true

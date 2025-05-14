@@ -1,0 +1,13 @@
+bus_departure:
+  card:
+    type: markdown
+    content: >
+      ### [[title]]
+      {% set departures =  states('[[entity]]') | from_json  %}
+      {% if departures %}
+        - {% if departures | length >= 1 %}{{ departures[0] }} min<br />{% endif %}
+        - {% if departures | length >= 2 %}{{ departures[1] }} min<br />{% endif %}
+        - {% if departures | length >= 3 %}{{ departures[2] }} min<br />{% endif %}
+      {% else %}
+        _[[empty]]_
+      {% endif %}

@@ -22,11 +22,6 @@ script:
 
       - service: script.browsers_low
 
-      - service: input_select.select_option
-        entity_id: input_select.hallway_dashboard_mode
-        data:
-          option: "Coming Home"
-
       - service: cover.close_cover
         entity_id: cover.living_room
 

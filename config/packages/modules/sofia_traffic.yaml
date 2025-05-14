@@ -1,0 +1,47 @@
+# for some reason this is needed to update the sensors below.. scan_interval doesnt work
+automation:
+  - alias: Sofia Traffic - Bus Departure
+    triggers:
+      trigger: time_pattern
+      seconds: "/10"
+    action:
+      action: homeassistant.update_entity
+      target:
+        entity_id:
+          - sensor.sofia_traffic_subway_m1
+          - sensor.sofia_traffic_subway_m4
+          - sensor.sofia_traffic_bus_1
+          - sensor.sofia_traffic_bus_5
+          - sensor.sofia_traffic_bus_6
+
+sensor:
+  - platform: rest
+    name: sofia_traffic_subway_m1
+    resource: http://192.168.0.27:3013/departures?stop=10&line=M1
+    method: GET
+    value_template: "{{ value_json }}"
+    scan_interval: 60
+  - platform: rest
+    name: sofia_traffic_subway_m4
+    resource: http://192.168.0.27:3013/departures?stop=10&line=M4
+    method: GET
+    value_template: "{{ value_json }}"
+    scan_interval: 60
+  - platform: rest
+    name: sofia_traffic_bus_1
+    resource: http://192.168.0.27:3013/departures?stop=1257&line=1
+    method: GET
+    value_template: "{{ value_json }}"
+    scan_interval: 60
+  - platform: rest
+    name: sofia_traffic_bus_5
+    resource: http://192.168.0.27:3013/departures?stop=1257&line=5
+    method: GET
+    value_template: "{{ value_json }}"
+    scan_interval: 60
+  - platform: rest
+    name: sofia_traffic_bus_6
+    resource: http://192.168.0.27:3013/departures?stop=1257&line=6
+    method: GET
+    value_template: "{{ value_json }}"
+    scan_interval: 60
