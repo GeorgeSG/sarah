@@ -1,0 +1,184 @@
+template:
+  # Update screen only when occupancy is detected.
+  - binary_sensor:
+      - name: Paper 1 Motion Detected
+        device_class: "occupancy"
+        delay_off: 1min
+        state: >-
+          {%- if states('binary_sensor.hallway_motion_occupancy') == 'on' or states('binary_sensor.hallway_motion_2_occupancy') == 'on' or states('binary_sensor.kitchen_motion_occupancy') == 'on' %}
+            on
+          {%- else -%}
+            off
+          {%- endif -%}
+
+  - trigger:
+    - platform: time_pattern
+      minutes: "/30"
+    action:
+      - service: weather.get_forecasts
+        data:
+          type: hourly
+        target:
+          entity_id: weather.pirateweather
+        response_variable: hourly
+    sensor:
+      - name: Pirate Weather Hourly
+        unique_id: pirateweather_hourly
+        state: "{{ hourly['weather.pirateweather'].forecast[0].condition }}"
+        attributes:
+          forecast: "{{ hourly['weather.pirateweather'].forecast[:24] }}"
+
+  - trigger:
+    - platform: time_pattern
+      minutes: "/1"
+    action:
+      - service: weather.get_forecasts
+        data:
+          type: daily
+        target:
+          entity_id: weather.pirateweather
+        response_variable: daily
+    sensor:
+      - name: Pirate Weather Daily
+        unique_id: pirateweather_daily
+        state: "{{ daily['weather.pirateweather'].forecast[0].condition }}"
+        attributes:
+          forecast: "{{ daily['weather.pirateweather'].forecast[:24] }}"
+
+  # Bundle up all the data to send over to Paper 1 (ESPHome device).
+  - trigger:
+      platform: time_pattern
+      minutes: "/1"
+    sensor:
+      - name: Paper 1 Data
+        state: "OK"
+        attributes:
+          weather_temperature_now: "{{ state_attr('weather.pirateweather', 'temperature') }}"
+          weather_condition_now: >
+            {% set cond_now = states('weather.pirateweather') %}
+            {% if states('sun.sun') == 'below_horizon' %}
+                {% if cond_now == 'sunny' %} night {% elif cond_now == 'partlycloudy' %} night-partly-cloudy {% else %} {{ cond_now }} {% endif %}
+            {% else %}
+                {{ cond_now }}
+            {% endif %}
+
+
+          weather_condition_1: >
+            {% set cond1 = state_attr('sensor.pirate_weather_hourly', 'forecast')[1].condition %}
+            {% set next_setting = as_timestamp(state_attr('sun.sun', 'next_setting')) %}
+            {% set next_rising = as_timestamp(state_attr('sun.sun', 'next_rising')) %}
+            {% set cond1_time = as_timestamp(state_attr('sensor.pirate_weather_hourly', 'forecast')[1].datetime) %}
+            {% if cond1_time < next_rising and next_rising < next_setting %}
+                {% if cond1 == 'sunny' %} night {% elif cond1 == 'partlycloudy' %} night-partly-cloudy {% else %} {{ cond1 }} {% endif %}
+            {% else %}
+                {{ cond1 }}
+            {% endif %}
+          weather_temperature_1: >
+            {{ state_attr('sensor.pirate_weather_hourly', 'forecast')[1].temperature | round }}
+          weather_timestamp_1: >
+            {{ as_timestamp(state_attr('sensor.pirate_weather_hourly', 'forecast')[1].datetime) | timestamp_custom('%I') | int }} {{ as_timestamp(state_attr('sensor.pirate_weather_hourly', 'forecast')[1].datetime) | timestamp_custom('%p') }}
+
+          weather_condition_2: >
+            {% set cond2 = state_attr('sensor.pirate_weather_hourly', 'forecast')[2].condition %}
+            {% set next_setting = as_timestamp(state_attr('sun.sun', 'next_setting')) %}
+            {% set next_rising = as_timestamp(state_attr('sun.sun', 'next_rising')) %}
+            {% set cond2_time = as_timestamp(state_attr('sensor.pirate_weather_hourly', 'forecast')[2].datetime) %}
+            {% if cond2_time < next_rising and next_rising < next_setting %}
+                {% if cond2 == 'sunny' %} night {% elif cond2 == 'partlycloudy' %} night-partly-cloudy {% else %} {{ cond2 }} {% endif %}
+            {% else %}
+                {{ cond2 }}
+            {% endif %}
+          weather_temperature_2: >
+            {{ state_attr('sensor.pirate_weather_hourly', 'forecast')[2].temperature | round }}
+          weather_timestamp_2: >
+            {{ as_timestamp(state_attr('sensor.pirate_weather_hourly', 'forecast')[2].datetime) | timestamp_custom('%I') | int }} {{ as_timestamp(state_attr('sensor.pirate_weather_hourly', 'forecast')[2].datetime) | timestamp_custom('%p') }}
+
+          weather_condition_3: >
+            {% set cond3 = state_attr('sensor.pirate_weather_hourly', 'forecast')[3].condition %}
+            {% set next_setting = as_timestamp(state_attr('sun.sun', 'next_setting')) %}
+            {% set next_rising = as_timestamp(state_attr('sun.sun', 'next_rising')) %}
+            {% set cond3_time = as_timestamp(state_attr('sensor.pirate_weather_hourly', 'forecast')[3].datetime) %}
+            {% if cond3_time < next_rising and next_rising < next_setting %}
+                {% if cond3 == 'sunny' %} night {% elif cond3 == 'partlycloudy' %} night-partly-cloudy {% else %} {{ cond3 }} {% endif %}
+            {% else %}
+                {{ cond3 }}
+            {% endif %}
+          weather_temperature_3: >
+            {{ state_attr('sensor.pirate_weather_hourly', 'forecast')[3].temperature | round }}
+          weather_timestamp_3: >
+            {{ as_timestamp(state_attr('sensor.pirate_weather_hourly', 'forecast')[3].datetime) | timestamp_custom('%I') | int }} {{ as_timestamp(state_attr('sensor.pirate_weather_hourly', 'forecast')[3].datetime) | timestamp_custom('%p') }}
+
+          weather_condition_4: >
+            {% set cond3 = state_attr('sensor.pirate_weather_hourly', 'forecast')[4].condition %}
+            {% set next_setting = as_timestamp(state_attr('sun.sun', 'next_setting')) %}
+            {% set next_rising = as_timestamp(state_attr('sun.sun', 'next_rising')) %}
+            {% set cond3_time = as_timestamp(state_attr('sensor.pirate_weather_hourly', 'forecast')[4].datetime) %}
+            {% if cond3_time < next_rising and next_rising < next_setting %}
+                {% if cond3 == 'sunny' %} night {% elif cond3 == 'partlycloudy' %} night-partly-cloudy {% else %} {{ cond3 }} {% endif %}
+            {% else %}
+                {{ cond3 }}
+            {% endif %}
+          weather_temperature_4: >
+            {{ state_attr('sensor.pirate_weather_hourly', 'forecast')[3].temperature | round }}
+          weather_timestamp_4: >
+            {{ as_timestamp(state_attr('sensor.pirate_weather_hourly', 'forecast')[3].datetime) | timestamp_custom('%I') | int }} {{ as_timestamp(state_attr('sensor.pirate_weather_hourly', 'forecast')[3].datetime) | timestamp_custom('%p') }}
+
+          weather_day_condition_1: >
+            {% set cond1 = state_attr('sensor.pirate_weather_daily', 'forecast')[1].condition %}
+            {% set next_setting = as_timestamp(state_attr('sun.sun', 'next_setting')) %}
+            {% set next_rising = as_timestamp(state_attr('sun.sun', 'next_rising')) %}
+            {% set cond1_time = as_timestamp(state_attr('sensor.pirate_weather_daily', 'forecast')[1].datetime) %}
+            {% if cond1_time < next_rising and next_rising < next_setting %}
+                {% if cond1 == 'sunny' %} night {% elif cond1 == 'partlycloudy' %} night-partly-cloudy {% else %} {{ cond1 }} {% endif %}
+            {% else %}
+                {{ cond1 }}
+            {% endif %}
+          weather_day_temperature_1: >
+            {{ state_attr('sensor.pirate_weather_daily', 'forecast')[1].temperature | round }}
+          weather_day_timestamp_1: >
+            {{ as_timestamp(state_attr('sensor.pirate_weather_daily', 'forecast')[1].datetime) | timestamp_custom('%a') }}
+
+          weather_day_condition_2: >
+            {% set cond1 = state_attr('sensor.pirate_weather_daily', 'forecast')[2].condition %}
+            {% set next_setting = as_timestamp(state_attr('sun.sun', 'next_setting')) %}
+            {% set next_rising = as_timestamp(state_attr('sun.sun', 'next_rising')) %}
+            {% set cond1_time = as_timestamp(state_attr('sensor.pirate_weather_daily', 'forecast')[2].datetime) %}
+            {% if cond1_time < next_rising and next_rising < next_setting %}
+                {% if cond1 == 'sunny' %} night {% elif cond1 == 'partlycloudy' %} night-partly-cloudy {% else %} {{ cond1 }} {% endif %}
+            {% else %}
+                {{ cond1 }}
+            {% endif %}
+          weather_day_temperature_2: >
+            {{ state_attr('sensor.pirate_weather_daily', 'forecast')[2].temperature | round }}
+          weather_day_timestamp_2: >
+            {{ as_timestamp(state_attr('sensor.pirate_weather_daily', 'forecast')[2].datetime) | timestamp_custom('%a') }}
+
+          weather_day_condition_3: >
+            {% set cond1 = state_attr('sensor.pirate_weather_daily', 'forecast')[3].condition %}
+            {% set next_setting = as_timestamp(state_attr('sun.sun', 'next_setting')) %}
+            {% set next_rising = as_timestamp(state_attr('sun.sun', 'next_rising')) %}
+            {% set cond1_time = as_timestamp(state_attr('sensor.pirate_weather_daily', 'forecast')[3].datetime) %}
+            {% if cond1_time < next_rising and next_rising < next_setting %}
+                {% if cond1 == 'sunny' %} night {% elif cond1 == 'partlycloudy' %} night-partly-cloudy {% else %} {{ cond1 }} {% endif %}
+            {% else %}
+                {{ cond1 }}
+            {% endif %}
+          weather_day_temperature_3: >
+            {{ state_attr('sensor.pirate_weather_daily', 'forecast')[3].temperature | round }}
+          weather_day_timestamp_3: >
+            {{ as_timestamp(state_attr('sensor.pirate_weather_daily', 'forecast')[3].datetime) | timestamp_custom('%a') }}
+
+          aqi_now: >
+            {{ states('sensor.u_s_air_quality_index') }}
+
+          kitchen_temperature_now: >
+            {{ states('sensor.kitchen_weather_temperature') }}
+
+          living_room_temperature_now: >
+            {{ states('sensor.multisensor_6_temperature') }}
+
+          bedroom_temperature_now: >
+            {{ states('sensor.bedroom_weather_temperature') }}
+
+          bathroom_temperature_now: >
+            {{ states('sensor.bathroom_weather_temperature') }}
