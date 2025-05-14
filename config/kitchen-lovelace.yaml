@@ -40,16 +40,9 @@ views:
                 - type: 'custom:simple-clock-card'
                   hide_seconds: true
                   font_size: 4rem
-                  addingTop_size: 0px
-                  paddingBottom_size: 0px
-                  style: |
-                    ha-card {
-                      background: none;
-                      box-shadow: none;
-                      margin-top: 30px;
-                      margin-bottom: 10px;
-                      text-align: left;
-                    }
+                  paddingTop_size: 23px
+                  paddingBottom_size: 23px
+
                 - type: horizontal-stack
                   cards:
                     - type: custom:button-card
@@ -72,6 +65,55 @@ views:
                       template: v3_chip_name
                       entity: binary_sensor.kitchen_door
                       name: Door
+
+
+
+                - type: custom:decluttering-card
+                  template: v3_section_title
+                  variables:
+                    - title: Music
+
+                - type: horizontal-stack
+                  cards:
+                    - type: custom:button-card
+                      template: v3_xs_button
+                      entity: script.sonos_guitar_instrumental
+                      tap_action:
+                        action: call-service
+                        service: script.sonos_guitar_instrumental
+                      name: Китара
+                      icon: mdi:music
+                      show_state: false
+                    - type: custom:button-card
+                      template: v3_xs_button
+                      entity: script.sonos_french
+                      tap_action:
+                        action: call-service
+                        service: script.sonos_french
+                      name: Шансони
+                      icon: mdi:music
+                      show_state: false
+                    - type: custom:button-card
+                      template: v3_xs_button
+                      entity: script.sonos_starred
+                      tap_action:
+                        action: call-service
+                        service: script.sonos_starred
+                      name: Starred
+                      icon: mdi:music
+                      show_state: false
+                    - type: custom:button-card
+                      template: v3_xs_button
+                      entity: media_player.kitchen
+                      name: Stop
+                      icon: mdi:stop
+                      show_state: false
+                      tap_action:
+                        action: call-service
+                        service: media_player.media_stop
+                        service_data:
+                          entity_id: media_player.master_bedroom
+
 
                 - type: custom:decluttering-card
                   template: v3_section_title
@@ -114,29 +156,31 @@ views:
                       tap_action:
                         action: call-service
                         service: "[[[ return entity.state == 'on' ? 'script.sonos_kitchen_unjoin' : 'script.sonos_kitchen_join' ]]]"
-                    - type: custom:button-card
-                      template: v3_button_radiator
-                      entity: climate.kitchen_radiator_mode
-                      name: Radiator
 
-                - type: horizontal-stack
-                  cards:
-                    - type: custom:button-card
-                      template: v3_button
-                      entity: vacuum.vacuum
-                      name: Vacuum
-                    - type: custom:button-card
-                      template: v3_button
-                      name: Coffe machine
-                      entity: button.coffee_machine
-                      show_state: false
-                      tap_action:
-                        action: call-service
-                        service: button.press
-                        service_data:
-                          entity_id: button.coffee_machine
                     - type: custom:button-card
                       template: v3_button_brita_water
+
+                    # - type: custom:button-card
+                    #   template: v3_button_radiator
+                    #   entity: climate.kitchen_radiator_mode
+                    #   name: Radiator
+
+                # - type: horizontal-stack
+                #   cards:
+                    # - type: custom:button-card
+                    #   template: v3_button
+                    #   entity: vacuum.vacuum
+                    #   name: Vacuum
+                    # - type: custom:button-card
+                    #   template: v3_button
+                    #   name: Coffe machine
+                    #   entity: button.coffee_machine
+                    #   show_state: false
+                    #   tap_action:
+                    #     action: call-service
+                    #     service: button.press
+                    #     service_data:
+                    #       entity_id: button.coffee_machine
 
 
                 - !include ./lovelace/popup_cards.yaml
