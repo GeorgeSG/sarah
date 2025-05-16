@@ -43,23 +43,47 @@
       variables:
         - color: "#38593a"
         - cards:
-          - type: custom:decluttering-card
-            template: v3_section_title
-            variables:
-              - title: Network stats
-          - type: custom:decluttering-card
-            template: network_card
+          - type: 'custom:simple-clock-card'
+            hide_seconds: true
+            font_size: 4rem
+            paddingTop_size: 25px
+            paddingBottom_size: 25px
+          - type: horizontal-stack
+            cards:
+              - type: custom:decluttering-card
+                template: bus_departure
+                variables:
+                  - title: Bus 1 (1257)
+                  - entity: sensor.sofia_traffic_bus_1
+                  - empty: No upcoming buses
+              - type: custom:decluttering-card
+                template: bus_departure
+                variables:
+                  - title: Bus 5 (1257)
+                  - entity: sensor.sofia_traffic_bus_5
+                  - empty: No upcoming buses
+              - type: custom:decluttering-card
+                template: bus_departure
+                variables:
+                  - title: Bus 6 (1257)
+                  - entity: sensor.sofia_traffic_bus_6
+                  - empty: No upcoming buses
 
-    - type: custom:decluttering-card
-      template: coloured-vertical-stack
-      variables:
-        - color: "#38593a"
-        - cards:
-          - type: custom:decluttering-card
-            template: v3_section_title
-            variables:
-              - title: Pi-hole
-          - type: custom:decluttering-card
-            template: pi_hole_card
+          - type: horizontal-stack
+            cards:
+              - type: custom:decluttering-card
+                template: bus_departure
+                variables:
+                  - title: Metro M1
+                  - entity: sensor.sofia_traffic_subway_m1
+                  - empty: No upcoming trains
+              - type: custom:decluttering-card
+                template: bus_departure
+                variables:
+                  - title: Metro M4
+                  - entity: sensor.sofia_traffic_subway_m4
+                  - empty: No upcoming trains
+
+
 
     - !include ../popup_cards.yaml
