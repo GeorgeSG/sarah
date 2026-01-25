@@ -12,7 +12,7 @@ light:
     name: Living room ambient
     entities:
       - light.living_room_ambient_main
-      - light.light_lohas_2
+      - light.neo_1
 
   - platform: group
     name: Living room
@@ -23,7 +23,7 @@ light:
       - light.light_le_4
       - light.hue_ambiance_7
       - light.living_room_ambient_main
-      - light.light_lohas_2
+      - light.neo_1
 
   # - platform: group
   #   name: Master bedroom main
@@ -97,7 +97,7 @@ light:
       - light.hue_ambiance_7
       # LR ambiance
       - light.living_room_ambient_main
-      - light.light_lohas_2
+      - light.neo_1
 
       - light.master_bedroom_main
       - light.bedside
@@ -116,7 +116,7 @@ script:
         - light.hue_ambiance_7
         # LR ambiance
         - light.living_room_ambient_main
-        - light.light_lohas_2
+        - light.neo_1
         - light.master_bedroom_main
         - light.bedside
 
@@ -135,7 +135,7 @@ script:
         - light.hue_ambiance_7
         # LR ambiance
         - light.living_room_ambient_main
-        - light.light_lohas_2
+        - light.neo_1
         - light.master_bedroom_main
         - light.bedside
 
@@ -158,7 +158,7 @@ homeassistant:
 
     light.living_room_ambient:
       icon: mdi:floor-lamp-dual
-    light.light_lohas_2:
+    light.neo_1:
       friendly_name: Living room ambient secondary
 
     # Master bedroom

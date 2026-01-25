@@ -65,7 +65,7 @@ script:
             - light.living_room_main
             - light.hue_ambiance_7
             - light.living_room_ambient_main
-            - light.light_lohas_2
+            - light.neo_1
             - light.hallway
             - light.master_bedroom_main
             - light.kitchen
@@ -77,7 +77,7 @@ script:
         entity_id:
           - light.hue_ambiance_7
           - light.living_room_ambient_main
-          - light.light_lohas_2
+          - light.neo_1
       - service: light.turn_off
         entity_id:
           - light.master_bedroom_main

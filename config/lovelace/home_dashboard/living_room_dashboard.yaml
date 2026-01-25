@@ -114,7 +114,7 @@
                 name: Ambient Main
               - type: custom:button-card
                 template: v3_button
-                entity: light.light_lohas_2
+                entity: light.neo_1
                 name: Ambient 2nd
           - type: horizontal-stack
             cards:

@@ -66,7 +66,7 @@ scene:
   - name: Living Room Ambient Christmas
     icon: mdi:pine-tree
     entities:
-      light.light_lohas_2:
+      light.neo_1:
         state: "on"
         rgb_color: [0, 255, 0]
         brightness_pct: 100
@@ -77,7 +77,7 @@ scene:
   - name: Living Room Ambient Neon
     icon: "mdi:weather-night"
     entities:
-      light.light_lohas_2:
+      light.neo_1:
         state: "on"
         xy_color: [0.668, 0.284]
         brightness_pct: 80
@@ -88,7 +88,7 @@ scene:
   - name: Living Room Ambient Default
     icon: "mdi:weather-sunny"
     entities:
-      light.light_lohas_2:
+      light.neo_1:
         state: "on"
         color_temp: 500
         brightness_pct: 100

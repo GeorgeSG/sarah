@@ -64,7 +64,7 @@ automation:
           brightness_pct: 40
       - service: light.turn_on
         entity_id:
-          - light.light_lohas_2 # living room ambient Secondary
+          - light.neo_1 # living room ambient Secondary
           - light.hue_1 # Hallway
         data:
           rgb_color: [0, 0, 255]

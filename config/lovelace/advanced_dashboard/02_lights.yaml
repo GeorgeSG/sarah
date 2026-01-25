@@ -85,12 +85,12 @@ cards:
                 type: custom:decluttering-card
                 template: light_with_fade_and_switch
                 variables:
-                  - light: light.light_lohas_2
-                  - fade: switch.light_lohas_2
-                  - wifi: sensor.light_lohas_2_wifi
+                  - light: light.neo_1
+                  - fade: switch.neo_1
+                  - wifi: sensor.neo_1_wifi
               entities:
                 - type: custom:slider-entity-row
-                  entity: light.light_lohas_2
+                  entity: light.neo_1
                   name: Brightness
                   hide_state: true
                   step: 5
