@@ -3,7 +3,7 @@ template:
   - binary_sensor:
       - name: Paper 1 Motion Detected
         device_class: "occupancy"
-        delay_off: 1min
+        delay_off: "00:01:00"
         state: >-
           {%- if states('binary_sensor.hallway_motion_occupancy') == 'on' or states('binary_sensor.hallway_motion_2_occupancy') == 'on' or states('binary_sensor.kitchen_motion_occupancy') == 'on' %}
             on
