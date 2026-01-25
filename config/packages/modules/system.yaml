@@ -3,28 +3,23 @@ input_boolean:
     initial: off
   floorplan_show_all:
 
-binary_sensor:
-  - platform: template
-    sensors:
-      floorplan_night_mode:
-        value_template: >-
-          {{ states('sun.sun') == 'below_horizon'
-              or is_state('input_boolean.floorplan_night_mode', 'on') }}
+template:
+  - binary_sensor:
+    - default_entity_id: binary_sensor.floorplan_night_mode
+      name: floorplan night mode
+      state: >-
+        {{ states('sun.sun') == 'below_horizon'
+            or is_state('input_boolean.floorplan_night_mode', 'on') }}
+  - sensor:
+    - default_entity_id: sensor.automations_count
+      name: "Number of automations"
+      state: "{{ states.automation | count }}"
 
 sensor:
   - platform: time_date
     display_options:
       - "time"
       - "date"
-
-  - platform: template
-    sensors:
-      sarah_url:
-        friendly_name: "SARAH's URL"
-        value_template: !secret sarah_url
-      automations_count:
-        friendly_name: "Number of automations"
-        value_template: "{{ states.automation | count }}"
 
 
 shell_command:

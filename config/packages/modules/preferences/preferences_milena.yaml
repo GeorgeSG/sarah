@@ -1,10 +1,9 @@
-binary_sensor:
-  - platform: template
-    sensors:
-      milena_preferences_enabled:
-        friendly_name: Milena Preferences
-        value_template: "{{ is_state('device_tracker.iphone_de_yovcheva', 'home') }}"
-        icon_template: >
+template:
+  - binary_sensor:
+      - default_entity_id: binary_sensor.milena_preferences_enabled
+        name: Milena Preferences
+        state: "{{ is_state('device_tracker.iphone_de_yovcheva', 'home') }}"
+        icon: >
           {{
             is_state('device_tracker.iphone_de_yovcheva', 'home')
             | iif('mdi:star-settings', 'mdi:star-settings-outline')

@@ -14,13 +14,12 @@ input_datetime:
     has_date: true
     has_time: false
 
-binary_sensor:
-  - platform: template
-    sensors:
-      brita_should_change_filter:
-        friendly_name: Should change Brita filter
+template:
+  - binary_sensor:
+      - default_entity_id: binary_sensor.brita_should_change_filter
+        name: Should change Brita filter
         device_class: problem
-        value_template: >-
+        state: >-
 
           {% set liters_check = states('input_number.brita_remaining_liters')|int < 3 %}
 

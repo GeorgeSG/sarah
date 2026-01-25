@@ -7,15 +7,14 @@
 #     binary_sensors:
 #       - online
 
-binary_sensor:
-  - platform: template
-    sensors:
-      camera_state:
-        friendly_name: Security camera
+template:
+  - binary_sensor:
+      - default_entity_id: binary_sensor.camera_state
+        name: Security camera
         device_class: safety
-        value_template: >-
+        state: >-
           {{ is_state('camera.mercury_amcrest_1', 'streaming') or is_state('camera.mercury_amcrest_1', 'recording') }}
-        icon_template: >-
+        icon: >-
           {% if is_state('camera.mercury_amcrest_1', 'streaming') or is_state('camera.mercury_amcrest_1', 'recording') %}
             mdi:video
           {% else %}

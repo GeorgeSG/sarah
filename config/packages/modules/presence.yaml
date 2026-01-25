@@ -33,23 +33,21 @@ input_boolean:
     name: Player 2 home
     icon: mdi:account
 
-binary_sensor:
-  - platform: template
-    sensors:
-      someone_home:
-        friendly_name: Someone home
+template:
+  - binary_sensor:
+      - default_entity_id: binary_sensor.someone_home
+        name: Someone home
         device_class: presence
-        value_template: >
+        state: >
           {{ is_state('input_boolean.guest_mode', 'on') or is_state('input_boolean.georgi_home', 'on') or is_state('input_boolean.player_2_home', 'on') }}
-        icon_template: >
+        icon: >
           {% if is_state('input_boolean.guest_mode', 'on') or is_state('input_boolean.georgi_home', 'on') or is_state('input_boolean.player_2_home', 'on') %} mdi:account
           {% else %} mdi:account-off-outline
           {% endif %}
-
-      multisensor_motion:
-        friendly_name: MultiSensor motion
+      - default_entity_id: binary_sensor.multisensor_motion
+        name: MultiSensor motion
         device_class: motion
-        value_template: "{{ is_state('sensor.multisensor_6_burglar', '8') }}"
+        state: "{{ is_state('sensor.multisensor_6_burglar', '8') }}"
 
 
 automation:
@@ -61,24 +59,6 @@ automation:
         name: Georgi
         input_boolean: input_boolean.georgi_home
 
-  - alias: Presence · Player 2 Arrival detection
-    use_blueprint:
-      path: arrival_detection.yaml
-      input:
-        person: person.maya
-        name: Maya
-        input_boolean: input_boolean.player_2_home
-
-  - alias: Presence · Player 2 Arrival best effort
-    trigger:
-      - platform: state
-        entity_id: person.maya
-        from: "not_home"
-        to: "home"
-        for: "00:10:00"
-    action:
-      - service: input_boolean.turn_on
-        entity_id: input_boolean.player_2_home
 
   - alias: Presence · Georgi leaving
     trigger:
@@ -94,21 +74,6 @@ automation:
         data:
           title: "🏠 *Presence Module · Leaving Home*"
           message: "I notice Georgi has left. Marking as away."
-
-  - alias: Presence · Player 2 leaving
-    trigger:
-      - platform: state
-        entity_id: person.maya
-        from: "home"
-        to: "not_home"
-        for: "00:01:00"
-    action:
-      - service: input_boolean.turn_off
-        entity_id: input_boolean.player_2_home
-      - service: notify.telegram
-        data:
-          title: "🏠 *Presence Module · Leaving Home*"
-          message: "I notice Maya has left. Marking as away."
 
   - alias: Presence · Leaving home
     trigger:

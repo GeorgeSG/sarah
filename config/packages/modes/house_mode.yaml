@@ -12,13 +12,12 @@ input_select:
       - day
       - night
 
-binary_sensor:
-  - platform: template
-    sensors:
-      bedroom_mode:
-        friendly_name: Bedroom mode
-        value_template: "{{ states('input_select.bedroom_mode') }}"
-        icon_template: >-
+template:
+  - binary_sensor:
+      - default_entity_id: binary_sensor.bedroom_mode
+        name: Bedroom mode
+        state: "{{ states('input_select.bedroom_mode') }}"
+        icon: >-
 
           {% if is_state('input_select.bedroom_mode', 'day') %}
             mdi:weather-sunny
@@ -28,9 +27,9 @@ binary_sensor:
             mdi:weather-night
           {% endif %}
 
-      someone_sleeping:
-        friendly_name: Someone sleeping
-        value_template: >-
+      - default_entity_id: binary_sensor.someone_sleeping
+        name: Someone sleeping
+        state: >-
 
           {% if is_state('input_boolean.guest_bedroom', 'off') %}
             {{ is_state('input_select.bedroom_mode', 'night') }}
@@ -38,12 +37,10 @@ binary_sensor:
             {{ is_state('input_select.bedroom_mode', 'night') or is_state('input_select.guest_bedroom_mode', 'night') }}
           {% endif %}
 
-sensor:
-  - platform: template
-    sensors:
-      house_mode:
-        friendly_name: House mode
-        value_template: >-
+  - sensor:
+      - default_entity_id: sensor.house_mode
+        name: House mode
+        state: >-
 
           {% if is_state('input_boolean.guest_bedroom', 'off') %}
             {% if is_state('input_select.bedroom_mode', 'night') %}

@@ -35,114 +35,110 @@ input_select:
       - 50
       - 60
 
-sensor:
-  - platform: template
-    sensors:
-      purifier_air_quality:
-        friendly_name: Air quality
-        value_template: "{{ state_attr('fan.philips_airpurifier', 'pm25') }}"
-        icon_template: mdi:weather-windy
-      purifier_humidity:
-        friendly_name: Humidity
-        unit_of_measurement: "%"
-        device_class: humidity
-        value_template: "{{ state_attr('fan.philips_airpurifier', 'humidity') }}"
-        icon_template: mdi:water
-      purifier_temperature:
-        friendly_name: Temperature
-        unit_of_measurement: "°C"
-        device_class: temperature
-        value_template: "{{ state_attr('fan.philips_airpurifier', 'temperature') }}"
-        icon_template: mdi:thermometer
-      purifier_preset_mode:
-        friendly_name: Preset Mode
-        value_template: "{{ state_attr('fan.philips_airpurifier', 'preset_mode') }}"
-        icon_template: >-
-          {% set value = state_attr('fan.philips_airpurifier', 'preset_mode') %}
-          {% if value == 'auto' %}
-            {{ 'mdi:brightness-auto' }}
-          {% elif value == 'manual' %}
-            {{ 'mdi:speedometer-medium' }}
-          {% elif value == 'sleep' %}
-            {{ 'mdi:power-sleep' }}
-          {% elif value == 'allergen' %}
-            {{ 'mdi:allergy' }}
-          {% endif %}
-      purifier_speed:
-        friendly_name: Speed
-        value_template: "{{ state_attr('fan.philips_airpurifier', 'percentage') }}"
-      purifier_allergens:
-        friendly_name: Allergen index
-        value_template: "{{ state_attr('fan.philips_airpurifier', 'allergen_index') }}"
-        icon_template: mdi:weather-windy-variant
-      purifier_function:
-        friendly_name: Function
-        value_template: "{{ state_attr('fan.philips_airpurifier', 'function') }}"
-        icon_template: >-
-          {{ is_state_attr('fan.philips_airpurifier', 'function', 'Purification') | iif('mdi:air-purifier', 'mdi:air-humidifier') }}
-      purifier_pre_filter:
-        friendly_name: Pre-filter
-        unit_of_measurement: "Hrs"
-        value_template: "{{ state_attr('fan.philips_airpurifier', 'pre_filter') }}"
-        icon_template: mdi:air-filter
-      purifier_wick_filter:
-        friendly_name: Wick filter
-        unit_of_measurement: "Hrs"
-        value_template: "{{ state_attr('fan.philips_airpurifier', 'wick_filter') }}"
-        icon_template: mdi:air-filter
-      purifier_carbon_filter:
-        friendly_name: Carbon filter
-        unit_of_measurement: "Hrs"
-        value_template: "{{ state_attr('fan.philips_airpurifier', 'carbon_filter') }}"
-        icon_template: mdi:air-filter
-      purifier_hepa_filter:
-        friendly_name: HEPA filter
-        unit_of_measurement: "Hrs"
-        value_template: "{{ state_attr('fan.philips_airpurifier', 'hepa_filter')}}"
-        icon_template: mdi:air-filter
-      purifier_target_humidity:
-        friendly_name: Target humidity
-        unit_of_measurement: "%"
-        value_template: "{{ state_attr('fan.philips_airpurifier', 'target_humidity') }}"
-        icon_template: mdi:water-percent
-      purifier_brightness:
-        friendly_name: Brightness
-        unit_of_measurement: "%"
-        value_template: "{{ state_attr('fan.philips_airpurifier', 'light_brightness') }}"
-        icon_template: mdi:brightness-6
-      purifier_timer:
-        friendly_name: Timer
-        unit_of_measurement: "hrs"
-        value_template: "{{ state_attr('fan.philips_airpurifier', 'timer') }}"
-        icon_template: mdi:timer-outline
-      purifier_time_remaining:
-        friendly_name: Time remaining
-        unit_of_measurement: "minutes"
-        value_template: "{{ state_attr('fan.philips_airpurifier', 'timer_remaining_minutes') }}"
-        icon_template: mdi:timer-outline
 
-binary_sensor:
-  - platform: template
-    sensors:
-      purifier_out_of_water:
-        friendly_name: Water level
-        device_class: problem
-        value_template: "{{ state_attr('fan.philips_airpurifier', 'water_level') == 0 }}"
-      purifier_child_lock:
-        friendly_name: Child lock
-        value_template: "{{ state_attr('fan.philips_airpurifier', 'child_lock') }}"
-      purifier_display_light:
-        friendly_name: Display light
-        value_template: "{{ state_attr('fan.philips_airpurifier', 'display_light') }}"
-      purifier_filter_needs_change:
-        friendly_name: Filter needs change
-        device_class: problem
-        value_template: >
-
-          {{ is_state('sensor.purifier_pre_filter', '0')
-              or is_state('sensor.purifier_wick_filter', '0')
-              or is_state('sensor.purifier_carbon_filter', '0')
-              or is_state('sensor.purifier_hepa_filter', '0') }}
+template:
+  - sensor:
+    - default_entity_id: sensor.purifier_air_quality
+      name: Air quality
+      state: "{{ state_attr('fan.philips_airpurifier', 'pm25') }}"
+      icon: mdi:weather-windy
+    - default_entity_id: sensor.purifier_humidity
+      name: Humidity
+      unit_of_measurement: "%"
+      device_class: humidity
+      state: "{{ state_attr('fan.philips_airpurifier', 'humidity') }}"
+      icon: mdi:water
+    - default_entity_id: sensor.purifier_temperature
+      name: Temperature
+      unit_of_measurement: "°C"
+      device_class: temperature
+      state: "{{ state_attr('fan.philips_airpurifier', 'temperature') }}"
+      icon: mdi:thermometer
+    - default_entity_id: sensor.purifier_preset_mode
+      name: Preset Mode
+      state: "{{ state_attr('fan.philips_airpurifier', 'preset_mode') }}"
+      icon: >-
+        {% set value = state_attr('fan.philips_airpurifier', 'preset_mode') %}
+        {% if value == 'auto' %}
+          {{ 'mdi:brightness-auto' }}
+        {% elif value == 'manual' %}
+          {{ 'mdi:speedometer-medium' }}
+        {% elif value == 'sleep' %}
+          {{ 'mdi:power-sleep' }}
+        {% elif value == 'allergen' %}
+          {{ 'mdi:allergy' }}
+        {% endif %}
+    - default_entity_id: sensor.purifier_speed
+      name: Speed
+      state: "{{ state_attr('fan.philips_airpurifier', 'percentage') }}"
+    - default_entity_id: sensor.purifier_allergens
+      name: Allergen index
+      state: "{{ state_attr('fan.philips_airpurifier', 'allergen_index') }}"
+      icon: mdi:weather-windy-variant
+    - default_entity_id: sensor.purifier_function
+      name: Function
+      state: "{{ state_attr('fan.philips_airpurifier', 'function') }}"
+      icon: >-
+        {{ is_state_attr('fan.philips_airpurifier', 'function', 'Purification') | iif('mdi:air-purifier', 'mdi:air-humidifier') }}
+    - default_entity_id: sensor.purifier_pre_filter
+      name: Pre-filter
+      unit_of_measurement: "Hrs"
+      state: "{{ state_attr('fan.philips_airpurifier', 'pre_filter') }}"
+      icon: mdi:air-filter
+    - default_entity_id: sensor.purifier_wick_filter
+      name: Wick filter
+      unit_of_measurement: "Hrs"
+      state: "{{ state_attr('fan.philips_airpurifier', 'wick_filter') }}"
+      icon: mdi:air-filter
+    - default_entity_id: sensor.purifier_carbon_filter
+      name: Carbon filter
+      unit_of_measurement: "Hrs"
+      state: "{{ state_attr('fan.philips_airpurifier', 'carbon_filter') }}"
+      icon: mdi:air-filter
+    - default_entity_id: sensor.purifier_hepa_filter
+      name: HEPA filter
+      unit_of_measurement: "Hrs"
+      state: "{{ state_attr('fan.philips_airpurifier', 'hepa_filter')}}"
+      icon: mdi:air-filter
+    - default_entity_id: sensor.purifier_target_humidity
+      name: Target humidity
+      unit_of_measurement: "%"
+      state: "{{ state_attr('fan.philips_airpurifier', 'target_humidity') }}"
+      icon: mdi:water-percent
+    - default_entity_id: sensor.purifier_brightness
+      name: Brightness
+      unit_of_measurement: "%"
+      state: "{{ state_attr('fan.philips_airpurifier', 'light_brightness') }}"
+      icon: mdi:brightness-6
+    - default_entity_id: sensor.purifier_timer
+      name: Timer
+      unit_of_measurement: "hrs"
+      state: "{{ state_attr('fan.philips_airpurifier', 'timer') }}"
+      icon: mdi:timer-outline
+    - default_entity_id: sensor.purifier_time_remaining
+      name: Time remaining
+      unit_of_measurement: "minutes"
+      state: "{{ state_attr('fan.philips_airpurifier', 'timer_remaining_minutes') }}"
+      icon: mdi:timer-outline
+  - binary_sensor:
+    - default_entity_id: binary_sensor.purifier_out_of_water
+      name: Out of water
+      device_class: problem
+      state: "{{ state_attr('fan.philips_airpurifier', 'water_level') == 0 }}"
+    - default_entity_id: binary_sensor.purifier_child_lock
+      name: Child lock
+      state: "{{ state_attr('fan.philips_airpurifier', 'child_lock') }}"
+    - default_entity_id: binary_sensor.purifier_display_light
+      name: Display light
+      state: "{{ state_attr('fan.philips_airpurifier', 'display_light') }}"
+    - default_entity_id: binary_sensor.purifier_filter_needs_change
+      name: Filter needs change
+      device_class: problem
+      state: >
+        {{ is_state('sensor.purifier_pre_filter', '0')
+            or is_state('sensor.purifier_wick_filter', '0')
+            or is_state('sensor.purifier_carbon_filter', '0')
+            or is_state('sensor.purifier_hepa_filter', '0') }}
 
 
 script:

@@ -13,12 +13,11 @@ group:
       - binary_sensor.bedroom_left_window_contact
       - binary_sensor.bedroom_right_window_contact
 
-sensor:
-  - platform: template
-    sensors:
-      open_window_count:
-        friendly_name: Open windozw count
-        value_template: >-
+template:
+  - sensor:
+      - default_entity_id: sensor.open_window_count
+        name: Open window count
+        state: >-
           {% set entityStates = states | selectattr('entity_id', 'in', state_attr('group.all_windows', 'entity_id')) %}
           {{ entityStates | selectattr('state', 'eq', 'on') | list | count | int }}
 
