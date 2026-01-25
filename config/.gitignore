@@ -13,6 +13,7 @@ themes/
 tts/
 www/audio
 www/community
+www/media/ha-bambulab
 webostv.conf
 zigbee.db
 *.db
