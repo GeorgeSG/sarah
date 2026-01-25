@@ -32,8 +32,8 @@ views:
                 - type: 'custom:simple-clock-card'
                   hide_seconds: true
                   font_size: 4rem
-                  paddingTop_size: 25px
-                  paddingBottom_size: 25px
+                  paddingTop_size: 8px
+                  paddingBottom_size: 8px
                 - type: horizontal-stack
                   cards:
                     - type: custom:button-card
@@ -254,9 +254,9 @@ views:
               cards:
                 - type: 'custom:simple-clock-card'
                   hide_seconds: true
-                  font_size: 4rem
-                  paddingTop_size: 25px
-                  paddingBottom_size: 25px
+                  font_size: 8rem
+                  paddingTop_size: 8px
+                  paddingBottom_size: 8px
                 - type: horizontal-stack
                   cards:
                     - type: custom:button-card

@@ -39,9 +39,9 @@ views:
               cards:
                 - type: 'custom:simple-clock-card'
                   hide_seconds: true
-                  font_size: 4rem
-                  paddingTop_size: 23px
-                  paddingBottom_size: 23px
+                  font_size: 8rem
+                  paddingTop_size: 10px
+                  paddingBottom_size: 10px
 
                 - type: horizontal-stack
                   cards:
