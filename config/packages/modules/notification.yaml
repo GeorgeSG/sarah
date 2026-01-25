@@ -8,7 +8,6 @@ notify:
     platform: group
     services:
       - service: mobile_app_titanium
-      - service: mobile_app_mayas_iphone
 
 automation:
   - alias: Notification · Phone battery low

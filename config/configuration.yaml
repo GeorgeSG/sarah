@@ -143,7 +143,6 @@ recorder: &recorder_config
       - weather
       - zwave
     entities:
-      - device_tracker.mayas_iphone
       - device_tracker.titanium
       - media_player.living_room_tv
       - media_player.nvidia_shield

@@ -20,11 +20,6 @@
                 entity: input_boolean.georgi_home
                 entity_picture: /local/images/people/georgi.jpg
                 name: Georgi
-              - type: custom:button-card
-                template: v3_chip_person
-                entity: input_boolean.player_2_home
-                entity_picture: /local/images/people/maya.jpg
-                name: Maya
 
           - type: custom:decluttering-card
             template: stacked-weather
@@ -53,8 +48,8 @@
               - type: custom:decluttering-card
                 template: bus_departure
                 variables:
-                  - title: Bus 1 (1257)
-                  - entity: sensor.sofia_traffic_bus_1
+                  - title: Bus 288 (1259)
+                  - entity: sensor.sofia_traffic_bus_288
                   - empty: No upcoming buses
               - type: custom:decluttering-card
                 template: bus_departure
@@ -62,12 +57,7 @@
                   - title: Bus 5 (1257)
                   - entity: sensor.sofia_traffic_bus_5
                   - empty: No upcoming buses
-              - type: custom:decluttering-card
-                template: bus_departure
-                variables:
-                  - title: Bus 6 (1257)
-                  - entity: sensor.sofia_traffic_bus_6
-                  - empty: No upcoming buses
+
 
           - type: horizontal-stack
             cards:

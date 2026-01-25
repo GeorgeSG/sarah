@@ -15,7 +15,6 @@ homekit:
   filter:
     include_entities:
       - person.georgi
-      - person.maya
 
       # Living Room
       - light.living_room
@@ -191,19 +190,20 @@ homekit:
 # ─── ENTITIES ───────────────────────────────────────────────────────────────────
 #
 
-command_line:
-  - switch:
-      name: pihole_temp_disable
-      command_on: !secret pihole_disable_5
-      command_off: !secret pihole_enable
-      command_state: !secret pihole_status
-      value_template: '{{ value_json.status == "disabled" }}'
-  - binary_sensor:
-      name: "Pi-Hole enabled"
-      command: !secret pihole_status
-      payload_on: "enabled"
-      payload_off: "disabled"
-      value_template: '{{ value_json.status }}'
+# PiHole: Disabled
+# command_line:
+#   - switch:
+#       name: pihole_temp_disable
+#       command_on: !secret pihole_disable_5
+#       command_off: !secret pihole_enable
+#       command_state: !secret pihole_status
+#       value_template: '{{ value_json.status == "disabled" }}'
+#   - binary_sensor:
+#       name: "Pi-Hole enabled"
+#       command: !secret pihole_status
+#       payload_on: "enabled"
+#       payload_off: "disabled"
+#       value_template: '{{ value_json.status }}'
 
 mqtt:
   sensor:
@@ -220,12 +220,12 @@ mqtt:
       value_template: "{{ value_json | count }}"
       icon: "mdi:counter"
 
-    - name: "Router 1 LQI"
-      state_topic: "z2m_deconz/router_1"
-      availability_topic: "z2m_deconz/bridge/state"
-      unit_of_measurement: "lqi"
-      device_class: "signal_strength"
-      value_template: "{{ value_json.linkquality }}"
+    # - name: "Router 1 LQI"
+    #   state_topic: "z2m_deconz/router_1"
+    #   availability_topic: "z2m_deconz/bridge/state"
+    #   unit_of_measurement: "lqi"
+    #   device_class: "signal_strength"
+    #   value_template: "{{ value_json.linkquality }}"
 
 script:
   zigbee2mqtt_get_device_count:
