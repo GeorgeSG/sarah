@@ -1,10 +1,11 @@
 # https://www.home-assistant.io/integrations/telegram
 # https://www.home-assistant.io/integrations/telegram_chatbot
-telegram_bot:
-  - platform: polling
-    api_key: !secret telegram_token
-    allowed_chat_ids:
-      - !secret telegram_georgi_chat_id
+# Replaced by UI configuration
+# telegram_bot:
+#   - platform: polling
+#     api_key: !secret telegram_token
+#     allowed_chat_ids:
+#       - !secret telegram_georgi_chat_id
 
 # https://www.home-assistant.io/integrations/tts
 tts:
