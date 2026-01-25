@@ -13,6 +13,7 @@ automation:
           - sensor.sofia_traffic_bus_1
           - sensor.sofia_traffic_bus_5
           - sensor.sofia_traffic_bus_6
+          - sensor.sofia_traffic_bus_288
 
 sensor:
   - platform: rest
@@ -42,6 +43,12 @@ sensor:
   - platform: rest
     name: sofia_traffic_bus_6
     resource: http://192.168.0.27:3013/departures?stop=1257&line=6
+    method: GET
+    value_template: "{{ value_json }}"
+    scan_interval: 60
+  - platform: rest
+    name: sofia_traffic_bus_288
+    resource: http://192.168.0.27:3013/departures?stop=1259&line=288
     method: GET
     value_template: "{{ value_json }}"
     scan_interval: 60

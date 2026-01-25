@@ -271,8 +271,8 @@ views:
                     - type: custom:decluttering-card
                       template: bus_departure
                       variables:
-                        - title: Bus 1 (1257)
-                        - entity: sensor.sofia_traffic_bus_1
+                        - title: Bus 288 (1259)
+                        - entity: sensor.sofia_traffic_bus_288
                         - empty: No upcoming buses
                     - type: custom:decluttering-card
                       template: bus_departure
