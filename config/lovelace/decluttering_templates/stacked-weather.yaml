@@ -10,18 +10,11 @@ stacked-weather:
           margin-top: 16px;
         }
     cards:
-      - type: custom:simple-weather-card
+      - type: weather-forecast
         entity: weather.pirateweather
-        backdrop: true
-        secondary_info:
-          - humidity
-          - wind_speed
-          - precipitation_probability
-        card_mod:
-          style: |
-            .weather__info:not(.weather__info--add) {
-              margin-left: 14px;
-            }
+        show_current: true
+        show_forecast: true
+        forecast_type: hourly
 
       - type: custom:air-visual-card
         air_pollution_level: sensor.u_s_air_pollution_level
