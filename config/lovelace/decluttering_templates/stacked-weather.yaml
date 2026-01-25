@@ -69,7 +69,3 @@ stacked-weather:
               font-size: 1.5em;
               height: auto;
             }
-
-      - type: markdown
-        content: >-
-          It will be {{  states('sensor.pirateweather_daily_summary') }}
