@@ -76,8 +76,6 @@ cards:
               entity: sensor.bathroom_motion_battery
             - type: custom:battery-entity-row
               entity: sensor.guest_bedroom_weather_battery
-            - type: custom:battery-entity-row
-              entity: sensor.terrarium_weather_battery
         - type: entities
           title: Aqara Devices
           entities:

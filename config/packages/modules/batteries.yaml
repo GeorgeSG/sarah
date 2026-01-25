@@ -33,7 +33,6 @@ automation:
         - sensor.hallway_motion_2_battery
 
         - sensor.guest_bedroom_weather_battery
-        - sensor.terrarium_weather_battery
       below: 20
 
     action:
