@@ -1,6 +1,11 @@
 ![S.A.R.A.H.](assets/eureka.sarah.jpg?raw=true)
 
 # S.A.R.A.H
+**RIP 13.02.2020 - 15.06.2026**
+
+**You served faithfully, and now forever `unavailable`, you will be missed**
+
+---
 
 [![Commit Activity](https://img.shields.io/github/commit-activity/m/GeorgeSG/sarah)](https://github.com/GeorgeSG/sarah)
 [![Build Status](https://travis-ci.com/GeorgeSG/sarah.svg?token=XdvzWyHdX7CysRsYcThK&branch=master)](https://travis-ci.com/GeorgeSG/sarah)
